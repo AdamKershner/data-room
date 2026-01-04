@@ -1,0 +1,164 @@
+.time-breakdown-chart-container {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  border: 2px solid var(--oasis-green-medium);
+  margin-top: 20px;
+}
+
+.time-breakdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.time-breakdown-header h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--oasis-green-medium);
+  font-weight: 600;
+}
+
+.total-hours {
+  background: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border-left: 4px solid var(--oasis-green-medium);
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.time-breakdown-content {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.pie-chart-wrapper {
+  flex: 1;
+  min-width: 300px;
+}
+
+.time-breakdown-legend {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 200px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  background: white;
+  border-radius: 6px;
+  transition: transform 0.2s ease;
+}
+
+.legend-item:hover {
+  transform: translateX(4px);
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.legend-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.legend-name {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.legend-hours {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.time-breakdown-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+}
+
+.time-breakdown-empty p {
+  margin: 8px 0;
+}
+
+.time-log-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #999;
+}
+
+/* Small version for team member cards */
+.time-breakdown-chart-small {
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: white;
+}
+
+.time-breakdown-chart-small .time-breakdown-header {
+  margin-bottom: 12px;
+}
+
+.time-breakdown-chart-small .time-breakdown-header h4 {
+  font-size: 0.9rem;
+}
+
+.time-breakdown-chart-small .total-hours {
+  font-size: 0.8rem;
+  padding: 4px 8px;
+}
+
+.time-breakdown-chart-small .pie-chart-wrapper {
+  min-width: 150px;
+}
+
+.time-breakdown-chart-small .time-breakdown-legend {
+  min-width: 120px;
+  gap: 6px;
+}
+
+.time-breakdown-chart-small .legend-item {
+  padding: 4px;
+}
+
+.time-breakdown-chart-small .legend-name {
+  font-size: 0.75rem;
+}
+
+.time-breakdown-chart-small .legend-hours {
+  font-size: 0.7rem;
+}
+
+@media (max-width: 768px) {
+  .time-breakdown-content {
+    flex-direction: column;
+  }
+  
+  .pie-chart-wrapper {
+    min-width: 100%;
+  }
+  
+  .time-breakdown-legend {
+    min-width: 100%;
+  }
+}
+
+
+

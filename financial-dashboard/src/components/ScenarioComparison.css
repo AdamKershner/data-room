@@ -1,0 +1,85 @@
+.scenario-comparison {
+  margin: 40px 0;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.scenario-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  min-width: 1000px;
+}
+
+.scenario-table thead {
+  background: linear-gradient(135deg, var(--oasis-green-medium) 0%, var(--oasis-green-dark) 100%);
+  color: white;
+}
+
+.scenario-table th {
+  padding: 15px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.scenario-table tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+  transition: background-color 0.2s;
+}
+
+.scenario-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.scenario-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.scenario-table td {
+  padding: 15px 12px;
+  vertical-align: middle;
+  font-size: 0.95rem;
+}
+
+.scenario-name {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+.scenario-row.scenario-conservative {
+  background: #fff3cd;
+}
+
+.scenario-row.scenario-base {
+  background: #d1ecf1;
+}
+
+.scenario-row.scenario-aggressive {
+  background: #d4edda;
+}
+
+.metric-value {
+  font-weight: 600;
+  color: var(--oasis-green-medium);
+}
+
+@media (max-width: 768px) {
+  .scenario-table {
+    font-size: 0.85rem;
+  }
+  
+  .scenario-table th,
+  .scenario-table td {
+    padding: 10px 8px;
+  }
+}
+

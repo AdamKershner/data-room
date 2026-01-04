@@ -1,0 +1,94 @@
+.sensitivity-analysis {
+  margin: 40px 0;
+}
+
+.section-intro {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.sensitivity-table-wrapper {
+  margin-bottom: 50px;
+}
+
+.sensitivity-title {
+  font-size: 1.4rem;
+  color: var(--oasis-green-medium);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sensitivity-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  min-width: 700px;
+}
+
+.sensitivity-table thead {
+  background: linear-gradient(135deg, var(--oasis-green-medium) 0%, var(--oasis-green-dark) 100%);
+  color: white;
+}
+
+.sensitivity-table th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.sensitivity-table tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+  transition: background-color 0.2s;
+}
+
+.sensitivity-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.sensitivity-table tbody tr.base-scenario {
+  background-color: #e3f2fd;
+  font-weight: 500;
+}
+
+.sensitivity-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.sensitivity-table td {
+  padding: 12px;
+  vertical-align: middle;
+  font-size: 0.95rem;
+}
+
+.driver-value {
+  font-weight: 500;
+  color: #333;
+}
+
+.metric-value {
+  font-weight: 600;
+  color: var(--oasis-green-medium);
+}
+
+@media (max-width: 768px) {
+  .sensitivity-table {
+    font-size: 0.85rem;
+  }
+  
+  .sensitivity-table th,
+  .sensitivity-table td {
+    padding: 10px 8px;
+  }
+}
+

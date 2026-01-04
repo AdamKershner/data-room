@@ -1,0 +1,83 @@
+.two-way-sensitivity {
+  margin: 40px 0;
+}
+
+.two-way-table-wrapper {
+  margin-bottom: 50px;
+}
+
+.table-description {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.two-way-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  min-width: 500px;
+}
+
+.two-way-table thead {
+  background: linear-gradient(135deg, var(--oasis-green-medium) 0%, var(--oasis-green-dark) 100%);
+  color: white;
+}
+
+.two-way-table th {
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.two-way-table tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.two-way-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.two-way-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.two-way-table td {
+  padding: 12px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.row-header {
+  font-weight: 600;
+  color: #333;
+  background: #f8f9fa;
+  text-align: left;
+}
+
+.two-way-value {
+  font-weight: 600;
+  color: var(--oasis-green-medium);
+}
+
+@media (max-width: 768px) {
+  .two-way-table {
+    font-size: 0.85rem;
+  }
+  
+  .two-way-table th,
+  .two-way-table td {
+    padding: 10px 8px;
+  }
+}
+
