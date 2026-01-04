@@ -333,4 +333,3 @@ All calculation logic is in `OasisModel` class methods:
 ## License
 
 Internal use for Oasis Browser financial planning.
-
