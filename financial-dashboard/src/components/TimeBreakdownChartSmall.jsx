@@ -17,7 +17,32 @@ function TimeBreakdownChartSmall({ timeLogs = [] }) {
       const description = (log.description || '').toLowerCase()
       let taskName = 'Other'
       
-      if (description.includes('ui/ux') || description.includes('ui') || description.includes('ux')) {
+      // Feedback loop specific activities (check first for specificity)
+      // Prioritize execution/development work over planning (engineers spend ~1hr/week planning, rest is development)
+      if (description.includes('install') && (description.includes('installations page') || description.includes('installations'))) {
+        taskName = 'Product Testing'
+      } else if (description.includes('installed') && (description.includes('release') || description.includes('version'))) {
+        taskName = 'Product Testing'
+      } else if (description.includes('feedback form') || (description.includes('submitted feedback') && description.includes('form'))) {
+        taskName = 'Product Testing'
+      } else if (description.includes('create') && description.includes('release') && (description.includes('installations') || description.includes('page'))) {
+        taskName = 'Release Mgmt'
+      } else if (description.includes('updated installations page') || description.includes('update installations')) {
+        taskName = 'Release Mgmt'
+      } else if (description.includes('executed story points') || description.includes('completed sprint tasks')) {
+        taskName = 'Product Development'
+      } else if (description.includes('story point') && (description.includes('execute') || description.includes('completed') || description.includes('delivered'))) {
+        taskName = 'Product Development'
+      } else if (description.includes('implemented') || description.includes('developed') || description.includes('fixed') || description.includes('improved') || 
+                 description.includes('worked on') || description.includes('focused on')) {
+        // Development work - prioritize this over planning (most of engineer's time)
+        taskName = 'Development'
+      } else if (description.includes('reviewed feedback google sheet') && 
+                 (description.includes('organized') || description.includes('estimate') || description.includes('plan')) &&
+                 !description.includes('executed') && !description.includes('implemented') && !description.includes('completed')) {
+        // Only categorize as Sprint Planning if it's ONLY about planning/organizing, not execution
+        taskName = 'Planning'
+      } else if (description.includes('ui/ux') || description.includes('ui') || description.includes('ux')) {
         taskName = 'UI/UX'
       } else if (description.includes('testing') || description.includes('test')) {
         taskName = 'Testing'
@@ -27,7 +52,9 @@ function TimeBreakdownChartSmall({ timeLogs = [] }) {
         taskName = 'Bug Fixes'
       } else if (description.includes('feature') || description.includes('development')) {
         taskName = 'Development'
-      } else if (description.includes('sprint') || description.includes('planning')) {
+      } else if (description.includes('sprint planning') || (description.includes('sprint') && description.includes('plan') && 
+                 !description.includes('executed') && !description.includes('implemented'))) {
+        // Only match explicit sprint planning, not just "sprint"
         taskName = 'Planning'
       } else if (description.includes('demo') || description.includes('sales')) {
         taskName = 'Demos'

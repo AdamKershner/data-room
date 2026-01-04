@@ -85,6 +85,89 @@ function ProductTechnology() {
       </section>
 
       <section className="page-section">
+        <h2>Continuous Feedback Loop</h2>
+        <div className="content-block">
+          <p>
+            We maintain a structured feedback loop to continuously improve the product through rapid 
+            iteration cycles. Product managers and testers provide feedback that flows through our 
+            system, enabling weekly sprint releases with measurable improvements.
+          </p>
+          
+          <h3 style={{ marginTop: '30px' }}>Feedback Loop Resources</h3>
+          <ul className="feature-list">
+            <li>
+              <strong>Installation Link:</strong>{' '}
+              <a href="https://kahana.co/installations" target="_blank" rel="noopener noreferrer">
+                https://kahana.co/installations
+              </a>
+            </li>
+            <li>
+              <strong>Feedback Form:</strong>{' '}
+              <a href="https://tally.so/r/3jkNN6" target="_blank" rel="noopener noreferrer">
+                https://tally.so/r/3jkNN6
+              </a>
+            </li>
+            <li>
+              <strong>Feedback Google Sheet:</strong>{' '}
+              <a href="https://docs.google.com/spreadsheets/d/1MvxrTrfmNV8j0zze2lsjVt-5R8YgkeTAWvV6dXH8B-w/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer">
+                View Feedback Sheet
+              </a>
+            </li>
+            <li>
+              <strong>Notion (Sprints):</strong>{' '}
+              <a href="https://kahanagroup.notion.site/Kahana-HQ-c03d4242e7464e71ad8d4ec856f274e8" target="_blank" rel="noopener noreferrer">
+                View Sprint Planning
+              </a>
+            </li>
+            <li>
+              <strong>NPS + PMF Form:</strong>{' '}
+              <a href="https://kahana.co/oasis-feedback-survey" target="_blank" rel="noopener noreferrer">
+                https://kahana.co/oasis-feedback-survey
+              </a>
+            </li>
+          </ul>
+
+          <h3 style={{ marginTop: '30px' }}>How the Feedback Loop Works</h3>
+          <p>
+            Our feedback process follows a structured weekly cycle:
+          </p>
+          <ol className="feature-list" style={{ paddingLeft: '20px', listStyleType: 'decimal' }}>
+            <li>
+              <strong>Installation & Testing:</strong> Product managers install the browser from the 
+              installations page and begin using it in their daily workflows.
+            </li>
+            <li>
+              <strong>Feedback Collection:</strong> As product managers use the browser, they access 
+              the feedback form directly through the AI assistant interface (easily accessible within 
+              the browser) to document bugs, enhancement ideas, feature requests, and other observations.
+            </li>
+            <li>
+              <strong>Consolidation:</strong> All feedback automatically consolidates into the Google Sheet, 
+              creating a centralized repository of all user input and issues.
+            </li>
+            <li>
+              <strong>Sprint Planning:</strong> Engineers review the Google Sheet and organize feedback 
+              into weekly sprints, prioritizing items based on impact and feasibility. Sprint planning 
+              is tracked in Notion.
+            </li>
+            <li>
+              <strong>Weekly Releases:</strong> Each week, a new release is published to the installations 
+              page, making updates available for the product team to reinstall and test.
+            </li>
+            <li>
+              <strong>Measurement:</strong> After each round of updates, product testers complete the 
+              PMF (Product-Market Fit) and NPS (Net Promoter Score) survey to provide quantitative data 
+              about their satisfaction and product experience.
+            </li>
+          </ol>
+          <p style={{ marginTop: '20px' }}>
+            This continuous cycle ensures rapid iteration, data-driven improvements, and alignment 
+            between user needs and product development priorities.
+          </p>
+        </div>
+      </section>
+
+      <section className="page-section">
         <h2>Roadmap (2026)</h2>
         <div className="content-block">
           <h3>Key Improvements and Features</h3>

@@ -9,7 +9,7 @@ function TeamExecution() {
       name: "Adam Kershner",
       roles: ["Engineering"],
       employmentStatus: "full-time",
-      hoursPerWeek: 40,
+      hoursPerWeek: 20,
       timeLogs: [
         {
           submissionId: "Adam1",
@@ -17,8 +17,8 @@ function TeamExecution() {
           submittedAt: "2025-01-10 10:00:00",
           name: "Adam Kershner",
           date: "2025-01-03",
-          hours: 40,
-          description: "Week of Dec 30 - Jan 3. Led engineering team coordination and sprint planning. Reviewed UI/UX improvements from feedback. Implemented critical bug fixes. Attended engineering standup. Managed product roadmap priorities."
+          hours: 20,
+          description: "Week of Dec 30 - Jan 3. Led engineering team coordination and sprint planning. Reviewed UI/UX improvements from feedback Google Sheet. Implemented critical bug fixes. Created weekly release and updated installations page for product team. Attended engineering standup. Managed product roadmap priorities."
         },
         {
           submissionId: "Adam2",
@@ -26,8 +26,8 @@ function TeamExecution() {
           submittedAt: "2025-01-17 10:00:00",
           name: "Adam Kershner",
           date: "2025-01-10",
-          hours: 40,
-          description: "Week of Jan 6-10. Coordinated weekly sprint execution. Implemented UI/UX improvements for demo quality. Fixed infrastructure issues. Attended engineering standup. Reviewed NPS delta and prioritized improvements."
+          hours: 20,
+          description: "Week of Jan 6-10. Coordinated weekly sprint execution. Implemented UI/UX improvements for demo quality. Fixed infrastructure issues. Created weekly release from completed sprint and updated installations page. Attended engineering standup. Reviewed NPS delta and prioritized improvements."
         },
         {
           submissionId: "Adam3",
@@ -35,8 +35,8 @@ function TeamExecution() {
           submittedAt: "2025-01-24 10:00:00",
           name: "Adam Kershner",
           date: "2025-01-17",
-          hours: 40,
-          description: "Week of Jan 13-17. Led sprint planning based on product team feedback. Implemented analytics tracking for NPS. Fixed critical bugs. Attended engineering standup. Coordinated with sales team on demo improvements."
+          hours: 20,
+          description: "Week of Jan 13-17. Led sprint planning based on product team feedback from Google Sheet. Implemented analytics tracking for NPS. Fixed critical bugs. Created weekly release and updated installations page for next feedback round. Attended engineering standup. Coordinated with sales team on demo improvements."
         },
         {
           submissionId: "Adam4",
@@ -44,8 +44,8 @@ function TeamExecution() {
           submittedAt: "2025-01-31 10:00:00",
           name: "Adam Kershner",
           date: "2025-01-24",
-          hours: 40,
-          description: "Week of Jan 20-24. Focused on UI/UX improvements for command interface. Implemented performance optimizations. Attended engineering standup. Reviewed sprint progress and NPS trends."
+          hours: 20,
+          description: "Week of Jan 20-24. Focused on UI/UX improvements for command interface. Implemented performance optimizations. Created weekly release from sprint completion and updated installations page. Attended engineering standup. Reviewed sprint progress and NPS trends."
         }
       ],
       q1Goals: {
@@ -53,22 +53,22 @@ function TeamExecution() {
         target: "Achieve +15 NPS points by end of Q1 (measured bi-weekly) through coordinated product and engineering efforts",
         weeklyBreakdown: [
           { week: 1, goal: "Establish baseline NPS and team processes", metric: "Baseline NPS measured, sprint process defined, story point baseline established" },
-          { week: 2, goal: "Week 2: Coordinate sprint execution", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 3, goal: "Week 3: Coordinate sprint execution", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 4, goal: "Week 4: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +3-5), sprint planned: 35+ story points estimated" },
-          { week: 5, goal: "Week 5: Coordinate sprint execution", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 6, goal: "Week 6: Coordinate sprint execution", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 7, goal: "Week 7: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +6-8), sprint planned: 35+ story points estimated" },
-          { week: 8, goal: "Week 8: Coordinate sprint execution", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 9, goal: "Week 9: Coordinate sprint execution", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 10, goal: "Week 10: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +9-11), sprint planned: 35+ story points estimated" },
-          { week: 11, goal: "Week 11: Coordinate sprint execution", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 12, goal: "Week 12: Coordinate sprint execution", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 13, goal: "Q1 final review and planning", metric: "Final NPS measured (target +15), Q2 planning complete, 420+ total story points delivered" }
+          { week: 2, goal: "Week 2: Coordinate sprint execution", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 3, goal: "Week 3: Coordinate sprint execution", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 4, goal: "Week 4: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +3-5), sprint planned: 20+ story points estimated" },
+          { week: 5, goal: "Week 5: Coordinate sprint execution", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 6, goal: "Week 6: Coordinate sprint execution", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 7, goal: "Week 7: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +6-8), sprint planned: 20+ story points estimated" },
+          { week: 8, goal: "Week 8: Coordinate sprint execution", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 9, goal: "Week 9: Coordinate sprint execution", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 10, goal: "Week 10: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +9-11), sprint planned: 20+ story points estimated" },
+          { week: 11, goal: "Week 11: Coordinate sprint execution", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 12, goal: "Week 12: Coordinate sprint execution", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 13, goal: "Q1 final review and planning", metric: "Final NPS measured (target +15), Q2 planning complete, 240+ total story points delivered" }
         ],
         keyMetrics: [
           "NPS delta bi-weekly (primary metric)",
-          "Story points delivered per sprint (target 35+)",
+          "Story points delivered per sprint (target 20+)",
           "Story points estimated vs delivered (velocity tracking)",
           "Sprint completion rate (target 90%+)",
           "Feedback items addressed per sprint (target 10+)",
@@ -90,7 +90,7 @@ function TeamExecution() {
           name: "Vedant Gupta",
           date: "2025-01-03",
           hours: 20,
-          description: "Week of Dec 30 - Jan 3. Conducted UI/UX testing session with users. Administered PMF and NPS surveys. Documented enhancement ideas in Google Sheets. Analyzed feedback for engineering prioritization."
+          description: "Week of Dec 30 - Jan 3. Installed latest browser version from installations page. Conducted UI/UX testing session with users. Submitted feedback forms via AI assistant interface for bugs and enhancement ideas. Administered PMF and NPS surveys. Documented enhancement ideas in Google Sheets. Analyzed feedback for engineering prioritization."
         },
         {
           submissionId: "Vedant2",
@@ -99,7 +99,7 @@ function TeamExecution() {
           name: "Vedant Gupta",
           date: "2025-01-10",
           hours: 20,
-          description: "Week of Jan 6-10. Tested new UI/UX iteration with focus on demo-critical features. Administered NPS survey and tracked delta. Collected user feedback via feedback form. Prioritized top improvements for sprint."
+          description: "Week of Jan 6-10. Installed new weekly release from installations page. Tested new UI/UX iteration with focus on demo-critical features. Submitted feedback forms documenting bugs and enhancement ideas. Administered NPS survey and tracked delta. Collected user feedback via feedback form (consolidates to Google Sheets). Prioritized top improvements for sprint."
         },
         {
           submissionId: "Vedant3",
@@ -108,7 +108,7 @@ function TeamExecution() {
           name: "Vedant Gupta",
           date: "2025-01-17",
           hours: 20,
-          description: "Week of Jan 13-17. Conducted weekly UI/UX testing. Administered PMF survey to measure product-market fit. Documented bug fixes and enhancement ideas. Collaborated with engineering on sprint priorities."
+          description: "Week of Jan 13-17. Installed latest weekly release from installations page. Conducted weekly UI/UX testing. Submitted feedback forms for bugs and enhancement ideas through AI assistant interface. Administered PMF survey to measure product-market fit. Documented bug fixes and enhancement ideas in Google Sheets. Collaborated with engineering on sprint priorities."
         },
         {
           submissionId: "Vedant4",
@@ -117,7 +117,7 @@ function TeamExecution() {
           name: "Vedant Gupta",
           date: "2025-01-24",
           hours: 20,
-          description: "Week of Jan 20-24. Tested UI/UX improvements from previous sprint. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Verified implemented improvements with users."
+          description: "Week of Jan 20-24. Installed new weekly release from installations page. Tested UI/UX improvements from previous sprint. Submitted feedback forms for new issues and ideas. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Completed PMF/NPS survey after testing. Verified implemented improvements with users."
         }
       ],
       q1Goals: {
@@ -151,10 +151,13 @@ function TeamExecution() {
           title: "UI/UX Testing & PMF/NPS Surveys",
           status: "active",
           startDate: "January 2026",
-          description: "Test UI/UX improvements weekly and measure product-market fit using PMF and NPS surveys to drive improvements that enhance demo quality for B2B pilots.",
+          description: "Participate in the continuous feedback loop: install weekly releases, test UI/UX improvements, submit feedback via AI assistant interface, and measure product-market fit using PMF and NPS surveys to drive improvements that enhance demo quality for B2B pilots.",
           scope: [
+            "Install latest browser version from installations page each week",
             "Test each new UI/UX iteration weekly with users",
+            "Submit feedback forms via AI assistant interface (bugs, enhancement ideas, feature requests)",
             "Administer PMF survey (NPS, disappointment question, user type, benefits, improvements)",
+            "Complete NPS survey after each testing round",
             "Collect enhancement ideas and bug fixes via feedback form (outputs to Google Sheets)",
             "Track NPS delta week-over-week as key metric",
             "Prioritize UI/UX improvements based on survey feedback"
@@ -425,7 +428,7 @@ function TeamExecution() {
           name: "Sonali Ankolikar",
           date: "2025-01-03",
           hours: 20,
-          description: "Week of Dec 30 - Jan 3. Conducted UI/UX testing session with users. Administered PMF and NPS surveys. Documented enhancement ideas in Google Sheets. Analyzed feedback for engineering prioritization."
+          description: "Week of Dec 30 - Jan 3. Installed latest browser version from installations page. Conducted UI/UX testing session with users. Submitted feedback forms via AI assistant interface for bugs and enhancement ideas. Administered PMF and NPS surveys. Documented enhancement ideas in Google Sheets. Analyzed feedback for engineering prioritization."
         },
         {
           submissionId: "Sonali2",
@@ -434,7 +437,7 @@ function TeamExecution() {
           name: "Sonali Ankolikar",
           date: "2025-01-10",
           hours: 20,
-          description: "Week of Jan 6-10. Tested new UI/UX iteration with focus on demo-critical features. Administered NPS survey and tracked delta. Collected user feedback via feedback form. Prioritized top improvements for sprint."
+          description: "Week of Jan 6-10. Installed new weekly release from installations page. Tested new UI/UX iteration with focus on demo-critical features. Submitted feedback forms documenting bugs and enhancement ideas. Administered NPS survey and tracked delta. Collected user feedback via feedback form (consolidates to Google Sheets). Prioritized top improvements for sprint."
         },
         {
           submissionId: "Sonali3",
@@ -443,7 +446,7 @@ function TeamExecution() {
           name: "Sonali Ankolikar",
           date: "2025-01-17",
           hours: 20,
-          description: "Week of Jan 13-17. Conducted weekly UI/UX testing. Administered PMF survey to measure product-market fit. Documented bug fixes and enhancement ideas. Collaborated with engineering on sprint priorities."
+          description: "Week of Jan 13-17. Installed latest weekly release from installations page. Conducted weekly UI/UX testing. Submitted feedback forms for bugs and enhancement ideas through AI assistant interface. Administered PMF survey to measure product-market fit. Documented bug fixes and enhancement ideas in Google Sheets. Collaborated with engineering on sprint priorities."
         },
         {
           submissionId: "Sonali4",
@@ -452,7 +455,7 @@ function TeamExecution() {
           name: "Sonali Ankolikar",
           date: "2025-01-24",
           hours: 20,
-          description: "Week of Jan 20-24. Tested UI/UX improvements from previous sprint. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Verified implemented improvements with users."
+          description: "Week of Jan 20-24. Installed new weekly release from installations page. Tested UI/UX improvements from previous sprint. Submitted feedback forms for new issues and ideas. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Completed PMF/NPS survey after testing. Verified implemented improvements with users."
         }
       ],
       q1Goals: {
@@ -486,11 +489,14 @@ function TeamExecution() {
           title: "Weekly UI/UX Testing & Survey Administration",
           status: "active",
           startDate: "January 2026",
-          description: "Conduct weekly UI/UX testing sessions and administer PMF/NPS surveys to measure product improvements and inform demo enhancements.",
+          description: "Participate in the continuous feedback loop: install weekly releases, conduct weekly UI/UX testing sessions, submit feedback forms, and administer PMF/NPS surveys to measure product improvements and inform demo enhancements.",
           scope: [
+            "Install latest browser version from installations page each week",
             "Schedule weekly testing sessions with users for new UI/UX iterations",
+            "Submit feedback forms via AI assistant interface (bugs, enhancement ideas, feature requests)",
             "Administer PMF survey: NPS (0-10), disappointment question, user type, main benefit, improvement suggestions",
             "Administer NPS survey to track week-over-week changes",
+            "Complete NPS survey after each testing round",
             "Document enhancement ideas and bug fixes in feedback form (Google Sheets)",
             "Analyze survey results and identify patterns"
           ],
@@ -604,7 +610,7 @@ function TeamExecution() {
           name: "Lokesh Nenavath",
           date: "2025-01-03",
           hours: 20,
-          description: "Week of Dec 30 - Jan 3. Conducted UI/UX testing session with users. Administered PMF and NPS surveys. Documented enhancement ideas in Google Sheets. Analyzed feedback for engineering prioritization."
+          description: "Week of Dec 30 - Jan 3. Installed latest browser version from installations page. Conducted UI/UX testing session with users. Submitted feedback forms via AI assistant interface for bugs and enhancement ideas. Administered PMF and NPS surveys. Documented enhancement ideas in Google Sheets. Analyzed feedback for engineering prioritization."
         },
         {
           submissionId: "Lokesh2",
@@ -613,7 +619,7 @@ function TeamExecution() {
           name: "Lokesh Nenavath",
           date: "2025-01-10",
           hours: 20,
-          description: "Week of Jan 6-10. Tested new UI/UX iteration with focus on demo-critical features. Administered NPS survey and tracked delta. Collected user feedback via feedback form. Prioritized top improvements for sprint."
+          description: "Week of Jan 6-10. Installed new weekly release from installations page. Tested new UI/UX iteration with focus on demo-critical features. Submitted feedback forms documenting bugs and enhancement ideas. Administered NPS survey and tracked delta. Collected user feedback via feedback form (consolidates to Google Sheets). Prioritized top improvements for sprint."
         },
         {
           submissionId: "Lokesh3",
@@ -622,7 +628,7 @@ function TeamExecution() {
           name: "Lokesh Nenavath",
           date: "2025-01-17",
           hours: 20,
-          description: "Week of Jan 13-17. Conducted weekly UI/UX testing. Administered PMF survey to measure product-market fit. Documented bug fixes and enhancement ideas. Collaborated with engineering on sprint priorities."
+          description: "Week of Jan 13-17. Installed latest weekly release from installations page. Conducted weekly UI/UX testing. Submitted feedback forms for bugs and enhancement ideas through AI assistant interface. Administered PMF survey to measure product-market fit. Documented bug fixes and enhancement ideas in Google Sheets. Collaborated with engineering on sprint priorities."
         },
         {
           submissionId: "Lokesh4",
@@ -631,7 +637,7 @@ function TeamExecution() {
           name: "Lokesh Nenavath",
           date: "2025-01-24",
           hours: 20,
-          description: "Week of Jan 20-24. Tested UI/UX improvements from previous sprint. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Verified implemented improvements with users."
+          description: "Week of Jan 20-24. Installed new weekly release from installations page. Tested UI/UX improvements from previous sprint. Submitted feedback forms for new issues and ideas. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Completed PMF/NPS survey after testing. Verified implemented improvements with users."
         }
       ],
       q1Goals: {
@@ -665,10 +671,13 @@ function TeamExecution() {
           title: "UI/UX Improvement Testing & Feedback Loop",
           status: "active",
           startDate: "January 2026",
-          description: "Test UI/UX improvements weekly and manage feedback collection to create positive feedback loop that increases NPS, retention, and product quality for better B2C and B2B demos.",
+          description: "Participate in the continuous feedback loop: install weekly releases, test UI/UX improvements, submit feedback forms, and manage feedback collection to create positive feedback loop that increases NPS, retention, and product quality for better B2C and B2B demos.",
           scope: [
+            "Install latest browser version from installations page each week",
             "Test new UI/UX iterations weekly with focus on demo-relevant features",
+            "Submit feedback forms via AI assistant interface (bugs, enhancement ideas, feature requests)",
             "Administer PMF and NPS surveys after each testing session",
+            "Complete NPS survey after each testing round",
             "Collect enhancement ideas and bug fixes via feedback form (Google Sheets)",
             "Coordinate with engineering team on sprint priorities based on feedback",
             "Track NPS delta as primary success metric"
@@ -872,7 +881,7 @@ function TeamExecution() {
           name: "Udit Agrawal",
           date: "2025-01-03",
           hours: 20,
-          description: "Week of Dec 30 - Jan 3. Conducted UI/UX testing session with users. Administered PMF and NPS surveys. Documented enhancement ideas in Google Sheets. Analyzed feedback for engineering prioritization."
+          description: "Week of Dec 30 - Jan 3. Installed latest browser version from installations page. Conducted UI/UX testing session with users. Submitted feedback forms via AI assistant interface for bugs and enhancement ideas. Administered PMF and NPS surveys. Documented enhancement ideas in Google Sheets. Analyzed feedback for engineering prioritization."
         },
         {
           submissionId: "Udit2",
@@ -881,7 +890,7 @@ function TeamExecution() {
           name: "Udit Agrawal",
           date: "2025-01-10",
           hours: 20,
-          description: "Week of Jan 6-10. Tested new UI/UX iteration with focus on demo-critical features. Administered NPS survey and tracked delta. Collected user feedback via feedback form. Prioritized top improvements for sprint."
+          description: "Week of Jan 6-10. Installed new weekly release from installations page. Tested new UI/UX iteration with focus on demo-critical features. Submitted feedback forms documenting bugs and enhancement ideas. Administered NPS survey and tracked delta. Collected user feedback via feedback form (consolidates to Google Sheets). Prioritized top improvements for sprint."
         },
         {
           submissionId: "Udit3",
@@ -890,7 +899,7 @@ function TeamExecution() {
           name: "Udit Agrawal",
           date: "2025-01-17",
           hours: 20,
-          description: "Week of Jan 13-17. Conducted weekly UI/UX testing. Administered PMF survey to measure product-market fit. Documented bug fixes and enhancement ideas. Collaborated with engineering on sprint priorities."
+          description: "Week of Jan 13-17. Installed latest weekly release from installations page. Conducted weekly UI/UX testing. Submitted feedback forms for bugs and enhancement ideas through AI assistant interface. Administered PMF survey to measure product-market fit. Documented bug fixes and enhancement ideas in Google Sheets. Collaborated with engineering on sprint priorities."
         },
         {
           submissionId: "Udit4",
@@ -899,7 +908,7 @@ function TeamExecution() {
           name: "Udit Agrawal",
           date: "2025-01-24",
           hours: 20,
-          description: "Week of Jan 20-24. Tested UI/UX improvements from previous sprint. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Verified implemented improvements with users."
+          description: "Week of Jan 20-24. Installed new weekly release from installations page. Tested UI/UX improvements from previous sprint. Submitted feedback forms for new issues and ideas. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Completed PMF/NPS survey after testing. Verified implemented improvements with users."
         }
       ],
       q1Goals: {
@@ -933,10 +942,13 @@ function TeamExecution() {
           title: "Weekly UI/UX Testing & PMF Measurement",
           status: "active",
           startDate: "January 2026",
-          description: "Test UI/UX improvements weekly and measure product-market fit to drive improvements that enhance demo quality and user satisfaction.",
+          description: "Participate in the continuous feedback loop: install weekly releases, test UI/UX improvements, submit feedback forms, and measure product-market fit to drive improvements that enhance demo quality and user satisfaction.",
           scope: [
+            "Install latest browser version from installations page each week",
             "Test each UI/UX iteration weekly with users",
+            "Submit feedback forms via AI assistant interface (bugs, enhancement ideas, feature requests)",
             "Administer PMF survey: NPS (0-10), 'How disappointed if you couldn't use Oasis?', user type, main benefit, improvement suggestions",
+            "Complete NPS survey after each testing round",
             "Log enhancement ideas and bug fixes in feedback form (Google Sheets)",
             "Track NPS delta week-over-week as key metric",
             "Prioritize UI/UX improvements for engineering sprints"
@@ -1142,7 +1154,7 @@ function TeamExecution() {
           name: "Ashwin John",
           date: "2025-01-03",
           hours: 20,
-          description: "Week of Dec 30 - Jan 3. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Reviewed and prioritized enhancement ideas."
+          description: "Week of Dec 30 - Jan 3. Reviewed feedback Google Sheet and organized items into sprint. Created sprint plan in Notion with story point estimates. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Executed story points and completed sprint tasks."
         },
         {
           submissionId: "Ashwin2",
@@ -1151,7 +1163,7 @@ function TeamExecution() {
           name: "Ashwin John",
           date: "2025-01-10",
           hours: 20,
-          description: "Week of Jan 6-10. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Implemented performance optimizations."
+          description: "Week of Jan 6-10. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Executed story points and completed sprint tasks. Implemented performance optimizations."
         },
         {
           submissionId: "Ashwin3",
@@ -1160,7 +1172,7 @@ function TeamExecution() {
           name: "Ashwin John",
           date: "2025-01-17",
           hours: 20,
-          description: "Week of Jan 13-17. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Reviewed NPS delta and prioritized improvements."
+          description: "Week of Jan 13-17. Reviewed feedback Google Sheet and organized items into weekly sprint. Created sprint plan in Notion with story point estimates. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Executed story points and completed sprint. Reviewed NPS delta and prioritized improvements."
         },
         {
           submissionId: "Ashwin4",
@@ -1169,29 +1181,29 @@ function TeamExecution() {
           name: "Ashwin John",
           date: "2025-01-24",
           hours: 20,
-          description: "Week of Jan 20-24. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Coordinated with product team on priorities."
+          description: "Week of Jan 20-24. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Executed story points and completed sprint tasks. Coordinated with product team on priorities."
         }
       ],
       q1Goals: {
         overview: "Increase NPS through UI/UX sprint execution and bug fixes",
-        target: "Deliver 420+ story points across Q1 (35+ per sprint) to support +15 NPS by end of Q1",
+        target: "Deliver 240+ story points across Q1 (20+ per sprint) to support +15 NPS by end of Q1",
         weeklyBreakdown: [
           { week: 1, goal: "Set up sprint workflow and story point estimation", metric: "Baseline NPS, process defined, story point baseline established" },
-          { week: 2, goal: "Week 2 sprint: Bug fixes & improvements", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 3, goal: "Week 3 sprint: Bug fixes & improvements", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 4, goal: "Week 4: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +3-5), sprint planned: 35+ story points estimated" },
-          { week: 5, goal: "Week 5 sprint: Bug fixes & improvements", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 6, goal: "Week 6 sprint: Bug fixes & improvements", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 7, goal: "Week 7: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +6-8), sprint planned: 35+ story points estimated" },
-          { week: 8, goal: "Week 8 sprint: Bug fixes & improvements", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 9, goal: "Week 9 sprint: Bug fixes & improvements", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 10, goal: "Week 10: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +9-11), sprint planned: 35+ story points estimated" },
-          { week: 11, goal: "Week 11 sprint: Bug fixes & improvements", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 12, goal: "Week 12 sprint: Bug fixes & improvements", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 13, goal: "Q1 final sprint review", metric: "Final NPS (target +15), 420+ total story points delivered" }
+          { week: 2, goal: "Week 2 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 3, goal: "Week 3 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 4, goal: "Week 4: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +3-5), sprint planned: 20+ story points estimated" },
+          { week: 5, goal: "Week 5 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 6, goal: "Week 6 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 7, goal: "Week 7: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +6-8), sprint planned: 20+ story points estimated" },
+          { week: 8, goal: "Week 8 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 9, goal: "Week 9 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 10, goal: "Week 10: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +9-11), sprint planned: 20+ story points estimated" },
+          { week: 11, goal: "Week 11 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 12, goal: "Week 12 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 13, goal: "Q1 final sprint review", metric: "Final NPS (target +15), 240+ total story points delivered" }
         ],
         keyMetrics: [
-          "Story points delivered per sprint (target 35+)",
+          "Story points delivered per sprint (target 20+)",
           "Story points estimated vs delivered (velocity tracking)",
           "Sprint completion rate (target 90%+)",
           "NPS delta bi-weekly (supporting metric)",
@@ -1204,10 +1216,13 @@ function TeamExecution() {
           title: "UI/UX Improvements - Sprint Execution",
           status: "active",
           startDate: "January 2026",
-          description: "Execute weekly sprints implementing UI/UX improvements from Google Sheets feedback to enhance product quality and demo effectiveness.",
+          description: "Participate in the continuous feedback loop: review feedback Google Sheet, organize items into sprints with story point estimates, execute story points, complete sprint tasks, and implement UI/UX improvements to enhance product quality and demo effectiveness.",
           scope: [
-            "Pull enhancement ideas and bug fixes from Google Sheets (feedback form output)",
-            "Implement UI/UX improvements in weekly sprints",
+            "Review feedback Google Sheet (consolidated from feedback forms)",
+            "Organize feedback items into weekly sprints in Notion",
+            "Estimate story points for each sprint item",
+            "Execute story points and complete sprint tasks",
+            "Implement UI/UX improvements from Google Sheets feedback",
             "Focus on improvements that enhance demo quality for B2B pilots",
             "Track implementation impact on NPS delta",
             "Iterate weekly based on product team testing and feedback"
@@ -1234,7 +1249,7 @@ function TeamExecution() {
           name: "Rashmila Mitra",
           date: "2025-01-03",
           hours: 20,
-          description: "Week of Dec 30 - Jan 3. Conducted UI/UX testing session with users. Administered PMF and NPS surveys. Documented enhancement ideas in Google Sheets. Analyzed feedback for engineering prioritization."
+          description: "Week of Dec 30 - Jan 3. Installed latest browser version from installations page. Conducted UI/UX testing session with users. Submitted feedback forms via AI assistant interface for bugs and enhancement ideas. Administered PMF and NPS surveys. Documented enhancement ideas in Google Sheets. Analyzed feedback for engineering prioritization."
         },
         {
           submissionId: "Rashmila2",
@@ -1243,7 +1258,7 @@ function TeamExecution() {
           name: "Rashmila Mitra",
           date: "2025-01-10",
           hours: 20,
-          description: "Week of Jan 6-10. Tested new UI/UX iteration with focus on demo-critical features. Administered NPS survey and tracked delta. Collected user feedback via feedback form. Prioritized top improvements for sprint."
+          description: "Week of Jan 6-10. Installed new weekly release from installations page. Tested new UI/UX iteration with focus on demo-critical features. Submitted feedback forms documenting bugs and enhancement ideas. Administered NPS survey and tracked delta. Collected user feedback via feedback form (consolidates to Google Sheets). Prioritized top improvements for sprint."
         },
         {
           submissionId: "Rashmila3",
@@ -1252,7 +1267,7 @@ function TeamExecution() {
           name: "Rashmila Mitra",
           date: "2025-01-17",
           hours: 20,
-          description: "Week of Jan 13-17. Conducted weekly UI/UX testing. Administered PMF survey to measure product-market fit. Documented bug fixes and enhancement ideas. Collaborated with engineering on sprint priorities."
+          description: "Week of Jan 13-17. Installed latest weekly release from installations page. Conducted weekly UI/UX testing. Submitted feedback forms for bugs and enhancement ideas through AI assistant interface. Administered PMF survey to measure product-market fit. Documented bug fixes and enhancement ideas in Google Sheets. Collaborated with engineering on sprint priorities."
         },
         {
           submissionId: "Rashmila4",
@@ -1261,7 +1276,7 @@ function TeamExecution() {
           name: "Rashmila Mitra",
           date: "2025-01-24",
           hours: 20,
-          description: "Week of Jan 20-24. Tested UI/UX improvements from previous sprint. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Verified implemented improvements with users."
+          description: "Week of Jan 20-24. Installed new weekly release from installations page. Tested UI/UX improvements from previous sprint. Submitted feedback forms for new issues and ideas. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Completed PMF/NPS survey after testing. Verified implemented improvements with users."
         }
       ],
       q1Goals: {
@@ -1294,11 +1309,14 @@ function TeamExecution() {
           title: "UI/UX Testing & NPS Tracking",
           status: "active",
           startDate: "January 2026",
-          description: "Test UI/UX improvements weekly and track NPS to measure product quality improvements that enhance both B2C retention and B2B demo effectiveness.",
+          description: "Participate in the continuous feedback loop: install weekly releases, test UI/UX improvements, submit feedback forms, and track NPS to measure product quality improvements that enhance both B2C retention and B2B demo effectiveness.",
           scope: [
+            "Install latest browser version from installations page each week",
             "Conduct weekly UI/UX testing sessions with users",
+            "Submit feedback forms via AI assistant interface (bugs, enhancement ideas, feature requests)",
             "Administer NPS survey (0-10 scale) after each iteration",
             "Administer PMF survey: disappointment question, user type, benefits, improvements",
+            "Complete NPS survey after each testing round",
             "Document enhancement ideas and bug fixes in feedback form (Google Sheets)",
             "Track NPS delta weekly and report trends"
           ],
@@ -1324,7 +1342,7 @@ function TeamExecution() {
           name: "Afshaan Khan",
           date: "2025-01-03",
           hours: 20,
-          description: "Week of Dec 30 - Jan 3. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Reviewed and prioritized enhancement ideas."
+          description: "Week of Dec 30 - Jan 3. Reviewed feedback Google Sheet and organized items into sprint. Created sprint plan in Notion with story point estimates. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Executed story points and completed sprint tasks. Reviewed and prioritized enhancement ideas."
         },
         {
           submissionId: "Afshaan2",
@@ -1333,7 +1351,7 @@ function TeamExecution() {
           name: "Afshaan Khan",
           date: "2025-01-10",
           hours: 20,
-          description: "Week of Jan 6-10. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Implemented performance optimizations."
+          description: "Week of Jan 6-10. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Executed story points and completed sprint tasks. Implemented performance optimizations."
         },
         {
           submissionId: "Afshaan3",
@@ -1342,7 +1360,7 @@ function TeamExecution() {
           name: "Afshaan Khan",
           date: "2025-01-17",
           hours: 20,
-          description: "Week of Jan 13-17. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Reviewed NPS delta and prioritized improvements."
+          description: "Week of Jan 13-17. Reviewed feedback Google Sheet and organized items into weekly sprint. Created sprint plan in Notion with story point estimates. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Executed story points and completed sprint. Reviewed NPS delta and prioritized improvements."
         },
         {
           submissionId: "Afshaan4",
@@ -1351,12 +1369,12 @@ function TeamExecution() {
           name: "Afshaan Khan",
           date: "2025-01-24",
           hours: 20,
-          description: "Week of Jan 20-24. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Coordinated with product team on priorities."
+          description: "Week of Jan 20-24. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Executed story points and completed sprint tasks. Coordinated with product team on priorities."
         }
       ],
       q1Goals: {
         overview: "Increase NPS through UI/UX development and feature implementation",
-        target: "Deliver 420+ story points across Q1 (35+ per sprint) to support +15 NPS by end of Q1",
+        target: "Deliver 240+ story points across Q1 (20+ per sprint) to support +15 NPS by end of Q1",
         weeklyBreakdown: [
           { week: 1, goal: "Set up development process and story point estimation", metric: "Baseline NPS, sprint priorities set, story point baseline established" },
           { week: 2, goal: "Week 2: Implement UI improvements", metric: "Sprint completed: 20+ story points delivered" },
@@ -1373,7 +1391,7 @@ function TeamExecution() {
           { week: 13, goal: "Q1 final development review", metric: "Final NPS (target +15), 240+ total story points delivered" }
         ],
         keyMetrics: [
-          "Story points delivered per sprint (target 35+)",
+          "Story points delivered per sprint (target 20+)",
           "Story points estimated vs delivered (velocity tracking)",
           "Sprint completion rate (target 90%+)",
           "NPS delta bi-weekly (supporting metric)",
@@ -1386,9 +1404,12 @@ function TeamExecution() {
           title: "UI/UX Improvements - Weekly Development",
           status: "active",
           startDate: "January 2026",
-          description: "Develop UI/UX improvements weekly using feedback from Google Sheets to create positive feedback loop that increases NPS, retention, and product quality.",
+          description: "Participate in the continuous feedback loop: review feedback Google Sheet, organize items into sprints with story point estimates, execute story points, complete sprint tasks, and develop UI/UX improvements weekly to create positive feedback loop that increases NPS, retention, and product quality.",
           scope: [
-            "Review Google Sheets for enhancement ideas and bug fixes from product team",
+            "Review feedback Google Sheet (consolidated from feedback forms)",
+            "Organize feedback items into weekly sprints in Notion",
+            "Estimate story points for each sprint item",
+            "Execute story points and complete sprint tasks",
             "Implement UI/UX improvements in weekly sprints",
             "Focus on demo-critical UI/UX enhancements",
             "Track NPS delta as primary success metric",
@@ -1416,7 +1437,7 @@ function TeamExecution() {
           name: "Nithish Sampath",
           date: "2025-01-03",
           hours: 20,
-          description: "Week of Dec 30 - Jan 3. Conducted UI/UX testing session with users. Administered PMF and NPS surveys. Documented enhancement ideas in Google Sheets. Analyzed feedback for engineering prioritization."
+          description: "Week of Dec 30 - Jan 3. Installed latest browser version from installations page. Conducted UI/UX testing session with users. Submitted feedback forms via AI assistant interface for bugs and enhancement ideas. Administered PMF and NPS surveys. Documented enhancement ideas in Google Sheets. Analyzed feedback for engineering prioritization."
         },
         {
           submissionId: "Nithish2",
@@ -1425,7 +1446,7 @@ function TeamExecution() {
           name: "Nithish Sampath",
           date: "2025-01-10",
           hours: 20,
-          description: "Week of Jan 6-10. Tested new UI/UX iteration with focus on demo-critical features. Administered NPS survey and tracked delta. Collected user feedback via feedback form. Prioritized top improvements for sprint."
+          description: "Week of Jan 6-10. Installed new weekly release from installations page. Tested new UI/UX iteration with focus on demo-critical features. Submitted feedback forms documenting bugs and enhancement ideas. Administered NPS survey and tracked delta. Collected user feedback via feedback form (consolidates to Google Sheets). Prioritized top improvements for sprint."
         },
         {
           submissionId: "Nithish3",
@@ -1434,7 +1455,7 @@ function TeamExecution() {
           name: "Nithish Sampath",
           date: "2025-01-17",
           hours: 20,
-          description: "Week of Jan 13-17. Conducted weekly UI/UX testing. Administered PMF survey to measure product-market fit. Documented bug fixes and enhancement ideas. Collaborated with engineering on sprint priorities."
+          description: "Week of Jan 13-17. Installed latest weekly release from installations page. Conducted weekly UI/UX testing. Submitted feedback forms for bugs and enhancement ideas through AI assistant interface. Administered PMF survey to measure product-market fit. Documented bug fixes and enhancement ideas in Google Sheets. Collaborated with engineering on sprint priorities."
         },
         {
           submissionId: "Nithish4",
@@ -1443,7 +1464,7 @@ function TeamExecution() {
           name: "Nithish Sampath",
           date: "2025-01-24",
           hours: 20,
-          description: "Week of Jan 20-24. Tested UI/UX improvements from previous sprint. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Verified implemented improvements with users."
+          description: "Week of Jan 20-24. Installed new weekly release from installations page. Tested UI/UX improvements from previous sprint. Submitted feedback forms for new issues and ideas. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Completed PMF/NPS survey after testing. Verified implemented improvements with users."
         }
       ],
       q1Goals: {
@@ -1477,10 +1498,13 @@ function TeamExecution() {
           title: "UI/UX Testing & Feedback Prioritization",
           status: "active",
           startDate: "January 2026",
-          description: "Test UI/UX improvements weekly, collect feedback via PMF/NPS surveys, and prioritize improvements for engineering sprints to enhance demo quality.",
+          description: "Participate in the continuous feedback loop: install weekly releases, test UI/UX improvements, submit feedback forms, collect feedback via PMF/NPS surveys, and prioritize improvements for engineering sprints to enhance demo quality.",
           scope: [
+            "Install latest browser version from installations page each week",
             "Test new UI/UX iterations weekly with focus on demo-critical features",
+            "Submit feedback forms via AI assistant interface (bugs, enhancement ideas, feature requests)",
             "Administer PMF and NPS surveys after each testing session",
+            "Complete NPS survey after each testing round",
             "Collect enhancement ideas and bug fixes via feedback form (Google Sheets)",
             "Prioritize feedback for engineering sprint planning based on NPS impact",
             "Track NPS delta as primary success metric"
@@ -1597,7 +1621,7 @@ function TeamExecution() {
           name: "Rushyanth Nerellakunta",
           date: "2025-01-03",
           hours: 20,
-          description: "Week of Dec 30 - Jan 3. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Reviewed and prioritized enhancement ideas."
+          description: "Week of Dec 30 - Jan 3. Reviewed feedback Google Sheet and organized items into sprint. Created sprint plan in Notion with story point estimates. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Executed story points and completed sprint tasks. Reviewed and prioritized enhancement ideas."
         },
         {
           submissionId: "Rushyanth2",
@@ -1606,7 +1630,7 @@ function TeamExecution() {
           name: "Rushyanth Nerellakunta",
           date: "2025-01-10",
           hours: 20,
-          description: "Week of Jan 6-10. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Implemented performance optimizations."
+          description: "Week of Jan 6-10. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Executed story points and completed sprint tasks. Implemented performance optimizations."
         },
         {
           submissionId: "Rushyanth3",
@@ -1615,7 +1639,7 @@ function TeamExecution() {
           name: "Rushyanth Nerellakunta",
           date: "2025-01-17",
           hours: 20,
-          description: "Week of Jan 13-17. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Reviewed NPS delta and prioritized improvements."
+          description: "Week of Jan 13-17. Reviewed feedback Google Sheet and organized items into weekly sprint. Created sprint plan in Notion with story point estimates. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Executed story points and completed sprint. Reviewed NPS delta and prioritized improvements."
         },
         {
           submissionId: "Rushyanth4",
@@ -1624,29 +1648,29 @@ function TeamExecution() {
           name: "Rushyanth Nerellakunta",
           date: "2025-01-24",
           hours: 20,
-          description: "Week of Jan 20-24. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Coordinated with product team on priorities."
+          description: "Week of Jan 20-24. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Executed story points and completed sprint tasks. Coordinated with product team on priorities."
         }
       ],
       q1Goals: {
         overview: "Increase NPS through sprint planning and execution",
-        target: "Deliver 420+ story points across Q1 (35+ per sprint) to support +15 NPS by end of Q1",
+        target: "Deliver 240+ story points across Q1 (20+ per sprint) to support +15 NPS by end of Q1",
         weeklyBreakdown: [
           { week: 1, goal: "Set up sprint planning process and story point estimation", metric: "Baseline NPS, process defined, story point baseline established" },
-          { week: 2, goal: "Week 2 sprint: Bug fixes & improvements", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 3, goal: "Week 3 sprint: Bug fixes & improvements", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 4, goal: "Week 4: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +3-5), sprint planned: 35+ story points estimated" },
-          { week: 5, goal: "Week 5 sprint: Bug fixes & improvements", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 6, goal: "Week 6 sprint: Bug fixes & improvements", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 7, goal: "Week 7: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +6-8), sprint planned: 35+ story points estimated" },
-          { week: 8, goal: "Week 8 sprint: Bug fixes & improvements", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 9, goal: "Week 9 sprint: Bug fixes & improvements", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 10, goal: "Week 10: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +9-11), sprint planned: 35+ story points estimated" },
-          { week: 11, goal: "Week 11 sprint: Bug fixes & improvements", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 12, goal: "Week 12 sprint: Bug fixes & improvements", metric: "Sprint completed: 35+ story points delivered" },
-          { week: 13, goal: "Q1 final sprint review", metric: "Final NPS (target +15), 420+ total story points delivered" }
+          { week: 2, goal: "Week 2 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 3, goal: "Week 3 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 4, goal: "Week 4: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +3-5), sprint planned: 20+ story points estimated" },
+          { week: 5, goal: "Week 5 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 6, goal: "Week 6 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 7, goal: "Week 7: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +6-8), sprint planned: 20+ story points estimated" },
+          { week: 8, goal: "Week 8 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 9, goal: "Week 9 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 10, goal: "Week 10: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +9-11), sprint planned: 20+ story points estimated" },
+          { week: 11, goal: "Week 11 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 12, goal: "Week 12 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 13, goal: "Q1 final sprint review", metric: "Final NPS (target +15), 240+ total story points delivered" }
         ],
         keyMetrics: [
-          "Story points delivered per sprint (target 35+)",
+          "Story points delivered per sprint (target 20+)",
           "Story points estimated vs delivered (velocity tracking)",
           "Sprint completion rate (target 90%+)",
           "NPS delta bi-weekly (supporting metric)",
@@ -1658,9 +1682,12 @@ function TeamExecution() {
           title: "UI/UX Improvements - Sprint Planning & Execution",
           status: "active",
           startDate: "January 2026",
-          description: "Plan and execute weekly sprints implementing UI/UX improvements from Google Sheets feedback to enhance demo quality and product-market fit.",
+          description: "Participate in the continuous feedback loop: review feedback Google Sheet, organize items into sprints with story point estimates, execute story points, complete sprint tasks, and plan and execute weekly sprints implementing UI/UX improvements to enhance demo quality and product-market fit.",
           scope: [
-            "Organize weekly sprints using enhancement ideas from Google Sheets",
+            "Review feedback Google Sheet (consolidated from feedback forms)",
+            "Organize feedback items into weekly sprints in Notion",
+            "Estimate story points for each sprint item",
+            "Execute story points and complete sprint tasks",
             "Prioritize UI/UX improvements based on NPS impact and demo relevance",
             "Implement UI/UX improvements focused on product polish",
             "Track NPS delta weekly to measure sprint success",
@@ -1688,7 +1715,7 @@ function TeamExecution() {
           name: "Agrima Gupta",
           date: "2025-01-03",
           hours: 20,
-          description: "Week of Dec 30 - Jan 3. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Reviewed and prioritized enhancement ideas."
+          description: "Week of Dec 30 - Jan 3. Reviewed feedback Google Sheet and organized items into sprint. Created sprint plan in Notion with story point estimates. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Executed story points and completed sprint tasks. Reviewed and prioritized enhancement ideas."
         },
         {
           submissionId: "Agrima2",
@@ -1697,7 +1724,7 @@ function TeamExecution() {
           name: "Agrima Gupta",
           date: "2025-01-10",
           hours: 20,
-          description: "Week of Jan 6-10. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Implemented performance optimizations."
+          description: "Week of Jan 6-10. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Executed story points and completed sprint tasks. Implemented performance optimizations."
         },
         {
           submissionId: "Agrima3",
@@ -1706,7 +1733,7 @@ function TeamExecution() {
           name: "Agrima Gupta",
           date: "2025-01-17",
           hours: 20,
-          description: "Week of Jan 13-17. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Reviewed NPS delta and prioritized improvements."
+          description: "Week of Jan 13-17. Reviewed feedback Google Sheet and organized items into weekly sprint. Created sprint plan in Notion with story point estimates. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Executed story points and completed sprint. Reviewed NPS delta and prioritized improvements."
         },
         {
           submissionId: "Agrima4",
@@ -1715,12 +1742,12 @@ function TeamExecution() {
           name: "Agrima Gupta",
           date: "2025-01-24",
           hours: 20,
-          description: "Week of Jan 20-24. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Coordinated with product team on priorities."
+          description: "Week of Jan 20-24. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Executed story points and completed sprint tasks. Coordinated with product team on priorities."
         }
       ],
       q1Goals: {
         overview: "Increase NPS through extension and interface improvements",
-        target: "Deliver 420+ story points across Q1 (35+ per sprint) to support +15 NPS by end of Q1",
+        target: "Deliver 240+ story points across Q1 (20+ per sprint) to support +15 NPS by end of Q1",
         weeklyBreakdown: [
           { week: 1, goal: "Set up interface improvement process and story point estimation", metric: "Baseline NPS, process defined, story point baseline established" },
           { week: 2, goal: "Week 2: Interface improvements & bug fixes", metric: "Sprint completed: 20+ story points delivered" },
@@ -1737,7 +1764,7 @@ function TeamExecution() {
           { week: 13, goal: "Q1 final improvements review", metric: "Final NPS (target +15), 240+ total story points delivered" }
         ],
         keyMetrics: [
-          "Story points delivered per sprint (target 35+)",
+          "Story points delivered per sprint (target 20+)",
           "Story points estimated vs delivered (velocity tracking)",
           "Sprint completion rate (target 90%+)",
           "NPS delta bi-weekly (supporting metric)",
@@ -1780,7 +1807,7 @@ function TeamExecution() {
           name: "Aishwarya Shetiya",
           date: "2025-01-03",
           hours: 20,
-          description: "Week of Dec 30 - Jan 3. Conducted UI/UX testing session with users. Administered PMF and NPS surveys. Documented enhancement ideas in Google Sheets. Analyzed feedback for engineering prioritization."
+          description: "Week of Dec 30 - Jan 3. Installed latest browser version from installations page. Conducted UI/UX testing session with users. Submitted feedback forms via AI assistant interface for bugs and enhancement ideas. Administered PMF and NPS surveys. Documented enhancement ideas in Google Sheets. Analyzed feedback for engineering prioritization."
         },
         {
           submissionId: "Aishwarya2",
@@ -1789,7 +1816,7 @@ function TeamExecution() {
           name: "Aishwarya Shetiya",
           date: "2025-01-10",
           hours: 20,
-          description: "Week of Jan 6-10. Tested new UI/UX iteration with focus on demo-critical features. Administered NPS survey and tracked delta. Collected user feedback via feedback form. Prioritized top improvements for sprint."
+          description: "Week of Jan 6-10. Installed new weekly release from installations page. Tested new UI/UX iteration with focus on demo-critical features. Submitted feedback forms documenting bugs and enhancement ideas. Administered NPS survey and tracked delta. Collected user feedback via feedback form (consolidates to Google Sheets). Prioritized top improvements for sprint."
         },
         {
           submissionId: "Aishwarya3",
@@ -1798,7 +1825,7 @@ function TeamExecution() {
           name: "Aishwarya Shetiya",
           date: "2025-01-17",
           hours: 20,
-          description: "Week of Jan 13-17. Conducted weekly UI/UX testing. Administered PMF survey to measure product-market fit. Documented bug fixes and enhancement ideas. Collaborated with engineering on sprint priorities."
+          description: "Week of Jan 13-17. Installed latest weekly release from installations page. Conducted weekly UI/UX testing. Submitted feedback forms for bugs and enhancement ideas through AI assistant interface. Administered PMF survey to measure product-market fit. Documented bug fixes and enhancement ideas in Google Sheets. Collaborated with engineering on sprint priorities."
         },
         {
           submissionId: "Aishwarya4",
@@ -1807,7 +1834,7 @@ function TeamExecution() {
           name: "Aishwarya Shetiya",
           date: "2025-01-24",
           hours: 20,
-          description: "Week of Jan 20-24. Tested UI/UX improvements from previous sprint. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Verified implemented improvements with users."
+          description: "Week of Jan 20-24. Installed new weekly release from installations page. Tested UI/UX improvements from previous sprint. Submitted feedback forms for new issues and ideas. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Completed PMF/NPS survey after testing. Verified implemented improvements with users."
         }
       ],
       q1Goals: {
@@ -1871,7 +1898,7 @@ function TeamExecution() {
           name: "Likhitha Guggilla",
           date: "2025-01-03",
           hours: 20,
-          description: "Week of Dec 30 - Jan 3. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Reviewed and prioritized enhancement ideas."
+          description: "Week of Dec 30 - Jan 3. Reviewed feedback Google Sheet and organized items into sprint. Created sprint plan in Notion with story point estimates. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Executed story points and completed sprint tasks. Reviewed and prioritized enhancement ideas."
         },
         {
           submissionId: "Likhitha2",
@@ -1880,7 +1907,7 @@ function TeamExecution() {
           name: "Likhitha Guggilla",
           date: "2025-01-10",
           hours: 20,
-          description: "Week of Jan 6-10. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Implemented performance optimizations."
+          description: "Week of Jan 6-10. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Executed story points and completed sprint tasks. Implemented performance optimizations."
         },
         {
           submissionId: "Likhitha3",
@@ -1889,7 +1916,7 @@ function TeamExecution() {
           name: "Likhitha Guggilla",
           date: "2025-01-17",
           hours: 20,
-          description: "Week of Jan 13-17. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Reviewed NPS delta and prioritized improvements."
+          description: "Week of Jan 13-17. Reviewed feedback Google Sheet and organized items into weekly sprint. Created sprint plan in Notion with story point estimates. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Executed story points and completed sprint. Reviewed NPS delta and prioritized improvements."
         },
         {
           submissionId: "Likhitha4",
@@ -1898,7 +1925,7 @@ function TeamExecution() {
           name: "Likhitha Guggilla",
           date: "2025-01-24",
           hours: 20,
-          description: "Week of Jan 20-24. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Coordinated with product team on priorities."
+          description: "Week of Jan 20-24. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Executed story points and completed sprint tasks. Coordinated with product team on priorities."
         }
       ],
       q1Goals: {
@@ -2050,7 +2077,7 @@ function TeamExecution() {
           name: "Mohammed Muneebuddin",
           date: "2025-01-03",
           hours: 20,
-          description: "Week of Dec 30 - Jan 3. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Reviewed and prioritized enhancement ideas."
+          description: "Week of Dec 30 - Jan 3. Reviewed feedback Google Sheet and organized items into sprint. Created sprint plan in Notion with story point estimates. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Executed story points and completed sprint tasks. Reviewed and prioritized enhancement ideas."
         },
         {
           submissionId: "Mohammed2",
@@ -2059,7 +2086,7 @@ function TeamExecution() {
           name: "Mohammed Muneebuddin",
           date: "2025-01-10",
           hours: 20,
-          description: "Week of Jan 6-10. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Implemented performance optimizations."
+          description: "Week of Jan 6-10. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Executed story points and completed sprint tasks. Implemented performance optimizations."
         },
         {
           submissionId: "Mohammed3",
@@ -2068,7 +2095,7 @@ function TeamExecution() {
           name: "Mohammed Muneebuddin",
           date: "2025-01-17",
           hours: 20,
-          description: "Week of Jan 13-17. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Reviewed NPS delta and prioritized improvements."
+          description: "Week of Jan 13-17. Reviewed feedback Google Sheet and organized items into weekly sprint. Created sprint plan in Notion with story point estimates. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Executed story points and completed sprint. Reviewed NPS delta and prioritized improvements."
         },
         {
           submissionId: "Mohammed4",
@@ -2077,12 +2104,12 @@ function TeamExecution() {
           name: "Mohammed Muneebuddin",
           date: "2025-01-24",
           hours: 20,
-          description: "Week of Jan 20-24. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Coordinated with product team on priorities."
+          description: "Week of Jan 20-24. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Executed story points and completed sprint tasks. Coordinated with product team on priorities."
         }
       ],
       q1Goals: {
         overview: "Increase NPS through UI/UX implementation and bug fixes",
-        target: "Deliver 420+ story points across Q1 (35+ per sprint) to support +15 NPS by end of Q1",
+        target: "Deliver 240+ story points across Q1 (20+ per sprint) to support +15 NPS by end of Q1",
         weeklyBreakdown: [
           { week: 1, goal: "Set up implementation workflow and story point estimation", metric: "Baseline NPS, process defined, story point baseline established" },
           { week: 2, goal: "Week 2: Implement improvements & fix bugs", metric: "Sprint completed: 20+ story points delivered" },
@@ -2099,7 +2126,7 @@ function TeamExecution() {
           { week: 13, goal: "Q1 final implementation review", metric: "Final NPS (target +15), 240+ total story points delivered" }
         ],
         keyMetrics: [
-          "Story points delivered per sprint (target 35+)",
+          "Story points delivered per sprint (target 20+)",
           "Story points estimated vs delivered (velocity tracking)",
           "Sprint completion rate (target 90%+)",
           "NPS delta bi-weekly (supporting metric)",
@@ -2112,8 +2139,12 @@ function TeamExecution() {
           title: "UI/UX Improvements - Weekly Implementation",
           status: "active",
           startDate: "January 2026",
-          description: "Implement UI/UX improvements weekly using feedback from Google Sheets to enhance product quality, increase NPS, and improve demo effectiveness.",
+          description: "Participate in the continuous feedback loop: review feedback Google Sheet, organize items into sprints with story point estimates, execute story points, complete sprint tasks, and implement UI/UX improvements weekly to enhance product quality, increase NPS, and improve demo effectiveness.",
           scope: [
+            "Review feedback Google Sheet (consolidated from feedback forms)",
+            "Organize feedback items into weekly sprints in Notion",
+            "Estimate story points for each sprint item",
+            "Execute story points and complete sprint tasks",
             "Pull enhancement ideas and bug fixes from Google Sheets (feedback form)",
             "Implement UI/UX improvements in weekly sprints",
             "Focus on improvements that enhance demo quality",
@@ -2142,7 +2173,7 @@ function TeamExecution() {
           name: "Atharva Joshi",
           date: "2025-01-03",
           hours: 20,
-          description: "Week of Dec 30 - Jan 3. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Reviewed and prioritized enhancement ideas."
+          description: "Week of Dec 30 - Jan 3. Reviewed feedback Google Sheet and organized items into sprint. Created sprint plan in Notion with story point estimates. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Executed story points and completed sprint tasks. Reviewed and prioritized enhancement ideas."
         },
         {
           submissionId: "Atharva2",
@@ -2151,7 +2182,7 @@ function TeamExecution() {
           name: "Atharva Joshi",
           date: "2025-01-10",
           hours: 20,
-          description: "Week of Jan 6-10. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Implemented performance optimizations."
+          description: "Week of Jan 6-10. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Executed story points and completed sprint tasks. Implemented performance optimizations."
         },
         {
           submissionId: "Atharva3",
@@ -2160,7 +2191,7 @@ function TeamExecution() {
           name: "Atharva Joshi",
           date: "2025-01-17",
           hours: 20,
-          description: "Week of Jan 13-17. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Reviewed NPS delta and prioritized improvements."
+          description: "Week of Jan 13-17. Reviewed feedback Google Sheet and organized items into weekly sprint. Created sprint plan in Notion with story point estimates. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Executed story points and completed sprint. Reviewed NPS delta and prioritized improvements."
         },
         {
           submissionId: "Atharva4",
@@ -2169,12 +2200,12 @@ function TeamExecution() {
           name: "Atharva Joshi",
           date: "2025-01-24",
           hours: 20,
-          description: "Week of Jan 20-24. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Coordinated with product team on priorities."
+          description: "Week of Jan 20-24. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Executed story points and completed sprint tasks. Coordinated with product team on priorities."
         }
       ],
       q1Goals: {
         overview: "Increase NPS through bug fixes and product polish",
-        target: "Deliver 420+ story points across Q1 (35+ per sprint) to support +15 NPS by end of Q1",
+        target: "Deliver 240+ story points across Q1 (20+ per sprint) to support +15 NPS by end of Q1",
         weeklyBreakdown: [
           { week: 1, goal: "Set up bug tracking process and story point estimation", metric: "Baseline NPS, process defined, story point baseline established" },
           { week: 2, goal: "Week 2: Bug fixes & polish", metric: "Sprint completed: 20+ story points delivered" },
@@ -2191,7 +2222,7 @@ function TeamExecution() {
           { week: 13, goal: "Q1 final bug fixes & polish review", metric: "Final NPS (target +15), 240+ total story points delivered" }
         ],
         keyMetrics: [
-          "Story points delivered per sprint (target 35+)",
+          "Story points delivered per sprint (target 20+)",
           "Story points estimated vs delivered (velocity tracking)",
           "Sprint completion rate (target 90%+)",
           "NPS delta bi-weekly (supporting metric)",
@@ -2234,7 +2265,7 @@ function TeamExecution() {
           name: "Naveen Prashanna Gurumurthy",
           date: "2025-01-03",
           hours: 20,
-          description: "Week of Dec 30 - Jan 3. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Reviewed and prioritized enhancement ideas."
+          description: "Week of Dec 30 - Jan 3. Reviewed feedback Google Sheet and organized items into sprint. Created sprint plan in Notion with story point estimates. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Executed story points and completed sprint tasks. Reviewed and prioritized enhancement ideas."
         },
         {
           submissionId: "Naveen2",
@@ -2243,7 +2274,7 @@ function TeamExecution() {
           name: "Naveen Prashanna Gurumurthy",
           date: "2025-01-10",
           hours: 20,
-          description: "Week of Jan 6-10. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Implemented performance optimizations."
+          description: "Week of Jan 6-10. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Executed story points and completed sprint tasks. Implemented performance optimizations."
         },
         {
           submissionId: "Naveen3",
@@ -2252,7 +2283,7 @@ function TeamExecution() {
           name: "Naveen Prashanna Gurumurthy",
           date: "2025-01-17",
           hours: 20,
-          description: "Week of Jan 13-17. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Reviewed NPS delta and prioritized improvements."
+          description: "Week of Jan 13-17. Reviewed feedback Google Sheet and organized items into weekly sprint. Created sprint plan in Notion with story point estimates. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Executed story points and completed sprint. Reviewed NPS delta and prioritized improvements."
         },
         {
           submissionId: "Naveen4",
@@ -2261,12 +2292,12 @@ function TeamExecution() {
           name: "Naveen Prashanna Gurumurthy",
           date: "2025-01-24",
           hours: 20,
-          description: "Week of Jan 20-24. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Coordinated with product team on priorities."
+          description: "Week of Jan 20-24. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Executed story points and completed sprint tasks. Coordinated with product team on priorities."
         }
       ],
       q1Goals: {
         overview: "Increase NPS through performance and polish improvements",
-        target: "Deliver 420+ story points across Q1 (35+ per sprint) to support +15 NPS by end of Q1",
+        target: "Deliver 240+ story points across Q1 (20+ per sprint) to support +15 NPS by end of Q1",
         weeklyBreakdown: [
           { week: 1, goal: "Set up performance tracking and story point estimation", metric: "Baseline NPS, process defined, story point baseline established" },
           { week: 2, goal: "Week 2: Performance improvements & bug fixes", metric: "Sprint completed: 20+ story points delivered" },
@@ -2283,7 +2314,7 @@ function TeamExecution() {
           { week: 13, goal: "Q1 final performance improvements review", metric: "Final NPS (target +15), 240+ total story points delivered" }
         ],
         keyMetrics: [
-          "Story points delivered per sprint (target 35+)",
+          "Story points delivered per sprint (target 20+)",
           "Story points estimated vs delivered (velocity tracking)",
           "Sprint completion rate (target 90%+)",
           "NPS delta bi-weekly (supporting metric)",
@@ -2479,7 +2510,7 @@ function TeamExecution() {
           name: "Rajrajeshwari Gaware",
           date: "2025-01-03",
           hours: 20,
-          description: "Week of Dec 30 - Jan 3. Conducted UI/UX testing session with users. Administered PMF and NPS surveys. Documented enhancement ideas in Google Sheets. Analyzed feedback for engineering prioritization."
+          description: "Week of Dec 30 - Jan 3. Installed latest browser version from installations page. Conducted UI/UX testing session with users. Submitted feedback forms via AI assistant interface for bugs and enhancement ideas. Administered PMF and NPS surveys. Documented enhancement ideas in Google Sheets. Analyzed feedback for engineering prioritization."
         },
         {
           submissionId: "Rajrajeshwari2",
@@ -2488,7 +2519,7 @@ function TeamExecution() {
           name: "Rajrajeshwari Gaware",
           date: "2025-01-10",
           hours: 20,
-          description: "Week of Jan 6-10. Tested new UI/UX iteration with focus on demo-critical features. Administered NPS survey and tracked delta. Collected user feedback via feedback form. Prioritized top improvements for sprint."
+          description: "Week of Jan 6-10. Installed new weekly release from installations page. Tested new UI/UX iteration with focus on demo-critical features. Submitted feedback forms documenting bugs and enhancement ideas. Administered NPS survey and tracked delta. Collected user feedback via feedback form (consolidates to Google Sheets). Prioritized top improvements for sprint."
         },
         {
           submissionId: "Rajrajeshwari3",
@@ -2497,7 +2528,7 @@ function TeamExecution() {
           name: "Rajrajeshwari Gaware",
           date: "2025-01-17",
           hours: 20,
-          description: "Week of Jan 13-17. Conducted weekly UI/UX testing. Administered PMF survey to measure product-market fit. Documented bug fixes and enhancement ideas. Collaborated with engineering on sprint priorities."
+          description: "Week of Jan 13-17. Installed latest weekly release from installations page. Conducted weekly UI/UX testing. Submitted feedback forms for bugs and enhancement ideas through AI assistant interface. Administered PMF survey to measure product-market fit. Documented bug fixes and enhancement ideas in Google Sheets. Collaborated with engineering on sprint priorities."
         },
         {
           submissionId: "Rajrajeshwari4",
@@ -2506,7 +2537,7 @@ function TeamExecution() {
           name: "Rajrajeshwari Gaware",
           date: "2025-01-24",
           hours: 20,
-          description: "Week of Jan 20-24. Tested UI/UX improvements from previous sprint. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Verified implemented improvements with users."
+          description: "Week of Jan 20-24. Installed new weekly release from installations page. Tested UI/UX improvements from previous sprint. Submitted feedback forms for new issues and ideas. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Completed PMF/NPS survey after testing. Verified implemented improvements with users."
         }
       ],
       q1Goals: {
@@ -2570,7 +2601,7 @@ function TeamExecution() {
           name: "Durgesh Tiwari",
           date: "2025-01-03",
           hours: 20,
-          description: "Week of Dec 30 - Jan 3. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Reviewed and prioritized enhancement ideas."
+          description: "Week of Dec 30 - Jan 3. Reviewed feedback Google Sheet and organized items into sprint. Created sprint plan in Notion with story point estimates. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Executed story points and completed sprint tasks. Reviewed and prioritized enhancement ideas."
         },
         {
           submissionId: "Durgesh2",
@@ -2579,7 +2610,7 @@ function TeamExecution() {
           name: "Durgesh Tiwari",
           date: "2025-01-10",
           hours: 20,
-          description: "Week of Jan 6-10. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Implemented performance optimizations."
+          description: "Week of Jan 6-10. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Executed story points and completed sprint tasks. Implemented performance optimizations."
         },
         {
           submissionId: "Durgesh3",
@@ -2588,7 +2619,7 @@ function TeamExecution() {
           name: "Durgesh Tiwari",
           date: "2025-01-17",
           hours: 20,
-          description: "Week of Jan 13-17. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Reviewed NPS delta and prioritized improvements."
+          description: "Week of Jan 13-17. Reviewed feedback Google Sheet and organized items into weekly sprint. Created sprint plan in Notion with story point estimates. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Executed story points and completed sprint. Reviewed NPS delta and prioritized improvements."
         },
         {
           submissionId: "Durgesh4",
@@ -2597,12 +2628,12 @@ function TeamExecution() {
           name: "Durgesh Tiwari",
           date: "2025-01-24",
           hours: 20,
-          description: "Week of Jan 20-24. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Coordinated with product team on priorities."
+          description: "Week of Jan 20-24. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Executed story points and completed sprint tasks. Coordinated with product team on priorities."
         }
       ],
       q1Goals: {
         overview: "Increase NPS through UI/UX sprint execution",
-        target: "Deliver 420+ story points across Q1 (35+ per sprint) to support +15 NPS by end of Q1",
+        target: "Deliver 240+ story points across Q1 (20+ per sprint) to support +15 NPS by end of Q1",
         weeklyBreakdown: [
           { week: 1, goal: "Set up sprint process and story point estimation", metric: "Baseline NPS, story point baseline established" },
           { week: 2, goal: "Week 2 sprint", metric: "Sprint completed: 20+ story points delivered" },
@@ -2619,7 +2650,7 @@ function TeamExecution() {
           { week: 13, goal: "Q1 final sprint", metric: "Final NPS (target +15), 240+ total story points delivered" }
         ],
         keyMetrics: [
-          "Story points delivered per sprint (target 35+)",
+          "Story points delivered per sprint (target 20+)",
           "Story points estimated vs delivered (velocity tracking)",
           "Sprint completion rate (target 90%+)",
           "NPS delta bi-weekly (supporting metric)",
@@ -2662,7 +2693,7 @@ function TeamExecution() {
           name: "Kaushik Shridhar",
           date: "2025-01-03",
           hours: 20,
-          description: "Week of Dec 30 - Jan 3. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Reviewed and prioritized enhancement ideas."
+          description: "Week of Dec 30 - Jan 3. Reviewed feedback Google Sheet and organized items into sprint. Created sprint plan in Notion with story point estimates. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Executed story points and completed sprint tasks. Reviewed and prioritized enhancement ideas."
         },
         {
           submissionId: "Kaushik2",
@@ -2671,7 +2702,7 @@ function TeamExecution() {
           name: "Kaushik Shridhar",
           date: "2025-01-10",
           hours: 20,
-          description: "Week of Jan 6-10. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Implemented performance optimizations."
+          description: "Week of Jan 6-10. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Executed story points and completed sprint tasks. Implemented performance optimizations."
         },
         {
           submissionId: "Kaushik3",
@@ -2680,7 +2711,7 @@ function TeamExecution() {
           name: "Kaushik Shridhar",
           date: "2025-01-17",
           hours: 20,
-          description: "Week of Jan 13-17. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Reviewed NPS delta and prioritized improvements."
+          description: "Week of Jan 13-17. Reviewed feedback Google Sheet and organized items into weekly sprint. Created sprint plan in Notion with story point estimates. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Executed story points and completed sprint. Reviewed NPS delta and prioritized improvements."
         },
         {
           submissionId: "Kaushik4",
@@ -2689,12 +2720,12 @@ function TeamExecution() {
           name: "Kaushik Shridhar",
           date: "2025-01-24",
           hours: 20,
-          description: "Week of Jan 20-24. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Coordinated with product team on priorities."
+          description: "Week of Jan 20-24. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Executed story points and completed sprint tasks. Coordinated with product team on priorities."
         }
       ],
       q1Goals: {
         overview: "Increase NPS through backend and API support for UI/UX improvements",
-        target: "Deliver 420+ story points across Q1 (35+ per sprint) to support +15 NPS by end of Q1",
+        target: "Deliver 240+ story points across Q1 (20+ per sprint) to support +15 NPS by end of Q1",
         weeklyBreakdown: [
           { week: 1, goal: "Set up backend support process and story point estimation", metric: "Baseline NPS, process defined, story point baseline established" },
           { week: 2, goal: "Week 2: Backend support & bug fixes", metric: "Sprint completed: 20+ story points delivered" },
@@ -2711,7 +2742,7 @@ function TeamExecution() {
           { week: 13, goal: "Q1 final backend support review", metric: "Final NPS (target +15), 240+ total story points delivered" }
         ],
         keyMetrics: [
-          "Story points delivered per sprint (target 35+)",
+          "Story points delivered per sprint (target 20+)",
           "Story points estimated vs delivered (velocity tracking)",
           "Sprint completion rate (target 90%+)",
           "NPS delta bi-weekly (supporting metric)",
@@ -2931,7 +2962,7 @@ function TeamExecution() {
           name: "Revanth Ganga",
           date: "2025-01-03",
           hours: 20,
-          description: "Week of Dec 30 - Jan 3. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Reviewed and prioritized enhancement ideas."
+          description: "Week of Dec 30 - Jan 3. Reviewed feedback Google Sheet and organized items into sprint. Created sprint plan in Notion with story point estimates. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Executed story points and completed sprint tasks. Reviewed and prioritized enhancement ideas."
         },
         {
           submissionId: "Revanth2",
@@ -2940,7 +2971,7 @@ function TeamExecution() {
           name: "Revanth Ganga",
           date: "2025-01-10",
           hours: 20,
-          description: "Week of Jan 6-10. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Implemented performance optimizations."
+          description: "Week of Jan 6-10. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Executed story points and completed sprint tasks. Implemented performance optimizations."
         },
         {
           submissionId: "Revanth3",
@@ -2949,7 +2980,7 @@ function TeamExecution() {
           name: "Revanth Ganga",
           date: "2025-01-17",
           hours: 20,
-          description: "Week of Jan 13-17. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Reviewed NPS delta and prioritized improvements."
+          description: "Week of Jan 13-17. Reviewed feedback Google Sheet and organized items into weekly sprint. Created sprint plan in Notion with story point estimates. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Executed story points and completed sprint. Reviewed NPS delta and prioritized improvements."
         },
         {
           submissionId: "Revanth4",
@@ -2958,12 +2989,12 @@ function TeamExecution() {
           name: "Revanth Ganga",
           date: "2025-01-24",
           hours: 20,
-          description: "Week of Jan 20-24. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Coordinated with product team on priorities."
+          description: "Week of Jan 20-24. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Executed story points and completed sprint tasks. Coordinated with product team on priorities."
         }
       ],
       q1Goals: {
         overview: "Increase NPS through testing and QA for UI/UX improvements",
-        target: "Deliver 420+ story points across Q1 (35+ per sprint) to support +15 NPS by end of Q1",
+        target: "Deliver 240+ story points across Q1 (20+ per sprint) to support +15 NPS by end of Q1",
         weeklyBreakdown: [
           { week: 1, goal: "Set up QA process and story point estimation", metric: "Baseline NPS, process defined, story point baseline established" },
           { week: 2, goal: "Week 2: QA testing & bug identification", metric: "Sprint completed: 20+ story points delivered" },
@@ -2980,7 +3011,7 @@ function TeamExecution() {
           { week: 13, goal: "Q1 final QA testing review", metric: "Final NPS (target +15), 240+ total story points delivered" }
         ],
         keyMetrics: [
-          "Story points delivered per sprint (target 35+)",
+          "Story points delivered per sprint (target 20+)",
           "Story points estimated vs delivered (velocity tracking)",
           "Sprint completion rate (target 90%+)",
           "NPS delta bi-weekly (supporting metric)",
@@ -3023,7 +3054,7 @@ function TeamExecution() {
           name: "Akalpit Dawkhar",
           date: "2025-01-03",
           hours: 20,
-          description: "Week of Dec 30 - Jan 3. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Reviewed and prioritized enhancement ideas."
+          description: "Week of Dec 30 - Jan 3. Reviewed feedback Google Sheet and organized items into sprint. Created sprint plan in Notion with story point estimates. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Executed story points and completed sprint tasks. Reviewed and prioritized enhancement ideas."
         },
         {
           submissionId: "Akalpit2",
@@ -3032,7 +3063,7 @@ function TeamExecution() {
           name: "Akalpit Dawkhar",
           date: "2025-01-10",
           hours: 20,
-          description: "Week of Jan 6-10. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Implemented performance optimizations."
+          description: "Week of Jan 6-10. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Executed story points and completed sprint tasks. Implemented performance optimizations."
         },
         {
           submissionId: "Akalpit3",
@@ -3041,7 +3072,7 @@ function TeamExecution() {
           name: "Akalpit Dawkhar",
           date: "2025-01-17",
           hours: 20,
-          description: "Week of Jan 13-17. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Reviewed NPS delta and prioritized improvements."
+          description: "Week of Jan 13-17. Reviewed feedback Google Sheet and organized items into weekly sprint. Created sprint plan in Notion with story point estimates. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Executed story points and completed sprint. Reviewed NPS delta and prioritized improvements."
         },
         {
           submissionId: "Akalpit4",
@@ -3050,12 +3081,12 @@ function TeamExecution() {
           name: "Akalpit Dawkhar",
           date: "2025-01-24",
           hours: 20,
-          description: "Week of Jan 20-24. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Coordinated with product team on priorities."
+          description: "Week of Jan 20-24. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Executed story points and completed sprint tasks. Coordinated with product team on priorities."
         }
       ],
       q1Goals: {
         overview: "Increase NPS through command interface improvements",
-        target: "Deliver 420+ story points across Q1 (35+ per sprint) to support +15 NPS by end of Q1",
+        target: "Deliver 240+ story points across Q1 (20+ per sprint) to support +15 NPS by end of Q1",
         weeklyBreakdown: [
           { week: 1, goal: "Set up interface improvement process and story point estimation", metric: "Baseline NPS, process defined, story point baseline established" },
           { week: 2, goal: "Week 2: Command interface improvements & bug fixes", metric: "Sprint completed: 20+ story points delivered" },
@@ -3072,7 +3103,7 @@ function TeamExecution() {
           { week: 13, goal: "Q1 final interface improvements review", metric: "Final NPS (target +15), 240+ total story points delivered" }
         ],
         keyMetrics: [
-          "Story points delivered per sprint (target 35+)",
+          "Story points delivered per sprint (target 20+)",
           "Story points estimated vs delivered (velocity tracking)",
           "Sprint completion rate (target 90%+)",
           "NPS delta bi-weekly (supporting metric)",
@@ -3147,7 +3178,7 @@ function TeamExecution() {
       ],
       q1Goals: {
         overview: "Increase NPS through analytics and tracking for UI/UX improvements",
-        target: "Deliver 420+ story points across Q1 (35+ per sprint) to support +15 NPS by end of Q1",
+        target: "Deliver 240+ story points across Q1 (20+ per sprint) to support +15 NPS by end of Q1",
         weeklyBreakdown: [
           { week: 1, goal: "Set up analytics tracking and story point estimation", metric: "Baseline NPS, process defined, story point baseline established" },
           { week: 2, goal: "Week 2: Analytics improvements & bug fixes", metric: "Sprint completed: 20+ story points delivered" },
@@ -3164,7 +3195,7 @@ function TeamExecution() {
           { week: 13, goal: "Q1 final analytics & improvements review", metric: "Final NPS (target +15), 240+ total story points delivered" }
         ],
         keyMetrics: [
-          "Story points delivered per sprint (target 35+)",
+          "Story points delivered per sprint (target 20+)",
           "Story points estimated vs delivered (velocity tracking)",
           "Sprint completion rate (target 90%+)",
           "NPS delta bi-weekly (supporting metric)",

@@ -160,7 +160,7 @@ function TeamMemberModal({ member, isOpen, onClose }) {
           {member.timeLogs && member.timeLogs.length > 0 && (
             <div className="modal-section">
               <h3>Time Breakdown</h3>
-              <TimeBreakdownChart timeLogs={member.timeLogs} />
+              <TimeBreakdownChart timeLogs={member.timeLogs} memberName={member.name} />
             </div>
           )}
 

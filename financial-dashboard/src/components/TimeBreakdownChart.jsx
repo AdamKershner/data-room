@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts'
 import './TimeBreakdownChart.css'
 
-function TimeBreakdownChart({ timeLogs = [] }) {
+function TimeBreakdownChart({ timeLogs = [], memberName = '' }) {
   // Parse time logs and aggregate by task/project
   const timeBreakdown = useMemo(() => {
     if (!timeLogs || timeLogs.length === 0) {
@@ -20,11 +20,23 @@ function TimeBreakdownChart({ timeLogs = [] }) {
       'Engineering Standup': 0.5, // 30 minutes
     }
 
+    // Add 1-on-1 meeting time
+    // Adam has 1-on-1s with all other team members (33 others = 8.25 hours)
+    // Everyone else has 1-on-1 with Adam (15 minutes = 0.25 hours)
+    const isAdam = memberName && memberName.toLowerCase().includes('adam')
+    const ONE_ON_ONE_HOURS = isAdam ? 8.25 : 0.25 // Adam: 33 meetings × 15 min = 495 min = 8.25 hrs; Others: 1 meeting × 15 min = 0.25 hrs
+    const ONE_ON_ONE_TASK_NAME = '1-on-1 Meetings'
+
+    // Add 1-on-1 meeting time once (not per timeLog entry)
+    if (!taskHours[ONE_ON_ONE_TASK_NAME]) {
+      taskHours[ONE_ON_ONE_TASK_NAME] = ONE_ON_ONE_HOURS
+    }
+
     timeLogs.forEach(log => {
       const hours = parseFloat(log.hours) || 0
       totalHours += hours
 
-      // Add standard hours for this week (1.25 hours total)
+      // Add standard hours for this week (1.25 hours total per timeLog entry)
       Object.entries(STANDARD_WEEKLY_HOURS).forEach(([taskName, standardHours]) => {
         if (!taskHours[taskName]) {
           taskHours[taskName] = 0
@@ -33,16 +45,42 @@ function TimeBreakdownChart({ timeLogs = [] }) {
       })
 
       // Calculate discretionary time (logged hours minus standard 1.25 hours)
+      // Note: 1-on-1 time is already added above, so we don't subtract it here
       const discretionaryHours = Math.max(0, hours - 1.25)
 
       // Parse description to extract tasks
       // Look for common task patterns in the description
       const description = (log.description || '').toLowerCase()
       
-      // Try to identify tasks from description
+      // Try to identify tasks from description (check more specific patterns first)
       let taskName = 'Other'
       
-      if (description.includes('ui/ux') || description.includes('ui') || description.includes('ux')) {
+      // Feedback loop specific activities (check first for specificity)
+      // Prioritize execution/development work over planning (engineers spend ~1hr/week planning, rest is development)
+      if (description.includes('install') && (description.includes('installations page') || description.includes('installations'))) {
+        taskName = 'Product Testing'
+      } else if (description.includes('installed') && (description.includes('release') || description.includes('version'))) {
+        taskName = 'Product Testing'
+      } else if (description.includes('feedback form') || (description.includes('submitted feedback') && description.includes('form'))) {
+        taskName = 'Product Testing'
+      } else if (description.includes('create') && description.includes('release') && (description.includes('installations') || description.includes('page'))) {
+        taskName = 'Release Management'
+      } else if (description.includes('updated installations page') || description.includes('update installations')) {
+        taskName = 'Release Management'
+      } else if (description.includes('executed story points') || description.includes('completed sprint tasks')) {
+        taskName = 'Product Development'
+      } else if (description.includes('story point') && (description.includes('execute') || description.includes('completed') || description.includes('delivered'))) {
+        taskName = 'Product Development'
+      } else if (description.includes('implemented') || description.includes('developed') || description.includes('fixed') || description.includes('improved') || 
+                 description.includes('worked on') || description.includes('focused on')) {
+        // Development work - prioritize this over planning (most of engineer's time)
+        taskName = 'Feature Development'
+      } else if (description.includes('reviewed feedback google sheet') && 
+                 (description.includes('organized') || description.includes('estimate') || description.includes('plan')) &&
+                 !description.includes('executed') && !description.includes('implemented') && !description.includes('completed')) {
+        // Only categorize as Sprint Planning if it's ONLY about planning/organizing, not execution
+        taskName = 'Sprint Planning'
+      } else if (description.includes('ui/ux') || description.includes('ui') || description.includes('ux')) {
         taskName = 'UI/UX Development'
       } else if (description.includes('testing') || description.includes('test')) {
         taskName = 'Testing & QA'
@@ -52,7 +90,8 @@ function TimeBreakdownChart({ timeLogs = [] }) {
         taskName = 'Bug Fixes'
       } else if (description.includes('feature') || description.includes('development')) {
         taskName = 'Feature Development'
-      } else if (description.includes('sprint') || description.includes('planning')) {
+      } else if (description.includes('sprint planning') || (description.includes('sprint') && description.includes('plan'))) {
+        // Only match explicit sprint planning, not just "sprint"
         taskName = 'Sprint Planning'
       } else if (description.includes('demo') || description.includes('sales')) {
         taskName = 'Demos & Sales'
@@ -78,17 +117,20 @@ function TimeBreakdownChart({ timeLogs = [] }) {
       taskHours[taskName] += discretionaryHours
     })
 
+    // Add 1-on-1 time to total hours for accurate percentage calculation
+    const totalHoursWithOneOnOnes = totalHours + ONE_ON_ONE_HOURS
+
     // Convert to array and sort by hours
     const breakdown = Object.entries(taskHours)
       .map(([name, hours]) => ({
         name,
         hours: Math.round(hours * 10) / 10, // Round to 1 decimal
-        percentage: totalHours > 0 ? Math.round((hours / totalHours) * 100) : 0
+        percentage: totalHoursWithOneOnOnes > 0 ? Math.round((hours / totalHoursWithOneOnOnes) * 100) : 0
       }))
       .sort((a, b) => b.hours - a.hours)
 
-    return { breakdown, totalHours }
-  }, [timeLogs])
+    return { breakdown, totalHours: totalHoursWithOneOnOnes }
+  }, [timeLogs, memberName])
 
   if (timeBreakdown.breakdown.length === 0) {
     return (
