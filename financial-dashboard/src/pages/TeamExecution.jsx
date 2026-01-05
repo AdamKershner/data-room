@@ -2498,6 +2498,99 @@ function TeamExecution() {
       ]
     },
     {
+      name: "Abhinav Chandra",
+      roles: ["Sales"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: [
+        {
+          submissionId: "Abhinav1",
+          respondentId: "Abhinav",
+          submittedAt: "2025-01-10 10:00:00",
+          name: "Abhinav Chandra",
+          date: "2025-01-03",
+          hours: 20,
+          description: "Week of Dec 30 - Jan 3. Conducted product demos for prospects. Scheduled discovery calls with potential B2B customers. Followed up with demo attendees. Negotiated pilot contracts."
+        },
+        {
+          submissionId: "Abhinav2",
+          respondentId: "Abhinav",
+          submittedAt: "2025-01-17 10:00:00",
+          name: "Abhinav Chandra",
+          date: "2025-01-10",
+          hours: 20,
+          description: "Week of Jan 6-10. Conducted demos for qualified leads. Scheduled discovery calls. Followed up with prospects. Built pipeline for enterprise pilot target."
+        },
+        {
+          submissionId: "Abhinav3",
+          respondentId: "Abhinav",
+          submittedAt: "2025-01-24 10:00:00",
+          name: "Abhinav Chandra",
+          date: "2025-01-17",
+          hours: 20,
+          description: "Week of Jan 13-17. Conducted demos and discovery calls. Negotiated pilot contract terms. Followed up with prospects. Tracked pipeline value toward enterprise pilot goal."
+        },
+        {
+          submissionId: "Abhinav4",
+          respondentId: "Abhinav",
+          submittedAt: "2025-01-31 10:00:00",
+          name: "Abhinav Chandra",
+          date: "2025-01-24",
+          hours: 20,
+          description: "Week of Jan 20-24. Closed pilot contract negotiations. Conducted final demos. Followed up with signed pilots. Achieved enterprise pilot milestone."
+        }
+      ],
+      q1Goals: {
+        overview: "Drive B2B revenue through enterprise pilot acquisition",
+        target: "Close 3 enterprise pilots in Q1",
+        weeklyBreakdown: [
+          { week: 1, goal: "Research target companies and create outreach plan", metric: "20+ qualified leads identified, outreach plan ready" },
+          { week: 2, goal: "Week 2 outreach & discovery calls", metric: "5+ emails sent, 2+ responses, 1+ discovery call" },
+          { week: 3, goal: "Week 3 outreach & discovery calls", metric: "5+ emails sent, 2+ responses, 1+ discovery call" },
+          { week: 4, goal: "Week 4 demos & pipeline building", metric: "1+ demo conducted, $50K+ pipeline value" },
+          { week: 5, goal: "Week 5 demos & pipeline building", metric: "1+ demo conducted, $75K+ pipeline value" },
+          { week: 6, goal: "Week 6 demos & pipeline building", metric: "1+ demo conducted, $100K+ pipeline value" },
+          { week: 7, goal: "Week 7 pilot negotiations", metric: "1+ pilot in active negotiations, $150K+ pipeline" },
+          { week: 8, goal: "Week 8 pilot negotiations", metric: "2+ pilots in active negotiations, $200K+ pipeline" },
+          { week: 9, goal: "Week 9 pilot closing", metric: "1+ pilot closed, 2+ pilots in negotiations" },
+          { week: 10, goal: "Week 10 pilot closing", metric: "2+ pilots closed, 1+ pilot in negotiations" },
+          { week: 11, goal: "Week 11 pilot closing", metric: "3 enterprise pilots closed" },
+          { week: 12, goal: "Week 12 follow-up & confirmation", metric: "3 enterprise pilots confirmed" },
+          { week: 13, goal: "Q1 sales review", metric: "3 enterprise pilots achieved" }
+        ],
+        keyMetrics: [
+          "Enterprise pilots closed (target 3)",
+          "Qualified B2B leads generated (target 20+)",
+          "Pipeline value (target $200K+ by week 8)",
+          "Discovery calls scheduled (target 10+)",
+          "Demos conducted (target 6+)",
+          "Pilot contracts closed (target 3)"
+        ]
+      },
+      projects: [
+        {
+          title: "Enterprise Pilot Acquisition",
+          status: "active",
+          startDate: "January 2026",
+          description: "Identify, qualify, and close enterprise pilot contracts to drive B2B revenue growth.",
+          scope: [
+            "Research and identify target enterprise companies for pilot program",
+            "Create outreach sequences and email templates",
+            "Conduct discovery calls with prospects to understand needs",
+            "Schedule and conduct product demos for qualified opportunities",
+            "Negotiate pilot contract terms and pricing",
+            "Close pilot contracts and ensure successful onboarding"
+          ],
+          goals: [
+            "Generate 20+ qualified enterprise leads",
+            "Schedule 10+ discovery calls",
+            "Conduct 6+ product demos",
+            "Close 3 enterprise pilot contracts"
+          ]
+        }
+      ]
+    },
+    {
       name: "Rajrajeshwari Gaware",
       roles: ["Product"],
       employmentStatus: "intern",
@@ -3252,6 +3345,7 @@ function TeamExecution() {
           <ul className="feature-list">
             <li><strong>Engineering:</strong> Core product development and infrastructure</li>
             <li><strong>Product:</strong> Feature definition, user research, roadmap planning</li>
+            <li><strong>Product Marketing:</strong> Growth marketing, content creation, and subscriber acquisition</li>
             <li><strong>Design:</strong> UX/UI design and user experience optimization</li>
             <li><strong>Support:</strong> Customer success and technical support</li>
             <li><strong>Sales/BD:</strong> B2B pilot development and expansion</li>
