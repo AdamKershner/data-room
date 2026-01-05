@@ -34,12 +34,12 @@ function TeamGallery({ teamMembers = [] }) {
     
     // Marketing team goal
     if (member.roles.includes('Marketing')) {
-      return '40 Paying Subscribers (Q1)'
+      return '40 Paying Subscribers'
     }
     
     // Sales team goal
     if (member.roles.includes('Sales')) {
-      return '$50,000 ARR'
+      return '3 enterprise pilots'
     }
     
     // Design team goal
@@ -167,7 +167,7 @@ function TeamGallery({ teamMembers = [] }) {
                 >
                   {getTeamGoal(member) && (
                     <div className="team-member-goal">
-                      <span className="team-goal-label">Team Goal:</span>
+                      <span className="team-goal-label">Quarterly Team Goal:</span>
                       <span className="team-goal-value">{getTeamGoal(member)}</span>
                     </div>
                   )}

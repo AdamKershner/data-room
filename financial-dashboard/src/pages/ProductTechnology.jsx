@@ -1,5 +1,6 @@
 import React from 'react'
 import './Page.css'
+import FeedbackLoopDiagram from '../components/FeedbackLoopDiagram'
 
 function ProductTechnology() {
   return (
@@ -131,7 +132,10 @@ function ProductTechnology() {
           <p>
             Our feedback process follows a structured weekly cycle:
           </p>
-          <ol className="feature-list" style={{ paddingLeft: '20px', listStyleType: 'decimal' }}>
+          
+          <FeedbackLoopDiagram />
+          
+          <ol className="feature-list" style={{ paddingLeft: '20px', listStyleType: 'decimal', marginTop: '30px' }}>
             <li>
               <strong>Installation & Testing:</strong> Product managers install the browser from the 
               installations page and begin using it in their daily workflows.
@@ -140,6 +144,11 @@ function ProductTechnology() {
               <strong>Feedback Collection:</strong> As product managers use the browser, they access 
               the feedback form directly through the AI assistant interface (easily accessible within 
               the browser) to document bugs, enhancement ideas, feature requests, and other observations.
+            </li>
+            <li>
+              <strong>Measurement:</strong> After testing, product testers complete the PMF (Product-Market Fit) 
+              and NPS (Net Promoter Score) survey to provide quantitative data about their satisfaction 
+              and product experience.
             </li>
             <li>
               <strong>Consolidation:</strong> All feedback automatically consolidates into the Google Sheet, 
@@ -153,11 +162,6 @@ function ProductTechnology() {
             <li>
               <strong>Weekly Releases:</strong> Each week, a new release is published to the installations 
               page, making updates available for the product team to reinstall and test.
-            </li>
-            <li>
-              <strong>Measurement:</strong> After each round of updates, product testers complete the 
-              PMF (Product-Market Fit) and NPS (Net Promoter Score) survey to provide quantitative data 
-              about their satisfaction and product experience.
             </li>
           </ol>
           <p style={{ marginTop: '20px' }}>

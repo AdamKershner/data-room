@@ -34,12 +34,12 @@ function TeamMemberModal({ member, isOpen, onClose }) {
     
     // Marketing team goal
     if (member.roles.includes('Marketing')) {
-      return '40 Paying Subscribers (Q1)'
+      return '40 Paying Subscribers'
     }
     
     // Sales team goal
     if (member.roles.includes('Sales')) {
-      return '$50,000 ARR'
+      return '3 enterprise pilots'
     }
     
     // Design team goal
@@ -61,7 +61,7 @@ function TeamMemberModal({ member, isOpen, onClose }) {
         <div className="modal-header">
           {getTeamGoal(member) && (
             <div className="modal-team-goal">
-              <span className="modal-goal-label">Team Goal:</span>
+              <span className="modal-goal-label">Quarterly Team Goal:</span>
               <span className="modal-goal-value">{getTeamGoal(member)}</span>
             </div>
           )}

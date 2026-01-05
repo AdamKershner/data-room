@@ -1,0 +1,154 @@
+.feedback-loop-diagram {
+  margin: 40px 0;
+  padding: 30px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  border: 2px solid #dee2e6;
+}
+
+.flow-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.flow-step {
+  flex: 1;
+  min-width: 140px;
+  max-width: 180px;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--oasis-green-medium, #7A9200);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+
+.flow-step:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.step-number {
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  width: 30px;
+  height: 30px;
+  background: var(--oasis-green-medium, #7A9200);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.step-content {
+  margin-top: 10px;
+}
+
+.step-content h4 {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+  color: var(--oasis-green-medium, #7A9200);
+  font-weight: 600;
+}
+
+.step-content p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.flow-arrow {
+  font-size: 2rem;
+  color: var(--oasis-green-medium, #7A9200);
+  font-weight: bold;
+  flex-shrink: 0;
+  margin: 0 5px;
+}
+
+.loop-back {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px dashed #ccc;
+}
+
+.loop-arrow {
+  font-size: 2.5rem;
+  color: var(--oasis-green-medium, #7A9200);
+  margin-bottom: 10px;
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loop-back p {
+  margin: 0;
+  color: #666;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .flow-container {
+    justify-content: center;
+  }
+  
+  .flow-step {
+    min-width: 120px;
+    max-width: 160px;
+    padding: 15px;
+  }
+  
+  .flow-arrow {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .feedback-loop-diagram {
+    padding: 20px;
+  }
+  
+  .flow-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .flow-step {
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .flow-arrow {
+    transform: rotate(90deg);
+    margin: 10px 0;
+  }
+  
+  .step-content h4 {
+    font-size: 1.1rem;
+  }
+  
+  .step-content p {
+    font-size: 0.9rem;
+  }
+}
+
