@@ -96,7 +96,7 @@ function TimeBreakdownChart({ timeLogs = [], memberName = '' }) {
       } else if (description.includes('demo') || description.includes('sales')) {
         taskName = 'Demos & Sales'
       } else if (description.includes('content') || description.includes('marketing')) {
-        taskName = 'Content & Marketing'
+        taskName = 'Growth Marketing'
       } else if (description.includes('design')) {
         taskName = 'Design'
       } else if (description.includes('infrastructure') || description.includes('devops') || description.includes('ci/cd')) {
