@@ -1238,7 +1238,7 @@ function TeamExecution() {
     },
     {
       name: "Rashmila Mitra",
-      roles: ["Product"],
+      roles: ["Product Marketing"],
       employmentStatus: "intern",
       hoursPerWeek: 20,
       timeLogs: [
