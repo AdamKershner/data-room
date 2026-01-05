@@ -33,10 +33,15 @@ function TimeBreakdownChartSmall({ timeLogs = [] }) {
         taskName = 'Product Development'
       } else if (description.includes('story point') && (description.includes('execute') || description.includes('completed') || description.includes('delivered'))) {
         taskName = 'Product Development'
-      } else if (description.includes('implemented') || description.includes('developed') || description.includes('fixed') || description.includes('improved') || 
-                 description.includes('worked on') || description.includes('focused on')) {
-        // Development work - prioritize this over planning (most of engineer's time)
-        taskName = 'Development'
+      } else if (description.includes('product hunt') || description.includes('social media') || description.includes('content calendar') || 
+                 description.includes('content strategy') || description.includes('content ideas') || description.includes('content themes') ||
+                 description.includes('content marketing') || description.includes('marketing initiatives') || description.includes('sign-ups') ||
+                 description.includes('conversion metrics') || description.includes('subscriber growth') || description.includes('launch') ||
+                 description.includes('content assets') || description.includes('demo video') || description.includes('screenshots')) {
+        // Marketing activities - check BEFORE generic "developed"/"worked on" to avoid misclassification
+        taskName = 'Growth Marketing'
+      } else if (description.includes('content') || description.includes('marketing')) {
+        taskName = 'Growth Marketing'
       } else if (description.includes('reviewed feedback google sheet') && 
                  (description.includes('organized') || description.includes('estimate') || description.includes('plan')) &&
                  !description.includes('executed') && !description.includes('implemented') && !description.includes('completed')) {
@@ -58,8 +63,10 @@ function TimeBreakdownChartSmall({ timeLogs = [] }) {
         taskName = 'Planning'
       } else if (description.includes('demo') || description.includes('sales')) {
         taskName = 'Demos'
-      } else if (description.includes('content') || description.includes('marketing')) {
-        taskName = 'Growth Marketing'
+      } else if (description.includes('implemented') || description.includes('developed') || description.includes('fixed') || description.includes('improved') || 
+                 description.includes('worked on') || description.includes('focused on')) {
+        // Development work - check AFTER marketing to avoid misclassifying marketing activities
+        taskName = 'Development'
       } else if (description.includes('design')) {
         taskName = 'Design'
       } else if (description.includes('infrastructure') || description.includes('devops')) {
