@@ -39,9 +39,9 @@ function TimeBreakdownChartSmall({ timeLogs = [] }) {
                  description.includes('conversion metrics') || description.includes('subscriber growth') || description.includes('launch') ||
                  description.includes('content assets') || description.includes('demo video') || description.includes('screenshots')) {
         // Marketing activities - check BEFORE generic "developed"/"worked on" to avoid misclassification
-        taskName = 'Growth Marketing'
+        taskName = 'Product Marketing'
       } else if (description.includes('content') || description.includes('marketing')) {
-        taskName = 'Growth Marketing'
+        taskName = 'Product Marketing'
       } else if (description.includes('reviewed feedback google sheet') && 
                  (description.includes('organized') || description.includes('estimate') || description.includes('plan')) &&
                  !description.includes('executed') && !description.includes('implemented') && !description.includes('completed')) {

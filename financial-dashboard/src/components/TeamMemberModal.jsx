@@ -9,7 +9,7 @@ function TeamMemberModal({ member, isOpen, onClose }) {
     const roleColors = {
       'Engineering': '#4A90E2',
       'Product': '#7B68EE',
-      'Marketing': '#FF6B6B',
+      'Product Marketing': '#FF6B6B',
       'Analytics': '#4ECDC4',
       'Sales': '#FFA07A',
       'Customer Success': '#98D8C8',
@@ -32,8 +32,8 @@ function TeamMemberModal({ member, isOpen, onClose }) {
       return '+15 NPS'
     }
     
-    // Marketing team goal
-    if (member.roles.includes('Marketing')) {
+    // Product Marketing team goal
+    if (member.roles.includes('Product Marketing')) {
       return '40 Paying Subscribers'
     }
     

@@ -172,7 +172,7 @@ function TeamExecution() {
     },
     {
       name: "Sonakshi Singh",
-      roles: ["Marketing"],
+      roles: ["Product Marketing"],
       employmentStatus: "intern",
       hoursPerWeek: 20,
       timeLogs: [
@@ -329,7 +329,7 @@ function TeamExecution() {
     },
     {
       name: "Hritik Sanjay Chalse",
-      roles: ["Marketing"],
+      roles: ["Product Marketing"],
       employmentStatus: "intern",
       hoursPerWeek: 20,
       timeLogs: [
@@ -511,7 +511,7 @@ function TeamExecution() {
     },
     {
       name: "Shivangi Chamoli",
-      roles: ["Marketing"],
+      roles: ["Product Marketing"],
       employmentStatus: "intern",
       hoursPerWeek: 20,
       timeLogs: [
@@ -693,7 +693,7 @@ function TeamExecution() {
     },
     {
       name: "Navile Mahesh",
-      roles: ["Marketing"],
+      roles: ["Product Marketing"],
       employmentStatus: "intern",
       hoursPerWeek: 20,
       timeLogs: [
@@ -781,7 +781,7 @@ function TeamExecution() {
     },
     {
       name: "Akansha Parihar",
-      roles: ["Marketing"],
+      roles: ["Product Marketing"],
       employmentStatus: "intern",
       hoursPerWeek: 20,
       timeLogs: [
@@ -1054,7 +1054,7 @@ function TeamExecution() {
     },
     {
       name: "Konika Dhull",
-      roles: ["Marketing"],
+      roles: ["Product Marketing"],
       employmentStatus: "intern",
       hoursPerWeek: 20,
       timeLogs: [
@@ -2863,7 +2863,7 @@ function TeamExecution() {
     },
     {
       name: "Shloka Hajare",
-      roles: ["Marketing"],
+      roles: ["Product Marketing"],
       employmentStatus: "intern",
       hoursPerWeek: 20,
       timeLogs: [

@@ -77,9 +77,9 @@ function TimeBreakdownChart({ timeLogs = [], memberName = '' }) {
                  description.includes('conversion metrics') || description.includes('subscriber growth') || description.includes('launch') ||
                  description.includes('content assets') || description.includes('demo video') || description.includes('screenshots')) {
         // Marketing activities - check BEFORE generic "developed"/"worked on" to avoid misclassification
-        taskName = 'Growth Marketing'
+        taskName = 'Product Marketing'
       } else if (description.includes('content') || description.includes('marketing')) {
-        taskName = 'Growth Marketing'
+        taskName = 'Product Marketing'
       } else if (description.includes('reviewed feedback google sheet') && 
                  (description.includes('organized') || description.includes('estimate') || description.includes('plan')) &&
                  !description.includes('executed') && !description.includes('implemented') && !description.includes('completed')) {
@@ -124,7 +124,7 @@ function TimeBreakdownChart({ timeLogs = [], memberName = '' }) {
                   description.includes('video') || description.includes('assets') || description.includes('calendar') ||
                   description.includes('strategy') || description.includes('themes') || description.includes('ideas'))) {
         // Marketing-related activities
-        taskName = 'Growth Marketing'
+        taskName = 'Product Marketing'
       }
 
       if (!taskHours[taskName]) {
