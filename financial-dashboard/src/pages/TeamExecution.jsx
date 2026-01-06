@@ -1519,6 +1519,96 @@ function TeamExecution() {
       ]
     },
     {
+      name: "Rohan Mehere",
+      roles: ["Sales"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: [
+        {
+          submissionId: "Rohan1",
+          respondentId: "Rohan",
+          submittedAt: "2025-01-10 10:00:00",
+          name: "Rohan Mehere",
+          date: "2025-01-03",
+          hours: 20,
+          description: "Week of Dec 30 - Jan 3. Conducted product demos for prospects. Scheduled discovery calls with potential B2B customers. Followed up with demo attendees. Negotiated pilot contracts."
+        },
+        {
+          submissionId: "Rohan2",
+          respondentId: "Rohan",
+          submittedAt: "2025-01-17 10:00:00",
+          name: "Rohan Mehere",
+          date: "2025-01-10",
+          hours: 20,
+          description: "Week of Jan 6-10. Conducted demos for qualified leads. Scheduled discovery calls. Followed up with prospects. Built pipeline for $50K ARR target."
+        },
+        {
+          submissionId: "Rohan3",
+          respondentId: "Rohan",
+          submittedAt: "2025-01-24 10:00:00",
+          name: "Rohan Mehere",
+          date: "2025-01-17",
+          hours: 20,
+          description: "Week of Jan 13-17. Conducted demos and discovery calls. Negotiated pilot contract terms. Followed up with prospects. Tracked pipeline value toward $50K ARR goal."
+        },
+        {
+          submissionId: "Rohan4",
+          respondentId: "Rohan",
+          submittedAt: "2025-01-31 10:00:00",
+          name: "Rohan Mehere",
+          date: "2025-01-24",
+          hours: 20,
+          description: "Week of Jan 20-24. Closed pilot contract negotiations. Conducted final demos. Followed up with signed pilots. Achieved $50K ARR milestone."
+        }
+      ],
+      q1Goals: {
+        overview: "Drive B2B revenue through demo execution and pilot acquisition",
+        target: "Generate $50,000 ARR in Q1 (1 pilot at $50K or 2 pilots at $25K each)",
+        weeklyBreakdown: [
+          { week: 1, goal: "Create demo scripts and research leads", metric: "Scripts ready, 20+ qualified leads identified" },
+          { week: 2, goal: "Week 2 demos", metric: "1+ demo conducted, 2+ responses" },
+          { week: 3, goal: "Week 3 demos", metric: "1+ demo conducted, 2+ responses" },
+          { week: 4, goal: "Week 4 demos & discovery calls", metric: "1+ demo conducted, 1+ discovery call, $25K+ pipeline" },
+          { week: 5, goal: "Week 5 demos & discovery calls", metric: "1+ demo conducted, 1+ discovery call, $50K+ pipeline" },
+          { week: 6, goal: "Week 6 demos & discovery calls", metric: "1+ demo conducted, 1+ discovery call, $75K+ pipeline" },
+          { week: 7, goal: "Week 7 demos & negotiations", metric: "1+ demo conducted, $100K+ pipeline" },
+          { week: 8, goal: "Week 8 demos & negotiations", metric: "1+ demo conducted, $100K+ pipeline" },
+          { week: 9, goal: "Week 9 demos & negotiations", metric: "$50K+ ARR in active negotiations" },
+          { week: 10, goal: "Week 10 demos & negotiations", metric: "$50K+ ARR in active negotiations" },
+          { week: 11, goal: "Week 11 pilot closing", metric: "$50K ARR closed" },
+          { week: 12, goal: "Week 12 follow-up", metric: "$50K ARR confirmed" },
+          { week: 13, goal: "Q1 sales review", metric: "$50,000 ARR achieved" }
+        ],
+        keyMetrics: [
+          "ARR generated (target $50,000)",
+          "Qualified B2B leads generated (target 20+)",
+          "Pipeline value (target $100K+ by week 7)",
+          "Demos conducted (target 10+)",
+          "Discovery calls scheduled (target 5+)",
+          "Pilot contracts closed (1 at $50K or 2 at $25K)"
+        ]
+      },
+      projects: [
+        {
+          title: "Demo Preparation & Execution",
+          status: "active",
+          startDate: "January 2026",
+          description: "Prepare and conduct product demos for potential B2C and B2B customers.",
+          scope: [
+            "Create standardized demo scripts and flows",
+            "Prepare demo environments and test scenarios",
+            "Conduct live demos for prospects",
+            "Collect feedback and follow up with demo attendees"
+          ],
+          goals: [
+            "Conduct 10+ product demos",
+            "Achieve 30%+ demo-to-signup conversion rate",
+            "Create demo best practices documentation"
+          ]
+        }
+      ]
+    },
+    {
       name: "Rushyanth Nerellakunta",
       roles: ["Engineering"],
       employmentStatus: "intern",
@@ -1556,6 +1646,100 @@ function TeamExecution() {
           respondentId: "Rushyanth",
           submittedAt: "2025-01-31 10:00:00",
           name: "Rushyanth Nerellakunta",
+          date: "2025-01-24",
+          hours: 20,
+          description: "Week of Jan 20-24. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Executed story points and completed sprint tasks. Coordinated with product team on priorities."
+        }
+      ],
+      q1Goals: {
+        overview: "Increase NPS through sprint planning and execution",
+        target: "Deliver 240+ story points across Q1 (20+ per sprint) to support +15 NPS by end of Q1",
+        weeklyBreakdown: [
+          { week: 1, goal: "Set up sprint planning process and story point estimation", metric: "Baseline NPS, process defined, story point baseline established" },
+          { week: 2, goal: "Week 2 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 3, goal: "Week 3 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 4, goal: "Week 4: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +3-5), sprint planned: 20+ story points estimated" },
+          { week: 5, goal: "Week 5 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 6, goal: "Week 6 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 7, goal: "Week 7: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +6-8), sprint planned: 20+ story points estimated" },
+          { week: 8, goal: "Week 8 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 9, goal: "Week 9 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 10, goal: "Week 10: Bi-weekly NPS check & sprint planning", metric: "NPS measured (target +9-11), sprint planned: 20+ story points estimated" },
+          { week: 11, goal: "Week 11 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 12, goal: "Week 12 sprint: Bug fixes & improvements", metric: "Sprint completed: 20+ story points delivered" },
+          { week: 13, goal: "Q1 final sprint review", metric: "Final NPS (target +15), 240+ total story points delivered" }
+        ],
+        keyMetrics: [
+          "Story points delivered per sprint (target 20+)",
+          "Story points estimated vs delivered (velocity tracking)",
+          "Sprint completion rate (target 90%+)",
+          "NPS delta bi-weekly (supporting metric)",
+          "Demo quality enhancement"
+        ]
+      },
+      projects: [
+        {
+          title: "UI/UX Improvements - Sprint Planning & Execution",
+          status: "active",
+          startDate: "January 2026",
+          description: "Participate in the continuous feedback loop: review feedback Google Sheet, organize items into sprints with story point estimates, execute story points, complete sprint tasks, and plan and execute weekly sprints implementing UI/UX improvements to enhance demo quality and product-market fit.",
+          scope: [
+            "Review feedback Google Sheet (consolidated from feedback forms)",
+            "Organize feedback items into weekly sprints in Notion",
+            "Estimate story points for each sprint item",
+            "Execute story points and complete sprint tasks",
+            "Prioritize UI/UX improvements based on NPS impact and demo relevance",
+            "Implement UI/UX improvements focused on product polish",
+            "Track NPS delta weekly to measure sprint success",
+            "Create positive feedback loop with product team"
+          ],
+          goals: [
+            "Complete prioritized UI/UX improvements weekly",
+            "Achieve positive NPS delta each week",
+            "Improve demo quality through better UI/UX",
+            "Increase product-market fit through iterative improvements"
+          ]
+        }
+      ]
+    },
+    {
+      name: "Davis Victor",
+      roles: ["Engineering"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: [
+        {
+          submissionId: "Davis1",
+          respondentId: "Davis",
+          submittedAt: "2025-01-10 10:00:00",
+          name: "Davis Victor",
+          date: "2025-01-03",
+          hours: 20,
+          description: "Week of Dec 30 - Jan 3. Reviewed feedback Google Sheet and organized items into sprint. Created sprint plan in Notion with story point estimates. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Executed story points and completed sprint tasks. Reviewed and prioritized enhancement ideas."
+        },
+        {
+          submissionId: "Davis2",
+          respondentId: "Davis",
+          submittedAt: "2025-01-17 10:00:00",
+          name: "Davis Victor",
+          date: "2025-01-10",
+          hours: 20,
+          description: "Week of Jan 6-10. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Executed story points and completed sprint tasks. Implemented performance optimizations."
+        },
+        {
+          submissionId: "Davis3",
+          respondentId: "Davis",
+          submittedAt: "2025-01-24 10:00:00",
+          name: "Davis Victor",
+          date: "2025-01-17",
+          hours: 20,
+          description: "Week of Jan 13-17. Reviewed feedback Google Sheet and organized items into weekly sprint. Created sprint plan in Notion with story point estimates. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Executed story points and completed sprint. Reviewed NPS delta and prioritized improvements."
+        },
+        {
+          submissionId: "Davis4",
+          respondentId: "Davis",
+          submittedAt: "2025-01-31 10:00:00",
+          name: "Davis Victor",
           date: "2025-01-24",
           hours: 20,
           description: "Week of Jan 20-24. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Executed story points and completed sprint tasks. Coordinated with product team on priorities."
