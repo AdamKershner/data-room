@@ -13,6 +13,42 @@ function ExecutiveSummary() {
       </div>
 
       <section className="page-section">
+        <h2>Purpose</h2>
+        <div className="content-block">
+          <p>
+            This business plan serves as a comprehensive guide for Oasis Browser's strategy, operations, 
+            and goals. The scope of this document is to function as a <strong>business plan</strong> that:
+          </p>
+          <ul className="feature-list">
+            <li>
+              <strong>Onboards new team members</strong> by providing a clear understanding of the business, 
+              its goals, and how their work contributes to our success
+            </li>
+            <li>
+              <strong>Communicates key business information</strong> to existing internal teams, ensuring 
+              everyone has access to the same strategic context and financial projections
+            </li>
+            <li>
+              <strong>Guides collective discussion and alignment</strong> on business goals and key metrics, 
+              creating a shared framework for decision-making
+            </li>
+            <li>
+              <strong>Helps everyone understand what execution is needed</strong> to achieve our goals, 
+              providing clarity on priorities and required actions
+            </li>
+            <li>
+              <strong>Assists with allocating collective time wisely</strong> to achieve goals, ensuring 
+              resources are focused on the highest-impact activities
+            </li>
+          </ul>
+          <p style={{ marginTop: '20px' }}>
+            This document is a living resource that evolves with the business, serving as both a strategic 
+            roadmap and a practical guide for day-to-day execution.
+          </p>
+        </div>
+      </section>
+
+      <section className="page-section">
         <h2>Business Overview</h2>
         <div className="content-block">
           <p>
