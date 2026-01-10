@@ -163,6 +163,11 @@ function ProductTechnology() {
             making it the primary metric we use to measure improvement and guide product priorities.
           </p>
           <p style={{ marginTop: '15px' }}>
+            Baseline NPS scores will be established by the product team who will test the Mac Silicon version 
+            available at <a href="https://kahana.co/installations" target="_blank" rel="noopener noreferrer">kahana.co/installations</a>, 
+            starting January 2026. Windows release is being worked on as a top priority.
+          </p>
+          <p style={{ marginTop: '15px' }}>
             All performance, reliability, and UX improvements are evaluated against their impact on NPS. 
             The following milestones represent key areas where we're focusing improvements:
           </p>
