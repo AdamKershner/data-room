@@ -3516,51 +3516,6 @@ function TeamExecution() {
       </div>
 
       <section className="page-section">
-        <h2>Executive Summary</h2>
-        <div className="content-block">
-          <h3>Average Monthly Burn - Tools & Platform Subscriptions</h3>
-          <p>
-            The following monthly costs are included in our average monthly burn for subscriptions to tools and platforms:
-          </p>
-          <ul className="feature-list">
-            <li><strong>G-Suite:</strong> $26.00/month</li>
-            <li><strong>Google Cloud (Firebase storage & database reads):</strong> $25.00/month</li>
-            <li><strong>GitHub:</strong> $12.00/month</li>
-            <li><strong>Heroku:</strong> $25.00/month</li>
-            <li><strong>Figma:</strong> $61.50/month</li>
-            <li><strong>AWS:</strong> $15.00/month (EC2 and Lambda functions)</li>
-            <li><strong>Gemini API:</strong> Usage-based pricing (Pay-as-you-go tier). Primarily billed per 1 million tokens for input/output. Models like Gemini 2.5 Pro and Flash have different rates, with tiered pricing for larger contexts. Free tiers available for testing through Google AI Studio with usage limits. Pricing varies between Google AI Studio and Vertex AI, with additional costs for advanced features like grounding and context caching. Reference: <a href="https://ai.google.dev/pricing" target="_blank" rel="noopener noreferrer">Gemini API Pricing</a></li>
-            <li><strong>Deepgram API:</strong> Usage-based pricing varying by model. Speech-to-text models: Flux and Nova-3 (Monolingual) at $0.0077/min, Nova-3 (Multilingual) at $0.0092/min, Nova-1 & 2 at $0.0058/min, Enhanced at $0.0165/min, Base at $0.0145/min. Voice Agent API: Standard tier at $0.0800/min (pay-as-you-go). Billed per second for fairness. Free tier available with $200 credit. Custom enterprise pricing and volume discounts available. Reference: <a href="https://deepgram.com/pricing" target="_blank" rel="noopener noreferrer">Deepgram Pricing</a></li>
-          </ul>
-
-          <h3 style={{ marginTop: '30px' }}>Oasis AI Assistant API Costs</h3>
-          <p>
-            Gemini and Deepgram APIs power the Oasis AI assistant. Costs are incurred whenever the assistant processes a command. Based on current usage patterns and API pricing:
-          </p>
-          <ul className="feature-list">
-            <li><strong>Text command:</strong> $0.002 per request (all-in cost including AWS, Gemini, and Deepgram)</li>
-            <li><strong>Voice command:</strong> $0.02 per request (all-in cost including AWS, Gemini, and Deepgram)</li>
-          </ul>
-          <p style={{ marginTop: '15px' }}>
-            <strong>Note:</strong> These are example ballpark numbers based on current usage patterns. Actual costs should be calculated from AWS, Gemini, and Deepgram invoices to determine the true average cost per request.
-          </p>
-
-          <h3 style={{ marginTop: '30px' }}>Capacity Planning with $3/month Budget</h3>
-          <p>
-            With the example unit costs above, a $3/month budget for AI assistant usage would support:
-          </p>
-          <ul className="feature-list">
-            <li><strong>Text-only usage:</strong> ~1,500 text commands per month ($3 / $0.002 = 1,500 commands)</li>
-            <li><strong>Voice-only usage:</strong> ~150 voice commands per month ($3 / $0.02 = 150 commands)</li>
-            <li><strong>Mixed usage:</strong> A combination where each voice command uses approximately 10x the budget of a text command</li>
-          </ul>
-          <p style={{ marginTop: '15px' }}>
-            This capacity structure provides reasonable limits for users while maintaining cost control for the platform.
-          </p>
-        </div>
-      </section>
-
-      <section className="page-section">
         <h2>Team</h2>
         <div className="content-block">
           <p>

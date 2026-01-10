@@ -8,8 +8,6 @@ import BusinessModel from './pages/BusinessModel'
 import GoToMarket from './pages/GoToMarket'
 import FinancialPlan from './pages/FinancialPlan'
 import TeamExecution from './pages/TeamExecution'
-import Funding from './pages/Funding'
-import Appendices from './pages/Appendices'
 import './App.css'
 
 function App() {
@@ -25,8 +23,6 @@ function App() {
           <Route path="/go-to-market" element={<GoToMarket />} />
           <Route path="/financial-plan" element={<FinancialPlan />} />
           <Route path="/team-execution" element={<TeamExecution />} />
-          <Route path="/funding" element={<Funding />} />
-          <Route path="/appendices" element={<Appendices />} />
         </Routes>
       </div>
     </Router>

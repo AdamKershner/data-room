@@ -16,7 +16,7 @@ function GoToMarket() {
             We are not starting from scratch on marketing. Last quarter, we achieved <strong>818K impressions 
             in Google Search Console</strong>, representing an <strong>87% increase</strong> and demonstrating 
             strong organic traction. Our marketing team is implementing Google tags and attribution mechanisms 
-            on the website to measure and optimize conversion rates, enabling data-driven growth decisions.
+            on the <a href="https://kahana.co" target="_blank" rel="noopener noreferrer">website</a> to measure and optimize conversion rates, enabling data-driven growth decisions.
           </p>
 
           <h3 style={{ marginTop: '30px' }}>Marketing Strategy Evolution</h3>
@@ -91,6 +91,47 @@ function GoToMarket() {
             Expansion is driven by demonstrated ROI, user adoption metrics, and organic 
             word-of-mouth within the organization.
           </p>
+
+          <h3 style={{ marginTop: '30px' }}>B2B Champions</h3>
+          <p>
+            We are building relationships with key champions who can help drive B2B pilot adoption 
+            within their organizations. These champions understand the value of Oasis Browser and 
+            can advocate for pilot programs and broader deployment.
+          </p>
+          <ul className="feature-list">
+            <li>
+              <strong>Jonathan Gans (Former CEO of Kahana):</strong> Will become a champion at 
+              Angellist, leveraging his network and understanding of the product to drive adoption 
+              within the organization.
+            </li>
+            <li>
+              <strong>Private Equity and VC Firm Prospects:</strong> We have prospects at private 
+              equity and VC firms who are interested in trying the browser. These early adopters 
+              could become champions for B2B pilots, as they understand the productivity challenges 
+              faced by knowledge workers and can see the value proposition for their portfolio 
+              companies and internal teams.
+            </li>
+          </ul>
+
+          <h3 style={{ marginTop: '30px' }}>Champion Discovery Strategy</h3>
+          <p>
+            We are actively pursuing multiple channels to discover and connect with potential B2B 
+            champions:
+          </p>
+          <ul className="feature-list">
+            <li>
+              <strong>Alumni Networks:</strong> We have discovered that connecting with alumni networks 
+              can lead to meeting prospects and champions. These networks provide access to professionals 
+              who may be in decision-making roles at target companies and can facilitate introductions 
+              and pilot opportunities.
+            </li>
+            <li>
+              <strong>In-Person Networking Events and Conferences:</strong> We will identify and attend 
+              relevant in-person networking events and conferences where we can meet prospects face-to-face. 
+              These events provide opportunities to demonstrate the product, build relationships, and 
+              identify potential champions who could drive B2B pilot adoption within their organizations.
+            </li>
+          </ul>
         </div>
       </section>
 

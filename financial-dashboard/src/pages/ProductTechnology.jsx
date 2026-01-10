@@ -134,40 +134,6 @@ function ProductTechnology() {
           </p>
           
           <FeedbackLoopDiagram />
-          
-          <ol className="feature-list" style={{ paddingLeft: '20px', listStyleType: 'decimal', marginTop: '30px' }}>
-            <li>
-              <strong>Installation & Testing:</strong> Product managers install the browser from the 
-              installations page and begin using it in their daily workflows.
-            </li>
-            <li>
-              <strong>Feedback Collection:</strong> As product managers use the browser, they access 
-              the feedback form directly through the AI assistant interface (easily accessible within 
-              the browser) to document bugs, enhancement ideas, feature requests, and other observations.
-            </li>
-            <li>
-              <strong>Measurement:</strong> After testing, product testers complete the PMF (Product-Market Fit) 
-              and NPS (Net Promoter Score) survey to provide quantitative data about their satisfaction 
-              and product experience.
-            </li>
-            <li>
-              <strong>Consolidation:</strong> All feedback automatically consolidates into the Google Sheet, 
-              creating a centralized repository of all user input and issues.
-            </li>
-            <li>
-              <strong>Sprint Planning:</strong> Engineers review the Google Sheet and organize feedback 
-              into weekly sprints, prioritizing items based on impact and feasibility. Sprint planning 
-              is tracked in Notion.
-            </li>
-            <li>
-              <strong>Weekly Releases:</strong> Each week, a new release is published to the installations 
-              page, making updates available for the product team to reinstall and test.
-            </li>
-          </ol>
-          <p style={{ marginTop: '20px' }}>
-            This continuous cycle ensures rapid iteration, data-driven improvements, and alignment 
-            between user needs and product development priorities.
-          </p>
         </div>
       </section>
 
@@ -190,12 +156,26 @@ function ProductTechnology() {
           </ul>
 
           <h3 style={{ marginTop: '30px' }}>Performance, Reliability, and UX Milestones</h3>
-          <ul className="feature-list">
+          <p>
+            Our product development decisions are driven by a north star metric: <strong>Net Promoter Score (NPS)</strong>. 
+            We primarily make bug fix and enhancement decisions based on what will increase NPS. 
+            We assume that improving NPS will improve overall adoption, sales, retention, and revenue, 
+            making it the primary metric we use to measure improvement and guide product priorities.
+          </p>
+          <p style={{ marginTop: '15px' }}>
+            All performance, reliability, and UX improvements are evaluated against their impact on NPS. 
+            The following milestones represent key areas where we're focusing improvements:
+          </p>
+          <ul className="feature-list" style={{ marginTop: '15px' }}>
             <li>Sub-second command response times</li>
             <li>99.9% uptime for AI services</li>
             <li>Improved onboarding and user education</li>
             <li>Advanced error handling and user feedback</li>
           </ul>
+          <p style={{ marginTop: '15px', fontStyle: 'italic', color: '#666' }}>
+            Each of these improvements is prioritized and measured based on their contribution to increasing 
+            our Net Promoter Score, ensuring we focus on changes that drive user satisfaction and business outcomes.
+          </p>
         </div>
       </section>
     </div>

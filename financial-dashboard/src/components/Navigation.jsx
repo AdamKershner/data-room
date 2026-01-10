@@ -13,9 +13,7 @@ function Navigation() {
     { path: '/business-model', label: 'Business Model & Unit Economics', id: 'business-model' },
     { path: '/go-to-market', label: 'Go-to-Market & Growth', id: 'go-to-market' },
     { path: '/financial-plan', label: 'Financial Plan & Sensitivity', id: 'financial-plan' },
-    { path: '/team-execution', label: 'Team, Execution & Milestones', id: 'team-execution' },
-    { path: '/funding', label: 'Funding Needs & Use of Funds', id: 'funding' },
-    { path: '/appendices', label: 'Appendices', id: 'appendices' }
+    { path: '/team-execution', label: 'Team, Execution & Milestones', id: 'team-execution' }
   ]
 
   const toggleMenu = () => {
