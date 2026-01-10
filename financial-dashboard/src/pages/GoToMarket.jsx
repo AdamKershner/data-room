@@ -111,6 +111,13 @@ function GoToMarket() {
               faced by knowledge workers and can see the value proposition for their portfolio 
               companies and internal teams.
             </li>
+            <li>
+              <strong>Consulting Firms:</strong> We have contacts at Deloitte and McKinsey who are 
+              interested in exploring Oasis Browser for their teams. These consulting firms represent 
+              ideal B2B pilot opportunities, as their knowledge workers heavily rely on browser-based 
+              research, client work, and information management. Champions at these firms can help 
+              drive pilot adoption and demonstrate ROI for knowledge-intensive workflows.
+            </li>
           </ul>
 
           <h3 style={{ marginTop: '30px' }}>Champion Discovery Strategy</h3>
@@ -150,7 +157,7 @@ function GoToMarket() {
           <p>
             Oasis Browser aims to become the "work operating system" in the browser—the central 
             interface where knowledge workers manage all their information, projects, and workflows. 
-            By integrating with the tools knowledge workers already use, we create a seamless, 
+            By integrating with the tools knowledge workers already use, we create an elegant, 
             AI-powered environment that reduces friction and cognitive load across the entire 
             workday.
           </p>

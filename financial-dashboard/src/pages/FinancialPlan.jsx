@@ -18,25 +18,23 @@ function FinancialPlan() {
         <h2>Base-Case 2026 Financials</h2>
         <div className="content-block">
           <p>
-            Our base-case scenario projects strong growth with healthy unit economics, assuming a 
-            successful pre-seed raise ($500K starting cash) and balanced execution. The model assumes 
-            balanced subscriber growth (starting from 100 subscribers post-funding), moderate churn, 
+            Our base-case scenario projects strong growth with healthy unit economics based on balanced 
+            execution. The model assumes organic subscriber growth from our current base, moderate churn, 
             and strategic B2B pilot execution.
           </p>
           <p>
-            <strong>Note:</strong> These projections assume post-pre-seed funding conditions. Current 
-            state (Jan 2, 2026) is $1,174 cash and 3 paying subscribers. See "Funding Needs" section 
-            for pre-seed requirements.
+            <strong>Current State (Jan 2026):</strong> Starting with $698 cash and 3 paying subscribers. 
+            We project growth through product-led adoption, content marketing, and strategic B2B outreach.
           </p>
           <p>
-            <strong>Key Projections (Post-Pre-Seed):</strong>
+            <strong>2026 Goals:</strong>
           </p>
           <ul className="feature-list">
             <li>461 B2C subscribers by year-end 2026</li>
             <li>5 B2B pilot contracts at $50k/year average</li>
             <li>$323,188 total revenue</li>
             <li>81.0% average gross margin</li>
-            <li>Positive cash flow with $509,587 year-end balance</li>
+            <li>Positive cash flow trajectory</li>
           </ul>
         </div>
         <KeyHighlights />
@@ -156,9 +154,9 @@ function FinancialPlan() {
         <h2>Scenarios and Risk Profile</h2>
         <div className="content-block">
           <p>
-            The following scenarios assume successful pre-seed funding ($400K-$600K starting cash) 
-            and represent different execution outcomes for 2026. All scenarios start from a post-funding 
-            position with initial traction (75-150 starting subscribers).
+            The following scenarios represent different execution outcomes for 2026 based on organic 
+            growth from our current state. All scenarios start from our current position and project 
+            various growth trajectories based on execution quality and market response.
           </p>
         </div>
         

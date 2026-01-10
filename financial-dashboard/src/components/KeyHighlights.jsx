@@ -4,34 +4,34 @@ import './KeyHighlights.css'
 function KeyHighlights() {
   const highlights = [
     {
-      label: 'Annual Recurring Revenue (ARR)',
-      value: '$105,163',
-      description: 'Projected by year-end 2026'
+      label: '2026 Revenue Goal',
+      value: '$323,188',
+      description: 'Aggressive yet achievable target'
     },
     {
-      label: 'B2C Subscribers',
+      label: 'B2C Subscribers Goal',
       value: '461',
-      description: 'Ending subscriber count'
+      description: 'Year-end 2026 target'
     },
     {
-      label: 'B2B Pilot Contracts',
+      label: 'B2B Pilot Contracts Goal',
       value: '5',
       description: 'Annual contracts @ $50k avg'
     },
     {
-      label: 'Average Gross Margin',
+      label: 'Target Gross Margin',
       value: '81.0%',
       description: 'B2C: 84.6% | B2B: 80.0%'
     },
     {
-      label: 'Year-End Cash Balance',
-      value: '$509,587',
-      description: 'Starting: $500,000'
+      label: 'Monthly Net Burn',
+      value: '$25.50',
+      description: 'After revenue offsets (webapp + Oasis subscriptions)'
     },
     {
-      label: 'Cash Flow Status',
-      value: 'Positive',
-      description: 'Net cash flow: $9,587 for 2026'
+      label: 'Runway',
+      value: '27.4 months',
+      description: 'Based on current cash and net burn'
     }
   ]
 
