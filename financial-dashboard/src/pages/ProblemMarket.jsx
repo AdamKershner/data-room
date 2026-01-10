@@ -1,4 +1,5 @@
 import React from 'react'
+import supabaseImage from '../images/Supabase Schema Visualizer.png'
 import './Page.css'
 
 function ProblemMarket() {
@@ -140,6 +141,18 @@ function ProblemMarket() {
               information, and other attributes for targeted analysis.
             </li>
           </ul>
+          <div style={{ margin: '30px 0', textAlign: 'center' }}>
+            <img 
+              src={supabaseImage} 
+              alt="Supabase schema visualizer showing user database structure" 
+              style={{ 
+                maxWidth: '100%', 
+                height: 'auto', 
+                borderRadius: '8px',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
+              }} 
+            />
+          </div>
 
           <h3 style={{ marginTop: '30px' }}>Go-to-Market & Product Marketing Strategy</h3>
           <p>

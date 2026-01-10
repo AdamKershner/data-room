@@ -1,6 +1,8 @@
 import React from 'react'
 import KeyHighlights from '../components/KeyHighlights'
 import FinancialSummary from '../components/FinancialSummary'
+import welcomeImage from '../images/Welcome to Oasis(1).png'
+import commandAnalyticsImage from '../images/Command Analytics.png'
 import './Page.css'
 
 function ExecutiveSummary() {
@@ -20,12 +22,36 @@ function ExecutiveSummary() {
             with simple instructions like "open new window," "create tab group," "add tab to 
             tab group," "close all tabs," or "open tabs 3 and 4 in split view."
           </p>
+          <div style={{ margin: '30px 0', textAlign: 'center' }}>
+            <img 
+              src={welcomeImage} 
+              alt="Oasis Browser welcome screen" 
+              style={{ 
+                maxWidth: '100%', 
+                height: 'auto', 
+                borderRadius: '8px',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
+              }} 
+            />
+          </div>
           <p>
             <strong>Problem we solve:</strong> Knowledge workers are drowning in browser tabs, 
             constant context switches, and manual window management. This fragmentation reduces 
             productivity, increases cognitive load, and makes it difficult to maintain focus 
             on complex tasks.
           </p>
+          <div style={{ margin: '30px 0', textAlign: 'center' }}>
+            <img 
+              src={commandAnalyticsImage} 
+              alt="Oasis Browser command analytics dashboard" 
+              style={{ 
+                maxWidth: '100%', 
+                height: 'auto', 
+                borderRadius: '8px',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
+              }} 
+            />
+          </div>
         </div>
       </section>
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import commandAnalyticsImage from '../images/Command Analytics.png'
 import './Page.css'
 
 function BusinessModel() {
@@ -11,6 +12,18 @@ function BusinessModel() {
       <section className="page-section">
         <h2>B2C Subscription Model</h2>
         <div className="content-block">
+          <div style={{ margin: '0 0 30px 0', textAlign: 'center' }}>
+            <img 
+              src={commandAnalyticsImage} 
+              alt="Oasis Browser command analytics dashboard showing usage metrics" 
+              style={{ 
+                maxWidth: '100%', 
+                height: 'auto', 
+                borderRadius: '8px',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
+              }} 
+            />
+          </div>
           <h3>Pricing Structure</h3>
           <ul className="feature-list">
             <li><strong>Price:</strong> $20/month per subscriber</li>
