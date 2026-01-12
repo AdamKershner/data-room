@@ -74,21 +74,21 @@ function Sprints() {
     },
     {
       id: 2,
-      title: "Hub Management Core Functionality",
+      title: "Tab Group & Bookmark Management Core Functionality",
       emoji: "🎯",
       priority: "HIGH",
       effort: "Medium-High",
       impact: "High",
       severity: "9-10/10",
-      overview: "Fix core hub management operations that users rely on daily. These bugs prevent users from effectively organizing their workspace.",
+      overview: "Fix core tab group and bookmark management operations that users rely on daily. These bugs prevent users from effectively organizing their workspace. Focus on enhancing tab group management features and AI commands for organizing tabs and bookmarks.",
       issues: [
         {
-          title: "Adding Tabs to Hubs Fails",
+          title: "Adding Tabs to Tab Groups Fails",
           count: 3,
           submissionIds: ["eqW0MdE", "KYKWzVV", "aQqA5Xy"],
-          description: "Commands like 'add this tab to my Google Sheets hub' or 'put my tabs with google sheets in a hub' don't work",
+          description: "AI commands like 'add this tab to my Google Sheets tab group' or 'put my tabs with google sheets in a tab group' don't work. Users refer to tab groups as 'hubs' in their commands, but the underlying feature is tab group management.",
           impact: "Users can't organize their workspace (severity 9-10/10)",
-          technicalNotes: "Tab detection, hub matching, or tab-to-hub association logic may be broken",
+          technicalNotes: "Tab detection, tab group matching, or tab-to-tab-group association logic may be broken. Need to ensure AI commands properly handle tab group operations.",
           feedback: [
             { id: "eqW0MdE", text: "Entered the following command in AI assistant: add this tab to my Google Sheets hub. My current tab had a google spreadsheet. The tab was not added." },
             { id: "KYKWzVV", text: "I entered the following in AI assistant: put my tabs with google sheets in a hub called Google Sheets. It didnt put any of the tabs in the new hub it created. From the screenshot you can see I had 3 Google Sheet tabs open" },
@@ -96,12 +96,12 @@ function Sprints() {
           ]
         },
         {
-          title: "AI Assistant Can't Provide Hub Instructions",
+          title: "AI Assistant Can't Provide Tab Group Instructions",
           count: 2,
           submissionIds: ["1AoNk71", "RGybMDP"],
-          description: "When users ask 'how do I add a tab to an existing hub' or 'how do I remove a tab from a group', AI provides unhelpful responses",
+          description: "When users ask 'how do I add a tab to an existing tab group' or 'how do I remove a tab from a group', AI provides unhelpful responses. Users may refer to tab groups as 'hubs' in their queries.",
           impact: "Users can't learn how to use core features (severity 10/10)",
-          technicalNotes: "AI Assistant needs knowledge base or tool access for hub management commands",
+          technicalNotes: "AI Assistant needs knowledge base or tool access for tab group management commands. Should understand both 'hub' and 'tab group' terminology from users.",
           feedback: [
             { id: "1AoNk71", text: "I entered the following in AI assistant: how do i add a tab to an existing hub.. No helpful response. See screenshot." },
             { id: "RGybMDP", text: "I entered the following command in AI assistant: How do i remove a tab from a group. See screenshot for output that was not helpful. AI assistant needs to be able to provide instructions on usage of the Oasis browser that will be helpful to the users." }
@@ -118,10 +118,10 @@ function Sprints() {
           ]
         },
         {
-          title: "Inconsistent Hub Icons",
+          title: "Inconsistent Tab Group Icons",
           count: 1,
           submissionIds: ["jaAJoPR"],
-          description: "Icons for same type of content (e.g., Google Sheets) are different in hub view vs tab view",
+          description: "Icons for same type of content (e.g., Google Sheets) are different in tab group view vs tab view",
           impact: "Confusing UI, inconsistent experience (severity 6/10)",
           feedback: [
             { id: "jaAJoPR", text: "The icons for my google spreadsheets in a hub are different. I expect the icons to be the same since they are all spreadsheets. Need a consistent UI.. don't change icons." }
@@ -129,18 +129,19 @@ function Sprints() {
         }
       ],
       acceptanceCriteria: [
-        "Users can successfully add tabs to existing hubs via AI commands",
-        "Users can successfully remove tabs from hubs via AI commands",
-        "AI Assistant can provide helpful instructions for hub management",
-        "Bookmark removal works for imported bookmarks",
-        "Icons are consistent across hub and tab views"
+        "Users can successfully add tabs to existing tab groups via AI commands (AI should understand both 'hub' and 'tab group' terminology)",
+        "Users can successfully remove tabs from tab groups via AI commands",
+        "AI Assistant can provide helpful instructions for tab group and bookmark management",
+        "Bookmark removal works for imported bookmarks via AI commands",
+        "Icons are consistent across tab group and tab views",
+        "Tab group management features are fully functional and accessible via AI commands"
       ]
     },
     {
       id: 3,
       title: "AI Assistant UI/UX Polish",
       emoji: "🖼️",
-      priority: "MEDIUM-HIGH",
+      priority: "HIGH",
       effort: "Medium",
       impact: "Medium-High",
       severity: "7-10/10",

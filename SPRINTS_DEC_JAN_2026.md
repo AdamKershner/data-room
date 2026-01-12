@@ -71,28 +71,30 @@ Fix critical recursion and command execution bugs that cause the AI Assistant to
 
 ---
 
-## 🎯 SPRINT 2: Hub Management Core Functionality
+## 🎯 SPRINT 2: Tab Group & Bookmark Management Core Functionality
 **Priority:** HIGH | **Estimated Effort:** Medium-High | **User Impact:** High (9-10/10 severity)
 
 ### Overview
-Fix core hub management operations that users rely on daily. These bugs prevent users from effectively organizing their workspace.
+Fix core tab group and bookmark management operations that users rely on daily. These bugs prevent users from effectively organizing their workspace. Focus on enhancing tab group management features and AI commands for organizing tabs and bookmarks.
+
+**Note for Developers:** Users refer to "tab groups" as "hubs" in their feedback, but the underlying feature is tab group management. AI commands should handle both terminologies.
 
 ### Issues Included
-1. **Adding Tabs to Hubs Fails** (3 reports)
+1. **Adding Tabs to Tab Groups Fails** (3 reports)
    - **Submission IDs:** `eqW0MdE`, `KYKWzVV`, `aQqA5Xy`
-   - **Description:** Commands like "add this tab to my Google Sheets hub" or "put my tabs with google sheets in a hub" don't work
+   - **Description:** AI commands like "add this tab to my Google Sheets tab group" or "put my tabs with google sheets in a tab group" don't work. Users refer to tab groups as "hubs" in their commands, but the underlying feature is tab group management.
    - **User Impact:** Users can't organize their workspace (severity 9-10/10)
-   - **Technical Notes:** Tab detection, hub matching, or tab-to-hub association logic may be broken
+   - **Technical Notes:** Tab detection, tab group matching, or tab-to-tab-group association logic may be broken. Need to ensure AI commands properly handle tab group operations.
    - **Original Feedback:**
      - `eqW0MdE`: "Entered the following command in AI assistant: add this tab to my Google Sheets hub. My current tab had a google spreadsheet. The tab was not added."
      - `KYKWzVV`: "I entered the following in AI assistant: put my tabs with google sheets in a hub called Google Sheets. It didnt put any of the tabs in the new hub it created. From the screenshot you can see I had 3 Google Sheet tabs open"
      - `aQqA5Xy`: "I entered the following in AI assistant: Add 2026 expenses tab to Google Sheets hub. The 2026 expenses tab was not added but the Oasis Feedback tab was added."
 
-2. **AI Assistant Can't Provide Hub Instructions** (2 reports)
+2. **AI Assistant Can't Provide Tab Group Instructions** (2 reports)
    - **Submission IDs:** `1AoNk71`, `RGybMDP`
-   - **Description:** When users ask "how do I add a tab to an existing hub" or "how do I remove a tab from a group", AI provides unhelpful responses
+   - **Description:** When users ask "how do I add a tab to an existing tab group" or "how do I remove a tab from a group", AI provides unhelpful responses. Users may refer to tab groups as "hubs" in their queries.
    - **User Impact:** Users can't learn how to use core features (severity 10/10)
-   - **Technical Notes:** AI Assistant needs knowledge base or tool access for hub management commands
+   - **Technical Notes:** AI Assistant needs knowledge base or tool access for tab group management commands. Should understand both "hub" and "tab group" terminology from users.
    - **Original Feedback:**
      - `1AoNk71`: "I entered the following in AI assistant: how do i add a tab to an existing hub.. No helpful response. See screenshot."
      - `RGybMDP`: "I entered the following command in AI assistant: How do i remove a tab from a group. See screenshot for output that was not helpful. AI assistant needs to be able to provide instructions on usage of the Oasis browser that will be helpful to the users. For example, How to create a hub, How to add/remove a tab from a hub. How to view a hub. How to go to a tab in a hub. All these how to's should be available. This is minimum functionality. The AI assistant should be able to execute these how to's so the user does not have to do them manually."
@@ -104,19 +106,20 @@ Fix core hub management operations that users rely on daily. These bugs prevent 
    - **Original Feedback:**
      - `lbkVQEp`: "I asked AI assistant to remove 'Wyzant' bookmark I imported from Google Chrome and it couldn't find it. I consider this basic functionality that should work. It's not a feature."
 
-4. **Inconsistent Hub Icons**
+4. **Inconsistent Tab Group Icons**
    - **Submission ID:** `jaAJoPR`
-   - **Description:** Icons for same type of content (e.g., Google Sheets) are different in hub view vs tab view
+   - **Description:** Icons for same type of content (e.g., Google Sheets) are different in tab group view vs tab view
    - **User Impact:** Confusing UI, inconsistent experience (severity 6/10)
    - **Original Feedback:**
      - `jaAJoPR`: "The icons for my google spreadsheets in a hub are different. I expect the icons to be the same since they are all spreadsheets. The icon displayed when it is shown as a tab should be the same icon in the hub group. Need a consistent UI.. don't change icons."
 
 ### Acceptance Criteria
-- [ ] Users can successfully add tabs to existing hubs via AI commands
-- [ ] Users can successfully remove tabs from hubs via AI commands
-- [ ] AI Assistant can provide helpful instructions for hub management
-- [ ] Bookmark removal works for imported bookmarks
-- [ ] Icons are consistent across hub and tab views
+- [ ] Users can successfully add tabs to existing tab groups via AI commands (AI should understand both "hub" and "tab group" terminology)
+- [ ] Users can successfully remove tabs from tab groups via AI commands
+- [ ] AI Assistant can provide helpful instructions for tab group and bookmark management
+- [ ] Bookmark removal works for imported bookmarks via AI commands
+- [ ] Icons are consistent across tab group and tab views
+- [ ] Tab group management features are fully functional and accessible via AI commands
 
 ### Related Feedback
 - Users report "Made my work slower" and "Made the browser harder to use"
@@ -125,7 +128,7 @@ Fix core hub management operations that users rely on daily. These bugs prevent 
 ---
 
 ## 🖼️ SPRINT 3: AI Assistant UI/UX Polish
-**Priority:** MEDIUM-HIGH | **Estimated Effort:** Medium | **User Impact:** Medium-High (7-10/10 severity)
+**Priority:** HIGH | **Estimated Effort:** Medium | **User Impact:** Medium-High (7-10/10 severity)
 
 ### Overview
 Improve the visual and interaction quality of the AI Assistant window. These issues affect user confidence and ease of use.
@@ -320,7 +323,7 @@ Improve the overall user experience of the AI Assistant with polish features and
 |--------|----------|--------|------------|--------------|
 | Sprint 1: Critical AI Command Execution | CRITICAL | High | High | 7 |
 | Sprint 2: Hub Management Core | HIGH | Medium-High | High | 6 |
-| Sprint 3: AI Assistant UI/UX Polish | MEDIUM-HIGH | Medium | Medium-High | 7 |
+| Sprint 3: AI Assistant UI/UX Polish | HIGH | Medium | Medium-High | 7 |
 | Sprint 4: Tab and Window Management | MEDIUM-HIGH | Medium | High | 3 |
 | Sprint 5: AI Assistant UX Enhancements | MEDIUM | Low-Medium | Medium | 7 |
 
