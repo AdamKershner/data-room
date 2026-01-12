@@ -460,6 +460,17 @@ function Sprints() {
       <section className="page-section">
         <div className="content-block">
           <h3>Sprint Selection Guide</h3>
+          <div style={{ 
+            backgroundColor: '#f0f9ff', 
+            border: '2px solid #0ea5e9', 
+            borderRadius: '8px', 
+            padding: '15px', 
+            marginBottom: '20px' 
+          }}>
+            <p style={{ margin: 0, fontSize: '1rem', fontWeight: '500', color: '#0369a1' }}>
+              💡 <strong>Choose a sprint that excites you!</strong> We encourage developers to select sprints that they personally find most <strong>fun</strong> and where they think they'd be most <strong>effective</strong>. Once you've chosen which sprint you want to join (1, 2, 3, 4, or 5), please <strong>DM Adam Kershner on Slack</strong> to let him know. Feel free to DM Adam with any questions as well!
+            </p>
+          </div>
           <p>
             Each sprint below is self-contained and can be worked on independently. 
             Sprints are organized by <strong>codebase structure</strong> to maximize developer efficiency, while maintaining <strong>priority ordering</strong> for critical bugs. Engineers should select sprints based on:
@@ -472,6 +483,26 @@ function Sprints() {
           <p style={{ marginTop: '15px', fontStyle: 'italic', color: '#666' }}>
             <strong>Note:</strong> This reorganization groups issues by the files/modules they affect, making it easier for developers to work on related functionality together.
           </p>
+          <div style={{ 
+            backgroundColor: '#fef3c7', 
+            border: '1px solid #f59e0b', 
+            borderRadius: '6px', 
+            padding: '12px', 
+            marginTop: '15px',
+            fontSize: '0.9rem'
+          }}>
+            <p style={{ margin: '0 0 8px 0', fontWeight: '500', color: '#92400e' }}>
+              📋 <strong>How Sprints Are Organized:</strong>
+            </p>
+            <p style={{ margin: '0 0 8px 0', color: '#78350f' }}>
+              These sprints are designed based on raw feedback from the <a href="https://tally.so/r/3jkNN6" target="_blank" rel="noopener noreferrer" style={{ color: '#0369a1', textDecoration: 'underline' }}>Feedback Form</a> and accompanying <a href="https://docs.google.com/spreadsheets/d/1MvxrTrfmNV8j0zze2lsjVt-5R8YgkeTAWvV6dXH8B-w/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" style={{ color: '#0369a1', textDecoration: 'underline' }}>Feedback Google Sheet</a>. Adam checks the <strong><a href="https://github.com/Kahana-LLC/firefox-oasis" target="_blank" rel="noopener noreferrer" style={{ color: '#0369a1', textDecoration: 'underline' }}>firefox-oasis codebase</a></strong> to organize sprints by codebase structure, focusing on specific parts of the codebase to:
+            </p>
+            <ul style={{ margin: '0 0 0 20px', padding: 0, color: '#78350f' }}>
+              <li>Avoid overlap between sprints</li>
+              <li>Promote working in parallel</li>
+              <li>Reduce potential merge conflicts</li>
+            </ul>
+          </div>
           <p style={{ marginTop: '10px', fontSize: '0.95rem', color: '#6366f1', fontWeight: '500' }}>
             🎨 <strong>UI Icon:</strong> Issues marked with 🎨 UI require UI design work. Engineers should consult with <strong>Pournami</strong> (main UI designer) before starting implementation.
           </p>
