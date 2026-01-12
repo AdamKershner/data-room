@@ -13,7 +13,8 @@ function Navigation() {
     { path: '/business-model', label: 'Business Model & Unit Economics', id: 'business-model' },
     { path: '/go-to-market', label: 'Go-to-Market & Growth', id: 'go-to-market' },
     { path: '/financial-plan', label: 'Financial Plan & Sensitivity', id: 'financial-plan' },
-    { path: '/team-execution', label: 'Team, Execution & Milestones', id: 'team-execution' }
+    { path: '/team-execution', label: 'Team, Execution & Milestones', id: 'team-execution' },
+    { path: '/sprints', label: 'Sprints', id: 'sprints' }
   ]
 
   const toggleMenu = () => {

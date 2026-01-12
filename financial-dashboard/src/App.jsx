@@ -8,6 +8,7 @@ import BusinessModel from './pages/BusinessModel'
 import GoToMarket from './pages/GoToMarket'
 import FinancialPlan from './pages/FinancialPlan'
 import TeamExecution from './pages/TeamExecution'
+import Sprints from './pages/Sprints'
 import './App.css'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/go-to-market" element={<GoToMarket />} />
           <Route path="/financial-plan" element={<FinancialPlan />} />
           <Route path="/team-execution" element={<TeamExecution />} />
+          <Route path="/sprints" element={<Sprints />} />
         </Routes>
       </div>
     </Router>

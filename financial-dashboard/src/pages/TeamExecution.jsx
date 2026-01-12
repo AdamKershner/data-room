@@ -510,6 +510,100 @@ function TeamExecution() {
       ]
     },
     {
+      name: "Mukesh Basvekar",
+      roles: ["Product"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: [
+        {
+          submissionId: "Mukesh1",
+          respondentId: "Mukesh",
+          submittedAt: "2025-01-10 10:00:00",
+          name: "Mukesh Basvekar",
+          date: "2025-01-03",
+          hours: 20,
+          description: "Week of Dec 30 - Jan 3. Installed latest browser version from installations page. Conducted UI/UX testing session with users. Submitted feedback forms via AI assistant interface for bugs and enhancement ideas. Administered PMF and NPS surveys. Documented enhancement ideas in Google Sheets. Analyzed feedback for engineering prioritization."
+        },
+        {
+          submissionId: "Mukesh2",
+          respondentId: "Mukesh",
+          submittedAt: "2025-01-17 10:00:00",
+          name: "Mukesh Basvekar",
+          date: "2025-01-10",
+          hours: 20,
+          description: "Week of Jan 6-10. Installed new weekly release from installations page. Tested new UI/UX iteration with focus on demo-critical features. Submitted feedback forms documenting bugs and enhancement ideas. Administered NPS survey and tracked delta. Collected user feedback via feedback form (consolidates to Google Sheets). Prioritized top improvements for sprint."
+        },
+        {
+          submissionId: "Mukesh3",
+          respondentId: "Mukesh",
+          submittedAt: "2025-01-24 10:00:00",
+          name: "Mukesh Basvekar",
+          date: "2025-01-17",
+          hours: 20,
+          description: "Week of Jan 13-17. Installed latest weekly release from installations page. Conducted weekly UI/UX testing. Submitted feedback forms for bugs and enhancement ideas through AI assistant interface. Administered PMF survey to measure product-market fit. Documented bug fixes and enhancement ideas in Google Sheets. Collaborated with engineering on sprint priorities."
+        },
+        {
+          submissionId: "Mukesh4",
+          respondentId: "Mukesh",
+          submittedAt: "2025-01-31 10:00:00",
+          name: "Mukesh Basvekar",
+          date: "2025-01-24",
+          hours: 20,
+          description: "Week of Jan 20-24. Installed new weekly release from installations page. Tested UI/UX improvements from previous sprint. Submitted feedback forms for new issues and ideas. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Completed PMF/NPS survey after testing. Verified implemented improvements with users."
+        }
+      ],
+      q1Goals: {
+        overview: "Enable +15 NPS through feedback collection and PMF/NPS survey administration",
+        target: "Collect 100+ feedback items and administer PMF/NPS surveys to enable +15 NPS by end of Q1",
+        weeklyBreakdown: [
+          { week: 1, goal: "Set up survey process and feedback collection", metric: "Baseline NPS measured, feedback form ready" },
+          { week: 2, goal: "Week 2: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
+          { week: 3, goal: "Week 3: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
+          { week: 4, goal: "Week 4: Bi-weekly NPS check & review", metric: "NPS measured (target +3-5), 40+ total feedback items" },
+          { week: 5, goal: "Week 5: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
+          { week: 6, goal: "Week 6: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
+          { week: 7, goal: "Week 7: Bi-weekly NPS check & review", metric: "NPS measured (target +6-8), 80+ total feedback items" },
+          { week: 8, goal: "Week 8: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
+          { week: 9, goal: "Week 9: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
+          { week: 10, goal: "Week 10: Bi-weekly NPS check & review", metric: "NPS measured (target +9-11), 100+ total feedback items" },
+          { week: 11, goal: "Week 11: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
+          { week: 12, goal: "Week 12: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
+          { week: 13, goal: "Final Q1 assessment", metric: "Final NPS measured (target +15), 100+ feedback items collected" }
+        ],
+        keyMetrics: [
+          "Feedback items collected (target 100+ in Q1)",
+          "Survey response rate (target 80%+)",
+          "NPS delta bi-weekly (supporting metric)",
+          "PMF threshold maintenance (40%+ 'Very disappointed')",
+          "Enhancement ideas documented per week"
+        ]
+      },
+      projects: [
+        {
+          title: "Weekly UI/UX Testing & Survey Administration",
+          status: "active",
+          startDate: "January 2026",
+          description: "Participate in the continuous feedback loop: install weekly releases, conduct weekly UI/UX testing sessions, submit feedback forms, and administer PMF/NPS surveys to measure product improvements and inform demo enhancements.",
+          scope: [
+            "Install latest browser version from installations page each week",
+            "Schedule weekly testing sessions with users for new UI/UX iterations",
+            "Submit feedback forms via AI assistant interface (bugs, enhancement ideas, feature requests)",
+            "Administer PMF survey: NPS (0-10), disappointment question, user type, main benefit, improvement suggestions",
+            "Administer NPS survey to track week-over-week changes",
+            "Complete NPS survey after each testing round",
+            "Document enhancement ideas and bug fixes in feedback form (Google Sheets)",
+            "Analyze survey results and identify patterns"
+          ],
+          goals: [
+            "Complete 5+ weekly testing sessions",
+            "Achieve 80%+ survey response rate",
+            "Track and report NPS delta weekly",
+            "Document 10+ enhancement ideas per week"
+          ]
+        }
+      ]
+    },
+    {
       name: "Shivangi Chamoli",
       roles: ["Product Marketing"],
       employmentStatus: "intern",
