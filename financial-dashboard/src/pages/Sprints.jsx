@@ -95,6 +95,7 @@ function Sprints() {
           description: "Need keyboard shortcut and visible button to show/hide AI Assistant. In addition to a keyboard command, there should be a unique and easily visible button on the browser next to the 'profile' and 'settings dropdown' that users can click to show or hide the AI assistant. When it displays, it displays in the same position/sizing as it was last time. AI Assistant should show by default whenever the browser is first installed or when it's opened.",
           impact: "Faster access and better discoverability (severity 10/10)",
           technicalNotes: "Keyboard shortcut, toggle button in browser UI, state persistence, default visibility in assistant.ui.js",
+          requiresUI: true,
           feedback: [
             { id: "jaAvjr9", text: "the ai chat window should be resizable from all the edges of the chat window. set a minimum width and height for the window. also, add a shortcut to show and hide the ai assistant window." }
           ]
@@ -106,6 +107,7 @@ function Sprints() {
           description: "AI Assistant window oscillates/vibrates when dragging, feels jarring",
           impact: "Frustrating experience, makes product feel unpolished (severity 9-10/10)",
           technicalNotes: "Drag event handling, position calculation, or rendering issues in assistant.ui.js",
+          requiresUI: true,
           feedback: [
             { id: "44lODNA", text: "I was dragging the AI assistant, and I saw a glitch where it seemed to oscillate a lot between two positions, like it was vibrating" },
             { id: "5BPrdvv", text: "When I drag the AI Assistant interface, at times there is a jarring 'vibration' effect that makes the Interface oscillate, causing me to feel shocked and frustrated. It should be updated so that the dragging motion is always smooth and the interface rarely if ever vibrates/oscillates. It might make sense to evaluate the root cause of this and ensure we can replicate the behavior consistently in development in order to identify the right solution." },
@@ -119,6 +121,7 @@ function Sprints() {
           description: "Can only drag window from top bar, not from anywhere in the window",
           impact: "Counter-intuitive, slows down workflow (severity 10/10)",
           technicalNotes: "Extend drag area to entire window in assistant.ui.js",
+          requiresUI: true,
           feedback: [
             { id: "rjMvKZ2", text: "The AI Assistant window should be draggable by clicking anywhere across all edges within the ai chat window, and not just the top bar. It is counter-intuitive to expect users to figure out where to click and enable the dragging." }
           ]
@@ -130,6 +133,7 @@ function Sprints() {
           description: "AI Assistant window interferes with address bar, dropdown menus appear behind other elements",
           impact: "Can't access browser controls, menus hidden (severity 10/10)",
           technicalNotes: "Z-index hierarchy needs to be fixed in assistant.ui.js",
+          requiresUI: true,
           feedback: [
             { id: "RGykzvP", text: "while moving the ai assistant window, the placement of the address bar was getting interrupted with the ai window. fix the elevation hierarchy by increasing the z-index value of the ai assistant window.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-2.53.14-AM.png?id=lYDjjN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImxZRGpqTiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODIwNTY2MX0.99V-nTZsfhBUaaf3sZ7zbrOie1phd4V9sJshaRkQPjE&signature=353665a8c0c3085f14023a044a87dbd19d21cea1fcf37f39ce616ec91a4ab34b" },
             { id: "lbkg7x5", text: "When I click the 3 dots button to see the menu with 'sign in,' 'sign up,' and 'account' on the AI asssistant, sometimes the menu appears behind the 'Oasis AI' bar. In general, the menu should never be hidden by any element or component. For instance it should have the highest Z index", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-10.15.33-AM.png?id=PbdQge&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBiZFFnZSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODIzNTU3N30.JEq3PhT627_iVURaamo6UEC5pbBSRububsmR_EbUPAM&signature=01151ee77fb891fc322a4a816a5c5b22477c35fbbb1611e4691edf6f361c872a" }
@@ -142,6 +146,7 @@ function Sprints() {
           description: "Clicking behind AI Assistant doesn't bring that window forward, AI stays on top",
           impact: "Can't access content behind AI window without minimizing (severity 9/10)",
           technicalNotes: "Window focus handling needed in assistant.ui.js",
+          requiresUI: true,
           feedback: [
             { id: "Zjrv9OV", text: "When i click on a screen behind the AI assistant screen, the focus does not go to the screen. I expect the screen I click on to be brought forward and the AI assistant to be behind it. This is general practice. It's very annoying that I have to minimize the AI assistant first to see the screen that I want to see and I have to maximize the AI assistant to use it." }
           ]
@@ -153,6 +158,7 @@ function Sprints() {
           description: "AI Assistant should remember size and position, auto-minimize when clicking outside, snap to corner when minimized, stay in viewport when maximizing",
           impact: "Users have to reposition window every time (severity 10/10)",
           technicalNotes: "Position/size persistence, auto-minimize logic, viewport constraints in assistant.ui.js",
+          requiresUI: true,
           feedback: [
             { id: "Np1MpWB", text: "The AI assistant should default to a smaller size so it doesn't take up all my screen space. It should also be off to the side. I wonder, if I resize it and place it in a certain spot on my screen, if it would remember that's where I want the AI assistant. Or do I have to resize it and place it every time I use the Oasis browser. It is important for Oasis to remember where I want the AI assistant to be placed on my screen and the size of the AI assistant so that I don't have to keep doing it." },
             { id: "A7eyejy", text: "when I click on the minimize icon within the ai assistant, it should minimize and automatically snap to the bottom right corner of the web page." },
@@ -167,6 +173,7 @@ function Sprints() {
           description: "Should be able to click anywhere on minimized window to expand; dropdown menu should appear outside window bounds",
           impact: "Counter-intuitive interaction (severity 8-9/10)",
           technicalNotes: "Click-anywhere-to-expand, dropdown positioning in assistant.ui.js",
+          requiresUI: true,
           feedback: [
             { id: "jaAvX8E", text: "In the minimized version of the ai chat window, I should be able to click anywhere to expand it to at least, display the input box. It's counter intuitive to ask the users to click on the icon to expand and only then be able to use the ai assistant.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-4.32.27-AM.png?id=d8q5JD&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4cTVKRCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODIxMDQ5Mn0.1UMNejpn5KWz_Gvs18OvShqhIxqnq2DikmjtLHyFUpQ&signature=76edebcd5bac8ebdd8e7a5684f78147df0bbda0e9c1d97201a832b828e2488f7" },
             { id: "q41vqMO", text: "In the minimized version of the ai assistant, when I click on the 3 dot menu, I should be able to see all the dropdown options. Since the options are displayed inside the ai window, they are getting hidden. Instead place it outside the ai window", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-4.35.35-AM.png?id=aANbd9&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBTmJkOSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODIxMDY5NX0.lKvYZe5H7QsirtNO1cB7xscbYwW_SAhZpxY6tjYu0kA&signature=7e2c6757adbe4cd5caf948fa756901f08044347175f2905fd370dd3d1c712764" }
@@ -179,6 +186,7 @@ function Sprints() {
           description: "Should be resizable from all edges, with min width/height",
           impact: "Limited flexibility (severity 10/10)",
           technicalNotes: "Resizing from all edges with constraints in assistant.ui.js",
+          requiresUI: true,
           feedback: [
             { id: "jaAvjr9", text: "the ai chat window should be resizable from all the edges of the chat window. set a minimum width and height for the window. also, add a shortcut to show and hide the ai assistant window." }
           ]
@@ -274,6 +282,7 @@ function Sprints() {
           description: "White background on AI responses, markdown headings show asterisks instead of bold",
           impact: "Poor readability, unprofessional appearance (severity 7/10)",
           technicalNotes: "Markdown rendering, CSS background fixes in assistant.ui.js",
+          requiresUI: true,
           feedback: [
             { id: "gD6v1rK", text: "The AI outputs need formatting fixes. 1. Remove white bg color from all the ai responses. 2. Headings in the text output must be bolded (right now it's showing markdown text with astericks)", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-4.23.06-AM.png?id=Qz2PlX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlF6MlBsWCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODIwOTk5OX0.ZJQYj6HYXKZ-V8LjWxwEPr6QlGCtgIVn-r-um129H3Y&signature=e6b760f0559d5e81c1bee432db07e748eeaafe2aae68d75c1048aebe1e5844fa" }
           ]
@@ -285,6 +294,7 @@ function Sprints() {
           description: "Selected text in AI responses is not readable (black text on dark selection)",
           impact: "Can't read selected text (severity 10/10)",
           technicalNotes: "CSS fix for selected text color in assistant.ui.js",
+          requiresUI: true,
           feedback: [
             { id: "dWevyQy", text: "when I select the text in the ai response, the selected text is not readable to the eye. Change the text color from black to white when selected.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-4.50.01-AM.png?id=861oBx&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2MW9CeCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODIxMTUzN30.PO_H95atGMKdsU3o4QhDTcbS9BMY_CEIIBrKWJZWcHo&signature=5df5c2af2d56d3c425d4a44f7cfe324ac8f4eeb25625eb904c161dd6ee7cca40" }
           ]
@@ -296,6 +306,7 @@ function Sprints() {
           description: "No visual feedback when voice icon is clicked, words only appear after pause",
           impact: "Users don't know if voice is working (severity 8/10)",
           technicalNotes: "Visual indicators for voice recording state in assistant.ui.js",
+          requiresUI: true,
           feedback: [
             { id: "Y5lkXDW", text: "When the user clicks on the voice icon, there is not visual feedback that the button is working or the words are getting dictated since, the words display only after you hit the pause button." }
           ]
@@ -307,6 +318,7 @@ function Sprints() {
           description: "Empty state feels incomplete, needs illustration and example prompts",
           impact: "First impression is poor, users don't know what to do (severity 7/10)",
           technicalNotes: "Add illustration, example prompts, improve first-impression UX in assistant.ui.js",
+          requiresUI: true,
           feedback: [
             { id: "7RrMGb0", text: "fix the empty state for the ai chat window, right now it feels incomplete. (add the illustration and remove the oasis ai text placement). since this is the initial interaction with oasis ai assistant, the experience should be memorable. Add some example prompts for the empty state which will give users a head start with ai assistant and its capabilities.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-5.03.10-AM.png?id=GqxezO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxeGV6TyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODIxMjM4Nn0.RZCVhTBm_ol6rSr3e-ET9jA4Ss2L4kGRSeTmqzOyjlM&signature=45959b7561c8e774f90af9bfa219893690e567554ebea43f794dd83c661c7f51" }
           ]
@@ -372,6 +384,7 @@ function Sprints() {
           description: "Icons for same type of content (e.g., Google Sheets) are different in tab group view vs tab view",
           impact: "Confusing UI, inconsistent experience (severity 6/10)",
           technicalNotes: "Fix icon consistency across tab group and tab views",
+          requiresUI: true,
           feedback: [
             { id: "jaAJoPR", text: "The icons for my google spreadsheets in a hub are different. I expect the icons to be the same since they are all spreadsheets. The icon displayed when it is shown as a tab should be the same icon in the hub group. Need a consistent UI.. don't change icons." }
           ]
@@ -459,6 +472,9 @@ function Sprints() {
           <p style={{ marginTop: '15px', fontStyle: 'italic', color: '#666' }}>
             <strong>Note:</strong> This reorganization groups issues by the files/modules they affect, making it easier for developers to work on related functionality together.
           </p>
+          <p style={{ marginTop: '10px', fontSize: '0.95rem', color: '#6366f1', fontWeight: '500' }}>
+            🎨 <strong>UI Icon:</strong> Issues marked with 🎨 UI require UI design work. Engineers should consult with <strong>Pournami</strong> (main UI designer) before starting implementation.
+          </p>
         </div>
       </section>
 
@@ -526,6 +542,20 @@ function Sprints() {
                         <div className="issue-header">
                           <h4>
                             {idx + 1}. {issue.title} ({issue.count} {issue.count === 1 ? 'report' : 'reports'})
+                            {issue.requiresUI && (
+                              <span 
+                                title="Requires UI design - consult with Pournami (main UI designer)"
+                                style={{ 
+                                  marginLeft: '10px', 
+                                  fontSize: '0.9rem',
+                                  color: '#6366f1',
+                                  fontWeight: 'normal',
+                                  cursor: 'help'
+                                }}
+                              >
+                                🎨 UI
+                              </span>
+                            )}
                           </h4>
                           <div className="submission-ids">
                             {issue.submissionIds.map((id, i) => (
