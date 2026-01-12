@@ -56,7 +56,8 @@
 .priority-badge,
 .effort-badge,
 .impact-badge,
-.severity-badge {
+.severity-badge,
+.story-points-badge {
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 0.85rem;
@@ -72,6 +73,10 @@
 
 .severity-badge {
   background-color: #6c757d;
+}
+
+.story-points-badge {
+  background-color: #6f42c1;
 }
 
 .sprint-toggle {

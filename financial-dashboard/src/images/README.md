@@ -27,3 +27,6 @@ import productImage from '../images/your-image-name.jpg'
 - Optimize images before uploading to keep file sizes reasonable
 - Consider using WebP format for better compression
 
+
+
+
