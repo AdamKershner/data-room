@@ -328,6 +328,94 @@ function TeamExecution() {
       }
     },
     {
+      name: "Dhruv Patel",
+      roles: ["Product Marketing"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: [
+        {
+          submissionId: "Dhruv1",
+          respondentId: "Dhruv",
+          submittedAt: "2025-01-10 10:00:00",
+          name: "Dhruv Patel",
+          date: "2025-01-03",
+          hours: 20,
+          description: "Week of Dec 30 - Jan 3. Researched trending topics in productivity and browser technology. Brainstormed creative content ideas for social media. Created content calendar for January. Developed content themes and messaging strategies."
+        },
+        {
+          submissionId: "Dhruv2",
+          respondentId: "Dhruv",
+          submittedAt: "2025-01-17 10:00:00",
+          name: "Dhruv Patel",
+          date: "2025-01-10",
+          hours: 20,
+          description: "Week of Jan 6-10. Generated 30+ social media content ideas. Created daily post ideas for Twitter and LinkedIn. Engaged with community on Product Hunt. Tracked sign-ups and conversion metrics."
+        },
+        {
+          submissionId: "Dhruv3",
+          respondentId: "Dhruv",
+          submittedAt: "2025-01-24 10:00:00",
+          name: "Dhruv Patel",
+          date: "2025-01-17",
+          hours: 20,
+          description: "Week of Jan 13-17. Developed new content series themes. Created engaging social media posts. Supported content marketing initiatives. Analyzed content performance metrics."
+        },
+        {
+          submissionId: "Dhruv4",
+          respondentId: "Dhruv",
+          submittedAt: "2025-01-31 10:00:00",
+          name: "Dhruv Patel",
+          date: "2025-01-24",
+          hours: 20,
+          description: "Week of Jan 20-24. Continued content ideation for February calendar. Created visual content ideas. Engaged with online communities. Tracked subscriber growth from content."
+        }
+      ],
+      q1Goals: {
+        overview: "Drive subscriber growth through social media content ideation",
+        target: "Generate 30+ content ideas per month to support subscriber acquisition",
+        weeklyBreakdown: [
+          { week: 1, goal: "Research content themes", metric: "10+ ideas generated" },
+          { week: 2, goal: "Week 2 content ideation", metric: "30+ ideas for month" },
+          { week: 3, goal: "Week 3 content ideation", metric: "30+ ideas for month" },
+          { week: 4, goal: "Week 4 content ideation", metric: "30+ ideas for month" },
+          { week: 5, goal: "Week 5 content ideation", metric: "30+ ideas for month" },
+          { week: 6, goal: "Week 6 content ideation", metric: "30+ ideas for month" },
+          { week: 7, goal: "Week 7 content ideation", metric: "30+ ideas for month" },
+          { week: 8, goal: "Week 8 content ideation", metric: "30+ ideas for month" },
+          { week: 9, goal: "Week 9 content ideation", metric: "30+ ideas for month" },
+          { week: 10, goal: "Week 10 content ideation", metric: "30+ ideas for month" },
+          { week: 11, goal: "Week 11 content ideation", metric: "30+ ideas for month" },
+          { week: 12, goal: "Week 12 content ideation", metric: "30+ ideas for month" },
+          { week: 13, goal: "Q1 content strategy review", metric: "90+ total ideas generated" }
+        ],
+        keyMetrics: [
+          "Content ideas generated per month (target 30+)",
+          "Content calendar completion",
+          "Content themes developed (target 5+)",
+          "Support for subscriber growth"
+        ]
+      },
+      projects: [
+        {
+          title: "Social Media Content Ideation",
+          status: "active",
+          startDate: "January 2026",
+          description: "Develop creative and engaging social media content ideas to build Oasis Browser's presence and grow community.",
+          scope: [
+            "Research trending topics in productivity and browser technology",
+            "Brainstorm creative content ideas for Twitter/X, LinkedIn, and other platforms",
+            "Create content calendars with daily post ideas",
+            "Develop content themes and messaging strategies"
+          ],
+          goals: [
+            "Generate 30+ social media content ideas per month",
+            "Create content calendar for Q1 2026",
+            "Develop 5+ content series/themes for consistent posting"
+          ]
+        }
+      ]
+    },
+    {
       name: "Hritik Sanjay Chalse",
       roles: ["Product Marketing"],
       employmentStatus: "intern",
@@ -453,100 +541,6 @@ function TeamExecution() {
           respondentId: "Sonali",
           submittedAt: "2025-01-31 10:00:00",
           name: "Sonali Ankolikar",
-          date: "2025-01-24",
-          hours: 20,
-          description: "Week of Jan 20-24. Installed new weekly release from installations page. Tested UI/UX improvements from previous sprint. Submitted feedback forms for new issues and ideas. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Completed PMF/NPS survey after testing. Verified implemented improvements with users."
-        }
-      ],
-      q1Goals: {
-        overview: "Enable +15 NPS through feedback collection and PMF/NPS survey administration",
-        target: "Collect 100+ feedback items and administer PMF/NPS surveys to enable +15 NPS by end of Q1",
-        weeklyBreakdown: [
-          { week: 1, goal: "Set up survey process and feedback collection", metric: "Baseline NPS measured, feedback form ready" },
-          { week: 2, goal: "Week 2: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
-          { week: 3, goal: "Week 3: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
-          { week: 4, goal: "Week 4: Bi-weekly NPS check & review", metric: "NPS measured (target +3-5), 40+ total feedback items" },
-          { week: 5, goal: "Week 5: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
-          { week: 6, goal: "Week 6: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
-          { week: 7, goal: "Week 7: Bi-weekly NPS check & review", metric: "NPS measured (target +6-8), 80+ total feedback items" },
-          { week: 8, goal: "Week 8: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
-          { week: 9, goal: "Week 9: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
-          { week: 10, goal: "Week 10: Bi-weekly NPS check & review", metric: "NPS measured (target +9-11), 100+ total feedback items" },
-          { week: 11, goal: "Week 11: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
-          { week: 12, goal: "Week 12: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
-          { week: 13, goal: "Final Q1 assessment", metric: "Final NPS measured (target +15), 100+ feedback items collected" }
-        ],
-        keyMetrics: [
-          "Feedback items collected (target 100+ in Q1)",
-          "Survey response rate (target 80%+)",
-          "NPS delta bi-weekly (supporting metric)",
-          "PMF threshold maintenance (40%+ 'Very disappointed')",
-          "Enhancement ideas documented per week"
-        ]
-      },
-      projects: [
-        {
-          title: "Weekly UI/UX Testing & Survey Administration",
-          status: "active",
-          startDate: "January 2026",
-          description: "Participate in the continuous feedback loop: install weekly releases, conduct weekly UI/UX testing sessions, submit feedback forms, and administer PMF/NPS surveys to measure product improvements and inform demo enhancements.",
-          scope: [
-            "Install latest browser version from installations page each week",
-            "Schedule weekly testing sessions with users for new UI/UX iterations",
-            "Submit feedback forms via AI assistant interface (bugs, enhancement ideas, feature requests)",
-            "Administer PMF survey: NPS (0-10), disappointment question, user type, main benefit, improvement suggestions",
-            "Administer NPS survey to track week-over-week changes",
-            "Complete NPS survey after each testing round",
-            "Document enhancement ideas and bug fixes in feedback form (Google Sheets)",
-            "Analyze survey results and identify patterns"
-          ],
-          goals: [
-            "Complete 5+ weekly testing sessions",
-            "Achieve 80%+ survey response rate",
-            "Track and report NPS delta weekly",
-            "Document 10+ enhancement ideas per week"
-          ]
-        }
-      ]
-    },
-    {
-      name: "Mukesh Basvekar",
-      roles: ["Product"],
-      employmentStatus: "intern",
-      hoursPerWeek: 20,
-      timeLogs: [
-        {
-          submissionId: "Mukesh1",
-          respondentId: "Mukesh",
-          submittedAt: "2025-01-10 10:00:00",
-          name: "Mukesh Basvekar",
-          date: "2025-01-03",
-          hours: 20,
-          description: "Week of Dec 30 - Jan 3. Installed latest browser version from installations page. Conducted UI/UX testing session with users. Submitted feedback forms via AI assistant interface for bugs and enhancement ideas. Administered PMF and NPS surveys. Documented enhancement ideas in Google Sheets. Analyzed feedback for engineering prioritization."
-        },
-        {
-          submissionId: "Mukesh2",
-          respondentId: "Mukesh",
-          submittedAt: "2025-01-17 10:00:00",
-          name: "Mukesh Basvekar",
-          date: "2025-01-10",
-          hours: 20,
-          description: "Week of Jan 6-10. Installed new weekly release from installations page. Tested new UI/UX iteration with focus on demo-critical features. Submitted feedback forms documenting bugs and enhancement ideas. Administered NPS survey and tracked delta. Collected user feedback via feedback form (consolidates to Google Sheets). Prioritized top improvements for sprint."
-        },
-        {
-          submissionId: "Mukesh3",
-          respondentId: "Mukesh",
-          submittedAt: "2025-01-24 10:00:00",
-          name: "Mukesh Basvekar",
-          date: "2025-01-17",
-          hours: 20,
-          description: "Week of Jan 13-17. Installed latest weekly release from installations page. Conducted weekly UI/UX testing. Submitted feedback forms for bugs and enhancement ideas through AI assistant interface. Administered PMF survey to measure product-market fit. Documented bug fixes and enhancement ideas in Google Sheets. Collaborated with engineering on sprint priorities."
-        },
-        {
-          submissionId: "Mukesh4",
-          respondentId: "Mukesh",
-          submittedAt: "2025-01-31 10:00:00",
-          name: "Mukesh Basvekar",
           date: "2025-01-24",
           hours: 20,
           description: "Week of Jan 20-24. Installed new weekly release from installations page. Tested UI/UX improvements from previous sprint. Submitted feedback forms for new issues and ideas. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Completed PMF/NPS survey after testing. Verified implemented improvements with users."
@@ -2874,6 +2868,97 @@ function TeamExecution() {
       ]
     },
     {
+      name: "Aditya Saini",
+      roles: ["Product"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: [
+        {
+          submissionId: "Aditya1",
+          respondentId: "Aditya",
+          submittedAt: "2025-01-10 10:00:00",
+          name: "Aditya Saini",
+          date: "2025-01-03",
+          hours: 20,
+          description: "Week of Dec 30 - Jan 3. Installed latest browser version from installations page. Conducted UI/UX testing session with users. Submitted feedback forms via AI assistant interface for bugs and enhancement ideas. Administered PMF and NPS surveys. Documented enhancement ideas in Google Sheets. Analyzed feedback for engineering prioritization."
+        },
+        {
+          submissionId: "Aditya2",
+          respondentId: "Aditya",
+          submittedAt: "2025-01-17 10:00:00",
+          name: "Aditya Saini",
+          date: "2025-01-10",
+          hours: 20,
+          description: "Week of Jan 6-10. Installed new weekly release from installations page. Tested new UI/UX iteration with focus on demo-critical features. Submitted feedback forms documenting bugs and enhancement ideas. Administered NPS survey and tracked delta. Collected user feedback via feedback form (consolidates to Google Sheets). Prioritized top improvements for sprint."
+        },
+        {
+          submissionId: "Aditya3",
+          respondentId: "Aditya",
+          submittedAt: "2025-01-24 10:00:00",
+          name: "Aditya Saini",
+          date: "2025-01-17",
+          hours: 20,
+          description: "Week of Jan 13-17. Installed latest weekly release from installations page. Conducted weekly UI/UX testing. Submitted feedback forms for bugs and enhancement ideas through AI assistant interface. Administered PMF survey to measure product-market fit. Documented bug fixes and enhancement ideas in Google Sheets. Collaborated with engineering on sprint priorities."
+        },
+        {
+          submissionId: "Aditya4",
+          respondentId: "Aditya",
+          submittedAt: "2025-01-31 10:00:00",
+          name: "Aditya Saini",
+          date: "2025-01-24",
+          hours: 20,
+          description: "Week of Jan 20-24. Installed new weekly release from installations page. Tested UI/UX improvements from previous sprint. Submitted feedback forms for new issues and ideas. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Completed PMF/NPS survey after testing. Verified implemented improvements with users."
+        }
+      ],
+      q1Goals: {
+        overview: "Enable +15 NPS through demo-focused feedback collection",
+        target: "Collect 100+ feedback items focused on demo quality to enable +15 NPS by end of Q1",
+        weeklyBreakdown: [
+          { week: 1, goal: "Baseline demo quality assessment and feedback setup", metric: "Baseline NPS measured, feedback form ready" },
+          { week: 2, goal: "Week 2: Demo-focused feedback collection", metric: "15+ demo-focused feedback items collected" },
+          { week: 3, goal: "Week 3: Demo-focused feedback collection", metric: "15+ demo-focused feedback items collected" },
+          { week: 4, goal: "Week 4: Bi-weekly NPS check & demo review", metric: "NPS measured (target +3-5), 40+ total feedback items" },
+          { week: 5, goal: "Week 5: Demo-focused feedback collection", metric: "15+ demo-focused feedback items collected" },
+          { week: 6, goal: "Week 6: Demo-focused feedback collection", metric: "15+ demo-focused feedback items collected" },
+          { week: 7, goal: "Week 7: Bi-weekly NPS check & demo review", metric: "NPS measured (target +6-8), 80+ total feedback items" },
+          { week: 8, goal: "Week 8: Demo-focused feedback collection", metric: "15+ demo-focused feedback items collected" },
+          { week: 9, goal: "Week 9: Demo-focused feedback collection", metric: "15+ demo-focused feedback items collected" },
+          { week: 10, goal: "Week 10: Bi-weekly NPS check & demo review", metric: "NPS measured (target +9-11), 100+ total feedback items" },
+          { week: 11, goal: "Week 11: Demo-focused feedback collection", metric: "15+ demo-focused feedback items collected" },
+          { week: 12, goal: "Week 12: Demo-focused feedback collection", metric: "15+ demo-focused feedback items collected" },
+          { week: 13, goal: "Q1 demo quality assessment", metric: "Final NPS measured (target +15), 100+ feedback items collected" }
+        ],
+        keyMetrics: [
+          "Demo-focused feedback items collected (target 100+ in Q1)",
+          "NPS delta bi-weekly (supporting metric)",
+          "Demo quality score improvements",
+          "UI/UX improvements for B2B demo effectiveness",
+          "Engineering sprint planning support"
+        ]
+      },
+      projects: [
+        {
+          title: "UI/UX Testing for Demo Enhancement",
+          status: "active",
+          startDate: "January 2026",
+          description: "Focus UI/UX testing on features that enhance demo quality for B2B pilots, measuring improvements through PMF/NPS surveys.",
+          scope: [
+            "Test UI/UX improvements weekly with focus on demo-critical features",
+            "Administer PMF and NPS surveys to measure improvement",
+            "Collect enhancement ideas and bug fixes via feedback form (Google Sheets)",
+            "Prioritize UI/UX improvements that enhance demo effectiveness",
+            "Track NPS delta as key metric for product quality"
+          ],
+          goals: [
+            "Achieve positive NPS delta each week",
+            "Improve demo quality scores through UI/UX enhancements",
+            "Identify top UI/UX improvements for B2B demo effectiveness",
+            "Support engineering sprint planning with prioritized feedback"
+          ]
+        }
+      ]
+    },
+    {
       name: "Durgesh Tiwari",
       roles: ["Engineering"],
       employmentStatus: "intern",
@@ -3517,6 +3602,51 @@ function TeamExecution() {
       <div className="page-header">
         <h1>Team, Execution & Milestones</h1>
       </div>
+
+      <section className="page-section">
+        <h2>Executive Summary</h2>
+        <div className="content-block">
+          <h3>Average Monthly Burn - Tools & Platform Subscriptions</h3>
+          <p>
+            The following monthly costs are included in our average monthly burn for subscriptions to tools and platforms:
+          </p>
+          <ul className="feature-list">
+            <li><strong>G-Suite:</strong> $26.00/month</li>
+            <li><strong>Google Cloud (Firebase storage & database reads):</strong> $25.00/month</li>
+            <li><strong>GitHub:</strong> $12.00/month</li>
+            <li><strong>Heroku:</strong> $25.00/month</li>
+            <li><strong>Figma:</strong> $61.50/month</li>
+            <li><strong>AWS:</strong> $15.00/month (EC2 and Lambda functions)</li>
+            <li><strong>Gemini API:</strong> Usage-based pricing (Pay-as-you-go tier). Primarily billed per 1 million tokens for input/output. Models like Gemini 2.5 Pro and Flash have different rates, with tiered pricing for larger contexts. Free tiers available for testing through Google AI Studio with usage limits. Pricing varies between Google AI Studio and Vertex AI, with additional costs for advanced features like grounding and context caching. Reference: <a href="https://ai.google.dev/pricing" target="_blank" rel="noopener noreferrer">Gemini API Pricing</a></li>
+            <li><strong>Deepgram API:</strong> Usage-based pricing varying by model. Speech-to-text models: Flux and Nova-3 (Monolingual) at $0.0077/min, Nova-3 (Multilingual) at $0.0092/min, Nova-1 & 2 at $0.0058/min, Enhanced at $0.0165/min, Base at $0.0145/min. Voice Agent API: Standard tier at $0.0800/min (pay-as-you-go). Billed per second for fairness. Free tier available with $200 credit. Custom enterprise pricing and volume discounts available. Reference: <a href="https://deepgram.com/pricing" target="_blank" rel="noopener noreferrer">Deepgram Pricing</a></li>
+          </ul>
+
+          <h3 style={{ marginTop: '30px' }}>Oasis AI Assistant API Costs</h3>
+          <p>
+            Gemini and Deepgram APIs power the Oasis AI assistant. Costs are incurred whenever the assistant processes a command. Based on current usage patterns and API pricing:
+          </p>
+          <ul className="feature-list">
+            <li><strong>Text command:</strong> $0.002 per request (all-in cost including AWS, Gemini, and Deepgram)</li>
+            <li><strong>Voice command:</strong> $0.02 per request (all-in cost including AWS, Gemini, and Deepgram)</li>
+          </ul>
+          <p style={{ marginTop: '15px' }}>
+            <strong>Note:</strong> These are example ballpark numbers based on current usage patterns. Actual costs should be calculated from AWS, Gemini, and Deepgram invoices to determine the true average cost per request.
+          </p>
+
+          <h3 style={{ marginTop: '30px' }}>Capacity Planning with $3/month Budget</h3>
+          <p>
+            With the example unit costs above, a $3/month budget for AI assistant usage would support:
+          </p>
+          <ul className="feature-list">
+            <li><strong>Text-only usage:</strong> ~1,500 text commands per month ($3 / $0.002 = 1,500 commands)</li>
+            <li><strong>Voice-only usage:</strong> ~150 voice commands per month ($3 / $0.02 = 150 commands)</li>
+            <li><strong>Mixed usage:</strong> A combination where each voice command uses approximately 10x the budget of a text command</li>
+          </ul>
+          <p style={{ marginTop: '15px' }}>
+            This capacity structure provides reasonable limits for users while maintaining cost control for the platform.
+          </p>
+        </div>
+      </section>
 
       <section className="page-section">
         <h2>Team</h2>
