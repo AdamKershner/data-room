@@ -427,30 +427,86 @@ function Sprints() {
       title: "Human-in-the-Loop (HITL) Framework - Phase 1: MVP/Prototype",
       emoji: "🔄",
       priority: "MEDIUM",
-      storyPoints: 0,
-      effort: "TBD",
+      storyPoints: 42,
+      effort: "High",
       impact: "High",
-      severity: "TBD",
-      overview: "Implement the MVP/prototype of the Human-in-the-Loop (HITL) framework to enable product testers to begin providing inputs and participating in the loop. This is the most basic implementation that establishes the core HITL workflow: data input → machine processing → human review → intervention → feedback loop. The goal is to get the fundamental system working so testers can start contributing to AI improvement through their corrections and validations.",
-      primaryFiles: "TBD (assistant.ts, feedback collection, training pipeline)",
+      severity: "8/10",
+      overview: "Implement the MVP/prototype of the Human-in-the-Loop (HITL) framework to enable product testers to begin providing inputs and participating in the loop. This is the most basic implementation that establishes the core HITL workflow: data input → machine processing → human review → intervention → feedback loop. The goal is to get the fundamental system working so testers can start contributing to AI improvement through their corrections and validations. Uses existing patterns: UsageTracker/UsageLogger for service structure, transcription_usage table pattern for database schema.",
+      primaryFiles: "hitlFeedback.ts (NEW), hitlPipeline.ts (NEW), assistant.ui.js (EXTEND), assistant.ts (EXTEND), proxyClient.ts (EXTEND), supabase_migration.sql (EXTEND)",
       issues: [
         {
-          title: "HITL Framework MVP Implementation",
+          title: "Database Schema for HITL Feedback",
           count: 0,
           submissionIds: [],
-          description: "Design and implement the core HITL framework MVP that allows human review and intervention in AI decision-making processes. This is the minimal viable implementation needed for product testers to begin participating in the loop.",
-          impact: "Enables product testers to start providing feedback and corrections, beginning the continuous improvement cycle",
-          technicalNotes: "Need to design basic workflow for: 1) Data input processing, 2) Machine prediction/decision, 3) Human review interface, 4) Human intervention/correction, 5) Basic feedback loop to improve model. Focus on getting the core loop working, not on advanced features.",
+          description: "Create Supabase database schema to store HITL feedback, corrections, and training data. Create hitl_feedback table with user_id, session_id, conversation_id, user_input, ai_output, corrected_output, feedback_type, feedback_score, timestamps. Create hitl_training_data table for processed corrections ready for model training. Add RLS policies and indexes.",
+          impact: "Foundation for storing all HITL data",
+          technicalNotes: "Similar pattern to existing transcription_usage table. Low-Medium complexity. Can replicate existing Supabase RLS policy patterns.",
+          feedback: []
+        },
+        {
+          title: "Feedback Collection UI Components",
+          count: 0,
+          submissionIds: [],
+          description: "Add UI components to assistant.ui.js that allow users to provide feedback on AI responses. Add thumbs up/down buttons, 'Correct' button with inline text editor, 'Flag' button for reporting issues. Create feedback modal/panel for detailed corrections. Store feedback state locally until submission.",
+          impact: "Enables users to interact with HITL system",
+          technicalNotes: "Medium complexity. Can extend existing message bubble components in assistant.ui.js. Can be built in parallel with database schema.",
+          feedback: []
+        },
+        {
+          title: "HITL Feedback Service",
+          count: 0,
+          submissionIds: [],
+          description: "Create service to collect, validate, and store feedback from UI components. Create services/hitlFeedback.ts similar to usageLogger.ts pattern. Methods: submitFeedback(), getUserFeedbackStats(), validateFeedback(). Integrate with SupabaseAuth for user context. Handle offline scenarios.",
+          impact: "Handles all feedback collection logic",
+          technicalNotes: "Medium complexity. Follows existing service patterns (UsageTracker/UsageLogger). Depends on database schema.",
+          feedback: []
+        },
+        {
+          title: "Intercept AI Outputs for Review",
+          count: 0,
+          submissionIds: [],
+          description: "Modify assistant.ts to capture AI outputs and make them available for feedback. Modify runAssistantStream() to store conversation context: user input, AI output, command executions, session ID. Create conversation context object that can be passed to feedback UI. Store conversation context temporarily.",
+          impact: "Enables the review step in HITL workflow",
+          technicalNotes: "Low-Medium complexity. Mostly adding data capture to existing flow. Can be done independently.",
+          feedback: []
+        },
+        {
+          title: "Feedback Processing Pipeline",
+          count: 0,
+          submissionIds: [],
+          description: "Create pipeline to process feedback and prepare it for model training. Create services/hitlPipeline.ts with processFeedback(), prepareTrainingData(), batchFeedback(). Create Supabase function/trigger to process feedback automatically. Format training data according to model requirements. Queue processed data for model training.",
+          impact: "Connects feedback to model improvement",
+          technicalNotes: "High complexity. Requires understanding of model training data format, batch processing logic. Depends on database schema and feedback service.",
+          feedback: []
+        },
+        {
+          title: "Model Training Integration",
+          count: 0,
+          submissionIds: [],
+          description: "Integrate feedback pipeline with AI model training/update system. Extend proxyClient.ts or create new endpoint: submitTrainingData(), checkModelUpdateStatus(). Backend integration (Lambda function) to receive training data batches, trigger model fine-tuning/update process. Handle model versioning.",
+          impact: "Completes the feedback loop - corrections improve the model",
+          technicalNotes: "Very High complexity. Requires backend changes, model training infrastructure, versioning. May require coordination with backend team. May be split into multiple stories.",
+          feedback: []
+        },
+        {
+          title: "Basic Feedback Loop Testing",
+          count: 0,
+          submissionIds: [],
+          description: "Create tests and validation for the complete HITL workflow. Unit tests for feedback service, integration tests for feedback collection → storage → processing, manual testing checklist for product testers, test data fixtures for development.",
+          impact: "Ensures HITL system works end-to-end",
+          technicalNotes: "Medium complexity. Standard testing approach. Depends on all above components.",
           feedback: []
         }
       ],
       acceptanceCriteria: [
-        "Basic HITL workflow is implemented (data input → machine processing → human review → intervention → feedback loop)",
-        "Human review interface allows product testers to validate and correct AI outputs",
-        "Basic feedback loop feeds corrected data back into the AI model",
-        "System can track and learn from human interventions",
-        "Product testers can begin participating in the loop and providing inputs",
-        "HITL framework handles basic AI tasks and corrections"
+        "Database schema created with hitl_feedback and hitl_training_data tables",
+        "UI components allow users to provide thumbs up/down, corrections, and flags on AI responses",
+        "Feedback service collects and stores all user feedback to Supabase",
+        "AI outputs are captured and associated with user inputs for feedback context",
+        "Feedback pipeline processes corrections into training data format",
+        "Model training integration sends processed feedback to backend for model updates",
+        "Basic HITL workflow is tested and validated end-to-end",
+        "Product testers can begin participating in the loop and providing inputs"
       ]
     },
     {
@@ -458,40 +514,85 @@ function Sprints() {
       title: "Human-in-the-Loop (HITL) Framework - Phase 2: Enhancements",
       emoji: "📊",
       priority: "MEDIUM",
-      storyPoints: 0,
-      effort: "TBD",
+      storyPoints: 60,
+      effort: "Very High",
       impact: "High",
-      severity: "TBD",
-      overview: "Enhance the HITL framework with reach goals and advanced features beyond the basic MVP. This phase includes the user analytics dashboard that tracks individual participation and gamifies the HITL experience, making participation feel more like a game/experiment than routine feedback. The more people train/tune on a regular basis, the more accurate and reliable the overall system will become. This phase focuses on increasing engagement, consistency, and making the system more scalable and adaptable.",
-      primaryFiles: "TBD (analytics dashboard, advanced training pipeline, gamification features)",
+      severity: "7-8/10",
+      overview: "Enhance the HITL framework with reach goals and advanced features beyond the basic MVP. This phase includes the user analytics dashboard that tracks individual participation and gamifies the HITL experience, making participation feel more like a game/experiment than routine feedback. The more people train/tune on a regular basis, the more accurate and reliable the overall system will become. This phase focuses on increasing engagement, consistency, and making the system more scalable and adaptable. Recommended split: Sprint 7A (Analytics & Gamification - 26 points) and Sprint 7B (Scalability & Advanced - 34 points).",
+      primaryFiles: "hitlAnalytics.ts (NEW), hitlGamification.ts (NEW), assistant.ui.js (EXTEND - dashboard UI), hitlPipeline.ts (EXTEND - advanced features), supabase_migration.sql (EXTEND - analytics tables)",
       issues: [
         {
-          title: "User Analytics Dashboard for HITL Training",
+          title: "Analytics Data Model and Aggregation",
           count: 0,
           submissionIds: [],
-          description: "Build user analytics dashboard that tracks individual participation in HITL training/tuning activities. The dashboard helps users track the number of times they've trained within the HITL system over a week, promoting consistency and motivation. This gamification element makes participation in the loop feel more like a game/experiment than just giving routine feedback.",
-          impact: "Increases user engagement and consistency in HITL participation, leading to better system accuracy",
-          technicalNotes: "See prototype: https://oasis-roadmap.vercel.app/tuning-analytics - Dashboard should track weekly training frequency, provide visual feedback on participation, and gamify the HITL experience",
+          description: "Create database schema and aggregation functions for HITL analytics. Create hitl_analytics table or view with user participation metrics (daily, weekly, monthly), feedback counts by type, correction accuracy metrics, training data contribution stats. Create Supabase functions: get_user_hitl_stats(), get_weekly_training_frequency(), get_feedback_trends(). Add indexes for performance.",
+          impact: "Foundation for analytics dashboard",
+          technicalNotes: "Medium complexity. Similar to existing transcription usage stats. Depends on Sprint 6 database schema.",
           feedback: []
         },
         {
-          title: "Advanced HITL Features and Scalability",
+          title: "Analytics Dashboard UI",
           count: 0,
           submissionIds: [],
-          description: "Enhance the HITL framework with advanced features beyond the MVP, including improved scalability, handling of complex tasks, bias mitigation, and adaptability to changing conditions.",
-          impact: "Makes HITL framework production-ready and capable of handling diverse AI tasks at scale",
-          technicalNotes: "Focus on: 1) Scalability improvements, 2) Handling complex/subjective tasks, 3) Bias identification and correction, 4) Adaptability to new data and conditions, 5) Advanced feedback loop optimizations",
+          description: "Build user-facing analytics dashboard showing HITL participation metrics. Create dashboard component in assistant.ui.js with weekly training frequency chart, participation streak counter, total contributions counter, feedback breakdown (pie chart), progress indicators and goals. Reference prototype: https://oasis-roadmap.vercel.app/tuning-analytics. Use existing usage stats display as reference.",
+          impact: "Users can see their contribution and stay motivated",
+          technicalNotes: "Medium-High complexity. UI work, charting library integration (Chart.js, D3.js, or similar). Depends on analytics data model.",
+          feedback: []
+        },
+        {
+          title: "Gamification Engine",
+          count: 0,
+          submissionIds: [],
+          description: "Implement gamification features to make HITL participation engaging. Create services/hitlGamification.ts with achievement system (badges for milestones), streak tracking (consecutive days), points/XP system, level system. Create hitl_achievements table. Add achievement notifications in UI, visual progress indicators (XP bars, level badges).",
+          impact: "Increases user engagement and consistency",
+          technicalNotes: "Medium-High complexity. Game mechanics design, state management. Depends on analytics data model.",
+          feedback: []
+        },
+        {
+          title: "Advanced Feedback Processing",
+          count: 0,
+          submissionIds: [],
+          description: "Enhance feedback pipeline with advanced features for complex tasks and bias detection. Enhance hitlPipeline.ts with bias detection (flag potentially biased corrections), confidence scoring, conflict resolution (handle conflicting feedback from multiple users), contextual analysis. Create bias detection heuristics: check for demographic bias, flag corrections that contradict majority feedback, identify outlier corrections for review.",
+          impact: "Makes HITL system more robust and capable",
+          technicalNotes: "High complexity. Requires ML/bias detection knowledge, complex logic. Depends on Sprint 6 feedback pipeline.",
+          feedback: []
+        },
+        {
+          title: "Scalability Improvements",
+          count: 0,
+          submissionIds: [],
+          description: "Optimize HITL system for handling more users, more data, and concurrent operations. Database optimizations: partition hitl_feedback table by date, add composite indexes, implement data archiving. Caching layer: cache user stats, cache aggregated analytics. Batch processing: process feedback in batches, queue system for high-volume periods. Rate limiting: prevent feedback spam, limit feedback per user per day. Performance monitoring.",
+          impact: "System can scale to production levels",
+          technicalNotes: "Very High complexity. Requires database expertise, infrastructure changes. Depends on all Sprint 6 components.",
+          feedback: []
+        },
+        {
+          title: "Advanced Model Training Integration",
+          count: 0,
+          submissionIds: [],
+          description: "Enhance model training integration with advanced features like A/B testing, model versioning, and feedback prioritization. Model versioning: track which model version received which feedback, compare model performance across versions. Feedback prioritization: weight high-quality feedback more heavily, prioritize corrections from experienced users, boost feedback that addresses common errors. A/B testing framework: test model improvements before full rollout. Training data quality: filter low-quality feedback, validate training data before submission.",
+          impact: "More sophisticated model improvement process",
+          technicalNotes: "Very High complexity. Requires ML expertise, backend coordination. Depends on Sprint 6 model training integration. May require significant backend team involvement.",
+          feedback: []
+        },
+        {
+          title: "Dashboard and Gamification Testing",
+          count: 0,
+          submissionIds: [],
+          description: "Test analytics dashboard, gamification features, and advanced functionality. Unit tests for analytics aggregation, integration tests for gamification engine, UI tests for dashboard components, performance tests for scalability improvements, user acceptance testing for gamification features.",
+          impact: "Ensures Phase 2 features work correctly",
+          technicalNotes: "Medium complexity. Standard testing approach. Depends on all above components.",
           feedback: []
         }
       ],
       acceptanceCriteria: [
-        "User analytics dashboard tracks individual HITL training frequency (weekly metrics)",
-        "Analytics dashboard provides gamification elements to motivate consistent participation",
-        "Dashboard makes HITL participation feel engaging and experimental rather than routine",
-        "HITL framework is scalable and can handle various types of AI tasks",
-        "Advanced features support handling complex tasks requiring subjective judgment",
-        "System can identify and help correct biases in the data or model",
-        "Framework adapts to changing conditions and new data more effectively"
+        "Analytics data model tracks weekly training frequency and participation metrics",
+        "User analytics dashboard displays charts, progress indicators, and participation stats",
+        "Gamification engine tracks achievements, streaks, points, and levels",
+        "Advanced feedback processing includes bias detection and quality scoring",
+        "System handles scalability requirements (more users, more data, concurrent operations)",
+        "Advanced model training integration includes versioning, prioritization, and A/B testing",
+        "All Phase 2 features are tested and validated"
       ]
     }
   ]
