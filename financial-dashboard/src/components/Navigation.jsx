@@ -14,8 +14,7 @@ function Navigation() {
     { path: '/go-to-market', label: 'Go-to-Market & Growth', id: 'go-to-market' },
     { path: '/financial-plan', label: 'Financial Plan & Sensitivity', id: 'financial-plan' },
     { path: '/team-execution', label: 'Team, Execution & Milestones', id: 'team-execution' },
-    { path: '/funding', label: 'Funding Needs & Use of Funds', id: 'funding' },
-    { path: '/appendices', label: 'Appendices', id: 'appendices' }
+    { path: '/sprints', label: 'Sprints', id: 'sprints' }
   ]
 
   const toggleMenu = () => {

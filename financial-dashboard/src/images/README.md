@@ -31,3 +31,6 @@ import productImage from '../images/your-image-name.jpg'
 
 
 
+
+
+

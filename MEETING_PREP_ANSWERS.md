@@ -220,3 +220,6 @@ Based on our sensitivity analysis, the following assumptions are most vulnerable
 
 **B2B Go-to-Market:** Champion-led approach leveraging existing relationships (Jonathan Gans, PE/VC firms, consulting firms), supported by alumni networks and in-person networking, with structured 3-6 month pilots designed for measurable ROI and expansion potential.
 
+
+
+
