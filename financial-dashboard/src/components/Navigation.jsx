@@ -14,7 +14,8 @@ function Navigation() {
     { path: '/go-to-market', label: 'Go-to-Market & Growth', id: 'go-to-market' },
     { path: '/financial-plan', label: 'Financial Plan & Sensitivity', id: 'financial-plan' },
     { path: '/team-execution', label: 'Team, Execution & Milestones', id: 'team-execution' },
-    { path: '/sprints', label: 'Sprints', id: 'sprints' }
+    { path: '/sprints', label: 'Sprints', id: 'sprints' },
+    { path: '/weekly-reports', label: 'Weekly Reports', id: 'weekly-reports' }
   ]
 
   const toggleMenu = () => {

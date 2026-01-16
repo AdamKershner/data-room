@@ -9,6 +9,7 @@ import GoToMarket from './pages/GoToMarket'
 import FinancialPlan from './pages/FinancialPlan'
 import TeamExecution from './pages/TeamExecution'
 import Sprints from './pages/Sprints'
+import WeeklyReports from './pages/WeeklyReports'
 import './App.css'
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/financial-plan" element={<FinancialPlan />} />
           <Route path="/team-execution" element={<TeamExecution />} />
           <Route path="/sprints" element={<Sprints />} />
+          <Route path="/weekly-reports" element={<WeeklyReports />} />
         </Routes>
       </div>
     </Router>
