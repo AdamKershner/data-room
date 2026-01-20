@@ -13,29 +13,41 @@ function WeeklyReports() {
         'Generated strong lead activity: 15 MQLs (Marketing Qualified Leads)',
         'High-intent leads from enterprise organizations including Charles Schwab, IBM, Meta, AT&T, and Duke Health',
         'Multiple form submissions including Early Access requests and enterprise inquiries',
-        'Continued Firefox Oasis build setup and troubleshooting across multiple platforms',
-        'Research on LLM training methods for HITL (DPO method) and document preparation',
+        'Product testing and feedback collection across multiple team members',
+        'Windows packaging completed for PM release - ready for distribution',
+        'Critical bug fixes including assistant recursion error resolution',
+        'Design iterations and feedback compilation with sprint revisions',
+        'GTM plan initiatives mapped and coordinated with team members',
+        'Sprint planning and execution across multiple teams (Sprints 1, 2, 4)',
+        'Research on LLM training methods for HITL (DPO method)',
+        'CRM design and enterprise org chart research for B2B targeting',
+        'Team outreach and networking activities to improve collaboration',
+        'Competitive analysis and market research for inbound channel optimization',
         'Held strategic 1:1 meetings with engineering team and leadership',
         'Prepared and scheduled LinkedIn content for upcoming week'
       ],
       timeBreakdown: {
-        'Product Development': 34.0,
-        'B2B Sales & Outreach': 20.0
+        'Product Development': 290.0,
+        'Marketing & Content': 65.0,
+        'Design': 13.0,
+        'Research': 20.0
       },
       areasToImprove: [
-        'Continue tracking time allocation to optimize team productivity',
+        'Continue improving time log participation rate across all team members',
         'Follow up on high-intent enterprise leads (Charles Schwab, IBM, Meta, AT&T)',
-        'Maintain focus on high-impact activities aligned with business goals'
+        'Maintain focus on product quality through comprehensive testing',
+        'Accelerate GTM execution and marketing initiatives',
+        'Streamline sprint planning to reduce coordination overhead'
       ],
       metrics: {
-        totalHours: 54.0,
-        teamMembers: 3,
-        entries: 4,
+        totalHours: 388.0,
+        teamMembers: 20,
+        entries: 33,
         mqls: 15,
         sqls: 0,
         impressions: 174700,
         impressionsGrowth: 28.9,
-        timeLogParticipation: 8.1
+        timeLogParticipation: 52.2
       },
       quarterlyGoals: {
         nps: 0,
@@ -151,6 +163,27 @@ function WeeklyReports() {
     setExpandedReportId(expandedReportId === reportId ? null : reportId)
   }
 
+  // Calculate the Monday-Friday business week range for a given week date
+  // The weekDate should represent the Monday of that week (format: YYYY-MM-DD)
+  const getBusinessWeekRange = (weekDate) => {
+    // Parse the date string to avoid timezone issues
+    const [year, month, day] = weekDate.split('-').map(Number)
+    const monday = new Date(year, month - 1, day)
+    
+    // Friday is 4 days after Monday
+    const friday = new Date(monday)
+    friday.setDate(monday.getDate() + 4)
+    
+    const formatDate = (d) => {
+      return d.toLocaleDateString('en-US', { 
+        month: 'short', 
+        day: 'numeric'
+      })
+    }
+    
+    return `${formatDate(monday)} - ${formatDate(friday)}`
+  }
+
   // Calculate total time percentages for display
   const calculateTimePercentages = (breakdown) => {
     const total = Object.values(breakdown).reduce((sum, val) => sum + val, 0)
@@ -241,11 +274,7 @@ function WeeklyReports() {
               >
                 <div className="report-header-content">
                   <h2>{report.weekLabel}</h2>
-                  <span className="report-date">{new Date(report.week).toLocaleDateString('en-US', { 
-                    month: 'short', 
-                    day: 'numeric', 
-                    year: 'numeric' 
-                  })}</span>
+                  <span className="report-date">{getBusinessWeekRange(report.week)}</span>
                 </div>
                 <div className={`accordion-icon ${isExpanded ? 'expanded' : ''}`}>
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
