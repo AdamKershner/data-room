@@ -4,8 +4,10 @@ import './Sprints.css'
 
 function Sprints() {
   const [expandedSprint, setExpandedSprint] = useState(null)
+  const [expandedArchive, setExpandedArchive] = useState(false)
 
-  const sprints = [
+  // Archived sprints (completed)
+  const archivedSprints = [
     {
       id: 1,
       title: "Critical AI Command Execution Fixes",
@@ -330,7 +332,11 @@ function Sprints() {
         "Visual feedback shows when voice is active",
         "Empty state has illustration and example prompts"
       ]
-    },
+    }
+  ]
+
+  // Active sprints (in progress)
+  const activeSprints = [
     {
       id: 5,
       title: "Features & Integrations",
@@ -432,6 +438,7 @@ function Sprints() {
       impact: "High",
       severity: "8/10",
       overview: "Implement the MVP/prototype of the Human-in-the-Loop (HITL) framework to enable product testers to begin providing inputs and participating in the loop. This is the most basic implementation that establishes the core HITL workflow: data input → machine processing → human review → intervention → feedback loop. The goal is to get the fundamental system working so testers can start contributing to AI improvement through their corrections and validations. Uses existing patterns: UsageTracker/UsageLogger for service structure, transcription_usage table pattern for database schema.",
+      rewardSystem: "Reward System: Users who submit feedback through the HITL system will receive 1-3 credits/tokens back as compensation. Since tokens are a constraint, this provides a nice incentive for users who give feedback. If someone experienced a bad command output, they would be compensated by getting 1-2 tokens back. This reward system encourages participation and helps users feel valued for their contributions to improving the AI.",
       primaryFiles: "hitlFeedback.ts (NEW), hitlPipeline.ts (NEW), assistant.ui.js (EXTEND), assistant.ts (EXTEND), proxyClient.ts (EXTEND), supabase_migration.sql (EXTEND)",
       issues: [
         {
@@ -519,6 +526,7 @@ function Sprints() {
       impact: "High",
       severity: "7-8/10",
       overview: "Enhance the HITL framework with reach goals and advanced features beyond the basic MVP. This phase includes the user analytics dashboard that tracks individual participation and gamifies the HITL experience, making participation feel more like a game/experiment than routine feedback. The more people train/tune on a regular basis, the more accurate and reliable the overall system will become. This phase focuses on increasing engagement, consistency, and making the system more scalable and adaptable. Recommended split: Sprint 7A (Analytics & Gamification - 26 points) and Sprint 7B (Scalability & Advanced - 34 points).",
+      rewardSystem: "Reward System: Building on Sprint 6's reward system, Sprint 7 will enhance the token/credit compensation mechanism. Users submitting feedback will receive 1-3 credits/tokens back, with higher compensation (2-3 tokens) for feedback on bad command outputs or critical issues. This reward system is integrated into the gamification engine, where tokens earned through feedback contribute to user levels, achievements, and participation streaks. The analytics dashboard will display token earnings and reward history, making the compensation transparent and motivating continued participation.",
       primaryFiles: "hitlAnalytics.ts (NEW), hitlGamification.ts (NEW), assistant.ui.js (EXTEND - dashboard UI), hitlPipeline.ts (EXTEND - advanced features), supabase_migration.sql (EXTEND - analytics tables)",
       issues: [
         {
@@ -599,6 +607,10 @@ function Sprints() {
 
   const toggleSprint = (sprintId) => {
     setExpandedSprint(expandedSprint === sprintId ? null : sprintId)
+  }
+
+  const toggleArchive = () => {
+    setExpandedArchive(!expandedArchive)
   }
 
   const getPriorityColor = (priority) => {
@@ -682,9 +694,10 @@ function Sprints() {
         </div>
       </section>
 
+      {/* Active Sprints Section */}
       <section className="page-section">
         <div className="sprints-container">
-          {sprints.map((sprint) => (
+          {activeSprints.map((sprint) => (
             <div key={sprint.id} className="sprint-card">
               <div 
                 className="sprint-header"
@@ -736,6 +749,19 @@ function Sprints() {
                       <p style={{ marginTop: '10px', fontSize: '0.95rem' }}>
                         <strong>Prototype:</strong> <a href="https://oasis-roadmap.vercel.app/tuning-analytics" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--oasis-green-medium)', textDecoration: 'underline' }}>User Analytics Dashboard</a>
                       </p>
+                    )}
+                    {sprint.rewardSystem && (
+                      <div style={{ 
+                        marginTop: '15px', 
+                        padding: '15px', 
+                        backgroundColor: '#fef3c7', 
+                        border: '1px solid #f59e0b', 
+                        borderRadius: '8px' 
+                      }}>
+                        <p style={{ margin: 0, color: '#92400e', fontWeight: '500' }}>
+                          🎁 <strong>Reward System:</strong> {sprint.rewardSystem}
+                        </p>
+                      </div>
                     )}
                     {sprint.primaryFiles && (
                       <p style={{ marginTop: '10px', fontSize: '0.9rem', color: '#666' }}>
@@ -816,15 +842,188 @@ function Sprints() {
       <section className="page-section">
         <div className="content-block">
           <h3>Recommended Sprint Selection Order</h3>
+          <div style={{ 
+            backgroundColor: '#d1fae5', 
+            border: '1px solid #10b981', 
+            borderRadius: '8px', 
+            padding: '15px', 
+            marginBottom: '20px' 
+          }}>
+            <p style={{ margin: 0, color: '#065f46', fontWeight: '500' }}>
+              ✅ <strong>Sprints 1-4 are completed!</strong> See the Archive section below for details. Updates will be incorporated into a new release for Product team testing (Mac & Windows) by end of week January 23rd.
+            </p>
+          </div>
           <ol style={{ lineHeight: '2', fontSize: '1.05rem' }}>
-            <li><strong>Start with Sprint 1</strong> - Critical bugs that make the product feel broken (command execution infrastructure)</li>
-            <li><strong>Then Sprint 2</strong> - Complete window management (all window behavior in one sprint)</li>
-            <li><strong>Then Sprint 3</strong> - Tab operations and detection (foundational for tab groups)</li>
-            <li><strong>Then Sprint 4</strong> - UI polish (quick wins, improves user confidence)</li>
-            <li><strong>Then Sprint 5</strong> - Features and integrations (nice-to-have enhancements)</li>
-            <li><strong>Then Sprint 6</strong> - HITL Framework Phase 1: MVP/Prototype (basic implementation for product testers)</li>
-            <li><strong>Finally Sprint 7</strong> - HITL Framework Phase 2: Enhancements (analytics dashboard and advanced features)</li>
+            <li><strong>Sprint 5</strong> - Features and integrations (nice-to-have enhancements) - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 6</strong> - HITL Framework Phase 1: MVP/Prototype (basic implementation for product testers) - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 7</strong> - HITL Framework Phase 2: Enhancements (analytics dashboard and advanced features) - <em>Not yet addressed</em></li>
           </ol>
+        </div>
+      </section>
+
+      {/* Archive Section */}
+      <section className="page-section">
+        <div className="content-block">
+          <div 
+            className="sprint-header"
+            onClick={toggleArchive}
+            style={{ 
+              cursor: 'pointer', 
+              marginBottom: expandedArchive ? '20px' : '0',
+              backgroundColor: '#f0f9ff',
+              border: '2px solid #0ea5e9',
+              borderRadius: '12px',
+              padding: '20px 30px'
+            }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+              <div>
+                <h2 style={{ margin: 0, color: '#0369a1', fontSize: '1.5rem' }}>
+                  📦 Archive - Completed Sprints (1-4)
+                </h2>
+                <p style={{ margin: '10px 0 0 0', color: '#0369a1', fontSize: '0.95rem' }}>
+                  All sprints fully completed and fixed locally. Updates incorporated into new release for Product team testing (Mac & Windows) by end of week January 23rd.
+                </p>
+              </div>
+              <div className="sprint-toggle" style={{ backgroundColor: 'rgba(14, 165, 233, 0.1)' }}>
+                {expandedArchive ? '−' : '+'}
+              </div>
+            </div>
+          </div>
+
+          {expandedArchive && (
+            <div className="sprints-container" style={{ marginTop: '20px' }}>
+              {archivedSprints.map((sprint) => (
+                <div key={sprint.id} className="sprint-card" style={{ opacity: 0.9, borderColor: '#0ea5e9' }}>
+                  <div 
+                    className="sprint-header"
+                    onClick={() => toggleSprint(`archive-${sprint.id}`)}
+                    style={{ cursor: 'pointer', backgroundColor: '#f0f9ff' }}
+                  >
+                    <div className="sprint-title-section">
+                      <span className="sprint-emoji">{sprint.emoji}</span>
+                      <div>
+                        <h2 className="sprint-title">
+                          SPRINT {sprint.id}: {sprint.title} ✅ COMPLETED
+                        </h2>
+                        <div className="sprint-meta">
+                          <span 
+                            className="priority-badge"
+                            style={{ backgroundColor: '#10b981' }}
+                          >
+                            COMPLETED
+                          </span>
+                          <span className="story-points-badge">
+                            {sprint.storyPoints} Story Points
+                          </span>
+                          <span 
+                            className="effort-badge"
+                            style={{ backgroundColor: getEffortColor(sprint.effort) }}
+                          >
+                            {sprint.effort} Effort
+                          </span>
+                          <span className="impact-badge">
+                            {sprint.impact} Impact
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="sprint-toggle">
+                      {expandedSprint === `archive-${sprint.id}` ? '−' : '+'}
+                    </div>
+                  </div>
+
+                  {expandedSprint === `archive-${sprint.id}` && (
+                    <div className="sprint-content">
+                      <div className="sprint-overview">
+                        <h3>Overview</h3>
+                        <p>{sprint.overview}</p>
+                        {sprint.primaryFiles && (
+                          <p style={{ marginTop: '10px', fontSize: '0.9rem', color: '#666' }}>
+                            <strong>Primary Files:</strong> <code style={{ background: '#f0f0f0', padding: '2px 6px', borderRadius: '3px' }}>{sprint.primaryFiles}</code>
+                          </p>
+                        )}
+                        <div style={{ 
+                          marginTop: '15px', 
+                          padding: '15px', 
+                          backgroundColor: '#d1fae5', 
+                          border: '1px solid #10b981', 
+                          borderRadius: '8px' 
+                        }}>
+                          <p style={{ margin: 0, color: '#065f46', fontWeight: '500' }}>
+                            ✅ <strong>Status:</strong> Fully completed and fixed locally. Updates incorporated into new release for Product team testing (Mac & Windows) by end of week January 23rd.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="sprint-issues">
+                        <h3>Issues Included ({sprint.issues.length})</h3>
+                        {sprint.issues.map((issue, idx) => (
+                          <div key={idx} className="issue-card">
+                            <div className="issue-header">
+                              <h4>
+                                {idx + 1}. {issue.title} ({issue.count} {issue.count === 1 ? 'report' : 'reports'})
+                                {issue.requiresUI && (
+                                  <span 
+                                    title="Requires UI design - consult with Pournami (main UI designer)"
+                                    style={{ 
+                                      marginLeft: '10px', 
+                                      fontSize: '0.9rem',
+                                      color: '#6366f1',
+                                      fontWeight: 'normal',
+                                      cursor: 'help'
+                                    }}
+                                  >
+                                    🎨 UI
+                                  </span>
+                                )}
+                              </h4>
+                              <div className="submission-ids">
+                                {issue.submissionIds.map((id, i) => (
+                                  <span key={i} className="submission-id">{id}</span>
+                                ))}
+                              </div>
+                            </div>
+                            <div className="issue-details">
+                              <p><strong>Description:</strong> {issue.description}</p>
+                              <p><strong>User Impact:</strong> {issue.impact}</p>
+                              {issue.technicalNotes && (
+                                <p><strong>Technical Notes:</strong> {issue.technicalNotes}</p>
+                              )}
+                            </div>
+                            <div className="issue-feedback">
+                              <strong>Original Feedback:</strong>
+                              <ul>
+                                {issue.feedback.map((fb, i) => (
+                                  <li key={i}>
+                                    <code>{fb.id}</code>: {fb.text}
+                                    {fb.screenshot && (
+                                      <> | <a href={fb.screenshot} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--oasis-green-medium)', textDecoration: 'none' }}>📷 Screenshot</a></>
+                                    )}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="sprint-acceptance">
+                        <h3>Acceptance Criteria</h3>
+                        <ul className="acceptance-list">
+                          {sprint.acceptanceCriteria.map((criteria, idx) => (
+                            <li key={idx}>
+                              <input type="checkbox" checked disabled /> {criteria}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </div>
