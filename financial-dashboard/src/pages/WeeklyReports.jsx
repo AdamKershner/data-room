@@ -23,12 +23,14 @@ function WeeklyReports() {
         'CRM design and enterprise org chart research for B2B targeting',
         'Team outreach and networking activities to improve collaboration',
         'Competitive analysis and market research for inbound channel optimization',
+        'Learning and training activities across team members (55 hours logged)',
         'Held strategic 1:1 meetings with engineering team and leadership',
         'Prepared and scheduled LinkedIn content for upcoming week'
       ],
       timeBreakdown: {
         'Product Development': 290.0,
         'Marketing & Content': 65.0,
+        'Learning & Training': 55.0,
         'Design': 13.0,
         'Research': 20.0
       },
@@ -40,14 +42,14 @@ function WeeklyReports() {
         'Streamline sprint planning to reduce coordination overhead'
       ],
       metrics: {
-        totalHours: 388.0,
-        teamMembers: 20,
-        entries: 33,
+        totalHours: 423.0,
+        teamMembers: 21,
+        entries: 40,
         mqls: 15,
         sqls: 0,
         impressions: 174700,
         impressionsGrowth: 28.9,
-        timeLogParticipation: 52.2
+        timeLogParticipation: 56.8
       },
       quarterlyGoals: {
         nps: 0,
