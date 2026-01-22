@@ -373,17 +373,6 @@ function Sprints() {
           ]
         },
         {
-          title: "Subscription/Usage Display",
-          count: 1,
-          submissionIds: ["obLl495"],
-          description: "'show subscription' command doesn't work, users want to see AI command count",
-          impact: "Can't track usage tied to pricing (severity 10/10)",
-          technicalNotes: "Implement subscription command, AI command count tracking and display",
-          feedback: [
-            { id: "obLl495", text: "I entered 'show subscription' in the AI assistant and it showed the following '[Tool Output for show_url]: Opened subscription://'. I should be able to see how many AI commands I have entered which I will call AI command count since this is tied to pricing." }
-          ]
-        },
-        {
           title: "Inconsistent Tab Group Icons",
           count: 1,
           submissionIds: ["jaAJoPR"],
@@ -421,7 +410,6 @@ function Sprints() {
       acceptanceCriteria: [
         "Bookmark removal works for imported bookmarks via AI commands",
         "AI Assistant can provide helpful instructions for tab group and bookmark management",
-        "Subscription/usage information is accessible",
         "Icons are consistent across tab group and tab views",
         "Only one AI Assistant window exists at a time",
         "Chat history is accessible from the single AI Assistant window",
