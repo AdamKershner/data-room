@@ -219,7 +219,7 @@ function Sprints() {
       impact: "High",
       severity: "9-10/10",
       overview: "Fix tab-related operations including tab detection, finding existing tabs, and tab group management. All issues work with the same browser tab APIs and are naturally related. This sprint focuses on making tab operations work correctly before enhancing tab groups.",
-      primaryFiles: "commands.ts (tab commands), hubs.ts",
+      primaryFiles: "commands.ts (tab commands), tabGroups.ts",
       issues: [
         {
           title: "Tab vs Window Confusion",
@@ -248,20 +248,20 @@ function Sprints() {
           title: "Adding Tabs to Tab Groups Fails",
           count: 3,
           submissionIds: ["eqW0MdE", "KYKWzVV", "aQqA5Xy"],
-          description: "AI commands like 'add this tab to my Google Sheets tab group' or 'put my tabs with google sheets in a tab group' don't work. Users refer to tab groups as 'hubs' in their commands, but the underlying feature is tab group management.",
+          description: "AI commands like 'add this tab to my Google Sheets tab group' or 'put my tabs with google sheets in a tab group' don't work.",
           impact: "Users can't organize their workspace (severity 9-10/10)",
-          technicalNotes: "Tab detection, tab group matching, or tab-to-tab-group association logic may be broken in hubs.ts and commands.ts",
+          technicalNotes: "Tab detection, tab group matching, or tab-to-tab-group association logic may be broken in tabGroups.ts and commands.ts",
           feedback: [
-            { id: "eqW0MdE", text: "Entered the following command in AI assistant: add this tab to my Google Sheets hub. My current tab had a google spreadsheet. The tab was not added.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-11-at-4.51.16-PM.png?id=X1Vjvz&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlgxVmp2eiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE3MTk4N30.mpqdBFowWh6yVTAHIy-ps7MAg_x92rfwLldv25fMjac&signature=cd20dd07c1f78e4cb73003845a1b67af50e985ad47fe30ab00cccf42976ae37d" },
-            { id: "KYKWzVV", text: "I entered the following in AI assistant: put my tabs with google sheets in a hub called Google Sheets. It didnt put any of the tabs in the new hub it created. From the screenshot you can see I had 3 Google Sheet tabs open", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-11-at-4.39.03-PM.png?id=OdpRop&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik9kcFJvcCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE3MTY1NX0.dlGcIS2hAH2sJIJHmHFXIvZ_y_SBDYVUBoqQecrOKWM&signature=b4d08e4ec98efd713c9f361fe2036d6b13a5d45f46f011a33121980c2a370156" },
-            { id: "aQqA5Xy", text: "I entered the following in AI assistant: Add 2026 expenses tab to Google Sheets hub. The 2026 expenses tab was not added but the Oasis Feedback tab was added.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-11-at-5.03.17-PM.png?id=Zv40j0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ilp2NDBqMCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE3MjcwN30.opoxJUs2r1R9NCtd159iHcL5by9FJWaisdJNfczpu_k&signature=e836ab5e56275716aa5b6c561db6046e3455449f5993699993668d7260515298" }
+            { id: "eqW0MdE", text: "Entered the following command in AI assistant: add this tab to my Google Sheets tab group. My current tab had a google spreadsheet. The tab was not added.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-11-at-4.51.16-PM.png?id=X1Vjvz&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlgxVmp2eiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE3MTk4N30.mpqdBFowWh6yVTAHIy-ps7MAg_x92rfwLldv25fMjac&signature=cd20dd07c1f78e4cb73003845a1b67af50e985ad47fe30ab00cccf42976ae37d" },
+            { id: "KYKWzVV", text: "I entered the following in AI assistant: put my tabs with google sheets in a tab group called Google Sheets. It didnt put any of the tabs in the new tab group it created. From the screenshot you can see I had 3 Google Sheet tabs open", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-11-at-4.39.03-PM.png?id=OdpRop&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik9kcFJvcCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE3MTY1NX0.dlGcIS2hAH2sJIJHmHFXIvZ_y_SBDYVUBoqQecrOKWM&signature=b4d08e4ec98efd713c9f361fe2036d6b13a5d45f46f011a33121980c2a370156" },
+            { id: "aQqA5Xy", text: "I entered the following in AI assistant: Add 2026 expenses tab to Google Sheets tab group. The 2026 expenses tab was not added but the Oasis Feedback tab was added.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-11-at-5.03.17-PM.png?id=Zv40j0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ilp2NDBqMCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE3MjcwN30.opoxJUs2r1R9NCtd159iHcL5by9FJWaisdJNfczpu_k&signature=e836ab5e56275716aa5b6c561db6046e3455449f5993699993668d7260515298" }
           ]
         }
       ],
       acceptanceCriteria: [
         "'open new tab' creates a tab, not a window",
         "Commands can find and focus existing tabs when appropriate",
-        "Users can successfully add tabs to existing tab groups via AI commands (AI should understand both 'hub' and 'tab group' terminology)",
+        "Users can successfully add tabs to existing tab groups via AI commands",
         "Tab detection and matching works correctly for tab group operations"
       ]
     },
@@ -364,12 +364,12 @@ function Sprints() {
           title: "AI Assistant Can't Provide Tab Group Instructions",
           count: 2,
           submissionIds: ["1AoNk71", "RGybMDP"],
-          description: "When users ask 'how do I add a tab to an existing tab group' or 'how do I remove a tab from a group', AI provides unhelpful responses. Users may refer to tab groups as 'hubs' in their queries.",
+          description: "When users ask 'how do I add a tab to an existing tab group' or 'how do I remove a tab from a group', AI provides unhelpful responses.",
           impact: "Users can't learn how to use core features (severity 10/10)",
-          technicalNotes: "AI Assistant needs knowledge base or tool access for tab group management commands. Should understand both 'hub' and 'tab group' terminology from users.",
+          technicalNotes: "AI Assistant needs knowledge base or tool access for tab group management commands.",
           feedback: [
-            { id: "1AoNk71", text: "I entered the following in AI assistant: how do i add a tab to an existing hub.. No helpful response. See screenshot.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-11-at-4.53.45-PM.png?id=RvXOeK&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJ2WE9lSyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE3MjEwMn0.UsUmAo97hRKZrOKBGJFf3wR5n4MhhgFtNSDiMeonE7k&signature=cf4012ab2e5e3c8c0b275efb0578c155381398ab63966d9514354ab85dd64ddd" },
-            { id: "RGybMDP", text: "I entered the following command in AI assistant: How do i remove a tab from a group. See screenshot for output that was not helpful. AI assistant needs to be able to provide instructions on usage of the Oasis browser that will be helpful to the users. For example, How to create a hub, How to add/remove a tab from a hub. How to view a hub. How to go to a tab in a hub. All these how to's should be available. This is minimum functionality. The AI assistant should be able to execute these how to's so the user does not have to do them manually.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-11-at-4.57.58-PM.png?id=z2pVkR&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InoycFZrUiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE3MjQ5NH0._g33T0vUmKQSc8UkOBsMzjNZQJ_MixjmZdgLP14SVMA&signature=2423becf39b91dc652df82a7f944194705751b17ae4bff6f9129fbf557c95059" }
+            { id: "1AoNk71", text: "I entered the following in AI assistant: how do i add a tab to an existing tab group. No helpful response. See screenshot.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-11-at-4.53.45-PM.png?id=RvXOeK&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJ2WE9lSyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE3MjEwMn0.UsUmAo97hRKZrOKBGJFf3wR5n4MhhgFtNSDiMeonE7k&signature=cf4012ab2e5e3c8c0b275efb0578c155381398ab63966d9514354ab85dd64ddd" },
+            { id: "RGybMDP", text: "I entered the following command in AI assistant: How do i remove a tab from a group. See screenshot for output that was not helpful. AI assistant needs to be able to provide instructions on usage of the Oasis browser that will be helpful to the users. For example, How to create a tab group, How to add/remove a tab from a tab group. How to view a tab group. How to go to a tab in a tab group. All these how to's should be available. This is minimum functionality. The AI assistant should be able to execute these how to's so the user does not have to do them manually.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-11-at-4.57.58-PM.png?id=z2pVkR&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InoycFZrUiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE3MjQ5NH0._g33T0vUmKQSc8UkOBsMzjNZQJ_MixjmZdgLP14SVMA&signature=2423becf39b91dc652df82a7f944194705751b17ae4bff6f9129fbf557c95059" }
           ]
         },
         {
@@ -381,7 +381,7 @@ function Sprints() {
           technicalNotes: "Fix icon consistency across tab group and tab views",
           requiresUI: true,
           feedback: [
-            { id: "jaAJoPR", text: "The icons for my google spreadsheets in a hub are different. I expect the icons to be the same since they are all spreadsheets. The icon displayed when it is shown as a tab should be the same icon in the hub group. Need a consistent UI.. don't change icons." }
+            { id: "jaAJoPR", text: "The icons for my google spreadsheets in a tab group are different. I expect the icons to be the same since they are all spreadsheets. The icon displayed when it is shown as a tab should be the same icon in the tab group. Need a consistent UI.. don't change icons." }
           ]
         },
         {
@@ -590,6 +590,677 @@ function Sprints() {
         "Advanced model training integration includes versioning, prioritization, and A/B testing",
         "All Phase 2 features are tested and validated"
       ]
+    },
+    {
+      id: 8,
+      title: "Assistant Engine Reliability (LangGraph, tool-output formatting)",
+      emoji: "🚨",
+      priority: "CRITICAL",
+      storyPoints: 13,
+      effort: "Medium",
+      impact: "High",
+      severity: "9-10/10",
+      overview: "Fix tool output formatting and network error handling in the AI Assistant. These issues relate to command execution infrastructure and response formatting.",
+      primaryFiles: "browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/build/src/proxyClient.ts, browser/base/content/assistant/build/src/awsSignedFetch.ts",
+      issues: [
+        {
+          title: "Tool Output Text in Responses",
+          count: 1,
+          submissionIds: ["J94KydJ"],
+          description: "AI responses show raw tool output text like '[Tool Output for add_tab_to_tab_group]' instead of natural language responses.",
+          impact: "Poor user experience, unprofessional appearance (severity 10/10)",
+          technicalNotes: "Response formatting in assistant.ts - need to convert tool outputs to natural language",
+          feedback: [
+            { id: "J94KydJ", text: "After I run ai commands like 'add this tab to the tab group', the output displays text [Tool Output for add_tab_to_tab_group], which is unnecessary to the user to see. The user experience would be more elegant if the response came only with natural language that directly addresses the original prompt in a conversational style, for example saying 'Added the selected tab to tab group \"ai browsers\".'" }
+          ]
+        },
+        {
+          title: "Network Errors on Tab Group Commands",
+          count: 1,
+          submissionIds: ["68BeBDA"],
+          description: "Commands like 'list my tab groups' result in NetworkError when attempting to fetch resource",
+          impact: "Core functionality broken (severity 9/10)",
+          technicalNotes: "Network request handling, error handling, retry logic needed in proxyClient.ts or awsSignedFetch.ts (signed request plumbing; likely surfaced as NetworkError)",
+          feedback: [
+            { id: "68BeBDA", text: "AI command: 'list my tab groups'. Output: 'Error: NetworkError when attempting to fetch resource.'" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "Tool output text is converted to natural language in responses",
+        "Network errors are handled gracefully with retry logic"
+      ]
+    },
+    {
+      id: 9,
+      title: "Command Module Split (enables parallel tab group vs tab work)",
+      emoji: "🔧",
+      priority: "HIGH",
+      storyPoints: 8,
+      effort: "Medium",
+      impact: "High",
+      severity: "7-8/10",
+      overview: "Reduce merge conflicts by splitting `commands.ts` into smaller modules so tab group-related and tab-related work can land in parallel without repeatedly touching the same file. This sprint is intentionally 'enabling work' that unlocks parallelization for Sprints 10 and 11.",
+      primaryFiles: "browser/base/content/assistant/build/src/commands.ts (split point), browser/base/content/assistant/build/src/commands/* (NEW), browser/base/content/assistant/build/src/assistant.ts (import surface only)",
+      issues: [
+        {
+          title: "Split `commands.ts` by domain",
+          count: 0,
+          submissionIds: [],
+          description: "Move tab group-related commands into a dedicated module (e.g., `tabGroupCommands.ts`). Move tab/window commands into a dedicated module (e.g., `tabCommands.ts`). Keep a thin re-export surface so `assistant.ts` remains stable.",
+          impact: "Enables parallel work on tab group and tab commands",
+          technicalNotes: "Refactoring work to split commands.ts into domain-specific modules",
+          feedback: []
+        },
+        {
+          title: "Add basic command-level tests (or smoke harness)",
+          count: 0,
+          submissionIds: [],
+          description: "Small harness to call commands in isolation (helps prevent regressions while multiple engineers land changes).",
+          impact: "Prevents regressions during parallel development",
+          technicalNotes: "Testing infrastructure for command isolation",
+          feedback: []
+        }
+      ],
+      acceptanceCriteria: [
+        "commands.ts split into tabGroupCommands.ts and tabCommands.ts (or similar structure)",
+        "assistant.ts import surface remains stable (thin re-export)",
+        "Basic command testing harness implemented",
+        "No functionality regressions from refactoring"
+      ]
+    },
+    {
+      id: 10,
+      title: "Tab Group Operations & Management",
+      emoji: "📁",
+      priority: "HIGH",
+      storyPoints: 16,
+      effort: "Medium-High",
+      impact: "High",
+      severity: "8-10/10",
+      overview: "Fix tab group operations including renaming, finding tabs within groups, adding/removing tabs, and tab group state accuracy. This is scoped so an engineer primarily works in the tab group domain without touching tab/window command code (post Sprint 9 split).",
+      primaryFiles: "browser/base/content/assistant/build/src/tabGroups.ts, browser/base/content/assistant/build/src/commands.ts (or post-split tab group command module), browser/base/content/assistant/build/src/services/localMemory.ts",
+      issues: [
+        {
+          title: "Tab Group Renaming Fails",
+          count: 1,
+          submissionIds: ["EkO6rLL"],
+          description: "AI assistant cannot rename tab groups. When manually renamed, AI assistant still thinks old name exists and creates phantom groups.",
+          impact: "Can't organize tab groups effectively (severity 10/10)",
+          technicalNotes: "Tab group state synchronization issue - AI assistant state doesn't match actual tab group state in tabGroups.ts",
+          feedback: [
+            { id: "EkO6rLL", text: "I had a GoogleMail tab group. I asked AI assistant to rename it to GoogleSheets. It was not able to rename it, so I did it manually. I then asked the AI assistant to create a GooglMail tab group. It said it created it but I could not see it. So I asked it to show me the tab groups. It said I had a GoogleMail and GooglMail tab groups. Note that I don't have a GoogleMail tab since I renamed it to GoogleSheets yet the AI assistant thinks I have one.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-18-at-11.55.56-AM.png?id=e0LegQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUwTGVnUSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODc1OTMyNX0.6WVl9B9knEYWrhhh4QsdmMYyY6PnJvVYsJ9CtEkjYKo&signature=7bd0fef6cf0cf57f21cf0fc79dbf9adfc4e6c4ac643b5b5796eac6233c5e5fdb" }
+          ]
+        },
+        {
+          title: "Can't Find Tabs in Tab Groups",
+          count: 2,
+          submissionIds: ["68BP0AJ", "QKQ4N2G"],
+          description: "AI assistant reports tab groups are empty when they contain tabs, or can't find specific tabs within groups (e.g., '2026 expenses tab').",
+          impact: "Can't navigate to saved content (severity 10/10)",
+          technicalNotes: "Tab group content querying logic broken in tabGroups.ts - needs to properly enumerate tabs within groups",
+          feedback: [
+            { id: "68BP0AJ", text: "I asked AI assistant what is in my GoogleSheets tab group and it said I had nothing in it. As you can see from the screenshot, there are tabs in it.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-18-at-12.18.41-PM.png?id=1NMl6l&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOTWw2bCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODc2MDQxMX0.p4G4AtlNoH7OaMGS6N2oL4pICVgBQbnDEp7Zjfcmtfk&signature=7f767a62e0bbf707925efaceafc3a0c3db165ddbf5c3f76223210227d437034a" },
+            { id: "QKQ4N2G", text: "I asked AI assistant to open 2026 expenses tab. It said it opened it. As you can see in the screenshot, it opened a new tab (Page Not Found) with GoogleSheets. It did not open my existing 2026 expenses tab.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-18-at-12.21.27-PM.png?id=bYL7Dg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZTDdEZyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODc2MDYwN30.krGmO1q8eqhuXEed_Hi2aOv_p3W0LWNUNCE5QFYgMPY&signature=c78c4911000225c0f2ae4cca5097736bd3fefddf364254971b58d1593267a024" }
+          ]
+        },
+        {
+          title: "Adding Tabs to Groups Adds Wrong Tabs",
+          count: 1,
+          submissionIds: ["Ek77J5r"],
+          description: "Commands to add specific tabs to groups (e.g., 'add all the youtube tabs') add all open tabs instead of just the specified ones.",
+          impact: "Can't selectively organize tabs (severity 8/10)",
+          technicalNotes: "Tab filtering/matching logic broken in tab group command module - needs to properly match tabs by URL, title, or domain",
+          feedback: [
+            { id: "Ek77J5r", text: "command: create a group called youtube learning and add all the youtube tabs under it. result: added all the opened tabs instead of just the youtube ones. command: do not add all the tabs, add just the youtube tabs. result: added all the opened tabs instead of just the youtube ones. command: remove all the tabs under youtube learning except youtube tabs. result: added all the opened tabs instead of just the youtube ones." }
+          ]
+        },
+        {
+          title: "Tab Group Creation with Zero Items",
+          count: 1,
+          submissionIds: ["kdPNA4R"],
+          description: "Creating tab groups via AI command sometimes creates groups with 0 items when tabs should be added.",
+          impact: "Tab groups created but empty (severity 7/10)",
+          technicalNotes: "Tab group creation and tab addition logic may have timing or state issues in tab group command module",
+          feedback: [
+            { id: "kdPNA4R", text: "I used the ai command 'create tab group called \"GTM\"'. [Tool Output for create_tab_group]: Created tab group \"GTM\" with 0 items. open product hunt", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-15-at-6.40.10-PM.png?id=d8xVDq&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4eFZEcSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODUyNDEwOH0.eZ0fCDEw34xvnggFzJ_42z9KXYIZa4YuVBsyXGWBlaI&signature=cc7b0d68d31fa07462369a6ca69fe4818130deb6386fb8f1f05a5072f8cdcd5f" }
+          ]
+        },
+        {
+          title: "Tab Positioning in Groups",
+          count: 1,
+          submissionIds: ["ODNEKMR"],
+          description: "When adding a tab to a tab group, the tab should be positioned next to the group tab, not separated by other tabs.",
+          impact: "Visual confusion about which tabs belong to group (severity 7/10)",
+          technicalNotes: "Tab positioning logic when adding to groups in tab group command module or tabGroups.ts",
+          feedback: [
+            { id: "ODNEKMR", text: "I created a tab group called GoogleMail. There was another tab open after the tab group. I went to my personal GoogleMail tab and asked AI assistant to put it in my GoogleMail tab group. The AI assistant moved it to the GoogleMail tab group correctly and also moved the position of my personal GoogleMail tab to the rightmost position. There was a tab between my GoogleMail tab group tab and my personal GoogleMail tab which made it look like the tab in between the GoogleMail tab group tab and my personal GoogleMail tab also belonged in the GoogleMail tab group. I think the personal GoogleMail tab should have been moved right next to the GoogleMail tab group tab." }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "Tab groups can be renamed via AI commands",
+        "AI assistant state matches actual tab group state",
+        "AI assistant can find and list tabs within tab groups",
+        "AI assistant can open specific tabs from within tab groups",
+        "Adding tabs to groups only adds specified tabs (not all tabs)",
+        "Tab groups are created with tabs when specified",
+        "Tabs added to groups are positioned correctly"
+      ]
+    },
+    {
+      id: 11,
+      title: "Tab/Window Command Correctness (close, dedupe, split, move)",
+      emoji: "🪟",
+      priority: "HIGH",
+      storyPoints: 10,
+      effort: "Medium",
+      impact: "High",
+      severity: "8-10/10",
+      overview: "Fix the core tab/window commands that users perceive as 'it said it worked but nothing happened.' This sprint is scoped to tab/window command implementations and should not require tab group/bookmarks edits (post Sprint 9 split).",
+      primaryFiles: "browser/base/content/assistant/build/src/commands.ts (or post-split tab command module)",
+      issues: [
+        {
+          title: "Duplicate Tab Closing Issues",
+          count: 2,
+          submissionIds: ["5B7jrkM", "GxGl65Q"],
+          description: "Commands to close duplicate tabs don't work correctly. Fails to close tabs by domain (e.g., all Zoom tabs).",
+          impact: "Can't manage tab clutter effectively (severity 7-9/10)",
+          technicalNotes: "Tab matching logic needs improvement - URL comparison, domain extraction, duplicate detection algorithm in tab command module",
+          feedback: [
+            { id: "5B7jrkM", text: "I asked to close duplicate tabs it closed only one tab and when I asked to close all the duplicate tabs it closed all the tabs." },
+            { id: "GxGl65Q", text: "As a worker starting my day with 37+ tabs open, I tried 'close all duplicate tabs' but similar tabs still open. Then used 'close all tabs for Zoom' but not all tabs beginning with 'https://us05web.zoom.us' were closed. There seems to already be an existing 'Close all duplicate tabs' command in Firefox itself. It may be possible to leverage this", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-11.27.28-AM.png?id=NbRN5l&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iUk41bCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwMzAwMX0._sNSNX8xPTTZNqiSBfxlkI-gnhW9uukPp6sFFxygsfw&signature=d323dd8c375c520ae8f8c8c42b21ff12fee079de1d9f61b6481c7b38ac1bf90d" }
+          ]
+        },
+        {
+          title: "Tab Closing Commands Don't Work",
+          count: 1,
+          submissionIds: ["5BPQY2Z"],
+          description: "Commands to close bookmarks/tab groups report success but tabs remain open. Tool output shows tabs were closed but they're still visible.",
+          impact: "Commands appear to work but don't actually execute (severity 8/10)",
+          technicalNotes: "Tab closing logic may have async timing issues or state synchronization problems in tab command module",
+          feedback: [
+            { id: "5BPQY2Z", text: "When tried to close the whole bookmark(multiple tabs inside that), it says it closed, but i can still see them open. Steps: open multiple tabs, bundle them as a bookmark, insert prompt 'close that bookmark test', then 'can you close all open tabs?' - it says it closed, but i still see them open.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-15.38.37.png?id=VbpGRJ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZicEdSSiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI1MDg3Mn0.l9Yy-pVu_YHNZ5l63w581XAE7AhcsJ0FZQqZBf2WSgw&signature=444974b4326362535ebb5753661a84c8702325bc8c72f119591899f781a6f2cd" }
+          ]
+        },
+        {
+          title: "Split/Move/New Window reliability",
+          count: 2,
+          submissionIds: ["2EG9Y6D", "EkOx1yq"],
+          description: "'open new window', 'move tab', 'split tabs' should be robust across window focus/sidebar contexts",
+          impact: "Window/tab operations unreliable (severity 9/10)",
+          technicalNotes: "Window focus and sidebar context handling in tab command module",
+          feedback: [
+            { id: "2EG9Y6D", text: "command: open one new window. result: opened multiple windows." },
+            { id: "EkOx1yq", text: "command: open one new window. result: opened multiple windows instead of one." }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "Duplicate tab closing works correctly",
+        "Tab closing by domain/URL pattern works correctly",
+        "Tab closing commands actually close tabs (no false success messages)",
+        "Split/move/new window commands work reliably across window focus/sidebar contexts"
+      ]
+    },
+    {
+      id: 12,
+      title: "Authentication + Subscription UX (login, signup, session restore, limits)",
+      emoji: "🔐",
+      priority: "HIGH",
+      storyPoints: 21,
+      effort: "Medium-High",
+      impact: "High",
+      severity: "8-10/10",
+      overview: "Fix authentication, login, signup, password management, and the 'paid but still limited' experience. This sprint is UI-heavy and should be owned by one engineer (or split by 'UI vs backend service' if needed) due to the size of `assistant.ui.js`.",
+      primaryFiles: "browser/base/content/assistant/assistant.ui.js, browser/base/content/assistant/build/src/services/supabase.ts, browser/base/content/assistant/build/src/services/subscription.ts, browser/base/content/assistant/build/src/proxyClient.ts",
+      issues: [
+        {
+          title: "No Error Message on Invalid Login",
+          count: 1,
+          submissionIds: ["GxAgbQo"],
+          description: "When entering incorrect credentials, no user-facing error message is displayed. Error only appears in console logs.",
+          impact: "Users don't know why login failed (severity 8/10)",
+          technicalNotes: "Error handling in assistant.ui.js or supabase.ts - need to surface console errors to user",
+          requiresUI: true,
+          feedback: [
+            { id: "GxAgbQo", text: "When I tried to log in using my credentials, I intentionally entered incorrect credentials. However, there was no user-facing error message or popup indicating that the credentials were invalid. When I checked the logs, I could see: console.error: 'Email sign in error:' 'Invalid login credentials'. Based on this, it would be better to display a clear error message to the user when they attempt to log in with incorrect credentials, instead of only logging the error in the console.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-15.06.59.png?id=RbWW8P&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJiV1c4UCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI0ODYwNX0.sTGpJJFmYznqAux8OPytrxRfGwISikp26nkRaTvtmyo&signature=d3470744823cb78bd43b2d8eaa5de26093636521d50ab64a06c3bab0136de44c" }
+          ]
+        },
+        {
+          title: "Sign-in Menu Hidden Behind Navigation Bar",
+          count: 2,
+          submissionIds: ["q41xByO", "OD2QMrp"],
+          description: "Sign-in menu appears behind the Oasis AI navigation bar, making it difficult or impossible to see and access.",
+          impact: "Can't access sign-in functionality (severity 6-10/10)",
+          technicalNotes: "Z-index and menu positioning in assistant.ui.js",
+          requiresUI: true,
+          feedback: [
+            { id: "q41xByO", text: "The Sign-in menu was hidden behind the Oasis Ai's Navigation bar! It should be visible below the bar! The sign-in should be made easier, it was kinda hard to find this option" },
+            { id: "OD2QMrp", text: "Sign-in option not visible, unable to sign in", screenshot: "https://storage.tally.so/private/bug1.png?id=Qzv6xY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlF6djZ4WSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTAzMTc1N30.PB8CzPjxWxc03HCOgye79sXauK-ukiBCoAGt7qiMroc&signature=5afb369661ef1c427ff09b75f2796ee96167bfda9f722a112cc2db5d8fd3ffad" }
+          ]
+        },
+        {
+          title: "Login Menu Doesn't Appear After Logout",
+          count: 1,
+          submissionIds: ["RGyXvL4"],
+          description: "After logging out, clicking the 3 dots menu doesn't show login options. User has to click on white space behind the menu to access login.",
+          impact: "Can't log back in after logout (severity 10/10)",
+          technicalNotes: "Menu click handling and visibility logic in assistant.ui.js",
+          requiresUI: true,
+          feedback: [
+            { id: "RGyXvL4", text: "I logged out of the AI assistant. I could not enter any commands which is appropriate. I tried to log back in so I clicked on the 3 dots and nothing seemed to happen. Eventually, I accidentally clicked on white space behind the 3 dots and the login screen came up. When I click on the 3 dots, menu items or the login screen should pop up where I can see it if I'm not logged in.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-14-at-4.39.38-PM.png?id=pJDOgJ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKRE9nSiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODQzMDU1MH0.DPv5dIeuXuKWk8c_YXeUGLOssJhLF2n8wWc7KnEc0E0&signature=88ccc506db27522ddeeeffa39fe4672eb3b887c1d59778789902061d7ab09afd" }
+          ]
+        },
+        {
+          title: "Signup Doesn't Work",
+          count: 1,
+          submissionIds: ["xXW77z5"],
+          description: "When trying to sign up, account is not created. No error message displayed, and user cannot sign in after attempted signup.",
+          impact: "New users can't create accounts (severity 10/10)",
+          technicalNotes: "Signup flow in assistant.ui.js or services/supabase.ts - error handling and user feedback needed",
+          feedback: [
+            { id: "xXW77z5", text: "When I am trying to sign up for using the AI assistant, the account is not getting created. It does not reflect any message, nor does it allow me to sign in." }
+          ]
+        },
+        {
+          title: "Login Loop After Account Creation",
+          count: 1,
+          submissionIds: ["5BAlPpE"],
+          description: "After creating an account, user cannot log in - keeps showing 'Please sign in first...' message no matter how many times they try to log in.",
+          impact: "Users can't access AI Assistant after signup (severity 10/10)",
+          technicalNotes: "Session management and authentication state in services/supabase.ts",
+          feedback: [
+            { id: "5BAlPpE", text: "I am using Oasis-Packaged-v1.0.1 and am unable to sign in to use the AI assistant. I created an account, and then every time I try to log in nothing happens - it keeps showing 'Please sign in first...' no matter how many times I log in", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-17-at-10.34.19-AM.png?id=gJAyAP&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdKQXlBUCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODY2NzczMn0.eykRdK69ioHOSCsShptOem_h7-9kgQABs5ko6k3m9pw&signature=bec729888060120b1b6072d5ae80f3b8328027aa53d77778cbaebaf367d2ce4e" }
+          ]
+        },
+        {
+          title: "Can't Change Password",
+          count: 1,
+          submissionIds: ["kdobDeZ"],
+          description: "Users cannot change their password from the Oasis Assistant for their Kahana account.",
+          impact: "Password management broken (severity 7/10)",
+          technicalNotes: "Password change functionality in assistant.ui.js or account settings UI",
+          feedback: [
+            { id: "kdobDeZ", text: "I was not able to change my password from the Oasis Assistant for my Kahana account" }
+          ]
+        },
+        {
+          title: "Usage Limit Error After Upgrade",
+          count: 1,
+          submissionIds: ["ODN872M"],
+          description: "After upgrading from free plan to paid plan, user still sees 'Usage limit reached (50/50 units)' message and is prompted to upgrade again.",
+          impact: "Paid users can't use the service (severity 10/10)",
+          technicalNotes: "Subscription/usage limit logic in services/subscription.ts or proxyClient.ts - needs to sync with Supabase subscription status",
+          feedback: [
+            { id: "ODN872M", text: "After upgrading from a free plan to the $20/month paid plan via https://kahana.co/oasis-pricing, I logged in to the AI assistant and then received a message that 'Usage limit reached (50/50 units). Please upgrade your plan via the menu.' The logic for upgrades and unlocking more ai commands credits needs to be tested more thoroughly by the engineering team, ensuring the logic works with Supabase", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-17-at-12.00.08-PM.png?id=pJVeMy&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKVmVNeSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODY3Mjg5Nn0.NLVgqblN3ivWInA4mLXL0RQuVWNxWsltibzrty1Cko4&signature=bef8f004c33431c2251eebd85b2d81b11e4432b1838c87cce7acd2d8d156a71c" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "Clear error messages displayed for invalid login credentials",
+        "Sign-in menu is visible and accessible (not hidden behind navigation bar)",
+        "Login menu appears correctly after logout",
+        "Signup flow works and creates accounts successfully",
+        "Users can log in after creating accounts",
+        "Password change functionality works",
+        "Usage limits correctly reflect subscription status after upgrade",
+        "All authentication errors are user-friendly and actionable"
+      ]
+    },
+    {
+      id: 13,
+      title: "Onboarding + Branding polish (first run, visibility, Firefox remnants)",
+      emoji: "🎯",
+      priority: "MEDIUM-HIGH",
+      storyPoints: 13,
+      effort: "Medium",
+      impact: "High",
+      severity: "6-10/10",
+      overview: "Improve the first-time user experience including onboarding flow, default preferences, browser import, AI Assistant visibility, and removing Firefox branding.",
+      primaryFiles: "browser/base/content/assistant/assistant.ui.js (assistant visibility / entry points), Browser first-run / startup UI (exact files TBD when implementing), browser/branding/**",
+      issues: [
+        {
+          title: "AI Assistant Not Visible by Default",
+          count: 1,
+          submissionIds: ["rj4PdO2"],
+          description: "When initially installing Oasis, the AI assistant isn't immediately open by default. Users have to search for it and don't know where to open it.",
+          impact: "Poor discoverability of core feature (severity 10/10)",
+          technicalNotes: "Browser initialization logic - AI Assistant should be open by default on first install and whenever browser loads",
+          requiresUI: true,
+          feedback: [
+            { id: "rj4PdO2", text: "When I initially install Oasis, the AI assistant isn't immediately open by default. I have to search for it and don't know where to open it. By default, the AI assistant should always be open and displayed when the browser is initially installed and whenever it is loaded." }
+          ]
+        },
+        {
+          title: "No Browser Import in Onboarding",
+          count: 1,
+          submissionIds: ["Me4RJ4M"],
+          description: "When installing Oasis for the first time, there's no option to import data from Chrome/Safari and other browsers immediately in the onboarding flow.",
+          impact: "Users can't easily migrate from other browsers (severity 10/10)",
+          technicalNotes: "Onboarding flow needs browser import option - can leverage Firefox's existing import functionality",
+          requiresUI: true,
+          feedback: [
+            { id: "Me4RJ4M", text: "When a user installs Oasis for the first time, there should be an option to import data from chrome/safari and other browsers immediately in the onboarding flow. The user should know that it is possible to import immediately and be able to easily take action.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.29.46-PM.png?id=Bj2R71&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJqMlI3MSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNjYxNX0.__rJRjYu7WImp-45-L-ZrXfXlL6erlULqlTdpepwdoA&signature=feaa1fa4a1ba1fbcd4ba89dd43c1b1f8d099d2f513f172e484d0271ed1c1c0f9" }
+          ]
+        },
+        {
+          title: "Firefox Privacy Policy on First Launch",
+          count: 1,
+          submissionIds: ["Bzy7Bj5"],
+          description: "As a first-time Oasis user, when installing and opening the browser for the first time, a Firefox privacy policy tab opens instead of Oasis new tab page or Kahana privacy policy.",
+          impact: "Confusing branding, poor first impression (severity 10/10)",
+          technicalNotes: "Browser initialization - replace Firefox default page with Oasis/Kahana page",
+          feedback: [
+            { id: "Bzy7Bj5", text: "As a first-time Oasis user, when I install and open the browser for the first time, I see a Firefox privacy policy tab open https://www.mozilla.org/en-US/privacy/firefox/. This is confusing because I would expect to see the 'new tab' page for Oasis or the Kahana privacy policy instead https://kahana.co/privacy-policy", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.13.15-PM.png?id=GqQAoj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxUUFvaiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTY4Mn0.5OzFjPRZVDMaKYkJGtwKEcTz4K9we1U2ZSlWDKWHSXk&signature=cfc9ccdfca6548993adc659512d9557b285cb2b23d91ea3268f8f27a351ce009" }
+          ]
+        },
+        {
+          title: "Firefox Branding in Vertical Tabs Popup",
+          count: 1,
+          submissionIds: ["PdxOEY5"],
+          description: "When turning on vertical tabs as a new user, a purple popup with Firefox logo and cartoon fox appears. This is not on-brand for Oasis.",
+          impact: "Confusing branding (severity 8/10)",
+          technicalNotes: "Replace Firefox branding in vertical tabs popup with Oasis branding",
+          requiresUI: true,
+          feedback: [
+            { id: "PdxOEY5", text: "When I 'turn on vertical tabs' as a new user, I see a purple popup with the firefox logo and a cartoon fox. This is not on-brand for Oasis and seems confusing and buggy. It would make sense to swap the firefox portions of the popup and modify the pop up so it is on-brand with Oasis", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.07.48-PM.png?id=pJkpy1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKa3B5MSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTM2NH0.hGh4YjifQ96MGhKw8dEfLBBNP7VizfxUZnWcOaJkgQc&signature=1a50fb17952fec483e7c72b09629954ed0a8b93c3ce45072cd9be04b76dddb54" }
+          ]
+        },
+        {
+          title: "Tabs from Other Devices Shows Firefox",
+          count: 1,
+          submissionIds: ["2EWPvvA"],
+          description: "When clicking 'tabs from other devices' button, user sees Firefox branded interface and link to log into Mozilla account. This is confusing.",
+          impact: "Confusing for users (severity 8/10)",
+          technicalNotes: "Hide or replace 'tabs from other devices' functionality - should be hidden to avoid confusion",
+          requiresUI: true,
+          feedback: [
+            { id: "2EWPvvA", text: "As a new user, when I click the 'tabs from other devices' button, I see a Firefox branded interface and link to log into my Mozilla account. This is confusing. There should be no option to click the 'tabs from other devices' button. It should be hidden to avoid confusion", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.21.34-PM.png?id=xRl555&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSbDU1NSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNjE4NX0.G8XN6JYVyVMeTbnB2b9XMMpgUYGF4RVL9KlNtdu3Xgg&signature=f9d7983e7015b11e5584b4ad173940052bc84f87ec10933d857bf3865995fc6b" }
+          ]
+        },
+        {
+          title: "Default Preferences Not Set",
+          count: 1,
+          submissionIds: ["Bzy7bq4"],
+          description: "As a new Oasis user, good default preferences are not automatically enabled. Users have to manually turn on settings like 'Open links in tabs instead of new windows', 'Ctrl+Tab cycles through tabs in recently used order', etc.",
+          impact: "Users have to configure settings manually (severity 6/10)",
+          technicalNotes: "Set optimal default preferences on first install in settings.ts",
+          feedback: [
+            { id: "Bzy7bq4", text: "As a new Oasis user, I would appreciate it if I could setup good default preferences when I initially install Oasis. For example, when i click the 'settings' option, I see multiple good defaults that I have to manually turn on, but I wish they were automatically on when i install. These are: Ctrl+Tab cycles through tabs in recently used order, Open links in tabs instead of new windows, Open links from apps next to your active tab, Warn you when opening multiple tabs might slow down Oasis, When you open a link, image or media in a new tab, switch to it immediately, Ask before closing multiple tabs, Browser Layout - Horizontal tabs, Display at top of browser, Vertical tabs, Display on the side, in the sidebar, Show sidebar", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.33.29-PM.png?id=NbRZYj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iUlpZaiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNjg1OX0.aAR5p5BoqJmXDJf_V2u_LGAbmyRxtFtL0LBBcw6dXVs&signature=60bc609e3c8c542ef567b65039e5a6931f5848650e31b853d5fc175a799e7176" }
+          ]
+        },
+        {
+          title: "Login Not Obvious for First-Time Users",
+          count: 1,
+          submissionIds: ["kdobD0M"],
+          description: "As a first time user, it is not obvious to log in to AI assistant, it is difficult to find and how to access it. Once opened, it's difficult to figure out how to sign up.",
+          impact: "Users can't get started (severity 6/10)",
+          technicalNotes: "Onboarding flow should guide users to sign up/login, make it more discoverable",
+          requiresUI: true,
+          feedback: [
+            { id: "kdobD0M", text: "As a first time user, it is not obvious to log in to AI assistant, it is difficult to find and how to access it. Once I open it, its difficult to figure out how to sign up in it." }
+          ]
+        },
+        {
+          title: "Empty State Image Not Loading",
+          count: 1,
+          submissionIds: ["1Aaj6WW"],
+          description: "The sloth default image (empty state image) is not loading in all instances.",
+          impact: "Incomplete UI experience (severity 1/10)",
+          technicalNotes: "Image loading/fallback in assistant.ui.js",
+          requiresUI: true,
+          feedback: [
+            { id: "1Aaj6WW", text: "The sloth default image (empty state image) is not loading in all instances.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-20-at-1.05.33-PM.png?id=rJ0plv&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKMHBsdiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODkzNTk4MX0.aDZ0MWposXerNJDNbozoIgAz84yOeXhzaXFP35SNmCA&signature=07c2c7244fdd12329d09eabf3019ff56087771c9daef4f7c8c53c473311cc8bd" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "AI Assistant is open and visible by default on first install and browser launch",
+        "Onboarding flow includes browser import option (Chrome, Safari, etc.)",
+        "First launch shows Oasis/Kahana page instead of Firefox privacy policy",
+        "All Firefox branding is replaced with Oasis branding",
+        "'Tabs from other devices' button is hidden or replaced",
+        "Optimal default preferences are set automatically on first install",
+        "Login/signup is discoverable and guided in onboarding",
+        "Empty state image loads correctly in all instances"
+      ]
+    },
+    {
+      id: 14,
+      title: "Advanced Features + Gemini Migration (larger, lower parallel risk)",
+      emoji: "✨",
+      priority: "MEDIUM",
+      storyPoints: 34,
+      effort: "High",
+      impact: "Medium-High",
+      severity: "6-10/10",
+      overview: "Advanced features and enhancements including semantic search, tab organization, chat history, webpage summarization, and integration with native Firefox features. Also includes critical Gemini model migration.",
+      primaryFiles: "browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/build/src/proxyClient.ts / awsSignedFetch.ts, browser/base/content/assistant/build/src/services/subscription.ts, (new) feature modules to be created under browser/base/content/assistant/build/src/",
+      issues: [
+        {
+          title: "Feature Request: Semantic History Search",
+          count: 1,
+          submissionIds: ["QKZVWp1"],
+          description: "Users want to search browsing history using natural, fuzzy descriptions (e.g., 'that article about beginner investing') instead of exact titles or URLs. Should feel like asking a personal memory assistant.",
+          impact: "Would significantly improve productivity (severity 10/10)",
+          technicalNotes: "Implement semantic search over browsing history. Reference: Firefox already has semantic search capability (https://connect.mozilla.org/t5/discussions/try-out-the-new-semantic-history-search-feature-and-share/m-p/99835). May be able to leverage existing Firefox functionality. Create new search.ts module.",
+          feedback: [
+            { id: "QKZVWp1", text: "I'd like to request a new Oasis feature called Semantic History Search. Users often struggle to find pages they know they visited before, especially when they can't remember exact titles, URLs, or specific keywords. People tend to remember the idea or context of what they saw ('that article about beginner investing' or 'the recipe with lemon and garlic') rather than precise page names. Users can type natural, fuzzy descriptions of what they remember (topics, purposes, or rough phrases) and quickly see the most relevant past pages surface from their history. There is already a semantic search capability in firefox which can be a reference: https://connect.mozilla.org/t5/discussions/try-out-the-new-semantic-history-search-feature-and-share/m-p/99835" }
+          ]
+        },
+        {
+          title: "Feature Request: Find Content in Tab Groups",
+          count: 1,
+          submissionIds: ["xXqY1vJ"],
+          description: "Users want to search through all saved tab groups to find specific content (e.g., 'Find my Apple article'). AI Assistant should search through all tab groups and pull up the exact page.",
+          impact: "Would make finding saved content much easier (severity 8/10)",
+          technicalNotes: "Implement search functionality across tab groups, including content indexing and semantic matching. May extend search.ts module.",
+          feedback: [
+            { id: "xXqY1vJ", text: "if I saved an article about Apple's latest tech in one of my tab groups, I can simply ask Oasis: 'Find my Apple article.' In seconds, the AI Assistant searches through all my saved tab groups and pulls up the exact page I need. It's like having a super-smart librarian for all your web content.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-1.26.14-PM.png?id=KWa9EM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktXYTlFTSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExMDI0OH0.h0NLlFZCog53Gp384zaoAlC3GcdHFX8K2z_8y_nWoSg&signature=2d8526b6b1f5110951c8971f25b030170f31e8da71b7db6b4746153867c75406" }
+          ]
+        },
+        {
+          title: "Feature Request: Context-Based Tab Organization",
+          count: 1,
+          submissionIds: ["b5pdjNZ"],
+          description: "Users want to organize tabs into groups based on context using AI. For example, 'I have multiple tabs open relating to AWS, Deepgram, Lambda functions, and Supabase. Create a group for these.' Currently creates group with wrong tabs.",
+          impact: "Would make tab organization much easier (severity 7/10)",
+          technicalNotes: "Implement context-aware tab grouping using AI to analyze tab content/URLs and group related tabs. Reference: Firefox has 'suggest more of my tabs' feature that analyzes tabs and suggests groups.",
+          feedback: [
+            { id: "b5pdjNZ", text: "As a worker starting his day with 37+ tabs open, I wish I could easily use the ai assistant and command it to 'organize my tabs into groups based on context.' For example, I want to be able to say something like 'I have multiple tabs open relating to AWS, Deepgram, Lambda functions, and Supabase. Create a group for these.' Currently, the behavior is the following: a new tab group named 'AWS, Deepgram, Lambda, Supabase' is created with one tab (the Oasis Feedback tab) saved in it. There is already a feature in firefox called 'suggest more of my tabs'. It is available when you manually create a tab group by clicking and dragging tabs on top of each other. If you click 'suggest more of my tabs', the browser analyzes the tabs you have open and suggests more to be added to the group, and it also suggests a contextual name for the tab group.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-11.31.35-AM.png?id=EZNV8l&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaTlY4bCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwMzQ5Nn0.bRo8VyGQOkR0G9_K4kJmDN2hmcPVRAJHVm6A4qGARmk&signature=112352375738d4577df0e11f9f4104986110b2d5659a67eb82afc50f1ee83c18" }
+          ]
+        },
+        {
+          title: "Feature Request: Add All Tabs to Tab Group",
+          count: 1,
+          submissionIds: ["7RA2oJA"],
+          description: "Users want to be able to say 'Add all tabs to Research tab group' and have every open tab saved into that tab group. This would help manage tab clutter.",
+          impact: "Would make managing many tabs easier (severity 10/10)",
+          technicalNotes: "Implement 'add all tabs to tab group' command in tab group command module - should add all currently open tabs to specified tab group",
+          feedback: [
+            { id: "7RA2oJA", text: "I'd like to request a new Oasis feature to make managing too many tabs much easier using tab groups. A common scenario: there are a dozen tabs open for a single project—news articles, references, emails—and everything quickly becomes unwieldy. With this feature, Oasis would let users say something like, 'Add all tabs to Research tab group,' and every open tab would be saved into a tab group called 'Research' for later. All those pages would be neatly organized in one place, so the user can close the on-screen clutter with confidence. Later, they could reopen that tab group and have everything restored just as they left it.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-3.49.08-PM.png?id=vJKjV4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKS2pWNCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExODY4NH0.QZyZKM8fy6EBRr5sXdhAK2ft93hXHejB5EAy06F8Ecs&signature=437ca53e87e55feb2cdf531fbe8bfe7ac445c0c1b5774a02d1994374ebe349e3" }
+          ]
+        },
+        {
+          title: "Feature Request: AI Command for Native Splitview",
+          count: 1,
+          submissionIds: ["XxaWDBj"],
+          description: "Users want to use AI commands to trigger Firefox's native splitview feature (where two tabs are arranged side by side within the same window). Currently 'splitview' command opens tabs in two new windows.",
+          impact: "Would enhance productivity (severity 10/10)",
+          technicalNotes: "Integrate with Firefox's native splitview API, create new command for native splitview (rename existing splitview command to something else)",
+          feedback: [
+            { id: "XxaWDBj", text: "As a user, I want to be able to use an ai command that triggers the new existing 'splitview' (Add splitview) feature in Oasis. Firefox introduced a 'splitview' feature to see two tabs side by side. I want to be able to control that feature and use it through the AI assistant. In the past, we created a 'splitview' command that opens the tabs in two new windows which are in a splitview, so that functionality should be called something else. 'Splitview' commands should pertain to the existing splitview functionality that is native to firefox, where two tabs are arranged in a splitview within the same window", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-3.27.25-PM.png?id=1NpZ8W&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOcFo4VyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExNzQ0NX0.BonC49LjrWP1wPg1dVy9BW6doK7AQEeV-ihZICciuj4&signature=42fea6b90fee1dc3c64efbc1afc2d17761d28a1c319cd8996f7e5cc6f2a0d7bb" }
+          ]
+        },
+        {
+          title: "Feature Request: Chat History Access",
+          count: 1,
+          submissionIds: ["xXqY2aJ"],
+          description: "Users expect to be able to access previous AI Assistant chat threads (conversation history) from other days. Currently AI says it can only access current session.",
+          impact: "Users want persistent chat history (severity 7/10)",
+          technicalNotes: "Implement chat history storage and retrieval - store conversations in Supabase, create UI to access past conversations. Create new chatHistory.ts module.",
+          feedback: [
+            { id: "xXqY2aJ", text: "As an early Oasis user, I expect to be able to access previous AI Assistant chat threads (conversation history) and/or get a clear answer about AI Assistant history works and what I should expect. 'how is our ai assistant chat history handled? Can I access previous chats from other days?' Current AI response: 'I can access the complete conversation history within our current interaction. However, I don't have the ability to access previous chats from other days. My memory is limited to the current session.'", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.16.37-PM.png?id=zG15bZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpHMTViWiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExMDI0OH0.jCeih9O-1CfQfCzVYxkYOYKWKkB3g1md-QWx8pMzyZo&signature=ae16daaae6b282cff1d9399c6855a155d447334b6e2a49b0a3743ad741962eb0" }
+          ]
+        },
+        {
+          title: "Feature Request: Webpage Summarization",
+          count: 1,
+          submissionIds: ["xXqrxDJ"],
+          description: "Users want AI Assistant to automatically summarize webpages they visit, not just mention the title. Currently AI says it needs a moment to review but doesn't provide summary.",
+          impact: "Would enhance research productivity (severity 6/10)",
+          technicalNotes: "Implement webpage content extraction and summarization. May create new summarize.ts module or extend assistant.ts",
+          feedback: [
+            { id: "xXqrxDJ", text: "I wanted to see the summary of the webpage that I visited, which wasn't happening and the assistant just mentioned the webpage title and was asking me about further details. My request: open articles about setting up an organization in salesforce. review this and let me know the insights. Oasis AI: I have opened a tab with a Salesforce article titled 'How to Set Up Salesforce: A Step-by-Step Guide'. To give you insights, I need you to give me a moment to review the contents of the webpage. Once I've done that, I'll provide a summary of the key steps and insights from the article." }
+          ]
+        },
+        {
+          title: "Feature Request: Tags for Websites",
+          count: 1,
+          submissionIds: ["NpZvGdG"],
+          description: "Users want to add tags to websites to allow easier searching.",
+          impact: "Would improve content organization (severity 9/10)",
+          technicalNotes: "Implement tagging system for saved sites/tab groups. May extend tabGroups.ts or create new tags.ts module",
+          feedback: [
+            { id: "NpZvGdG", text: "It would be nice if I could add tags to a website which would allow me to search more easily." }
+          ]
+        },
+        {
+          title: "Feature Request: Token Refund for Bad Executions",
+          count: 1,
+          submissionIds: ["KYjV0ak"],
+          description: "If someone provides feedback saying 'Oasis executed incorrectly', return tokens to users as part of a retention policy. Could be included in onboarding flow.",
+          impact: "Would improve user retention (severity 8/10)",
+          technicalNotes: "Integrate with HITL feedback system (Sprint 6), implement token refund logic in usage tracking",
+          feedback: [
+            { id: "KYjV0ak", text: "If someone provides feedback, we can say 'Oasis executed incorrectly' and return tokens to users as part of a retention policy. Ideally, this could be included within the onboarding flow of the Oasis AI assistant, which would lead to people becoming more focused on the personalization of the browser." }
+          ]
+        },
+        {
+          title: "Feature Request: Automatic Software Updates",
+          count: 1,
+          submissionIds: ["5B7xd7d"],
+          description: "Users want to receive software update notifications within Oasis itself, with an Update button and option to turn on Automatic software updates, similar to Apple System settings UI.",
+          impact: "Would improve update experience (severity 9/10)",
+          technicalNotes: "Implement update checking, notification system, and update UI in settings or dedicated update component",
+          requiresUI: true,
+          feedback: [
+            { id: "5B7xd7d", text: "As an Oasis user, rather than receive new software updates by manually installing a new version through a file on the kahana.co/installations page, I would prefer to receive notifications within Oasis itself where I can follow the notification to a 'software update' page similar to the UI of Apple System settings, where I can check if new software updates are available and actually click an Update button to update my software, and/or turn on Automatic software updates.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.05.22-PM.png?id=rJkMyp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKa015cCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTIxOH0.NTmCc8VtMpUIj7E6umxXQMqtydAJAD5BTXecUOoo2-k&signature=34299a9179a06127cc230c092e18d21875a00a9e325e67c33f6d3eb17db2f6d8" }
+          ]
+        },
+        {
+          title: "Bug: Confusing AI Response Format",
+          count: 1,
+          submissionIds: ["2EWX81j"],
+          description: "AI responses sometimes just say 'in a new tab.' which is confusing. Should provide more context.",
+          impact: "Confusing user experience (severity 4/10)",
+          technicalNotes: "Improve response formatting in assistant.ts (tool output to natural language conversion)",
+          feedback: [
+            { id: "2EWX81j", text: "My input: open articles about setting up an organization in salesforce. Oasis AI: in a new tab. This prompt actually opened a new tab with the article about the salesforce accounts but the AI replied - 'in a new tab.' which was confusing for me" }
+          ]
+        },
+        {
+          title: "Bug: Invalid URL Opened",
+          count: 1,
+          submissionIds: ["OD2aDK8"],
+          description: "AI opened a URL that was not actually a webpage (https://www.youtube.com/howyoutubeworks/creators/upload-videos/) when user asked to open article about uploading video in YouTube.",
+          impact: "Opens invalid pages (severity 9/10)",
+          technicalNotes: "URL validation and content checking before opening in tab command module",
+          feedback: [
+            { id: "OD2aDK8", text: "I wanted to open an article about uploading an video in youtube, but the AI replied and opened and URL which was not actually a webpage. Oasis AI: in a new tab. [The opened URL link - https://www.youtube.com/howyoutubeworks/creators/upload-videos/]", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-21-at-4.40.24-PM.png?id=qJJZQg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFKSlpRZyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTAzNTI3MH0.oZB18p6NLlQ7vXLJ3nVASTbX-DZ1GPpLNCxMOAtW7eY&signature=0c4aca5180c70dbb9253ccd94c56de11a2eff2d5e00926f790ddc58f0ffc0786" }
+          ]
+        },
+        {
+          title: "UI: Input Text Wrapping Issue",
+          count: 1,
+          submissionIds: ["0Q9exbZ"],
+          description: "When typing longer text, the content goes beyond the visible input area rather than wrapping or scrolling, causing readability and UX issue.",
+          impact: "Poor UX for longer inputs (severity 5/10)",
+          technicalNotes: "Fix text input wrapping/scrolling in assistant.ui.js",
+          requiresUI: true,
+          feedback: [
+            { id: "0Q9exbZ", text: "When typing longer text, the content goes beyond the visible input area rather than wrapping or scrolling, causing readability and UX issue.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-8.30.21-PM.png?id=YJxkz5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IllKeGt6NSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTA5NDI4NX0.obp_ayTrs1xZrc-I4xRfTsFDWJw-0iO633KABYxJFGg&signature=1182859eb9f047c1837039419e5e0352ebc7d90b75f4faa4f46979daf87ce925" }
+          ]
+        },
+        {
+          title: "UI: Minimize Button Doesn't Restore",
+          count: 1,
+          submissionIds: ["Xxa0l5V"],
+          description: "After minimizing the chat by clicking the minimize button, clicking it again has no effect. Should restore chat to original size.",
+          impact: "Can't restore minimized chat (severity 6/10)",
+          technicalNotes: "Minimize/restore toggle logic in assistant.ui.js",
+          requiresUI: true,
+          feedback: [
+            { id: "Xxa0l5V", text: "After minimizing the chat by clicking the minimize button, clicking it again has no effect. It would be great if clicking it again restored the chat to its original size." }
+          ]
+        },
+        {
+          title: "UI: Double Scrollbars in Chat",
+          count: 1,
+          submissionIds: ["2EGZJvD"],
+          description: "When the length of the conversation in AI chat increased, user saw 2 scrollbars.",
+          impact: "UI glitch (severity 6/10)",
+          technicalNotes: "Fix scrollbar styling in assistant.ui.js",
+          requiresUI: true,
+          feedback: [
+            { id: "2EGZJvD", text: "when the length of the conversation in ai chat increased, i saw 2 scrollbars", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-2.31.52-PM.png?id=Nbq51N&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5icTUxTiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI0NjM3M30.MhjJ1LV6-AZZdnPrpAnruE2O-o1Zx4VGdr8HNpBtUFI&signature=96d15b67208d0adbe98f0d604794f0777b45cc702b81d1bff532be8b66e070ae" }
+          ]
+        },
+        {
+          title: "Performance: Can't Summarize Wiki Pages",
+          count: 1,
+          submissionIds: ["44Vqkb5"],
+          description: "Could not summarize wiki page. Given prompt was to open apple Inc. wiki and summarize their history, but summarization failed.",
+          impact: "Feature doesn't work for some content (severity 8/10)",
+          technicalNotes: "Webpage content extraction and summarization logic - may need better handling for Wikipedia and similar sites. May extend summarize.ts module",
+          feedback: [
+            { id: "44Vqkb5", text: "Could not summarize wiki page. Given prompt was to open apple Inc. wiki and summarize their history", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-11.14.54-AM.png?id=EZqzzN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVacXp6TiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI0NTQxM30.iVDd1BgRn3aRQuEqdPfzgiLVviFxt-uDfDSi_CsvBN8&signature=9ae58bb5cd89f66728af482eeb94a75437f83902c56bae75e03b0e982d9f5dfc" }
+          ]
+        },
+        {
+          title: "Voice: No Visual Feedback During Recording",
+          count: 1,
+          submissionIds: ["VLOdzYy"],
+          description: "When giving voice command, user waits for voice to be interpreted into text, but text doesn't appear until manually pressing stop recording. Command executes but user has to press stop and hit enter.",
+          impact: "Confusing voice interaction (severity 8/10)",
+          technicalNotes: "Real-time transcription display and visual feedback during voice recording in assistant.ui.js",
+          requiresUI: true,
+          feedback: [
+            { id: "VLOdzYy", text: "I was giving a voice command to the oasis assistant and i was waiting for my voice command to be interpreted into textual format, however that did not happen and i had to manually press stop recording for the text to be displayed which led to confusion. The command however was executed but i had to press the stop recording button as well as hit enter." }
+          ]
+        },
+        {
+          title: "Critical: Gemini Model Migration Required",
+          count: 1,
+          submissionIds: ["jaRPLRY"],
+          description: "Google is discontinuing Gemini 2.0 models (Gemini 2.0 Flash and Gemini 2.0 Flash Lite) on March 31, 2026. Need to migrate to supported models (e.g., 2.5 Flash, 2.5 Flash Lite) before this date.",
+          impact: "AI Assistant will stop working if not addressed (severity 10/10)",
+          technicalNotes: "Update model configuration in proxyClient.ts / awsSignedFetch.ts (depending where model selection lives). Also update services/subscription.ts (usage model tagging currently defaults to `gemini-1.5-flash`). Test with new models. Coordinate with backend team if needed.",
+          feedback: [
+            { id: "jaRPLRY", text: "Google recently announced: 'We're discontinuing Gemini 2.0 models on AIS. On March 31, 2026, we're discontinuing the following Gemini 2.0 models: Gemini 2.0 Flash (gemini-2.0-flash, gemini-2.0-flash-001) and Gemini 2.0 Flash Lite (gemini-2.0-flash-lite, gemini-2.0-flash-lite-001). Required action: Migrate to a supported Gemini model (e.g., 2.5 Flash, 2.5 Flash Lite). Impacted projects: oasis-browser-469518. If we don't properly address the Gemini change from Google, it could cause the AI assistant to stop working universally'" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "(Optional) Semantic history search implemented",
+        "(Optional) Search functionality across tab groups implemented",
+        "(Optional) Context-based tab organization using AI implemented",
+        "'Add all tabs to tab group' command works correctly",
+        "AI command for native Firefox splitview implemented",
+        "(Optional) Chat history storage and access implemented",
+        "(Optional) Webpage summarization works for all content types",
+        "(Optional) Tagging system for websites implemented",
+        "(Optional) Token refund system for bad executions implemented",
+        "(Optional) Automatic software updates system implemented",
+        "AI responses are clear and contextual",
+        "URL validation prevents opening invalid pages",
+        "Input text wraps/scrolls correctly",
+        "Minimize button toggles chat visibility",
+        "Only one scrollbar appears in chat",
+        "Voice transcription displays in real-time",
+        "Gemini model migration completed before March 31, 2026"
+      ]
     }
   ]
 
@@ -626,7 +1297,7 @@ function Sprints() {
       <div className="page-header">
         <h1>Engineering Sprints</h1>
         <p style={{ marginTop: '10px', color: '#666', fontSize: '1rem' }}>
-          December 2025 - January 2026 Feedback | 43 Total Feedback Items
+          December 2025 - January 2026 Feedback | 130 Total Feedback Items (52 New)
         </p>
       </div>
 
@@ -641,7 +1312,7 @@ function Sprints() {
             marginBottom: '20px' 
           }}>
             <p style={{ margin: 0, fontSize: '1rem', fontWeight: '500', color: '#0369a1' }}>
-              💡 <strong>Choose a sprint that excites you!</strong> We encourage developers to select sprints that they personally find most <strong>fun</strong> and where they think they'd be most <strong>effective</strong>. Once you've chosen which sprint you want to join (1, 2, 3, 4, or 5), please <strong>DM Adam Kershner on Slack</strong> to let him know. Feel free to DM Adam with any questions as well!
+              💡 <strong>Choose a sprint that excites you!</strong> We encourage developers to select sprints that they personally find most <strong>fun</strong> and where they think they'd be most <strong>effective</strong>. Once you've chosen which sprint you want to join (5, 6, 7, 8, 9, 10, 11, 12, 13, or 14), please <strong>DM Adam Kershner on Slack</strong> to let him know. Feel free to DM Adam with any questions as well!
             </p>
           </div>
           <p>
@@ -654,7 +1325,7 @@ function Sprints() {
             <li><strong>User Impact:</strong> Number of affected users and severity ratings</li>
           </ul>
           <p style={{ marginTop: '15px', fontStyle: 'italic', color: '#666' }}>
-            <strong>Note:</strong> This reorganization groups issues by the files/modules they affect, making it easier for developers to work on related functionality together.
+            <strong>Note:</strong> Sprints 8-14 have been reorganized for <strong>parallel execution</strong> to minimize file conflicts. The issues were regrouped into parallel engineering tracks based on actual code ownership in the repo (most Oasis AI work is under `browser/base/content/assistant/`). The goal is to reduce merge conflicts by avoiding multiple engineers editing the same large files (notably `commands.ts` and `assistant.ui.js`) in the same sprint. Sprint 9 includes a module split so tab-command work and tab group-command work can proceed independently.
           </p>
           <div style={{ 
             backgroundColor: '#fef3c7', 
@@ -845,6 +1516,13 @@ function Sprints() {
             <li><strong>Sprint 5</strong> - Features and integrations (nice-to-have enhancements) - <em>Not yet addressed</em></li>
             <li><strong>Sprint 6</strong> - HITL Framework Phase 1: MVP/Prototype (basic implementation for product testers) - <em>Not yet addressed</em></li>
             <li><strong>Sprint 7</strong> - HITL Framework Phase 2: Enhancements (analytics dashboard and advanced features) - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 8</strong> - Assistant Engine Reliability (LangGraph, tool-output formatting) - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 9</strong> - Command Module Split (enables parallel tab group vs tab work) - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 10</strong> - Tab Group Operations & Management - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 11</strong> - Tab/Window Command Correctness (close, dedupe, split, move) - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 12</strong> - Authentication + Subscription UX (login, signup, session restore, limits) - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 13</strong> - Onboarding + Branding polish (first run, visibility, Firefox remnants) - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 14</strong> - Advanced Features + Gemini Migration (larger, lower parallel risk) - <em>Not yet addressed</em></li>
           </ol>
         </div>
       </section>
