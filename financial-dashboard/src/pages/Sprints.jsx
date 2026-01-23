@@ -219,7 +219,7 @@ function Sprints() {
       impact: "High",
       severity: "9-10/10",
       overview: "Fix tab-related operations including tab detection, finding existing tabs, and tab group management. All issues work with the same browser tab APIs and are naturally related. This sprint focuses on making tab operations work correctly before enhancing tab groups.",
-      primaryFiles: "commands.ts (tab commands), tabGroups.ts",
+      primaryFiles: "commands.ts (tab commands), hubs.ts",
       issues: [
         {
           title: "Tab vs Window Confusion",
@@ -250,7 +250,7 @@ function Sprints() {
           submissionIds: ["eqW0MdE", "KYKWzVV", "aQqA5Xy"],
           description: "AI commands like 'add this tab to my Google Sheets tab group' or 'put my tabs with google sheets in a tab group' don't work.",
           impact: "Users can't organize their workspace (severity 9-10/10)",
-          technicalNotes: "Tab detection, tab group matching, or tab-to-tab-group association logic may be broken in tabGroups.ts and commands.ts",
+          technicalNotes: "Tab detection, tab group matching, or tab-to-tab-group association logic may be broken in hubs.ts and commands.ts",
           feedback: [
             { id: "eqW0MdE", text: "Entered the following command in AI assistant: add this tab to my Google Sheets tab group. My current tab had a google spreadsheet. The tab was not added.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-11-at-4.51.16-PM.png?id=X1Vjvz&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlgxVmp2eiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE3MTk4N30.mpqdBFowWh6yVTAHIy-ps7MAg_x92rfwLldv25fMjac&signature=cd20dd07c1f78e4cb73003845a1b67af50e985ad47fe30ab00cccf42976ae37d" },
             { id: "KYKWzVV", text: "I entered the following in AI assistant: put my tabs with google sheets in a tab group called Google Sheets. It didnt put any of the tabs in the new tab group it created. From the screenshot you can see I had 3 Google Sheet tabs open", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-11-at-4.39.03-PM.png?id=OdpRop&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik9kcFJvcCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE3MTY1NX0.dlGcIS2hAH2sJIJHmHFXIvZ_y_SBDYVUBoqQecrOKWM&signature=b4d08e4ec98efd713c9f361fe2036d6b13a5d45f46f011a33121980c2a370156" },
@@ -647,7 +647,7 @@ function Sprints() {
           title: "Split `commands.ts` by domain",
           count: 0,
           submissionIds: [],
-          description: "Move tab group-related commands into a dedicated module (e.g., `tabGroupCommands.ts`). Move tab/window commands into a dedicated module (e.g., `tabCommands.ts`). Keep a thin re-export surface so `assistant.ts` remains stable.",
+          description: "Move tab group-related commands into a dedicated module (e.g., `hubCommands.ts`). Move tab/window commands into a dedicated module (e.g., `tabCommands.ts`). Keep a thin re-export surface so `assistant.ts` remains stable.",
           impact: "Enables parallel work on tab group and tab commands",
           technicalNotes: "Refactoring work to split commands.ts into domain-specific modules",
           feedback: []
@@ -663,7 +663,7 @@ function Sprints() {
         }
       ],
       acceptanceCriteria: [
-        "commands.ts split into tabGroupCommands.ts and tabCommands.ts (or similar structure)",
+        "commands.ts split into hubCommands.ts and tabCommands.ts (or similar structure)",
         "assistant.ts import surface remains stable (thin re-export)",
         "Basic command testing harness implemented",
         "No functionality regressions from refactoring"
@@ -679,7 +679,7 @@ function Sprints() {
       impact: "High",
       severity: "8-10/10",
       overview: "Fix tab group operations including renaming, finding tabs within groups, adding/removing tabs, and tab group state accuracy. This is scoped so an engineer primarily works in the tab group domain without touching tab/window command code (post Sprint 9 split).",
-      primaryFiles: "browser/base/content/assistant/build/src/tabGroups.ts, browser/base/content/assistant/build/src/commands.ts (or post-split tab group command module), browser/base/content/assistant/build/src/services/localMemory.ts",
+      primaryFiles: "browser/base/content/assistant/build/src/hubs.ts, browser/base/content/assistant/build/src/commands.ts (or post-split hub command module), browser/base/content/assistant/build/src/services/localMemory.ts",
       issues: [
         {
           title: "Tab Group Renaming Fails",
@@ -687,7 +687,7 @@ function Sprints() {
           submissionIds: ["EkO6rLL"],
           description: "AI assistant cannot rename tab groups. When manually renamed, AI assistant still thinks old name exists and creates phantom groups.",
           impact: "Can't organize tab groups effectively (severity 10/10)",
-          technicalNotes: "Tab group state synchronization issue - AI assistant state doesn't match actual tab group state in tabGroups.ts",
+          technicalNotes: "Tab group state synchronization issue - AI assistant state doesn't match actual tab group state in hubs.ts",
           feedback: [
             { id: "EkO6rLL", text: "I had a GoogleMail tab group. I asked AI assistant to rename it to GoogleSheets. It was not able to rename it, so I did it manually. I then asked the AI assistant to create a GooglMail tab group. It said it created it but I could not see it. So I asked it to show me the tab groups. It said I had a GoogleMail and GooglMail tab groups. Note that I don't have a GoogleMail tab since I renamed it to GoogleSheets yet the AI assistant thinks I have one.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-18-at-11.55.56-AM.png?id=e0LegQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUwTGVnUSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODc1OTMyNX0.6WVl9B9knEYWrhhh4QsdmMYyY6PnJvVYsJ9CtEkjYKo&signature=7bd0fef6cf0cf57f21cf0fc79dbf9adfc4e6c4ac643b5b5796eac6233c5e5fdb" }
           ]
@@ -698,7 +698,7 @@ function Sprints() {
           submissionIds: ["68BP0AJ", "QKQ4N2G"],
           description: "AI assistant reports tab groups are empty when they contain tabs, or can't find specific tabs within groups (e.g., '2026 expenses tab').",
           impact: "Can't navigate to saved content (severity 10/10)",
-          technicalNotes: "Tab group content querying logic broken in tabGroups.ts - needs to properly enumerate tabs within groups",
+          technicalNotes: "Tab group content querying logic broken in hubs.ts - needs to properly enumerate tabs within groups",
           feedback: [
             { id: "68BP0AJ", text: "I asked AI assistant what is in my GoogleSheets tab group and it said I had nothing in it. As you can see from the screenshot, there are tabs in it.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-18-at-12.18.41-PM.png?id=1NMl6l&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOTWw2bCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODc2MDQxMX0.p4G4AtlNoH7OaMGS6N2oL4pICVgBQbnDEp7Zjfcmtfk&signature=7f767a62e0bbf707925efaceafc3a0c3db165ddbf5c3f76223210227d437034a" },
             { id: "QKQ4N2G", text: "I asked AI assistant to open 2026 expenses tab. It said it opened it. As you can see in the screenshot, it opened a new tab (Page Not Found) with GoogleSheets. It did not open my existing 2026 expenses tab.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-18-at-12.21.27-PM.png?id=bYL7Dg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZTDdEZyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODc2MDYwN30.krGmO1q8eqhuXEed_Hi2aOv_p3W0LWNUNCE5QFYgMPY&signature=c78c4911000225c0f2ae4cca5097736bd3fefddf364254971b58d1593267a024" }
@@ -710,7 +710,7 @@ function Sprints() {
           submissionIds: ["Ek77J5r"],
           description: "Commands to add specific tabs to groups (e.g., 'add all the youtube tabs') add all open tabs instead of just the specified ones.",
           impact: "Can't selectively organize tabs (severity 8/10)",
-          technicalNotes: "Tab filtering/matching logic broken in tab group command module - needs to properly match tabs by URL, title, or domain",
+          technicalNotes: "Tab filtering/matching logic broken in hub command module - needs to properly match tabs by URL, title, or domain",
           feedback: [
             { id: "Ek77J5r", text: "command: create a group called youtube learning and add all the youtube tabs under it. result: added all the opened tabs instead of just the youtube ones. command: do not add all the tabs, add just the youtube tabs. result: added all the opened tabs instead of just the youtube ones. command: remove all the tabs under youtube learning except youtube tabs. result: added all the opened tabs instead of just the youtube ones." }
           ]
@@ -721,7 +721,7 @@ function Sprints() {
           submissionIds: ["kdPNA4R"],
           description: "Creating tab groups via AI command sometimes creates groups with 0 items when tabs should be added.",
           impact: "Tab groups created but empty (severity 7/10)",
-          technicalNotes: "Tab group creation and tab addition logic may have timing or state issues in tab group command module",
+          technicalNotes: "Tab group creation and tab addition logic may have timing or state issues in hub command module",
           feedback: [
             { id: "kdPNA4R", text: "I used the ai command 'create tab group called \"GTM\"'. [Tool Output for create_tab_group]: Created tab group \"GTM\" with 0 items. open product hunt", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-15-at-6.40.10-PM.png?id=d8xVDq&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4eFZEcSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODUyNDEwOH0.eZ0fCDEw34xvnggFzJ_42z9KXYIZa4YuVBsyXGWBlaI&signature=cc7b0d68d31fa07462369a6ca69fe4818130deb6386fb8f1f05a5072f8cdcd5f" }
           ]
@@ -732,7 +732,7 @@ function Sprints() {
           submissionIds: ["ODNEKMR"],
           description: "When adding a tab to a tab group, the tab should be positioned next to the group tab, not separated by other tabs.",
           impact: "Visual confusion about which tabs belong to group (severity 7/10)",
-          technicalNotes: "Tab positioning logic when adding to groups in tab group command module or tabGroups.ts",
+          technicalNotes: "Tab positioning logic when adding to groups in hub command module or hubs.ts",
           feedback: [
             { id: "ODNEKMR", text: "I created a tab group called GoogleMail. There was another tab open after the tab group. I went to my personal GoogleMail tab and asked AI assistant to put it in my GoogleMail tab group. The AI assistant moved it to the GoogleMail tab group correctly and also moved the position of my personal GoogleMail tab to the rightmost position. There was a tab between my GoogleMail tab group tab and my personal GoogleMail tab which made it look like the tab in between the GoogleMail tab group tab and my personal GoogleMail tab also belonged in the GoogleMail tab group. I think the personal GoogleMail tab should have been moved right next to the GoogleMail tab group tab." }
           ]
@@ -1077,7 +1077,7 @@ function Sprints() {
           submissionIds: ["7RA2oJA"],
           description: "Users want to be able to say 'Add all tabs to Research tab group' and have every open tab saved into that tab group. This would help manage tab clutter.",
           impact: "Would make managing many tabs easier (severity 10/10)",
-          technicalNotes: "Implement 'add all tabs to tab group' command in tab group command module - should add all currently open tabs to specified tab group",
+          technicalNotes: "Implement 'add all tabs to tab group' command in hub command module - should add all currently open tabs to specified tab group",
           feedback: [
             { id: "7RA2oJA", text: "I'd like to request a new Oasis feature to make managing too many tabs much easier using tab groups. A common scenario: there are a dozen tabs open for a single project—news articles, references, emails—and everything quickly becomes unwieldy. With this feature, Oasis would let users say something like, 'Add all tabs to Research tab group,' and every open tab would be saved into a tab group called 'Research' for later. All those pages would be neatly organized in one place, so the user can close the on-screen clutter with confidence. Later, they could reopen that tab group and have everything restored just as they left it.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-3.49.08-PM.png?id=vJKjV4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKS2pWNCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExODY4NH0.QZyZKM8fy6EBRr5sXdhAK2ft93hXHejB5EAy06F8Ecs&signature=437ca53e87e55feb2cdf531fbe8bfe7ac445c0c1b5774a02d1994374ebe349e3" }
           ]
@@ -1121,7 +1121,7 @@ function Sprints() {
           submissionIds: ["NpZvGdG"],
           description: "Users want to add tags to websites to allow easier searching.",
           impact: "Would improve content organization (severity 9/10)",
-          technicalNotes: "Implement tagging system for saved sites/tab groups. May extend tabGroups.ts or create new tags.ts module",
+          technicalNotes: "Implement tagging system for saved sites/tab groups. May extend hubs.ts or create new tags.ts module",
           feedback: [
             { id: "NpZvGdG", text: "It would be nice if I could add tags to a website which would allow me to search more easily." }
           ]
