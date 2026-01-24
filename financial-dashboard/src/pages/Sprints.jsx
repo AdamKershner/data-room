@@ -339,16 +339,74 @@ function Sprints() {
   const activeSprints = [
     {
       id: 5,
-      title: "Features & Integrations",
-      emoji: "🔧",
+      title: "UI/Bug Fixes",
+      emoji: "🐛",
       priority: "MEDIUM",
-      storyPoints: 18,
-      effort: "Medium",
+      storyPoints: 5,
+      effort: "Low-Medium",
       impact: "Medium",
-      severity: "6-10/10",
-      overview: "Additional features and integrations that don't fit into core functionality sprints. Includes bookmark management, AI knowledge base, subscription tracking, and optional advanced features.",
-      primaryFiles: "Various (bookmarks, commands, UI)",
+      severity: "4-6/10",
+      overview: "Fix various UI issues and bugs in the AI Assistant interface. Includes bookmark management fixes.",
+      primaryFiles: "browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/build/src/commands.ts, browser/base/content/assistant/assistant.ui.js, Firefox bookmark API",
       issues: [
+        {
+          title: "Bug: Confusing AI Response Format",
+          count: 1,
+          submissionIds: ["2EWX81j"],
+          description: "AI responses sometimes just say 'in a new tab.' which is confusing. Should provide more context.",
+          impact: "Confusing user experience (severity 4/10)",
+          technicalNotes: "Improve response formatting in assistant.ts (tool output to natural language conversion)",
+          feedback: [
+            { id: "2EWX81j", text: "My input: open articles about setting up an organization in salesforce. Oasis AI: in a new tab. This prompt actually opened a new tab with the article about the salesforce accounts but the AI replied - 'in a new tab.' which was confusing for me" }
+          ]
+        },
+        {
+          title: "Bug: Invalid URL Opened",
+          count: 1,
+          submissionIds: ["OD2aDK8"],
+          description: "AI opened a URL that was not actually a webpage (https://www.youtube.com/howyoutubeworks/creators/upload-videos/) when user asked to open article about uploading video in YouTube.",
+          impact: "Opens invalid pages (severity 9/10)",
+          technicalNotes: "URL validation and content checking before opening in tab command module",
+          feedback: [
+            { id: "OD2aDK8", text: "I wanted to open an article about uploading an video in youtube, but the AI replied and opened and URL which was not actually a webpage. Oasis AI: in a new tab. [The opened URL link - https://www.youtube.com/howyoutubeworks/creators/upload-videos/]", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-21-at-4.40.24-PM.png?id=qJJZQg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFKSlpRZyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTAzNTI3MH0.oZB18p6NLlQ7vXLJ3nVASTbX-DZ1GPpLNCxMOAtW7eY&signature=0c4aca5180c70dbb9253ccd94c56de11a2eff2d5e00926f790ddc58f0ffc0786" }
+          ]
+        },
+        {
+          title: "UI: Input Text Wrapping Issue",
+          count: 1,
+          submissionIds: ["0Q9exbZ"],
+          description: "When typing longer text, the content goes beyond the visible input area rather than wrapping or scrolling, causing readability and UX issue.",
+          impact: "Poor UX for longer inputs (severity 5/10)",
+          technicalNotes: "Fix text input wrapping/scrolling in assistant.ui.js",
+          requiresUI: true,
+          feedback: [
+            { id: "0Q9exbZ", text: "When typing longer text, the content goes beyond the visible input area rather than wrapping or scrolling, causing readability and UX issue.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-8.30.21-PM.png?id=YJxkz5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IllKeGt6NSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTA5NDI4NX0.obp_ayTrs1xZrc-I4xRfTsFDWJw-0iO633KABYxJFGg&signature=1182859eb9f047c1837039419e5e0352ebc7d90b75f4faa4f46979daf87ce925" }
+          ]
+        },
+        {
+          title: "UI: Make Minimize/Maximize More Intuitive and Add Resizing",
+          count: 1,
+          submissionIds: ["Xxa0l5V"],
+          description: "Make the minimize and maximize feature of the Assistant interface more intuitive. When minimized, the maximize button should be visible and the minimize button should be greyed out. When maximized, the maximize button should be greyed out. Additionally, the assistant interface (AI assistant window) should be resizable by clicking and dragging any of its 4 sides.",
+          impact: "Improves usability and user control over AI assistant window (severity 6/10)",
+          technicalNotes: "Minimize/maximize toggle logic and button state management in assistant.ui.js. Add resize handles on all 4 sides of the assistant window. Implement drag-to-resize functionality with minimum/maximum size constraints.",
+          requiresUI: true,
+          feedback: [
+            { id: "Xxa0l5V", text: "After minimizing the chat by clicking the minimize button, clicking it again has no effect. It would be great if clicking it again restored the chat to its original size. The minimize and maximize feature should be more intuitive - if it's minimized, the maximize button should be there but the minimize button should be greyed out. If it's maximized, the maximize button should be greyed out. Also, the assistant interface should be resizable by clicking and dragging any of its 4 sides." }
+          ]
+        },
+        {
+          title: "UI: Double Scrollbars in Chat",
+          count: 1,
+          submissionIds: ["2EGZJvD"],
+          description: "When the length of the conversation in AI chat increased, user saw 2 scrollbars.",
+          impact: "UI glitch (severity 6/10)",
+          technicalNotes: "Fix scrollbar styling in assistant.ui.js",
+          requiresUI: true,
+          feedback: [
+            { id: "2EGZJvD", text: "when the length of the conversation in ai chat increased, i saw 2 scrollbars", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-2.31.52-PM.png?id=Nbq51N&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5icTUxTiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI0NjM3M30.MhjJ1LV6-AZZdnPrpAnruE2O-o1Zx4VGdr8HNpBtUFI&signature=96d15b67208d0adbe98f0d604794f0777b45cc702b81d1bff532be8b66e070ae" }
+          ]
+        },
         {
           title: "Removing Bookmarks Doesn't Work",
           count: 1,
@@ -359,61 +417,16 @@ function Sprints() {
           feedback: [
             { id: "lbkVQEp", text: "I asked AI assistant to remove 'Wyzant' bookmark I imported from Google Chrome and it couldn't find it. I consider this basic functionality that should work. It's not a feature.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-11-at-11.57.16-AM.png?id=6AbGpe&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZBYkdwZSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE1NDQyNn0.EkbFQCmWDUmFM6L-sRD-iGb8KhxKAfeTNoVOXkJDIaM&signature=8396795c26d2ee3720592bc4d5a8ddb151858f3e0a1ecbde62f71ead00b63694" }
           ]
-        },
-        {
-          title: "AI Assistant Can't Provide Tab Group Instructions",
-          count: 2,
-          submissionIds: ["1AoNk71", "RGybMDP"],
-          description: "When users ask 'how do I add a tab to an existing tab group' or 'how do I remove a tab from a group', AI provides unhelpful responses.",
-          impact: "Users can't learn how to use core features (severity 10/10)",
-          technicalNotes: "AI Assistant needs knowledge base or tool access for tab group management commands.",
-          feedback: [
-            { id: "1AoNk71", text: "I entered the following in AI assistant: how do i add a tab to an existing tab group. No helpful response. See screenshot.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-11-at-4.53.45-PM.png?id=RvXOeK&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJ2WE9lSyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE3MjEwMn0.UsUmAo97hRKZrOKBGJFf3wR5n4MhhgFtNSDiMeonE7k&signature=cf4012ab2e5e3c8c0b275efb0578c155381398ab63966d9514354ab85dd64ddd" },
-            { id: "RGybMDP", text: "I entered the following command in AI assistant: How do i remove a tab from a group. See screenshot for output that was not helpful. AI assistant needs to be able to provide instructions on usage of the Oasis browser that will be helpful to the users. For example, How to create a tab group, How to add/remove a tab from a tab group. How to view a tab group. How to go to a tab in a tab group. All these how to's should be available. This is minimum functionality. The AI assistant should be able to execute these how to's so the user does not have to do them manually.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-11-at-4.57.58-PM.png?id=z2pVkR&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InoycFZrUiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE3MjQ5NH0._g33T0vUmKQSc8UkOBsMzjNZQJ_MixjmZdgLP14SVMA&signature=2423becf39b91dc652df82a7f944194705751b17ae4bff6f9129fbf557c95059" }
-          ]
-        },
-        {
-          title: "Inconsistent Tab Group Icons",
-          count: 1,
-          submissionIds: ["jaAJoPR"],
-          description: "Icons for same type of content (e.g., Google Sheets) are different in tab group view vs tab view",
-          impact: "Confusing UI, inconsistent experience (severity 6/10)",
-          technicalNotes: "Fix icon consistency across tab group and tab views",
-          requiresUI: true,
-          feedback: [
-            { id: "jaAJoPR", text: "The icons for my google spreadsheets in a tab group are different. I expect the icons to be the same since they are all spreadsheets. The icon displayed when it is shown as a tab should be the same icon in the tab group. Need a consistent UI.. don't change icons." }
-          ]
-        },
-        {
-          title: "Multiple AI Assistant Windows",
-          count: 1,
-          submissionIds: ["A7ey1jB"],
-          description: "Commands create multiple AI Assistant windows instead of reusing one",
-          impact: "Confusing, raises question about chat history access",
-          technicalNotes: "Need singleton pattern or window reuse logic",
-          feedback: [
-            { id: "A7ey1jB", text: "when I gave the command to open a new tab and split view, it showed 2 ai assistant windows, it felt confusing. It should show only one and that one should be displayed in the original window. This made me think, where can I access the previous chats I had with oasis ai?" }
-          ]
-        },
-        {
-          title: "Feature Request: Tab Summarization",
-          count: 1,
-          submissionIds: ["7R72950"],
-          description: "Ability to 'summarize and give insights across these 15 tabs'",
-          impact: "Would make research easier (severity 6/10)",
-          technicalNotes: "Implement tab content extraction and summarization across multiple tabs",
-          feedback: [
-            { id: "7R72950", text: "As a user opening 15 tabs on a topic that I'm researching, I want to be able to prompt the AI assistant to 'summarize and give me insights across these 15 tabs.' It would make a lot of my research easier because i wouldn't have to manually read everything or copy content into ChatGPT. It would reduce the number of steps in my process." }
-          ]
         }
       ],
       acceptanceCriteria: [
-        "Bookmark removal works for imported bookmarks via AI commands",
-        "AI Assistant can provide helpful instructions for tab group and bookmark management",
-        "Icons are consistent across tab group and tab views",
-        "Only one AI Assistant window exists at a time",
-        "Chat history is accessible from the single AI Assistant window",
-        "(Optional) Tab summarization feature"
+        "AI responses are clear and contextual",
+        "URL validation prevents opening invalid pages",
+        "Input text wraps/scrolls correctly",
+        "Minimize/maximize buttons show correct states (minimize greyed when minimized, maximize greyed when maximized)",
+        "Assistant interface is resizable by dragging any of its 4 sides",
+        "Only one scrollbar appears in chat",
+        "Bookmark removal works for imported bookmarks via AI commands"
       ]
     },
     {
@@ -506,107 +519,6 @@ function Sprints() {
     },
     {
       id: 7,
-      title: "Human-in-the-Loop (HITL) Framework - Phase 2: Enhancements",
-      emoji: "📊",
-      priority: "MEDIUM",
-      storyPoints: 60,
-      effort: "Very High",
-      impact: "High",
-      severity: "7-8/10",
-      overview: "Enhance the HITL framework with reach goals and advanced features beyond the basic MVP. This phase includes the user analytics dashboard that tracks individual participation and gamifies the HITL experience, making participation feel more like a game/experiment than routine feedback. The more people train/tune on a regular basis, the more accurate and reliable the overall system will become. This phase focuses on increasing engagement, consistency, and making the system more scalable and adaptable. Recommended split: Sprint 7A (Analytics & Gamification - 26 points) and Sprint 7B (Scalability & Advanced - 34 points).",
-      rewardSystem: "Reward System: Building on Sprint 6's reward system, Sprint 7 will enhance the token/credit compensation mechanism. Users submitting feedback will receive 1-3 credits/tokens back, with higher compensation (2-3 tokens) for feedback on bad command outputs or critical issues. This reward system is integrated into the gamification engine, where tokens earned through feedback contribute to user levels, achievements, and participation streaks. The analytics dashboard will display token earnings and reward history, making the compensation transparent and motivating continued participation.",
-      primaryFiles: "hitlAnalytics.ts (NEW), hitlGamification.ts (NEW), assistant.ui.js (EXTEND - dashboard UI), hitlPipeline.ts (EXTEND - advanced features), supabase_migration.sql (EXTEND - analytics tables)",
-      issues: [
-        {
-          title: "Analytics Data Model and Aggregation",
-          count: 0,
-          submissionIds: [],
-          description: "Create database schema and aggregation functions for HITL analytics. Create hitl_analytics table or view with user participation metrics (daily, weekly, monthly), feedback counts by type, correction accuracy metrics, training data contribution stats. Create Supabase functions: get_user_hitl_stats(), get_weekly_training_frequency(), get_feedback_trends(). Add indexes for performance.",
-          impact: "Foundation for analytics dashboard",
-          technicalNotes: "Medium complexity. Similar to existing transcription usage stats. Depends on Sprint 6 database schema.",
-          feedback: []
-        },
-        {
-          title: "Analytics Dashboard UI",
-          count: 0,
-          submissionIds: [],
-          description: "Build user-facing analytics dashboard showing HITL participation metrics. Create dashboard component in assistant.ui.js with weekly training frequency chart, participation streak counter, total contributions counter, feedback breakdown (pie chart), progress indicators and goals. Reference prototype: https://oasis-roadmap.vercel.app/tuning-analytics. Use existing usage stats display as reference.",
-          impact: "Users can see their contribution and stay motivated",
-          technicalNotes: "Medium-High complexity. UI work, charting library integration (Chart.js, D3.js, or similar). Depends on analytics data model.",
-          feedback: []
-        },
-        {
-          title: "Gamification Engine",
-          count: 0,
-          submissionIds: [],
-          description: "Implement gamification features to make HITL participation engaging. Create services/hitlGamification.ts with achievement system (badges for milestones), streak tracking (consecutive days), points/XP system, level system. Create hitl_achievements table. Add achievement notifications in UI, visual progress indicators (XP bars, level badges).",
-          impact: "Increases user engagement and consistency",
-          technicalNotes: "Medium-High complexity. Game mechanics design, state management. Depends on analytics data model.",
-          feedback: []
-        },
-        {
-          title: "Advanced Feedback Processing",
-          count: 0,
-          submissionIds: [],
-          description: "Enhance feedback pipeline with advanced features for complex tasks and bias detection. Enhance hitlPipeline.ts with bias detection (flag potentially biased corrections), confidence scoring, conflict resolution (handle conflicting feedback from multiple users), contextual analysis. Create bias detection heuristics: check for demographic bias, flag corrections that contradict majority feedback, identify outlier corrections for review.",
-          impact: "Makes HITL system more robust and capable",
-          technicalNotes: "High complexity. Requires ML/bias detection knowledge, complex logic. Depends on Sprint 6 feedback pipeline.",
-          feedback: []
-        },
-        {
-          title: "Scalability Improvements",
-          count: 0,
-          submissionIds: [],
-          description: "Optimize HITL system for handling more users, more data, and concurrent operations. Database optimizations: partition hitl_feedback table by date, add composite indexes, implement data archiving. Caching layer: cache user stats, cache aggregated analytics. Batch processing: process feedback in batches, queue system for high-volume periods. Rate limiting: prevent feedback spam, limit feedback per user per day. Performance monitoring.",
-          impact: "System can scale to production levels",
-          technicalNotes: "Very High complexity. Requires database expertise, infrastructure changes. Depends on all Sprint 6 components.",
-          feedback: []
-        },
-        {
-          title: "Advanced Model Training Integration",
-          count: 0,
-          submissionIds: [],
-          description: "Enhance model training integration with advanced features like A/B testing, model versioning, and feedback prioritization. Model versioning: track which model version received which feedback, compare model performance across versions. Feedback prioritization: weight high-quality feedback more heavily, prioritize corrections from experienced users, boost feedback that addresses common errors. A/B testing framework: test model improvements before full rollout. Training data quality: filter low-quality feedback, validate training data before submission.",
-          impact: "More sophisticated model improvement process",
-          technicalNotes: "Very High complexity. Requires ML expertise, backend coordination. Depends on Sprint 6 model training integration. May require significant backend team involvement.",
-          feedback: []
-        },
-        {
-          title: "Dashboard and Gamification Testing",
-          count: 0,
-          submissionIds: [],
-          description: "Test analytics dashboard, gamification features, and advanced functionality. Unit tests for analytics aggregation, integration tests for gamification engine, UI tests for dashboard components, performance tests for scalability improvements, user acceptance testing for gamification features.",
-          impact: "Ensures Phase 2 features work correctly",
-          technicalNotes: "Medium complexity. Standard testing approach. Depends on all above components.",
-          feedback: []
-        },
-        {
-          title: "Token Reward System for Valid HITL Feedback",
-          count: 1,
-          submissionIds: ["KYjV0ak"],
-          description: "Users receive token refunds or rewards when they submit valid feedback through the HITL system. This incentivizes quality feedback participation and helps users feel valued for their contributions. Must include upper limit on reward tokens per user to prevent spam and abuse.",
-          impact: "Would improve user retention and feedback quality (severity 8/10)",
-          technicalNotes: "Integrate with HITL feedback system (Sprint 6), implement token reward logic in usage tracking. Must include: validation of feedback quality, upper limit per user (e.g., max tokens per day/week), spam prevention (rate limiting, duplicate detection), reward calculation based on feedback type and quality. Should be included in onboarding flow to encourage participation.",
-          feedback: [
-            { id: "KYjV0ak", text: "If someone provides feedback, we can say 'Oasis executed incorrectly' and return tokens to users as part of a retention policy. Ideally, this could be included within the onboarding flow of the Oasis AI assistant, which would lead to people becoming more focused on the personalization of the browser." }
-          ]
-        }
-      ],
-      acceptanceCriteria: [
-        "Analytics data model tracks weekly training frequency and participation metrics",
-        "User analytics dashboard displays charts, progress indicators, and participation stats",
-        "Gamification engine tracks achievements, streaks, points, and levels",
-        "Advanced feedback processing includes bias detection and quality scoring",
-        "System handles scalability requirements (more users, more data, concurrent operations)",
-        "Advanced model training integration includes versioning, prioritization, and A/B testing",
-        "All Phase 2 features are tested and validated",
-        "Token reward system provides tokens for valid HITL feedback submissions",
-        "Upper limit on reward tokens per user prevents spam and abuse",
-        "Spam prevention mechanisms (rate limiting, duplicate detection) are in place"
-      ]
-    },
-    {
-      id: 8,
       title: "Assistant Engine Reliability (LangGraph, tool-output formatting)",
       emoji: "🚨",
       priority: "CRITICAL",
@@ -646,15 +558,15 @@ function Sprints() {
       ]
     },
     {
-      id: 9,
+      id: 8,
       title: "Tab Group & Tab/Window Operations",
       emoji: "📁",
       priority: "HIGH",
-      storyPoints: 21,
+      storyPoints: 36,
       effort: "Medium-High",
       impact: "High",
-      severity: "8-10/10",
-      overview: "Fix tab group operations including renaming, finding tabs within groups, adding/removing tabs, and tab group state accuracy. Also fix core tab/window commands that users perceive as 'it said it worked but nothing happened.' This sprint covers both tab group management and tab/window command correctness. Also includes browser import, Firefox branding removal, and first launch fixes.",
+      severity: "7-10/10",
+      overview: "Fix tab group operations including renaming, finding tabs within groups, adding/removing tabs, and tab group state accuracy. Also fix core tab/window commands that users perceive as 'it said it worked but nothing happened.' This sprint covers both tab group management and tab/window command correctness. Also includes browser import, Firefox branding removal, and first launch fixes. Includes context-based tab organization using AI to automatically group related tabs.",
       primaryFiles: "browser/base/content/assistant/build/src/hubs.ts, browser/base/content/assistant/build/src/commands.ts, browser/base/content/assistant/build/src/services/localMemory.ts, Browser first-run / startup UI (for browser import, privacy policy, vertical tabs popup), browser/branding/**",
       issues: [
         {
@@ -792,6 +704,28 @@ function Sprints() {
           feedback: [
             { id: "PdxOEY5", text: "When I 'turn on vertical tabs' as a new user, I see a purple popup with the firefox logo and a cartoon fox. This is not on-brand for Oasis and seems confusing and buggy. It would make sense to swap the firefox portions of the popup and modify the pop up so it is on-brand with Oasis", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.07.48-PM.png?id=pJkpy1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKa3B5MSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTM2NH0.hGh4YjifQ96MGhKw8dEfLBBNP7VizfxUZnWcOaJkgQc&signature=1a50fb17952fec483e7c72b09629954ed0a8b93c3ce45072cd9be04b76dddb54" }
           ]
+        },
+        {
+          title: "Feature Request: Add All Tabs to Tab Group",
+          count: 1,
+          submissionIds: ["7RA2oJA"],
+          description: "Users want to be able to say 'Add all tabs to Research tab group' and have every open tab saved into that tab group. This would help manage tab clutter.",
+          impact: "Would make managing many tabs easier (severity 10/10)",
+          technicalNotes: "Implement 'add all tabs to tab group' command in hub command module - should add all currently open tabs to specified tab group",
+          feedback: [
+            { id: "7RA2oJA", text: "I'd like to request a new Oasis feature to make managing too many tabs much easier using tab groups. A common scenario: there are a dozen tabs open for a single project—news articles, references, emails—and everything quickly becomes unwieldy. With this feature, Oasis would let users say something like, 'Add all tabs to Research tab group,' and every open tab would be saved into a tab group called 'Research' for later. All those pages would be neatly organized in one place, so the user can close the on-screen clutter with confidence. Later, they could reopen that tab group and have everything restored just as they left it.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-3.49.08-PM.png?id=vJKjV4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKS2pWNCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExODY4NH0.QZyZKM8fy6EBRr5sXdhAK2ft93hXHejB5EAy06F8Ecs&signature=437ca53e87e55feb2cdf531fbe8bfe7ac445c0c1b5774a02d1994374ebe349e3" }
+          ]
+        },
+        {
+          title: "Feature Request: Context-Based Tab Organization",
+          count: 1,
+          submissionIds: ["b5pdjNZ"],
+          description: "Users want to organize tabs into groups based on context using AI. For example, 'I have multiple tabs open relating to AWS, Deepgram, Lambda functions, and Supabase. Create a group for these.' Currently creates group with wrong tabs.",
+          impact: "Would make tab organization much easier (severity 7/10)",
+          technicalNotes: "Implement context-aware tab grouping using AI to analyze tab content/URLs and group related tabs. Reference: Firefox has 'suggest more of my tabs' feature that analyzes tabs and suggests groups.",
+          feedback: [
+            { id: "b5pdjNZ", text: "As a worker starting his day with 37+ tabs open, I wish I could easily use the ai assistant and command it to 'organize my tabs into groups based on context.' For example, I want to be able to say something like 'I have multiple tabs open relating to AWS, Deepgram, Lambda functions, and Supabase. Create a group for these.' Currently, the behavior is the following: a new tab group named 'AWS, Deepgram, Lambda, Supabase' is created with one tab (the Oasis Feedback tab) saved in it. There is already a feature in firefox called 'suggest more of my tabs'. It is available when you manually create a tab group by clicking and dragging tabs on top of each other. If you click 'suggest more of my tabs', the browser analyzes the tabs you have open and suggests more to be added to the group, and it also suggests a contextual name for the tab group.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-11.31.35-AM.png?id=EZNV8l&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaTlY4bCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwMzQ5Nn0.bRo8VyGQOkR0G9_K4kJmDN2hmcPVRAJHVm6A4qGARmk&signature=112352375738d4577df0e11f9f4104986110b2d5659a67eb82afc50f1ee83c18" }
+          ]
         }
       ],
       acceptanceCriteria: [
@@ -811,11 +745,17 @@ function Sprints() {
         "Tab closing commands actually close tabs (no false success messages)",
         "Onboarding flow includes browser import option (Chrome, Safari, etc.)",
         "First launch shows Oasis/Kahana page instead of Firefox privacy policy",
-        "Firefox branding in vertical tabs popup is replaced with Oasis branding"
+        "Firefox branding in vertical tabs popup is replaced with Oasis branding",
+        "'Add all tabs to tab group' command works correctly",
+        "All currently open tabs are added to the specified tab group",
+        "Command handles edge cases (no tabs open, tab group doesn't exist)",
+        "Context-based tab organization using AI implemented",
+        "AI correctly identifies related tabs based on context",
+        "Tab groups are created with correct tabs and appropriate names"
       ]
     },
     {
-      id: 10,
+      id: 9,
       title: "Authentication + Subscription UX (login, signup, session restore, limits)",
       emoji: "🔐",
       priority: "HIGH",
@@ -896,7 +836,7 @@ function Sprints() {
       ]
     },
     {
-      id: 11,
+      id: 10,
       title: "Onboarding + Branding polish (first run, visibility, Firefox remnants)",
       emoji: "🎯",
       priority: "MEDIUM-HIGH",
@@ -977,16 +917,16 @@ function Sprints() {
       ]
     },
     {
-      id: 12,
-      title: "Semantic History Search",
+      id: 11,
+      title: "Making it Easy to Find Saved Websites",
       emoji: "🔍",
       priority: "MEDIUM",
-      storyPoints: 8,
-      effort: "Medium",
+      storyPoints: 21,
+      effort: "Medium-High",
       impact: "High",
-      severity: "10/10",
-      overview: "Implement semantic search over browsing history, allowing users to search using natural, fuzzy descriptions (e.g., 'that article about beginner investing') instead of exact titles or URLs.",
-      primaryFiles: "browser/base/content/assistant/build/src/search.ts (NEW), browser/base/content/assistant/build/src/assistant.ts",
+      severity: "8-10/10",
+      overview: "Help users find previously viewed webpages by implementing comprehensive search across tab groups, bookmarks, and browser history. The AI assistant can search using natural language descriptions to help users locate and open saved websites, regardless of where they're stored (tab groups, bookmarks, or history).",
+      primaryFiles: "browser/base/content/assistant/build/src/search.ts (NEW), browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/build/src/hubs.ts, browser/base/content/assistant/build/src/tags.ts (NEW), browser/base/content/assistant/assistant.ui.js",
       issues: [
         {
           title: "Feature Request: Semantic History Search",
@@ -998,26 +938,7 @@ function Sprints() {
           feedback: [
             { id: "QKZVWp1", text: "I'd like to request a new Oasis feature called Semantic History Search. Users often struggle to find pages they know they visited before, especially when they can't remember exact titles, URLs, or specific keywords. People tend to remember the idea or context of what they saw ('that article about beginner investing' or 'the recipe with lemon and garlic') rather than precise page names. Users can type natural, fuzzy descriptions of what they remember (topics, purposes, or rough phrases) and quickly see the most relevant past pages surface from their history. There is already a semantic search capability in firefox which can be a reference: https://connect.mozilla.org/t5/discussions/try-out-the-new-semantic-history-search-feature-and-share/m-p/99835" }
           ]
-        }
-      ],
-      acceptanceCriteria: [
-        "Semantic history search implemented",
-        "Users can search history using natural language descriptions",
-        "Search results are relevant and accurate"
-      ]
-    },
-    {
-      id: 13,
-      title: "Find Content in Tab Groups",
-      emoji: "📂",
-      priority: "MEDIUM",
-      storyPoints: 5,
-      effort: "Medium",
-      impact: "High",
-      severity: "8/10",
-      overview: "Implement search functionality across all saved tab groups to find specific content (e.g., 'Find my Apple article').",
-      primaryFiles: "browser/base/content/assistant/build/src/search.ts (may extend), browser/base/content/assistant/build/src/hubs.ts",
-      issues: [
+        },
         {
           title: "Feature Request: Find Content in Tab Groups",
           count: 1,
@@ -1028,76 +949,35 @@ function Sprints() {
           feedback: [
             { id: "xXqY1vJ", text: "if I saved an article about Apple's latest tech in one of my tab groups, I can simply ask Oasis: 'Find my Apple article.' In seconds, the AI Assistant searches through all my saved tab groups and pulls up the exact page I need. It's like having a super-smart librarian for all your web content.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-1.26.14-PM.png?id=KWa9EM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktXYTlFTSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExMDI0OH0.h0NLlFZCog53Gp384zaoAlC3GcdHFX8K2z_8y_nWoSg&signature=2d8526b6b1f5110951c8971f25b030170f31e8da71b7db6b4746153867c75406" }
           ]
+        },
+        {
+          title: "Feature Request: Tags for Websites",
+          count: 1,
+          submissionIds: ["NpZvGdG"],
+          description: "Users want to add tags to websites to allow easier searching.",
+          impact: "Would improve content organization (severity 9/10)",
+          technicalNotes: "Implement tagging system for saved sites/tab groups. May extend hubs.ts or create new tags.ts module",
+          feedback: [
+            { id: "NpZvGdG", text: "It would be nice if I could add tags to a website which would allow me to search more easily." }
+          ]
         }
       ],
       acceptanceCriteria: [
+        "Semantic history search implemented",
+        "Users can search history using natural language descriptions",
         "Search functionality across tab groups implemented",
         "Users can find content in tab groups using natural language",
-        "Search results accurately identify and open the correct page"
+        "Search results accurately identify and open the correct page from tab groups",
+        "Tagging system for websites implemented",
+        "Users can add tags to websites and tab groups",
+        "Tags can be used for searching and filtering",
+        "Tagging UI is intuitive and accessible",
+        "Unified search interface allows searching across history, tab groups, and bookmarks",
+        "AI assistant can open found pages directly from search results"
       ]
     },
     {
-      id: 14,
-      title: "Context-Based Tab Organization",
-      emoji: "🗂️",
-      priority: "MEDIUM",
-      storyPoints: 13,
-      effort: "Medium-High",
-      impact: "Medium-High",
-      severity: "7/10",
-      overview: "Implement context-aware tab grouping using AI to analyze tab content/URLs and organize related tabs into groups.",
-      primaryFiles: "browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/build/src/hubs.ts, browser/base/content/assistant/build/src/commands.ts",
-      issues: [
-        {
-          title: "Feature Request: Context-Based Tab Organization",
-          count: 1,
-          submissionIds: ["b5pdjNZ"],
-          description: "Users want to organize tabs into groups based on context using AI. For example, 'I have multiple tabs open relating to AWS, Deepgram, Lambda functions, and Supabase. Create a group for these.' Currently creates group with wrong tabs.",
-          impact: "Would make tab organization much easier (severity 7/10)",
-          technicalNotes: "Implement context-aware tab grouping using AI to analyze tab content/URLs and group related tabs. Reference: Firefox has 'suggest more of my tabs' feature that analyzes tabs and suggests groups.",
-          feedback: [
-            { id: "b5pdjNZ", text: "As a worker starting his day with 37+ tabs open, I wish I could easily use the ai assistant and command it to 'organize my tabs into groups based on context.' For example, I want to be able to say something like 'I have multiple tabs open relating to AWS, Deepgram, Lambda functions, and Supabase. Create a group for these.' Currently, the behavior is the following: a new tab group named 'AWS, Deepgram, Lambda, Supabase' is created with one tab (the Oasis Feedback tab) saved in it. There is already a feature in firefox called 'suggest more of my tabs'. It is available when you manually create a tab group by clicking and dragging tabs on top of each other. If you click 'suggest more of my tabs', the browser analyzes the tabs you have open and suggests more to be added to the group, and it also suggests a contextual name for the tab group.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-11.31.35-AM.png?id=EZNV8l&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaTlY4bCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwMzQ5Nn0.bRo8VyGQOkR0G9_K4kJmDN2hmcPVRAJHVm6A4qGARmk&signature=112352375738d4577df0e11f9f4104986110b2d5659a67eb82afc50f1ee83c18" }
-          ]
-        }
-      ],
-      acceptanceCriteria: [
-        "Context-based tab organization using AI implemented",
-        "AI correctly identifies related tabs based on context",
-        "Tab groups are created with correct tabs and appropriate names"
-      ]
-    },
-    {
-      id: 15,
-      title: "Add All Tabs to Tab Group",
-      emoji: "➕",
-      priority: "MEDIUM",
-      storyPoints: 2,
-      effort: "Low",
-      impact: "High",
-      severity: "10/10",
-      overview: "Implement command to add all currently open tabs to a specified tab group.",
-      primaryFiles: "browser/base/content/assistant/build/src/hubs.ts, browser/base/content/assistant/build/src/commands.ts",
-      issues: [
-        {
-          title: "Feature Request: Add All Tabs to Tab Group",
-          count: 1,
-          submissionIds: ["7RA2oJA"],
-          description: "Users want to be able to say 'Add all tabs to Research tab group' and have every open tab saved into that tab group. This would help manage tab clutter.",
-          impact: "Would make managing many tabs easier (severity 10/10)",
-          technicalNotes: "Implement 'add all tabs to tab group' command in hub command module - should add all currently open tabs to specified tab group",
-          feedback: [
-            { id: "7RA2oJA", text: "I'd like to request a new Oasis feature to make managing too many tabs much easier using tab groups. A common scenario: there are a dozen tabs open for a single project—news articles, references, emails—and everything quickly becomes unwieldy. With this feature, Oasis would let users say something like, 'Add all tabs to Research tab group,' and every open tab would be saved into a tab group called 'Research' for later. All those pages would be neatly organized in one place, so the user can close the on-screen clutter with confidence. Later, they could reopen that tab group and have everything restored just as they left it.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-3.49.08-PM.png?id=vJKjV4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKS2pWNCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExODY4NH0.QZyZKM8fy6EBRr5sXdhAK2ft93hXHejB5EAy06F8Ecs&signature=437ca53e87e55feb2cdf531fbe8bfe7ac445c0c1b5774a02d1994374ebe349e3" }
-          ]
-        }
-      ],
-      acceptanceCriteria: [
-        "'Add all tabs to tab group' command works correctly",
-        "All currently open tabs are added to the specified tab group",
-        "Command handles edge cases (no tabs open, tab group doesn't exist)"
-      ]
-    },
-    {
-      id: 16,
+      id: 12,
       title: "AI Command for Native Splitview",
       emoji: "🪟",
       priority: "MEDIUM",
@@ -1127,7 +1007,7 @@ function Sprints() {
       ]
     },
     {
-      id: 17,
+      id: 13,
       title: "Chat History Access",
       emoji: "💬",
       priority: "MEDIUM",
@@ -1158,7 +1038,7 @@ function Sprints() {
       ]
     },
     {
-      id: 18,
+      id: 14,
       title: "Webpage Summarization",
       emoji: "📄",
       priority: "MEDIUM",
@@ -1166,7 +1046,7 @@ function Sprints() {
       effort: "Medium-High",
       impact: "Medium",
       severity: "6-8/10",
-      overview: "Implement webpage content extraction and automatic summarization functionality.",
+      overview: "Implement webpage content extraction and automatic summarization functionality. Includes both single webpage summarization and multi-tab summarization for research workflows.",
       primaryFiles: "browser/base/content/assistant/build/src/summarize.ts (NEW), browser/base/content/assistant/build/src/assistant.ts",
       issues: [
         {
@@ -1190,48 +1070,29 @@ function Sprints() {
           feedback: [
             { id: "44Vqkb5", text: "Could not summarize wiki page. Given prompt was to open apple Inc. wiki and summarize their history", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-11.14.54-AM.png?id=EZqzzN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVacXp6TiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI0NTQxM30.iVDd1BgRn3aRQuEqdPfzgiLVviFxt-uDfDSi_CsvBN8&signature=9ae58bb5cd89f66728af482eeb94a75437f83902c56bae75e03b0e982d9f5dfc" }
           ]
+        },
+        {
+          title: "Feature Request: Tab Summarization",
+          count: 1,
+          submissionIds: ["7R72950"],
+          description: "Ability to 'summarize and give insights across these 15 tabs'",
+          impact: "Would make research easier (severity 6/10)",
+          technicalNotes: "Implement tab content extraction and summarization across multiple tabs",
+          feedback: [
+            { id: "7R72950", text: "As a user opening 15 tabs on a topic that I'm researching, I want to be able to prompt the AI assistant to 'summarize and give me insights across these 15 tabs.' It would make a lot of my research easier because i wouldn't have to manually read everything or copy content into ChatGPT. It would reduce the number of steps in my process." }
+          ]
         }
       ],
       acceptanceCriteria: [
         "Webpage summarization works for all content types",
         "Summarization works for Wikipedia and similar sites",
         "Content extraction handles various webpage structures",
-        "Summaries are accurate and useful"
+        "Summaries are accurate and useful",
+        "Tab summarization feature allows summarizing multiple tabs at once"
       ]
     },
     {
-      id: 19,
-      title: "Tags for Websites",
-      emoji: "🏷️",
-      priority: "MEDIUM",
-      storyPoints: 8,
-      effort: "Medium",
-      impact: "High",
-      severity: "9/10",
-      overview: "Implement tagging system for saved sites/tab groups to allow easier searching and organization.",
-      primaryFiles: "browser/base/content/assistant/build/src/tags.ts (NEW), browser/base/content/assistant/build/src/hubs.ts, browser/base/content/assistant/assistant.ui.js",
-      issues: [
-        {
-          title: "Feature Request: Tags for Websites",
-          count: 1,
-          submissionIds: ["NpZvGdG"],
-          description: "Users want to add tags to websites to allow easier searching.",
-          impact: "Would improve content organization (severity 9/10)",
-          technicalNotes: "Implement tagging system for saved sites/tab groups. May extend hubs.ts or create new tags.ts module",
-          feedback: [
-            { id: "NpZvGdG", text: "It would be nice if I could add tags to a website which would allow me to search more easily." }
-          ]
-        }
-      ],
-      acceptanceCriteria: [
-        "Tagging system for websites implemented",
-        "Users can add tags to websites and tab groups",
-        "Tags can be used for searching and filtering",
-        "Tagging UI is intuitive and accessible"
-      ]
-    },
-    {
-      id: 20,
+      id: 15,
       title: "Automatic Software Updates",
       emoji: "🔄",
       priority: "MEDIUM",
@@ -1263,7 +1124,7 @@ function Sprints() {
       ]
     },
     {
-      id: 21,
+      id: 16,
       title: "Gemini Model Migration (Critical)",
       emoji: "⚠️",
       priority: "CRITICAL",
@@ -1291,86 +1152,6 @@ function Sprints() {
         "All model references updated to supported versions",
         "System tested with new models",
         "No functionality regressions"
-      ]
-    },
-    {
-      id: 22,
-      title: "UI/Bug Fixes",
-      emoji: "🐛",
-      priority: "MEDIUM",
-      storyPoints: 5,
-      effort: "Low-Medium",
-      impact: "Medium",
-      severity: "4-6/10",
-      overview: "Fix various UI issues and bugs in the AI Assistant interface.",
-      primaryFiles: "browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/build/src/commands.ts, browser/base/content/assistant/assistant.ui.js",
-      issues: [
-        {
-          title: "Bug: Confusing AI Response Format",
-          count: 1,
-          submissionIds: ["2EWX81j"],
-          description: "AI responses sometimes just say 'in a new tab.' which is confusing. Should provide more context.",
-          impact: "Confusing user experience (severity 4/10)",
-          technicalNotes: "Improve response formatting in assistant.ts (tool output to natural language conversion)",
-          feedback: [
-            { id: "2EWX81j", text: "My input: open articles about setting up an organization in salesforce. Oasis AI: in a new tab. This prompt actually opened a new tab with the article about the salesforce accounts but the AI replied - 'in a new tab.' which was confusing for me" }
-          ]
-        },
-        {
-          title: "Bug: Invalid URL Opened",
-          count: 1,
-          submissionIds: ["OD2aDK8"],
-          description: "AI opened a URL that was not actually a webpage (https://www.youtube.com/howyoutubeworks/creators/upload-videos/) when user asked to open article about uploading video in YouTube.",
-          impact: "Opens invalid pages (severity 9/10)",
-          technicalNotes: "URL validation and content checking before opening in tab command module",
-          feedback: [
-            { id: "OD2aDK8", text: "I wanted to open an article about uploading an video in youtube, but the AI replied and opened and URL which was not actually a webpage. Oasis AI: in a new tab. [The opened URL link - https://www.youtube.com/howyoutubeworks/creators/upload-videos/]", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-21-at-4.40.24-PM.png?id=qJJZQg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFKSlpRZyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTAzNTI3MH0.oZB18p6NLlQ7vXLJ3nVASTbX-DZ1GPpLNCxMOAtW7eY&signature=0c4aca5180c70dbb9253ccd94c56de11a2eff2d5e00926f790ddc58f0ffc0786" }
-          ]
-        },
-        {
-          title: "UI: Input Text Wrapping Issue",
-          count: 1,
-          submissionIds: ["0Q9exbZ"],
-          description: "When typing longer text, the content goes beyond the visible input area rather than wrapping or scrolling, causing readability and UX issue.",
-          impact: "Poor UX for longer inputs (severity 5/10)",
-          technicalNotes: "Fix text input wrapping/scrolling in assistant.ui.js",
-          requiresUI: true,
-          feedback: [
-            { id: "0Q9exbZ", text: "When typing longer text, the content goes beyond the visible input area rather than wrapping or scrolling, causing readability and UX issue.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-8.30.21-PM.png?id=YJxkz5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IllKeGt6NSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTA5NDI4NX0.obp_ayTrs1xZrc-I4xRfTsFDWJw-0iO633KABYxJFGg&signature=1182859eb9f047c1837039419e5e0352ebc7d90b75f4faa4f46979daf87ce925" }
-          ]
-        },
-        {
-          title: "UI: Make Minimize/Maximize More Intuitive and Add Resizing",
-          count: 1,
-          submissionIds: ["Xxa0l5V"],
-          description: "Make the minimize and maximize feature of the Assistant interface more intuitive. When minimized, the maximize button should be visible and the minimize button should be greyed out. When maximized, the maximize button should be greyed out. Additionally, the assistant interface (AI assistant window) should be resizable by clicking and dragging any of its 4 sides.",
-          impact: "Improves usability and user control over AI assistant window (severity 6/10)",
-          technicalNotes: "Minimize/maximize toggle logic and button state management in assistant.ui.js. Add resize handles on all 4 sides of the assistant window. Implement drag-to-resize functionality with minimum/maximum size constraints.",
-          requiresUI: true,
-          feedback: [
-            { id: "Xxa0l5V", text: "After minimizing the chat by clicking the minimize button, clicking it again has no effect. It would be great if clicking it again restored the chat to its original size. The minimize and maximize feature should be more intuitive - if it's minimized, the maximize button should be there but the minimize button should be greyed out. If it's maximized, the maximize button should be greyed out. Also, the assistant interface should be resizable by clicking and dragging any of its 4 sides." }
-          ]
-        },
-        {
-          title: "UI: Double Scrollbars in Chat",
-          count: 1,
-          submissionIds: ["2EGZJvD"],
-          description: "When the length of the conversation in AI chat increased, user saw 2 scrollbars.",
-          impact: "UI glitch (severity 6/10)",
-          technicalNotes: "Fix scrollbar styling in assistant.ui.js",
-          requiresUI: true,
-          feedback: [
-            { id: "2EGZJvD", text: "when the length of the conversation in ai chat increased, i saw 2 scrollbars", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-2.31.52-PM.png?id=Nbq51N&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5icTUxTiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI0NjM3M30.MhjJ1LV6-AZZdnPrpAnruE2O-o1Zx4VGdr8HNpBtUFI&signature=96d15b67208d0adbe98f0d604794f0777b45cc702b81d1bff532be8b66e070ae" }
-          ]
-        }
-      ],
-      acceptanceCriteria: [
-        "AI responses are clear and contextual",
-        "URL validation prevents opening invalid pages",
-        "Input text wraps/scrolls correctly",
-        "Minimize/maximize buttons show correct states (minimize greyed when minimized, maximize greyed when maximized)",
-        "Assistant interface is resizable by dragging any of its 4 sides",
-        "Only one scrollbar appears in chat"
       ]
     }
   ]
@@ -1423,7 +1204,7 @@ function Sprints() {
             marginBottom: '20px' 
           }}>
             <p style={{ margin: 0, fontSize: '1rem', fontWeight: '500', color: '#0369a1' }}>
-              💡 <strong>Choose a sprint that excites you!</strong> We encourage developers to select sprints that they personally find most <strong>fun</strong> and where they think they'd be most <strong>effective</strong>. Once you've chosen which sprint you want to join (5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, or 22), please <strong>DM Adam Kershner on Slack</strong> to let him know. Feel free to DM Adam with any questions as well!
+              💡 <strong>Choose a sprint that excites you!</strong> We encourage developers to select sprints that they personally find most <strong>fun</strong> and where they think they'd be most <strong>effective</strong>. Once you've chosen which sprint you want to join (5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, or 16), please <strong>DM Adam Kershner on Slack</strong> to let him know. Feel free to DM Adam with any questions as well!
             </p>
           </div>
           <p>
@@ -1436,7 +1217,7 @@ function Sprints() {
             <li><strong>User Impact:</strong> Number of affected users and severity ratings</li>
           </ul>
           <p style={{ marginTop: '15px', fontStyle: 'italic', color: '#666' }}>
-            <strong>Note:</strong> Sprints 8-12 have been reorganized for <strong>parallel execution</strong> to minimize file conflicts. The issues were regrouped into parallel engineering tracks based on actual code ownership in the repo (most Oasis AI work is under `browser/base/content/assistant/`). The goal is to reduce merge conflicts by avoiding multiple engineers editing the same large files (notably `commands.ts` and `assistant.ui.js`) in the same sprint.
+            <strong>Note:</strong> Sprints 7-10 have been reorganized for <strong>parallel execution</strong> to minimize file conflicts. The issues were regrouped into parallel engineering tracks based on actual code ownership in the repo (most Oasis AI work is under `browser/base/content/assistant/`). The goal is to reduce merge conflicts by avoiding multiple engineers editing the same large files (notably `commands.ts` and `assistant.ui.js`) in the same sprint.
           </p>
           <div style={{ 
             backgroundColor: '#fef3c7', 
@@ -1624,24 +1405,18 @@ function Sprints() {
             </p>
           </div>
           <ol style={{ lineHeight: '2', fontSize: '1.05rem' }}>
-            <li><strong>Sprint 5</strong> - Features and integrations (nice-to-have enhancements) - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 5</strong> - UI/Bug Fixes - <em>Not yet addressed</em></li>
             <li><strong>Sprint 6</strong> - HITL Framework Phase 1: MVP/Prototype (basic implementation for product testers) - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 7</strong> - HITL Framework Phase 2: Enhancements (analytics dashboard and advanced features) - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 8</strong> - Assistant Engine Reliability (LangGraph, tool-output formatting) - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 9</strong> - Tab Group & Tab/Window Operations - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 10</strong> - Authentication + Subscription UX (login, signup, session restore, limits) - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 11</strong> - Onboarding + Branding polish (first run, visibility, Firefox remnants) - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 12</strong> - Semantic History Search - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 13</strong> - Find Content in Tab Groups - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 14</strong> - Context-Based Tab Organization - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 15</strong> - Add All Tabs to Tab Group - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 16</strong> - AI Command for Native Splitview - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 17</strong> - Chat History Access - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 18</strong> - Webpage Summarization - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 19</strong> - Tags for Websites - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 20</strong> - Automatic Software Updates - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 21</strong> - Gemini Model Migration (Critical) - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 22</strong> - UI/Bug Fixes - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 7</strong> - Assistant Engine Reliability (LangGraph, tool-output formatting) - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 8</strong> - Tab Group & Tab/Window Operations - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 9</strong> - Authentication + Subscription UX (login, signup, session restore, limits) - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 10</strong> - Onboarding + Branding polish (first run, visibility, Firefox remnants) - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 11</strong> - Making it Easy to Find Saved Websites - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 12</strong> - AI Command for Native Splitview - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 13</strong> - Chat History Access - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 14</strong> - Webpage Summarization - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 15</strong> - Automatic Software Updates - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 16</strong> - Gemini Model Migration (Critical) - <em>Not yet addressed</em></li>
           </ol>
         </div>
       </section>
