@@ -4,11 +4,11 @@
 
 ## Overview
 
-Based on the comparison between `Oasis Feedback Phase 2 - Sheet1(1).csv` and `Oasis Feedback Phase 2 - Sheet1(2).csv`, **52 new feedback items** were identified and organized into a set of sprints. After reviewing the actual code layout in this repository, the work was **reorganized for parallel execution** into **15 sprints** (Sprints 8-22) to minimize file conflicts. Sprints 10 and 11 were merged into a single sprint covering both tab group and tab/window operations. Sprint 12 was split into individual feature sprints (12-22).
+Based on the comparison between `Oasis Feedback Phase 2 - Sheet1(1).csv` and `Oasis Feedback Phase 2 - Sheet1(2).csv`, **52 new feedback items** were identified and organized into a set of sprints. After reviewing the actual code layout in this repository, the work was **reorganized for parallel execution** into **11 sprints** (Sprints 5-16) to minimize file conflicts. Sprints 8 and 9 were merged into a single sprint covering both tab group and tab/window operations. Sprint 14 (Add All Tabs to Tab Group) was merged into Sprint 8. Sprints 11, 12, and 17 were combined into Sprint 11 focused on making it easy to find saved websites (search across tab groups, bookmarks, and browser history). Sprint 12 (Context-Based Tab Organization) was merged into Sprint 8.
 
 **Total Feedback Items:** 130 (up from 78)
 **New Feedback Items:** 52
-**New Sprints Created (post re-org):** 15
+**New Sprints Created (post re-org):** 11
 
 ---
 
@@ -23,7 +23,69 @@ Key high-conflict files:
 
 ---
 
-## Sprint 8: Assistant Engine Reliability (LangGraph, recursion, tool-output formatting)
+## Sprint 5: UI/Bug Fixes
+
+**Priority:** MEDIUM | **Story Points:** 5 | **Effort:** Low-Medium | **Severity:** 4-6/10
+
+### Overview
+Fix various UI issues and bugs in the AI Assistant interface. Includes bookmark management fixes.
+
+### Key Issues:
+1. **Confusing AI Response Format** (1 report)
+    - Responses just say "in a new tab." without context
+    - Submission ID: 2EWX81j
+
+2. **Invalid URL Opened** (1 report)
+    - Opens URLs that aren't actual webpages
+    - Submission ID: OD2aDK8
+
+3. **Input Text Wrapping Issue** (1 report)
+    - Text doesn't wrap in input area
+    - Submission ID: 0Q9exbZ
+
+4. **Make Minimize/Maximize More Intuitive and Add Resizing** (1 report)
+   - Make minimize/maximize feature more intuitive with proper button states
+   - When minimized: maximize button visible, minimize button greyed out
+   - When maximized: maximize button greyed out
+   - Assistant interface should be resizable by dragging any of its 4 sides
+   - Submission ID: Xxa0l5V
+
+5. **Double Scrollbars in Chat** (1 report)
+    - Two scrollbars appear in long conversations
+    - Submission ID: 2EGZJvD
+
+6. **Removing Bookmarks Doesn't Work** (1 report)
+    - 'remove [bookmark]' command can't find imported Chrome bookmarks
+    - Submission ID: lbkVQEp
+
+### Primary Files:
+- `browser/base/content/assistant/build/src/assistant.ts` (response formatting)
+- `browser/base/content/assistant/build/src/commands.ts` (URL validation)
+- `browser/base/content/assistant/assistant.ui.js` (UI fixes)
+- Firefox bookmark API
+
+---
+
+## Sprint 6: Human-in-the-Loop (HITL) Framework - Phase 1: MVP/Prototype
+**Priority:** MEDIUM | **Story Points:** 42 | **Effort:** High | **Severity:** 8/10
+
+### Overview
+Implement the MVP/prototype of the Human-in-the-Loop (HITL) framework to enable product testers to begin providing inputs and participating in the loop.
+
+### Key Issues:
+(Note: This sprint contains framework implementation issues without specific user feedback submissions)
+
+### Primary Files:
+- `hitlFeedback.ts` (NEW)
+- `hitlPipeline.ts` (NEW)
+- `assistant.ui.js` (EXTEND)
+- `assistant.ts` (EXTEND)
+- `proxyClient.ts` (EXTEND)
+- `supabase_migration.sql` (EXTEND)
+
+---
+
+## Sprint 7: Assistant Engine Reliability (LangGraph, recursion, tool-output formatting)
 **Priority:** CRITICAL | **Story Points:** 18 | **Effort:** Medium-High | **Severity:** 9-10/10
 
 ### Overview
@@ -56,11 +118,11 @@ Additional critical recursion and command execution bugs discovered in the lates
 ---
 
 
-## Sprint 9: Tab Group & Tab/Window Operations
-**Priority:** HIGH | **Story Points:** 29 | **Effort:** Medium-High | **Severity:** 8-10/10
+## Sprint 8: Tab Group & Tab/Window Operations
+**Priority:** HIGH | **Story Points:** 36 | **Effort:** Medium-High | **Severity:** 7-10/10
 
 ### Overview
-Fix tab group (hub) operations including renaming, finding tabs within groups, adding/removing tabs, and hub state accuracy. Also fix core tab/window commands that users perceive as "it said it worked but nothing happened." This sprint covers both tab group management and tab/window command correctness. Also includes browser import, Firefox branding removal, and first launch fixes. This sprint works directly with `commands.ts` without requiring a module split.
+Fix tab group (hub) operations including renaming, finding tabs within groups, adding/removing tabs, and hub state accuracy. Also fix core tab/window commands that users perceive as "it said it worked but nothing happened." This sprint covers both tab group management and tab/window command correctness. Also includes browser import, Firefox branding removal, and first launch fixes. Includes context-based tab organization using AI to automatically group related tabs. This sprint works directly with `commands.ts` without requiring a module split.
 
 ### Key Issues:
 1. **Tab Group Renaming Fails** (1 report)
@@ -117,6 +179,14 @@ Fix tab group (hub) operations including renaming, finding tabs within groups, a
    - Purple popup with Firefox logo when enabling vertical tabs
    - Submission ID: PdxOEY5
 
+13. **Add All Tabs to Tab Group** (1 report)
+   - Command to add all open tabs to a group
+   - Submission ID: 7RA2oJA
+
+14. **Context-Based Tab Organization** (1 report)
+   - Organize tabs into groups based on context using AI
+   - Submission ID: b5pdjNZ
+
 ### Primary Files:
 - `browser/base/content/assistant/build/src/hubs.ts`
 - `browser/base/content/assistant/build/src/commands.ts`
@@ -127,7 +197,7 @@ Fix tab group (hub) operations including renaming, finding tabs within groups, a
 ---
 
 
-## Sprint 10: Authentication + Subscription UX (login, signup, session restore, limits)
+## Sprint 9: Authentication + Subscription UX (login, signup, session restore, limits)
 **Priority:** HIGH | **Story Points:** 21 | **Effort:** Medium-High | **Severity:** 8-10/10
 
 ### Overview
@@ -163,7 +233,7 @@ Fix authentication, login, signup, password management, and the “paid but stil
 
 ---
 
-## Sprint 11: Onboarding + Branding polish (first run, visibility, Firefox remnants)
+## Sprint 10: Onboarding + Branding polish (first run, visibility, Firefox remnants)
 **Priority:** MEDIUM-HIGH | **Story Points:** 10 | **Effort:** Medium | **Severity:** 6-10/10
 
 ### Overview
@@ -201,76 +271,35 @@ Improve the first-time user experience including onboarding flow, default prefer
 
 ---
 
-## Sprint 12: Semantic History Search
-**Priority:** MEDIUM | **Story Points:** 5 | **Effort:** Medium | **Severity:** 10/10
+## Sprint 11: Making it Easy to Find Saved Websites
+**Priority:** MEDIUM | **Story Points:** 21 | **Effort:** Medium-High | **Severity:** 8-10/10
 
 ### Overview
-Implement semantic search over browsing history, allowing users to search using natural, fuzzy descriptions (e.g., 'that article about beginner investing') instead of exact titles or URLs.
+Help users find previously viewed webpages by implementing comprehensive search across tab groups, bookmarks, and browser history. The AI assistant can search using natural language descriptions to help users locate and open saved websites, regardless of where they're stored (tab groups, bookmarks, or history).
 
 ### Key Issues:
 1. **Semantic History Search** (1 report)
-   - Search history using natural descriptions
+   - Search history using natural language descriptions (e.g., 'that article about beginner investing')
    - Submission ID: QKZVWp1
 
-### Primary Files:
-- (new) `browser/base/content/assistant/build/src/search.ts`
-- `browser/base/content/assistant/build/src/assistant.ts` (integration)
-
----
-
-## Sprint 13: Find Content in Tab Groups
-**Priority:** MEDIUM | **Story Points:** 5 | **Effort:** Medium | **Severity:** 8/10
-
-### Overview
-Implement search functionality across all saved tab groups to find specific content (e.g., 'Find my Apple article').
-
-### Key Issues:
-1. **Find Content in Tab Groups** (1 report)
-   - Search through all tab groups to find content
+2. **Find Content in Tab Groups** (1 report)
+   - Search through all saved tab groups to find specific content (e.g., 'Find my Apple article')
    - Submission ID: xXqY1vJ
 
+3. **Tags for Websites** (1 report)
+   - Add tags to websites to allow easier searching
+   - Submission ID: NpZvGdG
+
 ### Primary Files:
-- (new) `browser/base/content/assistant/build/src/search.ts` (may extend)
+- (new) `browser/base/content/assistant/build/src/search.ts` (unified search module)
+- `browser/base/content/assistant/build/src/assistant.ts` (integration)
 - `browser/base/content/assistant/build/src/hubs.ts` (tab group access)
+- (new) `browser/base/content/assistant/build/src/tags.ts` (tagging system)
+- `browser/base/content/assistant/assistant.ui.js` (tagging UI)
 
 ---
 
-## Sprint 14: Context-Based Tab Organization
-**Priority:** MEDIUM | **Story Points:** 8 | **Effort:** Medium-High | **Severity:** 7/10
-
-### Overview
-Implement context-aware tab grouping using AI to analyze tab content/URLs and organize related tabs into groups.
-
-### Key Issues:
-1. **Context-Based Tab Organization** (1 report)
-   - Organize tabs into groups based on context using AI
-   - Submission ID: b5pdjNZ
-
-### Primary Files:
-- `browser/base/content/assistant/build/src/assistant.ts` (AI analysis)
-- `browser/base/content/assistant/build/src/hubs.ts` (tab group creation)
-- `browser/base/content/assistant/build/src/commands.ts` (command integration)
-
----
-
-## Sprint 15: Add All Tabs to Tab Group
-**Priority:** MEDIUM | **Story Points:** 3 | **Effort:** Low | **Severity:** 10/10
-
-### Overview
-Implement command to add all currently open tabs to a specified tab group.
-
-### Key Issues:
-1. **Add All Tabs to Tab Group** (1 report)
-   - Command to add all open tabs to a group
-   - Submission ID: 7RA2oJA
-
-### Primary Files:
-- `browser/base/content/assistant/build/src/hubs.ts` (hub command module)
-- `browser/base/content/assistant/build/src/commands.ts` (command integration)
-
----
-
-## Sprint 16: AI Command for Native Splitview
+## Sprint 12: AI Command for Native Splitview
 **Priority:** MEDIUM | **Story Points:** 5 | **Effort:** Medium | **Severity:** 10/10
 
 ### Overview
@@ -287,7 +316,7 @@ Integrate with Firefox's native splitview API to allow AI commands to trigger sp
 
 ---
 
-## Sprint 17: Chat History Access
+## Sprint 13: Chat History Access
 **Priority:** MEDIUM | **Story Points:** 8 | **Effort:** Medium-High | **Severity:** 7/10
 
 ### Overview
@@ -305,11 +334,11 @@ Implement chat history storage and retrieval, allowing users to access previous 
 
 ---
 
-## Sprint 18: Webpage Summarization
-**Priority:** MEDIUM | **Story Points:** 8 | **Effort:** Medium-High | **Severity:** 6/10
+## Sprint 14: Webpage Summarization
+**Priority:** MEDIUM | **Story Points:** 10 | **Effort:** Medium-High | **Severity:** 6/10
 
 ### Overview
-Implement webpage content extraction and automatic summarization functionality.
+Implement webpage content extraction and automatic summarization functionality. Includes both single webpage summarization and multi-tab summarization for research workflows.
 
 ### Key Issues:
 1. **Webpage Summarization** (1 report)
@@ -320,31 +349,17 @@ Implement webpage content extraction and automatic summarization functionality.
    - Summarization fails for Wikipedia
    - Submission ID: 44Vqkb5
 
+3. **Tab Summarization** (1 report)
+   - Ability to 'summarize and give insights across these 15 tabs'
+   - Submission ID: 7R72950
+
 ### Primary Files:
 - (new) `browser/base/content/assistant/build/src/summarize.ts`
 - `browser/base/content/assistant/build/src/assistant.ts` (integration)
 
 ---
 
-## Sprint 19: Tags for Websites
-**Priority:** MEDIUM | **Story Points:** 5 | **Effort:** Medium | **Severity:** 9/10
-
-### Overview
-Implement tagging system for saved sites/tab groups to allow easier searching and organization.
-
-### Key Issues:
-1. **Tags for Websites** (1 report)
-   - Add tags to websites for easier searching
-   - Submission ID: NpZvGdG
-
-### Primary Files:
-- (new) `browser/base/content/assistant/build/src/tags.ts`
-- `browser/base/content/assistant/build/src/hubs.ts` (integration with tab groups)
-- `browser/base/content/assistant/assistant.ui.js` (tagging UI)
-
----
-
-## Sprint 20: Automatic Software Updates
+## Sprint 15: Automatic Software Updates
 **Priority:** MEDIUM | **Story Points:** 8 | **Effort:** Medium-High | **Severity:** 9/10
 
 ### Overview
@@ -362,7 +377,7 @@ Implement update checking, notification system, and update UI within Oasis for s
 
 ---
 
-## Sprint 21: Gemini Model Migration (Critical)
+## Sprint 16: Gemini Model Migration (Critical)
 **Priority:** CRITICAL | **Story Points:** 5 | **Effort:** Medium | **Severity:** 10/10
 
 ### Overview
@@ -380,62 +395,23 @@ Migrate from Gemini 2.0 models (discontinued March 31, 2026) to supported models
 
 ---
 
-## Sprint 22: UI/Bug Fixes
-**Priority:** MEDIUM | **Story Points:** 6 | **Effort:** Low-Medium | **Severity:** 4-6/10
-
-### Overview
-Fix various UI issues and bugs in the AI Assistant interface.
-
-### Key Issues:
-1. **Confusing AI Response Format** (1 report)
-    - Responses just say "in a new tab." without context
-    - Submission ID: 2EWX81j
-
-2. **Invalid URL Opened** (1 report)
-    - Opens URLs that aren't actual webpages
-    - Submission ID: OD2aDK8
-
-3. **Input Text Wrapping Issue** (1 report)
-    - Text doesn't wrap in input area
-    - Submission ID: 0Q9exbZ
-
-4. **Make Minimize/Maximize More Intuitive and Add Resizing** (1 report)
-   - Make minimize/maximize feature more intuitive with proper button states
-   - When minimized: maximize button visible, minimize button greyed out
-   - When maximized: maximize button greyed out
-   - Assistant interface should be resizable by dragging any of its 4 sides
-   - Submission ID: Xxa0l5V
-
-5. **Double Scrollbars in Chat** (1 report)
-    - Two scrollbars appear in long conversations
-    - Submission ID: 2EGZJvD
-
-### Primary Files:
-- `browser/base/content/assistant/build/src/assistant.ts` (response formatting)
-- `browser/base/content/assistant/build/src/commands.ts` (URL validation)
-- `browser/base/content/assistant/assistant.ui.js` (UI fixes)
-
----
 
 ## Summary Statistics
 
 | Sprint | Priority | Story Points (Original) | Story Points (Recalculated) | Change | Parallel Track | Primary Files (conflict surface) |
 |--------|----------|------------------------|----------------------------|--------|----------------|----------------------------------|
-| Sprint 8 | CRITICAL | 18 | **13** | -5 | Engine | `assistant.ts`, `proxyClient.ts`, `awsSignedFetch.ts` |
-| Sprint 9 | HIGH | 29 | **21** | -8 | Hubs + Tabs/Windows + Onboarding | `hubs.ts`, `commands.ts`, browser first-run UI, `browser/branding/**` |
-| Sprint 10 | HIGH | 21 | **16** | -5 | Auth/Subscription | `assistant.ui.js`, `services/supabase.ts`, `services/subscription.ts` |
-| Sprint 11 | MEDIUM-HIGH | 10 | **8** | -2 | Onboarding/Branding | `assistant.ui.js`, `browser/branding/**`, first-run UI |
-| Sprint 12 | MEDIUM | 5 | **8** | +3 | Search | `search.ts`, `assistant.ts` |
-| Sprint 13 | MEDIUM | 5 | **5** | 0 | Search | `search.ts`, `hubs.ts` |
-| Sprint 14 | MEDIUM | 8 | **13** | +5 | Tab Organization | `assistant.ts`, `hubs.ts`, `commands.ts` |
-| Sprint 15 | MEDIUM | 3 | **2** | -1 | Tab Groups | `hubs.ts`, `commands.ts` |
-| Sprint 16 | MEDIUM | 5 | **5** | 0 | Firefox Integration | `commands.ts`, Firefox splitview API |
-| Sprint 17 | MEDIUM | 8 | **13** | +5 | Chat History | `chatHistory.ts`, `assistant.ui.js`, `services/supabase.ts` |
-| Sprint 18 | MEDIUM | 8 | **10** | +2 | Summarization | `summarize.ts`, `assistant.ts` |
-| Sprint 19 | MEDIUM | 5 | **8** | +3 | Tagging | `tags.ts`, `hubs.ts`, `assistant.ui.js` |
-| Sprint 20 | MEDIUM | 8 | **13** | +5 | Updates | Update system, `assistant.ui.js` |
-| Sprint 21 | CRITICAL | 5 | **3** | -2 | Model Migration | `proxyClient.ts`, `awsSignedFetch.ts`, `services/subscription.ts` |
-| Sprint 22 | MEDIUM | 6 | **5** | -1 | UI/Bug Fixes | `assistant.ts`, `commands.ts`, `assistant.ui.js` |
+| Sprint 5 | MEDIUM | 6 | **5** | -1 | UI/Bug Fixes | `assistant.ts`, `commands.ts`, `assistant.ui.js`, Firefox bookmark API |
+| Sprint 6 | MEDIUM | 42 | **42** | 0 | HITL Framework | `hitlFeedback.ts`, `hitlPipeline.ts`, `assistant.ui.js`, `assistant.ts`, `proxyClient.ts`, `supabase_migration.sql` |
+| Sprint 7 | CRITICAL | 18 | **13** | -5 | Engine | `assistant.ts`, `proxyClient.ts`, `awsSignedFetch.ts` |
+| Sprint 8 | HIGH | 29 | **36** | +7 | Hubs + Tabs/Windows + Onboarding | `hubs.ts`, `commands.ts`, `assistant.ts`, browser first-run UI, `browser/branding/**` |
+| Sprint 9 | HIGH | 21 | **16** | -5 | Auth/Subscription | `assistant.ui.js`, `services/supabase.ts`, `services/subscription.ts` |
+| Sprint 10 | MEDIUM-HIGH | 10 | **8** | -2 | Onboarding/Branding | `assistant.ui.js`, `browser/branding/**`, first-run UI |
+| Sprint 11 | MEDIUM | 18 | **21** | +3 | Search | `search.ts`, `assistant.ts`, `hubs.ts`, `tags.ts`, `assistant.ui.js` |
+| Sprint 12 | MEDIUM | 5 | **5** | 0 | Firefox Integration | `commands.ts`, Firefox splitview API |
+| Sprint 13 | MEDIUM | 8 | **13** | +5 | Chat History | `chatHistory.ts`, `assistant.ui.js`, `services/supabase.ts` |
+| Sprint 14 | MEDIUM | 8 | **10** | +2 | Summarization | `summarize.ts`, `assistant.ts` |
+| Sprint 15 | MEDIUM | 8 | **13** | +5 | Updates | Update system, `assistant.ui.js` |
+| Sprint 16 | CRITICAL | 5 | **3** | -2 | Model Migration | `proxyClient.ts`, `awsSignedFetch.ts`, `services/subscription.ts` |
 | **Total** | - | **133** | **142** | **+9** | - | - |
 
 **Note:** Story points recalculated based on codebase analysis. See `SPRINT_COMPLEXITY_ANALYSIS.md` for detailed breakdown.
@@ -445,16 +421,16 @@ Fix various UI issues and bugs in the AI Assistant interface.
 ## Priority Recommendations
 
 ### Immediate Action Required:
-1. **Sprint 8** - Critical recursion errors are blocking core functionality
-2. **Sprint 21 (Gemini Migration)** - Must be completed before March 31, 2026 or AI Assistant will stop working
+1. **Sprint 7** - Critical recursion errors are blocking core functionality
+2. **Sprint 16 (Gemini Migration)** - Must be completed before March 31, 2026 or AI Assistant will stop working
 
 ### High Priority:
-3. **Sprint 10** - Authentication issues prevent users from accessing the product
-4. **Sprint 9** - Command correctness and hub/tab workflows are core to the product value proposition
+3. **Sprint 9** - Authentication issues prevent users from accessing the product
+4. **Sprint 8** - Command correctness and hub/tab workflows are core to the product value proposition
 
 ### Medium Priority:
-5. **Sprint 11** - Onboarding improvements affect new user adoption
-6. **Sprints 12-20, 22** - Feature enhancements and UI improvements that improve user experience
+5. **Sprint 10** - Onboarding improvements affect new user adoption
+6. **Sprints 5, 11-15** - Feature enhancements and UI improvements that improve user experience
 
 ---
 
