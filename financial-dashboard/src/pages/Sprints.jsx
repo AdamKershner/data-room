@@ -458,6 +458,7 @@ function Sprints() {
           description: "Add UI components to assistant.ui.js that allow users to provide feedback on AI responses. Add thumbs up/down buttons, 'Correct' button with inline text editor, 'Flag' button for reporting issues. Create feedback modal/panel for detailed corrections. Store feedback state locally until submission.",
           impact: "Enables users to interact with HITL system",
           technicalNotes: "Medium complexity. Can extend existing message bubble components in assistant.ui.js. Can be built in parallel with database schema.",
+          requiresUI: true,
           feedback: []
         },
         {
@@ -810,6 +811,7 @@ function Sprints() {
           description: "When trying to sign up, account is not created. No error message displayed, and user cannot sign in after attempted signup.",
           impact: "New users can't create accounts (severity 10/10)",
           technicalNotes: "Signup flow in assistant.ui.js or services/supabase.ts - error handling and user feedback needed",
+          requiresUI: true,
           feedback: [
             { id: "xXW77z5", text: "When I am trying to sign up for using the AI assistant, the account is not getting created. It does not reflect any message, nor does it allow me to sign in." }
           ]
@@ -821,6 +823,7 @@ function Sprints() {
           description: "Users cannot change their password from the Oasis Assistant for their Kahana account.",
           impact: "Password management broken (severity 7/10)",
           technicalNotes: "Password change functionality in assistant.ui.js or account settings UI",
+          requiresUI: true,
           feedback: [
             { id: "kdobDeZ", text: "I was not able to change my password from the Oasis Assistant for my Kahana account" }
           ]
@@ -935,6 +938,7 @@ function Sprints() {
           description: "Users want to search browsing history using natural, fuzzy descriptions (e.g., 'that article about beginner investing') instead of exact titles or URLs. Should feel like asking a personal memory assistant.",
           impact: "Would significantly improve productivity (severity 10/10)",
           technicalNotes: "Implement semantic search over browsing history. Reference: Firefox already has semantic search capability (https://connect.mozilla.org/t5/discussions/try-out-the-new-semantic-history-search-feature-and-share/m-p/99835). May be able to leverage existing Firefox functionality. Create new search.ts module.",
+          requiresUI: true,
           feedback: [
             { id: "QKZVWp1", text: "I'd like to request a new Oasis feature called Semantic History Search. Users often struggle to find pages they know they visited before, especially when they can't remember exact titles, URLs, or specific keywords. People tend to remember the idea or context of what they saw ('that article about beginner investing' or 'the recipe with lemon and garlic') rather than precise page names. Users can type natural, fuzzy descriptions of what they remember (topics, purposes, or rough phrases) and quickly see the most relevant past pages surface from their history. There is already a semantic search capability in firefox which can be a reference: https://connect.mozilla.org/t5/discussions/try-out-the-new-semantic-history-search-feature-and-share/m-p/99835" }
           ]
@@ -946,6 +950,7 @@ function Sprints() {
           description: "Users want to search through all saved tab groups to find specific content (e.g., 'Find my Apple article'). AI Assistant should search through all tab groups and pull up the exact page.",
           impact: "Would make finding saved content much easier (severity 8/10)",
           technicalNotes: "Implement search functionality across tab groups, including content indexing and semantic matching. May extend search.ts module.",
+          requiresUI: true,
           feedback: [
             { id: "xXqY1vJ", text: "if I saved an article about Apple's latest tech in one of my tab groups, I can simply ask Oasis: 'Find my Apple article.' In seconds, the AI Assistant searches through all my saved tab groups and pulls up the exact page I need. It's like having a super-smart librarian for all your web content.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-1.26.14-PM.png?id=KWa9EM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktXYTlFTSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExMDI0OH0.h0NLlFZCog53Gp384zaoAlC3GcdHFX8K2z_8y_nWoSg&signature=2d8526b6b1f5110951c8971f25b030170f31e8da71b7db6b4746153867c75406" }
           ]
@@ -957,6 +962,7 @@ function Sprints() {
           description: "Users want to add tags to websites to allow easier searching.",
           impact: "Would improve content organization (severity 9/10)",
           technicalNotes: "Implement tagging system for saved sites/tab groups. May extend hubs.ts or create new tags.ts module",
+          requiresUI: true,
           feedback: [
             { id: "NpZvGdG", text: "It would be nice if I could add tags to a website which would allow me to search more easily." }
           ]
@@ -1025,6 +1031,7 @@ function Sprints() {
           description: "Users expect to be able to access previous AI Assistant chat threads (conversation history) from other days. Currently AI says it can only access current session.",
           impact: "Users want persistent chat history (severity 7/10)",
           technicalNotes: "Implement chat history storage and retrieval - store conversations in Supabase, create UI to access past conversations. Create new chatHistory.ts module.",
+          requiresUI: true,
           feedback: [
             { id: "xXqY2aJ", text: "As an early Oasis user, I expect to be able to access previous AI Assistant chat threads (conversation history) and/or get a clear answer about AI Assistant history works and what I should expect. 'how is our ai assistant chat history handled? Can I access previous chats from other days?' Current AI response: 'I can access the complete conversation history within our current interaction. However, I don't have the ability to access previous chats from other days. My memory is limited to the current session.'", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.16.37-PM.png?id=zG15bZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpHMTViWiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExMDI0OH0.jCeih9O-1CfQfCzVYxkYOYKWKkB3g1md-QWx8pMzyZo&signature=ae16daaae6b282cff1d9399c6855a155d447334b6e2a49b0a3743ad741962eb0" }
           ]
