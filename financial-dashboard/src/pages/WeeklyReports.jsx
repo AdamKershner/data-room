@@ -7,6 +7,62 @@ function WeeklyReports() {
   const [reports] = useState([
     {
       id: 1,
+      week: '2026-01-19',
+      weekLabel: 'Week of January 19, 2026',
+      keyUpdates: [
+        'Generated 6 Marketing Qualified Leads (MQLs) from high-intent website visitors',
+        'High-intent leads from enterprise organizations including CLP (Utilities - 5K-10K employees), Duke University (Education - 10K-50K employees), and City of Medford (Government)',
+        'Enterprise visitor engagement: Eddie Wu (Deputy Director at CLP) viewed security guide, profile management docs, and enterprise browsers blog',
+        'Education sector interest: Kenneth Rogerson (Associate Professor at Duke University) visited blog hub multiple times',
+        'Early Access form submission from Elodie indicating product interest',
+        'Significant progress on HITL (Human-in-the-Loop) framework research and implementation',
+        'Revanth completed 25 hours on HITL best practices, DB design research, and demo implementation',
+        'Likhitha enhanced system prompt for supervisor agent with tool descriptions and continued RLHF/DPO research',
+        'Rushyanth worked on HITL implementation and product development tasks',
+        'Aishwarya researched HITL framework use cases and tested browser functionality',
+        'Windows build progress: Davis Victor completed 21 hours building Windows version across 3 days',
+        'YouTube marketing strategy development: Shivangi Chamoli dedicated 20 hours to strategy work',
+        'Content creation expansion: Dhruv Patel brought in 2 editors and approached a third editor with animation/design focus',
+        'University outreach strategy and mail draft preparation',
+        'Learning and sprint work: Agrima Gupta completed Sprint 6 work and team meetings',
+        'Business plan review: Akansha reviewed Kahana 2026 business plan and sensitivity analysis',
+        'Team coordination: Hasan Bohra had strategic conversations about Kahana history and sales strategy',
+        'Continued learning activities across team members (30 hours logged)'
+      ],
+      timeBreakdown: {
+        'HITL & Research': 76.0,
+        'Marketing & Content': 42.0,
+        'Learning & Training': 30.0,
+        'Product Development': 26.0,
+        'Operations & Admin': 20.0
+      },
+      areasToImprove: [
+        'Follow up on high-intent enterprise leads (CLP, Duke University, City of Medford)',
+        'Continue accelerating HITL framework implementation to enable product tester feedback loops',
+        'Maintain momentum on Windows build to ensure timely PM release',
+        'Scale content creation capacity with new editor onboarding',
+        'Balance research activities with product development execution',
+        'Increase time log participation to capture more comprehensive team activity'
+      ],
+      metrics: {
+        totalHours: 194.0,
+        teamMembers: 10,
+        entries: 16,
+        mqls: 6,
+        sqls: 0,
+        impressions: 46900,
+        impressionsGrowth: -74.1,
+        timeLogParticipation: 28.6,
+        waitlistSignups: 138
+      },
+      quarterlyGoals: {
+        nps: 0,
+        pilots: 0,
+        payingSubscribers: 0
+      }
+    },
+    {
+      id: 2,
       week: '2026-01-12',
       weekLabel: 'Week of January 12, 2026',
       keyUpdates: [
@@ -58,7 +114,7 @@ function WeeklyReports() {
       }
     },
     {
-      id: 2,
+      id: 3,
       week: '2026-01-05',
       weekLabel: 'Week of January 5, 2026',
       keyUpdates: [
@@ -99,7 +155,7 @@ function WeeklyReports() {
       }
     },
     {
-      id: 3,
+      id: 4,
       week: '2025-12-29',
       weekLabel: 'Week of December 29, 2025',
       keyUpdates: [
@@ -362,13 +418,19 @@ function WeeklyReports() {
                             marginTop: '4px',
                             color: 'rgba(255, 255, 255, 0.9)'
                           }}>
-                            ↑ {report.metrics.impressionsGrowth}%
+                            {report.metrics.impressionsGrowth > 0 ? '↑' : '↓'} {Math.abs(report.metrics.impressionsGrowth)}%
                           </span>
                         )}
                       </div>
                     </div>
                   )}
-                  {!report.metrics.mqls && !report.metrics.impressions && !report.metrics.timeLogParticipation && (
+                  {report.metrics.waitlistSignups !== undefined && (
+                    <div className="metric-card">
+                      <div className="metric-value">{report.metrics.waitlistSignups}</div>
+                      <div className="metric-label">Total Waitlist Signups</div>
+                    </div>
+                  )}
+                  {!report.metrics.mqls && !report.metrics.impressions && !report.metrics.timeLogParticipation && !report.metrics.waitlistSignups && (
                     <>
                       <div className="metric-card">
                         <div className="metric-value">{report.metrics.entries}</div>
