@@ -332,22 +332,18 @@ function Sprints() {
         "Visual feedback shows when voice is active",
         "Empty state has illustration and example prompts"
       ]
-    }
-  ]
-
-  // Active sprints (in progress)
-  const activeSprints = [
+    },
     {
       id: 5,
-      title: "UI/Bug Fixes",
-      emoji: "🐛",
+      title: "UI Fixes & Response Formatting (Completed)",
+      emoji: "✅",
       priority: "MEDIUM",
-      storyPoints: 5,
+      storyPoints: 3,
       effort: "Low-Medium",
       impact: "Medium",
       severity: "4-6/10",
-      overview: "Fix various UI issues and bugs in the AI Assistant interface. Includes bookmark management fixes.",
-      primaryFiles: "browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/build/src/commands.ts, browser/base/content/assistant/assistant.ui.js, Firefox bookmark API",
+      overview: "Completed UI fixes and AI response formatting improvements. These issues have been verified as working well.",
+      primaryFiles: "browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/assistant.ui.js",
       issues: [
         {
           title: "Bug: Confusing AI Response Format",
@@ -358,17 +354,6 @@ function Sprints() {
           technicalNotes: "Improve response formatting in assistant.ts (tool output to natural language conversion)",
           feedback: [
             { id: "2EWX81j", text: "My input: open articles about setting up an organization in salesforce. Oasis AI: in a new tab. This prompt actually opened a new tab with the article about the salesforce accounts but the AI replied - 'in a new tab.' which was confusing for me" }
-          ]
-        },
-        {
-          title: "Bug: Invalid URL Opened",
-          count: 1,
-          submissionIds: ["OD2aDK8"],
-          description: "AI opened a URL that was not actually a webpage (https://www.youtube.com/howyoutubeworks/creators/upload-videos/) when user asked to open article about uploading video in YouTube.",
-          impact: "Opens invalid pages (severity 9/10)",
-          technicalNotes: "URL validation and content checking before opening in tab command module",
-          feedback: [
-            { id: "OD2aDK8", text: "I wanted to open an article about uploading an video in youtube, but the AI replied and opened and URL which was not actually a webpage. Oasis AI: in a new tab. [The opened URL link - https://www.youtube.com/howyoutubeworks/creators/upload-videos/]", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-21-at-4.40.24-PM.png?id=qJJZQg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFKSlpRZyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTAzNTI3MH0.oZB18p6NLlQ7vXLJ3nVASTbX-DZ1GPpLNCxMOAtW7eY&signature=0c4aca5180c70dbb9253ccd94c56de11a2eff2d5e00926f790ddc58f0ffc0786" }
           ]
         },
         {
@@ -384,18 +369,6 @@ function Sprints() {
           ]
         },
         {
-          title: "UI: Make Minimize/Maximize More Intuitive and Add Resizing",
-          count: 1,
-          submissionIds: ["Xxa0l5V"],
-          description: "Make the minimize and maximize feature of the Assistant interface more intuitive. When minimized, the maximize button should be visible and the minimize button should be greyed out. When maximized, the maximize button should be greyed out. Additionally, the assistant interface (AI assistant window) should be resizable by clicking and dragging any of its 4 sides.",
-          impact: "Improves usability and user control over AI assistant window (severity 6/10)",
-          technicalNotes: "Minimize/maximize toggle logic and button state management in assistant.ui.js. Add resize handles on all 4 sides of the assistant window. Implement drag-to-resize functionality with minimum/maximum size constraints.",
-          requiresUI: true,
-          feedback: [
-            { id: "Xxa0l5V", text: "After minimizing the chat by clicking the minimize button, clicking it again has no effect. It would be great if clicking it again restored the chat to its original size. The minimize and maximize feature should be more intuitive - if it's minimized, the maximize button should be there but the minimize button should be greyed out. If it's maximized, the maximize button should be greyed out. Also, the assistant interface should be resizable by clicking and dragging any of its 4 sides." }
-          ]
-        },
-        {
           title: "UI: Double Scrollbars in Chat",
           count: 1,
           submissionIds: ["2EGZJvD"],
@@ -405,6 +378,92 @@ function Sprints() {
           requiresUI: true,
           feedback: [
             { id: "2EGZJvD", text: "when the length of the conversation in ai chat increased, i saw 2 scrollbars", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-2.31.52-PM.png?id=Nbq51N&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5icTUxTiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI0NjM3M30.MhjJ1LV6-AZZdnPrpAnruE2O-o1Zx4VGdr8HNpBtUFI&signature=96d15b67208d0adbe98f0d604794f0777b45cc702b81d1bff532be8b66e070ae" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "AI responses are clear and contextual",
+        "Input text wraps/scrolls correctly",
+        "Only one scrollbar appears in chat"
+      ]
+    },
+    {
+      id: 7,
+      title: "Assistant Engine Reliability (LangGraph, tool-output formatting)",
+      emoji: "🚨",
+      priority: "CRITICAL",
+      storyPoints: 13,
+      effort: "Medium",
+      impact: "High",
+      severity: "9-10/10",
+      overview: "Fix tool output formatting and network error handling in the AI Assistant. These issues relate to command execution infrastructure and response formatting.",
+      primaryFiles: "browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/build/src/proxyClient.ts, browser/base/content/assistant/build/src/awsSignedFetch.ts",
+      issues: [
+        {
+          title: "Tool Output Text in Responses",
+          count: 1,
+          submissionIds: ["J94KydJ"],
+          description: "AI responses show raw tool output text like '[Tool Output for add_tab_to_tab_group]' instead of natural language responses.",
+          impact: "Poor user experience, unprofessional appearance (severity 10/10)",
+          technicalNotes: "Response formatting in assistant.ts - need to convert tool outputs to natural language",
+          feedback: [
+            { id: "J94KydJ", text: "After I run ai commands like 'add this tab to the tab group', the output displays text [Tool Output for add_tab_to_tab_group], which is unnecessary to the user to see. The user experience would be more elegant if the response came only with natural language that directly addresses the original prompt in a conversational style, for example saying 'Added the selected tab to tab group \"ai browsers\".'" }
+          ]
+        },
+        {
+          title: "Network Errors on Tab Group Commands",
+          count: 1,
+          submissionIds: ["68BeBDA"],
+          description: "Commands like 'list my tab groups' result in NetworkError when attempting to fetch resource",
+          impact: "Core functionality broken (severity 9/10)",
+          technicalNotes: "Network request handling, error handling, retry logic needed in proxyClient.ts or awsSignedFetch.ts (signed request plumbing; likely surfaced as NetworkError)",
+          feedback: [
+            { id: "68BeBDA", text: "AI command: 'list my tab groups'. Output: 'Error: NetworkError when attempting to fetch resource.'" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "Tool output text is converted to natural language in responses",
+        "Network errors are handled gracefully with retry logic"
+      ]
+    }
+  ]
+
+  // Active sprints (in progress)
+  const activeSprints = [
+    {
+      id: 5,
+      title: "UI/Bug Fixes",
+      emoji: "🐛",
+      priority: "MEDIUM",
+      storyPoints: 2,
+      effort: "Low-Medium",
+      impact: "Medium",
+      severity: "6-9/10",
+      overview: "Fix various UI issues and bugs in the AI Assistant interface. Includes bookmark management fixes.",
+      primaryFiles: "browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/build/src/commands.ts, browser/base/content/assistant/assistant.ui.js, Firefox bookmark API",
+      issues: [
+        {
+          title: "Bug: Invalid URL Opened",
+          count: 1,
+          submissionIds: ["OD2aDK8"],
+          description: "AI opened a URL that was not actually a webpage (https://www.youtube.com/howyoutubeworks/creators/upload-videos/) when user asked to open article about uploading video in YouTube.",
+          impact: "Opens invalid pages (severity 9/10)",
+          technicalNotes: "URL validation and content checking before opening in tab command module",
+          feedback: [
+            { id: "OD2aDK8", text: "I wanted to open an article about uploading an video in youtube, but the AI replied and opened and URL which was not actually a webpage. Oasis AI: in a new tab. [The opened URL link - https://www.youtube.com/howyoutubeworks/creators/upload-videos/]", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-21-at-4.40.24-PM.png?id=qJJZQg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFKSlpRZyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTAzNTI3MH0.oZB18p6NLlQ7vXLJ3nVASTbX-DZ1GPpLNCxMOAtW7eY&signature=0c4aca5180c70dbb9253ccd94c56de11a2eff2d5e00926f790ddc58f0ffc0786" }
+          ]
+        },
+        {
+          title: "UI: Make Minimize/Maximize More Intuitive and Add Resizing",
+          count: 1,
+          submissionIds: ["Xxa0l5V"],
+          description: "Make the minimize and maximize feature of the Assistant interface more intuitive. When minimized, the maximize button should be visible and the minimize button should be greyed out. When maximized, the maximize button should be greyed out. Additionally, the assistant interface (AI assistant window) should be resizable by clicking and dragging any of its 4 sides.",
+          impact: "Improves usability and user control over AI assistant window (severity 6/10)",
+          technicalNotes: "Minimize/maximize toggle logic and button state management in assistant.ui.js. Add resize handles on all 4 sides of the assistant window. Implement drag-to-resize functionality with minimum/maximum size constraints.",
+          requiresUI: true,
+          feedback: [
+            { id: "Xxa0l5V", text: "After minimizing the chat by clicking the minimize button, clicking it again has no effect. It would be great if clicking it again restored the chat to its original size. The minimize and maximize feature should be more intuitive - if it's minimized, the maximize button should be there but the minimize button should be greyed out. If it's maximized, the maximize button should be greyed out. Also, the assistant interface should be resizable by clicking and dragging any of its 4 sides." }
           ]
         },
         {
@@ -420,12 +479,9 @@ function Sprints() {
         }
       ],
       acceptanceCriteria: [
-        "AI responses are clear and contextual",
         "URL validation prevents opening invalid pages",
-        "Input text wraps/scrolls correctly",
         "Minimize/maximize buttons show correct states (minimize greyed when minimized, maximize greyed when maximized)",
         "Assistant interface is resizable by dragging any of its 4 sides",
-        "Only one scrollbar appears in chat",
         "Bookmark removal works for imported bookmarks via AI commands"
       ]
     },
@@ -516,46 +572,6 @@ function Sprints() {
         "Model training integration sends processed feedback to backend for model updates",
         "Basic HITL workflow is tested and validated end-to-end",
         "Product testers can begin participating in the loop and providing inputs"
-      ]
-    },
-    {
-      id: 7,
-      title: "Assistant Engine Reliability (LangGraph, tool-output formatting)",
-      emoji: "🚨",
-      priority: "CRITICAL",
-      storyPoints: 13,
-      effort: "Medium",
-      impact: "High",
-      severity: "9-10/10",
-      overview: "Fix tool output formatting and network error handling in the AI Assistant. These issues relate to command execution infrastructure and response formatting.",
-      primaryFiles: "browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/build/src/proxyClient.ts, browser/base/content/assistant/build/src/awsSignedFetch.ts",
-      issues: [
-        {
-          title: "Tool Output Text in Responses",
-          count: 1,
-          submissionIds: ["J94KydJ"],
-          description: "AI responses show raw tool output text like '[Tool Output for add_tab_to_tab_group]' instead of natural language responses.",
-          impact: "Poor user experience, unprofessional appearance (severity 10/10)",
-          technicalNotes: "Response formatting in assistant.ts - need to convert tool outputs to natural language",
-          feedback: [
-            { id: "J94KydJ", text: "After I run ai commands like 'add this tab to the tab group', the output displays text [Tool Output for add_tab_to_tab_group], which is unnecessary to the user to see. The user experience would be more elegant if the response came only with natural language that directly addresses the original prompt in a conversational style, for example saying 'Added the selected tab to tab group \"ai browsers\".'" }
-          ]
-        },
-        {
-          title: "Network Errors on Tab Group Commands",
-          count: 1,
-          submissionIds: ["68BeBDA"],
-          description: "Commands like 'list my tab groups' result in NetworkError when attempting to fetch resource",
-          impact: "Core functionality broken (severity 9/10)",
-          technicalNotes: "Network request handling, error handling, retry logic needed in proxyClient.ts or awsSignedFetch.ts (signed request plumbing; likely surfaced as NetworkError)",
-          feedback: [
-            { id: "68BeBDA", text: "AI command: 'list my tab groups'. Output: 'Error: NetworkError when attempting to fetch resource.'" }
-          ]
-        }
-      ],
-      acceptanceCriteria: [
-        "Tool output text is converted to natural language in responses",
-        "Network errors are handled gracefully with retry logic"
       ]
     },
     {
