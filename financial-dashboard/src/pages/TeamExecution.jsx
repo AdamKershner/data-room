@@ -505,94 +505,6 @@ function TeamExecution() {
       ]
     },
     {
-      name: "Shivangi Chamoli",
-      roles: ["Product Marketing"],
-      employmentStatus: "intern",
-      hoursPerWeek: 20,
-      timeLogs: [
-        {
-          submissionId: "Shivangi1",
-          respondentId: "Shivangi",
-          submittedAt: "2025-01-10 10:00:00",
-          name: "Shivangi Chamoli",
-          date: "2025-01-03",
-          hours: 20,
-          description: "Week of Dec 30 - Jan 3. Created social media content and posted daily. Engaged with community on Product Hunt. Supported content marketing initiatives. Tracked sign-ups and conversion metrics."
-        },
-        {
-          submissionId: "Shivangi2",
-          respondentId: "Shivangi",
-          submittedAt: "2025-01-17 10:00:00",
-          name: "Shivangi Chamoli",
-          date: "2025-01-10",
-          hours: 20,
-          description: "Week of Jan 6-10. Generated social media content ideas. Created engaging posts for Twitter and LinkedIn. Engaged with online communities. Tracked subscriber growth from content."
-        },
-        {
-          submissionId: "Shivangi3",
-          respondentId: "Shivangi",
-          submittedAt: "2025-01-24 10:00:00",
-          name: "Shivangi Chamoli",
-          date: "2025-01-17",
-          hours: 20,
-          description: "Week of Jan 13-17. Developed new content series themes. Created visual content for social media. Supported Product Hunt campaign. Analyzed content performance metrics."
-        },
-        {
-          submissionId: "Shivangi4",
-          respondentId: "Shivangi",
-          submittedAt: "2025-01-31 10:00:00",
-          name: "Shivangi Chamoli",
-          date: "2025-01-24",
-          hours: 20,
-          description: "Week of Jan 20-24. Continued content creation and distribution. Engaged with community on Product Hunt. Created content calendar for February. Tracked sign-ups and conversion rates."
-        }
-      ],
-      q1Goals: {
-        overview: "Drive subscriber growth through content marketing",
-        target: "Generate 20+ sign-ups from blog content in Q1",
-        weeklyBreakdown: [
-          { week: 1, goal: "Create editorial calendar", metric: "Calendar ready" },
-          { week: 2, goal: "Week 2 blog post", metric: "1 post published" },
-          { week: 3, goal: "Week 3 blog post", metric: "1 post published" },
-          { week: 4, goal: "Week 4 blog post", metric: "1 post published" },
-          { week: 5, goal: "Week 5 blog post", metric: "1 post published" },
-          { week: 6, goal: "Week 6 blog post", metric: "1 post published" },
-          { week: 7, goal: "Week 7 blog post", metric: "1 post published" },
-          { week: 8, goal: "Week 8 blog post", metric: "1 post published" },
-          { week: 9, goal: "Week 9 blog post", metric: "1 post published" },
-          { week: 10, goal: "Week 10 blog post", metric: "1 post published" },
-          { week: 11, goal: "Week 11 blog post", metric: "1 post published" },
-          { week: 12, goal: "Week 12 blog post", metric: "1 post published" },
-          { week: 13, goal: "Q1 content review", metric: "8+ posts, 20+ sign-ups" }
-        ],
-        keyMetrics: [
-          "Blog posts published (target 8+ in Q1)",
-          "Monthly blog visitors (target 1,000+)",
-          "Sign-ups from content (target 20+)",
-          "SEO performance"
-        ]
-      },
-      projects: [
-        {
-          title: "Content Marketing & Blog Strategy",
-          status: "active",
-          startDate: "January 2026",
-          description: "Develop content marketing strategy to drive organic traffic and educate potential users about browser productivity.",
-          scope: [
-            "Create editorial calendar for blog posts and articles",
-            "Write 2-3 blog posts per month on productivity and browser workflows",
-            "Develop SEO-optimized content around key search terms",
-            "Create social media content to promote blog posts"
-          ],
-          goals: [
-            "Publish 8+ blog posts in Q1 2026",
-            "Achieve 1,000+ monthly blog visitors",
-            "Generate 20+ sign-ups from content marketing"
-          ]
-        }
-      ]
-    },
-    {
       name: "Lokesh Nenavath",
       roles: ["Product"],
       employmentStatus: "intern",
@@ -2354,159 +2266,6 @@ function TeamExecution() {
       ]
     },
     {
-      name: "Ruhani",
-      roles: ["Sales"],
-      employmentStatus: "intern",
-      hoursPerWeek: 20,
-      timeLogs: [
-        {
-          submissionId: "Ruhani1",
-          respondentId: "Ruhani",
-          submittedAt: "2025-01-10 10:00:00",
-          name: "Ruhani",
-          date: "2025-01-03",
-          hours: 20,
-          description: "Week of Dec 30 - Jan 3. Conducted product demos for prospects. Scheduled discovery calls with potential B2B customers. Followed up with demo attendees. Negotiated pilot contracts."
-        },
-        {
-          submissionId: "Ruhani2",
-          respondentId: "Ruhani",
-          submittedAt: "2025-01-17 10:00:00",
-          name: "Ruhani",
-          date: "2025-01-10",
-          hours: 20,
-          description: "Week of Jan 6-10. Conducted demos for qualified leads. Scheduled discovery calls. Followed up with prospects. Built pipeline for $50K ARR target."
-        },
-        {
-          submissionId: "Ruhani3",
-          respondentId: "Ruhani",
-          submittedAt: "2025-01-24 10:00:00",
-          name: "Ruhani",
-          date: "2025-01-17",
-          hours: 20,
-          description: "Week of Jan 13-17. Conducted demos and discovery calls. Negotiated pilot contract terms. Followed up with prospects. Tracked pipeline value toward $50K ARR goal."
-        },
-        {
-          submissionId: "Ruhani4",
-          respondentId: "Ruhani",
-          submittedAt: "2025-01-31 10:00:00",
-          name: "Ruhani",
-          date: "2025-01-24",
-          hours: 20,
-          description: "Week of Jan 20-24. Closed pilot contract negotiations. Conducted final demos. Followed up with signed pilots. Achieved $50K ARR milestone."
-        }
-      ],
-      q1Goals: {
-        overview: "Drive B2B revenue through partner program and direct sales",
-        target: "Generate $50,000 ARR in Q1 (1 pilot at $50K or 2 pilots at $25K each)",
-        weeklyBreakdown: [
-          { week: 1, goal: "Draft partner contract and research leads", metric: "Contract ready, 20+ qualified leads identified" },
-          { week: 2, goal: "Week 2 partner outreach & direct sales", metric: "Outreach in progress, 2+ responses" },
-          { week: 3, goal: "Week 3 partner outreach & direct sales", metric: "Outreach in progress, 2+ responses" },
-          { week: 4, goal: "Partner contract signed", metric: "1 partner onboarded, $25K+ pipeline" },
-          { week: 5, goal: "Partner training & education", metric: "Training complete, $50K+ pipeline" },
-          { week: 6, goal: "Week 6 partner support & sales", metric: "$75K+ pipeline" },
-          { week: 7, goal: "First partner-led demo", metric: "Demo conducted, $100K+ pipeline" },
-          { week: 8, goal: "Week 8 partner support & sales", metric: "$100K+ pipeline" },
-          { week: 9, goal: "Week 9 pilot negotiations", metric: "$50K+ ARR in active negotiations" },
-          { week: 10, goal: "Week 10 pilot negotiations", metric: "$50K+ ARR in active negotiations" },
-          { week: 11, goal: "Week 11 pilot closing", metric: "$50K ARR closed" },
-          { week: 12, goal: "Week 12 follow-up", metric: "$50K ARR confirmed" },
-          { week: 13, goal: "Q1 sales review", metric: "$50,000 ARR achieved" }
-        ],
-        keyMetrics: [
-          "ARR generated (target $50,000)",
-          "Qualified B2B leads generated (target 20+)",
-          "Pipeline value (target $100K+ by week 7)",
-          "Partners onboarded (target 1)",
-          "Partner-led demos conducted",
-          "Pilot contracts closed (1 at $50K or 2 at $25K)"
-        ]
-      },
-      availability: {
-        monday: {
-          active: true,
-          timeRange: "12:30 AM - 5:30 AM",
-          timezone: "Eastern Standard Time (EST)",
-          activities: [
-            "Scheduling demos",
-            "Having demos",
-            "Sending follow up",
-            "Getting on the same page with other team members"
-          ]
-        },
-        tuesday: {
-          active: true,
-          timeRange: "12:30 AM - 5:30 AM",
-          timezone: "Eastern Standard Time (EST)",
-          activities: [
-            "Scheduling demos",
-            "Having demos",
-            "Sending follow up",
-            "Getting on the same page with other team members"
-          ]
-        },
-        wednesday: {
-          active: true,
-          timeRange: "12:30 AM - 5:30 AM",
-          timezone: "Eastern Standard Time (EST)",
-          activities: [
-            "Scheduling demos",
-            "Having demos",
-            "Sending follow up",
-            "Getting on the same page with other team members"
-          ]
-        },
-        thursday: {
-          active: true,
-          timeRange: "12:30 AM - 5:30 AM",
-          timezone: "Eastern Standard Time (EST)",
-          activities: [
-            "Scheduling demos",
-            "Having demos",
-            "Sending follow up",
-            "Getting on the same page with other team members"
-          ]
-        },
-        friday: {
-          active: true,
-          timeRange: "12:30 AM - 5:30 AM",
-          timezone: "Eastern Standard Time (EST)",
-          activities: [
-            "Scheduling demos",
-            "Having demos",
-            "Sending follow up",
-            "Getting on the same page with other team members"
-          ]
-        },
-        saturday: {
-          active: false
-        },
-        sunday: {
-          active: false
-        }
-      },
-      projects: [
-        {
-          title: "Partner Program",
-          status: "active",
-          startDate: "January 2026",
-          description: "Building a partner program to enable external partners to conduct demos and drive sales.",
-          scope: [
-            "Legal Contract to be signed by 'Partner' that outlines everything regarding expectations, compensation, liabilities, etc.",
-            "Partners will need to be given the Oasis browser so that they can install it and showcase it in demos",
-            "Partners will need to undergo some type of training and education so that they can conduct the demos and answer questions in the scope of a demo"
-          ],
-          goals: [
-            "Onboard 1 partner who signs the contract",
-            "Complete partner training and education",
-            "Conduct first partner-led demo",
-            "Get paid when the deal closes"
-          ]
-        }
-      ]
-    },
-    {
       name: "Abhinav Chandra",
       roles: ["Sales"],
       employmentStatus: "intern",
@@ -3331,6 +3090,71 @@ function TeamExecution() {
           ]
         }
       ]
+    },
+    {
+      name: "Ammemah",
+      roles: ["Product"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: [],
+      q1Goals: {
+        overview: "Support product development and feature definition",
+        target: "Complete 10+ product requirement documents in Q1",
+        weeklyBreakdown: [],
+        keyMetrics: ["PRDs completed", "Feature adoption support"]
+      }
+    },
+    {
+      name: "Ruturaj",
+      roles: ["Engineering"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: [],
+      q1Goals: {
+        overview: "Core product development and infrastructure",
+        target: "Deliver 120+ story points in Q1",
+        weeklyBreakdown: [],
+        keyMetrics: ["Story points delivered", "Code quality"]
+      }
+    },
+    {
+      name: "Ankit",
+      roles: ["Product Marketing"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: [],
+      q1Goals: {
+        overview: "Drive subscriber growth through marketing initiatives",
+        target: "Support 50+ new subscriber acquisitions in Q1",
+        weeklyBreakdown: [],
+        keyMetrics: ["Marketing campaigns launched", "Subscriber growth"]
+      }
+    },
+    {
+      name: "Ravi",
+      roles: ["Product"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: [],
+      q1Goals: {
+        overview: "Product management and user research",
+        target: "Conduct 15+ user research sessions in Q1",
+        weeklyBreakdown: [],
+        keyMetrics: ["User research sessions", "Product roadmap contributions"]
+      }
+    },
+    {
+      name: "Yaseer",
+      roles: ["Product"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: [],
+      q1Goals: {
+        overview: "Product feature planning and execution",
+        target: "Oversee the launch of 3+ key browser features in Q1",
+        weeklyBreakdown: [],
+        keyMetrics: ["Feature launches", "Product stability"]
+      }
     }
   ]
 

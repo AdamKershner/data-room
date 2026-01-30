@@ -10,7 +10,17 @@ function ExecutiveSummary() {
     <div className="page">
       <div className="page-header">
         <h1>Executive Summary</h1>
+        <p className="page-subtitle">Oasis Browser: Redefining Knowledge Work with AI-Native Browsing</p>
       </div>
+
+      <section className="page-section mission-statement-section" style={{ textAlign: 'center', padding: '40px 0' }}>
+        <div className="content-block">
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '20px', color: '#00d2ff' }}>Mission Statement</h2>
+          <p style={{ fontSize: '1.8rem', fontWeight: '500', lineHeight: '1.4', fontStyle: 'italic', maxWidth: '800px', margin: '0 auto' }}>
+            "It's called Oasis for a reason. Our mission is to create the most elegant browser ever."
+          </p>
+        </div>
+      </section>
 
       <section className="page-section">
         <h2>Purpose</h2>
