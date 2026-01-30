@@ -6,6 +6,57 @@ function WeeklyReports() {
   // Weekly reports generated from time log data
   const [reports] = useState([
     {
+      id: 0,
+      week: '2026-01-26',
+      weekLabel: 'Week of January 26, 2026',
+      keyUpdates: [
+        "Ashwin has enhanced the UI and codebase to closely match Pournami's advanced UI designs in Figma; enhancements are being completed and tested for a new release next week",
+        "Onboarded new team members: Ammemah (Product), Ruturaj (Engineering), Ravi (Product), Ankit (Product Marketing), and Yaseer (Product)",
+        "Shivangi and Ruhani resigned from the team",
+        "Following next week's release (Windows and Mac), the team will conduct another round of testing followed by a team-wide NPS and PMF survey to establish an NPS baseline metric",
+        '17 new feedbacks were submitted by the product team',
+        'Sprint 6 (HITL) is on schedule to be completed next week',
+        'Creating new sprints for Enterprise Browser features and a dedicated Chromium version of Oasis to address prospective client requirements',
+        'Generated 6 new MQLs from high-intent enterprise visitors including Walgreens (Retail), Glean (AI/Search), and Middlesex Water Company (Utilities)',
+        'Significant progress on Windows production build (Davis Victor - 41 hours logged)',
+        'Advanced HITL (Human-in-the-Loop) implementation and database schema design (Revanth, Rushyanth - 50+ hours)',
+        'Refined supervisor agent system prompts and RLHF research (Likhitha - 20 hours)',
+        'Enhanced command interface UI/UX and bug fixes (Akalpit, Revanth)',
+        'Expanded content operations with new editor onboarding and animation focus (Dhruv Patel)',
+        'Completed Sprint 7 work and moved into parallel track reorganization for Sprints 8-10',
+        'Initial assessment of enterprise browser requirements (Okta, Netskope DLP, Managed Sessions)'
+      ],
+      timeBreakdown: {
+        'Product Development': 152.5,
+        'HITL & Research': 96.0,
+        'Marketing & Content': 45.0,
+        'Operations & Admin': 25.0,
+        'Learning & Training': 16.0
+      },
+      areasToImprove: [
+        'Increase MQLs and SQLs per week (Product Marketing & Sales) through increased blog and YouTube video production',
+        'Focus on high-value use cases: providing secure SaaS access for short-term consultants via managed browser (Okta/Netskope integration) without shipping hardware',
+        'Maintain Windows build momentum for upcoming PM release',
+        'Coordinate team-wide testing and NPS/PMF survey following next week\'s release'
+      ],
+      metrics: {
+        totalHours: 334.5,
+        teamMembers: 25,
+        entries: 34,
+        mqls: 6,
+        sqls: 1,
+        impressions: 50800,
+        impressionsGrowth: -13.9,
+        timeLogParticipation: 50.0,
+        waitlistSignups: 141
+      },
+      quarterlyGoals: {
+        nps: 0,
+        pilots: 0,
+        payingSubscribers: 0
+      }
+    },
+    {
       id: 1,
       week: '2026-01-19',
       weekLabel: 'Week of January 19, 2026',
