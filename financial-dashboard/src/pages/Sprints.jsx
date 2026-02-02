@@ -426,64 +426,6 @@ function Sprints() {
         "Tool output text is converted to natural language in responses",
         "Network errors are handled gracefully with retry logic"
       ]
-    }
-  ]
-
-  // Active sprints (in progress)
-  const activeSprints = [
-    {
-      id: 5,
-      title: "UI/Bug Fixes",
-      emoji: "🐛",
-      priority: "MEDIUM",
-      storyPoints: 2,
-      effort: "Low-Medium",
-      impact: "Medium",
-      severity: "6-9/10",
-      overview: "Fix various UI issues and bugs in the AI Assistant interface. Includes bookmark management fixes.",
-      primaryFiles: "browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/build/src/commands.ts, browser/base/content/assistant/assistant.ui.js, Firefox bookmark API",
-      issues: [
-        {
-          title: "Bug: Invalid URL Opened",
-          count: 1,
-          submissionIds: ["OD2aDK8"],
-          description: "AI opened a URL that was not actually a webpage (https://www.youtube.com/howyoutubeworks/creators/upload-videos/) when user asked to open article about uploading video in YouTube.",
-          impact: "Opens invalid pages (severity 9/10)",
-          technicalNotes: "URL validation and content checking before opening in tab command module",
-          feedback: [
-            { id: "OD2aDK8", text: "I wanted to open an article about uploading an video in youtube, but the AI replied and opened and URL which was not actually a webpage. Oasis AI: in a new tab. [The opened URL link - https://www.youtube.com/howyoutubeworks/creators/upload-videos/]", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-21-at-4.40.24-PM.png?id=qJJZQg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFKSlpRZyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTAzNTI3MH0.oZB18p6NLlQ7vXLJ3nVASTbX-DZ1GPpLNCxMOAtW7eY&signature=0c4aca5180c70dbb9253ccd94c56de11a2eff2d5e00926f790ddc58f0ffc0786" }
-          ]
-        },
-        {
-          title: "UI: Make Minimize/Maximize More Intuitive and Add Resizing",
-          count: 1,
-          submissionIds: ["Xxa0l5V"],
-          description: "Make the minimize and maximize feature of the Assistant interface more intuitive. When minimized, the maximize button should be visible and the minimize button should be greyed out. When maximized, the maximize button should be greyed out. Additionally, the assistant interface (AI assistant window) should be resizable by clicking and dragging any of its 4 sides.",
-          impact: "Improves usability and user control over AI assistant window (severity 6/10)",
-          technicalNotes: "Minimize/maximize toggle logic and button state management in assistant.ui.js. Add resize handles on all 4 sides of the assistant window. Implement drag-to-resize functionality with minimum/maximum size constraints.",
-          requiresUI: true,
-          feedback: [
-            { id: "Xxa0l5V", text: "After minimizing the chat by clicking the minimize button, clicking it again has no effect. It would be great if clicking it again restored the chat to its original size. The minimize and maximize feature should be more intuitive - if it's minimized, the maximize button should be there but the minimize button should be greyed out. If it's maximized, the maximize button should be greyed out. Also, the assistant interface should be resizable by clicking and dragging any of its 4 sides." }
-          ]
-        },
-        {
-          title: "Removing Bookmarks Doesn't Work",
-          count: 1,
-          submissionIds: ["lbkVQEp"],
-          description: "'remove [bookmark]' command can't find imported Chrome bookmarks",
-          impact: "Can't clean up imported bookmarks (severity 7/10)",
-          technicalNotes: "Integrate Firefox bookmark API, implement bookmark search/removal commands",
-          feedback: [
-            { id: "lbkVQEp", text: "I asked AI assistant to remove 'Wyzant' bookmark I imported from Google Chrome and it couldn't find it. I consider this basic functionality that should work. It's not a feature.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-11-at-11.57.16-AM.png?id=6AbGpe&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZBYkdwZSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE1NDQyNn0.EkbFQCmWDUmFM6L-sRD-iGb8KhxKAfeTNoVOXkJDIaM&signature=8396795c26d2ee3720592bc4d5a8ddb151858f3e0a1ecbde62f71ead00b63694" }
-          ]
-        }
-      ],
-      acceptanceCriteria: [
-        "URL validation prevents opening invalid pages",
-        "Minimize/maximize buttons show correct states (minimize greyed when minimized, maximize greyed when maximized)",
-        "Assistant interface is resizable by dragging any of its 4 sides",
-        "Bookmark removal works for imported bookmarks via AI commands"
-      ]
     },
     {
       id: 6,
@@ -572,6 +514,96 @@ function Sprints() {
         "Model training integration sends processed feedback to backend for model updates",
         "Basic HITL workflow is tested and validated end-to-end",
         "Product testers can begin participating in the loop and providing inputs"
+      ]
+    },
+    {
+      id: 16,
+      title: "Gemini Model Migration (Critical)",
+      emoji: "⚠️",
+      priority: "CRITICAL",
+      storyPoints: 3,
+      effort: "Medium",
+      impact: "Critical",
+      severity: "10/10",
+      overview: "Migrate from Gemini 2.0 models (discontinued March 31, 2026) to supported models. Completed by Rushyanth: Changed model to 'gemini-3-flash-preview' which is working. As noted by Rushyanth, Google will most probably discard 2.5 Flash as well in the near future, so migrating directly to gemini-3-flash-preview was the right approach.",
+      primaryFiles: "browser/base/content/assistant/build/src/proxyClient.ts / awsSignedFetch.ts, browser/base/content/assistant/build/src/services/subscription.ts",
+      issues: [
+        {
+          title: "Critical: Gemini Model Migration Required",
+          count: 1,
+          submissionIds: ["jaRPLRY"],
+          description: "Google is discontinuing Gemini 2.0 models (Gemini 2.0 Flash and Gemini 2.0 Flash Lite) on March 31, 2026. Need to migrate to supported models (e.g., 2.5 Flash, 2.5 Flash Lite) before this date.",
+          impact: "AI Assistant will stop working if not addressed (severity 10/10)",
+          technicalNotes: "Update model configuration in proxyClient.ts / awsSignedFetch.ts (depending where model selection lives). Also update services/subscription.ts (usage model tagging currently defaults to `gemini-1.5-flash`). Test with new models. Coordinate with backend team if needed.",
+          feedback: [
+            { id: "jaRPLRY", text: "Google recently announced: 'We're discontinuing Gemini 2.0 models on AIS. On March 31, 2026, we're discontinuing the following Gemini 2.0 models: Gemini 2.0 Flash (gemini-2.0-flash, gemini-2.0-flash-001) and Gemini 2.0 Flash Lite (gemini-2.0-flash-lite, gemini-2.0-flash-lite-001). Required action: Migrate to a supported Gemini model (e.g., 2.5 Flash, 2.5 Flash Lite). Impacted projects: oasis-browser-469518. If we don't properly address the Gemini change from Google, it could cause the AI assistant to stop working universally'" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "Gemini model migration completed before March 31, 2026",
+        "All model references updated to supported versions",
+        "System tested with new models",
+        "No functionality regressions"
+      ],
+      completionNote: "Completed by Rushyanth: Saw sprint 16, its an easy fix, they will most probably discard 2.5 flash as well in near future, so i changed our model to 'gemini-3-flash-preview' its working, so Sprint16 is done."
+    }
+  ]
+
+  // Active sprints (in progress)
+  const activeSprints = [
+    {
+      id: 5,
+      title: "UI/Bug Fixes",
+      emoji: "🐛",
+      priority: "MEDIUM",
+      storyPoints: 2,
+      effort: "Low-Medium",
+      impact: "Medium",
+      severity: "6-9/10",
+      overview: "Fix various UI issues and bugs in the AI Assistant interface. Includes bookmark management fixes.",
+      primaryFiles: "browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/build/src/commands.ts, browser/base/content/assistant/assistant.ui.js, Firefox bookmark API",
+      issues: [
+        {
+          title: "Bug: Invalid URL Opened",
+          count: 1,
+          submissionIds: ["OD2aDK8"],
+          description: "AI opened a URL that was not actually a webpage (https://www.youtube.com/howyoutubeworks/creators/upload-videos/) when user asked to open article about uploading video in YouTube.",
+          impact: "Opens invalid pages (severity 9/10)",
+          technicalNotes: "URL validation and content checking before opening in tab command module",
+          feedback: [
+            { id: "OD2aDK8", text: "I wanted to open an article about uploading an video in youtube, but the AI replied and opened and URL which was not actually a webpage. Oasis AI: in a new tab. [The opened URL link - https://www.youtube.com/howyoutubeworks/creators/upload-videos/]", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-21-at-4.40.24-PM.png?id=qJJZQg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFKSlpRZyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTAzNTI3MH0.oZB18p6NLlQ7vXLJ3nVASTbX-DZ1GPpLNCxMOAtW7eY&signature=0c4aca5180c70dbb9253ccd94c56de11a2eff2d5e00926f790ddc58f0ffc0786" }
+          ]
+        },
+        {
+          title: "UI: Make Minimize/Maximize More Intuitive and Add Resizing",
+          count: 1,
+          submissionIds: ["Xxa0l5V"],
+          description: "Make the minimize and maximize feature of the Assistant interface more intuitive. When minimized, the maximize button should be visible and the minimize button should be greyed out. When maximized, the maximize button should be greyed out. Additionally, the assistant interface (AI assistant window) should be resizable by clicking and dragging any of its 4 sides.",
+          impact: "Improves usability and user control over AI assistant window (severity 6/10)",
+          technicalNotes: "Minimize/maximize toggle logic and button state management in assistant.ui.js. Add resize handles on all 4 sides of the assistant window. Implement drag-to-resize functionality with minimum/maximum size constraints.",
+          requiresUI: true,
+          feedback: [
+            { id: "Xxa0l5V", text: "After minimizing the chat by clicking the minimize button, clicking it again has no effect. It would be great if clicking it again restored the chat to its original size. The minimize and maximize feature should be more intuitive - if it's minimized, the maximize button should be there but the minimize button should be greyed out. If it's maximized, the maximize button should be greyed out. Also, the assistant interface should be resizable by clicking and dragging any of its 4 sides." }
+          ]
+        },
+        {
+          title: "Removing Bookmarks Doesn't Work",
+          count: 1,
+          submissionIds: ["lbkVQEp"],
+          description: "'remove [bookmark]' command can't find imported Chrome bookmarks",
+          impact: "Can't clean up imported bookmarks (severity 7/10)",
+          technicalNotes: "Integrate Firefox bookmark API, implement bookmark search/removal commands",
+          feedback: [
+            { id: "lbkVQEp", text: "I asked AI assistant to remove 'Wyzant' bookmark I imported from Google Chrome and it couldn't find it. I consider this basic functionality that should work. It's not a feature.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-11-at-11.57.16-AM.png?id=6AbGpe&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZBYkdwZSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE1NDQyNn0.EkbFQCmWDUmFM6L-sRD-iGb8KhxKAfeTNoVOXkJDIaM&signature=8396795c26d2ee3720592bc4d5a8ddb151858f3e0a1ecbde62f71ead00b63694" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "URL validation prevents opening invalid pages",
+        "Minimize/maximize buttons show correct states (minimize greyed when minimized, maximize greyed when maximized)",
+        "Assistant interface is resizable by dragging any of its 4 sides",
+        "Bookmark removal works for imported bookmarks via AI commands"
       ]
     },
     {
@@ -1144,37 +1176,6 @@ function Sprints() {
         "Update notifications appear within Oasis",
         "Update UI is accessible and intuitive",
         "Users can enable/disable automatic updates"
-      ]
-    },
-    {
-      id: 16,
-      title: "Gemini Model Migration (Critical)",
-      emoji: "⚠️",
-      priority: "CRITICAL",
-      storyPoints: 3,
-      effort: "Medium",
-      impact: "Critical",
-      severity: "10/10",
-      overview: "Migrate from Gemini 2.0 models (discontinued March 31, 2026) to supported models (e.g., 2.5 Flash, 2.5 Flash Lite).",
-      primaryFiles: "browser/base/content/assistant/build/src/proxyClient.ts / awsSignedFetch.ts, browser/base/content/assistant/build/src/services/subscription.ts",
-      issues: [
-        {
-          title: "Critical: Gemini Model Migration Required",
-          count: 1,
-          submissionIds: ["jaRPLRY"],
-          description: "Google is discontinuing Gemini 2.0 models (Gemini 2.0 Flash and Gemini 2.0 Flash Lite) on March 31, 2026. Need to migrate to supported models (e.g., 2.5 Flash, 2.5 Flash Lite) before this date.",
-          impact: "AI Assistant will stop working if not addressed (severity 10/10)",
-          technicalNotes: "Update model configuration in proxyClient.ts / awsSignedFetch.ts (depending where model selection lives). Also update services/subscription.ts (usage model tagging currently defaults to `gemini-1.5-flash`). Test with new models. Coordinate with backend team if needed.",
-          feedback: [
-            { id: "jaRPLRY", text: "Google recently announced: 'We're discontinuing Gemini 2.0 models on AIS. On March 31, 2026, we're discontinuing the following Gemini 2.0 models: Gemini 2.0 Flash (gemini-2.0-flash, gemini-2.0-flash-001) and Gemini 2.0 Flash Lite (gemini-2.0-flash-lite, gemini-2.0-flash-lite-001). Required action: Migrate to a supported Gemini model (e.g., 2.5 Flash, 2.5 Flash Lite). Impacted projects: oasis-browser-469518. If we don't properly address the Gemini change from Google, it could cause the AI assistant to stop working universally'" }
-          ]
-        }
-      ],
-      acceptanceCriteria: [
-        "Gemini model migration completed before March 31, 2026",
-        "All model references updated to supported versions",
-        "System tested with new models",
-        "No functionality regressions"
       ]
     },
     {
