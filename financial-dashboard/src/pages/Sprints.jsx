@@ -1176,6 +1176,74 @@ function Sprints() {
         "System tested with new models",
         "No functionality regressions"
       ]
+    },
+    {
+      id: 17,
+      title: "Oasis Enterprise Browser Chromium Version",
+      emoji: "🏢",
+      priority: "HIGH",
+      storyPoints: 55,
+      effort: "High",
+      impact: "High",
+      severity: "9/10",
+      overview: "Develop a Chromium-based version of Oasis Enterprise Browser to address enterprise customer requirements for secure SaaS access. This sprint is motivated by enterprise demand for managed browsers that can provide secure access to cloud applications for short-term consultants and third-party partners without requiring full device management or shipping hardware. By 2026, analysts project that roughly 25% of enterprises will be using managed browsers or extensions for security and access control. The enterprise browser market is growing rapidly, with most enterprise browsers being Chromium-based due to Chromium's dominant share of global browser usage and compatibility with modern SaaS applications. Organizations now use an average of 100+ SaaS apps, with large enterprises often using well over 150-400, which increases the need for centralized, browser-level security controls. This creates a significant market opportunity for Chromium-based enterprise browsers that can provide secure SaaS access for external users via managed browser sessions, with per-user, per-month licensing aligned to flexible contractor headcount. The goal is to reduce hardware and IT overhead, improve security posture for third-party access, and maintain a familiar user experience while enabling centralized controls for data protection and policy enforcement at the browser/session level.",
+      primaryFiles: "Chromium browser fork (NEW), SSO integration module (NEW), Enterprise policy management (NEW), Browser installation without admin privileges (NEW)",
+      issues: [
+        {
+          title: "SSO (Single Sign-On) Integration",
+          count: 0,
+          submissionIds: [],
+          description: "Implement SSO integration to enable enterprise identity providers (e.g., Okta, Azure AD, Google Workspace) to authenticate users accessing SaaS applications through the managed browser. SSO is a critical requirement for enterprise customers who need to provide secure access to their SaaS apps for short-term consultants and third-party partners without granting broad device trust or network access.",
+          impact: "Enables enterprise authentication and access control (severity 10/10)",
+          technicalNotes: "Implement OAuth 2.0 / SAML 2.0 SSO flows, integrate with common identity providers (Okta, Azure AD, Google Workspace, etc.), handle token management and refresh, implement session management for SSO-authenticated sessions",
+          feedback: []
+        },
+        {
+          title: "Chromium Engine Integration",
+          count: 0,
+          submissionIds: [],
+          description: "Build Oasis Enterprise Browser on Chromium engine for compatibility with modern SaaS applications and to match user expectations from mainstream browsers like Chrome. Chromium-based browsers are preferred by enterprises due to Chromium's dominant market share and web compatibility.",
+          impact: "Ensures compatibility with enterprise SaaS applications (severity 9/10)",
+          technicalNotes: "Fork Chromium or use Chromium Embedded Framework (CEF), integrate Oasis AI Assistant and enterprise features into Chromium, maintain compatibility with existing Chromium extensions and web standards",
+          feedback: []
+        },
+        {
+          title: "Installation Without Admin Privileges",
+          count: 0,
+          submissionIds: [],
+          description: "Enable browser installation and operation without requiring local administrator privileges. This is essential for enterprise deployments where contractors and third-party partners may not have admin access on their devices.",
+          impact: "Enables deployment on contractor devices without admin rights (severity 10/10)",
+          technicalNotes: "Design portable installation that doesn't require system-level changes, use user-level installation paths, implement portable browser architecture, handle permissions and security contexts appropriately",
+          feedback: []
+        },
+        {
+          title: "Enterprise Policy Management",
+          count: 0,
+          submissionIds: [],
+          description: "Implement centralized policy management for data protection and access control. Enable administrators to enforce policies at the browser/session level, such as blocking downloads, uploads, or risky actions, without requiring full device management.",
+          impact: "Provides centralized security controls for enterprise deployments (severity 9/10)",
+          technicalNotes: "Design policy management API and UI, implement policy enforcement engine, support common enterprise policies (download blocking, upload restrictions, URL filtering, etc.), integrate with enterprise management platforms",
+          feedback: []
+        },
+        {
+          title: "Per-User Per-Month Licensing Model",
+          count: 0,
+          submissionIds: [],
+          description: "Implement licensing system that supports per-user, per-month pricing aligned to flexible and fluctuating contractor headcount. This aligns with enterprise requirements for scalable, usage-based licensing.",
+          impact: "Enables flexible enterprise pricing model (severity 8/10)",
+          technicalNotes: "Design licensing system with per-user tracking, implement monthly billing cycles, support user provisioning and deprovisioning, integrate with billing and subscription management",
+          feedback: []
+        }
+      ],
+      acceptanceCriteria: [
+        "SSO integration supports major identity providers (Okta, Azure AD, Google Workspace)",
+        "Browser runs on Chromium engine with full SaaS application compatibility",
+        "Browser installs and operates without requiring local admin privileges",
+        "Enterprise policy management enables centralized security controls",
+        "Per-user, per-month licensing model is implemented and functional",
+        "Browser can be easily deployed and removed for contractor engagements",
+        "All enterprise features work seamlessly with existing Oasis AI Assistant functionality"
+      ]
     }
   ]
 

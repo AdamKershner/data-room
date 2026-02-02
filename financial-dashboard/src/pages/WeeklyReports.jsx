@@ -27,11 +27,11 @@ function WeeklyReports() {
         'Initial assessment of enterprise browser requirements (Okta, Netskope DLP, Managed Sessions)'
       ],
       timeBreakdown: {
-        'Product Development': 152.5,
-        'HITL & Research': 96.0,
-        'Marketing & Content': 45.0,
-        'Operations & Admin': 25.0,
-        'Learning & Training': 16.0
+        'Product Development': 233.5,
+        'HITL & Research': 55.0,
+        'Learning & Training': 50.0,
+        'Operations & Admin': 46.0,
+        'Marketing & Content': 34.5
       },
       areasToImprove: [
         'Increase MQLs and SQLs per week (Product Marketing & Sales) through increased blog and YouTube video production',
@@ -40,14 +40,14 @@ function WeeklyReports() {
         'Coordinate team-wide testing and NPS/PMF survey following next week\'s release'
       ],
       metrics: {
-        totalHours: 334.5,
-        teamMembers: 25,
-        entries: 34,
+        totalHours: 419.0,
+        teamMembers: 23,
+        entries: 37,
         mqls: 6,
         sqls: 1,
         impressions: 50800,
         impressionsGrowth: -13.9,
-        timeLogParticipation: 50.0,
+        timeLogParticipation: 46.0,
         waitlistSignups: 141
       },
       quarterlyGoals: {
