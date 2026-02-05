@@ -615,20 +615,9 @@ function Sprints() {
       effort: "Medium-High",
       impact: "High",
       severity: "7-10/10",
-      overview: "Fix tab group operations including renaming, finding tabs within groups, adding/removing tabs, and tab group state accuracy. Also fix core tab/window commands that users perceive as 'it said it worked but nothing happened.' This sprint covers both tab group management and tab/window command correctness. Also includes browser import, Firefox branding removal, and first launch fixes. Includes context-based tab organization using AI to automatically group related tabs.",
+      overview: "Fix tab group operations including renaming, finding tabs within groups, adding/removing tabs, and tab group state accuracy. Also fix core tab/window commands that users perceive as 'it said it worked but nothing happened.' This sprint covers both tab group management and tab/window command correctness. Includes context-based tab organization using AI to automatically group related tabs. ✅ RESOLVED ISSUES (archived): Tab Group Renaming Fails, Tab Group Renaming and Listing Tabs Fails. ⚠️ PARTIALLY RESOLVED: Adding Tabs to Groups Adds Wrong Tabs (basic adding works, complex matching needs testing), Compound Command: Create Group + Add Tab Fails (correctly adds specified tab but also incorrectly adds current tab), \"Close Tab Group\" Command Deletes Hub Instead (Delete command works, but Close command doesn't exist - Close should hide tab group, Open should restore it).",
       primaryFiles: "browser/base/content/assistant/build/src/hubs.ts, browser/base/content/assistant/build/src/commands.ts, browser/base/content/assistant/build/src/services/localMemory.ts, Browser first-run / startup UI (for browser import, privacy policy, vertical tabs popup), browser/branding/**",
       issues: [
-        {
-          title: "Tab Group Renaming Fails",
-          count: 1,
-          submissionIds: ["EkO6rLL"],
-          description: "AI assistant cannot rename tab groups. When manually renamed, AI assistant still thinks old name exists and creates phantom groups.",
-          impact: "Can't organize tab groups effectively (severity 10/10)",
-          technicalNotes: "Tab group state synchronization issue - AI assistant state doesn't match actual tab group state in hubs.ts",
-          feedback: [
-            { id: "EkO6rLL", text: "I had a GoogleMail tab group. I asked AI assistant to rename it to GoogleSheets. It was not able to rename it, so I did it manually. I then asked the AI assistant to create a GooglMail tab group. It said it created it but I could not see it. So I asked it to show me the tab groups. It said I had a GoogleMail and GooglMail tab groups. Note that I don't have a GoogleMail tab since I renamed it to GoogleSheets yet the AI assistant thinks I have one.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-18-at-11.55.56-AM.png?id=e0LegQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUwTGVnUSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODc1OTMyNX0.6WVl9B9knEYWrhhh4QsdmMYyY6PnJvVYsJ9CtEkjYKo&signature=7bd0fef6cf0cf57f21cf0fc79dbf9adfc4e6c4ac643b5b5796eac6233c5e5fdb" }
-          ]
-        },
         {
           title: "Can't Find Tabs in Tab Groups",
           count: 2,
@@ -648,6 +637,7 @@ function Sprints() {
           description: "Commands to add specific tabs to groups (e.g., 'add all the youtube tabs') add all open tabs instead of just the specified ones.",
           impact: "Can't selectively organize tabs (severity 8/10)",
           technicalNotes: "Tab filtering/matching logic broken in hub command module - needs to properly match tabs by URL, title, or domain",
+          resolutionNote: "⚠️ PARTIALLY RESOLVED: Basic tab adding works (tested: 'Add tab 2 to Dynasty' worked correctly). However, complex tab matching (e.g., 'add all the youtube tabs') has not been tested yet. This issue should remain open until complex matching scenarios are verified.",
           feedback: [
             { id: "Ek77J5r", text: "command: create a group called youtube learning and add all the youtube tabs under it. result: added all the opened tabs instead of just the youtube ones. command: do not add all the tabs, add just the youtube tabs. result: added all the opened tabs instead of just the youtube ones. command: remove all the tabs under youtube learning except youtube tabs. result: added all the opened tabs instead of just the youtube ones." }
           ]
@@ -664,23 +654,13 @@ function Sprints() {
           ]
         },
         {
-          title: "Tab Group Renaming and Listing Tabs Fails",
-          count: 1,
-          submissionIds: ["RGNvdo9"],
-          description: "AI assistant cannot rename tab groups (returns empty response). Cannot list tabs within tab groups (returns empty response).",
-          impact: "Can't manage tab groups effectively (severity 10/10)",
-          technicalNotes: "Tab group renaming and tab listing commands broken in hub command module - needs proper implementation and error handling",
-          feedback: [
-            { id: "RGNvdo9", text: "As a user, I want to be able to use the AI assistant to rename tab groups and get a list of tabs that are saved within a tab group. User: 'Create a tab group \"Sprints\"', AI: 'Created hub \"Sprints\" with 0 items.' User: 'add this tab to the tab group', AI: 'Added 1 tab(s) to hub \"Sprints\".' User: 'list my tab groups', AI: '- Sprints (1)'. User: 'Rename the tab group \"Sprint Planning\"', AI: '.' (empty response). User: 'what is in my Sprints Tab group', AI: '.' (empty response).", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-24-at-3.15.09-PM.png?id=pJZjAE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKWmpBRSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTI4OTQ4M30.QyemEYSpascwbMvgLIA0vn_3qzcXkoL-GJaeqFPk9d4&signature=c6757647fecacd7b07514f44cdedc0cbac397a370dcff174156fdd03e0d849ee" }
-          ]
-        },
-        {
           title: "Compound Command: Create Group + Add Tab Fails",
           count: 1,
           submissionIds: ["b5pKjkZ"],
           description: "Creating tab group and adding specific tab in one compound command doesn't work correctly. Wrong tab gets added instead of the specified one (e.g., 'Create a new tab group called \"Email\" and add my Gmail tab to it' adds wrong tab).",
           impact: "Can't efficiently create and populate tab groups (severity 10/10)",
           technicalNotes: "Compound command parsing and tab matching logic in hub command module - needs to properly identify and add the correct tab when specified",
+          resolutionNote: "⚠️ PARTIALLY RESOLVED: Compound command 'create a tab group called \"Email\" and add my Gmail tab to it' correctly added the Gmail tab as specified. However, it also incorrectly added the current tab the user was on. The issue is that it's adding both the specified tab AND the current tab, rather than just the specified tab. Needs fix to exclude current tab when a specific tab is requested.",
           feedback: [
             { id: "b5pKjkZ", text: "As a user, I want to be able to create a new tab group and add an open tab to it with a single compound command. User: 'Create a new tab group called \"Email\" and add my Gmail tab to it', AI: 'Created hub \"Email\" with 0 items.' '[Tool Output for add_tab_to_hub]: Added 1 tab(s) to hub \"Email\".' The outcome was 1/2 correct. A new tab group called 'Email' was created, however, the wrong tab was added to it. My open Gmail tab was not added to it.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-24-at-3.23.17-PM.png?id=JeBaXr&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkplQmFYciIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTI4OTkzN30.ABGGBUtl3Vo4ADF2rDpS5reAlnWM7QVZ1puzHb5d36g&signature=8f922ec462cadd09545180cb12f4b36b1263eb184e1cbf780fdbd9d7b341edfa" }
           ]
@@ -692,6 +672,7 @@ function Sprints() {
           description: "Command to close tab group deletes the hub instead of closing it. Hub deletion doesn't actually work either - hub remains after deletion attempt.",
           impact: "Can't close tab groups without losing them (severity 10/10)",
           technicalNotes: "Command intent parsing and hub operation logic in hub command module - 'close' should close tabs, not delete hub. Need to distinguish between 'close' and 'delete' operations.",
+          resolutionNote: "⚠️ PARTIALLY RESOLVED: The 'Delete' tab group command now works correctly and successfully deletes tab groups. However, the 'Close' command still doesn't exist. Closing is different from deleting - closing should hide the tab group (without deleting it), and users should be able to say 'Open tab group' to make it display again. Need to implement separate 'Close' command that hides tab groups without deleting them.",
           feedback: [
             { id: "VLevPEv", text: "As a user, I want to be able to use the AI Assistant to 'close' a tab group or close open tabs. User: 'Close my Email tab group', AI: 'Deleted hub \"Email\" (1 items removed).' First of all, I didn't want it to delete the tab group. It ultimately did not delete the tab group or close the tab group.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-24-at-3.29.51-PM.png?id=bYABDL&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZQUJETCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTI5MDI0Mn0.-BpxhVTnZHHZ491BX9rUZv6flqqYOVM6P2T6keDqrwM&signature=8a0306805fa11d2dba1b43c7cbbb081ef3cd4d9daf210788e7694b1af07d223d" }
           ]
@@ -720,41 +701,6 @@ function Sprints() {
           ]
         },
         {
-          title: "No Browser Import in Onboarding",
-          count: 1,
-          submissionIds: ["Me4RJ4M"],
-          description: "When installing Oasis for the first time, there's no option to import data from Chrome/Safari and other browsers immediately in the onboarding flow.",
-          impact: "Users can't easily migrate from other browsers (severity 10/10)",
-          technicalNotes: "Onboarding flow needs browser import option - can leverage Firefox's existing import functionality",
-          requiresUI: true,
-          feedback: [
-            { id: "Me4RJ4M", text: "When a user installs Oasis for the first time, there should be an option to import data from chrome/safari and other browsers immediately in the onboarding flow. The user should know that it is possible to import immediately and be able to easily take action.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.29.46-PM.png?id=Bj2R71&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJqMlI3MSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNjYxNX0.__rJRjYu7WImp-45-L-ZrXfXlL6erlULqlTdpepwdoA&signature=feaa1fa4a1ba1fbcd4ba89dd43c1b1f8d099d2f513f172e484d0271ed1c1c0f9" }
-          ]
-        },
-        {
-          title: "Firefox Privacy Policy on First Launch",
-          count: 1,
-          submissionIds: ["Bzy7Bj5"],
-          description: "As a first-time Oasis user, when installing and opening the browser for the first time, a Firefox privacy policy tab opens instead of Oasis new tab page or Kahana privacy policy.",
-          impact: "Confusing branding, poor first impression (severity 10/10)",
-          technicalNotes: "Browser initialization - replace Firefox default page with Oasis/Kahana page",
-          feedback: [
-            { id: "Bzy7Bj5", text: "As a first-time Oasis user, when I install and open the browser for the first time, I see a Firefox privacy policy tab open https://www.mozilla.org/en-US/privacy/firefox/. This is confusing because I would expect to see the 'new tab' page for Oasis or the Kahana privacy policy instead https://kahana.co/privacy-policy", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.13.15-PM.png?id=GqQAoj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxUUFvaiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTY4Mn0.5OzFjPRZVDMaKYkJGtwKEcTz4K9we1U2ZSlWDKWHSXk&signature=cfc9ccdfca6548993adc659512d9557b285cb2b23d91ea3268f8f27a351ce009" }
-          ]
-        },
-        {
-          title: "Firefox Branding in Vertical Tabs Popup",
-          count: 1,
-          submissionIds: ["PdxOEY5"],
-          description: "When turning on vertical tabs as a new user, a purple popup with Firefox logo and cartoon fox appears. This is not on-brand for Oasis.",
-          impact: "Confusing branding (severity 8/10)",
-          technicalNotes: "Replace Firefox branding in vertical tabs popup with Oasis branding",
-          requiresUI: true,
-          feedback: [
-            { id: "PdxOEY5", text: "When I 'turn on vertical tabs' as a new user, I see a purple popup with the firefox logo and a cartoon fox. This is not on-brand for Oasis and seems confusing and buggy. It would make sense to swap the firefox portions of the popup and modify the pop up so it is on-brand with Oasis", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.07.48-PM.png?id=pJkpy1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKa3B5MSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTM2NH0.hGh4YjifQ96MGhKw8dEfLBBNP7VizfxUZnWcOaJkgQc&signature=1a50fb17952fec483e7c72b09629954ed0a8b93c3ce45072cd9be04b76dddb54" }
-          ]
-        },
-        {
           title: "Feature Request: Add All Tabs to Tab Group",
           count: 1,
           submissionIds: ["7RA2oJA"],
@@ -778,23 +724,20 @@ function Sprints() {
         }
       ],
       acceptanceCriteria: [
-        "Tab groups can be renamed via AI commands",
+        "✅ Tab groups can be renamed via AI commands - RESOLVED (tested: 'Rename tab group Sports to Work' worked correctly)",
         "AI assistant state matches actual tab group state",
         "AI assistant can find and list tabs within tab groups",
         "AI assistant can open specific tabs from within tab groups",
-        "Adding tabs to groups only adds specified tabs (not all tabs)",
+        "⚠️ Adding tabs to groups only adds specified tabs (not all tabs) - PARTIALLY RESOLVED (basic adding works, complex matching needs testing)",
         "Tab groups are created with tabs when specified",
-        "Tab group renaming commands return proper responses (not empty)",
-        "Listing tabs within tab groups works correctly",
-        "Compound commands (create group + add tab) work correctly and add the right tab",
-        "'Close tab group' command closes tabs without deleting the hub",
-        "Hub deletion works correctly when explicitly requested",
+        "✅ Tab group renaming commands return proper responses (not empty) - RESOLVED",
+        "✅ Listing tab groups works correctly - RESOLVED (tested: 'List tab groups' returned correct list)",
+        "⚠️ Compound commands (create group + add tab) work correctly and add the right tab - PARTIALLY RESOLVED (correctly adds specified tab but also incorrectly adds current tab)",
+        "⚠️ 'Close tab group' command closes tabs without deleting the hub - PARTIALLY RESOLVED (Delete command works, but Close command doesn't exist yet - Close should hide tab group, Open should restore it)",
+        "✅ Hub deletion works correctly when explicitly requested - RESOLVED",
         "Duplicate tab closing works correctly",
         "Tab closing by domain/URL pattern works correctly",
         "Tab closing commands actually close tabs (no false success messages)",
-        "Onboarding flow includes browser import option (Chrome, Safari, etc.)",
-        "First launch shows Oasis/Kahana page instead of Firefox privacy policy",
-        "Firefox branding in vertical tabs popup is replaced with Oasis branding",
         "'Add all tabs to tab group' command works correctly",
         "All currently open tabs are added to the specified tab group",
         "Command handles edge cases (no tabs open, tab group doesn't exist)",
@@ -895,7 +838,7 @@ function Sprints() {
       effort: "Medium",
       impact: "High",
       severity: "6-10/10",
-      overview: "Improve the first-time user experience including onboarding flow, default preferences, browser import, AI Assistant visibility, and removing Firefox branding.",
+      overview: "Improve the first-time user experience including onboarding flow, default preferences, browser import, AI Assistant visibility, and removing Firefox branding. Includes browser import in onboarding, Firefox privacy policy replacement on first launch, and Firefox branding removal in vertical tabs popup.",
       primaryFiles: "browser/base/content/assistant/assistant.ui.js (assistant visibility / entry points), Browser first-run / startup UI (exact files TBD when implementing), browser/branding/**",
       issues: [
         {
@@ -956,6 +899,41 @@ function Sprints() {
           feedback: [
             { id: "rj42xGN", text: "As a new Oasis user setting up a New Profile, it was confusing to see a Firefox Branded image popup upon entering the new profile i created", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-24-at-2.39.44-PM.png?id=EZa4Z4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaYTRaNCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTI4NzI0Nn0.aCfmdfDYUQ3xHHY3j9Y-dO7Qpp0ZYUXVsd1ehDZlFYQ&signature=43dd7b8de08820b0b574908e152d8735c2ca013ea9b78364004e8c301e431f07" }
           ]
+        },
+        {
+          title: "No Browser Import in Onboarding",
+          count: 1,
+          submissionIds: ["Me4RJ4M"],
+          description: "When installing Oasis for the first time, there's no option to import data from Chrome/Safari and other browsers immediately in the onboarding flow.",
+          impact: "Users can't easily migrate from other browsers (severity 10/10)",
+          technicalNotes: "Onboarding flow needs browser import option - can leverage Firefox's existing import functionality",
+          requiresUI: true,
+          feedback: [
+            { id: "Me4RJ4M", text: "When a user installs Oasis for the first time, there should be an option to import data from chrome/safari and other browsers immediately in the onboarding flow. The user should know that it is possible to import immediately and be able to easily take action.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.29.46-PM.png?id=Bj2R71&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJqMlI3MSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNjYxNX0.__rJRjYu7WImp-45-L-ZrXfXlL6erlULqlTdpepwdoA&signature=feaa1fa4a1ba1fbcd4ba89dd43c1b1f8d099d2f513f172e484d0271ed1c1c0f9" }
+          ]
+        },
+        {
+          title: "Firefox Privacy Policy on First Launch",
+          count: 1,
+          submissionIds: ["Bzy7Bj5"],
+          description: "As a first-time Oasis user, when installing and opening the browser for the first time, a Firefox privacy policy tab opens instead of Oasis new tab page or Kahana privacy policy.",
+          impact: "Confusing branding, poor first impression (severity 10/10)",
+          technicalNotes: "Browser initialization - replace Firefox default page with Oasis/Kahana page",
+          feedback: [
+            { id: "Bzy7Bj5", text: "As a first-time Oasis user, when I install and open the browser for the first time, I see a Firefox privacy policy tab open https://www.mozilla.org/en-US/privacy/firefox/. This is confusing because I would expect to see the 'new tab' page for Oasis or the Kahana privacy policy instead https://kahana.co/privacy-policy", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.13.15-PM.png?id=GqQAoj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxUUFvaiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTY4Mn0.5OzFjPRZVDMaKYkJGtwKEcTz4K9we1U2ZSlWDKWHSXk&signature=cfc9ccdfca6548993adc659512d9557b285cb2b23d91ea3268f8f27a351ce009" }
+          ]
+        },
+        {
+          title: "Firefox Branding in Vertical Tabs Popup",
+          count: 1,
+          submissionIds: ["PdxOEY5"],
+          description: "When turning on vertical tabs as a new user, a purple popup with Firefox logo and cartoon fox appears. This is not on-brand for Oasis.",
+          impact: "Confusing branding (severity 8/10)",
+          technicalNotes: "Replace Firefox branding in vertical tabs popup with Oasis branding",
+          requiresUI: true,
+          feedback: [
+            { id: "PdxOEY5", text: "When I 'turn on vertical tabs' as a new user, I see a purple popup with the firefox logo and a cartoon fox. This is not on-brand for Oasis and seems confusing and buggy. It would make sense to swap the firefox portions of the popup and modify the pop up so it is on-brand with Oasis", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.07.48-PM.png?id=pJkpy1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKa3B5MSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTM2NH0.hGh4YjifQ96MGhKw8dEfLBBNP7VizfxUZnWcOaJkgQc&signature=1a50fb17952fec483e7c72b09629954ed0a8b93c3ce45072cd9be04b76dddb54" }
+          ]
         }
       ],
       acceptanceCriteria: [
@@ -964,7 +942,10 @@ function Sprints() {
         "'Tabs from other devices' button is hidden or replaced",
         "Optimal default preferences are set automatically on first install",
         "Login/signup is discoverable and guided in onboarding",
-        "New profile creation shows Oasis branding instead of Firefox branded image popup"
+        "New profile creation shows Oasis branding instead of Firefox branded image popup",
+        "Onboarding flow includes browser import option (Chrome, Safari, etc.)",
+        "First launch shows Oasis/Kahana page instead of Firefox privacy policy",
+        "Firefox branding in vertical tabs popup is replaced with Oasis branding"
       ]
     },
     {
@@ -1447,6 +1428,19 @@ function Sprints() {
                           {issue.technicalNotes && (
                             <p><strong>Technical Notes:</strong> {issue.technicalNotes}</p>
                           )}
+                          {issue.resolutionNote && (
+                            <div style={{ 
+                              marginTop: '10px', 
+                              padding: '12px', 
+                              backgroundColor: '#fef3c7', 
+                              border: '1px solid #f59e0b', 
+                              borderRadius: '6px' 
+                            }}>
+                              <p style={{ margin: 0, color: '#92400e', fontWeight: '500' }}>
+                                <strong>Resolution Status:</strong> {issue.resolutionNote}
+                              </p>
+                            </div>
+                          )}
                         </div>
                         <div className="issue-feedback">
                           <strong>Original Feedback:</strong>
@@ -1641,6 +1635,19 @@ function Sprints() {
                               <p><strong>User Impact:</strong> {issue.impact}</p>
                               {issue.technicalNotes && (
                                 <p><strong>Technical Notes:</strong> {issue.technicalNotes}</p>
+                              )}
+                              {issue.resolutionNote && (
+                                <div style={{ 
+                                  marginTop: '10px', 
+                                  padding: '12px', 
+                                  backgroundColor: '#fef3c7', 
+                                  border: '1px solid #f59e0b', 
+                                  borderRadius: '6px' 
+                                }}>
+                                  <p style={{ margin: 0, color: '#92400e', fontWeight: '500' }}>
+                                    <strong>Resolution Status:</strong> {issue.resolutionNote}
+                                  </p>
+                                </div>
                               )}
                             </div>
                             <div className="issue-feedback">
