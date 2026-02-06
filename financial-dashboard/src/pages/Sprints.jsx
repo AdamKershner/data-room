@@ -547,6 +547,92 @@ function Sprints() {
         "No functionality regressions"
       ],
       completionNote: "Completed by Rushyanth: Saw sprint 16, its an easy fix, they will most probably discard 2.5 flash as well in near future, so i changed our model to 'gemini-3-flash-preview' its working, so Sprint16 is done."
+    },
+    {
+      id: 14,
+      title: "Webpage Summarization",
+      emoji: "📄",
+      priority: "MEDIUM",
+      storyPoints: 10,
+      effort: "Medium-High",
+      impact: "Medium",
+      severity: "6-8/10",
+      overview: "Implement webpage content extraction and automatic summarization functionality. Includes both single webpage summarization and multi-tab summarization for research workflows.",
+      primaryFiles: "browser/base/content/assistant/build/src/summarize.ts (NEW), browser/base/content/assistant/build/src/assistant.ts",
+      issues: [
+        {
+          title: "Feature Request: Webpage Summarization",
+          count: 1,
+          submissionIds: ["xXqrxDJ"],
+          description: "Users want AI Assistant to automatically summarize webpages they visit, not just mention the title. Currently AI says it needs a moment to review but doesn't provide summary.",
+          impact: "Would enhance research productivity (severity 6/10)",
+          technicalNotes: "Implement webpage content extraction and summarization. May create new summarize.ts module or extend assistant.ts",
+          feedback: [
+            { id: "xXqrxDJ", text: "I wanted to see the summary of the webpage that I visited, which wasn't happening and the assistant just mentioned the webpage title and was asking me about further details. My request: open articles about setting up an organization in salesforce. review this and let me know the insights. Oasis AI: I have opened a tab with a Salesforce article titled 'How to Set Up Salesforce: A Step-by-Step Guide'. To give you insights, I need you to give me a moment to review the contents of the webpage. Once I've done that, I'll provide a summary of the key steps and insights from the article." }
+          ]
+        },
+        {
+          title: "Performance: Can't Summarize Wiki Pages",
+          count: 1,
+          submissionIds: ["44Vqkb5"],
+          description: "Could not summarize wiki page. Given prompt was to open apple Inc. wiki and summarize their history, but summarization failed.",
+          impact: "Feature doesn't work for some content (severity 8/10)",
+          technicalNotes: "Webpage content extraction and summarization logic - may need better handling for Wikipedia and similar sites. May extend summarize.ts module",
+          feedback: [
+            { id: "44Vqkb5", text: "Could not summarize wiki page. Given prompt was to open apple Inc. wiki and summarize their history", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-11.14.54-AM.png?id=EZqzzN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVacXp6TiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI0NTQxM30.iVDd1BgRn3aRQuEqdPfzgiLVviFxt-uDfDSi_CsvBN8&signature=9ae58bb5cd89f66728af482eeb94a75437f83902c56bae75e03b0e982d9f5dfc" }
+          ]
+        },
+        {
+          title: "Feature Request: Tab Summarization",
+          count: 1,
+          submissionIds: ["7R72950"],
+          description: "Ability to 'summarize and give insights across these 15 tabs'",
+          impact: "Would make research easier (severity 6/10)",
+          technicalNotes: "Implement tab content extraction and summarization across multiple tabs",
+          feedback: [
+            { id: "7R72950", text: "As a user opening 15 tabs on a topic that I'm researching, I want to be able to prompt the AI assistant to 'summarize and give me insights across these 15 tabs.' It would make a lot of my research easier because i wouldn't have to manually read everything or copy content into ChatGPT. It would reduce the number of steps in my process." }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "Webpage summarization works for all content types",
+        "Summarization works for Wikipedia and similar sites",
+        "Content extraction handles various webpage structures",
+        "Summaries are accurate and useful",
+        "Tab summarization feature allows summarizing multiple tabs at once"
+      ],
+      completionNote: "Completed by Rushyanth"
+    },
+    {
+      id: 12,
+      title: "AI Command for Native Splitview",
+      emoji: "🪟",
+      priority: "MEDIUM",
+      storyPoints: 5,
+      effort: "Medium",
+      impact: "High",
+      severity: "10/10",
+      overview: "Integrate with Firefox's native splitview API to allow AI commands to trigger splitview functionality (two tabs side by side within the same window).",
+      primaryFiles: "browser/base/content/assistant/build/src/commands.ts, Firefox native splitview API integration",
+      issues: [
+        {
+          title: "Feature Request: AI Command for Native Splitview",
+          count: 1,
+          submissionIds: ["XxaWDBj"],
+          description: "Users want to use AI commands to trigger Firefox's native splitview feature (where two tabs are arranged side by side within the same window). Currently 'splitview' command opens tabs in two new windows.",
+          impact: "Would enhance productivity (severity 10/10)",
+          technicalNotes: "Integrate with Firefox's native splitview API, create new command for native splitview (rename existing splitview command to something else)",
+          feedback: [
+            { id: "XxaWDBj", text: "As a user, I want to be able to use an ai command that triggers the new existing 'splitview' (Add splitview) feature in Oasis. Firefox introduced a 'splitview' feature to see two tabs side by side. I want to be able to control that feature and use it through the AI assistant. In the past, we created a 'splitview' command that opens the tabs in two new windows which are in a splitview, so that functionality should be called something else. 'Splitview' commands should pertain to the existing splitview functionality that is native to firefox, where two tabs are arranged in a splitview within the same window", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-3.27.25-PM.png?id=1NpZ8W&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOcFo4VyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExNzQ0NX0.BonC49LjrWP1wPg1dVy9BW6doK7AQEeV-ihZICciuj4&signature=42fea6b90fee1dc3c64efbc1afc2d17761d28a1c319cd8996f7e5cc6f2a0d7bb" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "AI command for native Firefox splitview implemented",
+        "Existing splitview command renamed appropriately",
+        "Native splitview works correctly within the same window"
+      ],
+      completionNote: "Completed"
     }
   ]
 
@@ -615,7 +701,7 @@ function Sprints() {
       effort: "Medium-High",
       impact: "High",
       severity: "7-10/10",
-      overview: "Fix tab group operations including renaming, finding tabs within groups, adding/removing tabs, and tab group state accuracy. Also fix core tab/window commands that users perceive as 'it said it worked but nothing happened.' This sprint covers both tab group management and tab/window command correctness. Includes context-based tab organization using AI to automatically group related tabs. ✅ RESOLVED ISSUES (archived): Tab Group Renaming Fails, Tab Group Renaming and Listing Tabs Fails. ⚠️ PARTIALLY RESOLVED: Adding Tabs to Groups Adds Wrong Tabs (basic adding works, complex matching needs testing), Compound Command: Create Group + Add Tab Fails (correctly adds specified tab but also incorrectly adds current tab), \"Close Tab Group\" Command Deletes Hub Instead (Delete command works, but Close command doesn't exist - Close should hide tab group, Open should restore it).",
+      overview: "Fix tab group operations including renaming, finding tabs within groups, adding/removing tabs, and tab group state accuracy. Also fix core tab/window commands that users perceive as 'it said it worked but nothing happened.' This sprint covers both tab group management and tab/window command correctness. Includes context-based tab organization using AI to automatically group related tabs. ✅ RESOLVED ISSUES (archived): Tab Group Renaming Fails, Tab Group Renaming and Listing Tabs Fails, Can't Find Tabs in Tab Groups, Adding Tabs to Groups Adds Wrong Tabs, Tab Group Creation with Zero Items, Compound Command: Create Group + Add Tab Fails, Feature Request: Add All Tabs to Tab Group. ⚠️ PARTIALLY RESOLVED: \"Close Tab Group\" Command Deletes Hub Instead (Delete command works, but Close command doesn't exist - Close should hide tab group, Open should restore it).",
       primaryFiles: "browser/base/content/assistant/build/src/hubs.ts, browser/base/content/assistant/build/src/commands.ts, browser/base/content/assistant/build/src/services/localMemory.ts, Browser first-run / startup UI (for browser import, privacy policy, vertical tabs popup), browser/branding/**",
       issues: [
         {
@@ -625,6 +711,7 @@ function Sprints() {
           description: "AI assistant reports tab groups are empty when they contain tabs, or can't find specific tabs within groups (e.g., '2026 expenses tab').",
           impact: "Can't navigate to saved content (severity 10/10)",
           technicalNotes: "Tab group content querying logic broken in hubs.ts - needs to properly enumerate tabs within groups",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
           feedback: [
             { id: "68BP0AJ", text: "I asked AI assistant what is in my GoogleSheets tab group and it said I had nothing in it. As you can see from the screenshot, there are tabs in it.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-18-at-12.18.41-PM.png?id=1NMl6l&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOTWw2bCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODc2MDQxMX0.p4G4AtlNoH7OaMGS6N2oL4pICVgBQbnDEp7Zjfcmtfk&signature=7f767a62e0bbf707925efaceafc3a0c3db165ddbf5c3f76223210227d437034a" },
             { id: "QKQ4N2G", text: "I asked AI assistant to open 2026 expenses tab. It said it opened it. As you can see in the screenshot, it opened a new tab (Page Not Found) with GoogleSheets. It did not open my existing 2026 expenses tab.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-18-at-12.21.27-PM.png?id=bYL7Dg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZTDdEZyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODc2MDYwN30.krGmO1q8eqhuXEed_Hi2aOv_p3W0LWNUNCE5QFYgMPY&signature=c78c4911000225c0f2ae4cca5097736bd3fefddf364254971b58d1593267a024" }
@@ -637,7 +724,7 @@ function Sprints() {
           description: "Commands to add specific tabs to groups (e.g., 'add all the youtube tabs') add all open tabs instead of just the specified ones.",
           impact: "Can't selectively organize tabs (severity 8/10)",
           technicalNotes: "Tab filtering/matching logic broken in hub command module - needs to properly match tabs by URL, title, or domain",
-          resolutionNote: "⚠️ PARTIALLY RESOLVED: Basic tab adding works (tested: 'Add tab 2 to Dynasty' worked correctly). However, complex tab matching (e.g., 'add all the youtube tabs') has not been tested yet. This issue should remain open until complex matching scenarios are verified.",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
           feedback: [
             { id: "Ek77J5r", text: "command: create a group called youtube learning and add all the youtube tabs under it. result: added all the opened tabs instead of just the youtube ones. command: do not add all the tabs, add just the youtube tabs. result: added all the opened tabs instead of just the youtube ones. command: remove all the tabs under youtube learning except youtube tabs. result: added all the opened tabs instead of just the youtube ones." }
           ]
@@ -649,6 +736,7 @@ function Sprints() {
           description: "Creating tab groups via AI command sometimes creates groups with 0 items when tabs should be added.",
           impact: "Tab groups created but empty (severity 7/10)",
           technicalNotes: "Tab group creation and tab addition logic may have timing or state issues in hub command module",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
           feedback: [
             { id: "kdPNA4R", text: "I used the ai command 'create tab group called \"GTM\"'. [Tool Output for create_tab_group]: Created tab group \"GTM\" with 0 items. open product hunt", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-15-at-6.40.10-PM.png?id=d8xVDq&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4eFZEcSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODUyNDEwOH0.eZ0fCDEw34xvnggFzJ_42z9KXYIZa4YuVBsyXGWBlaI&signature=cc7b0d68d31fa07462369a6ca69fe4818130deb6386fb8f1f05a5072f8cdcd5f" }
           ]
@@ -660,7 +748,7 @@ function Sprints() {
           description: "Creating tab group and adding specific tab in one compound command doesn't work correctly. Wrong tab gets added instead of the specified one (e.g., 'Create a new tab group called \"Email\" and add my Gmail tab to it' adds wrong tab).",
           impact: "Can't efficiently create and populate tab groups (severity 10/10)",
           technicalNotes: "Compound command parsing and tab matching logic in hub command module - needs to properly identify and add the correct tab when specified",
-          resolutionNote: "⚠️ PARTIALLY RESOLVED: Compound command 'create a tab group called \"Email\" and add my Gmail tab to it' correctly added the Gmail tab as specified. However, it also incorrectly added the current tab the user was on. The issue is that it's adding both the specified tab AND the current tab, rather than just the specified tab. Needs fix to exclude current tab when a specific tab is requested.",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
           feedback: [
             { id: "b5pKjkZ", text: "As a user, I want to be able to create a new tab group and add an open tab to it with a single compound command. User: 'Create a new tab group called \"Email\" and add my Gmail tab to it', AI: 'Created hub \"Email\" with 0 items.' '[Tool Output for add_tab_to_hub]: Added 1 tab(s) to hub \"Email\".' The outcome was 1/2 correct. A new tab group called 'Email' was created, however, the wrong tab was added to it. My open Gmail tab was not added to it.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-24-at-3.23.17-PM.png?id=JeBaXr&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkplQmFYciIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTI4OTkzN30.ABGGBUtl3Vo4ADF2rDpS5reAlnWM7QVZ1puzHb5d36g&signature=8f922ec462cadd09545180cb12f4b36b1263eb184e1cbf780fdbd9d7b341edfa" }
           ]
@@ -707,6 +795,7 @@ function Sprints() {
           description: "Users want to be able to say 'Add all tabs to Research tab group' and have every open tab saved into that tab group. This would help manage tab clutter.",
           impact: "Would make managing many tabs easier (severity 10/10)",
           technicalNotes: "Implement 'add all tabs to tab group' command in hub command module - should add all currently open tabs to specified tab group",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
           feedback: [
             { id: "7RA2oJA", text: "I'd like to request a new Oasis feature to make managing too many tabs much easier using tab groups. A common scenario: there are a dozen tabs open for a single project—news articles, references, emails—and everything quickly becomes unwieldy. With this feature, Oasis would let users say something like, 'Add all tabs to Research tab group,' and every open tab would be saved into a tab group called 'Research' for later. All those pages would be neatly organized in one place, so the user can close the on-screen clutter with confidence. Later, they could reopen that tab group and have everything restored just as they left it.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-3.49.08-PM.png?id=vJKjV4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKS2pWNCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExODY4NH0.QZyZKM8fy6EBRr5sXdhAK2ft93hXHejB5EAy06F8Ecs&signature=437ca53e87e55feb2cdf531fbe8bfe7ac445c0c1b5774a02d1994374ebe349e3" }
           ]
@@ -1012,36 +1101,6 @@ function Sprints() {
       ]
     },
     {
-      id: 12,
-      title: "AI Command for Native Splitview",
-      emoji: "🪟",
-      priority: "MEDIUM",
-      storyPoints: 5,
-      effort: "Medium",
-      impact: "High",
-      severity: "10/10",
-      overview: "Integrate with Firefox's native splitview API to allow AI commands to trigger splitview functionality (two tabs side by side within the same window).",
-      primaryFiles: "browser/base/content/assistant/build/src/commands.ts, Firefox native splitview API integration",
-      issues: [
-        {
-          title: "Feature Request: AI Command for Native Splitview",
-          count: 1,
-          submissionIds: ["XxaWDBj"],
-          description: "Users want to use AI commands to trigger Firefox's native splitview feature (where two tabs are arranged side by side within the same window). Currently 'splitview' command opens tabs in two new windows.",
-          impact: "Would enhance productivity (severity 10/10)",
-          technicalNotes: "Integrate with Firefox's native splitview API, create new command for native splitview (rename existing splitview command to something else)",
-          feedback: [
-            { id: "XxaWDBj", text: "As a user, I want to be able to use an ai command that triggers the new existing 'splitview' (Add splitview) feature in Oasis. Firefox introduced a 'splitview' feature to see two tabs side by side. I want to be able to control that feature and use it through the AI assistant. In the past, we created a 'splitview' command that opens the tabs in two new windows which are in a splitview, so that functionality should be called something else. 'Splitview' commands should pertain to the existing splitview functionality that is native to firefox, where two tabs are arranged in a splitview within the same window", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-3.27.25-PM.png?id=1NpZ8W&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOcFo4VyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExNzQ0NX0.BonC49LjrWP1wPg1dVy9BW6doK7AQEeV-ihZICciuj4&signature=42fea6b90fee1dc3c64efbc1afc2d17761d28a1c319cd8996f7e5cc6f2a0d7bb" }
-          ]
-        }
-      ],
-      acceptanceCriteria: [
-        "AI command for native Firefox splitview implemented",
-        "Existing splitview command renamed appropriately",
-        "Native splitview works correctly within the same window"
-      ]
-    },
-    {
       id: 13,
       title: "Chat History Access",
       emoji: "💬",
@@ -1071,60 +1130,6 @@ function Sprints() {
         "Conversations are stored in Supabase",
         "UI allows users to access past conversations",
         "Chat history persists across sessions"
-      ]
-    },
-    {
-      id: 14,
-      title: "Webpage Summarization",
-      emoji: "📄",
-      priority: "MEDIUM",
-      storyPoints: 10,
-      effort: "Medium-High",
-      impact: "Medium",
-      severity: "6-8/10",
-      overview: "Implement webpage content extraction and automatic summarization functionality. Includes both single webpage summarization and multi-tab summarization for research workflows.",
-      primaryFiles: "browser/base/content/assistant/build/src/summarize.ts (NEW), browser/base/content/assistant/build/src/assistant.ts",
-      issues: [
-        {
-          title: "Feature Request: Webpage Summarization",
-          count: 1,
-          submissionIds: ["xXqrxDJ"],
-          description: "Users want AI Assistant to automatically summarize webpages they visit, not just mention the title. Currently AI says it needs a moment to review but doesn't provide summary.",
-          impact: "Would enhance research productivity (severity 6/10)",
-          technicalNotes: "Implement webpage content extraction and summarization. May create new summarize.ts module or extend assistant.ts",
-          feedback: [
-            { id: "xXqrxDJ", text: "I wanted to see the summary of the webpage that I visited, which wasn't happening and the assistant just mentioned the webpage title and was asking me about further details. My request: open articles about setting up an organization in salesforce. review this and let me know the insights. Oasis AI: I have opened a tab with a Salesforce article titled 'How to Set Up Salesforce: A Step-by-Step Guide'. To give you insights, I need you to give me a moment to review the contents of the webpage. Once I've done that, I'll provide a summary of the key steps and insights from the article." }
-          ]
-        },
-        {
-          title: "Performance: Can't Summarize Wiki Pages",
-          count: 1,
-          submissionIds: ["44Vqkb5"],
-          description: "Could not summarize wiki page. Given prompt was to open apple Inc. wiki and summarize their history, but summarization failed.",
-          impact: "Feature doesn't work for some content (severity 8/10)",
-          technicalNotes: "Webpage content extraction and summarization logic - may need better handling for Wikipedia and similar sites. May extend summarize.ts module",
-          feedback: [
-            { id: "44Vqkb5", text: "Could not summarize wiki page. Given prompt was to open apple Inc. wiki and summarize their history", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-11.14.54-AM.png?id=EZqzzN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVacXp6TiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI0NTQxM30.iVDd1BgRn3aRQuEqdPfzgiLVviFxt-uDfDSi_CsvBN8&signature=9ae58bb5cd89f66728af482eeb94a75437f83902c56bae75e03b0e982d9f5dfc" }
-          ]
-        },
-        {
-          title: "Feature Request: Tab Summarization",
-          count: 1,
-          submissionIds: ["7R72950"],
-          description: "Ability to 'summarize and give insights across these 15 tabs'",
-          impact: "Would make research easier (severity 6/10)",
-          technicalNotes: "Implement tab content extraction and summarization across multiple tabs",
-          feedback: [
-            { id: "7R72950", text: "As a user opening 15 tabs on a topic that I'm researching, I want to be able to prompt the AI assistant to 'summarize and give me insights across these 15 tabs.' It would make a lot of my research easier because i wouldn't have to manually read everything or copy content into ChatGPT. It would reduce the number of steps in my process." }
-          ]
-        }
-      ],
-      acceptanceCriteria: [
-        "Webpage summarization works for all content types",
-        "Summarization works for Wikipedia and similar sites",
-        "Content extraction handles various webpage structures",
-        "Summaries are accurate and useful",
-        "Tab summarization feature allows summarizing multiple tabs at once"
       ]
     },
     {
@@ -1498,9 +1503,9 @@ function Sprints() {
             <li><strong>Sprint 9</strong> - Authentication + Subscription UX (login, signup, session restore, limits) - <em>Not yet addressed</em></li>
             <li><strong>Sprint 10</strong> - Onboarding + Branding polish (first run, visibility, Firefox remnants) - <em>Not yet addressed</em></li>
             <li><strong>Sprint 11</strong> - Making it Easy to Find Saved Websites - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 12</strong> - AI Command for Native Splitview - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 12</strong> - AI Command for Native Splitview - <em>✅ Completed</em></li>
             <li><strong>Sprint 13</strong> - Chat History Access - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 14</strong> - Webpage Summarization - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 14</strong> - Webpage Summarization - <em>✅ Completed by Rushyanth</em></li>
             <li><strong>Sprint 15</strong> - Automatic Software Updates - <em>Not yet addressed</em></li>
             <li><strong>Sprint 16</strong> - Gemini Model Migration (Critical) - <em>Not yet addressed</em></li>
           </ol>
