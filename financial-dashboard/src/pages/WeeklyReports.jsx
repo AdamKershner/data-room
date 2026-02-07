@@ -7,6 +7,57 @@ function WeeklyReports() {
   const [reports] = useState([
     {
       id: 0,
+      week: '2026-02-02',
+      weekLabel: 'Week of February 2, 2026',
+      keyUpdates: [
+        'Team changes: Ruhani resigned, Udit resigned, Davis Victor resigned. Ruhani Vinzuda (Design team member focused on video editing) joined the team',
+        'Rushyanth built off of Ashwin\'s dynamic UI updates branch and resolved Sprint 12 (AI Command for Native Splitview) and Sprint 14 (Webpage Summarization), as well as multiple issues in Sprint 8 including: Can\'t Find Tabs in Tab Groups, Adding Tabs to Groups Adds Wrong Tabs, Tab Group Creation with Zero Items, Compound Command: Create Group + Add Tab Fails, and Feature Request: Add All Tabs to Tab Group',
+        'Sprint 17 (Chromium Enterprise Browser) launched with significant progress: Kaushik Shridhar started chromium mirror work (25 hours), Ruturaj Marathe began Okta authentication integration and Chromium browser setup (21 hours)',
+        'Enterprise browser development accelerated: Team working on Chromium-based version of Oasis to address enterprise client requirements, including Okta SSO integration and zero-trust authentication',
+        'Content marketing expansion: Konika and Ankit created several new blog posts geared towards people looking for new browsers as well as Enterprise Solutions Architects (targeting SQLs like those generated last week)',
+        'High-intent enterprise visitors from Warmly: Notable enterprise accounts visiting website including AT&T (100K+ employees), PSA International (5K-10K employees, multiple visits), Bain & Company (10K-50K employees), CLP (5K-10K employees - Eddie Wu, Deputy Director), Duke University (Kenneth Rogerson, Associate Professor), UWGB (David Littig visiting pricing page), HNB Bank (Sri Lanka), Sveriges riksbank, and Crownstack (visited schedule-demo page)',
+        'Blog SEO content driving strong traffic: Browser performance and security content (Chromium benchmarks, fastest browser guides, enterprise Edge guides, Chrome security crisis) attracting international traffic from North America, Europe, Asia-Pacific, and emerging markets (Brazil, Bangladesh, Vietnam, Nigeria, UAE)',
+        'Form submissions and demo interest: Multiple "Get Early Access" form submissions (Australia, Bangladesh, USA), pricing page visits from enterprise accounts (HNB Bank, UWGB, Vietnam visitors), and schedule-demo page visit from Crownstack showing buying intent',
+        'Education sector engagement: Strong interest from universities including Amherst College, Hyper Island, University of Hong Kong, University of Illinois Urbana-Champaign (careers page), University of Virginia, Duke University (explicit interest in free agentic browser), and UWGB',
+        'Marketing ROI framework and attribution tracking: Rashmila created a framework for calculating ROI of marketing efforts, enabling data-driven decisions on campaign effectiveness. Konika installed Mixpanel and is investigating how to configure the "Initial referrer domain" field in Mixpanel to track which marketing campaigns yield the best users in terms of profitability',
+        'Product analytics and tracking improvements: Navile Mahesh worked on Mixpanel dashboard navigation and interpretation (20 hours), Hritik Chalse analyzed GA trends and Mixpanel patterns (21 hours)',
+        'Marketing and outreach activities: Ammemah Naeem completed marketing onboarding and material review (14 hours), Rohith Anthony conducted LinkedIn outreach to university alumni (20 hours)',
+        'Product testing and UX work: Aishwarya Shetiya worked on product testing, user stories, prototyping, and wireframing (20 hours)',
+        'Achieved 77.2K impressions with 26.5% growth in marketing reach',
+        'Waitlist signups reached 145 total'
+      ],
+      timeBreakdown: {
+        'Product Development': 86.0,
+        'Marketing & Content': 55.0
+      },
+      areasToImprove: [
+        'Follow up on high-intent enterprise leads from Warmly (AT&T, PSA International, Bain & Company, CLP, Duke University, UWGB, HNB Bank, Crownstack) - prioritize pricing page visitors and demo requests',
+        'Continue accelerating Sprint 17 (Chromium Enterprise Browser) development to meet enterprise client timelines',
+        'Maintain momentum on Okta authentication integration and zero-trust security features',
+        'Scale blog content production to capitalize on strong SEO performance driving international traffic',
+        'Prioritize outreach to education sector accounts showing interest (multiple universities visiting website)',
+        'Scale Mixpanel analytics implementation to track user behavior and product metrics',
+        'Increase LinkedIn outreach effectiveness and conversion rates',
+        'Balance Chromium development with ongoing Firefox Oasis improvements'
+      ],
+      metrics: {
+        totalHours: 141.0,
+        teamMembers: 7,
+        entries: 10,
+        impressions: 77200,
+        impressionsGrowth: 26.5,
+        waitlistSignups: 145,
+        mqls: 8,
+        sqls: 0
+      },
+      quarterlyGoals: {
+        nps: 0,
+        pilots: 0,
+        payingSubscribers: 0
+      }
+    },
+    {
+      id: 1,
       week: '2026-01-26',
       weekLabel: 'Week of January 26, 2026',
       keyUpdates: [
@@ -57,7 +108,7 @@ function WeeklyReports() {
       }
     },
     {
-      id: 1,
+      id: 2,
       week: '2026-01-19',
       weekLabel: 'Week of January 19, 2026',
       keyUpdates: [
@@ -113,7 +164,7 @@ function WeeklyReports() {
       }
     },
     {
-      id: 2,
+      id: 3,
       week: '2026-01-12',
       weekLabel: 'Week of January 12, 2026',
       keyUpdates: [
@@ -165,7 +216,7 @@ function WeeklyReports() {
       }
     },
     {
-      id: 3,
+      id: 4,
       week: '2026-01-05',
       weekLabel: 'Week of January 5, 2026',
       keyUpdates: [
@@ -206,7 +257,7 @@ function WeeklyReports() {
       }
     },
     {
-      id: 4,
+      id: 5,
       week: '2025-12-29',
       weekLabel: 'Week of December 29, 2025',
       keyUpdates: [
