@@ -13,11 +13,11 @@ function Sprints() {
       title: "Sprint 8 - Resolved Tab Group Issues",
       emoji: "📁",
       priority: "HIGH",
-      storyPoints: 18,
+      storyPoints: 21,
       effort: "Medium-High",
       impact: "High",
       severity: "7-10/10",
-      overview: "Resolved issues from Sprint 8: Tab Group Operations. These issues have been completed and fixed, including tab group content querying, tab filtering/matching, tab group creation, compound commands, and the 'add all tabs to tab group' feature.",
+      overview: "Resolved issues from Sprint 8: Tab Group Operations. These issues have been completed and fixed, including tab group content querying, tab filtering/matching, tab group creation, compound commands, tab group renaming, tab closing fixes, and the 'add all tabs to tab group' feature. Includes tab closing command fixes for bookmarks and tab groups.",
       primaryFiles: "browser/base/content/assistant/build/src/hubs.ts, browser/base/content/assistant/build/src/commands.ts",
       issues: [
         {
@@ -80,6 +80,42 @@ function Sprints() {
           feedback: [
             { id: "7RA2oJA", text: "I'd like to request a new Oasis feature to make managing too many tabs much easier using tab groups. A common scenario: there are a dozen tabs open for a single project—news articles, references, emails—and everything quickly becomes unwieldy. With this feature, Oasis would let users say something like, 'Add all tabs to Research tab group,' and every open tab would be saved into a tab group called 'Research' for later. All those pages would be neatly organized in one place, so the user can close the on-screen clutter with confidence. Later, they could reopen that tab group and have everything restored just as they left it.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-3.49.08-PM.png?id=vJKjV4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKS2pWNCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExODY4NH0.QZyZKM8fy6EBRr5sXdhAK2ft93hXHejB5EAy06F8Ecs&signature=437ca53e87e55feb2cdf531fbe8bfe7ac445c0c1b5774a02d1994374ebe349e3" }
           ]
+        },
+        {
+          title: "Tab Group Renaming Fails",
+          count: 1,
+          submissionIds: ["dWMypgz"],
+          description: "Tab group renaming commands encounter errors. User requested to rename 'Videos' to 'Images' but AI assistant encountered an error and was unable to complete the request.",
+          impact: "Can't rename tab groups (severity 7/10)",
+          technicalNotes: "Tab group renaming logic in hub command module - check error handling and hub state synchronization",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
+          feedback: [
+            { id: "dWMypgz", text: "User: \"can we rename \"Videos\" to \"Images\"\" (referring to a tab group). AI assistant: I encountered an error when trying to rename the \"Videos\" tab group to \"Images\". I was unable to complete your request.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-27-at-10.09.37-AM.png?id=JeZkjr&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkplWmtqciIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTUzMDIxMn0.iRN9dWgFxjIHNn4wiKKn_4LdEJajVk8nNAd6wcTJF3w&signature=5aa846dbfd442d840e0723ca90ceaf051c38cc85a977f28aa847958f5c3241bd" }
+          ]
+        },
+        {
+          title: "Tab Close and Reopen Bug",
+          count: 1,
+          submissionIds: ["ODRXaqY"],
+          description: "When asked to close a tab, it closes and then immediately reopens the same tab. UI shows 'Opening tab' then 'Closing tab' in sequence.",
+          impact: "Tabs don't stay closed (severity 8/10)",
+          technicalNotes: "Tab closing command execution logic - check for conflicting commands or state synchronization issues",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
+          feedback: [
+            { id: "ODRXaqY", text: "When I asked to close the tab, it closed and then reopened the same tab. Prompt: \"Close ESPN tab\". UI on screen: Thinking… Opening tab Closing tab. Chat message shown: \"I've opened ESPN and then closed the ESPN tab for you.\"", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-05-at-12.15.00.png?id=z1jypE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InoxanlwRSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDMxMTg2Mn0.aY9_jH5Zupv5WN2bja3NDqHmts5h3mcekh2GXQI63Nw&signature=de66241b0014d2a762c14f41fc1f49ce288f8c024d17fe7df68ad4572d146017" }
+          ]
+        },
+        {
+          title: "Tab Closing Commands Don't Work",
+          count: 1,
+          submissionIds: ["5BPQY2Z"],
+          description: "Commands to close bookmarks/tab groups report success but tabs remain open. Tool output shows tabs were closed but they're still visible.",
+          impact: "Commands appear to work but don't actually execute (severity 8/10)",
+          technicalNotes: "Tab closing logic may have async timing issues or state synchronization problems in tab command module",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
+          feedback: [
+            { id: "5BPQY2Z", text: "When tried to close the whole bookmark(multiple tabs inside that), it says it closed, but i can still see them open. Steps: open multiple tabs, bundle them as a bookmark, insert prompt 'close that bookmark test', then 'can you close all open tabs?' - it says it closed, but i still see them open.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-15.38.37.png?id=VbpGRJ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZicEdSSiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI1MDg3Mn0.l9Yy-pVu_YHNZ5l63w581XAE7AhcsJ0FZQqZBf2WSgw&signature=444974b4326362535ebb5753661a84c8702325bc8c72f119591899f781a6f2cd" }
+          ]
         }
       ],
       acceptanceCriteria: [
@@ -87,7 +123,223 @@ function Sprints() {
         "✅ Adding tabs to groups only adds specified tabs - RESOLVED",
         "✅ Tab groups are created with tabs when specified - RESOLVED",
         "✅ Compound commands (create group + add tab) work correctly - RESOLVED",
-        "✅ 'Add all tabs to tab group' command works correctly - RESOLVED"
+        "✅ 'Add all tabs to tab group' command works correctly - RESOLVED",
+        "✅ Tab group renaming works correctly without errors - RESOLVED",
+        "✅ Tab closing commands don't reopen tabs - RESOLVED",
+        "✅ Tab closing commands actually close tabs (no false success messages) - RESOLVED"
+      ]
+    },
+    {
+      id: 9,
+      title: "Sprint 9 - Resolved Authentication UI Issues",
+      emoji: "🔐",
+      priority: "HIGH",
+      storyPoints: 3,
+      effort: "Medium",
+      impact: "High",
+      severity: "6-10/10",
+      overview: "Resolved authentication UI issues from Sprint 9: Sign-in menu visibility and login menu functionality after logout. These issues have been completed and fixed.",
+      primaryFiles: "browser/base/content/assistant/assistant.ui.js",
+      issues: [
+        {
+          title: "Sign-in Menu Hidden Behind Navigation Bar",
+          count: 2,
+          submissionIds: ["q41xByO", "OD2QMrp"],
+          description: "Sign-in menu appears behind the Oasis AI navigation bar, making it difficult or impossible to see and access.",
+          impact: "Can't access sign-in functionality (severity 6-10/10)",
+          technicalNotes: "Z-index and menu positioning in assistant.ui.js",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
+          requiresUI: true,
+          feedback: [
+            { id: "q41xByO", text: "The Sign-in menu was hidden behind the Oasis Ai's Navigation bar! It should be visible below the bar! The sign-in should be made easier, it was kinda hard to find this option" },
+            { id: "OD2QMrp", text: "Sign-in option not visible, unable to sign in", screenshot: "https://storage.tally.so/private/bug1.png?id=Qzv6xY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlF6djZ4WSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTAzMTc1N30.PB8CzPjxWxc03HCOgye79sXauK-ukiBCoAGt7qiMroc&signature=5afb369661ef1c427ff09b75f2796ee96167bfda9f722a112cc2db5d8fd3ffad" }
+          ]
+        },
+        {
+          title: "Login Menu Doesn't Appear After Logout",
+          count: 1,
+          submissionIds: ["RGyXvL4"],
+          description: "After logging out, clicking the 3 dots menu doesn't show login options. User has to click on white space behind the menu to access login.",
+          impact: "Can't log back in after logout (severity 10/10)",
+          technicalNotes: "Menu click handling and visibility logic in assistant.ui.js",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
+          requiresUI: true,
+          feedback: [
+            { id: "RGyXvL4", text: "I logged out of the AI assistant. I could not enter any commands which is appropriate. I tried to log back in so I clicked on the 3 dots and nothing seemed to happen. Eventually, I accidentally clicked on white space behind the 3 dots and the login screen came up. When I click on the 3 dots, menu items or the login screen should pop up where I can see it if I'm not logged in.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-14-at-4.39.38-PM.png?id=pJDOgJ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKRE9nSiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODQzMDU1MH0.DPv5dIeuXuKWk8c_YXeUGLOssJhLF2n8wWc7KnEc0E0&signature=88ccc506db27522ddeeeffa39fe4672eb3b887c1d59778789902061d7ab09afd" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "✅ Sign-in menu is visible and accessible (not hidden behind navigation bar) - RESOLVED",
+        "✅ Login menu appears correctly after logout - RESOLVED"
+      ]
+    },
+    {
+      id: 18,
+      title: "Sprint 18 - Resolved Voice Dictation UI Issue",
+      emoji: "🎤",
+      priority: "HIGH",
+      storyPoints: 1,
+      effort: "Medium",
+      impact: "High",
+      severity: "10/10",
+      overview: "Resolved voice dictation UI simplification issue from Sprint 18. This issue has been completed and fixed.",
+      primaryFiles: "browser/base/content/assistant/build/src/services/voiceInput.ts, browser/base/content/assistant/ui-preact/src/App.tsx, browser/base/content/assistant/ui-preact/src/App.css",
+      issues: [
+        {
+          title: "Voice Dictation UI Simplification",
+          count: 1,
+          submissionIds: ["zx9RN0M"],
+          description: "Too many buttons causing confusion. Remove correct/wrong icon buttons. Close button doesn't work - remove it and change mic icon to pause button. Waveform should display instantly when mic is clicked.",
+          impact: "Confusing UX (severity 10/10)",
+          technicalNotes: "Simplify voice dictation UI, remove unnecessary buttons, improve button state management",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
+          requiresUI: true,
+          feedback: [
+            { id: "zx9RN0M", text: "in the voice dictation mode, following are some ux improvements I suggest: there are too many buttons causing confusion. the correct and wrong icon buttons can be removed. the close button does not work, instead it could be removed and simply the mic icon can be changed to pause button and instead of the correct icon, simply hitting the stop button should display the text. when I click on the mic icon to start dictating, it takes a while to display the sound bars which makes me think it's taking longer for it to load, instead it should load instantly so i can start dictating immediately.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-26-at-12.36.58-PM.png?id=WKdZPa&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLZFpQYSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTQ1MDAzMX0.MmJ655PtdUjtZLKkPS6JmB9NNhGods6tK_1BUhpHkM4&signature=f6be6ccd290fc6d7addcde317fd67e27cde4b512f98bf90b769249dba64b98c8" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "✅ Voice dictation UI simplified (removed unnecessary buttons) - RESOLVED",
+        "✅ Mic icon changes to pause button during recording - RESOLVED",
+        "✅ Waveform displays instantly when mic is clicked - RESOLVED"
+      ]
+    },
+    {
+      id: 19,
+      title: "Sprint 19 - Resolved Feedback Modal Issue",
+      emoji: "💬",
+      priority: "MEDIUM-HIGH",
+      storyPoints: 1,
+      effort: "Medium",
+      impact: "High",
+      severity: "9-10/10",
+      overview: "Resolved in-app feedback functionality issue from Sprint 19. This issue has been completed and fixed.",
+      primaryFiles: "browser/base/content/assistant/ui-preact/src/components/Feedback.tsx, browser/base/content/assistant/ui-preact/src/App.tsx, browser/components/aiwindow/ui/components/ai-chat-content/chat-assistant-footer/assistant-message-footer.mjs",
+      issues: [
+        {
+          title: "In-App Feedback Functionality",
+          count: 1,
+          submissionIds: ["KYEZEqK"],
+          description: "Users should be able to add feedback within the assistant. Navigating to a separate tab to log feedback is time consuming, especially if logging feedback multiple times.",
+          impact: "Poor feedback collection UX (severity 10/10)",
+          technicalNotes: "Implement in-app feedback modal/component within assistant UI",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
+          requiresUI: true,
+          feedback: [
+            { id: "KYEZEqK", text: "as a user i should be able to add feedback within the assistant. navigating me to a separate tab to log in feedback is time consuming, especially if I'm logging feedback multiple times.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-26-at-12.16.49-PM.png?id=49dOxO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5ZE94TyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTQ0Nzg2MH0.GAtQ4LKl0aaRjdYdWY3-e3vdmwwCSPPF1lz-zCMFtB0&signature=2be3c4cd72469112ae5a2b2bd5609234c346ded7c89847fbfb478880e7515c07" }
+          ]
+        },
+      ],
+      acceptanceCriteria: [
+        "✅ In-app feedback functionality implemented - RESOLVED"
+      ]
+    },
+    {
+      id: 20,
+      title: "Sprint 20 - Split View Improvements (Completed)",
+      emoji: "🪟",
+      priority: "HIGH",
+      storyPoints: 5,
+      effort: "Medium",
+      impact: "High",
+      severity: "10/10",
+      overview: "Completed split view improvements. All issues have been resolved: split view command execution now properly uses Firefox native splitview feature and correctly identifies existing tabs.",
+      primaryFiles: "browser/base/content/assistant/build/src/commands.ts (AddSplitViewCommand, SplitTabsCommand), Firefox native splitview API integration",
+      issues: [
+        {
+          title: "Split View Command Execution Errors",
+          count: 1,
+          submissionIds: ["EkRrl5B"],
+          description: "Split view commands give errors or open tabs in separate windows instead of using Firefox's native splitview feature. AI assistant chat also disappears after split view action.",
+          impact: "Split view doesn't work correctly (severity 10/10)",
+          technicalNotes: "Fix split view command to use Firefox native splitview API, ensure assistant window remains accessible",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
+          feedback: [
+            { id: "EkRrl5B", text: "when i gave the command to open tabs in split view, it gave me this error. another instance where I gave the same command, it opened the 3 new tabs, each in separate window, and then arranged the windows instead of tabs in splitview. also the ai assistant chat went away. as a user, i'm curious in which window will it display, if I'll lose my chat history in it. it's counter intuitive to expect users to again find where the assistant window went after the split view action. lastly, the split view should make use of firefox split tabs feature.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-26-at-12.55.30-PM.png?id=lYZgLv&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImxZWmdMdiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTQ1MDM2NX0.DRxq4agnRPOeX39Q3C95fCfkYXl5TV4g1Rj4V4lyuf4&signature=a12f07c0d22c34ea9d3f4a822c47abdc2a7ce1433916a14c6af861acaa2ac2a7" }
+          ]
+        },
+        {
+          title: "Tab Identification in Split View",
+          count: 1,
+          submissionIds: ["PdoPooB"],
+          description: "When prompting to open existing tabs in split view, system opens new tabs instead of detecting and using already open relevant tabs.",
+          impact: "Creates duplicate tabs instead of using existing ones (severity 10/10)",
+          technicalNotes: "Improve tab detection logic in split view command - find existing tabs before creating new ones",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
+          feedback: [
+            { id: "PdoPooB", text: "\"When I prompted 'open both the feedback tabs in split view,' the system executed the split action but missed the actual intent. Instead of splitting the two existing feedback tabs, it opened a new tab and included that in the split. The expectation is to detect and use the already open relevant tabs rather than creating a new one.\"", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.51.11-AM.png?id=jkP8pa&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImprUDhwYSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MjM5M30.W7CQH7WwvJex5Hoq-U_tGsPDLxB1A7_z9GT-En0Ki1c&signature=4e41952c0ae4963afaade319b14d16f0a27cd6547480f767391ea1356934c955" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "✅ Split view commands use Firefox native splitview feature - RESOLVED",
+        "✅ Assistant window remains accessible after split view action - RESOLVED",
+        "✅ Split view correctly identifies and uses existing tabs - RESOLVED",
+        "✅ No duplicate tabs created when existing tabs are available - RESOLVED",
+        "✅ Split view works within the same window (not separate windows) - RESOLVED"
+      ]
+    },
+    {
+      id: 14,
+      title: "Sprint 14 - Webpage Summarization (Completed)",
+      emoji: "📄",
+      priority: "MEDIUM",
+      storyPoints: 13,
+      effort: "Medium-High",
+      impact: "Medium",
+      severity: "6-8/10",
+      teamMembers: ["Ashwin", "Saideep", "Pournami", "Naveen"],
+      overview: "Completed webpage summarization functionality including content extraction, automatic summarization, scroll detection, and multi-tab summarization for research workflows. Includes issues from Sprint 14 and Sprint 21.",
+      primaryFiles: "browser/base/content/assistant/build/src/summarize.ts (NEW), browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/build/src/commands.ts (SummarizePageCommand), browser/components/aiwindow/models/Tools.sys.mjs (GetPageContent)",
+      issues: [
+        {
+          title: "Feature Request: Webpage Summarization",
+          count: 1,
+          submissionIds: ["xXqrxDJ"],
+          description: "Users want AI Assistant to automatically summarize webpages they visit, not just mention the title. Currently AI says it needs a moment to review but doesn't provide summary.",
+          impact: "Would enhance research productivity (severity 6/10)",
+          technicalNotes: "Implement webpage content extraction and summarization. May create new summarize.ts module or extend assistant.ts",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
+          feedback: [
+            { id: "xXqrxDJ", text: "I wanted to see the summary of the webpage that I visited, which wasn't happening and the assistant just mentioned the webpage title and was asking me about further details. My request: open articles about setting up an organization in salesforce. review this and let me know the insights. Oasis AI: I have opened a tab with a Salesforce article titled 'How to Set Up Salesforce: A Step-by-Step Guide'. To give you insights, I need you to give me a moment to review the contents of the webpage. Once I've done that, I'll provide a summary of the key steps and insights from the article." }
+          ]
+        },
+        {
+          title: "Page Scroll Detection for Summarization",
+          count: 1,
+          submissionIds: ["44Vqkb5"],
+          description: "Summarization doesn't work correctly for pages that require scrolling. Agent doesn't recognize scrolled pages and fails to extract full content. Includes Wikipedia and similar long-form content.",
+          impact: "Summarization fails for long pages (severity 8/10)",
+          technicalNotes: "Implement scroll detection and content extraction for scrolled pages in summarization logic. Webpage content extraction and summarization logic - may need better handling for Wikipedia and similar sites.",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
+          feedback: [
+            { id: "44Vqkb5", text: "Could not summarize wiki page. Given prompt was to open apple Inc. wiki and summarize their history", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-11.14.54-AM.png?id=EZqzzN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVacXp6TiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI0NTQxM30.iVDd1BgRn3aRQuEqdPfzgiLVviFxt-uDfDSi_CsvBN8&signature=9ae58bb5cd89f66728af482eeb94a75437f83902c56bae75e03b0e982d9f5dfc" }
+          ]
+        },
+        {
+          title: "Feature Request: Tab Summarization",
+          count: 1,
+          submissionIds: ["7R72950"],
+          description: "Ability to 'summarize and give insights across these 15 tabs'",
+          impact: "Would make research easier (severity 6/10)",
+          technicalNotes: "Implement tab content extraction and summarization across multiple tabs",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
+          feedback: [
+            { id: "7R72950", text: "As a user opening 15 tabs on a topic that I'm researching, I want to be able to prompt the AI assistant to 'summarize and give me insights across these 15 tabs.' It would make a lot of my research easier because i wouldn't have to manually read everything or copy content into ChatGPT. It would reduce the number of steps in my process." }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "✅ Webpage summarization works for all content types - RESOLVED",
+        "✅ Summarization works for Wikipedia and similar sites - RESOLVED",
+        "✅ Content extraction handles various webpage structures - RESOLVED",
+        "✅ Summaries are accurate and useful - RESOLVED",
+        "✅ Tab summarization feature allows summarizing multiple tabs at once - RESOLVED",
+        "✅ Summarization works for scrolled pages - RESOLVED",
+        "✅ Page scroll detection implemented - RESOLVED",
+        "✅ Full page content extracted for summarization - RESOLVED"
       ]
     },
     {
@@ -420,12 +672,12 @@ function Sprints() {
       title: "UI Fixes & Response Formatting (Completed)",
       emoji: "✅",
       priority: "MEDIUM",
-      storyPoints: 3,
+      storyPoints: 6,
       effort: "Low-Medium",
       impact: "Medium",
-      severity: "4-6/10",
-      overview: "Completed UI fixes and AI response formatting improvements. These issues have been verified as working well.",
-      primaryFiles: "browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/assistant.ui.js",
+      severity: "4-10/10",
+      overview: "Completed UI fixes and AI response formatting improvements. These issues have been verified as working well. Includes archived issues from Sprint 5 (active).",
+      primaryFiles: "browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/assistant.ui.js, browser/base/content/assistant/build/src/commands.ts",
       issues: [
         {
           title: "Bug: Confusing AI Response Format",
@@ -434,6 +686,7 @@ function Sprints() {
           description: "AI responses sometimes just say 'in a new tab.' which is confusing. Should provide more context.",
           impact: "Confusing user experience (severity 4/10)",
           technicalNotes: "Improve response formatting in assistant.ts (tool output to natural language conversion)",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
           feedback: [
             { id: "2EWX81j", text: "My input: open articles about setting up an organization in salesforce. Oasis AI: in a new tab. This prompt actually opened a new tab with the article about the salesforce accounts but the AI replied - 'in a new tab.' which was confusing for me" }
           ]
@@ -446,6 +699,7 @@ function Sprints() {
           impact: "Poor UX for longer inputs (severity 5/10)",
           technicalNotes: "Fix text input wrapping/scrolling in assistant.ui.js",
           requiresUI: true,
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
           feedback: [
             { id: "0Q9exbZ", text: "When typing longer text, the content goes beyond the visible input area rather than wrapping or scrolling, causing readability and UX issue.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-8.30.21-PM.png?id=YJxkz5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IllKeGt6NSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTA5NDI4NX0.obp_ayTrs1xZrc-I4xRfTsFDWJw-0iO633KABYxJFGg&signature=1182859eb9f047c1837039419e5e0352ebc7d90b75f4faa4f46979daf87ce925" }
           ]
@@ -458,15 +712,57 @@ function Sprints() {
           impact: "UI glitch (severity 6/10)",
           technicalNotes: "Fix scrollbar styling in assistant.ui.js",
           requiresUI: true,
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
           feedback: [
             { id: "2EGZJvD", text: "when the length of the conversation in ai chat increased, i saw 2 scrollbars", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-2.31.52-PM.png?id=Nbq51N&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5icTUxTiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI0NjM3M30.MhjJ1LV6-AZZdnPrpAnruE2O-o1Zx4VGdr8HNpBtUFI&signature=96d15b67208d0adbe98f0d604794f0777b45cc702b81d1bff532be8b66e070ae" }
+          ]
+        },
+        {
+          title: "Bug: Invalid URL Opened",
+          count: 1,
+          submissionIds: ["OD2aDK8"],
+          description: "AI opened a URL that was not actually a webpage (https://www.youtube.com/howyoutubeworks/creators/upload-videos/) when user asked to open article about uploading video in YouTube.",
+          impact: "Opens invalid pages (severity 9/10)",
+          technicalNotes: "URL validation and content checking before opening in tab command module",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
+          feedback: [
+            { id: "OD2aDK8", text: "I wanted to open an article about uploading an video in youtube, but the AI replied and opened and URL which was not actually a webpage. Oasis AI: in a new tab. [The opened URL link - https://www.youtube.com/howyoutubeworks/creators/upload-videos/]", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-21-at-4.40.24-PM.png?id=qJJZQg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFKSlpRZyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTAzNTI3MH0.oZB18p6NLlQ7vXLJ3nVASTbX-DZ1GPpLNCxMOAtW7eY&signature=0c4aca5180c70dbb9253ccd94c56de11a2eff2d5e00926f790ddc58f0ffc0786" }
+          ]
+        },
+        {
+          title: "Text Selection Contrast Improvement",
+          count: 1,
+          submissionIds: ["aQWlJBv"],
+          description: "Text selection contrast is too low, which hurts readability. Increase contrast so selected text remains clearly readable and accessible.",
+          impact: "Poor readability (severity 9/10)",
+          technicalNotes: "CSS fix for selected text color in assistant.ui.js",
+          requiresUI: true,
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
+          feedback: [
+            { id: "aQWlJBv", text: "Text selection contrast is too low right now, which hurts readability. Let's increase contrast so selected text remains clearly readable and accessible.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.21.50-AM.png?id=L6pjJj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikw2cGpKaiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MDczM30.gAzZtPqLxFRA69bCApnMD98_UZdeBAgknEC_62M-Tw0&signature=5ef36d2325d23f80b7309916b6de55cb95d8b973ca7d6f5d41c943aa3c122b8b" }
+          ]
+        },
+        {
+          title: "AI Response Markdown Formatting",
+          count: 1,
+          submissionIds: ["J9P4bBJ"],
+          description: "The formatting of the AI response includes unnecessary asterisks and looks weird. Markdown formatting should render properly.",
+          impact: "Poor readability and unprofessional appearance (severity 10/10)",
+          technicalNotes: "Markdown rendering fixes in assistant.ui.js - ensure proper markdown to HTML conversion",
+          requiresUI: true,
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
+          feedback: [
+            { id: "J9P4bBJ", text: "The formatting of the AI response includes unnecessary asterisks and looks weird.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-27-at-10.22.27-AM.png?id=pJ606Z&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKNjA2WiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTUzMDk3OH0.3TfpN5mSBtPo7baHHqaKeLDxE8cj4XOJEXkIUXJVUTo&signature=8bd38329b4acd0f86ed2df96af309a8139811d15b44241500ff05f8f8f4a5e0b" }
           ]
         }
       ],
       acceptanceCriteria: [
-        "AI responses are clear and contextual",
-        "Input text wraps/scrolls correctly",
-        "Only one scrollbar appears in chat"
+        "✅ AI responses are clear and contextual - RESOLVED",
+        "✅ Input text wraps/scrolls correctly - RESOLVED",
+        "✅ Only one scrollbar appears in chat - RESOLVED",
+        "✅ URL validation prevents opening invalid pages - RESOLVED",
+        "✅ Text selection contrast is improved for better readability - RESOLVED",
+        "✅ AI response markdown formatting renders properly without visible asterisks - RESOLVED"
       ]
     },
     {
@@ -631,61 +927,6 @@ function Sprints() {
       completionNote: "Completed by Rushyanth: Saw sprint 16, its an easy fix, they will most probably discard 2.5 flash as well in near future, so i changed our model to 'gemini-3-flash-preview' its working, so Sprint16 is done."
     },
     {
-      id: 14,
-      title: "Webpage Summarization",
-      emoji: "📄",
-      priority: "MEDIUM",
-      storyPoints: 10,
-      effort: "Medium-High",
-      impact: "Medium",
-      severity: "6-8/10",
-      overview: "Implement webpage content extraction and automatic summarization functionality. Includes both single webpage summarization and multi-tab summarization for research workflows.",
-      primaryFiles: "browser/base/content/assistant/build/src/summarize.ts (NEW), browser/base/content/assistant/build/src/assistant.ts",
-      issues: [
-        {
-          title: "Feature Request: Webpage Summarization",
-          count: 1,
-          submissionIds: ["xXqrxDJ"],
-          description: "Users want AI Assistant to automatically summarize webpages they visit, not just mention the title. Currently AI says it needs a moment to review but doesn't provide summary.",
-          impact: "Would enhance research productivity (severity 6/10)",
-          technicalNotes: "Implement webpage content extraction and summarization. May create new summarize.ts module or extend assistant.ts",
-          feedback: [
-            { id: "xXqrxDJ", text: "I wanted to see the summary of the webpage that I visited, which wasn't happening and the assistant just mentioned the webpage title and was asking me about further details. My request: open articles about setting up an organization in salesforce. review this and let me know the insights. Oasis AI: I have opened a tab with a Salesforce article titled 'How to Set Up Salesforce: A Step-by-Step Guide'. To give you insights, I need you to give me a moment to review the contents of the webpage. Once I've done that, I'll provide a summary of the key steps and insights from the article." }
-          ]
-        },
-        {
-          title: "Performance: Can't Summarize Wiki Pages",
-          count: 1,
-          submissionIds: ["44Vqkb5"],
-          description: "Could not summarize wiki page. Given prompt was to open apple Inc. wiki and summarize their history, but summarization failed.",
-          impact: "Feature doesn't work for some content (severity 8/10)",
-          technicalNotes: "Webpage content extraction and summarization logic - may need better handling for Wikipedia and similar sites. May extend summarize.ts module",
-          feedback: [
-            { id: "44Vqkb5", text: "Could not summarize wiki page. Given prompt was to open apple Inc. wiki and summarize their history", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-11.14.54-AM.png?id=EZqzzN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVacXp6TiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI0NTQxM30.iVDd1BgRn3aRQuEqdPfzgiLVviFxt-uDfDSi_CsvBN8&signature=9ae58bb5cd89f66728af482eeb94a75437f83902c56bae75e03b0e982d9f5dfc" }
-          ]
-        },
-        {
-          title: "Feature Request: Tab Summarization",
-          count: 1,
-          submissionIds: ["7R72950"],
-          description: "Ability to 'summarize and give insights across these 15 tabs'",
-          impact: "Would make research easier (severity 6/10)",
-          technicalNotes: "Implement tab content extraction and summarization across multiple tabs",
-          feedback: [
-            { id: "7R72950", text: "As a user opening 15 tabs on a topic that I'm researching, I want to be able to prompt the AI assistant to 'summarize and give me insights across these 15 tabs.' It would make a lot of my research easier because i wouldn't have to manually read everything or copy content into ChatGPT. It would reduce the number of steps in my process." }
-          ]
-        }
-      ],
-      acceptanceCriteria: [
-        "Webpage summarization works for all content types",
-        "Summarization works for Wikipedia and similar sites",
-        "Content extraction handles various webpage structures",
-        "Summaries are accurate and useful",
-        "Tab summarization feature allows summarizing multiple tabs at once"
-      ],
-      completionNote: "Completed by Rushyanth"
-    },
-    {
       id: 12,
       title: "AI Command for Native Splitview",
       emoji: "🪟",
@@ -694,6 +935,7 @@ function Sprints() {
       effort: "Medium",
       impact: "High",
       severity: "10/10",
+      teamMembers: ["Ashwin"],
       overview: "Integrate with Firefox's native splitview API to allow AI commands to trigger splitview functionality (two tabs side by side within the same window).",
       primaryFiles: "browser/base/content/assistant/build/src/commands.ts, Firefox native splitview API integration",
       issues: [
@@ -725,24 +967,14 @@ function Sprints() {
       title: "UI/Bug Fixes",
       emoji: "🐛",
       priority: "MEDIUM",
-      storyPoints: 2,
+      storyPoints: 3,
       effort: "Low-Medium",
       impact: "Medium",
       severity: "6-9/10",
-      overview: "Fix various UI issues and bugs in the AI Assistant interface. Includes bookmark management fixes.",
+      teamMembers: ["Durgesh"],
+      overview: "Fix various UI issues and bugs in the AI Assistant interface. Includes bookmark management fixes, logo replacement, and profile button functionality. **UPDATED:** Added 2 story points from Feb 2026 feedback (logo, profile button).",
       primaryFiles: "browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/build/src/commands.ts, browser/base/content/assistant/assistant.ui.js, Firefox bookmark API",
       issues: [
-        {
-          title: "Bug: Invalid URL Opened",
-          count: 1,
-          submissionIds: ["OD2aDK8"],
-          description: "AI opened a URL that was not actually a webpage (https://www.youtube.com/howyoutubeworks/creators/upload-videos/) when user asked to open article about uploading video in YouTube.",
-          impact: "Opens invalid pages (severity 9/10)",
-          technicalNotes: "URL validation and content checking before opening in tab command module",
-          feedback: [
-            { id: "OD2aDK8", text: "I wanted to open an article about uploading an video in youtube, but the AI replied and opened and URL which was not actually a webpage. Oasis AI: in a new tab. [The opened URL link - https://www.youtube.com/howyoutubeworks/creators/upload-videos/]", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-21-at-4.40.24-PM.png?id=qJJZQg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFKSlpRZyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTAzNTI3MH0.oZB18p6NLlQ7vXLJ3nVASTbX-DZ1GPpLNCxMOAtW7eY&signature=0c4aca5180c70dbb9253ccd94c56de11a2eff2d5e00926f790ddc58f0ffc0786" }
-          ]
-        },
         {
           title: "UI: Make Minimize/Maximize More Intuitive and Add Resizing",
           count: 1,
@@ -765,13 +997,38 @@ function Sprints() {
           feedback: [
             { id: "lbkVQEp", text: "I asked AI assistant to remove 'Wyzant' bookmark I imported from Google Chrome and it couldn't find it. I consider this basic functionality that should work. It's not a feature.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-11-at-11.57.16-AM.png?id=6AbGpe&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZBYkdwZSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE1NDQyNn0.EkbFQCmWDUmFM6L-sRD-iGb8KhxKAfeTNoVOXkJDIaM&signature=8396795c26d2ee3720592bc4d5a8ddb151858f3e0a1ecbde62f71ead00b63694" }
           ]
+        },
+        {
+          title: "Logo Asset Replacement",
+          count: 1,
+          submissionIds: ["VLrxB1J"],
+          description: "Replace current sloth mascot placeholder with finalized logo asset. The existing one reads temporary and hurts brand credibility.",
+          impact: "Brand credibility issue (severity 7/10)",
+          technicalNotes: "Replace logo asset in UI components",
+          requiresUI: true,
+          feedback: [
+            { id: "VLrxB1J", text: "Let's replace the current sloth mascot placeholder with the finalized logo asset. The existing one reads temporary and hurts brand credibility, especially in demos.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.12.16-AM.png?id=5pxorN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVweG9yTiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MDAzOH0.-CPuIQWaZMIfK53OJh9HwY4HKV92Vt30CLz2mzeF4K8&signature=96034ad84e62b6f887400a33d0f1f25c1bb73316dac15c2cfca13c6e8bca4b67" }
+          ]
+        },
+        {
+          title: "Profile Button Not Working",
+          count: 1,
+          submissionIds: ["PdojLRQ"],
+          description: "The profile button next to the extensions button does not work when clicked. Should open a new tab allowing user to enter details.",
+          impact: "Can't access profile settings (severity 9/10)",
+          technicalNotes: "Fix profile button click handler in browser UI",
+          requiresUI: true,
+          feedback: [
+            { id: "PdojLRQ", text: "The profile button next to the extensions button does not work when i try to click on it. I expect it to open a new tab which allows me to enter my details." }
+          ]
         }
       ],
       acceptanceCriteria: [
-        "URL validation prevents opening invalid pages",
         "Minimize/maximize buttons show correct states (minimize greyed when minimized, maximize greyed when maximized)",
         "Assistant interface is resizable by dragging any of its 4 sides",
-        "Bookmark removal works for imported bookmarks via AI commands"
+        "Bookmark removal works for imported bookmarks via AI commands",
+        "Logo asset replaced with finalized brand logo",
+        "Profile button opens profile settings tab correctly"
       ]
     },
     {
@@ -779,11 +1036,12 @@ function Sprints() {
       title: "Tab Group & Tab/Window Operations",
       emoji: "📁",
       priority: "HIGH",
-      storyPoints: 36,
+      storyPoints: 44,
       effort: "Medium-High",
       impact: "High",
       severity: "7-10/10",
-      overview: "Fix tab group operations including renaming, finding tabs within groups, adding/removing tabs, and tab group state accuracy. Also fix core tab/window commands that users perceive as 'it said it worked but nothing happened.' This sprint covers both tab group management and tab/window command correctness. Includes context-based tab organization using AI to automatically group related tabs. ⚠️ PARTIALLY RESOLVED: \"Close Tab Group\" Command Deletes Hub Instead (Delete command works, but Close command doesn't exist - Close should hide tab group, Open should restore it).",
+      teamMembers: ["Afshaan"],
+      overview: "Fix tab group operations including renaming, finding tabs within groups, adding/removing tabs, and tab group state accuracy. Also fix core tab/window commands that users perceive as 'it said it worked but nothing happened.' This sprint covers both tab group management and tab/window command correctness. Includes context-based tab organization using AI to automatically group related tabs. ⚠️ PARTIALLY RESOLVED: \"Close Tab Group\" Command Deletes Hub Instead (Delete command works, but Close command doesn't exist - Close should hide tab group, Open should restore it). **UPDATED:** Added 9 story points from Feb 2026 feedback (context-based grouping improvements, tab closing issues).",
       primaryFiles: "browser/base/content/assistant/build/src/hubs.ts, browser/base/content/assistant/build/src/commands.ts, browser/base/content/assistant/build/src/services/localMemory.ts, Browser first-run / startup UI (for browser import, privacy policy, vertical tabs popup), browser/branding/**",
       issues: [
         {
@@ -811,17 +1069,6 @@ function Sprints() {
           ]
         },
         {
-          title: "Tab Closing Commands Don't Work",
-          count: 1,
-          submissionIds: ["5BPQY2Z"],
-          description: "Commands to close bookmarks/tab groups report success but tabs remain open. Tool output shows tabs were closed but they're still visible.",
-          impact: "Commands appear to work but don't actually execute (severity 8/10)",
-          technicalNotes: "Tab closing logic may have async timing issues or state synchronization problems in tab command module",
-          feedback: [
-            { id: "5BPQY2Z", text: "When tried to close the whole bookmark(multiple tabs inside that), it says it closed, but i can still see them open. Steps: open multiple tabs, bundle them as a bookmark, insert prompt 'close that bookmark test', then 'can you close all open tabs?' - it says it closed, but i still see them open.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-15.38.37.png?id=VbpGRJ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZicEdSSiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI1MDg3Mn0.l9Yy-pVu_YHNZ5l63w581XAE7AhcsJ0FZQqZBf2WSgw&signature=444974b4326362535ebb5753661a84c8702325bc8c72f119591899f781a6f2cd" }
-          ]
-        },
-        {
           title: "Feature Request: Context-Based Tab Organization",
           count: 1,
           submissionIds: ["b5pdjNZ"],
@@ -831,29 +1078,39 @@ function Sprints() {
           feedback: [
             { id: "b5pdjNZ", text: "As a worker starting his day with 37+ tabs open, I wish I could easily use the ai assistant and command it to 'organize my tabs into groups based on context.' For example, I want to be able to say something like 'I have multiple tabs open relating to AWS, Deepgram, Lambda functions, and Supabase. Create a group for these.' Currently, the behavior is the following: a new tab group named 'AWS, Deepgram, Lambda, Supabase' is created with one tab (the Oasis Feedback tab) saved in it. There is already a feature in firefox called 'suggest more of my tabs'. It is available when you manually create a tab group by clicking and dragging tabs on top of each other. If you click 'suggest more of my tabs', the browser analyzes the tabs you have open and suggests more to be added to the group, and it also suggests a contextual name for the tab group.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-11.31.35-AM.png?id=EZNV8l&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaTlY4bCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwMzQ5Nn0.bRo8VyGQOkR0G9_K4kJmDN2hmcPVRAJHVm6A4qGARmk&signature=112352375738d4577df0e11f9f4104986110b2d5659a67eb82afc50f1ee83c18" }
           ]
+        },
+        {
+          title: "Context-Based Tab Grouping Fails",
+          count: 1,
+          submissionIds: ["68gJ6Ge"],
+          description: "When creating a shopping hub, agent failed to group all sites related to shopping. Zara and H&M are commercial shopping websites but weren't grouped together.",
+          impact: "Context-based grouping doesn't work correctly (severity 7/10)",
+          technicalNotes: "Improve AI logic for context-based tab grouping - better URL/content analysis and domain categorization",
+          feedback: [
+            { id: "68gJ6Ge", text: "while creating a shopping \"hub\" , agent failed to group all sites that were related to shopping . Zara is a commercial shopping website and so is hnm but the hub did not group all shopping websites.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-28-133011.png?id=bYM606&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZTTYwNiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTYyNTEwM30.xiZU1Jso48MCLQyHxirqR82jXdVNWwbm2NUyRjriOIA&signature=71f715b1e7851d98158c410124d15ff6b64472e6c0f6ef1cb81581a05386a599" }
+          ]
+        },
+        {
+          title: "Multiple Tab Closing Doesn't Work",
+          count: 1,
+          submissionIds: ["ODRXd5Y"],
+          description: "When trying to close multiple tabs, the command does not execute correctly. System responds that it will continue closing tabs but doesn't actually close them.",
+          impact: "Can't close multiple tabs at once (severity 8/10)",
+          technicalNotes: "Multiple tab closing logic - check command parsing and execution loop for closing multiple tabs",
+          feedback: [
+            { id: "ODRXd5Y", text: "When I try to close multiple tabs, the command does not execute correctly. Steps: 1. Prompt: \"List all the open tabs.\" 2. Prompt: \"Can you close 3 tabs of Oasis Feedback and 1 tab of any other tab?\" Actual result: The system responds: \"Okay, I have closed one 'Oasis Feedback' tab. I will continue closing the other tabs you requested.\" However, the remaining tabs are not closed.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-05-at-13.26.20.png?id=L69bWp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikw2OWJXcCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDMxNjU1Mn0.v8PynULkcEUfH_PgIr_GgSu8LxXDq40bsSNXCmgvXXM&signature=e9456979c324a1ee666390cc12748d5acb112b122b4b8484e183fe886d74ee9b" }
+          ]
         }
       ],
       acceptanceCriteria: [
-        "✅ Tab groups can be renamed via AI commands - RESOLVED (tested: 'Rename tab group Sports to Work' worked correctly)",
-        "AI assistant state matches actual tab group state",
-        "✅ AI assistant can find and list tabs within tab groups - RESOLVED",
-        "✅ AI assistant can open specific tabs from within tab groups - RESOLVED",
-        "✅ Adding tabs to groups only adds specified tabs - RESOLVED",
-        "✅ Tab groups are created with tabs when specified - RESOLVED",
-        "✅ Tab group renaming commands return proper responses (not empty) - RESOLVED",
-        "✅ Listing tab groups works correctly - RESOLVED (tested: 'List tab groups' returned correct list)",
-        "✅ Compound commands (create group + add tab) work correctly and add the right tab - RESOLVED",
         "⚠️ 'Close tab group' command closes tabs without deleting the hub - PARTIALLY RESOLVED (Delete command works, but Close command doesn't exist yet - Close should hide tab group, Open should restore it)",
-        "✅ Hub deletion works correctly when explicitly requested - RESOLVED",
         "Duplicate tab closing works correctly",
         "Tab closing by domain/URL pattern works correctly",
-        "Tab closing commands actually close tabs (no false success messages)",
-        "✅ 'Add all tabs to tab group' command works correctly - RESOLVED",
-        "✅ All currently open tabs are added to the specified tab group - RESOLVED",
-        "✅ Command handles edge cases (no tabs open, tab group doesn't exist) - RESOLVED",
+        "Multiple tab closing commands execute correctly",
         "Context-based tab organization using AI implemented",
         "AI correctly identifies related tabs based on context",
-        "Tab groups are created with correct tabs and appropriate names"
+        "Tab groups are created with correct tabs and appropriate names",
+        "Context-based grouping correctly identifies related websites"
       ]
     },
     {
@@ -861,10 +1118,11 @@ function Sprints() {
       title: "Authentication + Subscription UX (login, signup, session restore, limits)",
       emoji: "🔐",
       priority: "HIGH",
-      storyPoints: 16,
+      storyPoints: 13,
       effort: "Medium-High",
       impact: "High",
       severity: "8-10/10",
+      teamMembers: ["Pournami", "Saideep", "Durgesh"],
       overview: "Fix authentication, login, signup, password management, and the 'paid but still limited' experience. This sprint is UI-heavy and should be owned by one engineer (or split by 'UI vs backend service' if needed) due to the size of `assistant.ui.js`.",
       primaryFiles: "browser/base/content/assistant/assistant.ui.js, browser/base/content/assistant/build/src/services/supabase.ts, browser/base/content/assistant/build/src/services/subscription.ts, browser/base/content/assistant/build/src/proxyClient.ts",
       issues: [
@@ -878,31 +1136,6 @@ function Sprints() {
           requiresUI: true,
           feedback: [
             { id: "GxAgbQo", text: "When I tried to log in using my credentials, I intentionally entered incorrect credentials. However, there was no user-facing error message or popup indicating that the credentials were invalid. When I checked the logs, I could see: console.error: 'Email sign in error:' 'Invalid login credentials'. Based on this, it would be better to display a clear error message to the user when they attempt to log in with incorrect credentials, instead of only logging the error in the console.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-15.06.59.png?id=RbWW8P&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJiV1c4UCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI0ODYwNX0.sTGpJJFmYznqAux8OPytrxRfGwISikp26nkRaTvtmyo&signature=d3470744823cb78bd43b2d8eaa5de26093636521d50ab64a06c3bab0136de44c" }
-          ]
-        },
-        {
-          title: "Sign-in Menu Hidden Behind Navigation Bar",
-          count: 2,
-          submissionIds: ["q41xByO", "OD2QMrp"],
-          description: "Sign-in menu appears behind the Oasis AI navigation bar, making it difficult or impossible to see and access.",
-          impact: "Can't access sign-in functionality (severity 6-10/10)",
-          technicalNotes: "Z-index and menu positioning in assistant.ui.js",
-          requiresUI: true,
-          feedback: [
-            { id: "q41xByO", text: "The Sign-in menu was hidden behind the Oasis Ai's Navigation bar! It should be visible below the bar! The sign-in should be made easier, it was kinda hard to find this option" },
-            { id: "OD2QMrp", text: "Sign-in option not visible, unable to sign in", screenshot: "https://storage.tally.so/private/bug1.png?id=Qzv6xY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlF6djZ4WSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTAzMTc1N30.PB8CzPjxWxc03HCOgye79sXauK-ukiBCoAGt7qiMroc&signature=5afb369661ef1c427ff09b75f2796ee96167bfda9f722a112cc2db5d8fd3ffad" }
-          ]
-        },
-        {
-          title: "Login Menu Doesn't Appear After Logout",
-          count: 1,
-          submissionIds: ["RGyXvL4"],
-          description: "After logging out, clicking the 3 dots menu doesn't show login options. User has to click on white space behind the menu to access login.",
-          impact: "Can't log back in after logout (severity 10/10)",
-          technicalNotes: "Menu click handling and visibility logic in assistant.ui.js",
-          requiresUI: true,
-          feedback: [
-            { id: "RGyXvL4", text: "I logged out of the AI assistant. I could not enter any commands which is appropriate. I tried to log back in so I clicked on the 3 dots and nothing seemed to happen. Eventually, I accidentally clicked on white space behind the 3 dots and the login screen came up. When I click on the 3 dots, menu items or the login screen should pop up where I can see it if I'm not logged in.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-14-at-4.39.38-PM.png?id=pJDOgJ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKRE9nSiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODQzMDU1MH0.DPv5dIeuXuKWk8c_YXeUGLOssJhLF2n8wWc7KnEc0E0&signature=88ccc506db27522ddeeeffa39fe4672eb3b887c1d59778789902061d7ab09afd" }
           ]
         },
         {
@@ -932,8 +1165,6 @@ function Sprints() {
       ],
       acceptanceCriteria: [
         "Clear error messages displayed for invalid login credentials",
-        "Sign-in menu is visible and accessible (not hidden behind navigation bar)",
-        "Login menu appears correctly after logout",
         "Signup flow works and creates accounts successfully",
         "Password change functionality works",
         "All authentication errors are user-friendly and actionable"
@@ -948,6 +1179,7 @@ function Sprints() {
       effort: "Medium",
       impact: "High",
       severity: "6-10/10",
+      teamMembers: ["Pournami", "Saideep"],
       overview: "Improve the first-time user experience including onboarding flow, default preferences, browser import, AI Assistant visibility, and removing Firefox branding. Includes browser import in onboarding, Firefox privacy policy replacement on first launch, and Firefox branding removal in vertical tabs popup.",
       primaryFiles: "browser/base/content/assistant/assistant.ui.js (assistant visibility / entry points), Browser first-run / startup UI (exact files TBD when implementing), browser/branding/**",
       issues: [
@@ -1067,6 +1299,7 @@ function Sprints() {
       effort: "Medium-High",
       impact: "High",
       severity: "8-10/10",
+      teamMembers: ["Ashwin", "Likhitha"],
       overview: "Help users find previously viewed webpages by implementing comprehensive search across tab groups, bookmarks, and browser history. The AI assistant can search using natural language descriptions to help users locate and open saved websites, regardless of where they're stored (tab groups, bookmarks, or history).",
       primaryFiles: "browser/base/content/assistant/build/src/search.ts (NEW), browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/build/src/hubs.ts, browser/base/content/assistant/build/src/tags.ts (NEW), browser/base/content/assistant/assistant.ui.js",
       issues: [
@@ -1126,11 +1359,12 @@ function Sprints() {
       title: "Chat History Access",
       emoji: "💬",
       priority: "MEDIUM",
-      storyPoints: 13,
+      storyPoints: 14,
       effort: "Medium-High",
       impact: "Medium",
       severity: "7/10",
-      overview: "Implement chat history storage and retrieval, allowing users to access previous AI Assistant chat threads from other days.",
+      teamMembers: ["Ashwin", "Saideep", "Pournami"],
+      overview: "Implement chat history storage and retrieval, allowing users to access previous AI Assistant chat threads from other days. Includes New Chat feature and proper icon labeling for chat management.",
       primaryFiles: "browser/base/content/assistant/build/src/chatHistory.ts (NEW), browser/base/content/assistant/assistant.ui.js, services/supabase.ts",
       issues: [
         {
@@ -1144,13 +1378,28 @@ function Sprints() {
           feedback: [
             { id: "xXqY2aJ", text: "As an early Oasis user, I expect to be able to access previous AI Assistant chat threads (conversation history) and/or get a clear answer about AI Assistant history works and what I should expect. 'how is our ai assistant chat history handled? Can I access previous chats from other days?' Current AI response: 'I can access the complete conversation history within our current interaction. However, I don't have the ability to access previous chats from other days. My memory is limited to the current session.'", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.16.37-PM.png?id=zG15bZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpHMTViWiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExMDI0OH0.jCeih9O-1CfQfCzVYxkYOYKWKkB3g1md-QWx8pMzyZo&signature=ae16daaae6b282cff1d9399c6855a155d447334b6e2a49b0a3743ad741962eb0" }
           ]
+        },
+        {
+          title: "Refresh Icon Labeling and New Chat Feature",
+          count: 1,
+          submissionIds: ["J9yB5MX"],
+          description: "The refresh icon next to voice dictation is currently labeled as 'clear chat history,' which is unexpected. It should only appear when voice dictation is active and clearly reflect that function. Separately, provide a 'New Chat' option for starting fresh conversations.",
+          impact: "Confusing labeling and missing feature (severity 10/10)",
+          technicalNotes: "Fix icon labeling, add 'New Chat' feature, move chat history clearing to Settings",
+          requiresUI: true,
+          feedback: [
+            { id: "J9yB5MX", text: "The refresh icon next to voice dictation is currently labeled as 'clear chat history,' which is unexpected. That icon originally signaled restarting voice dictation, not wiping conversation history. It should only appear when voice dictation is active and clearly reflect that function. Separately, instead of clearing chat history from there, we should provide a 'New Chat' option for starting fresh conversations and let users access past chats through chat history. Clearing chat history is a higher-impact action and would be better placed in Settings for now.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.54.14-AM.png?id=Yxa760&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ill4YTc2MCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MjgyNX0.g6O5Sub6W3OW2B_IGkbfOXovqh4FkulWO-Of3AatWXQ&signature=c008eecf286f2fa522e7cf9e4ab4f04eacd604301f0bfc0a1b930e2e1841fc66" }
+          ]
         }
       ],
       acceptanceCriteria: [
         "Chat history storage and access implemented",
         "Conversations are stored in Supabase",
         "UI allows users to access past conversations",
-        "Chat history persists across sessions"
+        "Chat history persists across sessions",
+        "Refresh icon labeling is correct and contextual (only appears when voice dictation is active)",
+        "New Chat feature implemented for starting fresh conversations",
+        "Chat history clearing moved to Settings"
       ]
     },
     {
@@ -1162,6 +1411,7 @@ function Sprints() {
       effort: "Medium-High",
       impact: "High",
       severity: "9/10",
+      teamMembers: [],
       overview: "Implement update checking, notification system, and update UI within Oasis for software updates.",
       primaryFiles: "Update checking and notification system (NEW), Settings or dedicated update component UI, browser/base/content/assistant/assistant.ui.js",
       issues: [
@@ -1194,6 +1444,7 @@ function Sprints() {
       effort: "High",
       impact: "High",
       severity: "9/10",
+      teamMembers: ["Mohammad", "Revanth", "Kaushik", "Atharva"],
       overview: "Develop a Chromium-based version of Oasis Enterprise Browser to address enterprise customer requirements for secure SaaS access. This sprint is motivated by enterprise demand for managed browsers that can provide secure access to cloud applications for short-term consultants and third-party partners without requiring full device management or shipping hardware. By 2026, analysts project that roughly 25% of enterprises will be using managed browsers or extensions for security and access control. The enterprise browser market is growing rapidly, with most enterprise browsers being Chromium-based due to Chromium's dominant share of global browser usage and compatibility with modern SaaS applications. Organizations now use an average of 100+ SaaS apps, with large enterprises often using well over 150-400, which increases the need for centralized, browser-level security controls. This creates a significant market opportunity for Chromium-based enterprise browsers that can provide secure SaaS access for external users via managed browser sessions, with per-user, per-month licensing aligned to flexible contractor headcount. The goal is to reduce hardware and IT overhead, improve security posture for third-party access, and maintain a familiar user experience while enabling centralized controls for data protection and policy enforcement at the browser/session level.",
       primaryFiles: "Chromium browser fork (NEW), SSO integration module (NEW), Enterprise policy management (NEW), Browser installation without admin privileges (NEW)",
       issues: [
@@ -1252,6 +1503,275 @@ function Sprints() {
         "Browser can be easily deployed and removed for contractor engagements",
         "All enterprise features work seamlessly with existing Oasis AI Assistant functionality"
       ]
+    },
+    {
+      id: 18,
+      title: "Voice Dictation Improvements",
+      emoji: "🎤",
+      priority: "HIGH",
+      storyPoints: 5,
+      effort: "Medium",
+      impact: "High",
+      severity: "8-10/10",
+      teamMembers: ["Rushyanth"],
+      overview: "Improve voice dictation UX including waveform animation feedback, stop button responsiveness, UI simplification, and real-time visual feedback during recording. **NEW SPRINT** from Feb 2026 feedback.",
+      primaryFiles: "browser/base/content/assistant/build/src/services/voiceInput.ts, browser/base/content/assistant/ui-preact/src/App.tsx, browser/base/content/assistant/ui-preact/src/App.css",
+      issues: [
+        {
+          title: "Input-Reactive Waveform Animation",
+          count: 1,
+          submissionIds: ["0Q4Ayqy"],
+          description: "Waveform should be input-reactive, not a looped animation. Animate on detected speech + amplitude; idle on silence. Currently waveform animation is always on, making it decorative rather than functional.",
+          impact: "Confusing feedback (severity 8/10)",
+          technicalNotes: "Implement real-time waveform animation based on audio input amplitude and speech detection",
+          requiresUI: true,
+          feedback: [
+            { id: "0Q4Ayqy", text: "Waveform should be input-reactive, not a looped animation. Animate on detected speech + amplitude; idle on silence. Right now the waveform animation is basically \"always on,\" so it reads as decorative and doesn't communicate state. The intent is: only animate when we're actually detecting speech, so users get real-time feedback that recording is working.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.06.50-AM.png?id=rkPRaR&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJrUFJhUiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY0OTg5N30.kkKDIXz9mMn-uBNJoe-D5hR5XDj5TFKseZLYwcea8IA&signature=ec12a193895ad566644f6bda67ea618791bd752a03628f0f16712359f5d9f32d" }
+          ]
+        },
+        {
+          title: "Stop Button Immediate Response",
+          count: 1,
+          submissionIds: ["KYXR45A"],
+          description: "When the stop button is clicked, recording doesn't stop immediately. There's a noticeable lag, which makes it unclear whether dictation has actually ended. Recording should stop instantly or at least reflect an immediate state change.",
+          impact: "Confusing user experience (severity 10/10)",
+          technicalNotes: "Improve stop button responsiveness - immediate state change and audio recording stop",
+          requiresUI: true,
+          feedback: [
+            { id: "KYXR45A", text: "For voice dictation, when the stop button is clicked, recording doesn't stop immediately. There's a noticeable lag, which makes it unclear whether dictation has actually ended. Recording should stop instantly, or at least reflect an immediate state change, so users can quickly switch between dictating, reviewing, and playback without confusion.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.15.54-AM.png?id=8RxV9A&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhSeFY5QSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MDQ1N30.9EU3xaeiM-NSPlgYDU4ebdnJMcPM2fIH0tFam2gxUHQ&signature=a8f78d59b119e8fc19ddc6379ff9dac9ca5382927c78abd041902bac63f093c7" }
+          ]
+        },
+      ],
+      acceptanceCriteria: [
+        "Waveform animation is input-reactive (animates on speech, idle on silence)",
+        "Stop button provides immediate state change feedback"
+      ]
+    },
+    {
+      id: 19,
+      title: "Feedback Modal Implementation",
+      emoji: "💬",
+      priority: "MEDIUM-HIGH",
+      storyPoints: 4,
+      effort: "Medium",
+      impact: "High",
+      severity: "7-10/10",
+      overview: "Implement in-app feedback functionality and align feedback modal design with design system specifications. **NEW SPRINT** from Feb 2026 feedback.",
+      primaryFiles: "browser/base/content/assistant/ui-preact/src/components/Feedback.tsx, browser/base/content/assistant/ui-preact/src/App.tsx, browser/components/aiwindow/ui/components/ai-chat-content/chat-assistant-footer/assistant-message-footer.mjs",
+      issues: [
+        {
+          title: "Feedback Modal Auto-Scroll",
+          count: 1,
+          submissionIds: ["D4LWR7l"],
+          description: "When users click the upvote or downvote icons, the feedback modal isn't immediately visible and requires manual scrolling. The modal should automatically come into view.",
+          impact: "Friction in feedback flow (severity 10/10)",
+          technicalNotes: "Implement auto-scroll or repositioning of feedback modal when triggered",
+          requiresUI: true,
+          feedback: [
+            { id: "D4LWR7l", text: "When users click the upvote or downvote icons, the feedback modal isn't immediately visible and requires manual scrolling. This adds friction. The modal should automatically come into view, either by auto-scrolling or repositioning it in the viewport so users can continue the feedback flow without extra effort.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.26.38-AM.png?id=YxabXN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ill4YWJYTiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MDk2NX0.nY7XVTjj0lUQQlt5kh-tU_z-Tjnh5wz2DRQyPJn-TMI&signature=0becef6ab3931381bcdcd32f6b3e98c1e13de1ec34bc4dfd30853999539a972e" }
+          ]
+        },
+        {
+          title: "Feedback Modal Design System Alignment",
+          count: 1,
+          submissionIds: ["Me0G0N0"],
+          description: "Feedback modal isn't aligned with design specs. Issues: input field background (dark vs light modal), checkbox states (no visible border), CTA button (not using primary brand color), chip close icon (too small), modal shadow (should be removed).",
+          impact: "Design inconsistency (severity 9/10)",
+          technicalNotes: "Align feedback modal with design system - input background, checkbox styling, button colors, chip icons, remove shadow",
+          requiresUI: true,
+          feedback: [
+            { id: "Me0G0N0", text: "Feedback modal isn't aligned with the design specs. Here are the fixes needed: Input field background: The input area is dark while the modal is light. This feels visually inconsistent. Align the input background with the modal design. Checkbox states: Current checkbox styling doesn't follow the design system. The unchecked state lacks a visible border, so it's easy to miss. Needs clearer borders and stronger state differentiation. CTA button: Button color isn't using the primary brand color. Update the color and change the label to just \"Submit.\" Chip close icon: The close icon inside selected chips is too small and thin. Make it more prominent for visibility and usability. Modal shadow: Remove the shadow behind the feedback modal since it isn't part of the design spec and adds visual noise.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.43.19-AM.png?id=2DP98j&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJEUDk4aiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MjE5OX0.Rj9YZnuASKmAbETndDnEaMU-nvSEfwZawsXp5FcvLZo&signature=3eb0c6fbc1e1974fc6ada27d186cbd38e10521c6f1fc2df0d6e47d0ab155a75f" }
+          ]
+        },
+      ],
+      acceptanceCriteria: [
+        "Feedback modal auto-scrolls/repositions when triggered",
+        "Input field background matches modal design",
+        "Checkbox states follow design system",
+        "CTA button uses primary brand color and 'Submit' label",
+        "Chip close icons are prominent and visible",
+        "Modal shadow removed per design spec"
+      ]
+    },
+    {
+      id: 22,
+      title: "Search & Command Interpretation",
+      emoji: "🔍",
+      priority: "MEDIUM-HIGH",
+      storyPoints: 9,
+      effort: "Medium-High",
+      impact: "High",
+      severity: "8-10/10",
+      overview: "Fix web search functionality and improve command interpretation to reduce confusion and incorrect prompt results. Includes contextual CTAs. **NEW SPRINT** from Feb 2026 feedback.",
+      primaryFiles: "browser/base/content/assistant/build/src/commands.ts, browser/components/aiwindow/models/Tools.sys.mjs, browser/base/content/assistant/build/src/assistant.ts",
+      issues: [
+        {
+          title: "Recurring Search Issues (Windows)",
+          count: 1,
+          submissionIds: ["5BJZkrb"],
+          description: "Search issues recurring on Windows version even when starting new research topics.",
+          impact: "Search functionality broken on Windows (severity 9/10)",
+          technicalNotes: "Investigate Windows-specific search issues, check platform compatibility",
+          feedback: [
+            { id: "5BJZkrb", text: "(windows version) this issue is recurring even when i try to start a new topic to research.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-29-132313.png?id=49lxyb&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5bHh5YiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTcxMTEwNH0.MIZM2MZUIg7Cjw9uNc0bwgriXDNMP6qRri4ghgg0bC4&signature=b9d0d2c03f299130e1af2dba013f2fbf2dbef96242fb441b688f31e83e7fd709" }
+          ]
+        },
+        {
+          title: "Command Interpretation Confusion",
+          count: 1,
+          submissionIds: ["jaKMqd6"],
+          description: "Confusion in AI with prompts causing it to bring up unrelated prompt results (Windows version).",
+          impact: "Incorrect command interpretation (severity 8/10)",
+          technicalNotes: "Improve command interpretation logic, better context matching",
+          feedback: [
+            { id: "jaKMqd6", text: "confusion in the ai with prompts - causing it to bring up unrelated prompt results  ( windows version)", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-06-144606.png?id=PGDale&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBHRGFsZSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDQwNzIzMH0.olHlrL5jdmJajNHt48-6SQdbIwhzAidlE7WPSzxPv-w&signature=86bef991733ca24ccf20a24b3d057642a49c5339f0c7457f9414326de52a61d3" }
+          ]
+        },
+        {
+          title: "Contextual CTA Badges Feature",
+          count: 1,
+          submissionIds: ["RGOr9Kj"],
+          description: "After output, users often need to decide next step. Surface contextual CTA badges (e.g., 'Search the web') to reduce friction. Also proactively surface relevant links based on prompt context.",
+          impact: "Would improve UX significantly (severity 10/10)",
+          technicalNotes: "Implement contextual CTA badges and proactive link surfacing based on prompt context",
+          requiresUI: true,
+          feedback: [
+            { id: "RGOr9Kj", text: "After the output, users often need to decide their next step. In this case, 'search the web' was the obvious next action. Instead of expecting users to type it again, we could surface a contextual CTA badge like 'Search the web' to reduce friction and speed up browsing. Also, based on the prompt context, it likely could have inferred intent and proactively surfaced relevant links which it didn't.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.35.15-AM.png?id=1pV02l&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFwVjAybCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MTQxN30.xSunGkPnT0ccahYDUBXKfjn9d6lzjuMBw_QDhth9-xI&signature=b30885241aa86f14d064eca11caf554beb4217880a24028bab8da5c791da19bd" }
+          ]
+        },
+        {
+          title: "Web Search Reliability",
+          count: 1,
+          submissionIds: ["eqboX4J"],
+          description: "AI assistant runs into issues when initiating web search. It states it will perform a search but doesn't return results or follow-up output. Should execute reliably or show clear fallback messaging.",
+          impact: "Broken search experience (severity 10/10)",
+          technicalNotes: "Fix web search execution, add error handling and fallback messaging",
+          feedback: [
+            { id: "eqboX4J", text: "The AI assistant seems to run into issues when initiating web search. It states that it will perform a search but doesn't actually return any results or follow-up output. This creates a broken experience. Either the search should execute reliably, or we should show clear fallback messaging or status feedback instead of leaving users hanging.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.40.15-AM.png?id=AjvRRo&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFqdlJSbyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MTY1MX0.6jS7YxZn3_-dqVf1zWAnZlWEnuMCMje51wWffoThuQg&signature=98948e5c5dd4b5882f33ea7369e4c55dad1575909f8b27dc4b4d6d5d49321213" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "Search functionality works reliably on Windows",
+        "Command interpretation correctly matches user intent",
+        "Contextual CTA badges implemented",
+        "Proactive link surfacing based on prompt context",
+        "Web search executes reliably with proper error handling",
+        "Clear fallback messaging when search fails"
+      ]
+    },
+    {
+      id: 23,
+      title: "Window Management Improvements",
+      emoji: "🖼️",
+      priority: "HIGH",
+      storyPoints: 13,
+      effort: "Medium-High",
+      impact: "High",
+      severity: "8-10/10",
+      overview: "Fix AI Assistant window management issues including minimize/maximize functionality, window resizing, viewport positioning, and input area visibility in minimized state. **NEW SPRINT** from Feb 2026 feedback.",
+      primaryFiles: "browser/base/content/assistant/ui-preact/src/components/Header.tsx, browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/ui-preact/src/App.tsx",
+      issues: [
+        {
+          title: "Restore Original Window Size",
+          count: 1,
+          submissionIds: ["XxakaYd"],
+          description: "No way to minimize the assistant window back to the original size (the size it opens for the first time). Either minimizes to tiny rectangle or maximizes to full width. No option to resize horizontally or vertically.",
+          impact: "Can't restore default window size (severity 10/10)",
+          technicalNotes: "Implement window size restoration logic, add resize controls",
+          requiresUI: true,
+          feedback: [
+            { id: "XxakaYd", text: "there's no way to minimize the assistant window back to the original size, the size in which it opens for the first time. either it minimizes to the tiny rectangle window or maximizes to the full width size. there's no option to resize the window horizontally or vertically too. In the minimized version, the input area should always be visible, as a user I shouldn't need to maximize and then enter text" }
+          ]
+        },
+        {
+          title: "Minimized Version Input Area Visibility",
+          count: 2,
+          submissionIds: ["xXq1KPk", "XxjNy8P"],
+          description: "Minimized version doesn't help much - input area is hidden behind top bar, menu options not visible. Input area should always be visible in minimized state.",
+          impact: "Can't use assistant when minimized (severity 10/10)",
+          technicalNotes: "Redesign minimized state to show input area, improve elevation hierarchy",
+          requiresUI: true,
+          feedback: [
+            { id: "xXq1KPk", text: "this minimized version of the assistant doesn't help much, need to improve this design since there's no way to add input, the input area is hidden behind the top bar, the menu options are not visible either. improve the elevation hierarchy of all the elements.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-26-at-12.24.39-PM.png?id=49dOdY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5ZE9kWSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTQ0ODQxM30.S-GQoF_g646tFHrYxwCRe2msJbXCXCjllMrKmbyS6iU&signature=c58883757656892ecbf4e8b437129bb0dcad607ad10f9c2c4cb061b9df5f772a" },
+            { id: "XxjNy8P", text: "The minimized version should have the input area visible at all times. Currently, I only see the header.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.05.19-AM.png?id=9oQPGE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlvUVBHRSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY0OTU5MH0.QwoZsnglSuDFfQowKVj0xzwk2HcEVs4rZ7MM46AMM6o&signature=13f98f9dc98bf4ffca0a95d104fe52c8896a72818248690a0dbb7d10149b256b" }
+          ]
+        },
+        {
+          title: "Viewport Boundary Detection",
+          count: 1,
+          submissionIds: ["D48PgkR"],
+          description: "When maximizing AI assistant and it's snapped to right corner, the assistant window extends outside the viewport. User has to take extra step to move it back.",
+          impact: "Window goes off-screen (severity 10/10)",
+          technicalNotes: "Implement viewport boundary detection and constraint window position",
+          requiresUI: true,
+          feedback: [
+            { id: "D48PgkR", text: "when you maximize the ai assistant and if it is snapped to right corner, the assistant window extends outside the viewport, as a user I have to take an extra step to move it back in the view port.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-26-at-12.28.57-PM.png?id=7a5EQ9&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdhNUVROSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTQ0ODU2N30.YUq1NYfRbj36JIqNqH6Idab0uDV16x2VSbuijS7QUf8&signature=a418b5af626b3800a5e7b050521883445d124a44117bf3d83d52fcc29fe52910" }
+          ]
+        },
+        {
+          title: "Size Persistence Across Minimize/Maximize",
+          count: 1,
+          submissionIds: ["MeWeyJE"],
+          description: "When minimizing window and then maximizing it, it's not the same size that it started off in. Makes it harder to use since it takes up a lot of space and can't adjust it.",
+          impact: "Window size doesn't persist (severity 8/10)",
+          technicalNotes: "Implement window size persistence across minimize/maximize cycles",
+          requiresUI: true,
+          feedback: [
+            { id: "MeWeyJE", text: "whenever i minimize the window and then try to maximize it to use the agent, it is not the same size that it starts off in and that makes it much harder to use since it ends up taking up a lot of the space on the screen and i cant adjust it either." }
+          ]
+        },
+        {
+          title: "Undo Minimization Bug",
+          count: 1,
+          submissionIds: ["NpzlZz0"],
+          description: "Minimizing chat works correctly, but undoing the minimization doesn't work. Clicking menu button again to undo minimization has no effect.",
+          impact: "Can't restore minimized window (severity 8/10)",
+          technicalNotes: "Fix minimize/restore toggle logic",
+          requiresUI: true,
+          feedback: [
+            { id: "NpzlZz0", text: "When I try to minimize the chat agent, it works correctly. However, when I try to undo the minimization, it does not work. Steps to reproduce: 1. Click on the chat agent (before signing in). 2. Click the menu button and select Minimize chat -> this works as expected. 3. Click the menu button again to undo the minimization.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-05-at-11.23.27.png?id=kkll6d&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImtrbGw2ZCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDMwOTE2NX0.tIZPMh7eqKjqjzVvGNVF4reslpMYCbc7FXPmIq2hDiM&signature=2498f28f1ef36255d073603b737f65140f857aed4e4794d7281c25d69ef59fb7" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "Window can be restored to original/default size",
+        "Horizontal and vertical resizing controls implemented",
+        "Input area always visible in minimized state",
+        "Viewport boundary detection prevents window going off-screen",
+        "Window size persists across minimize/maximize cycles",
+        "Undo minimization works correctly",
+        "Elevation hierarchy improved in minimized state"
+      ]
+    },
+    {
+      id: 24,
+      title: "Miscellaneous Fixes",
+      emoji: "🔧",
+      priority: "MEDIUM",
+      storyPoints: 7,
+      effort: "Medium",
+      impact: "Medium",
+      severity: "7-10/10",
+      overview: "Various fixes and improvements that don't fit into other sprints. Includes UI fixes, logic improvements, and edge cases. **NEW SPRINT** from Feb 2026 feedback.",
+      primaryFiles: "Various (text box: App.tsx, hub logic: hubs.ts, command: commands.ts, chat history: ChatStore.sys.mjs)",
+      issues: [
+        {
+          title: "Command Interpretation Context Matching",
+          count: 1,
+          submissionIds: ["jaKMqd6"],
+          description: "Command interpretation confusion causing unrelated prompt results, especially on Windows.",
+          impact: "Incorrect command interpretation (severity 8/10)",
+          technicalNotes: "Improve command interpretation context matching",
+          feedback: [
+            { id: "jaKMqd6", text: "confusion in the ai with prompts - causing it to bring up unrelated prompt results  ( windows version)", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-06-144606.png?id=PGDale&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBHRGFsZSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDQwNzIzMH0.olHlrL5jdmJajNHt48-6SQdbIwhzAidlE7WPSzxPv-w&signature=86bef991733ca24ccf20a24b3d057642a49c5339f0c7457f9414326de52a61d3" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "Command interpretation context matching improved",
+        "All miscellaneous fixes tested and verified"
+      ]
     }
   ]
 
@@ -1288,7 +1808,7 @@ function Sprints() {
       <div className="page-header">
         <h1>Engineering Sprints</h1>
         <p style={{ marginTop: '10px', color: '#666', fontSize: '1rem' }}>
-          December 2025 - January 2026 Feedback | 130 Total Feedback Items (52 New)
+          December 2025 - February 2026 Feedback | 167 Total Feedback Items (37 New from Feb 2026) | 15 Active Sprints (8 Updated + 7 New)
         </p>
       </div>
 
@@ -1360,6 +1880,26 @@ function Sprints() {
                     <h2 className="sprint-title">
                       SPRINT {sprint.id}: {sprint.title}
                     </h2>
+                    {sprint.teamMembers && sprint.teamMembers.length > 0 && (
+                      <div style={{ marginTop: '8px', marginBottom: '8px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                        {sprint.teamMembers.map((member, idx) => (
+                          <span 
+                            key={idx}
+                            className="team-member-badge"
+                            style={{ 
+                              backgroundColor: '#3b82f6',
+                              color: 'white',
+                              padding: '4px 8px',
+                              borderRadius: '4px',
+                              fontSize: '0.75rem',
+                              fontWeight: '500'
+                            }}
+                          >
+                            {member}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                     <div className="sprint-meta">
                       <span 
                         className="priority-badge"
@@ -1578,6 +2118,26 @@ function Sprints() {
                         <h2 className="sprint-title">
                           SPRINT {sprint.id}: {sprint.title} ✅ COMPLETED
                         </h2>
+                        {sprint.teamMembers && sprint.teamMembers.length > 0 && (
+                          <div style={{ marginTop: '8px', marginBottom: '8px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                            {sprint.teamMembers.map((member, idx) => (
+                              <span 
+                                key={idx}
+                                className="team-member-badge"
+                                style={{ 
+                                  backgroundColor: '#3b82f6',
+                                  color: 'white',
+                                  padding: '4px 8px',
+                                  borderRadius: '4px',
+                                  fontSize: '0.75rem',
+                                  fontWeight: '500'
+                                }}
+                              >
+                                {member}
+                              </span>
+                            ))}
+                          </div>
+                        )}
                         <div className="sprint-meta">
                           <span 
                             className="priority-badge"
