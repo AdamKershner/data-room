@@ -1411,7 +1411,7 @@ function Sprints() {
       effort: "Medium-High",
       impact: "High",
       severity: "9/10",
-      teamMembers: [],
+      teamMembers: ["Afshaan"],
       overview: "Implement update checking, notification system, and update UI within Oasis for software updates.",
       primaryFiles: "Update checking and notification system (NEW), Settings or dedicated update component UI, browser/base/content/assistant/assistant.ui.js",
       issues: [
