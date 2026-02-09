@@ -9,6 +9,88 @@ function Sprints() {
   // Archived sprints (completed)
   const archivedSprints = [
     {
+      id: 8,
+      title: "Sprint 8 - Resolved Tab Group Issues",
+      emoji: "📁",
+      priority: "HIGH",
+      storyPoints: 18,
+      effort: "Medium-High",
+      impact: "High",
+      severity: "7-10/10",
+      overview: "Resolved issues from Sprint 8: Tab Group Operations. These issues have been completed and fixed, including tab group content querying, tab filtering/matching, tab group creation, compound commands, and the 'add all tabs to tab group' feature.",
+      primaryFiles: "browser/base/content/assistant/build/src/hubs.ts, browser/base/content/assistant/build/src/commands.ts",
+      issues: [
+        {
+          title: "Can't Find Tabs in Tab Groups",
+          count: 2,
+          submissionIds: ["68BP0AJ", "QKQ4N2G"],
+          description: "AI assistant reports tab groups are empty when they contain tabs, or can't find specific tabs within groups (e.g., '2026 expenses tab').",
+          impact: "Can't navigate to saved content (severity 10/10)",
+          technicalNotes: "Tab group content querying logic broken in hubs.ts - needs to properly enumerate tabs within groups",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed by Durgesh Tiwari (Feb 2026).",
+          feedback: [
+            { id: "68BP0AJ", text: "I asked AI assistant what is in my GoogleSheets tab group and it said I had nothing in it. As you can see from the screenshot, there are tabs in it.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-18-at-12.18.41-PM.png?id=1NMl6l&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOTWw2bCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODc2MDQxMX0.p4G4AtlNoH7OaMGS6N2oL4pICVgBQbnDEp7Zjfcmtfk&signature=7f767a62e0bbf707925efaceafc3a0c3db165ddbf5c3f76223210227d437034a" },
+            { id: "QKQ4N2G", text: "I asked AI assistant to open 2026 expenses tab. It said it opened it. As you can see in the screenshot, it opened a new tab (Page Not Found) with GoogleSheets. It did not open my existing 2026 expenses tab.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-18-at-12.21.27-PM.png?id=bYL7Dg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZTDdEZyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODc2MDYwN30.krGmO1q8eqhuXEed_Hi2aOv_p3W0LWNUNCE5QFYgMPY&signature=c78c4911000225c0f2ae4cca5097736bd3fefddf364254971b58d1593267a024" }
+          ]
+        },
+        {
+          title: "Adding Tabs to Groups Adds Wrong Tabs",
+          count: 1,
+          submissionIds: ["Ek77J5r"],
+          description: "Commands to add specific tabs to groups (e.g., 'add all the youtube tabs') add all open tabs instead of just the specified ones.",
+          impact: "Can't selectively organize tabs (severity 8/10)",
+          technicalNotes: "Tab filtering/matching logic broken in hub command module - needs to properly match tabs by URL, title, or domain",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
+          feedback: [
+            { id: "Ek77J5r", text: "command: create a group called youtube learning and add all the youtube tabs under it. result: added all the opened tabs instead of just the youtube ones. command: do not add all the tabs, add just the youtube tabs. result: added all the opened tabs instead of just the youtube ones. command: remove all the tabs under youtube learning except youtube tabs. result: added all the opened tabs instead of just the youtube ones." }
+          ]
+        },
+        {
+          title: "Tab Group Creation with Zero Items",
+          count: 1,
+          submissionIds: ["kdPNA4R"],
+          description: "Creating tab groups via AI command sometimes creates groups with 0 items when tabs should be added.",
+          impact: "Tab groups created but empty (severity 7/10)",
+          technicalNotes: "Tab group creation and tab addition logic may have timing or state issues in hub command module",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
+          feedback: [
+            { id: "kdPNA4R", text: "I used the ai command 'create tab group called \"GTM\"'. [Tool Output for create_tab_group]: Created tab group \"GTM\" with 0 items. open product hunt", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-15-at-6.40.10-PM.png?id=d8xVDq&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4eFZEcSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODUyNDEwOH0.eZ0fCDEw34xvnggFzJ_42z9KXYIZa4YuVBsyXGWBlaI&signature=cc7b0d68d31fa07462369a6ca69fe4818130deb6386fb8f1f05a5072f8cdcd5f" }
+          ]
+        },
+        {
+          title: "Compound Command: Create Group + Add Tab Fails",
+          count: 1,
+          submissionIds: ["b5pKjkZ"],
+          description: "Creating tab group and adding specific tab in one compound command doesn't work correctly. Wrong tab gets added instead of the specified one (e.g., 'Create a new tab group called \"Email\" and add my Gmail tab to it' adds wrong tab).",
+          impact: "Can't efficiently create and populate tab groups (severity 10/10)",
+          technicalNotes: "Compound command parsing and tab matching logic in hub command module - needs to properly identify and add the correct tab when specified",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
+          feedback: [
+            { id: "b5pKjkZ", text: "As a user, I want to be able to create a new tab group and add an open tab to it with a single compound command. User: 'Create a new tab group called \"Email\" and add my Gmail tab to it', AI: 'Created hub \"Email\" with 0 items.' '[Tool Output for add_tab_to_hub]: Added 1 tab(s) to hub \"Email\".' The outcome was 1/2 correct. A new tab group called 'Email' was created, however, the wrong tab was added to it. My open Gmail tab was not added to it.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-24-at-3.23.17-PM.png?id=JeBaXr&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkplQmFYciIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTI4OTkzN30.ABGGBUtl3Vo4ADF2rDpS5reAlnWM7QVZ1puzHb5d36g&signature=8f922ec462cadd09545180cb12f4b36b1263eb184e1cbf780fdbd9d7b341edfa" }
+          ]
+        },
+        {
+          title: "Feature Request: Add All Tabs to Tab Group",
+          count: 1,
+          submissionIds: ["7RA2oJA"],
+          description: "Users want to be able to say 'Add all tabs to Research tab group' and have every open tab saved into that tab group. This would help manage tab clutter.",
+          impact: "Would make managing many tabs easier (severity 10/10)",
+          technicalNotes: "Implement 'add all tabs to tab group' command in hub command module - should add all currently open tabs to specified tab group",
+          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
+          feedback: [
+            { id: "7RA2oJA", text: "I'd like to request a new Oasis feature to make managing too many tabs much easier using tab groups. A common scenario: there are a dozen tabs open for a single project—news articles, references, emails—and everything quickly becomes unwieldy. With this feature, Oasis would let users say something like, 'Add all tabs to Research tab group,' and every open tab would be saved into a tab group called 'Research' for later. All those pages would be neatly organized in one place, so the user can close the on-screen clutter with confidence. Later, they could reopen that tab group and have everything restored just as they left it.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-3.49.08-PM.png?id=vJKjV4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKS2pWNCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExODY4NH0.QZyZKM8fy6EBRr5sXdhAK2ft93hXHejB5EAy06F8Ecs&signature=437ca53e87e55feb2cdf531fbe8bfe7ac445c0c1b5774a02d1994374ebe349e3" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "✅ Tab groups can be queried and tabs found within them - RESOLVED",
+        "✅ Adding tabs to groups only adds specified tabs - RESOLVED",
+        "✅ Tab groups are created with tabs when specified - RESOLVED",
+        "✅ Compound commands (create group + add tab) work correctly - RESOLVED",
+        "✅ 'Add all tabs to tab group' command works correctly - RESOLVED"
+      ]
+    },
+    {
       id: 1,
       title: "Critical AI Command Execution Fixes",
       emoji: "🚨",
@@ -701,58 +783,9 @@ function Sprints() {
       effort: "Medium-High",
       impact: "High",
       severity: "7-10/10",
-      overview: "Fix tab group operations including renaming, finding tabs within groups, adding/removing tabs, and tab group state accuracy. Also fix core tab/window commands that users perceive as 'it said it worked but nothing happened.' This sprint covers both tab group management and tab/window command correctness. Includes context-based tab organization using AI to automatically group related tabs. ✅ RESOLVED ISSUES (archived): Tab Group Renaming Fails, Tab Group Renaming and Listing Tabs Fails, Can't Find Tabs in Tab Groups, Adding Tabs to Groups Adds Wrong Tabs, Tab Group Creation with Zero Items, Compound Command: Create Group + Add Tab Fails, Feature Request: Add All Tabs to Tab Group. ⚠️ PARTIALLY RESOLVED: \"Close Tab Group\" Command Deletes Hub Instead (Delete command works, but Close command doesn't exist - Close should hide tab group, Open should restore it).",
+      overview: "Fix tab group operations including renaming, finding tabs within groups, adding/removing tabs, and tab group state accuracy. Also fix core tab/window commands that users perceive as 'it said it worked but nothing happened.' This sprint covers both tab group management and tab/window command correctness. Includes context-based tab organization using AI to automatically group related tabs. ⚠️ PARTIALLY RESOLVED: \"Close Tab Group\" Command Deletes Hub Instead (Delete command works, but Close command doesn't exist - Close should hide tab group, Open should restore it).",
       primaryFiles: "browser/base/content/assistant/build/src/hubs.ts, browser/base/content/assistant/build/src/commands.ts, browser/base/content/assistant/build/src/services/localMemory.ts, Browser first-run / startup UI (for browser import, privacy policy, vertical tabs popup), browser/branding/**",
       issues: [
-        {
-          title: "Can't Find Tabs in Tab Groups",
-          count: 2,
-          submissionIds: ["68BP0AJ", "QKQ4N2G"],
-          description: "AI assistant reports tab groups are empty when they contain tabs, or can't find specific tabs within groups (e.g., '2026 expenses tab').",
-          impact: "Can't navigate to saved content (severity 10/10)",
-          technicalNotes: "Tab group content querying logic broken in hubs.ts - needs to properly enumerate tabs within groups",
-          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
-          feedback: [
-            { id: "68BP0AJ", text: "I asked AI assistant what is in my GoogleSheets tab group and it said I had nothing in it. As you can see from the screenshot, there are tabs in it.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-18-at-12.18.41-PM.png?id=1NMl6l&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOTWw2bCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODc2MDQxMX0.p4G4AtlNoH7OaMGS6N2oL4pICVgBQbnDEp7Zjfcmtfk&signature=7f767a62e0bbf707925efaceafc3a0c3db165ddbf5c3f76223210227d437034a" },
-            { id: "QKQ4N2G", text: "I asked AI assistant to open 2026 expenses tab. It said it opened it. As you can see in the screenshot, it opened a new tab (Page Not Found) with GoogleSheets. It did not open my existing 2026 expenses tab.", screenshot: "https://storage.tally.so/private/Screen-Shot-2026-01-18-at-12.21.27-PM.png?id=bYL7Dg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZTDdEZyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODc2MDYwN30.krGmO1q8eqhuXEed_Hi2aOv_p3W0LWNUNCE5QFYgMPY&signature=c78c4911000225c0f2ae4cca5097736bd3fefddf364254971b58d1593267a024" }
-          ]
-        },
-        {
-          title: "Adding Tabs to Groups Adds Wrong Tabs",
-          count: 1,
-          submissionIds: ["Ek77J5r"],
-          description: "Commands to add specific tabs to groups (e.g., 'add all the youtube tabs') add all open tabs instead of just the specified ones.",
-          impact: "Can't selectively organize tabs (severity 8/10)",
-          technicalNotes: "Tab filtering/matching logic broken in hub command module - needs to properly match tabs by URL, title, or domain",
-          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
-          feedback: [
-            { id: "Ek77J5r", text: "command: create a group called youtube learning and add all the youtube tabs under it. result: added all the opened tabs instead of just the youtube ones. command: do not add all the tabs, add just the youtube tabs. result: added all the opened tabs instead of just the youtube ones. command: remove all the tabs under youtube learning except youtube tabs. result: added all the opened tabs instead of just the youtube ones." }
-          ]
-        },
-        {
-          title: "Tab Group Creation with Zero Items",
-          count: 1,
-          submissionIds: ["kdPNA4R"],
-          description: "Creating tab groups via AI command sometimes creates groups with 0 items when tabs should be added.",
-          impact: "Tab groups created but empty (severity 7/10)",
-          technicalNotes: "Tab group creation and tab addition logic may have timing or state issues in hub command module",
-          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
-          feedback: [
-            { id: "kdPNA4R", text: "I used the ai command 'create tab group called \"GTM\"'. [Tool Output for create_tab_group]: Created tab group \"GTM\" with 0 items. open product hunt", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-15-at-6.40.10-PM.png?id=d8xVDq&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4eFZEcSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODUyNDEwOH0.eZ0fCDEw34xvnggFzJ_42z9KXYIZa4YuVBsyXGWBlaI&signature=cc7b0d68d31fa07462369a6ca69fe4818130deb6386fb8f1f05a5072f8cdcd5f" }
-          ]
-        },
-        {
-          title: "Compound Command: Create Group + Add Tab Fails",
-          count: 1,
-          submissionIds: ["b5pKjkZ"],
-          description: "Creating tab group and adding specific tab in one compound command doesn't work correctly. Wrong tab gets added instead of the specified one (e.g., 'Create a new tab group called \"Email\" and add my Gmail tab to it' adds wrong tab).",
-          impact: "Can't efficiently create and populate tab groups (severity 10/10)",
-          technicalNotes: "Compound command parsing and tab matching logic in hub command module - needs to properly identify and add the correct tab when specified",
-          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
-          feedback: [
-            { id: "b5pKjkZ", text: "As a user, I want to be able to create a new tab group and add an open tab to it with a single compound command. User: 'Create a new tab group called \"Email\" and add my Gmail tab to it', AI: 'Created hub \"Email\" with 0 items.' '[Tool Output for add_tab_to_hub]: Added 1 tab(s) to hub \"Email\".' The outcome was 1/2 correct. A new tab group called 'Email' was created, however, the wrong tab was added to it. My open Gmail tab was not added to it.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-24-at-3.23.17-PM.png?id=JeBaXr&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkplQmFYciIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTI4OTkzN30.ABGGBUtl3Vo4ADF2rDpS5reAlnWM7QVZ1puzHb5d36g&signature=8f922ec462cadd09545180cb12f4b36b1263eb184e1cbf780fdbd9d7b341edfa" }
-          ]
-        },
         {
           title: "\"Close Tab Group\" Command Deletes Hub Instead",
           count: 1,
@@ -789,18 +822,6 @@ function Sprints() {
           ]
         },
         {
-          title: "Feature Request: Add All Tabs to Tab Group",
-          count: 1,
-          submissionIds: ["7RA2oJA"],
-          description: "Users want to be able to say 'Add all tabs to Research tab group' and have every open tab saved into that tab group. This would help manage tab clutter.",
-          impact: "Would make managing many tabs easier (severity 10/10)",
-          technicalNotes: "Implement 'add all tabs to tab group' command in hub command module - should add all currently open tabs to specified tab group",
-          resolutionNote: "✅ RESOLVED: Issue has been completed and fixed.",
-          feedback: [
-            { id: "7RA2oJA", text: "I'd like to request a new Oasis feature to make managing too many tabs much easier using tab groups. A common scenario: there are a dozen tabs open for a single project—news articles, references, emails—and everything quickly becomes unwieldy. With this feature, Oasis would let users say something like, 'Add all tabs to Research tab group,' and every open tab would be saved into a tab group called 'Research' for later. All those pages would be neatly organized in one place, so the user can close the on-screen clutter with confidence. Later, they could reopen that tab group and have everything restored just as they left it.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-3.49.08-PM.png?id=vJKjV4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKS2pWNCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExODY4NH0.QZyZKM8fy6EBRr5sXdhAK2ft93hXHejB5EAy06F8Ecs&signature=437ca53e87e55feb2cdf531fbe8bfe7ac445c0c1b5774a02d1994374ebe349e3" }
-          ]
-        },
-        {
           title: "Feature Request: Context-Based Tab Organization",
           count: 1,
           submissionIds: ["b5pdjNZ"],
@@ -815,21 +836,21 @@ function Sprints() {
       acceptanceCriteria: [
         "✅ Tab groups can be renamed via AI commands - RESOLVED (tested: 'Rename tab group Sports to Work' worked correctly)",
         "AI assistant state matches actual tab group state",
-        "AI assistant can find and list tabs within tab groups",
-        "AI assistant can open specific tabs from within tab groups",
-        "⚠️ Adding tabs to groups only adds specified tabs (not all tabs) - PARTIALLY RESOLVED (basic adding works, complex matching needs testing)",
-        "Tab groups are created with tabs when specified",
+        "✅ AI assistant can find and list tabs within tab groups - RESOLVED",
+        "✅ AI assistant can open specific tabs from within tab groups - RESOLVED",
+        "✅ Adding tabs to groups only adds specified tabs - RESOLVED",
+        "✅ Tab groups are created with tabs when specified - RESOLVED",
         "✅ Tab group renaming commands return proper responses (not empty) - RESOLVED",
         "✅ Listing tab groups works correctly - RESOLVED (tested: 'List tab groups' returned correct list)",
-        "⚠️ Compound commands (create group + add tab) work correctly and add the right tab - PARTIALLY RESOLVED (correctly adds specified tab but also incorrectly adds current tab)",
+        "✅ Compound commands (create group + add tab) work correctly and add the right tab - RESOLVED",
         "⚠️ 'Close tab group' command closes tabs without deleting the hub - PARTIALLY RESOLVED (Delete command works, but Close command doesn't exist yet - Close should hide tab group, Open should restore it)",
         "✅ Hub deletion works correctly when explicitly requested - RESOLVED",
         "Duplicate tab closing works correctly",
         "Tab closing by domain/URL pattern works correctly",
         "Tab closing commands actually close tabs (no false success messages)",
-        "'Add all tabs to tab group' command works correctly",
-        "All currently open tabs are added to the specified tab group",
-        "Command handles edge cases (no tabs open, tab group doesn't exist)",
+        "✅ 'Add all tabs to tab group' command works correctly - RESOLVED",
+        "✅ All currently open tabs are added to the specified tab group - RESOLVED",
+        "✅ Command handles edge cases (no tabs open, tab group doesn't exist) - RESOLVED",
         "Context-based tab organization using AI implemented",
         "AI correctly identifies related tabs based on context",
         "Tab groups are created with correct tabs and appropriate names"
@@ -1530,10 +1551,10 @@ function Sprints() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
               <div>
                 <h2 style={{ margin: 0, color: '#0369a1', fontSize: '1.5rem' }}>
-                  📦 Archive - Completed Sprints (1-4)
+                  📦 Archive - Completed Sprints (1-4, Sprint 8 Resolved Issues)
                 </h2>
                 <p style={{ margin: '10px 0 0 0', color: '#0369a1', fontSize: '0.95rem' }}>
-                  All sprints fully completed and fixed locally. Updates incorporated into new release for Product team testing (Mac & Windows) by end of week January 23rd.
+                  All sprints fully completed and fixed locally. Sprint 8 resolved issues have been archived. Updates incorporated into new release for Product team testing (Mac & Windows) by end of week January 23rd.
                 </p>
               </div>
               <div className="sprint-toggle" style={{ backgroundColor: 'rgba(14, 165, 233, 0.1)' }}>
