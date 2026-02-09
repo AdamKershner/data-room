@@ -23,17 +23,25 @@ function WeeklyReports() {
         'Product analytics and tracking improvements: Navile Mahesh worked on Mixpanel dashboard navigation and interpretation (20 hours), Hritik Chalse analyzed GA trends and Mixpanel patterns (21 hours)',
         'Marketing and outreach activities: Ammemah Naeem completed marketing onboarding and material review (14 hours), Rohith Anthony conducted LinkedIn outreach to university alumni (20 hours)',
         'Product testing and UX work: Aishwarya Shetiya worked on product testing, user stories, prototyping, and wireframing (20 hours)',
+        'Sprint 8 bug fixes: Durgesh Tiwari worked on resolving "can\'t find tabs in tabs group" issue (21 hours)',
+        'Enterprise browser research: Revanth conducted research on Okta, Netscape, and Chromium Enterprise configurations (25 hours)',
+        'UI improvements: Saideep Pajjuri worked on improving UI based on Figma designs (25 hours)',
+        'Product analytics: Agrima Gupta researched Mixpanel and tested features in Oasis browser (15 hours)',
+        'AI assistant enhancements: Pournami Pottekat conducted usability testing, ideated new onboarding flow, and worked on semantic search history functionality (25 hours)',
         'Achieved 77.2K impressions with 26.5% growth in marketing reach',
         'Waitlist signups reached 145 total'
       ],
       timeBreakdown: {
-        'Product Development': 86.0,
-        'Marketing & Content': 55.0
+        'Product Development': 137.0,
+        'Marketing & Content': 55.0,
+        'Research & Enterprise': 60.0
       },
       areasToImprove: [
         'Follow up on high-intent enterprise leads from Warmly (AT&T, PSA International, Bain & Company, CLP, Duke University, UWGB, HNB Bank, Crownstack) - prioritize pricing page visitors and demo requests',
         'Continue accelerating Sprint 17 (Chromium Enterprise Browser) development to meet enterprise client timelines',
         'Maintain momentum on Okta authentication integration and zero-trust security features',
+        'Complete Sprint 8 bug fixes (tab group issues) to improve user experience',
+        'Implement new AI assistant onboarding flow and semantic search history features based on usability testing feedback',
         'Scale blog content production to capitalize on strong SEO performance driving international traffic',
         'Prioritize outreach to education sector accounts showing interest (multiple universities visiting website)',
         'Scale Mixpanel analytics implementation to track user behavior and product metrics',
@@ -41,9 +49,9 @@ function WeeklyReports() {
         'Balance Chromium development with ongoing Firefox Oasis improvements'
       ],
       metrics: {
-        totalHours: 141.0,
+        totalHours: 252.0,
         teamMembers: 7,
-        entries: 10,
+        entries: 15,
         impressions: 77200,
         impressionsGrowth: 26.5,
         waitlistSignups: 145,

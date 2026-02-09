@@ -79,7 +79,7 @@ function TeamExecution() {
     },
     {
       name: "Sonakshi Singh",
-      roles: ["Product Marketing"],
+      roles: ["Product"],
       employmentStatus: "intern",
       hoursPerWeek: 20,
       timeLogs: [
@@ -2721,7 +2721,7 @@ function TeamExecution() {
     },
     {
       name: "Akalpit Dawkhar",
-      roles: ["Engineering"],
+      roles: ["Product"],
       employmentStatus: "intern",
       hoursPerWeek: 20,
       timeLogs: [
