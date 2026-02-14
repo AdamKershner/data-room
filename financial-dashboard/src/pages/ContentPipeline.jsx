@@ -4,6 +4,60 @@ import './ContentPipeline.css'
 import priorityMd from '../content/oasis_final_youtube_video_priority_list.md?raw'
 import defaults from '../content/content_pipeline_defaults.json'
 
+function looksNumbered(text) {
+  const lines = String(text || '')
+    .split('\n')
+    .map(l => l.trim())
+    .filter(Boolean)
+
+  if (lines.length === 0) return false
+
+  const numbered = lines.filter(l => /^\d+[\.\)]\s+/.test(l)).length
+  return numbered / lines.length >= 0.5
+}
+
+function numberizeForCreators(text) {
+  const src = String(text || '')
+  if (!src.trim()) return ''
+  if (looksNumbered(src)) return src
+
+  const counters = new Map()
+
+  const resetDeeper = (level) => {
+    for (const k of Array.from(counters.keys())) {
+      if (k > level) counters.delete(k)
+    }
+  }
+
+  const nextAt = (level) => {
+    const n = (counters.get(level) || 0) + 1
+    counters.set(level, n)
+    resetDeeper(level)
+    return n
+  }
+
+  const lines = src.split('\n')
+  const out = lines.map((line) => {
+    if (!line.trim()) return line
+
+    const bullet = line.match(/^(\s*)[-•*]\s+(.*)$/)
+    if (bullet) {
+      const indent = bullet[1] || ''
+      const content = bullet[2] || ''
+      const level = indent.length
+      const n = nextAt(level)
+      return `${indent}${n}. ${content}`
+    }
+
+    const indent = (line.match(/^\s*/)?.[0]) || ''
+    const content = line.trimStart()
+    const n = nextAt(0)
+    return `${indent}${n}. ${content}`
+  })
+
+  return out.join('\n')
+}
+
 function AutoGrowTextarea({ value, onChange, placeholder, minRows = 2 }) {
   const ref = useRef(null)
 
@@ -249,36 +303,38 @@ function ContentPipeline() {
                 while keeping Oasis visible through demos and workflow framing.
               </p>
 
-              <h3>Inputs (existing data)</h3>
-              <ul>
-                <li><strong>YouTube keyword ideas</strong>: seed keyword list + volume/competition where available.</li>
-                <li><strong>Google Search Console queries</strong>: existing search demand (impressions/clicks/position) from the site.</li>
-                <li>
-                  <strong>Google Trends (YouTube Search)</strong>: keywords and “ideas to explore” collected using filters
-                  <strong> Worldwide</strong>, <strong>last 5 years</strong>, and <strong>YouTube Search</strong> (used to surface breakout category themes like Copilot/Gemini, AI-in-browser, and enterprise browsing/security).
-                </li>
-              </ul>
+              <div className="pipeline-explanation-grid">
+                <div className="pipeline-explain-block">
+                  <h3>Inputs (existing data)</h3>
+                  <p><strong>YouTube keyword ideas</strong>: seed keyword list + volume/competition where available.</p>
+                  <p><strong>Google Search Console queries</strong>: existing search demand (impressions/clicks/position) from the site.</p>
+                  <p>
+                    <strong>Google Trends (YouTube Search)</strong>: keywords + “ideas to explore” collected using filters
+                    <strong> Worldwide</strong>, <strong>last 5 years</strong>, and <strong>YouTube Search</strong>.
+                  </p>
+                </div>
 
-              <h3>How ranking works (high level)</h3>
-              <ul>
-                <li><strong>Demand</strong>: combines YouTube volume (when present) + GSC impressions (when present).</li>
-                <li><strong>Ease</strong>: competition/difficulty estimates (when present) and a “YouTube actionability” bias for tutorial/comparison queries.</li>
-                <li><strong>Relevance</strong>: filters to browser-adjacent topics (so we don’t chase off-topic keywords).</li>
-                <li><strong>Oasis fit</strong>: boosts topics that naturally showcase Oasis differentiators (workflows/commands, workspaces/tab groups, split view, managed enterprise posture).</li>
-              </ul>
+                <div className="pipeline-explain-block">
+                  <h3>How ranking works (high level)</h3>
+                  <p><strong>Demand</strong>: combines YouTube volume (when present) + GSC impressions (when present).</p>
+                  <p><strong>Ease</strong>: competition/difficulty estimates (when present) + a YouTube “actionability” bias (tutorial/comparison).</p>
+                  <p><strong>Relevance</strong>: filters to browser-adjacent topics (so we don’t chase off-topic keywords).</p>
+                  <p><strong>Oasis fit</strong>: boosts topics that naturally showcase Oasis (workflows/commands, workspaces/tab groups, split view, managed enterprise posture).</p>
+                </div>
 
-              <h3>Why the list is “balanced”</h3>
-              <ul>
-                <li><strong>B2C traction</strong>: we lead with mainstream AI-in-browser waves + practical productivity topics.</li>
-                <li><strong>Enterprise pipeline</strong>: we intentionally surface high-intent topics (managed browser, Zero Trust, RBI, SWG, DLP, SSO) early enough to build authority.</li>
-                <li><strong>Show Oasis</strong>: even “category” videos include a short workflow demo so the product is seen (aesthetic UI advantage).</li>
-              </ul>
+                <div className="pipeline-explain-block">
+                  <h3>Why the list is balanced</h3>
+                  <p><strong>B2C traction</strong>: lead with mainstream AI-in-browser waves + practical productivity topics.</p>
+                  <p><strong>Enterprise pipeline</strong>: surface high-intent security/IT topics early enough to build authority (managed browser, Zero Trust, RBI, SWG, DLP, SSO).</p>
+                  <p><strong>Show Oasis</strong>: even category videos include a short workflow demo so the product is seen (aesthetic UI advantage).</p>
+                </div>
 
-              <h3>How to update the pipeline</h3>
-              <ul>
-                <li>Refresh keyword sources + GSC export, re-run the keyword ranker, and regenerate the priority list.</li>
-                <li>Update the priority markdown that powers this page, then iterate on the per-video notes/outlines as we learn.</li>
-              </ul>
+                <div className="pipeline-explain-block">
+                  <h3>How to update the pipeline</h3>
+                  <p>Refresh keyword sources + GSC export, re-run the keyword ranker, and regenerate the priority list.</p>
+                  <p>Update the priority markdown that powers this page, then iterate on the per-video notes/outlines as we learn.</p>
+                </div>
+              </div>
             </div>
           )}
         </div>
@@ -353,11 +409,25 @@ function ContentPipeline() {
                 <div className="pipeline-video-list">
                   {section.items.map(({ rank, title }) => {
                     const isVideoOpen = expandedVideo === title
-                    const hasOverride = !!(notes[title] && typeof notes[title] === 'object')
-                    const n =
-                      (hasOverride && notes[title]) ||
-                      (defaults[title] && typeof defaults[title] === 'object' && defaults[title]) ||
-                      {}
+                    const overrideObj = (notes[title] && typeof notes[title] === 'object') ? notes[title] : {}
+                    const defaultObj = (defaults[title] && typeof defaults[title] === 'object') ? defaults[title] : {}
+
+                    const notesValue = overrideObj.notes ?? defaultObj.notes ?? ''
+                    const hookValue = overrideObj.hook ?? defaultObj.hook ?? ''
+
+                    const rawTopics = overrideObj.topics ?? defaultObj.topics ?? ''
+                    const topicsValue =
+                      overrideObj.topics === undefined
+                        ? numberizeForCreators(rawTopics)
+                        : rawTopics
+
+                    const rawOutline = overrideObj.outline ?? defaultObj.outline ?? ''
+                    const outlineValue =
+                      overrideObj.outline === undefined
+                        ? numberizeForCreators(rawOutline)
+                        : rawOutline
+
+                    const ctaValue = overrideObj.cta ?? defaultObj.cta ?? ''
 
                     return (
                       <div key={title} className={`pipeline-video ${completed[title] ? 'completed' : ''}`}>
@@ -405,11 +475,7 @@ function ContentPipeline() {
                               <div className="pipeline-field pipeline-bubble bubble-notes span-2">
                                 <label>Notes for creator</label>
                                 <AutoGrowTextarea
-                                  value={
-                                    hasOverride
-                                      ? (n.notes || '')
-                                      : (n.notes || '')
-                                  }
+                                  value={notesValue}
                                   onChange={(e) => updateNotes(title, { notes: e.target.value })}
                                   placeholder="Angle, tone, what to show on-screen, what not to do…"
                                   minRows={4}
@@ -418,7 +484,7 @@ function ContentPipeline() {
                               <div className="pipeline-field pipeline-bubble bubble-hook">
                                 <label>Hook (1–2 sentences)</label>
                                 <AutoGrowTextarea
-                                  value={n.hook || ''}
+                                  value={hookValue}
                                   onChange={(e) => updateNotes(title, { hook: e.target.value })}
                                   placeholder="Open with the pain + payoff. What do we show in the first 10 seconds?"
                                   minRows={2}
@@ -426,11 +492,11 @@ function ContentPipeline() {
                               </div>
 
                               <div className="pipeline-field pipeline-bubble bubble-topics span-2">
-                                <label>Key points / topics to cover (bullets)</label>
+                                <label>Key points / topics to cover (numbered)</label>
                                 <AutoGrowTextarea
-                                  value={n.topics || ''}
+                                  value={topicsValue}
                                   onChange={(e) => updateNotes(title, { topics: e.target.value })}
-                                  placeholder="- Point 1\n- Point 2\n- Point 3"
+                                  placeholder="1. Point 1\n2. Point 2\n3. Point 3"
                                   minRows={6}
                                 />
                               </div>
@@ -438,9 +504,9 @@ function ContentPipeline() {
                               <div className="pipeline-field pipeline-bubble bubble-outline span-2">
                                 <label>High-level outline / beat sheet</label>
                                 <AutoGrowTextarea
-                                  value={n.outline || ''}
+                                  value={outlineValue}
                                   onChange={(e) => updateNotes(title, { outline: e.target.value })}
-                                  placeholder="0:00 Hook\n0:15 Context\n1:30 Demo\n…"
+                                  placeholder="1. Hook\n2. Context\n3. Demo\n…"
                                   minRows={7}
                                 />
                               </div>
@@ -448,7 +514,7 @@ function ContentPipeline() {
                               <div className="pipeline-field pipeline-bubble bubble-cta">
                                 <label>CTA</label>
                                 <AutoGrowTextarea
-                                  value={n.cta || ''}
+                                  value={ctaValue}
                                   onChange={(e) => updateNotes(title, { cta: e.target.value })}
                                   placeholder="What should the viewer do next? (waitlist, demo, comment a workflow, etc.)"
                                   minRows={2}
