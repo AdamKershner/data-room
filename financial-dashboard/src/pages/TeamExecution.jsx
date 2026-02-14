@@ -78,161 +78,60 @@ function TeamExecution() {
       }
     },
     {
-      name: "Sonakshi Singh",
+      name: "Rashmi Kadwani",
+      roles: ["Product Marketing"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: []
+    },
+    {
+      name: "Preetika Shyamwale",
+      roles: ["Design"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: []
+    },
+    {
+      name: "Ruhani Vinzuda",
+      roles: ["Design"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: []
+    },
+    {
+      name: "Pallavi",
+      roles: ["Engineering"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: []
+    },
+    {
+      name: "Samyak Jain",
+      roles: ["Product Marketing"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: []
+    },
+    {
+      name: "Archana Ramalingam",
       roles: ["Product"],
       employmentStatus: "intern",
       hoursPerWeek: 20,
-      timeLogs: [
-        {
-          submissionId: "Sonakshi1",
-          respondentId: "Sonakshi",
-          submittedAt: "2025-01-10 10:00:00",
-          name: "Sonakshi Singh",
-          date: "2025-01-03",
-          hours: 20,
-          description: "Week of Dec 30 - Jan 3. Researched trending topics in productivity and browser technology. Brainstormed creative content ideas for social media. Created content calendar for January. Developed content themes and messaging strategies."
-        },
-        {
-          submissionId: "Sonakshi2",
-          respondentId: "Sonakshi",
-          submittedAt: "2025-01-17 10:00:00",
-          name: "Sonakshi Singh",
-          date: "2025-01-10",
-          hours: 20,
-          description: "Week of Jan 6-10. Generated 30+ social media content ideas. Created daily post ideas for Twitter and LinkedIn. Engaged with community on Product Hunt. Tracked sign-ups and conversion metrics."
-        },
-        {
-          submissionId: "Sonakshi3",
-          respondentId: "Sonakshi",
-          submittedAt: "2025-01-24 10:00:00",
-          name: "Sonakshi Singh",
-          date: "2025-01-17",
-          hours: 20,
-          description: "Week of Jan 13-17. Developed new content series themes. Created engaging social media posts. Supported content marketing initiatives. Analyzed content performance metrics."
-        },
-        {
-          submissionId: "Sonakshi4",
-          respondentId: "Sonakshi",
-          submittedAt: "2025-01-31 10:00:00",
-          name: "Sonakshi Singh",
-          date: "2025-01-24",
-          hours: 20,
-          description: "Week of Jan 20-24. Continued content ideation for February calendar. Created visual content ideas. Engaged with online communities. Tracked subscriber growth from content."
-        }
-      ],
-      q1Goals: {
-        overview: "Drive subscriber growth through social media content ideation",
-        target: "Generate 30+ content ideas per month to support subscriber acquisition",
-        weeklyBreakdown: [
-          { week: 1, goal: "Research content themes", metric: "10+ ideas generated" },
-          { week: 2, goal: "Week 2 content ideation", metric: "30+ ideas for month" },
-          { week: 3, goal: "Week 3 content ideation", metric: "30+ ideas for month" },
-          { week: 4, goal: "Week 4 content ideation", metric: "30+ ideas for month" },
-          { week: 5, goal: "Week 5 content ideation", metric: "30+ ideas for month" },
-          { week: 6, goal: "Week 6 content ideation", metric: "30+ ideas for month" },
-          { week: 7, goal: "Week 7 content ideation", metric: "30+ ideas for month" },
-          { week: 8, goal: "Week 8 content ideation", metric: "30+ ideas for month" },
-          { week: 9, goal: "Week 9 content ideation", metric: "30+ ideas for month" },
-          { week: 10, goal: "Week 10 content ideation", metric: "30+ ideas for month" },
-          { week: 11, goal: "Week 11 content ideation", metric: "30+ ideas for month" },
-          { week: 12, goal: "Week 12 content ideation", metric: "30+ ideas for month" },
-          { week: 13, goal: "Q1 content strategy review", metric: "90+ total ideas generated" }
-        ],
-        keyMetrics: [
-          "Content ideas generated per month (target 30+)",
-          "Content calendar completion",
-          "Content themes developed (target 5+)",
-          "Support for subscriber growth"
-        ]
-      },
-      projects: [
-        {
-          title: "Social Media Content Ideation",
-          status: "active",
-          startDate: "January 2026",
-          description: "Develop creative and engaging social media content ideas to build Oasis Browser's presence and grow community.",
-          scope: [
-            "Research trending topics in productivity and browser technology",
-            "Brainstorm creative content ideas for Twitter/X, LinkedIn, and other platforms",
-            "Create content calendars with daily post ideas",
-            "Develop content themes and messaging strategies"
-          ],
-          goals: [
-            "Generate 30+ social media content ideas per month",
-            "Create content calendar for Q1 2026",
-            "Develop 5+ content series/themes for consistent posting"
-          ]
-        }
-      ],
-      availability: {
-        monday: {
-          active: true,
-          timeRange: "10:00 AM - 2:00 PM",
-          timezone: "Eastern Standard Time (EST)",
-          activities: [
-            "Researching content themes",
-            "Brainstorming social media content ideas",
-            "Creating content calendars",
-            "Engaging with online communities"
-          ]
-        },
-        tuesday: {
-          active: true,
-          timeRange: "10:00 AM - 2:00 PM",
-          timezone: "Eastern Standard Time (EST)",
-          activities: [
-            "Researching content themes",
-            "Brainstorming social media content ideas",
-            "Creating content calendars",
-            "Engaging with online communities"
-          ]
-        },
-        wednesday: {
-          active: true,
-          timeRange: "10:00 AM - 2:00 PM",
-          timezone: "Eastern Standard Time (EST)",
-          activities: [
-            "Researching content themes",
-            "Brainstorming social media content ideas",
-            "Creating content calendars",
-            "Engaging with online communities"
-          ]
-        },
-        thursday: {
-          active: true,
-          timeRange: "10:00 AM - 2:00 PM",
-          timezone: "Eastern Standard Time (EST)",
-          activities: [
-            "Researching content themes",
-            "Brainstorming social media content ideas",
-            "Creating content calendars",
-            "Engaging with online communities"
-          ]
-        },
-        friday: {
-          active: true,
-          timeRange: "10:00 AM - 2:00 PM",
-          timezone: "Eastern Standard Time (EST)",
-          activities: [
-            "Researching content themes",
-            "Brainstorming social media content ideas",
-            "Creating content calendars",
-            "Engaging with online communities"
-          ]
-        },
-        saturday: {
-          active: false,
-          timeRange: "",
-          timezone: "",
-          activities: []
-        },
-        sunday: {
-          active: false,
-          timeRange: "",
-          timezone: "",
-          activities: []
-        }
-      }
+      timeLogs: []
+    },
+    {
+      name: "Saksham Mehta",
+      roles: ["Product"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: []
+    },
+    {
+      name: "BD Manikandan",
+      roles: ["Sales"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: []
     },
     {
       name: "Dhruv Patel",
@@ -406,100 +305,6 @@ function TeamExecution() {
             "Complete all Product Hunt listing materials",
             "Create demo video and screenshots",
             "Prepare content calendar for launch week"
-          ]
-        }
-      ]
-    },
-    {
-      name: "Sonali Ankolikar",
-      roles: ["Product"],
-      employmentStatus: "intern",
-      hoursPerWeek: 20,
-      timeLogs: [
-        {
-          submissionId: "Sonali1",
-          respondentId: "Sonali",
-          submittedAt: "2025-01-10 10:00:00",
-          name: "Sonali Ankolikar",
-          date: "2025-01-03",
-          hours: 20,
-          description: "Week of Dec 30 - Jan 3. Installed latest browser version from installations page. Conducted UI/UX testing session with users. Submitted feedback forms via AI assistant interface for bugs and enhancement ideas. Administered PMF and NPS surveys. Documented enhancement ideas in Google Sheets. Analyzed feedback for engineering prioritization."
-        },
-        {
-          submissionId: "Sonali2",
-          respondentId: "Sonali",
-          submittedAt: "2025-01-17 10:00:00",
-          name: "Sonali Ankolikar",
-          date: "2025-01-10",
-          hours: 20,
-          description: "Week of Jan 6-10. Installed new weekly release from installations page. Tested new UI/UX iteration with focus on demo-critical features. Submitted feedback forms documenting bugs and enhancement ideas. Administered NPS survey and tracked delta. Collected user feedback via feedback form (consolidates to Google Sheets). Prioritized top improvements for sprint."
-        },
-        {
-          submissionId: "Sonali3",
-          respondentId: "Sonali",
-          submittedAt: "2025-01-24 10:00:00",
-          name: "Sonali Ankolikar",
-          date: "2025-01-17",
-          hours: 20,
-          description: "Week of Jan 13-17. Installed latest weekly release from installations page. Conducted weekly UI/UX testing. Submitted feedback forms for bugs and enhancement ideas through AI assistant interface. Administered PMF survey to measure product-market fit. Documented bug fixes and enhancement ideas in Google Sheets. Collaborated with engineering on sprint priorities."
-        },
-        {
-          submissionId: "Sonali4",
-          respondentId: "Sonali",
-          submittedAt: "2025-01-31 10:00:00",
-          name: "Sonali Ankolikar",
-          date: "2025-01-24",
-          hours: 20,
-          description: "Week of Jan 20-24. Installed new weekly release from installations page. Tested UI/UX improvements from previous sprint. Submitted feedback forms for new issues and ideas. Tracked NPS delta week-over-week. Collected user feedback and logged in Google Sheets. Completed PMF/NPS survey after testing. Verified implemented improvements with users."
-        }
-      ],
-      q1Goals: {
-        overview: "Enable +15 NPS through feedback collection and PMF/NPS survey administration",
-        target: "Collect 100+ feedback items and administer PMF/NPS surveys to enable +15 NPS by end of Q1",
-        weeklyBreakdown: [
-          { week: 1, goal: "Set up survey process and feedback collection", metric: "Baseline NPS measured, feedback form ready" },
-          { week: 2, goal: "Week 2: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
-          { week: 3, goal: "Week 3: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
-          { week: 4, goal: "Week 4: Bi-weekly NPS check & review", metric: "NPS measured (target +3-5), 40+ total feedback items" },
-          { week: 5, goal: "Week 5: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
-          { week: 6, goal: "Week 6: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
-          { week: 7, goal: "Week 7: Bi-weekly NPS check & review", metric: "NPS measured (target +6-8), 80+ total feedback items" },
-          { week: 8, goal: "Week 8: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
-          { week: 9, goal: "Week 9: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
-          { week: 10, goal: "Week 10: Bi-weekly NPS check & review", metric: "NPS measured (target +9-11), 100+ total feedback items" },
-          { week: 11, goal: "Week 11: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
-          { week: 12, goal: "Week 12: Administer surveys & collect feedback", metric: "15+ feedback items collected, surveys administered" },
-          { week: 13, goal: "Final Q1 assessment", metric: "Final NPS measured (target +15), 100+ feedback items collected" }
-        ],
-        keyMetrics: [
-          "Feedback items collected (target 100+ in Q1)",
-          "Survey response rate (target 80%+)",
-          "NPS delta bi-weekly (supporting metric)",
-          "PMF threshold maintenance (40%+ 'Very disappointed')",
-          "Enhancement ideas documented per week"
-        ]
-      },
-      projects: [
-        {
-          title: "Weekly UI/UX Testing & Survey Administration",
-          status: "active",
-          startDate: "January 2026",
-          description: "Participate in the continuous feedback loop: install weekly releases, conduct weekly UI/UX testing sessions, submit feedback forms, and administer PMF/NPS surveys to measure product improvements and inform demo enhancements.",
-          scope: [
-            "Install latest browser version from installations page each week",
-            "Schedule weekly testing sessions with users for new UI/UX iterations",
-            "Submit feedback forms via AI assistant interface (bugs, enhancement ideas, feature requests)",
-            "Administer PMF survey: NPS (0-10), disappointment question, user type, main benefit, improvement suggestions",
-            "Administer NPS survey to track week-over-week changes",
-            "Complete NPS survey after each testing round",
-            "Document enhancement ideas and bug fixes in feedback form (Google Sheets)",
-            "Analyze survey results and identify patterns"
-          ],
-          goals: [
-            "Complete 5+ weekly testing sessions",
-            "Achieve 80%+ survey response rate",
-            "Track and report NPS delta weekly",
-            "Document 10+ enhancement ideas per week"
           ]
         }
       ]
@@ -2715,98 +2520,6 @@ function TeamExecution() {
             "Maintain high quality standards for weekly iterations",
             "Support positive NPS delta through quality assurance",
             "Prevent regressions in UI/UX improvements"
-          ]
-        }
-      ]
-    },
-    {
-      name: "Akalpit Dawkhar",
-      roles: ["Product"],
-      employmentStatus: "intern",
-      hoursPerWeek: 20,
-      timeLogs: [
-        {
-          submissionId: "Akalpit1",
-          respondentId: "Akalpit",
-          submittedAt: "2025-01-10 10:00:00",
-          name: "Akalpit Dawkhar",
-          date: "2025-01-03",
-          hours: 20,
-          description: "Week of Dec 30 - Jan 3. Reviewed feedback Google Sheet and organized items into sprint. Created sprint plan in Notion with story point estimates. Implemented UI/UX improvements from Google Sheets feedback. Fixed bugs identified through testing. Participated in sprint planning meeting. Executed story points and completed sprint tasks. Reviewed and prioritized enhancement ideas."
-        },
-        {
-          submissionId: "Akalpit2",
-          respondentId: "Akalpit",
-          submittedAt: "2025-01-17 10:00:00",
-          name: "Akalpit Dawkhar",
-          date: "2025-01-10",
-          hours: 20,
-          description: "Week of Jan 6-10. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Developed new UI/UX features for command interface. Fixed critical bugs from feedback. Attended engineering standup. Executed story points and completed sprint tasks. Implemented performance optimizations."
-        },
-        {
-          submissionId: "Akalpit3",
-          respondentId: "Akalpit",
-          submittedAt: "2025-01-24 10:00:00",
-          name: "Akalpit Dawkhar",
-          date: "2025-01-17",
-          hours: 20,
-          description: "Week of Jan 13-17. Reviewed feedback Google Sheet and organized items into weekly sprint. Created sprint plan in Notion with story point estimates. Worked on UI/UX improvements for demo quality. Fixed infrastructure issues. Participated in sprint planning. Executed story points and completed sprint. Reviewed NPS delta and prioritized improvements."
-        },
-        {
-          submissionId: "Akalpit4",
-          respondentId: "Akalpit",
-          submittedAt: "2025-01-31 10:00:00",
-          name: "Akalpit Dawkhar",
-          date: "2025-01-24",
-          hours: 20,
-          description: "Week of Jan 20-24. Reviewed feedback Google Sheet and organized new sprint items. Estimated story points and created sprint plan in Notion. Implemented UI/UX enhancements from product team feedback. Fixed bugs and improved performance. Attended engineering standup. Executed story points and completed sprint tasks. Coordinated with product team on priorities."
-        }
-      ],
-      q1Goals: {
-        overview: "Increase NPS through command interface improvements",
-        target: "Deliver 240+ story points across Q1 (20+ per sprint) to support +15 NPS by end of Q1",
-        weeklyBreakdown: [
-          { week: 1, goal: "Set up interface improvement process and story point estimation", metric: "Baseline NPS, process defined, story point baseline established" },
-          { week: 2, goal: "Week 2: Command interface improvements & bug fixes", metric: "Sprint completed: 20+ story points delivered" },
-          { week: 3, goal: "Week 3: Command interface improvements & bug fixes", metric: "Sprint completed: 20+ story points delivered" },
-          { week: 4, goal: "Week 4: Bi-weekly NPS check & planning", metric: "NPS measured (target +3-5), sprint planned: 20+ story points estimated" },
-          { week: 5, goal: "Week 5: Command interface improvements & bug fixes", metric: "Sprint completed: 20+ story points delivered" },
-          { week: 6, goal: "Week 6: Command interface improvements & bug fixes", metric: "Sprint completed: 20+ story points delivered" },
-          { week: 7, goal: "Week 7: Bi-weekly NPS check & planning", metric: "NPS measured (target +6-8), sprint planned: 20+ story points estimated" },
-          { week: 8, goal: "Week 8: Command interface improvements & bug fixes", metric: "Sprint completed: 20+ story points delivered" },
-          { week: 9, goal: "Week 9: Command interface improvements & bug fixes", metric: "Sprint completed: 20+ story points delivered" },
-          { week: 10, goal: "Week 10: Bi-weekly NPS check & planning", metric: "NPS measured (target +9-11), sprint planned: 20+ story points estimated" },
-          { week: 11, goal: "Week 11: Command interface improvements & bug fixes", metric: "Sprint completed: 20+ story points delivered" },
-          { week: 12, goal: "Week 12: Command interface improvements & bug fixes", metric: "Sprint completed: 20+ story points delivered" },
-          { week: 13, goal: "Q1 final interface improvements review", metric: "Final NPS (target +15), 240+ total story points delivered" }
-        ],
-        keyMetrics: [
-          "Story points delivered per sprint (target 20+)",
-          "Story points estimated vs delivered (velocity tracking)",
-          "Sprint completion rate (target 90%+)",
-          "NPS delta bi-weekly (supporting metric)",
-          "Demo quality through better interface",
-          "User satisfaction increase"
-        ]
-      },
-      projects: [
-        {
-          title: "UI/UX Improvements - Command Interface",
-          status: "active",
-          startDate: "January 2026",
-          description: "Improve UI/UX of command interface and natural language interactions weekly based on feedback from Google Sheets to enhance demo quality.",
-          scope: [
-            "Review enhancement ideas from Google Sheets feedback form",
-            "Implement UI/UX improvements for command interface",
-            "Focus on improvements that enhance demo effectiveness",
-            "Track NPS delta as key metric",
-            "Iterate weekly based on product team PMF/NPS surveys"
-          ],
-          goals: [
-            "Complete UI/UX improvements for command interface weekly",
-            "Achieve positive NPS delta through interface improvements",
-            "Improve demo quality through better command UI/UX",
-            "Increase user satisfaction through interface enhancements"
           ]
         }
       ]
