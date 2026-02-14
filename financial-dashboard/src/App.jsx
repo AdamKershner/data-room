@@ -10,6 +10,7 @@ import FinancialPlan from './pages/FinancialPlan'
 import TeamExecution from './pages/TeamExecution'
 import Sprints from './pages/Sprints'
 import WeeklyReports from './pages/WeeklyReports'
+import ContentPipeline from './pages/ContentPipeline'
 import './App.css'
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/team-execution" element={<TeamExecution />} />
           <Route path="/sprints" element={<Sprints />} />
           <Route path="/weekly-reports" element={<WeeklyReports />} />
+          <Route path="/content-pipeline" element={<ContentPipeline />} />
         </Routes>
       </div>
     </Router>
