@@ -15,7 +15,8 @@ function Navigation() {
     { path: '/financial-plan', label: 'Financial Plan & Sensitivity', id: 'financial-plan' },
     { path: '/team-execution', label: 'Team, Execution & Milestones', id: 'team-execution' },
     { path: '/sprints', label: 'Sprints', id: 'sprints' },
-    { path: '/weekly-reports', label: 'Weekly Reports', id: 'weekly-reports' }
+    { path: '/weekly-reports', label: 'Weekly Reports', id: 'weekly-reports' },
+    { path: '/content-pipeline', label: 'Content Pipeline', id: 'content-pipeline' }
   ]
 
   const toggleMenu = () => {

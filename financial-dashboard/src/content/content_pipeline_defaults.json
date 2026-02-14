@@ -1,0 +1,311 @@
+{
+  "Best AI browser in 2026 (tested): what actually helps you work": {
+    "notes": "Position as a buyer’s guide for productivity, not hype. Use a consistent rubric and show at least one workflow demo for the winner.",
+    "hook": "Most “AI browsers” are just chat glued onto tabs. Here’s what actually saves time—tested with the same workflow rubric.",
+    "topics": "- What counts as an AI browser in 2026\n- The rubric: speed, execution, organization, privacy, compatibility\n- Common failure modes (hallucinated actions, brittle UI, context loss)\n- The top contenders (brief, honest)\n- What makes Oasis different (commands + workspaces + split view + enterprise posture)\n- Recommendations by persona",
+    "outline": "Hook: before/after of a real workflow\nDefine “AI browser” + what viewers should care about\nThe rubric (quick, visual)\nRapid rounds: 4–6 contenders (pros/cons)\nDeep dive: top 2 with one real workflow each\nOasis angle: where workflow automation matters\nRecommendations by persona\nWrap: 3 things to demand from any AI browser",
+    "cta": "If you’re evaluating AI browsers, grab the rubric—drop a comment and I’ll share the checklist."
+  },
+  "AI assistants in browsers: what’s real vs hype (and why commands matter)": {
+    "notes": "Educational video that sets the narrative: chat, copilots, agents, commands. Use clear categories and examples.",
+    "hook": "Browser AI is moving fast—but most people can’t tell what’s real vs marketing. Here are the 4 types of browser AI and what each can actually do.",
+    "topics": "- 4 categories: chat, copilots, extensions, command/execution layers\n- What “commands” are and why they’re different\n- The biggest misconception: “AI will just do it”\n- Where reliability breaks (permissions, UI changes, context)\n- How Oasis frames browser AI: workflows and workspaces",
+    "outline": "Hook: show 2 AIs—one chats, one executes\nDefine the 4 types of browser AI\nReal examples of each type\nWhere they fail in practice\nWhy commands matter (repeatability + trust)\nOasis angle: workflows → workspaces → repeatable outcomes\nWrap: how to pick the right kind for you",
+    "cta": "Tell me what you want your browser AI to do—I'll map it to the right category."
+  },
+  "Built-in browser AI vs extensions: speed, reliability, privacy (Oasis perspective)": {
+    "notes": "Balanced, slightly technical. Explain integration depth, permissions, data flow, and why extension stacks get messy.",
+    "hook": "Extensions are the default way to add AI to your browser—but they’re also why workflows break and privacy gets murky. Here’s the tradeoff.",
+    "topics": "- Integration depth: UI hooks, tab state, history, workspaces\n- Reliability: UI breakage, context limits, multi-step actions\n- Privacy: where data goes, what gets logged\n- Performance: extension overhead\n- The ideal: native assistant + command layer",
+    "outline": "Hook: one workflow—extension version vs built-in\nHow extensions work (and their limits)\nReliability pitfalls (updates, DOM changes, permissions)\nPrivacy model comparison (what data leaves your machine)\nPerformance + UX friction\nWhen extensions are fine\nOasis angle: built-in + commands + workspaces\nWrap: the decision checklist",
+    "cta": "If you’re using AI extensions today, comment which ones—I'll tell you the risks and better setups."
+  },
+  "Get AI to control your browser: the execution gap (with a real demo)": {
+    "notes": "Demo-forward. Use one workflow that feels magical, then dissect why it fails elsewhere and how to make it reliable.",
+    "hook": "“AI can control your browser” sounds amazing—until it fails mid-task. Here’s the execution gap, with a demo you can copy.",
+    "topics": "- What “control” means (navigation vs actions vs multi-step workflows)\n- The demo workflow (choose something relatable)\n- Why systems fail (state, ambiguity, UI changes)\n- How commands make it reliable\n- How Oasis turns it into repeatable workspaces",
+    "outline": "Hook: show the demo end-to-end fast\nDefine the execution gap\nDemo: run the workflow step-by-step\nFailure cases: what breaks and why\nHow to make it reliable: constraints + commands\nOasis angle: save it as a workspace + re-run later\nWrap: best workflows to start with",
+    "cta": "Drop a workflow you wish the browser could do—I'll turn it into a command-style script."
+  },
+  "Browser AI & privacy: what gets logged, what leaks, and what to demand": {
+    "notes": "Trust-building. Be clear about what you know vs what depends on implementation. Provide a checklist people can use.",
+    "hook": "Browser AI can be a privacy nightmare if you don’t know what’s being sent and stored. Here’s what to check—before you enable anything.",
+    "topics": "- Data types: page content, URLs, form inputs, screenshots, cookies\n- Where data can go (browser vendor, extension vendor, model provider)\n- Retention and training policies\n- Enterprise considerations: audit, DLP, SSO\n- What Oasis aims for (governed workflows + policy posture)",
+    "outline": "Hook: a scary-but-real “what could leak” example\nWhat browser AI can access\nWhere the data flows\nWhat “logged” can mean (telemetry vs prompts vs content)\nChecklist: settings + questions to ask vendors\nEnterprise lens: policies + auditability\nOasis angle: governed browsing direction\nWrap: 3 non-negotiables",
+    "cta": "Want the privacy checklist as a one-pager? Comment “checklist”."
+  },
+  "How to group tabs in Chrome (then do it faster with Oasis commands + workspaces)": {
+    "notes": "Traffic magnet that becomes an Oasis demo. Show Chrome’s native way quickly, then show the Oasis shortcut and a workspace save/restore.",
+    "hook": "Tab groups are the fastest way to reduce chaos in Chrome—here’s the right way to do it, and the faster way if you use Oasis commands.",
+    "topics": "- Chrome tab groups basics\n- Naming + color conventions\n- When to split into multiple groups\n- Turning a group into a reusable workspace\n- Oasis command demo for organizing + saving",
+    "outline": "Hook: messy tabs → clean workspace\nChrome method: create + name + color + move tabs\nBest practices: naming + limits + rituals\nCommon mistakes (over-grouping, losing context)\nOasis demo: command to group + label + save\nHow to reopen and keep momentum\nWrap: a simple weekly maintenance habit",
+    "cta": "Comment your messiest tab scenario—I'll reply with the exact command/workspace structure."
+  },
+  "How to save Chrome tab groups (and turn them into reusable Oasis workspaces)": {
+    "notes": "Focus on persistence: restoring sessions, saved groups, and how to make it a repeatable project workspace.",
+    "hook": "The problem with tab groups isn’t creating them—it’s losing them. Here’s how to save and restore them, and how Oasis makes them reusable.",
+    "topics": "- What “saving” means: session restore vs bookmarks vs saved groups\n- Methods to persist work\n- Turning a set of tabs into a project workspace\n- Oasis: save to hubs/workspaces and re-open fast",
+    "outline": "Hook: lose a group → show recovery\nWhat Chrome does by default (and doesn’t)\nMethods to save/restore (practical)\nA “project workspace” template\nOasis demo: save workspace + reopen later\nWrap: a repeatable workflow for projects",
+    "cta": "If you want a ‘project workspace’ template, comment “template”."
+  },
+  "Browser summarization that matters: research → notes → next steps": {
+    "notes": "This should feel like a mini-productivity system. Emphasize outputs: decisions, tasks, saved context—not just a summary paragraph.",
+    "hook": "Summaries are useless unless they turn into action. Here’s a research workflow that ends with notes, next steps, and a saved workspace.",
+    "topics": "- Why summaries fail (too generic, no structure)\n- A better summary format: TL;DR, key facts, risks, next steps\n- Turning summaries into notes/tasks\n- Saving the research context as a workspace\n- Oasis angle: command + workspace structure",
+    "outline": "Hook: 5 tabs → 1 decision-ready brief\nThe problem with typical summaries\nThe “actionable summary” template\nDemo: summarize + extract decisions + next steps\nOrganize: save tabs + notes as a workspace\nWrap: how to reuse this weekly",
+    "cta": "Want the summary template? Comment “template” and I’ll paste it."
+  },
+  "“Secure DNS is disabled by your organization”: what it means on managed browsers": {
+    "notes": "This is a high-intent enterprise/IT explainer. Keep it calm, factual, and practical; avoid fearmongering.",
+    "hook": "If you’ve seen “Secure DNS is disabled by your organization,” your browser is being managed. Here’s what that means—and what’s normal vs suspicious.",
+    "topics": "- What Secure DNS/DoH is\n- Why orgs disable/override it\n- Managed browser signals (policies)\n- Privacy and security implications\n- How enterprise browsers fit into this world",
+    "outline": "Hook: show the exact message + why it appears\nSecure DNS/DoH in plain English\nWhy orgs manage DNS settings\nWhat else policies can control\nWhat users should do (and not do)\nEnterprise lens: governance + audit\nWrap: FAQs",
+    "cta": "If you’re seeing this and unsure why, comment your OS/browser and I’ll point you to the policy checks."
+  },
+  "Enterprise browser vs consumer browser: policies, isolation, and why it exists": {
+    "notes": "This should be your evergreen enterprise primer. Use 2–3 real scenarios: contractors, regulated data, unmanaged devices.",
+    "hook": "Enterprise browsers exist because the browser became the new endpoint. Here’s what changes when IT needs control without killing UX.",
+    "topics": "- The browser as the control plane\n- Policies: downloads, clipboard, extensions, printing\n- Isolation: sessions, profiles, tenants\n- Audit + compliance\n- Where Oasis is heading (managed browser posture)",
+    "outline": "Hook: one real breach scenario via browser\nWhy the browser is the new endpoint\nWhat an enterprise browser adds\nIsolation vs policy vs monitoring\nWhere this fits with Zero Trust\nOasis angle: secure workflows + governed browsing\nWrap: checklist for evaluating vendors",
+    "cta": "If you’re buying in this category, comment “buyer” and I’ll share the evaluation checklist."
+  },
+  "Enterprise browser vs Remote Browser Isolation (RBI): which stops SaaS data leaks better?": {
+    "notes": "Position as a decision guide. Explain what each controls (data vs sessions vs rendering) and where each fails.",
+    "hook": "RBI and enterprise browsers both promise safer browsing—but they solve different problems. Here’s how to choose for SaaS data leaks.",
+    "topics": "- RBI basics (remote rendering)\n- Enterprise browser basics (policy + control + identity)\n- Data leak paths in SaaS\n- When RBI wins\n- When enterprise browser wins\n- Hybrid architectures",
+    "outline": "Hook: the 3 most common SaaS leak paths\nWhat RBI is (simple model)\nWhat enterprise browsers are\nWhere leaks happen (clipboard, downloads, sessions)\nDecision matrix: use cases\nOasis angle: governed access for contractors\nWrap: what to pilot first",
+    "cta": "Tell me your environment (BYOD? contractors? regulated?) and I’ll recommend RBI vs enterprise browser."
+  },
+  "Chrome AI vs Edge AI in 2026: real differences + what Oasis does instead": {
+    "notes": "This is a calmer follow-up to Copilot vs Gemini. Focus on user experience and the ‘workflow’ lens.",
+    "hook": "Chrome and Edge are both adding AI, but the experience is going to diverge. Here’s what’s actually different and what matters for work.",
+    "topics": "- Where AI lives in each browser\n- Best use cases (today)\n- Limits and failure modes\n- Privacy and enterprise controls\n- Oasis: commands + workspaces approach",
+    "outline": "Hook: 2 quick side-by-side examples\nWhere AI shows up in Chrome\nWhere AI shows up in Edge\nWhat each does well today\nWhat each can’t do reliably\nOasis angle: workflow-first design\nWrap: recommendations by persona",
+    "cta": "Comment which browser you’re on (Chrome/Edge) and what you wish AI would do."
+  },
+  "7 AI browser features you’ll actually use (summaries, commands, organization, security)": {
+    "notes": "Listicle. Make each feature a mini-demo and end with a ‘starter setup’ viewers can adopt.",
+    "hook": "Forget 50 AI features—these are the 7 that actually save time every week, with quick demos for each.",
+    "topics": "- Summarize to decisions\n- Find/reopen what you need\n- Organize into workspaces\n- Automate repetitive flows\n- Security/privacy controls\n- Multi-account separation\n- Voice/commands",
+    "outline": "Hook: show 3 features in 10 seconds\nFeature 1–7 (each: what it is + quick demo + pitfall)\nThe “starter setup” (how to begin)\nOasis angle: tying features into workflows\nWrap: ask viewers which feature to cover deeply",
+    "cta": "Which feature should I go deep on next? Reply with the number."
+  },
+  "AI is breaking web search: what changes for browsing in 2026": {
+    "notes": "Macro explainer. Tie to why browsing becomes ‘projects’ not tabs, and why AI needs to manage context, not just answers.",
+    "hook": "Search is becoming answers—and that changes browsing. Here’s what happens when clicks disappear and workflows move into the browser.",
+    "topics": "- Zero-click answers\n- Where research happens now\n- The role of summaries, citations, and saved context\n- Why organization matters more\n- Oasis positioning: projects/workspaces + commands",
+    "outline": "Hook: the ‘search → no click’ moment\nWhat’s changing in search\nWhat it does to user behavior\nNew browsing workflows (research, shopping, work)\nWhat browsers must become\nOasis angle: projects, commands, workspaces\nWrap: what to watch next",
+    "cta": "If you’re seeing fewer clicks from Google, comment your niche—I'll suggest content angles."
+  },
+  "AI chat in browsers vs AI that does things: the execution gap": {
+    "notes": "Keep it crisp: chat vs action. Use one repeated workflow as the narrative spine.",
+    "hook": "Browser chat is useful—but it’s not the same as execution. Here’s the gap, and why it matters for productivity.",
+    "topics": "- Definitions\n- What chat is good for\n- What execution requires\n- Reliability and trust\n- Oasis approach",
+    "outline": "Hook: same prompt—chat vs action\nDefine the two modes\nWhere chat wins\nWhere execution is required\nWhy execution is hard\nOasis angle: command layer + saved workspaces\nWrap: the 2-mode mental model",
+    "cta": "Drop a prompt you’ve tried that ‘should have executed’ but didn’t."
+  },
+  "Best AI browser extensions in 2026 (and the #1 reason they disappoint)": {
+    "notes": "Do not name-and-shame too hard. Focus on the structural reason: permissions + context + UI fragility.",
+    "hook": "The reason AI browser extensions disappoint isn’t the model—it’s the integration. Here’s what breaks and what to use instead.",
+    "topics": "- What extensions can access\n- Why workflows break\n- Privacy + data flow\n- Performance\n- When extensions are still worth it",
+    "outline": "Hook: a broken extension workflow\nWhat extensions do well\nThe #1 structural limitation\nPrivacy + performance tradeoffs\nA better architecture (built-in + commands)\nWrap: extension selection checklist",
+    "cta": "Comment the extension you use and your #1 complaint—I’ll recommend fixes or alternatives."
+  },
+  "Is Comet AI browser safe? Privacy + security breakdown": {
+    "notes": "Make it a repeatable ‘safety review’ format you can reuse for other browsers. Stick to public-facing, user-verifiable checks.",
+    "hook": "Before you trust an AI browser, you should know what it can see, send, and store. Here’s the safety checklist applied to Comet.",
+    "topics": "- What to check: permissions, telemetry, policies\n- What AI features can access\n- Risk scenarios (work accounts, finance, health)\n- What mitigations exist\n- How to evaluate any AI browser",
+    "outline": "Hook: “what could leak” scenario\nThe safety checklist (quick)\nApply checklist to Comet\nWhat to do if you must use it\nHow Oasis thinks about governance\nWrap: reusable checklist",
+    "cta": "Which browser should I run this checklist on next?"
+  },
+  "Brave Leo vs Opera Aria: the workflow comparison (tabs, summaries, actions)": {
+    "notes": "Competitor capture. Keep it respectful. Use the same workflow test format as Copilot vs Gemini for consistency.",
+    "hook": "Leo and Aria are two of the most searched AI browser assistants—here’s how they perform on real workflows, not demos.",
+    "topics": "- The workflow rubric\n- Summarization quality\n- Multi-tab context handling\n- Actions vs chat\n- Privacy considerations",
+    "outline": "Hook: show the scorecard\nSetup: rubric + rules\nWorkflow tests (3)\nPrivacy and reliability notes\nOasis angle: execution + workspaces\nWrap: who should use which",
+    "cta": "Want me to run this same test on Arc/Comet/Dia? Comment the name."
+  },
+  "Opera browser AI features (Aria): what it does + what it misses": {
+    "notes": "A focused review. Emphasize what’s missing for work: commands, workspaces, reliability.",
+    "hook": "Opera’s Aria is getting attention—but what does it actually help with day-to-day work? Here’s the honest breakdown.",
+    "topics": "- What Aria is\n- Best use cases\n- Where it falls short\n- Privacy and settings\n- What a workflow-first browser would add",
+    "outline": "Hook: one good use case + one fail\nWhat Aria does well\nWhat it misses (workflow lens)\nSettings worth changing\nOasis angle: commands + workspaces\nWrap: who it’s for",
+    "cta": "Comment your job (student/sales/engineer) and I’ll recommend the best AI browsing setup."
+  },
+  "Arc vs SigmaOS: the best “workspace browser” (and what Oasis copies vs changes)": {
+    "notes": "Great founder POV: give credit, explain tradeoffs, then define Oasis’s unique thesis.",
+    "hook": "Arc and SigmaOS pioneered the “workspace browser” idea. Here’s what they got right—and what Oasis is changing for AI workflows.",
+    "topics": "- Workspace models compared\n- Navigation + organization\n- AI features (if any)\n- Friction points\n- Oasis thesis: projects + commands + enterprise path",
+    "outline": "Hook: what a ‘workspace browser’ feels like\nArc model: strengths/weaknesses\nSigmaOS model: strengths/weaknesses\nWhat both miss for AI workflows\nOasis angle: commands + saved outcomes\nWrap: which to pick and why",
+    "cta": "If you use Arc or SigmaOS, comment what you love and what drives you crazy."
+  },
+  "Gemini in Chrome: how it works + how to enable it (and what it can’t do yet)": {
+    "notes": "High volume term. Keep it practical. Show enable steps quickly, then spend time on limitations and best workflows.",
+    "hook": "Gemini in Chrome is real now—but enabling it is the easy part. Here’s what it can actually do (and what it still can’t).",
+    "topics": "- Where it appears\n- How to enable/access\n- Best workflows\n- Limitations\n- Privacy considerations",
+    "outline": "Hook: show it working in 5 seconds\nHow to enable/access\n3 best workflows\n3 common frustrations\nPrivacy and settings\nOasis angle: commands + workspaces\nWrap: FAQ",
+    "cta": "Comment what Chrome AI should do next—I’ll show how Oasis handles it today."
+  },
+  "Chrome Gemini vs “AI extensions”: what’s better for real work?": {
+    "notes": "Bridge video for people deciding between native vs extensions. Use a side-by-side demo.",
+    "hook": "Should you use Chrome’s built-in Gemini or an AI extension stack? Here’s the real-world tradeoff with a side-by-side workflow demo.",
+    "topics": "- Setup cost\n- Reliability\n- Context\n- Privacy\n- Performance",
+    "outline": "Hook: same task, two approaches\nCompare setup and UX\nWorkflow demo (1–2)\nReliability + privacy analysis\nRecommendation by persona\nOasis angle: best of both worlds\nWrap",
+    "cta": "If you tell me your workflow, I’ll recommend built-in vs extensions vs a workflow-first browser."
+  },
+  "The future of AI browsers: from chat to workflow automation": {
+    "notes": "Founder vision piece. Ground it in concrete near-term changes: commands, agents, policy, context, workspaces.",
+    "hook": "The next browser war isn’t about tabs—it’s about who turns browsing into automated workflows. Here’s what’s coming.",
+    "topics": "- Chat → commands → agents\n- Workspaces as the new unit\n- Trust and verification\n- Enterprise governance\n- What Oasis is building toward",
+    "outline": "Hook: imagine a browser that completes a workflow\nWhat’s wrong with today’s AI in browsers\nThe 3-step evolution (chat/commands/agents)\nWhy workspaces become the UI\nEnterprise requirements (policy, audit)\nOasis angle: the roadmap lens\nWrap: what to watch",
+    "cta": "If you could automate one browsing workflow, what would it be?"
+  },
+  "Zero Trust browsing explained: when the browser becomes the control plane": {
+    "notes": "Enterprise primer. Use simple analogies. Tie to SSO, conditional access, DLP, logging.",
+    "hook": "Zero Trust isn’t a product—it’s a model. When the browser becomes the control plane, Zero Trust gets practical. Here’s how.",
+    "topics": "- Zero Trust basics\n- Identity + context\n- Browser enforcement points\n- Policies and monitoring\n- Where enterprise browsers fit",
+    "outline": "Hook: why Zero Trust exists\nCore principles (simple)\nWhy browsers matter now\nWhat enforcement looks like\nHow to evaluate solutions\nWrap: common misconceptions",
+    "cta": "If your org is moving to Zero Trust, comment your stack (Okta/Azure/etc.) and I’ll map the browser role."
+  },
+  "Secure Web Gateway vs Enterprise Browser: what to deploy first (and why)": {
+    "notes": "Buyer-intent. Provide a decision tree. Avoid vendor-specific details; focus on architecture.",
+    "hook": "SWGs and enterprise browsers overlap—but they’re not interchangeable. Here’s the decision tree for what to deploy first.",
+    "topics": "- SWG basics\n- Enterprise browser basics\n- What each controls\n- Deployment realities\n- Hybrid approach",
+    "outline": "Hook: common buying confusion\nDefine SWG\nDefine enterprise browser\nDecision matrix by use case\nRollout considerations\nOasis angle: why browsers are becoming the endpoint\nWrap",
+    "cta": "If you share your use case (contractors? SaaS? BYOD?), I’ll tell you what to deploy first."
+  },
+  "Enterprise browser features checklist (SSO, DLP, clipboard, downloads, audit logs)": {
+    "notes": "Make a punchy checklist video. This becomes sales enablement too. Offer a downloadable checklist later.",
+    "hook": "If you’re evaluating enterprise browsers, don’t get lost in buzzwords. Use this checklist—SSO, DLP, clipboard, downloads, and audit logs.",
+    "topics": "- Identity/SSO\n- Device posture/context\n- DLP controls\n- Audit/logging\n- Compatibility + performance\n- Admin UX",
+    "outline": "Hook: “here’s the checklist”\nChecklist walkthrough (grouped)\nCommon gotchas\nWhat to ask in a pilot\nWrap: scoring template",
+    "cta": "Comment “checklist” and I’ll share the scoring template."
+  },
+  "Browser-based DLP explained: copy/paste, downloads, screenshots, printing": {
+    "notes": "Security explainer. Keep it concrete: show controls people recognize. Mention constraints (browser APIs, OS limits).",
+    "hook": "Most SaaS data leaks happen through the browser. Browser-based DLP is about controlling copy/paste, downloads, screenshots, and printing—here’s how it works.",
+    "topics": "- Leak paths\n- Controls (clipboard/download/print/screenshot)\n- Where enforcement happens\n- Limits and bypasses\n- Audit and alerting",
+    "outline": "Hook: “how the leak happens”\nDefine browser-based DLP\nControl-by-control explanation\nLimits and realities\nHow to pilot DLP safely\nWrap",
+    "cta": "If you’re trying to stop a specific leak (copy/paste? downloads?), comment it and I’ll map controls."
+  },
+  "Managed browser policy enforcement: what IT can (and can’t) control": {
+    "notes": "Enterprise explainer. Show a list of common policies and what they do. Emphasize user experience considerations.",
+    "hook": "Managed browser policies can secure SaaS access without shipping hardware—but only if you know what’s actually enforceable. Here’s the real list.",
+    "topics": "- Policy categories\n- Downloads/printing\n- Extensions\n- DNS/proxy\n- Identity/session\n- Limits",
+    "outline": "Hook: “managed by your org” signals\nWhat policies are\nWhat IT can control (examples)\nWhat IT can’t reliably control\nHow to roll out without backlash\nWrap",
+    "cta": "If you’re rolling out managed browsing, comment your biggest fear (UX, security, compatibility)."
+  },
+  "SSO in the browser: Okta concepts, session controls, and common failure modes": {
+    "notes": "Keep jargon minimal. Focus on why SSO breaks and what browser/session isolation changes.",
+    "hook": "SSO failures feel random—but most come down to sessions, cookies, and identity context. Here’s how it works and why it breaks.",
+    "topics": "- SSO basics\n- Sessions/cookies\n- MFA loops\n- Multi-account issues\n- Isolation strategies\n- Enterprise browser role",
+    "outline": "Hook: the ‘why am I being logged out’ problem\nSSO in plain English\nSessions and cookies\nCommon failure modes\nHow to reduce pain (best practices)\nWrap",
+    "cta": "If you’re stuck in an SSO loop, comment your IdP + app and I’ll suggest fixes."
+  },
+  "Island vs Talon vs LayerX: how to choose an enterprise browser (2026 buyer’s guide)": {
+    "notes": "Do not over-claim. Focus on evaluation criteria and how to run a pilot, not dunking on vendors.",
+    "hook": "Choosing an enterprise browser vendor is hard because they all sound the same. Here’s how to compare Island vs Talon vs LayerX like a buyer.",
+    "topics": "- Evaluation criteria\n- Pilot plan\n- Controls vs UX\n- Compatibility\n- Logging and integrations\n- Pricing traps",
+    "outline": "Hook: “they all say the same thing”\nWhat you’re actually buying\nComparison criteria\nHow to run a 2-week pilot\nRed flags\nWrap: buyer checklist",
+    "cta": "If you’re piloting vendors now, comment your constraints and I’ll suggest the test plan."
+  },
+  "Best enterprise browsers (2026 buyer’s guide): what actually matters": {
+    "notes": "Evergreen guide. Keep it oriented around outcomes: preventing leaks, enabling contractors, faster deployment.",
+    "hook": "The best enterprise browser isn’t the one with the most features—it’s the one that fits your environment. Here’s what actually matters in 2026.",
+    "topics": "- Use cases\n- Required controls\n- Integration needs\n- Deployment model\n- User experience",
+    "outline": "Hook: 3 reasons teams buy enterprise browsers\nThe 5 decision factors\nCommon deployment patterns\nWhat to measure in a pilot\nWrap",
+    "cta": "Tell me your environment (BYOD? regulated? contractors?) and I’ll suggest your ‘must-have’ list."
+  },
+  "“We need a secure enterprise browser for 1,000 employees”: rollout checklist": {
+    "notes": "Operational video for IT. Provide a sequence: discovery → pilot → policy → rollout → measure.",
+    "hook": "Rolling out a secure browser to 1,000 employees isn’t a security problem—it’s a change-management problem. Here’s the checklist.",
+    "topics": "- Stakeholders\n- Pilot cohort selection\n- Policy defaults\n- Support and comms\n- Metrics\n- Rollback plan",
+    "outline": "Hook: what goes wrong in rollouts\nPre-rollout discovery\nPilot plan\nPolicy + exception handling\nDeployment mechanics\nMeasurement + iteration\nWrap",
+    "cta": "If you want the rollout checklist as a doc, comment “rollout”."
+  },
+  "Enterprise browsing vs VDI: when each wins (and why users hate one of them)": {
+    "notes": "Make it practical: latency, UX, data control, cost. Use ‘when VDI is correct’ to be fair.",
+    "hook": "VDI can secure access—but it can also destroy productivity. Here’s when VDI wins, when enterprise browsers win, and why users complain.",
+    "topics": "- VDI strengths\n- VDI pain points\n- Enterprise browser strengths\n- Decision criteria\n- Hybrid models",
+    "outline": "Hook: the ‘VDI is slow’ complaint\nWhat VDI is good at\nWhere VDI hurts\nWhat enterprise browsers solve instead\nDecision matrix\nWrap",
+    "cta": "If you’re deciding between VDI and enterprise browsers, comment your use case and constraints."
+  },
+  "Enterprise browser adoption trends: why now (and what’s changing)": {
+    "notes": "Trend/market narrative. Tie to SaaS sprawl, contractors, BYOD, and browser-as-endpoint.",
+    "hook": "Enterprise browsers weren’t a thing 5 years ago—now they’re a category. Here’s why adoption is accelerating.",
+    "topics": "- SaaS sprawl\n- Contractor workforce\n- BYOD\n- Data leak incidents\n- Zero Trust\n- Compliance pressure",
+    "outline": "Hook: why the category exists now\nThe forces driving adoption\nWhat’s changed technically\nHow buyers evaluate the category\nWhat to expect next\nWrap",
+    "cta": "If you’re in security/IT, what’s pushing you toward this category—BYOD, contractors, or leaks?"
+  },
+  "Enterprise browser market leaders: who’s winning and why (2026)": {
+    "notes": "Keep it criteria-based and avoid definitive claims without data. ‘Leaders’ can be framed as ‘most discussed’ or ‘most deployed in certain segments.’",
+    "hook": "The enterprise browser category is consolidating fast. Here’s how the leaders are differentiating—and what the winning playbook looks like.",
+    "topics": "- Differentiation axes\n- Deployment strategy\n- Integrations (IdP, DLP)\n- UX tradeoffs\n- Market segments",
+    "outline": "Hook: category snapshot\nHow to define “leader” (criteria)\nDifferentiation map\nWhat’s working in go-to-market\nOasis angle: where the category is headed\nWrap",
+    "cta": "Want a simple comparison matrix? Comment “matrix”."
+  },
+  "How to sync bookmarks across browsers (then keep them organized as workspaces)": {
+    "notes": "Traffic support. Keep this concrete, quick, and end with the ‘workspace’ concept as the better long-term model.",
+    "hook": "Syncing bookmarks is easy—keeping them useful is the hard part. Here’s a clean system, and how to turn bookmarks into workspaces.",
+    "topics": "- Built-in sync options\n- Import/export basics\n- Folder structure\n- ‘Workspace’ concept\n- Maintenance habit",
+    "outline": "Hook: bookmark chaos → organized system\nHow to sync/import across browsers\nFolder structure that works\nCommon pitfalls\nWorkspace approach (Oasis angle)\nWrap",
+    "cta": "If you want my bookmark/workspace structure, comment “structure”."
+  },
+  "How to enable tab groups in Chrome (and use them like “workspaces”)": {
+    "notes": "Traffic support. Similar to other tab group videos; keep it distinct by focusing on enabling + turning into a workspace habit.",
+    "hook": "Tab groups are hidden in plain sight for a lot of people. Here’s how to enable them and use them like real workspaces.",
+    "topics": "- Enable tab groups\n- Create, name, color\n- Rules for workspaces\n- Save/restore habits",
+    "outline": "Hook: show the workspace result\nEnable tab groups\nCreate and organize\nWorkspace rules\nSave/restore tips\nWrap",
+    "cta": "Comment what you work on (sales, research, dev) and I’ll suggest a workspace layout."
+  },
+  "Saving tab groups in Edge: how it works + better alternatives": {
+    "notes": "Traffic support, Edge angle. Keep it useful even for non-Edge users by discussing the concept of persistence.",
+    "hook": "Edge has its own approach to tab groups and saving sessions. Here’s how it works—and what to do if you want a more reliable system.",
+    "topics": "- Edge tab groups/session\n- Restore behavior\n- Cross-device considerations\n- Alternatives\n- Workspace concept",
+    "outline": "Hook: lost group → restore\nEdge behavior explained\nHow to make it stick\nAlternatives (generic)\nOasis angle: workspaces\nWrap",
+    "cta": "If Edge keeps losing your session, comment what device you’re on and I’ll suggest fixes."
+  },
+  "Chrome tab groups: best practices (naming, pinning, restoring, sharing)": {
+    "notes": "Keep it actionable: a compact set of rules. Include a ‘weekly cleanup’ habit.",
+    "hook": "Tab groups only work if you run them like a system. Here are the best practices that keep projects from turning into chaos again.",
+    "topics": "- Naming conventions\n- Color system\n- Pinning strategy\n- Restore rules\n- Sharing/hand-offs\n- Maintenance",
+    "outline": "Hook: a clean set of groups\nThe 5 rules\nExamples\nCommon mistakes\nMaintenance habit\nWrap",
+    "cta": "Want my naming template? Comment “names”."
+  },
+  "Tab groups collapse (and other tab group bugs): fixes + workarounds": {
+    "notes": "Help-focused. Gather common bugs and fixes. End with “why workspaces beat fragile UI.”",
+    "hook": "If tab groups keep collapsing, disappearing, or losing state—you’re not alone. Here are the fixes and workarounds that actually help.",
+    "topics": "- Common bugs\n- Browser settings\n- Extensions conflicts\n- Session restore\n- Recovery steps",
+    "outline": "Hook: the pain\nTop bug patterns\nFixes/workarounds\nRecovery plan\nPreventative habits\nWrap",
+    "cta": "Comment your browser + what’s happening and I’ll suggest the most likely fix."
+  },
+  "Best AI browsers in 2026 (tested): who wins for real workflows?": {
+    "notes": "This overlaps with ‘Best AI browser’. Make this one more ‘workflow tournament’ and the earlier one more ‘buyer’s guide.’",
+    "hook": "Let’s stop guessing. Here’s a workflow tournament across the biggest AI browsers—same tasks, same rules.",
+    "topics": "- Workflow tournament format\n- Scorecards\n- What ‘win’ means\n- Reliability vs wow factor",
+    "outline": "Hook: reveal one surprising result\nRules + rubric\nRound 1–3 workflows\nScorecard recap\nOasis angle\nWrap",
+    "cta": "Drop a workflow to add to the tournament."
+  },
+  "Is Comet AI browser good? What to look for (beyond the demo)": {
+    "notes": "Keep it as an evaluation lens, not a pure review. Use “what to look for” as the hook.",
+    "hook": "Comet can look great in a demo. Here’s what to look for beyond the demo—reliability, privacy, and workflow execution.",
+    "topics": "- Evaluation criteria\n- Reliability checks\n- Privacy checks\n- Workflow execution\n- Compatibility",
+    "outline": "Hook: demo vs reality\nThe evaluation checklist\nQuick tests to run\nRed flags\nOasis angle\nWrap",
+    "cta": "Want the checklist? Comment “checklist”."
+  },
+  "OpenAI browser / “AI browser test”: how to evaluate AI browsers honestly": {
+    "notes": "Turn this into a repeatable testing framework video.",
+    "hook": "If you’re evaluating AI browsers, don’t rely on demos. Run these tests—you’ll know in 10 minutes whether it’s real.",
+    "topics": "- 5 tests: context, execution, recovery, privacy, performance\n- Scoring rubric\n- How to avoid bias",
+    "outline": "Hook: a simple pass/fail example\nThe 5 tests\nHow to score\nWhat ‘good’ looks like\nOasis angle: workflow-first\nWrap",
+    "cta": "If you want the test sheet, comment “tests”."
+  },
+  "Genspark “autopilot mode”: what it is, what it breaks, and what to copy": {
+    "notes": "Keep it framed as “agentic browsing” concept. Avoid over-indexing on the specific brand; extract lessons.",
+    "hook": "Autopilot modes are the future—but today they’re brittle. Here’s what works, what breaks, and what a reliable version needs.",
+    "topics": "- What autopilot is\n- Where it shines\n- Failure modes\n- Safety and verification\n- What Oasis approach would require",
+    "outline": "Hook: autopilot success/fail montage\nWhat autopilot is\nWhere it’s useful\nWhere it breaks\nHow to make it trustworthy\nOasis angle\nWrap",
+    "cta": "Should I do a full “agentic browsing” series? Comment “yes”."
+  }
+}
+
