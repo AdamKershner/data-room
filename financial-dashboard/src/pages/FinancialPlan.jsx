@@ -14,7 +14,7 @@ function FinancialPlan() {
         <h1>Financial Plan & Sensitivity Analysis</h1>
       </div>
 
-      <section className="page-section">
+      <section className="page-section" id="financial-snapshot">
         <h2>Base-Case 2026 Financials</h2>
         <div className="content-block">
           <p>
@@ -150,7 +150,7 @@ function FinancialPlan() {
         <TwoWaySensitivity />
       </section>
 
-      <section className="page-section">
+      <section className="page-section" id="financial-projections">
         <h2>Scenarios and Risk Profile</h2>
         <div className="content-block">
           <p>

@@ -11,6 +11,8 @@ import TeamExecution from './pages/TeamExecution'
 import Sprints from './pages/Sprints'
 import WeeklyReports from './pages/WeeklyReports'
 import ContentPipeline from './pages/ContentPipeline'
+import Q1MidpointUpdate from './pages/Q1MidpointUpdate'
+import Competitors from './pages/Competitors'
 import './App.css'
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
         <Navigation />
         <Routes>
           <Route path="/" element={<ExecutiveSummary />} />
+          <Route path="/q1-midpoint" element={<Q1MidpointUpdate />} />
           <Route path="/problem-market" element={<ProblemMarket />} />
           <Route path="/product-technology" element={<ProductTechnology />} />
           <Route path="/business-model" element={<BusinessModel />} />
@@ -29,6 +32,7 @@ function App() {
           <Route path="/sprints" element={<Sprints />} />
           <Route path="/weekly-reports" element={<WeeklyReports />} />
           <Route path="/content-pipeline" element={<ContentPipeline />} />
+          <Route path="/competitors" element={<Competitors />} />
         </Routes>
       </div>
     </Router>

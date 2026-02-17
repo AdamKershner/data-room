@@ -9,7 +9,7 @@ function ProblemMarket() {
         <h1>Problem, Market & Users</h1>
       </div>
 
-      <section className="page-section">
+      <section className="page-section" id="problem-why-now">
         <h2>Problem Definition</h2>
         <div className="content-block">
           <p>
@@ -29,7 +29,7 @@ function ProblemMarket() {
         </div>
       </section>
 
-      <section className="page-section">
+      <section className="page-section" id="user-journey">
         <h2>Target Users and Segments</h2>
         <div className="content-block">
           <p>
@@ -165,7 +165,7 @@ function ProblemMarket() {
         </div>
       </section>
 
-      <section className="page-section">
+      <section className="page-section" id="market-opportunity">
         <h2>Market Size and Opportunity</h2>
         <div className="content-block">
           <h3>The Shift Toward AI-Powered Interfaces</h3>
@@ -247,6 +247,15 @@ function ProblemMarket() {
             the productivity challenges of modern knowledge work. Oasis Browser targets this market 
             by focusing on users who need to manage complex, multi-threaded workflows, capturing 
             value from both individual subscriptions and enterprise deployments.
+          </p>
+        </div>
+      </section>
+
+      <section className="page-section" id="competitive-landscape">
+        <h2>Competitive Landscape & Differentiation</h2>
+        <div className="content-block">
+          <p>
+            <em>Competitor analysis and differentiation to be added (e.g., Strawberry—recently raised $5M, #1 on Product Hunt—how we stand out).</em>
           </p>
         </div>
       </section>
