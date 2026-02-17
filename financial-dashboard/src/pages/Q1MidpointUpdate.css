@@ -1,0 +1,499 @@
+.toc-section .content-block {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.toc-title {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.toc-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.toc-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.85);
+  color: rgba(15, 23, 42, 0.95);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.toc-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.09);
+}
+
+/* Make anchored sections land nicely when scrolled to. */
+.page-section[id] {
+  scroll-margin-top: 90px;
+}
+
+/* Overview – subsections (Product Marketing, Sales, Product, Engineering, Finance) */
+.overview-subsections {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.overview-subsection h3 {
+  font-size: 1.15rem;
+  color: var(--oasis-green-medium, #2d5016);
+  margin: 0 0 10px 0;
+  font-weight: 700;
+}
+
+.overview-subsection p {
+  margin: 0 0 12px 0;
+  line-height: 1.55;
+}
+
+.overview-subsection p:last-child,
+.overview-subsection ul:last-child {
+  margin-bottom: 0;
+}
+
+.overview-priority-callout {
+  background: linear-gradient(135deg, rgba(45, 80, 22, 0.06) 0%, rgba(45, 80, 22, 0.02) 100%);
+  border: 1px solid rgba(45, 80, 22, 0.2);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.overview-priority-callout h3 {
+  font-size: 1.2rem;
+}
+
+.overview-feature-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 8px 0 14px 0;
+}
+
+.overview-feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  font-size: 0.95rem;
+}
+
+.overview-feature-list li span {
+  flex-shrink: 0;
+}
+
+/* Section detail blocks (longer content in Marketing, Sales, Product, etc.) */
+.section-detail-block {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.section-detail-block h3 {
+  font-size: 1.1rem;
+  color: var(--oasis-green-medium, #2d5016);
+  margin: 0 0 10px 0;
+  font-weight: 700;
+}
+
+.section-detail-block p {
+  margin: 0 0 12px 0;
+  line-height: 1.55;
+}
+
+.section-detail-block p:last-child {
+  margin-bottom: 0;
+}
+
+.finance-highlight {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--oasis-green-medium, #2d5016);
+  margin: 0 0 18px 0;
+}
+
+.marketing-metrics .metric-card {
+  position: relative;
+}
+
+/* De-emphasize baseline/current cards so the delta pops. */
+.marketing-metrics .metric-baseline,
+.marketing-metrics .metric-current {
+  background: linear-gradient(135deg, #f6f7f4 0%, #ffffff 100%);
+  color: rgba(15, 23, 42, 0.92);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.marketing-metrics .metric-baseline .goal-label,
+.marketing-metrics .metric-current .goal-label {
+  opacity: 0.85;
+}
+
+.marketing-metrics .metric-baseline .goal-value,
+.marketing-metrics .metric-current .goal-value {
+  color: rgba(15, 23, 42, 0.92);
+}
+
+/* Projection stays “Oasis” but slightly brighter. */
+.marketing-metrics .metric-projection {
+  background: linear-gradient(135deg, var(--oasis-green-medium) 0%, #4c6f00 100%);
+  box-shadow: 0 10px 24px rgba(122, 146, 0, 0.35);
+}
+
+/* Delta card: make the positive difference unmistakable. */
+.marketing-metrics .metric-delta {
+  background: linear-gradient(135deg, #14b8a6 0%, #22c55e 55%, #16a34a 100%);
+  box-shadow: 0 18px 40px rgba(34, 197, 94, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.marketing-metrics .metric-delta::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 14px;
+  pointer-events: none;
+  background: radial-gradient(closest-side, rgba(34, 197, 94, 0.35), transparent 70%);
+  filter: blur(10px);
+  opacity: 0.8;
+  z-index: -1;
+}
+
+.metric-callout {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  opacity: 0.98;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.metric-arrow {
+  display: inline-flex;
+  width: 26px;
+  height: 26px;
+  border-radius: 9999px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  line-height: 1;
+}
+
+/* On larger screens, give the delta extra visual weight. */
+@media (min-width: 900px) {
+  .marketing-metrics .metric-delta {
+    grid-column: span 2;
+  }
+}
+
+.brand-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0 2px;
+}
+
+.brand-bubble {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  color: rgba(15, 23, 42, 0.92);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+  gap: 10px;
+}
+
+.brand-logo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.brand-label {
+  display: inline-block;
+}
+
+.brand-bubble:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.09);
+}
+
+.logo-gallery {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 10px;
+}
+
+.logo-tile {
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-tile-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+/* Enterprise Demos (Marketing) */
+.enterprise-demos-title {
+  font-size: 1.35rem;
+  color: var(--oasis-green-medium);
+  margin: 0 0 14px 0;
+  font-weight: 600;
+}
+
+.enterprise-demos-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.enterprise-demos-logo {
+  width: 120px;
+  height: auto;
+  max-height: 72px;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.enterprise-demos-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.case-study-trigger {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 1px solid var(--oasis-green-medium);
+  background: rgba(122, 146, 0, 0.08);
+  color: var(--oasis-green-dark);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.case-study-trigger:hover {
+  background: rgba(122, 146, 0, 0.14);
+  box-shadow: 0 4px 12px rgba(122, 146, 0, 0.2);
+}
+
+/* Case study modal */
+.case-study-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.case-study-modal {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+  max-width: 720px;
+  width: 100%;
+  max-height: calc(100vh - 48px);
+  display: flex;
+  flex-direction: column;
+}
+
+.case-study-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid #eee;
+  flex-shrink: 0;
+}
+
+.case-study-header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #333;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.case-study-close {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 8px;
+  background: #f0f0f0;
+  color: #555;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.case-study-close:hover {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.case-study-body {
+  padding: 24px;
+  overflow-y: auto;
+  line-height: 1.7;
+  color: #444;
+}
+
+.case-study-body h3 {
+  font-size: 1.15rem;
+  color: var(--oasis-green-medium);
+  margin: 24px 0 12px 0;
+  font-weight: 600;
+}
+
+.case-study-body h3:first-child {
+  margin-top: 0;
+}
+
+.case-study-body p {
+  margin: 0 0 14px 0;
+}
+
+.case-study-body ul {
+  margin: 0 0 14px 0;
+  padding-left: 24px;
+}
+
+.case-study-body .feature-list {
+  list-style: disc;
+  padding-left: 24px;
+}
+
+.case-study-body .feature-list li {
+  padding: 6px 0;
+  padding-left: 8px;
+}
+
+.case-study-body .feature-list li::before {
+  display: none;
+}
+
+/* Product – main features completed graphic */
+/* Product – embedded video (responsive 16:9) */
+.product-video-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 0 24px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.product-video-wrap::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 */
+}
+
+.product-video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.product-features-title {
+  font-size: 1.2rem;
+  color: var(--oasis-green-medium);
+  margin: 0 0 14px 0;
+  font-weight: 600;
+}
+
+.product-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.product-feature-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, #f8faf6 0%, #ffffff 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.product-feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(122, 146, 0, 0.12);
+}
+
+.product-feature-emoji {
+  font-size: 1.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.product-feature-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.3;
+}
+
+.product-shoutout.workflow-example h3 {
+  margin-top: 0;
+}
+
