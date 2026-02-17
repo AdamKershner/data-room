@@ -8,7 +8,9 @@ function Navigation() {
 
   const menuItems = [
     { path: '/', label: 'Executive Summary', id: 'executive-summary' },
+    { path: '/q1-midpoint', label: 'Q1 Midpoint Update', id: 'q1-midpoint' },
     { path: '/problem-market', label: 'Problem, Market & Users', id: 'problem-market' },
+    { path: '/competitors', label: 'Competitors', id: 'competitors' },
     { path: '/product-technology', label: 'Product & Technology', id: 'product-technology' },
     { path: '/business-model', label: 'Business Model & Unit Economics', id: 'business-model' },
     { path: '/go-to-market', label: 'Go-to-Market & Growth', id: 'go-to-market' },

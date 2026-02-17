@@ -3,7 +3,7 @@ import './Page.css'
 
 function GoToMarket() {
   return (
-    <div className="page">
+    <div className="page" id="gtm-strategy">
       <div className="page-header">
         <h1>Go-to-Market & Growth</h1>
       </div>
@@ -40,7 +40,7 @@ function GoToMarket() {
 
           <h3 style={{ marginTop: '30px' }}>Target Channels</h3>
           <ul className="feature-list">
-            <li><strong>Product Hunt:</strong> Launch and community engagement</li>
+            <li><strong>Product Hunt:</strong> Launch and community engagement. Team accounts (<a href="https://docs.google.com/spreadsheets/d/1gSMDizFLvRliMZgYNyQND4lipZ3Dde6FPn2EWDRZolM/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer">Product Hunt Accounts</a>) created in preparation; we ask new members to create an account during onboarding.</li>
             <li><strong>Developer Communities:</strong> Hacker News, Reddit (r/productivity, r/webdev), Dev.to</li>
             <li><strong>Content Marketing:</strong> Blog posts, tutorials, productivity tips</li>
             <li><strong>YouTube:</strong> Use case videos highlighting productivity workflows (as NPS improves)</li>
@@ -66,7 +66,7 @@ function GoToMarket() {
         </div>
       </section>
 
-      <section className="page-section">
+      <section className="page-section" id="icp">
         <h2>B2B Pilots and Sales</h2>
         <div className="content-block">
           <h3>Ideal Customer Profile (ICP)</h3>
@@ -99,6 +99,14 @@ function GoToMarket() {
             can advocate for pilot programs and broader deployment.
           </p>
           <ul className="feature-list">
+            <li>
+              <strong>Julian Brennan (Culture Amp):</strong> Our first enterprise prospect (Jan 27, 2026). 
+              Julian&apos;s use case: secure access to SaaS apps for short-term consultants via a managed browser—without 
+              requiring full device management or shipping hardware. Culture Amp needs Okta SSO, Netskope DLP integration, 
+              user-level installation (no admin), and per-user-per-month licensing. This exemplifies the enterprise demand 
+              we&apos;re targeting: organizations using 100+ SaaS apps who need browser-level security for external 
+              consultants and third-party partners. Julian is a strong champion for a pilot. Full requirements and effort breakdown are documented in <code>CULTURE_AMP_ESTIMATE.md</code>.
+            </li>
             <li>
               <strong>Jonathan Gans (Former CEO of Kahana):</strong> Will become a champion at 
               Angellist, leveraging his network and understanding of the product to drive adoption 

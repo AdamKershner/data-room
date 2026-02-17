@@ -1412,8 +1412,52 @@ function Sprints() {
       impact: "High",
       severity: "9/10",
       teamMembers: ["Afshaan"],
-      overview: "Implement update checking, notification system, and update UI within Oasis for software updates.",
-      primaryFiles: "Update checking and notification system (NEW), Settings or dedicated update component UI, browser/base/content/assistant/assistant.ui.js",
+      overview: "Implement update checking, notification system, and update UI within Oasis for software updates. Users who have installed Oasis on Windows or Mac should be able to go to a clear place in the app (e.g., Settings → Software Update) and see a macOS-style Software Update screen with status, installed version, check/download/install buttons, and optional Automatic Updates / Beta toggles.",
+      primaryFiles: "toolkit/mozapps/update/, browser/components/preferences/main.inc.xhtml, browser/base/content/aboutDialog-appUpdater.js, resource://gre/modules/AppUpdater.sys.mjs, browser/base/content/assistant/ (Settings entry point)",
+      keyConsiderations: {
+        context: "Oasis is built on Firefox (Gecko). The Firefox update pipeline (MAR + updater binary) already exists and works on macOS and Windows. However, the built-in update UI is hidden for packaged builds, and the app currently points to Mozilla's update server—not an Oasis-specific one.",
+        sections: [
+          {
+            title: "Current State (What Exists)",
+            items: [
+              "Firefox update pipeline in toolkit/mozapps/update/ — MAR-based flow, updater binary, signature verification",
+              "Update protocol works on macOS and Windows (same flow; platform-specific elevation)",
+              "Preferences update UI exists (check, download, restart, auto/manual) but is hidden for packaged apps via display: none in main.js (lines 4731–4735)",
+              "Update URL baked in at build time; default host is aus5.mozilla.org",
+              "AppUpdateURL enterprise policy can override URL without rebuild (policies.json)",
+              "Assistant Settings shows \"Settings coming soon\" — no Software Update section yet",
+              "AWS infrastructure available for hosting update server"
+            ]
+          },
+          {
+            title: "Gaps (What's Missing)",
+            items: [
+              "No Oasis update server — no service serving update.xml and Oasis MARs",
+              "No Oasis MAR build/signing process — need Oasis-specific MARs and signing",
+              "Update URL points to Mozilla — must override (build or policy) to point to Oasis server",
+              "Packaged app hides update UI — installed Mac/Windows users have no in-app update button today",
+              "No dedicated Software Update screen — no macOS-style status, version, toggles, legal/help"
+            ]
+          },
+          {
+            title: "Desired End State",
+            items: [
+              "Dedicated Software Update screen (e.g., Settings → Software Update) with: status (checking/up to date/update available), installed version, Check for updates button, Download and install when available, Restart to update",
+              "Optional toggles: Automatic Updates on/off, Beta Updates on/off",
+              "Legal/help links",
+              "Updates delivered via existing Firefox pipeline but with Oasis server + Oasis MARs"
+            ]
+          },
+          {
+            title: "Implementation Phases",
+            items: [
+              "Phase 1: Oasis update server (host update.xml + MARs on AWS), MAR build/signing pipeline, override update URL",
+              "Phase 2: Un-hide or replace Preferences update UI with dedicated Software Update screen in Assistant Settings",
+              "Phase 3: Add Automatic Updates and Beta toggles, legal/help copy"
+            ]
+          }
+        ]
+      },
       issues: [
         {
           title: "Feature Request: Automatic Software Updates",
@@ -1502,7 +1546,46 @@ function Sprints() {
         "Per-user, per-month licensing model is implemented and functional",
         "Browser can be easily deployed and removed for contractor engagements",
         "All enterprise features work seamlessly with existing Oasis AI Assistant functionality"
-      ]
+      ],
+      readinessChecklist: {
+        intro: "Below is a checklist that will help us transform Oasis into its secure, deployable, enterprise grade browser platform.",
+        sections: [
+          {
+            title: "1. Identity & Access Management (Critical)",
+            items: ["Support SAML 2.0/SSO", "Support multiple IDPs (Okta, EntraID)", "Support RBAC", "Admin vs User separation"]
+          },
+          {
+            title: "2. Browser Security Controls",
+            items: ["Domain allowlist / denylist", "Disable downloads (configurable)", "Disable uploads (configurable)", "Disable clipboard copy/paste", "Disable printing", "Disable file system access", "Disable extensions", "Disable developer tools (optional policy)"]
+          },
+          {
+            title: "3. Session Security",
+            items: ["Idle timeout enforcement", "Clear cache on logout", "Optional ephemeral sessions", "Block credential storage"]
+          },
+          {
+            title: "4. Network and DLP compatibility",
+            subsections: [
+              { title: "Traffic Enforcement", items: ["Explicit proxy configuration support", "Lock proxy settings (no user override)", "No direct connection bypass", "DNS resolution enforcement"] },
+              { title: "SSL Inspection", items: ["Support enterprise CA injection", "Compatible with SSL inspection", "No breakage under HTTPS inspection"] }
+            ]
+          },
+          {
+            title: "5. Deployment and Endpoint Requirements",
+            subsections: [
+              { title: "Installation", items: ["No local admin required", "User level installation", "Clean uninstall", "Auto-update without admin"] },
+              { title: "Platform Support", items: ["macOS enterprise support", "Windows enterprise support", "Version management capability"] }
+            ]
+          },
+          {
+            title: "6. Commercial Readiness",
+            items: ["Per-user per-month licensing model", "Usage metering", "Contract-based provisioning", "Customer onboarding playbook", "Offboarding automation"]
+          },
+          {
+            title: "7. Enterprise Documentation",
+            items: ["Security whitepaper", "Architecture overview", "DLP integration guide (Netskope/others)", "IdP integration guide (Okta/Entra)", "Deployment guide", "Compliance mapping document"]
+          }
+        ]
+      }
     },
     {
       id: 18,
@@ -1804,7 +1887,7 @@ function Sprints() {
   }
 
   return (
-    <div className="page">
+    <div className="page" id="product-roadmap">
       <div className="page-header">
         <h1>Engineering Sprints</h1>
         <p style={{ marginTop: '10px', color: '#666', fontSize: '1rem' }}>
@@ -1957,6 +2040,50 @@ function Sprints() {
                       <p style={{ marginTop: '10px', fontSize: '0.9rem', color: '#666' }}>
                         <strong>Primary Files:</strong> <code style={{ background: '#f0f0f0', padding: '2px 6px', borderRadius: '3px' }}>{sprint.primaryFiles}</code>
                       </p>
+                    )}
+                    {sprint.keyConsiderations && (
+                      <div style={{ marginTop: '24px', padding: '20px', backgroundColor: '#f0fdf4', border: '1px solid #86efac', borderRadius: '8px' }}>
+                        <h4 style={{ marginTop: 0, marginBottom: '12px', color: '#166534' }}>Key Considerations & Context</h4>
+                        <p style={{ marginBottom: '16px', fontSize: '0.95rem', color: '#15803d' }}>{sprint.keyConsiderations.context}</p>
+                        {sprint.keyConsiderations.sections.map((section, sIdx) => (
+                          <div key={sIdx} style={{ marginBottom: '16px' }}>
+                            <div style={{ fontWeight: 600, marginBottom: '8px', color: '#166534' }}>{section.title}</div>
+                            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '0.9rem', color: '#15803d' }}>
+                              {section.items.map((item, iIdx) => (
+                                <li key={iIdx} style={{ marginBottom: '4px' }}>{item}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    {sprint.readinessChecklist && (
+                      <div style={{ marginTop: '24px', padding: '20px', backgroundColor: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '8px' }}>
+                        <h4 style={{ marginTop: 0, marginBottom: '12px', color: '#334155' }}>Oasis Enterprise Edition — Readiness Checklist</h4>
+                        <p style={{ marginBottom: '16px', fontSize: '0.95rem', color: '#475569' }}>{sprint.readinessChecklist.intro}</p>
+                        {sprint.readinessChecklist.sections.map((section, sIdx) => (
+                          <div key={sIdx} style={{ marginBottom: '16px' }}>
+                            <div style={{ fontWeight: 600, marginBottom: '8px', color: '#1e293b' }}>{section.title}</div>
+                            {section.items ? (
+                              <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '0.9rem', color: '#475569' }}>
+                                {section.items.map((item, iIdx) => (
+                                  <li key={iIdx} style={{ marginBottom: '4px' }}>{item}</li>
+                                ))}
+                              </ul>
+                            ) : null}
+                            {section.subsections && section.subsections.map((sub, subIdx) => (
+                              <div key={subIdx} style={{ marginTop: '8px', marginLeft: '12px' }}>
+                                <div style={{ fontWeight: 500, marginBottom: '4px', color: '#475569' }}>{sub.title}</div>
+                                <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '0.9rem', color: '#64748b' }}>
+                                  {sub.items.map((item, iIdx) => (
+                                    <li key={iIdx} style={{ marginBottom: '2px' }}>{item}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
                     )}
                   </div>
 

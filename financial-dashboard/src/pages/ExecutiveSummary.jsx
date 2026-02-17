@@ -7,7 +7,7 @@ import './Page.css'
 
 function ExecutiveSummary() {
   return (
-    <div className="page">
+    <div className="page" id="executive-summary">
       <div className="page-header">
         <h1>Executive Summary</h1>
         <p className="page-subtitle">Oasis Browser: Redefining Knowledge Work with AI-Native Browsing</p>

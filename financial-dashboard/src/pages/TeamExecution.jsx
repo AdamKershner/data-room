@@ -2707,7 +2707,7 @@ function TeamExecution() {
   ]
 
   return (
-    <div className="page">
+    <div className="page" id="team-overview">
       <div className="page-header">
         <h1>Team, Execution & Milestones</h1>
       </div>
