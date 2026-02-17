@@ -4,9 +4,112 @@ import './Page.css'
 import './Q1MidpointUpdate.css'
 import hubspotLeadViewerImage from '../assets/hubspot-lead-viewer-fit-score.png'
 
+const FAQ_ITEMS = [
+  { category: 'B2C ($20 paying customer)', question: 'How did Mark find us, and how can we replicate that path for more users like him?', answer: <>Stripe does not store acquisition source. Check Customer metadata if we passed source when creating the subscription. Set up UTM parameters on all links (blog, YouTube, Product Hunt). In Mixpanel, capture acquisition_source from UTM/referrer at first touch and store as a user property. Build funnel: first touch → signup → install → payment. See the <a href="https://docs.google.com/document/d/1xTYWL9chXtI7ep8BBTz1Z_z50kdRcFVfFr8uPGWnblM/edit?tab=t.0#heading=h.v2sf8fr2wh2j" target="_blank" rel="noopener noreferrer">GTM Mixpanel Boards &amp; Reports project charter</a> for creating attribution funnels. Outreach: Emailed Mark with support offer and calendar link for a complimentary demo. Ask: &quot;How did you first hear about Oasis?&quot; and &quot;What made you subscribe?&quot; to capture attribution and feedback.</> },
+  { category: 'B2C', question: 'What made him convert to paid vs. staying on the waitlist?', answer: (
+  <>
+    <p>Survey: Send a short 3–5 question survey within 24–48 hours of subscription (Typeform, Tally, or in-app). In-app is ideal—use an in-AI-chat prompt (see mockup below). Reward: gift extra credits on their plan for completing the response. Interview: For early customers (e.g., Mark), offer a 15-min call or async Loom. Hybrid: Automate the in-chat survey for all subscribers; do interviews for the first 5–10 paying customers.</p>
+    <div className="faq-chat-mockup" aria-label="Example in-app chat UI for subscription survey">
+      <div className="chat-mockup-header">
+        <span className="chat-mockup-logo">Oasis</span>
+        <span className="chat-mockup-badge">AI</span>
+      </div>
+      <div className="chat-mockup-messages">
+        <div className="chat-msg chat-msg-ai">
+          <div className="chat-msg-avatar">◆</div>
+          <div className="chat-msg-bubble">
+            What made you decide to subscribe today?
+          </div>
+        </div>
+        <div className="chat-msg chat-msg-user">
+          <div className="chat-msg-bubble">
+            I was trying to find a better way to manage my tabs—the AI commands sold me.
+          </div>
+          <div className="chat-msg-avatar">You</div>
+        </div>
+      </div>
+      <div className="chat-mockup-input">
+        <input type="text" placeholder="Type your response..." readOnly aria-hidden="true" />
+        <button type="button" className="chat-mockup-skip" disabled aria-hidden="true">Skip</button>
+        <button type="button" className="chat-mockup-credits" disabled aria-hidden="true">+7 credits</button>
+      </div>
+    </div>
+  </>
+) },
+  { category: 'B2C', question: 'What would make him stick past month one and refer others?', answer: (
+  <>
+    <p>Retention: Compare engaged users (30+ days) vs. churned users. Ask in the in-chat survey (see mockup below). Track usage in Mixpanel and look for patterns. Referral: NPS follow-up: &quot;What would make you recommend Oasis to a colleague?&quot; Interview power users. Test referral incentives (e.g., invite a friend, get extra credits). Add share prompts at high-value moments.</p>
+    <div className="faq-chat-mockup" aria-label="Example in-app chat UI for retention survey">
+      <div className="chat-mockup-header">
+        <span className="chat-mockup-logo">Oasis</span>
+        <span className="chat-mockup-badge">AI</span>
+      </div>
+      <div className="chat-mockup-messages">
+        <div className="chat-msg chat-msg-ai">
+          <div className="chat-msg-avatar">◆</div>
+          <div className="chat-msg-bubble">
+            What would make you use Oasis more often?
+          </div>
+        </div>
+        <div className="chat-msg chat-msg-user">
+          <div className="chat-msg-bubble">
+            I&apos;d use it more if I could get a quick summary of my tabs at the end of the day.
+          </div>
+          <div className="chat-msg-avatar">You</div>
+        </div>
+      </div>
+      <div className="chat-mockup-input">
+        <input type="text" placeholder="Type your response..." readOnly aria-hidden="true" />
+        <button type="button" className="chat-mockup-skip" disabled aria-hidden="true">Skip</button>
+        <button type="button" className="chat-mockup-credits" disabled aria-hidden="true">+7 credits</button>
+      </div>
+    </div>
+  </>
+) },
+  { category: 'B2C', question: 'How do we turn this single conversion into a repeatable funnel (content, SEO, Product Hunt, etc.)?', answer: <>Map all acquisition channels (SEO, YouTube, Product Hunt, waitlist, referrals, outbound). For each, estimate effort, cost, reach, and conversion potential. Use Mark&apos;s path (FAQ 1) as a reference. Prioritize by effort vs. impact: Product Hunt (one-time, high reach; needs NPS + Sprint 15/10), Content Pipeline (blog + YouTube for ongoing organic), waitlist (150 users; email when ready), referrals (invite-a-friend credits after NPS is strong), outbound (coffee chats, demos). Add UTMs to all links for Mixpanel attribution. Build funnel: top (content, Product Hunt) → middle (waitlist, install) → bottom (paid, demos). See the <a href="https://docs.google.com/document/d/1xTYWL9chXtI7ep8BBTz1Z_z50kdRcFVfFr8uPGWnblM/edit?tab=t.0" target="_blank" rel="noopener noreferrer">GTM Mixpanel Boards &amp; Reports project charter</a> for implementing this.</> },
+  { category: 'B2B (Culture Amp)', question: 'What specifically resonated in the demo, and what gaps did they surface?', answer: (
+  <>
+    <p>The biggest issue: we didn&apos;t have a Chromium enterprise version of Oasis to demo or give Julian to test. Culture Amp is ready to invest, but we don&apos;t have the product ready. We&apos;ve assigned <strong>Kaushik, Revanth, Atharva, Ruturaj, and Mohammed</strong> to <Link to="/sprints">Sprint 17</Link> (Oasis Chromium Enterprise Browser with Okta integration).</p>
+    <p>Debrief with sales to capture what resonated and what gaps. Below is the enterprise readiness checklist that broadly applies to prospects like Culture Amp:</p>
+    <div className="faq-enterprise-checklist">
+      <div className="faq-checklist-section"><strong>1. Identity &amp; Access Management (Critical):</strong> SAML 2.0/SSO, multiple IDPs (Okta, EntraID), RBAC, Admin vs User separation</div>
+      <div className="faq-checklist-section"><strong>2. Browser Security Controls:</strong> Domain allowlist/denylist, configurable disable for downloads, uploads, clipboard, printing, file system, extensions, developer tools</div>
+      <div className="faq-checklist-section"><strong>3. Session Security:</strong> Idle timeout, clear cache on logout, ephemeral sessions, block credential storage</div>
+      <div className="faq-checklist-section"><strong>4. Network &amp; DLP:</strong> Proxy config, DNS enforcement, SSL inspection / enterprise CA injection, Netskope compatibility</div>
+      <div className="faq-checklist-section"><strong>5. Deployment:</strong> No admin required, user-level install, clean uninstall, auto-update, macOS + Windows, version management</div>
+      <div className="faq-checklist-section"><strong>6. Commercial Readiness:</strong> Per-user per-month licensing, usage metering, contract provisioning, onboarding playbook, offboarding automation</div>
+      <div className="faq-checklist-section"><strong>7. Enterprise Documentation:</strong> Security whitepaper, architecture, DLP/IdP integration guides, deployment guide, compliance mapping</div>
+    </div>
+    <p>See the <a href="#marketing">Julian case study</a> and CULTURE_AMP_ESTIMATE.md for context.</p>
+  </>
+) },
+  { category: 'B2B', question: 'Who else at Culture Amp needs to be involved, and what do they care about?', answer: 'The team responsible for Netskope DLP needs to be involved. Julian wasn\'t responsible for choosing Netskope DLP—whoever owns that will need to be satisfied with how we implement DLP integration. Map them: who owns Netskope, what are their criteria, what would block sign-off? According to Julian, the executive team was "fine" with Island and Surf pricing: $12K–$25K minimum annual commitment, $108–$150 per user per seat annually. Decision criteria: DLP compatibility, pricing fit, no-admin installation, Chromium-based.' },
+  { category: 'B2B', question: 'How do we move from "pricing comparison" to a pilot or LOI?', answer: <><p>Adam emailed Julian a PDF proposal with this structure: (1) <strong>Deposit</strong> — $5K refundable, payable when ready to move forward; (2) <strong>Netskope validation</strong> — once deposit is paid, meet with the team managing Netskope DLP to confirm integration is achievable; (3) <strong>Refund</strong> — if requirements cannot be delivered, full refund, no questions asked; (4) <strong>Deployment</strong> — if achievable, $5K converts to minimum upfront commitment; pricing thereafter $8/user/month. Next step: if Julian agrees, schedule a session with their security team (as early as next week). Pilot success → LOI. Use the <a href="https://drive.google.com/file/d/11CUNNG3Y7ckHeJXY1IJYSwP-3n9sr_zB/view?usp=sharing" target="_blank" rel="noopener noreferrer">Enterprise LOI Template</a> when ready.</p><p>In the meantime, we are building the Oasis Chromium Enterprise browser. Once the team (Atharva, Revanth, Kaushik, Ruturaj, and Mohammed) feels we have a demo-able, testable product, we will reach back out to Culture Amp. Even if they have moved forward with another vendor, we can still let them know we are a real option.</p><p><strong>SOC 2:</strong> We need to understand whether companies require SOC 2 compliance. If that is non-negotiable, we would incorporate it into the LOI and plan to fundraise from venture capital firms who want to support enterprise growth—part of what they fund would be SOC 2, plus a hiring plan for engineers who will support enterprise clients representing at least $75K–$100K ARR.</p><p><strong>Content &amp; credibility:</strong> More blog and YouTube content (see <Link to="/content-pipeline">Content Pipeline</Link>) focused on enterprise buyers—e.g., Julian, enterprise solutions architects—will attract more prospects and signal commitment to enterprises. We can also list logos of people at companies using the consumer version to add credibility.</p></> },
+  { category: 'B2B', question: 'What timeline are they working with, and what would block a pilot?', answer: 'Culture Amp said they would be ready to deploy when we are ready. They are losing money day by day from shipping computers to contractors—on average $1,500 per contractor. They expect to have 20 contractors, so the cost pressure is significant. Timeline urgency favors us. The biggest blocker for this client is our lack of a product ready to solve their problem. We are building a version that meets their expectations in a way we believe will also meet other future prospects\' expectations. Other potential blockers: Netskope DLP validation, lack of SOC 2, or internal procurement.' },
+  { category: 'B2B', question: 'Who else in their space (HR tech, people analytics) could follow the same playbook?', answer: <>Target companies that are losing money on contractors who receive hardware and would prefer a cheaper BYOD policy with an enterprise browser. This includes companies that constantly hire contractors or are in a hiring phase—e.g., HR tech, people analytics, professional services, consulting firms. Build a target list from Culture Amp adjacencies and companies with similar contractor-heavy, hardware-cost pain. Use job sites to find prospects: on Wellfound, filter by &quot;job seekers&quot; and look for companies hiring for contractor roles; use other job boards to find contractor openings at various companies. Focus on companies with a large enough head count—e.g., over 500 employees. Learn more from this case study, then create blog and YouTube content (see <Link to="/content-pipeline">Content Pipeline</Link>) that speaks to these problems—contractor hardware costs, BYOD vs. managed devices, enterprise browser for secure contractor access.</> },
+  { category: 'Product & positioning', question: 'Are we selling the same product to B2C and B2B, or two different offerings?', answer: <><p>The consumer browser is helpful for many employees and can be installed and used right away for work and productivity. The features that make it elegant for work in the consumer version are also in the enterprise version; the enterprise version expands the feature set to include capabilities for organizations (SSO, DLP, managed sessions, etc.). The consumer version also provides a way for organizations to try out the product and get a sense of what it&apos;s like before scheduling a demo, doing a discovery call, asking about enterprise pricing, or moving to an enterprise plan. People can skip the waitlist by filling out a more robust form (how they found us, what they plan to use it for, contact information, whether they&apos;re at a company); we give priority to employees at companies. Frankly, we feel anyone at a company should be able to pay $20 to try it out.</p><p>Eventually we can offer a fully free plan, but for now we withhold it—doing so lets us validate markets and focus on paying users only; once a free plan is available, we have to support free users.</p><div className="faq-validation-criteria"><div className="faq-validation-criteria-title">Acceptance criteria to launch a limited free tier</div><ul className="faq-validation-criteria-list"><li><strong>Paying users:</strong> ~15+ paying users, with at least 5+ who have been paying for 30+ days—shows retention, not just trial signups.</li><li><strong>NPS:</strong> Positive or trending positive—we don&apos;t want to scale free before promoters outweigh detractors.</li><li><strong>Mixpanel usage:</strong> Active usage—weekly active users, feature adoption, session patterns—confirms people use the product, not just pay and churn.</li><li><strong>Support &amp; limits:</strong> Basic support in place; clear free-tier limits (credits, time, or features).</li><li><strong>Attribution:</strong> Know how users find us so we can assess whether free users fit our target.</li></ul></div></> },
+  { category: 'Product & positioning', question: 'What is the clearest story for each: individual knowledge workers vs. enterprise secure access?', answer: <><p><strong>Individual knowledge workers (B2C)</strong></p><p><em>Problems:</em> Tab overload, distraction, context switching, information scattered across windows—productivity drains that make it hard to focus and find what matters. Many workers feel their default browser wasn&apos;t built for serious work.</p><p><em>Motivations:</em> Get more done with less friction, reduce cognitive load, have a browser that feels designed for work. They want to try something better without a long commitment—install, use, and see if it helps.</p><p><em>Key filter:</em> The lure is the promise of the most elegant user experience. The draw is based on user experience and feeling—that&apos;s how we separate ourselves from competitors. It&apos;s called Oasis for a reason.</p><p><strong>Enterprise secure access (B2B)</strong></p><p><em>Problems:</em> High cost of shipping and managing hardware for contractors (e.g., $1,500+ per contractor); need secure SaaS access without full device management; compliance and DLP requirements for contractor access; slow onboarding when every contractor needs a company device.</p><p><em>Motivations:</em> Cut hardware costs with a BYOD-friendly approach; give contractors secure, policy-enforced access without shipping laptops; onboard contractors faster; meet security and compliance requirements (Okta, Netskope DLP) while reducing operational overhead.</p><p><em>Key filter:</em> We position ourselves as a worthy competitor on security, and we truly shine on productivity and being the most elegant of all enterprise browsers.</p></> },
+  { category: 'Product & positioning', question: 'Which features matter most for each segment?', answer: <><p><strong>B2C (individual knowledge workers):</strong> Tab management and AI commands that reduce cognitive load; elegant, friction-free UX (install and use); low-friction trial ($20, skip-the-waitlist for company employees); features that make work feel easier—the &quot;Oasis&quot; experience. Prioritize: core productivity, then referral and retention hooks.</p><p><strong>B2B (enterprise secure access):</strong> Chromium engine; Okta SSO; Netskope DLP integration; managed browser (session isolation, policy enforcement); no-admin, user-level install; per-user-per-month licensing. Prioritize: Okta + managed browser first (Sprint 17), then Netskope DLP validation. See <a href="#marketing">Julian case study</a> and CULTURE_AMP_ESTIMATE.md for full requirements.</p></> },
+  { category: 'Product & positioning', question: 'What is the minimum we need to close a Culture Amp–style deal?', answer: <><p><strong>Minimum for demo:</strong> Chromium engine (✅ have); basic Okta SSO; basic Netskope DLP (policy evaluation, blocking); managed browser (session isolation); portable, no-admin install; basic licensing validation. CULTURE_AMP_ESTIMATE.md estimates ~80 story points, 6–8 weeks for Phase 1 MVP.</p><p><strong>Production-ready:</strong> Full Netskope DLP, advanced policy management, complete licensing system, security hardening, comprehensive testing. Add ~56 story points, 4–6 weeks. SOC 2 may be required—confirm with prospect.</p><p><strong>Phased path:</strong> Offer demo/POC with MVP, then iterate. See CULTURE_AMP_ESTIMATE.md for full breakdown, risks, and next steps.</p></> },
+  { category: 'Go-to-market', question: 'Should we prioritize more B2C, more B2B, or both in parallel?', answer: <><div className="faq-decision-framework"><div className="faq-decision-framework-rate-limiter">Rate-limiting factor: Having the enterprise product ready in a form that elicits a greenlight for an LOI or pilot. That puts us in position to seek Seed funding.</div><div className="faq-decision-framework-title">Decision framework</div><div className="faq-decision-framework-subtitle">Guides engineering, product, and product marketing</div><div className="faq-decision-framework-section"><div className="faq-decision-framework-section-title">Engineering &amp; product</div><p>Until the enterprise product is demo- and pilot-ready, allocate the majority of capacity to Chromium Enterprise (Sprint 17). Maintain a minimum viable consumer track—fixes, stability, conversion—but avoid major new consumer features that divert from the enterprise milestone.</p><p>Once pilot-ready, rebalance based on pipeline: more B2C if we need more paying users for free-tier validation; more B2B if we have LOI momentum.</p></div><div className="faq-decision-framework-section"><div className="faq-decision-framework-section-title">Product marketing &amp; content</div><p>Until enterprise is ready, content should support both: consumer content (productivity, elegant UX) that attracts individuals and company employees; enterprise-oriented content (contractor costs, BYOD, secure access) that warms prospects and builds credibility.</p><p>When enterprise is pilot-ready, lean into case studies, demos, and enterprise-specific assets. Content choices signal where we expect growth.</p></div><div className="faq-decision-framework-section faq-decision-framework-triggers"><div className="faq-decision-framework-section-title">Trigger to rebalance</div><div className="faq-decision-framework-trigger-item"><span className="faq-decision-framework-trigger-condition">Signed LOI or pilot greenlight</span> → shift more resources to B2B delivery and enterprise content.</div><div className="faq-decision-framework-trigger-item"><span className="faq-decision-framework-trigger-condition">Consumer validation complete</span> (15+ paying, positive NPS) → consider limited free tier and more B2C growth.</div></div></div></> },
+  { category: 'Go-to-market', question: 'What channels (content, Product Hunt, outbound, referrals) are most likely to produce more Marks and more Culture Amps?', answer: <><div className="faq-channels"><div className="faq-channels-priority"><div className="faq-channels-priority-title">Prioritization (effort vs. impact)</div><div className="faq-channels-priority-grid"><div className="faq-channels-priority-item"><strong>Content</strong> (blog, YouTube) — Medium effort, high impact long-term. Organic, compounds over time. See <Link to="/content-pipeline">Content Pipeline</Link>.</div><div className="faq-channels-priority-item"><strong>Product Hunt</strong> — One-time burst, high reach. Low ongoing effort; needs NPS + strong product moment.</div><div className="faq-channels-priority-item"><strong>Outbound</strong> — High effort, variable impact. B2C: support offers, demos. B2B: target companies hiring contractors (Wellfound, job boards).</div><div className="faq-channels-priority-item"><strong>Referrals</strong> — Low effort once built. B2C: invite-a-friend credits. B2B: warm intros (e.g., Julian to peers).</div><div className="faq-channels-priority-item"><strong>LinkedIn</strong> — Low effort per person, high collective reach. All 40+ team members can post about their experience working on Oasis—videos, blogs, screenshots—to attract individuals and B2B prospects.</div></div></div><div className="faq-channels-breakdown"><div className="faq-channels-breakdown-title">Channel-by-channel hypotheses</div><div className="faq-channels-hypothesis"><strong>Content:</strong> Consumer content (productivity, elegant UX) attracts Marks; enterprise content (contractor costs, BYOD) warms Culture Amp–style prospects. Hypothesis: consistent output drives organic signups and enterprise inbound.</div><div className="faq-channels-hypothesis"><strong>Product Hunt:</strong> Launch or feature drop drives one-time spike. Hypothesis: strong NPS + clear value prop converts visitors to waitlist/paid.</div><div className="faq-channels-hypothesis"><strong>Outbound:</strong> B2C: personalized outreach to waitlist converts to paid. B2B: targeted outreach to companies with contractor pain (500+ employees) yields demos. Hypothesis: quality over quantity.</div><div className="faq-channels-hypothesis"><strong>Referrals:</strong> B2C: credits for invites drive word-of-mouth. B2B: one Culture Amp intro leads to more (HR tech network). Hypothesis: early advocates multiply reach.</div><div className="faq-channels-hypothesis"><strong>LinkedIn:</strong> All 40+ team members post about their experience at Oasis—videos, blogs, screenshots. Hypothesis: organic employee advocacy reaches a blend of individuals and potential B2B prospects.</div></div><div className="faq-channels-test"><div className="faq-channels-test-title">Test and measure framework</div><div className="faq-channels-test-row"><div className="faq-channels-test-what"><strong>What to test:</strong></div><div className="faq-channels-test-detail">UTMs on all links; Mixpanel acquisition_source; conversion funnel (first touch → signup → install → paid); NPS at key moments.</div></div><div className="faq-channels-test-row"><div className="faq-channels-test-what"><strong>Metrics:</strong></div><div className="faq-channels-test-detail">Signups per channel, install rate, paid conversion, NPS, enterprise demo requests. Track by segment (B2C vs B2B).</div></div><div className="faq-channels-test-row"><div className="faq-channels-test-what"><strong>Next steps:</strong></div><div className="faq-channels-test-detail">Implement attribution (see <a href="https://docs.google.com/document/d/1xTYWL9chXtI7ep8BBTz1Z_z50kdRcFVfFr8uPGWnblM/edit?tab=t.0" target="_blank" rel="noopener noreferrer">GTM Mixpanel charter</a>); run 2–3 content experiments; one Product Hunt moment when ready; encourage team LinkedIn posts (40+ members sharing videos, blogs, screenshots); document which channels produce Marks vs. Culture Amps.</div></div></div></div></> },
+  { category: 'Go-to-market', question: 'How do we turn Culture Amp into a case study and proof point?', answer: 'TBD — plan for pilot success story.' },
+  { category: 'Go-to-market', question: 'What is our plan if they say yes vs. if they say no or stall?', answer: 'TBD — define both paths.' },
+  { category: 'Operations & readiness', question: 'Do we have the right pricing, packaging, and contracts for enterprise?', answer: 'TBD — compare to competitors.' },
+  { category: 'Operations & readiness', question: 'What is our SOC 2 and security story for enterprise buyers?', answer: 'TBD — Delve or Vanta.' },
+  { category: 'Operations & readiness', question: 'Who owns the Culture Amp relationship and next steps?', answer: 'TBD — assign ownership.' },
+  { category: 'Operations & readiness', question: 'What do we need to deliver in a pilot, and can we do it?', answer: 'TBD — scope from Culture Amp requirements.' },
+  { category: 'Learning & iteration', question: 'What is the single most important thing we learned from Mark and from Culture Amp?', answer: 'TBD — synthesize insights.' },
+  { category: 'Learning & iteration', question: 'What would we do differently if we could re-run the last 6 weeks?', answer: 'TBD — retrospective.' },
+  { category: 'Learning & iteration', question: 'What is the one metric we should focus on for the rest of Q1?', answer: 'TBD — pick North Star.' },
+  { category: 'Learning & iteration', question: 'What would make Q1 a clear success vs. "we tried a lot of things"?', answer: 'TBD — define success criteria.' },
+]
+
 function Q1MidpointUpdate() {
   const [brokenUrls, setBrokenUrls] = useState({})
   const [caseStudyOpen, setCaseStudyOpen] = useState(false)
+  const [faqOpen, setFaqOpen] = useState(null)
+  const toggleFaq = (idx) => setFaqOpen(faqOpen === idx ? null : idx)
 
   const publicLogos = useMemo(() => ({
     // These are served from `financial-dashboard/public/logos/`.
@@ -158,6 +261,7 @@ function Q1MidpointUpdate() {
             <a className="toc-link" href="#engineering">Engineering</a>
             <a className="toc-link" href="#hr">HR</a>
             <a className="toc-link" href="#goals-mar-31">Goals for March 31st</a>
+            <a className="toc-link" href="#faq">Strategic FAQ</a>
           </div>
         </div>
       </section>
@@ -771,6 +875,41 @@ function Q1MidpointUpdate() {
           <p style={{ marginTop: '18px' }}>
             <strong>Product Hunt launch:</strong> We plan to roll out a Product Hunt campaign to attract more users and paid subscribers like Mark. The team has created Product Hunt accounts in preparation (<a href="https://docs.google.com/spreadsheets/d/1gSMDizFLvRliMZgYNyQND4lipZ3Dde6FPn2EWDRZolM/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer">Product Hunt Accounts</a>), and we ask new team members to create an account during onboarding so we&apos;re ready to engage on launch day. Per the <a href="https://docs.google.com/document/d/1fbnq13Uj8n3qaCCg1BOdiQD-awjl5c2sswxWaX6oyU8/edit?tab=t.0#heading=h.ctmy5c17lr0g" target="_blank" rel="noopener noreferrer">Product Hunt Launch Charter</a>, we would meet the conditions to launch once we: (1) improve NPS to an industry-standard good level (e.g., 30+), and (2) address critical technical roadblocks—<Link to="/sprints">Sprint 15</Link> (Automatic Software Updates) and <Link to="/sprints">Sprint 10</Link> (Onboarding + Branding polish).
           </p>
+        </div>
+      </section>
+
+      <section className="page-section" id="faq">
+        <h2>Strategic FAQ</h2>
+        <p className="faq-intro">
+          Questions to help us take advantage of our Q1 midpoint position: we started with no paying customers and no demos; now we have a $20 B2C conversion and Culture Amp requesting pricing. Fill in answers or investigate ways to get them.
+        </p>
+        <div className="faq-accordion">
+          {FAQ_ITEMS.map((item, idx) => (
+            <div key={idx} className={`faq-item ${faqOpen === idx ? 'faq-item-open' : ''}`}>
+              <button
+                type="button"
+                className="faq-question"
+                onClick={() => toggleFaq(idx)}
+                aria-expanded={faqOpen === idx}
+                aria-controls={`faq-answer-${idx}`}
+                id={`faq-question-${idx}`}
+              >
+                <span className="faq-question-text">{idx + 1}. {item.question}</span>
+                <span className="faq-chevron" aria-hidden="true">{faqOpen === idx ? '−' : '+'}</span>
+              </button>
+              <div
+                id={`faq-answer-${idx}`}
+                className="faq-answer"
+                role="region"
+                aria-labelledby={`faq-question-${idx}`}
+              >
+                <div className="faq-answer-body">
+                  <span className="faq-category">{item.category}</span>
+                  {typeof item.answer === 'string' ? <p>{item.answer}</p> : <div className="faq-answer-content">{item.answer}</div>}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
