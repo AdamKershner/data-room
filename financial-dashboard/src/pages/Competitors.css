@@ -1,0 +1,259 @@
+.competitors-loading,
+.competitors-error {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+}
+
+.competitors-error code {
+  background: #f5f5f5;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.competitors-filters {
+  margin-bottom: 32px;
+}
+
+.competitors-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-end;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border: 2px solid var(--oasis-green-medium);
+  background: white;
+  color: var(--oasis-green-dark);
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  background: var(--oasis-green-pale);
+}
+
+.filter-btn.active {
+  background: var(--oasis-green-medium);
+  color: white;
+  border-color: var(--oasis-green-medium);
+}
+
+.filter-btn-newcomer {
+  border-color: var(--desert-yellow-medium);
+  color: var(--desert-yellow-dark);
+}
+
+.filter-btn-newcomer:hover {
+  background: var(--desert-yellow-pale);
+}
+
+.filter-btn-newcomer.active {
+  background: var(--desert-yellow-medium);
+  color: white;
+  border-color: var(--desert-yellow-medium);
+}
+
+.search-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.competitors-search {
+  padding: 10px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 320px;
+  transition: border-color 0.2s;
+}
+
+.competitors-search:focus {
+  outline: none;
+  border-color: var(--oasis-green-medium);
+}
+
+.competitors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.competitor-card {
+  background: white;
+  border: 2px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.competitor-card:hover {
+  border-color: var(--oasis-green-light);
+  box-shadow: 0 4px 12px rgba(122, 146, 0, 0.12);
+}
+
+.competitor-card.expanded {
+  border-color: var(--oasis-green-medium);
+  box-shadow: 0 6px 20px rgba(122, 146, 0, 0.15);
+}
+
+.competitor-card.oasis-card {
+  border-color: var(--oasis-green-medium);
+  background: linear-gradient(135deg, var(--oasis-green-near-white) 0%, var(--oasis-green-extremely-pale) 100%);
+}
+
+.competitor-card.oasis-card:hover,
+.competitor-card.oasis-card.expanded {
+  border-color: var(--oasis-green-dark);
+  box-shadow: 0 6px 20px rgba(73, 88, 0, 0.2);
+}
+
+.competitor-card-header {
+  position: relative;
+}
+
+.competitor-name-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.competitor-name {
+  font-size: 1.25rem;
+  color: #333;
+  margin: 0;
+  font-weight: 700;
+}
+
+.competitor-badge {
+  background: var(--oasis-green-medium);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.competitor-badge.newcomer-badge {
+  background: var(--desert-yellow-medium);
+  color: white;
+}
+
+.competitor-card.newcomer-card {
+  border-color: var(--desert-yellow-light);
+}
+
+.competitor-card.newcomer-card:hover {
+  border-color: var(--desert-yellow-medium);
+}
+
+.competitor-type {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.competitor-type.type-enterprise {
+  background: var(--oasis-green-pale);
+  color: var(--oasis-green-dark);
+}
+
+.competitor-type.type-consumer {
+  background: var(--desert-yellow-pale);
+  color: var(--desert-yellow-dark);
+}
+
+.competitor-summary-preview {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+}
+
+.competitor-expand-hint {
+  font-size: 0.8rem;
+  color: var(--oasis-green-medium);
+  font-weight: 600;
+}
+
+.competitor-card-details {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.competitor-detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.competitor-detail-row:last-child {
+  margin-bottom: 0;
+}
+
+.detail-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-value {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.detail-link {
+  font-size: 0.95rem;
+  color: var(--oasis-green-dark);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.detail-link:hover {
+  text-decoration: underline;
+}
+
+.competitors-empty {
+  text-align: center;
+  color: #666;
+  padding: 40px 20px;
+  font-size: 1.1rem;
+}
