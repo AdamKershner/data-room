@@ -106,6 +106,13 @@ function TeamExecution() {
       timeLogs: []
     },
     {
+      name: "Lalith Donkina",
+      roles: ["Engineering"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: []
+    },
+    {
       name: "Samyak Jain",
       roles: ["Product Marketing"],
       employmentStatus: "intern",
@@ -114,7 +121,7 @@ function TeamExecution() {
     },
     {
       name: "Archana Ramalingam",
-      roles: ["Product"],
+      roles: ["Project Management"],
       employmentStatus: "intern",
       hoursPerWeek: 20,
       timeLogs: []
@@ -2617,16 +2624,16 @@ function TeamExecution() {
       ]
     },
     {
-      name: "Ammemah",
-      roles: ["Product"],
+      name: "Ammemah Naeem",
+      roles: ["Sales"],
       employmentStatus: "intern",
       hoursPerWeek: 20,
       timeLogs: [],
       q1Goals: {
-        overview: "Support product development and feature definition",
-        target: "Complete 10+ product requirement documents in Q1",
+        overview: "Support B2B pipeline development and enterprise pilots",
+        target: "3 enterprise pilots",
         weeklyBreakdown: [],
-        keyMetrics: ["PRDs completed", "Feature adoption support"]
+        keyMetrics: ["Pipeline development", "Enterprise pilot support"]
       }
     },
     {
@@ -2683,7 +2690,7 @@ function TeamExecution() {
     },
     {
       name: "Srishti Goyal",
-      roles: ["Product"],
+      roles: ["Project Management"],
       employmentStatus: "intern",
       hoursPerWeek: 20,
       timeLogs: [

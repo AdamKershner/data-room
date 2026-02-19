@@ -957,6 +957,140 @@ function Sprints() {
         "Native splitview works correctly within the same window"
       ],
       completionNote: "Completed"
+    },
+    {
+      id: 13,
+      title: "Archived UI Issues",
+      emoji: "📦",
+      priority: "LOW",
+      storyPoints: 0,
+      effort: "Low",
+      impact: "Low",
+      severity: "5/10",
+      overview: "UI issues archived (no longer tracked in active sprints).",
+      issues: [
+        {
+          title: "Logo Asset Replacement",
+          count: 1,
+          submissionIds: ["VLrxB1J"],
+          description: "Replace placeholder logo with finalized brand logo in the AI Assistant interface.",
+          impact: "Visual consistency (severity 5/10)",
+          technicalNotes: "UI asset swap",
+          resolutionNote: "📦 ARCHIVED",
+          feedback: []
+        },
+        {
+          title: "Can't Change Password",
+          count: 1,
+          submissionIds: ["kdobDeZ"],
+          description: "Users cannot change their password from the Oasis Assistant for their Kahana account.",
+          impact: "Password management broken (severity 7/10)",
+          technicalNotes: "Password change functionality in assistant.ui.js or account settings UI",
+          resolutionNote: "📦 ARCHIVED",
+          feedback: [
+            { id: "kdobDeZ", text: "I was not able to change my password from the Oasis Assistant for my Kahana account" }
+          ]
+        },
+        {
+          title: "Feedback Modal Design System Alignment",
+          count: 1,
+          submissionIds: ["Me0G0N0"],
+          description: "Feedback modal isn't aligned with design specs. Issues: input field background (dark vs light modal), checkbox states (no visible border), CTA button (not using primary brand color), chip close icon (too small), modal shadow (should be removed).",
+          impact: "Design inconsistency (severity 9/10)",
+          technicalNotes: "Align feedback modal with design system - input background, checkbox styling, button colors, chip icons, remove shadow",
+          resolutionNote: "📦 ARCHIVED",
+          feedback: [
+            { id: "Me0G0N0", text: "Feedback modal isn't aligned with the design specs. Here are the fixes needed: Input field background: The input area is dark while the modal is light. This feels visually inconsistent. Align the input background with the modal design. Checkbox states: Current checkbox styling doesn't follow the design system. The unchecked state lacks a visible border, so it's easy to miss. Needs clearer borders and stronger state differentiation. CTA button: Button color isn't using the primary brand color. Update the color and change the label to just \"Submit.\" Chip close icon: The close icon inside selected chips is too small and thin. Make it more prominent for visibility and usability. Modal shadow: Remove the shadow behind the feedback modal since it isn't part of the design spec and adds visual noise.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.43.19-AM.png?id=2DP98j&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJEUDk4aiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MjE5OX0.Rj9YZnuASKmAbETndDnEaMU-nvSEfwZawsXp5FcvLZo&signature=3eb0c6fbc1e1974fc6ada27d186cbd38e10521c6f1fc2df0d6e47d0ab155a75f" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [],
+      completionNote: "Archived Feb 2026"
+    },
+    {
+      id: 23,
+      title: "Sprint 23 - Window Management Improvements (Archived)",
+      emoji: "🖼️",
+      priority: "HIGH",
+      storyPoints: 13,
+      effort: "Medium-High",
+      impact: "High",
+      severity: "8-10/10",
+      overview: "Fix AI Assistant window management issues including minimize/maximize functionality, window resizing, viewport positioning, and input area visibility in minimized state. **ARCHIVED** Feb 2026.",
+      primaryFiles: "browser/base/content/assistant/ui-preact/src/components/Header.tsx, browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/ui-preact/src/App.tsx",
+      issues: [
+        {
+          title: "Restore Original Window Size",
+          count: 1,
+          submissionIds: ["XxakaYd"],
+          description: "No way to minimize the assistant window back to the original size (the size it opens for the first time). Either minimizes to tiny rectangle or maximizes to full width. No option to resize horizontally or vertically.",
+          impact: "Can't restore default window size (severity 10/10)",
+          technicalNotes: "Implement window size restoration logic, add resize controls",
+          resolutionNote: "📦 ARCHIVED",
+          feedback: [
+            { id: "XxakaYd", text: "there's no way to minimize the assistant window back to the original size, the size in which it opens for the first time. either it minimizes to the tiny rectangle window or maximizes to the full width size. there's no option to resize the window horizontally or vertically too. In the minimized version, the input area should always be visible, as a user I shouldn't need to maximize and then enter text" }
+          ]
+        },
+        {
+          title: "Minimized Version Input Area Visibility",
+          count: 2,
+          submissionIds: ["xXq1KPk", "XxjNy8P"],
+          description: "Minimized version doesn't help much - input area is hidden behind top bar, menu options not visible. Input area should always be visible in minimized state.",
+          impact: "Can't use assistant when minimized (severity 10/10)",
+          technicalNotes: "Redesign minimized state to show input area, improve elevation hierarchy",
+          resolutionNote: "📦 ARCHIVED",
+          feedback: [
+            { id: "xXq1KPk", text: "this minimized version of the assistant doesn't help much, need to improve this design since there's no way to add input, the input area is hidden behind the top bar, the menu options are not visible either. improve the elevation hierarchy of all the elements.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-26-at-12.24.39-PM.png?id=49dOdY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5ZE9kWSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTQ0ODQxM30.S-GQoF_g646tFHrYxwCRe2msJbXCXCjllMrKmbyS6iU&signature=c58883757656892ecbf4e8b437129bb0dcad607ad10f9c2c4cb061b9df5f772a" },
+            { id: "XxjNy8P", text: "The minimized version should have the input area visible at all times. Currently, I only see the header.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.05.19-AM.png?id=9oQPGE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlvUVBHRSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY0OTU5MH0.QwoZsnglSuDFfQowKVj0xzwk2HcEVs4rZ7MM46AMM6o&signature=13f98f9dc98bf4ffca0a95d104fe52c8896a72818248690a0dbb7d10149b256b" }
+          ]
+        },
+        {
+          title: "Viewport Boundary Detection",
+          count: 1,
+          submissionIds: ["D48PgkR"],
+          description: "When maximizing AI assistant and it's snapped to right corner, the assistant window extends outside the viewport. User has to take extra step to move it back.",
+          impact: "Window goes off-screen (severity 10/10)",
+          technicalNotes: "Implement viewport boundary detection and constraint window position",
+          resolutionNote: "📦 ARCHIVED",
+          feedback: [
+            { id: "D48PgkR", text: "when you maximize the ai assistant and if it is snapped to right corner, the assistant window extends outside the viewport, as a user I have to take an extra step to move it back in the view port.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-26-at-12.28.57-PM.png?id=7a5EQ9&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdhNUVROSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTQ0ODU2N30.YUq1NYfRbj36JIqNqH6Idab0uDV16x2VSbuijS7QUf8&signature=a418b5af626b3800a5e7b050521883445d124a44117bf3d83d52fcc29fe52910" }
+          ]
+        },
+        {
+          title: "Size Persistence Across Minimize/Maximize",
+          count: 1,
+          submissionIds: ["MeWeyJE"],
+          description: "When minimizing window and then maximizing it, it's not the same size that it started off in. Makes it harder to use since it takes up a lot of space and can't adjust it.",
+          impact: "Window size doesn't persist (severity 8/10)",
+          technicalNotes: "Implement window size persistence across minimize/maximize cycles",
+          resolutionNote: "📦 ARCHIVED",
+          feedback: [
+            { id: "MeWeyJE", text: "whenever i minimize the window and then try to maximize it to use the agent, it is not the same size that it starts off in and that makes it much harder to use since it ends up taking up a lot of the space on the screen and i cant adjust it either." }
+          ]
+        },
+        {
+          title: "Undo Minimization Bug",
+          count: 1,
+          submissionIds: ["NpzlZz0"],
+          description: "Minimizing chat works correctly, but undoing the minimization doesn't work. Clicking menu button again to undo minimization has no effect.",
+          impact: "Can't restore minimized window (severity 8/10)",
+          technicalNotes: "Fix minimize/restore toggle logic",
+          resolutionNote: "📦 ARCHIVED",
+          feedback: [
+            { id: "NpzlZz0", text: "When I try to minimize the chat agent, it works correctly. However, when I try to undo the minimization, it does not work. Steps to reproduce: 1. Click on the chat agent (before signing in). 2. Click the menu button and select Minimize chat -> this works as expected. 3. Click the menu button again to undo the minimization.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-05-at-11.23.27.png?id=kkll6d&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImtrbGw2ZCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDMwOTE2NX0.tIZPMh7eqKjqjzVvGNVF4reslpMYCbc7FXPmIq2hDiM&signature=2498f28f1ef36255d073603b737f65140f857aed4e4794d7281c25d69ef59fb7" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "Window can be restored to original/default size",
+        "Horizontal and vertical resizing controls implemented",
+        "Input area always visible in minimized state",
+        "Viewport boundary detection prevents window going off-screen",
+        "Window size persists across minimize/maximize cycles",
+        "Undo minimization works correctly",
+        "Elevation hierarchy improved in minimized state"
+      ],
+      completionNote: "Archived Feb 2026"
     }
   ]
 
@@ -972,7 +1106,7 @@ function Sprints() {
       impact: "Medium",
       severity: "6-9/10",
       teamMembers: ["Durgesh"],
-      overview: "Fix various UI issues and bugs in the AI Assistant interface. Includes bookmark management fixes, logo replacement, and profile button functionality. **UPDATED:** Added 2 story points from Feb 2026 feedback (logo, profile button).",
+      overview: "Fix various UI issues and bugs in the AI Assistant interface. Includes bookmark management fixes and profile button functionality. **UPDATED:** Added story points from Feb 2026 feedback (profile button). Logo Asset Replacement archived.",
       primaryFiles: "browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/build/src/commands.ts, browser/base/content/assistant/assistant.ui.js, Firefox bookmark API",
       issues: [
         {
@@ -999,18 +1133,6 @@ function Sprints() {
           ]
         },
         {
-          title: "Logo Asset Replacement",
-          count: 1,
-          submissionIds: ["VLrxB1J"],
-          description: "Replace current sloth mascot placeholder with finalized logo asset. The existing one reads temporary and hurts brand credibility.",
-          impact: "Brand credibility issue (severity 7/10)",
-          technicalNotes: "Replace logo asset in UI components",
-          requiresUI: true,
-          feedback: [
-            { id: "VLrxB1J", text: "Let's replace the current sloth mascot placeholder with the finalized logo asset. The existing one reads temporary and hurts brand credibility, especially in demos.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.12.16-AM.png?id=5pxorN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVweG9yTiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MDAzOH0.-CPuIQWaZMIfK53OJh9HwY4HKV92Vt30CLz2mzeF4K8&signature=96034ad84e62b6f887400a33d0f1f25c1bb73316dac15c2cfca13c6e8bca4b67" }
-          ]
-        },
-        {
           title: "Profile Button Not Working",
           count: 1,
           submissionIds: ["PdojLRQ"],
@@ -1027,7 +1149,6 @@ function Sprints() {
         "Minimize/maximize buttons show correct states (minimize greyed when minimized, maximize greyed when maximized)",
         "Assistant interface is resizable by dragging any of its 4 sides",
         "Bookmark removal works for imported bookmarks via AI commands",
-        "Logo asset replaced with finalized brand logo",
         "Profile button opens profile settings tab correctly"
       ]
     },
@@ -1149,24 +1270,11 @@ function Sprints() {
           feedback: [
             { id: "xXW77z5", text: "When I am trying to sign up for using the AI assistant, the account is not getting created. It does not reflect any message, nor does it allow me to sign in." }
           ]
-        },
-        {
-          title: "Can't Change Password",
-          count: 1,
-          submissionIds: ["kdobDeZ"],
-          description: "Users cannot change their password from the Oasis Assistant for their Kahana account.",
-          impact: "Password management broken (severity 7/10)",
-          technicalNotes: "Password change functionality in assistant.ui.js or account settings UI",
-          requiresUI: true,
-          feedback: [
-            { id: "kdobDeZ", text: "I was not able to change my password from the Oasis Assistant for my Kahana account" }
-          ]
         }
       ],
       acceptanceCriteria: [
         "Clear error messages displayed for invalid login credentials",
         "Signup flow works and creates accounts successfully",
-        "Password change functionality works",
         "All authentication errors are user-friendly and actionable"
       ]
     },
@@ -1639,7 +1747,7 @@ function Sprints() {
       effort: "Medium",
       impact: "High",
       severity: "7-10/10",
-      overview: "Implement in-app feedback functionality and align feedback modal design with design system specifications. **NEW SPRINT** from Feb 2026 feedback.",
+      overview: "Implement in-app feedback functionality. Feedback modal auto-scroll when triggered. Design system alignment archived. **NEW SPRINT** from Feb 2026 feedback.",
       primaryFiles: "browser/base/content/assistant/ui-preact/src/components/Feedback.tsx, browser/base/content/assistant/ui-preact/src/App.tsx, browser/components/aiwindow/ui/components/ai-chat-content/chat-assistant-footer/assistant-message-footer.mjs",
       issues: [
         {
@@ -1653,27 +1761,10 @@ function Sprints() {
           feedback: [
             { id: "D4LWR7l", text: "When users click the upvote or downvote icons, the feedback modal isn't immediately visible and requires manual scrolling. This adds friction. The modal should automatically come into view, either by auto-scrolling or repositioning it in the viewport so users can continue the feedback flow without extra effort.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.26.38-AM.png?id=YxabXN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ill4YWJYTiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MDk2NX0.nY7XVTjj0lUQQlt5kh-tU_z-Tjnh5wz2DRQyPJn-TMI&signature=0becef6ab3931381bcdcd32f6b3e98c1e13de1ec34bc4dfd30853999539a972e" }
           ]
-        },
-        {
-          title: "Feedback Modal Design System Alignment",
-          count: 1,
-          submissionIds: ["Me0G0N0"],
-          description: "Feedback modal isn't aligned with design specs. Issues: input field background (dark vs light modal), checkbox states (no visible border), CTA button (not using primary brand color), chip close icon (too small), modal shadow (should be removed).",
-          impact: "Design inconsistency (severity 9/10)",
-          technicalNotes: "Align feedback modal with design system - input background, checkbox styling, button colors, chip icons, remove shadow",
-          requiresUI: true,
-          feedback: [
-            { id: "Me0G0N0", text: "Feedback modal isn't aligned with the design specs. Here are the fixes needed: Input field background: The input area is dark while the modal is light. This feels visually inconsistent. Align the input background with the modal design. Checkbox states: Current checkbox styling doesn't follow the design system. The unchecked state lacks a visible border, so it's easy to miss. Needs clearer borders and stronger state differentiation. CTA button: Button color isn't using the primary brand color. Update the color and change the label to just \"Submit.\" Chip close icon: The close icon inside selected chips is too small and thin. Make it more prominent for visibility and usability. Modal shadow: Remove the shadow behind the feedback modal since it isn't part of the design spec and adds visual noise.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.43.19-AM.png?id=2DP98j&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJEUDk4aiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MjE5OX0.Rj9YZnuASKmAbETndDnEaMU-nvSEfwZawsXp5FcvLZo&signature=3eb0c6fbc1e1974fc6ada27d186cbd38e10521c6f1fc2df0d6e47d0ab155a75f" }
-          ]
-        },
+        }
       ],
       acceptanceCriteria: [
-        "Feedback modal auto-scrolls/repositions when triggered",
-        "Input field background matches modal design",
-        "Checkbox states follow design system",
-        "CTA button uses primary brand color and 'Submit' label",
-        "Chip close icons are prominent and visible",
-        "Modal shadow removed per design spec"
+        "Feedback modal auto-scrolls/repositions when triggered"
       ]
     },
     {
@@ -1742,121 +1833,25 @@ function Sprints() {
         "Web search executes reliably with proper error handling",
         "Clear fallback messaging when search fails"
       ]
-    },
-    {
-      id: 23,
-      title: "Window Management Improvements",
-      emoji: "🖼️",
-      priority: "HIGH",
-      storyPoints: 13,
-      effort: "Medium-High",
-      impact: "High",
-      severity: "8-10/10",
-      overview: "Fix AI Assistant window management issues including minimize/maximize functionality, window resizing, viewport positioning, and input area visibility in minimized state. **NEW SPRINT** from Feb 2026 feedback.",
-      primaryFiles: "browser/base/content/assistant/ui-preact/src/components/Header.tsx, browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/ui-preact/src/App.tsx",
-      issues: [
-        {
-          title: "Restore Original Window Size",
-          count: 1,
-          submissionIds: ["XxakaYd"],
-          description: "No way to minimize the assistant window back to the original size (the size it opens for the first time). Either minimizes to tiny rectangle or maximizes to full width. No option to resize horizontally or vertically.",
-          impact: "Can't restore default window size (severity 10/10)",
-          technicalNotes: "Implement window size restoration logic, add resize controls",
-          requiresUI: true,
-          feedback: [
-            { id: "XxakaYd", text: "there's no way to minimize the assistant window back to the original size, the size in which it opens for the first time. either it minimizes to the tiny rectangle window or maximizes to the full width size. there's no option to resize the window horizontally or vertically too. In the minimized version, the input area should always be visible, as a user I shouldn't need to maximize and then enter text" }
-          ]
-        },
-        {
-          title: "Minimized Version Input Area Visibility",
-          count: 2,
-          submissionIds: ["xXq1KPk", "XxjNy8P"],
-          description: "Minimized version doesn't help much - input area is hidden behind top bar, menu options not visible. Input area should always be visible in minimized state.",
-          impact: "Can't use assistant when minimized (severity 10/10)",
-          technicalNotes: "Redesign minimized state to show input area, improve elevation hierarchy",
-          requiresUI: true,
-          feedback: [
-            { id: "xXq1KPk", text: "this minimized version of the assistant doesn't help much, need to improve this design since there's no way to add input, the input area is hidden behind the top bar, the menu options are not visible either. improve the elevation hierarchy of all the elements.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-26-at-12.24.39-PM.png?id=49dOdY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5ZE9kWSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTQ0ODQxM30.S-GQoF_g646tFHrYxwCRe2msJbXCXCjllMrKmbyS6iU&signature=c58883757656892ecbf4e8b437129bb0dcad607ad10f9c2c4cb061b9df5f772a" },
-            { id: "XxjNy8P", text: "The minimized version should have the input area visible at all times. Currently, I only see the header.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.05.19-AM.png?id=9oQPGE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlvUVBHRSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY0OTU5MH0.QwoZsnglSuDFfQowKVj0xzwk2HcEVs4rZ7MM46AMM6o&signature=13f98f9dc98bf4ffca0a95d104fe52c8896a72818248690a0dbb7d10149b256b" }
-          ]
-        },
-        {
-          title: "Viewport Boundary Detection",
-          count: 1,
-          submissionIds: ["D48PgkR"],
-          description: "When maximizing AI assistant and it's snapped to right corner, the assistant window extends outside the viewport. User has to take extra step to move it back.",
-          impact: "Window goes off-screen (severity 10/10)",
-          technicalNotes: "Implement viewport boundary detection and constraint window position",
-          requiresUI: true,
-          feedback: [
-            { id: "D48PgkR", text: "when you maximize the ai assistant and if it is snapped to right corner, the assistant window extends outside the viewport, as a user I have to take an extra step to move it back in the view port.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-26-at-12.28.57-PM.png?id=7a5EQ9&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdhNUVROSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTQ0ODU2N30.YUq1NYfRbj36JIqNqH6Idab0uDV16x2VSbuijS7QUf8&signature=a418b5af626b3800a5e7b050521883445d124a44117bf3d83d52fcc29fe52910" }
-          ]
-        },
-        {
-          title: "Size Persistence Across Minimize/Maximize",
-          count: 1,
-          submissionIds: ["MeWeyJE"],
-          description: "When minimizing window and then maximizing it, it's not the same size that it started off in. Makes it harder to use since it takes up a lot of space and can't adjust it.",
-          impact: "Window size doesn't persist (severity 8/10)",
-          technicalNotes: "Implement window size persistence across minimize/maximize cycles",
-          requiresUI: true,
-          feedback: [
-            { id: "MeWeyJE", text: "whenever i minimize the window and then try to maximize it to use the agent, it is not the same size that it starts off in and that makes it much harder to use since it ends up taking up a lot of the space on the screen and i cant adjust it either." }
-          ]
-        },
-        {
-          title: "Undo Minimization Bug",
-          count: 1,
-          submissionIds: ["NpzlZz0"],
-          description: "Minimizing chat works correctly, but undoing the minimization doesn't work. Clicking menu button again to undo minimization has no effect.",
-          impact: "Can't restore minimized window (severity 8/10)",
-          technicalNotes: "Fix minimize/restore toggle logic",
-          requiresUI: true,
-          feedback: [
-            { id: "NpzlZz0", text: "When I try to minimize the chat agent, it works correctly. However, when I try to undo the minimization, it does not work. Steps to reproduce: 1. Click on the chat agent (before signing in). 2. Click the menu button and select Minimize chat -> this works as expected. 3. Click the menu button again to undo the minimization.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-05-at-11.23.27.png?id=kkll6d&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImtrbGw2ZCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDMwOTE2NX0.tIZPMh7eqKjqjzVvGNVF4reslpMYCbc7FXPmIq2hDiM&signature=2498f28f1ef36255d073603b737f65140f857aed4e4794d7281c25d69ef59fb7" }
-          ]
-        }
-      ],
-      acceptanceCriteria: [
-        "Window can be restored to original/default size",
-        "Horizontal and vertical resizing controls implemented",
-        "Input area always visible in minimized state",
-        "Viewport boundary detection prevents window going off-screen",
-        "Window size persists across minimize/maximize cycles",
-        "Undo minimization works correctly",
-        "Elevation hierarchy improved in minimized state"
-      ]
-    },
-    {
-      id: 24,
-      title: "Miscellaneous Fixes",
-      emoji: "🔧",
-      priority: "MEDIUM",
-      storyPoints: 7,
-      effort: "Medium",
-      impact: "Medium",
-      severity: "7-10/10",
-      overview: "Various fixes and improvements that don't fit into other sprints. Includes UI fixes, logic improvements, and edge cases. **NEW SPRINT** from Feb 2026 feedback.",
-      primaryFiles: "Various (text box: App.tsx, hub logic: hubs.ts, command: commands.ts, chat history: ChatStore.sys.mjs)",
-      issues: [
-        {
-          title: "Command Interpretation Context Matching",
-          count: 1,
-          submissionIds: ["jaKMqd6"],
-          description: "Command interpretation confusion causing unrelated prompt results, especially on Windows.",
-          impact: "Incorrect command interpretation (severity 8/10)",
-          technicalNotes: "Improve command interpretation context matching",
-          feedback: [
-            { id: "jaKMqd6", text: "confusion in the ai with prompts - causing it to bring up unrelated prompt results  ( windows version)", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-06-144606.png?id=PGDale&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBHRGFsZSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDQwNzIzMH0.olHlrL5jdmJajNHt48-6SQdbIwhzAidlE7WPSzxPv-w&signature=86bef991733ca24ccf20a24b3d057642a49c5339f0c7457f9414326de52a61d3" }
-          ]
-        }
-      ],
-      acceptanceCriteria: [
-        "Command interpretation context matching improved",
-        "All miscellaneous fixes tested and verified"
-      ]
     }
   ]
+
+  // Top severity sprints (ranked most critical): 10, 15, 17
+  const topSeveritySprintIds = [10, 15, 17]
+  const topSeveritySprints = activeSprints.filter(s => topSeveritySprintIds.includes(s.id))
+  const otherSprints = activeSprints.filter(s => !topSeveritySprintIds.includes(s.id))
+  const sortedActiveSprints = [
+    ...topSeveritySprintIds.map(id => activeSprints.find(s => s.id === id)).filter(Boolean),
+    ...otherSprints
+  ]
+
+  const openSprintsCount = activeSprints.length
+  const topSeverityCount = topSeveritySprints.length
+  const unresolvedIssuesCount = activeSprints.reduce((sum, s) =>
+    sum + (s.issues || []).reduce((iss, i) => iss + (i.count || 1), 0), 0)
+  const archivedSprintsCount = archivedSprints.length
+  const archivedIssuesCount = archivedSprints.reduce((sum, s) =>
+    sum + (s.issues || []).reduce((iss, i) => iss + (i.count || 1), 0), 0)
 
   const toggleSprint = (sprintId) => {
     setExpandedSprint(expandedSprint === sprintId ? null : sprintId)
@@ -1888,12 +1883,40 @@ function Sprints() {
 
   return (
     <div className="page" id="product-roadmap">
+      <div className="sprint-update-banner">
+        The newest version of the browser in GitHub has been tested as of February 19th, 2026, 12:00 PM EST. Any resolved issues and sprints have been archived. All open sprints and issues are up to date.
+        <span className="sprint-banner-branch">Current most updated branch: <code>uiupdates/dynamic</code></span>
+      </div>
       <div className="page-header">
         <h1>Engineering Sprints</h1>
         <p style={{ marginTop: '10px', color: '#666', fontSize: '1rem' }}>
-          December 2025 - February 2026 Feedback | 167 Total Feedback Items (37 New from Feb 2026) | 15 Active Sprints (8 Updated + 7 New)
+          December 2025 - February 2026 Feedback | 167 Total Feedback Items (37 New from Feb 2026)
         </p>
       </div>
+
+      {/* Sprint Summary Dashboard */}
+      <section className="sprint-summary-dashboard">
+        <div className="sprint-summary-grid">
+          <div className="sprint-summary-card">
+            <div className="sprint-summary-value">{openSprintsCount}</div>
+            <div className="sprint-summary-label">Sprints Open</div>
+          </div>
+          <div className="sprint-summary-card sprint-summary-critical">
+            <div className="sprint-summary-value">{topSeverityCount}</div>
+            <div className="sprint-summary-label">Top Severity Sprints</div>
+            <div className="sprint-summary-sublabel">Sprints 10, 15, 17 (Most Critical)</div>
+          </div>
+          <div className="sprint-summary-card">
+            <div className="sprint-summary-value">{unresolvedIssuesCount}</div>
+            <div className="sprint-summary-label">Issues Unresolved</div>
+          </div>
+          <div className="sprint-summary-card sprint-summary-archived">
+            <div className="sprint-summary-value">{archivedSprintsCount}</div>
+            <div className="sprint-summary-label">Sprints Archived</div>
+            <div className="sprint-summary-sublabel">{archivedIssuesCount} issues completed</div>
+          </div>
+        </div>
+      </section>
 
       <section className="page-section">
         <div className="content-block">
@@ -1906,7 +1929,7 @@ function Sprints() {
             marginBottom: '20px' 
           }}>
             <p style={{ margin: 0, fontSize: '1rem', fontWeight: '500', color: '#0369a1' }}>
-              💡 <strong>Choose a sprint that excites you!</strong> We encourage developers to select sprints that they personally find most <strong>fun</strong> and where they think they'd be most <strong>effective</strong>. Once you've chosen which sprint you want to join (5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, or 16), please <strong>DM Adam Kershner on Slack</strong> to let him know. Feel free to DM Adam with any questions as well!
+              💡 <strong>Pick a sprint that excites you.</strong> DM Adam Kershner on Slack to claim it or ask questions.
             </p>
           </div>
           <p>
@@ -1918,9 +1941,6 @@ function Sprints() {
             <li><strong>Codebase Cohesion:</strong> Related code grouped together for efficiency</li>
             <li><strong>User Impact:</strong> Number of affected users and severity ratings</li>
           </ul>
-          <p style={{ marginTop: '15px', fontStyle: 'italic', color: '#666' }}>
-            <strong>Note:</strong> Sprints 7-10 have been reorganized for <strong>parallel execution</strong> to minimize file conflicts. The issues were regrouped into parallel engineering tracks based on actual code ownership in the repo (most Oasis AI work is under `browser/base/content/assistant/`). The goal is to reduce merge conflicts by avoiding multiple engineers editing the same large files (notably `commands.ts` and `assistant.ui.js`) in the same sprint.
-          </p>
           <div style={{ 
             backgroundColor: '#fef3c7', 
             border: '1px solid #f59e0b', 
@@ -1950,7 +1970,7 @@ function Sprints() {
       {/* Active Sprints Section */}
       <section className="page-section">
         <div className="sprints-container">
-          {activeSprints.map((sprint) => (
+          {sortedActiveSprints.map((sprint) => (
             <div key={sprint.id} className="sprint-card">
               <div 
                 className="sprint-header"
@@ -1963,6 +1983,10 @@ function Sprints() {
                     <h2 className="sprint-title">
                       SPRINT {sprint.id}: {sprint.title}
                     </h2>
+                    <div className="sprint-branch-indicator">
+                      <span className="sprint-branch-icon" aria-hidden>🔀</span>
+                      Branch: <code>SPRINT_{sprint.id}</code>
+                    </div>
                     {sprint.teamMembers && sprint.teamMembers.length > 0 && (
                       <div style={{ marginTop: '8px', marginBottom: '8px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                         {sprint.teamMembers.map((member, idx) => (
@@ -2245,6 +2269,10 @@ function Sprints() {
                         <h2 className="sprint-title">
                           SPRINT {sprint.id}: {sprint.title} ✅ COMPLETED
                         </h2>
+                        <div className="sprint-branch-indicator">
+                          <span className="sprint-branch-icon" aria-hidden>🔀</span>
+                          Branch: <code>SPRINT_{sprint.id}</code>
+                        </div>
                         {sprint.teamMembers && sprint.teamMembers.length > 0 && (
                           <div style={{ marginTop: '8px', marginBottom: '8px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                             {sprint.teamMembers.map((member, idx) => (

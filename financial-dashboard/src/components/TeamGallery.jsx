@@ -15,6 +15,7 @@ function TeamGallery({ teamMembers = [] }) {
     'Design': '#BB8FCE',
     'Support': '#85C1E2',
     'Project': '#F8B739',
+    'Project Management': '#9B59B6',
   }
 
   const getRoleColor = (role) => {
@@ -45,6 +46,11 @@ function TeamGallery({ teamMembers = [] }) {
     // Design team goal
     if (member.roles.includes('Design')) {
       return 'Support +15 NPS'
+    }
+    
+    // Project Management team goal
+    if (member.roles.includes('Project Management')) {
+      return 'Team coordination & delivery'
     }
     
     // Default for other roles
