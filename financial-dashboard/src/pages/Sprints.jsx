@@ -1161,7 +1161,7 @@ function Sprints() {
       effort: "Medium-High",
       impact: "High",
       severity: "7-10/10",
-      teamMembers: ["Afshaan"],
+      teamMembers: ["Rushyanth"],
       overview: "Fix tab group operations including renaming, finding tabs within groups, adding/removing tabs, and tab group state accuracy. Also fix core tab/window commands that users perceive as 'it said it worked but nothing happened.' This sprint covers both tab group management and tab/window command correctness. Includes context-based tab organization using AI to automatically group related tabs. ⚠️ PARTIALLY RESOLVED: \"Close Tab Group\" Command Deletes Hub Instead (Delete command works, but Close command doesn't exist - Close should hide tab group, Open should restore it). **UPDATED:** Added 9 story points from Feb 2026 feedback (context-based grouping improvements, tab closing issues).",
       primaryFiles: "browser/base/content/assistant/build/src/hubs.ts, browser/base/content/assistant/build/src/commands.ts, browser/base/content/assistant/build/src/services/localMemory.ts, Browser first-run / startup UI (for browser import, privacy policy, vertical tabs popup), browser/branding/**",
       issues: [
@@ -1286,7 +1286,7 @@ function Sprints() {
       storyPoints: 8,
       effort: "Medium",
       impact: "High",
-      severity: "6-10/10",
+      severity: "10/10",
       teamMembers: ["Pournami", "Saideep"],
       overview: "Improve the first-time user experience including onboarding flow, default preferences, browser import, AI Assistant visibility, and removing Firefox branding. Includes browser import in onboarding, Firefox privacy policy replacement on first launch, and Firefox branding removal in vertical tabs popup.",
       primaryFiles: "browser/base/content/assistant/assistant.ui.js (assistant visibility / entry points), Browser first-run / startup UI (exact files TBD when implementing), browser/branding/**",
@@ -1518,8 +1518,8 @@ function Sprints() {
       storyPoints: 13,
       effort: "Medium-High",
       impact: "High",
-      severity: "9/10",
-      teamMembers: ["Afshaan"],
+      severity: "10/10",
+      teamMembers: ["Afshaan", "Lalith", "Revanth", "Ashwin", "Kaushik"],
       overview: "Implement update checking, notification system, and update UI within Oasis for software updates. Users who have installed Oasis on Windows or Mac should be able to go to a clear place in the app (e.g., Settings → Software Update) and see a macOS-style Software Update screen with status, installed version, check/download/install buttons, and optional Automatic Updates / Beta toggles.",
       primaryFiles: "toolkit/mozapps/update/, browser/components/preferences/main.inc.xhtml, browser/base/content/aboutDialog-appUpdater.js, resource://gre/modules/AppUpdater.sys.mjs, browser/base/content/assistant/ (Settings entry point)",
       keyConsiderations: {
@@ -1596,7 +1596,7 @@ function Sprints() {
       effort: "High",
       impact: "High",
       severity: "9/10",
-      teamMembers: ["Mohammad", "Revanth", "Kaushik", "Atharva", "Ruturaj"],
+      teamMembers: ["Mohammad", "Revanth", "Kaushik", "Atharva", "Ruturaj", "Naveen"],
       overview: "Develop a Chromium-based version of Oasis Enterprise Browser to address enterprise customer requirements for secure SaaS access. Culture Amp (Julian) is ready to invest but we didn't have a Chromium enterprise version to demo—this sprint delivers the product. Requirements broadly apply to enterprise prospects like Culture Amp (see readiness checklist below). This sprint is motivated by enterprise demand for managed browsers that can provide secure access to cloud applications for short-term consultants and third-party partners without requiring full device management or shipping hardware. By 2026, analysts project that roughly 25% of enterprises will be using managed browsers or extensions for security and access control. The enterprise browser market is growing rapidly, with most enterprise browsers being Chromium-based due to Chromium's dominant share of global browser usage and compatibility with modern SaaS applications. Organizations now use an average of 100+ SaaS apps, with large enterprises often using well over 150-400, which increases the need for centralized, browser-level security controls. This creates a significant market opportunity for Chromium-based enterprise browsers that can provide secure SaaS access for external users via managed browser sessions, with per-user, per-month licensing aligned to flexible contractor headcount. The goal is to reduce hardware and IT overhead, improve security posture for third-party access, and maintain a familiar user experience while enabling centralized controls for data protection and policy enforcement at the browser/session level.",
       primaryFiles: "Chromium browser fork (NEW), SSO integration module (NEW), Enterprise policy management (NEW), Browser installation without admin privileges (NEW)",
       issues: [
