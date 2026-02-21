@@ -7,6 +7,100 @@ function WeeklyReports() {
   const [reports] = useState([
     {
       id: 0,
+      week: '2026-02-16',
+      weekLabel: 'Week of February 14–20, 2026',
+      keyUpdates: [
+        'Impressions this week: 43.8K (−22.8% vs. prior week)',
+        'Waitlist signups as of February 20: 152',
+        'NPS survey completions: 4 of 43',
+        'Time log participation: 9.3% of team (4 of 43 team members filled out for Feb 14–21)',
+        'Srishti reached out to the internal team to ensure they fill out the NPS survey after installing the latest version of Oasis (which includes summarization features). This needs to be fully completed by all 40+ team members by February 27th.',
+        'BD Manikandan began reconfiguring HubSpot so that contacts include data enrichment related to the "Fit score" created by Abhinav. This will let the sales team see which leads need to be addressed with the highest priority based on fit score.',
+        'Total new feedbacks logged: 8',
+        'Q1 Midpoint Update published with mid-point quarterly results; team spent time reviewing that information this week',
+        <>Adam created a new <a href="https://youtu.be/BF2ZZ7x3i8g" target="_blank" rel="noopener noreferrer">YouTube video</a> of Oasis</>,
+        'Rashmi and Adam will be creating YouTube videos according to the Content Pipeline',
+        'Initial NPS is 50 with 4 responses from the internal team—acknowledge this is not a stable sample size. NPS stability depends on sample size and margin of error: ~100 responses start to show patterns (with wide error margins); 200–400 responses yield more reliable insights for steering initiatives; 500+ responses typically stabilize NPS with narrower margins. For now, treat NPS of 50 as a directional early read; focus on collecting 50–100 responses as the next milestone, then aim toward 200+ for product/CX decisions.',
+        '1 paying subscriber; slated to downgrade after the first month',
+        'Waitlist users from these companies (signed up with work emails, not Gmail/personal): qixent.com, franshares.com, mhub.org, fedresources.com, oxfordwebservices.com, duck.com (DuckDuckGo), kapya.io, centerstone.org, sagemount.com, datadoghq.com',
+        'After Sprint 10 and Sprint 15 are completed (projected within 2 weeks), we will be ready to launch on Product Hunt and accept more users—expecting them to find the product useful based on initial NPS results. The Product Hunt launch campaign will be led and orchestrated by Dhruv. We have 53 Product Hunt accounts created by our internal team, so we can account for 53 upvotes and comments on launch day. We need to get to ~400 confirmed accounts from our team and recruit friends, family, and our networks to support by creating Product Hunt accounts in advance.',
+        <>Letter of Intent (LOI) has been established. We need to refine this LOI and get prospective enterprises to sign it. Start by reaching out to Culture Amp (who previously scheduled a demo) to see if they will sign it. <a href="https://drive.google.com/file/d/11CUNNG3Y7ckHeJXY1IJYSwP-3n9sr_zB/view?usp=sharing" target="_blank" rel="noopener noreferrer">Enterprise LOI Template</a> (see Q1 Midpoint Update for full context)</>,
+        'Progress on Sprint 17 (Oasis Chromium Enterprise Browser): Building a version that meets Culture Amp and other enterprise client requirements. Revanth built a version with pre-installed Okta plugin that is not removable; Adam tested it and it worked. Mohammed created a checklist of Enterprise browser requirements, which is being reviewed and implemented by Kaushik, Revanth, Atharva, Ruturaj, and Naveen.',
+        <>Archana reached out to all team members to join the <a href="https://docs.google.com/document/d/1xTYWL9chXtI7ep8BBTz1Z_z50kdRcFVfFr8uPGWnblM/edit?tab=t.0" target="_blank" rel="noopener noreferrer">GTM Mixpanel Boards &amp; Reports project</a> by reading the charter. By March 4th, we need to finish creating Mixpanel dashboards, ensure Mixpanel is tracking user data properly and accurately, and have robust analytics to track DAUs, current users retention rate, DAUs vs. Initial Referring Domain (which marketing channels are the best), and other core AI company KPIs mentioned in the Mixpanel AI company sample board and dataset.</>
+      ],
+      timeBreakdown: {},
+      areasToImprove: [
+        'Increase NPS survey completion rate (4/43 this week)',
+        'Collect 50–100 NPS responses as next milestone for more reliable insights',
+        'Continue YouTube content production per Content Pipeline',
+        'More signed LOIs from interested companies',
+        'Identify in-person networking events across the geographies where team members are: St. Louis MO, Cockeysville MD, Durham NC, Apex NC, Chicago IL, Washington DC, Seattle WA, Pittsburgh PA, Arbutus MD, Bentonville AR, Indianapolis IN, Jersey City NJ, Bluffdale UT, Raleigh NC, Dallas TX, Bloomington IN, Fullerton CA, Farmington Hills MI, New York NY. At these events, make friends and pitch Oasis, seeking people interested in trying it out—especially those already at companies beyond the pre-seed/seed stage startup stage. We can offer special free access for specific people at these companies to try it out. Prospects should be added to HubSpot.',
+        'Product Hunt pre-launch hype activities begin now: (1) Team members systematically encouraged to post about what they\'ve been working on at Kahana on LinkedIn; (2) Start spending 15 minutes a day commenting on friends\' LinkedIn posts on their feed (warm up the algorithm); (3) Get 10 supporters for our Product Hunt launch (friends, family, former coworkers, mentors) to give a verbal/text-based "yes" that they will support; (4) Help them set up a Product Hunt account and get the profile link to add to our database. Once we hit 400 accounts, we will feel confident we will get to #1 on Product Hunt when we launch (Google Gemini 3.1 got 350 upvotes and became #1 for the day as a proxy).'
+      ],
+      metrics: {
+        impressions: 43800,
+        impressionsGrowth: -22.8,
+        waitlistSignups: 152,
+        npsSurveyCompletions: 4,
+        npsSurveyTotal: 43,
+        totalNewFeedbacks: 8,
+        npsScore: 50,
+        npsResponses: 4,
+        timeLogParticipation: 9.3,
+        timeLogFilledOut: ['Aishwarya Shetiya', 'Rashmila Mitra', 'Ruturaj Marathe', 'Srishti Goyal'],
+        timeLogDidNotFillOut: ['Adam Kershner', 'Afshaan Khan', 'Ammemah Naeem', 'Ankit', 'Archana Ramalingam', 'Ashwin John', 'Atharva Joshi', 'BD Manikandan', 'Dhruv Patel', 'Durgesh Tiwari', 'Hasan Bohra', 'Hritik Sanjay Chalse', 'Kaushik Shridhar', 'Konika Dhull', 'Lalith Donkina', 'Likhitha Guggilla', 'Lokesh Nenavath', 'Mohammed Muneebuddin', 'Naveen Prashanna Gurumurthy', 'Navile Mahesh', 'Nithish Sampath', 'Pallavi', 'Pournami Pottekat', 'Preetika Shyamwale', 'Ravi', 'Rajrajeshwari Gaware', 'Revanth Ganga', 'Rohith Anthony Aleti Joseph', 'Rohan Mehere', 'Rushyanth Nerellakunta', 'Ruhani Vinzuda', 'Rashmi Kadwani', 'Saideep Pajjuri', 'Saksham Mehta', 'Samyak Jain', 'Agrima Gupta', 'Abhinav Chandra', 'Akansha Parihar', 'Yaseer']
+      },
+      quarterlyGoals: {
+        nps: 50,
+        pilots: 0,
+        payingSubscribers: 1,
+        payingSubscribersNote: 'Slated to downgrade after first month'
+      }
+    },
+    {
+      id: 1,
+      week: '2026-02-14',
+      weekLabel: 'Week of February 9–14, 2026',
+      keyUpdates: [
+        'Rushyanth completed HITL, tab commands, bug fixes, webpage summarization, and command optimization work across Feb 2–6',
+        'Sprint 17 (Chromium Enterprise Browser) progress: Ruturaj Marathe met with Adam, explored Okta and Netskope integration possibilities, ran Chromium build trial with Kaushik, and worked on admin panel security policy for different devices (21 hours Feb 11–12)',
+        'Semantic search development: Likhitha Guggilla integrated vector search (vectorDB and embedding model) across browser history, bookmarks, and tab groups (21 hours)',
+        'AI assistant and product: Pournami Pottekat discussed upcoming sprints with Adam, conducted usability testing, ideated new onboarding flow, and collaborated on semantic search history functionality (25 hours)',
+        'Content and marketing: Ankit and Konika published articles; Rohan Mehere focused on inbound strategy, SEO-friendly blog posts, and meetings with Abhinav and Konika; Dhruv Patel onboarded a new team member, set up LinkedIn, provided content strategy direction, and prepared blog posts (26 hours Feb 13)',
+        'Product analytics: Rashmila Mitra had 1:1 with Adam on lead-tracking and sales-collaboration approach; worked on Impact Sizing Approach doc and Mixpanel drop-off funnel dashboard (20 hours). Agrima Gupta researched Mixpanel and tested Oasis (15 hours)',
+        'Product testing and UX: Aishwarya Shetiya, Ravi chandra Dasari, Afshaan Khan, Nithish Sampath, Lokesh Naik Nenavath, Sonali Ankolikar, and Yaseer logged testing, feedback, and product exploration',
+        'Onboarding and PM: Hritik Chalse worked on onboarding workflows, friction points, and TTV (24 hours). Srishti Goyal developed next steps for sales increase and Oasis promotion (6 hours)',
+        'Outbound: Abhinav Chandra did reach outs to Tezzro and Hyssa stakeholders',
+        'UI: Saideep Pajjuri improved UI based on Figma designs (25 hours). Ashwin logged programming, meetings, and product analysis (21 hours)'
+      ],
+      timeBreakdown: {
+        'Product Development': 120.0,
+        'Marketing & Content': 75.0,
+        'Research & Enterprise': 21.0,
+        'Testing & Feedback': 65.0
+      },
+      areasToImprove: [
+        'Continue Sprint 17 (Chromium Enterprise Browser) development and Okta/Netskope integration',
+        'Scale Mixpanel analytics and drop-off funnel dashboards',
+        'Increase NPS survey completion and feedback collection',
+        'Maintain content production momentum (blogs, YouTube per Content Pipeline)',
+        'Follow up on enterprise leads and LOI outreach'
+      ],
+      metrics: {
+        totalHours: 281.0,
+        teamMembers: 18,
+        entries: 35,
+        impressions: 0,
+        waitlistSignups: 0
+      },
+      quarterlyGoals: {
+        nps: 0,
+        pilots: 0,
+        payingSubscribers: 0
+      }
+    },
+    {
+      id: 2,
       week: '2026-02-02',
       weekLabel: 'Week of February 2, 2026',
       keyUpdates: [
@@ -65,7 +159,7 @@ function WeeklyReports() {
       }
     },
     {
-      id: 1,
+      id: 3,
       week: '2026-01-26',
       weekLabel: 'Week of January 26, 2026',
       keyUpdates: [
@@ -116,7 +210,7 @@ function WeeklyReports() {
       }
     },
     {
-      id: 2,
+      id: 4,
       week: '2026-01-19',
       weekLabel: 'Week of January 19, 2026',
       keyUpdates: [
@@ -172,7 +266,7 @@ function WeeklyReports() {
       }
     },
     {
-      id: 3,
+      id: 5,
       week: '2026-01-12',
       weekLabel: 'Week of January 12, 2026',
       keyUpdates: [
@@ -224,7 +318,7 @@ function WeeklyReports() {
       }
     },
     {
-      id: 4,
+      id: 6,
       week: '2026-01-05',
       weekLabel: 'Week of January 5, 2026',
       keyUpdates: [
@@ -265,7 +359,7 @@ function WeeklyReports() {
       }
     },
     {
-      id: 5,
+      id: 7,
       week: '2025-12-29',
       weekLabel: 'Week of December 29, 2025',
       keyUpdates: [
@@ -466,18 +560,27 @@ function WeeklyReports() {
               <div className="report-section">
                 <h3>Key Weekly Metrics</h3>
                 <div className="metrics-grid">
+                  {report.metrics.totalHours !== undefined && (
                   <div className="metric-card">
                     <div className="metric-value">{report.metrics.totalHours}</div>
                     <div className="metric-label">Total Hours Logged</div>
                   </div>
+                  )}
+                  {report.metrics.teamMembers !== undefined && (
                   <div className="metric-card">
                     <div className="metric-value">{report.metrics.teamMembers}</div>
                     <div className="metric-label">Team Members</div>
                   </div>
+                  )}
                   {report.metrics.timeLogParticipation !== undefined && (
                     <div className="metric-card">
                       <div className="metric-value">{report.metrics.timeLogParticipation.toFixed(1)}%</div>
                       <div className="metric-label">Time Log Participation</div>
+                      {report.metrics.timeLogFilledOut && (
+                        <div style={{ fontSize: '0.7rem', marginTop: '6px', color: 'rgba(255, 255, 255, 0.85)' }}>
+                          {report.metrics.timeLogFilledOut.length} filled out
+                        </div>
+                      )}
                     </div>
                   )}
                   {report.metrics.mqls !== undefined && (
@@ -540,7 +643,30 @@ function WeeklyReports() {
                       <div className="metric-label">Total Waitlist Signups</div>
                     </div>
                   )}
-                  {!report.metrics.mqls && !report.metrics.impressions && !report.metrics.timeLogParticipation && !report.metrics.waitlistSignups && (
+                  {report.metrics.npsSurveyCompletions !== undefined && (
+                    <div className="metric-card">
+                      <div className="metric-value">{report.metrics.npsSurveyCompletions}/{report.metrics.npsSurveyTotal}</div>
+                      <div className="metric-label">NPS Survey Completions</div>
+                    </div>
+                  )}
+                  {report.metrics.totalNewFeedbacks !== undefined && (
+                    <div className="metric-card">
+                      <div className="metric-value">{report.metrics.totalNewFeedbacks}</div>
+                      <div className="metric-label">Total New Feedbacks Logged</div>
+                    </div>
+                  )}
+                  {report.metrics.npsScore !== undefined && (
+                    <div className="metric-card">
+                      <div className="metric-value">{report.metrics.npsScore}</div>
+                      <div className="metric-label">NPS Score</div>
+                      {report.metrics.npsResponses !== undefined && (
+                        <div style={{ fontSize: '0.75rem', marginTop: '4px', color: 'rgba(255, 255, 255, 0.8)', fontStyle: 'italic' }}>
+                          {report.metrics.npsResponses} responses (directional, not stable)
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  {!report.metrics.mqls && !report.metrics.impressions && !report.metrics.timeLogParticipation && !report.metrics.waitlistSignups && !report.metrics.npsSurveyCompletions && (
                     <>
                       <div className="metric-card">
                         <div className="metric-value">{report.metrics.entries}</div>
@@ -553,9 +679,30 @@ function WeeklyReports() {
                     </>
                   )}
                 </div>
+                {report.metrics.timeLogFilledOut && report.metrics.timeLogDidNotFillOut && (
+                  <div style={{ marginTop: '1.5rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', fontSize: '0.85rem' }}>
+                    <div>
+                      <h4 style={{ marginBottom: '0.5rem', color: 'rgba(255, 255, 255, 0.95)' }}>Time log filled out ({report.metrics.timeLogFilledOut.length})</h4>
+                      <ul style={{ margin: 0, paddingLeft: '1.25rem', color: 'rgba(255, 255, 255, 0.9)' }}>
+                        {report.metrics.timeLogFilledOut.map((name, i) => (
+                          <li key={i}>{name}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 style={{ marginBottom: '0.5rem', color: 'rgba(255, 255, 255, 0.95)' }}>Did not fill out ({report.metrics.timeLogDidNotFillOut.length})</h4>
+                      <ul style={{ margin: 0, paddingLeft: '1.25rem', color: 'rgba(255, 255, 255, 0.85)', maxHeight: '200px', overflowY: 'auto' }}>
+                        {report.metrics.timeLogDidNotFillOut.map((name, i) => (
+                          <li key={i}>{name}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Time Breakdown */}
+              {Object.keys(report.timeBreakdown || {}).length > 0 && (
               <div className="report-section">
                 <h3>Time Breakdown</h3>
                 <p className="section-description">
@@ -580,6 +727,7 @@ function WeeklyReports() {
                   ))}
                 </div>
               </div>
+              )}
 
               {/* Quarterly Goals */}
               {(() => {
@@ -658,7 +806,7 @@ function WeeklyReports() {
                           color: 'rgba(255, 255, 255, 0.8)',
                           fontStyle: 'italic'
                         }}>
-                          $20/month plan
+                          {report.quarterlyGoals.payingSubscribersNote || '$20/month plan'}
                         </div>
                       </div>
                     </div>
