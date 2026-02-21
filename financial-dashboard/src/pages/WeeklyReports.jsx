@@ -47,6 +47,7 @@ function WeeklyReports() {
         npsSurveyCompletions: 4,
         npsSurveyTotal: 43,
         totalNewFeedbacks: 8,
+        hitlFeedbacks: 16,
         npsScore: 50,
         npsResponses: 4,
         timeLogParticipation: 9.3,
@@ -656,6 +657,15 @@ function WeeklyReports() {
                     <div className="metric-card">
                       <div className="metric-value">{report.metrics.totalNewFeedbacks}</div>
                       <div className="metric-label">Total New Feedbacks Logged</div>
+                    </div>
+                  )}
+                  {report.metrics.hitlFeedbacks !== undefined && (
+                    <div className="metric-card">
+                      <div className="metric-value">{report.metrics.hitlFeedbacks}</div>
+                      <div className="metric-label">HITL Feedbacks (AI Assistant)</div>
+                      <div style={{ fontSize: '0.75rem', marginTop: '4px', color: 'rgba(255, 255, 255, 0.8)', fontStyle: 'italic' }}>
+                        Low given product team members and overall team members who are supposed to be testing as part of the NPS effort
+                      </div>
                     </div>
                   )}
                   {report.metrics.npsScore !== undefined && (
