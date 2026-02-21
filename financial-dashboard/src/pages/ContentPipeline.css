@@ -365,6 +365,27 @@
   color: #333;
 }
 
+.pipeline-video-responsible {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.pipeline-responsible-label {
+  font-weight: 500;
+  margin-right: 6px;
+}
+
+.pipeline-responsible-value.assigned {
+  color: var(--oasis-green-medium);
+  font-weight: 600;
+}
+
+.pipeline-responsible-value.unassigned {
+  color: #999;
+  font-style: italic;
+}
+
 .pipeline-video-actions {
   display: flex;
   align-items: center;

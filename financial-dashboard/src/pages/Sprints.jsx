@@ -1279,54 +1279,6 @@ function Sprints() {
       ]
     },
     {
-      id: 24,
-      title: "HITL Audit & Improvement Discovery",
-      emoji: "📊",
-      priority: "MEDIUM-HIGH",
-      storyPoints: 8,
-      effort: "Medium",
-      impact: "High",
-      severity: "8/10",
-      teamMembers: ["Rushyanth"],
-      overview: "Audit the current HITL setup and output to determine how we can improve the HITL experience for users and the output data for engineers—so we can improve Oasis, make the AI error-free, and bring it to max efficiency. **HITL objective:** Identify errors that negatively impact user experience (commands that feel wrong, too slow, or simply don't work) and make it easy for users to log these thoroughly with enough context for us to resolve each issue. NPS surveys consistently cite AI reliability as what could make the product better. This sprint focuses on discovery and recommendations, not implementation.",
-      primaryFiles: "hitlFeedback.ts, feedback_events table, assistant.ts, Feedback UI components, feedback_events_rows.csv (current export)",
-      issues: [
-        {
-          title: "Audit Current HITL User Experience",
-          count: 0,
-          submissionIds: [],
-          description: "Review the in-product feedback flow from the user's perspective: Where does the feedback prompt appear? How easy is it to submit? What friction exists (e.g., too many steps, unclear categories, no prompt to add context)? Document pain points and opportunities to make logging errors easier and more thorough.",
-          impact: "Informs UX improvements to increase feedback quality and volume",
-          technicalNotes: "Walk through feedback flow in assistant UI. Review Feedback.tsx, assistant-message-footer. Consider user testing or internal dogfooding.",
-          feedback: []
-        },
-        {
-          title: "Audit Current Output Data & Gaps",
-          count: 0,
-          submissionIds: [],
-          description: "Analyze feedback_events export (schema, CSV output) against what engineers need to reproduce issues, triage to sprints, and improve the AI. Document gaps: missing user_prompt, ai_response, tool_output, conversation context, command_type, user_plan, etc. Reference feedback_events_IMPROVED_SAMPLE.csv for target state.",
-          impact: "Identifies data improvements needed for actionable engineering",
-          technicalNotes: "Compare current export to improved sample. Trace data flow from UI → hitlFeedback → Supabase → export.",
-          feedback: []
-        },
-        {
-          title: "Document Recommendations & Prioritized Roadmap",
-          count: 0,
-          submissionIds: [],
-          description: "Synthesize audit findings into a prioritized list of recommendations: (1) User experience improvements—what would make it easier for users to log errors with sufficient context; (2) Output data improvements—what columns/capture changes would make the export actionable for engineers. Include effort estimates and impact.",
-          impact: "Creates clear roadmap for future HITL enhancement sprints",
-          technicalNotes: "Deliverable: markdown or doc with recommendations, prioritized by impact/effort.",
-          feedback: []
-        }
-      ],
-      acceptanceCriteria: [
-        "Current HITL user flow audited and documented with pain points",
-        "Current output data gaps documented vs. engineering needs",
-        "Prioritized recommendations delivered (UX + data improvements)",
-        "Roadmap for implementation sprints defined"
-      ]
-    },
-    {
       id: 10,
       title: "Onboarding + Branding polish (first run, visibility, Firefox remnants)",
       emoji: "🎯",
@@ -1788,15 +1740,16 @@ function Sprints() {
     },
     {
       id: 19,
-      title: "Feedback Modal Implementation",
+      title: "Sprint 19 - Feedback Modal & HITL",
       emoji: "💬",
       priority: "MEDIUM-HIGH",
-      storyPoints: 4,
+      storyPoints: 12,
       effort: "Medium",
       impact: "High",
       severity: "7-10/10",
-      overview: "Implement in-app feedback functionality. Feedback modal auto-scroll when triggered. Design system alignment archived. **NEW SPRINT** from Feb 2026 feedback.",
-      primaryFiles: "browser/base/content/assistant/ui-preact/src/components/Feedback.tsx, browser/base/content/assistant/ui-preact/src/App.tsx, browser/components/aiwindow/ui/components/ai-chat-content/chat-assistant-footer/assistant-message-footer.mjs",
+      teamMembers: ["Rushyanth"],
+      overview: "Feedback modal implementation and HITL audit. **Feedback modal:** Implement in-app feedback functionality; modal auto-scroll when triggered. **HITL objective:** Make the AI error-free and bring it to max efficiency—NPS surveys cite this as what could make the product better. Identify errors that negatively impact user experience (commands that feel wrong, too slow, or don't work) and make it easy for users to log these thoroughly with enough context to resolve each issue. Audit current HITL setup and output to improve the experience for users and the data for engineers.",
+      primaryFiles: "browser/base/content/assistant/ui-preact/src/components/Feedback.tsx, browser/base/content/assistant/ui-preact/src/App.tsx, browser/components/aiwindow/ui/components/ai-chat-content/chat-assistant-footer/assistant-message-footer.mjs, hitlFeedback.ts, feedback_events table, assistant.ts, feedback_events_rows.csv (current export)",
       issues: [
         {
           title: "Feedback Modal Auto-Scroll",
@@ -1809,10 +1762,41 @@ function Sprints() {
           feedback: [
             { id: "D4LWR7l", text: "When users click the upvote or downvote icons, the feedback modal isn't immediately visible and requires manual scrolling. This adds friction. The modal should automatically come into view, either by auto-scrolling or repositioning it in the viewport so users can continue the feedback flow without extra effort.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.26.38-AM.png?id=YxabXN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ill4YWJYTiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MDk2NX0.nY7XVTjj0lUQQlt5kh-tU_z-Tjnh5wz2DRQyPJn-TMI&signature=0becef6ab3931381bcdcd32f6b3e98c1e13de1ec34bc4dfd30853999539a972e" }
           ]
+        },
+        {
+          title: "Audit Current HITL User Experience",
+          count: 0,
+          submissionIds: [],
+          description: "Review the in-product feedback flow from the user's perspective: Where does the feedback prompt appear? How easy is it to submit? What friction exists (e.g., too many steps, unclear categories, no prompt to add context)? Document pain points and opportunities to make logging errors easier and more thorough.",
+          impact: "Informs UX improvements to increase feedback quality and volume",
+          technicalNotes: "Walk through feedback flow in assistant UI. Review Feedback.tsx, assistant-message-footer. Consider user testing or internal dogfooding.",
+          feedback: []
+        },
+        {
+          title: "Audit Current Output Data & Gaps",
+          count: 0,
+          submissionIds: [],
+          description: "Analyze feedback_events export (schema, CSV output) against what engineers need to reproduce issues, triage to sprints, and improve the AI. Document gaps: missing user_prompt, ai_response, tool_output, conversation context, command_type, user_plan, etc. Reference feedback_events_IMPROVED_SAMPLE.csv for target state.",
+          impact: "Identifies data improvements needed for actionable engineering",
+          technicalNotes: "Compare current export to improved sample. Trace data flow from UI → hitlFeedback → Supabase → export.",
+          feedback: []
+        },
+        {
+          title: "Document Recommendations & Prioritized Roadmap",
+          count: 0,
+          submissionIds: [],
+          description: "Synthesize audit findings into a prioritized list of recommendations: (1) User experience improvements—what would make it easier for users to log errors with sufficient context; (2) Output data improvements—what columns/capture changes would make the export actionable for engineers. Include effort estimates and impact.",
+          impact: "Creates clear roadmap for future HITL enhancement sprints",
+          technicalNotes: "Deliverable: markdown or doc with recommendations, prioritized by impact/effort.",
+          feedback: []
         }
       ],
       acceptanceCriteria: [
-        "Feedback modal auto-scrolls/repositions when triggered"
+        "Feedback modal auto-scrolls/repositions when triggered",
+        "Current HITL user flow audited and documented with pain points",
+        "Current output data gaps documented vs. engineering needs",
+        "Prioritized recommendations delivered (UX + data improvements)",
+        "Roadmap for implementation sprints defined"
       ]
     },
     {

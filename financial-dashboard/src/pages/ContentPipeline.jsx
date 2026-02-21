@@ -391,6 +391,16 @@ function parsePriorityMarkdown(md) {
   return { sections, allItems }
 }
 
+// Video title → responsible person(s)
+const videoResponsible = {
+  'How to group tabs in Chrome (then do it faster with Oasis AI commands)': 'Rashmi',
+  'How to Save Chrome Tab Groups — then Use Oasis AI to Manage Them + splitview Any Two Tabs': 'Rashmi',
+  'Browser summarization that matters: research → notes → next steps (Oasis workflow)': 'Rashmi',
+  'How to sync bookmarks across browsers (then keep them organized with tab groups) (Oasis workflow)': 'Rashmi',
+  '7 AI browser features you\'ll actually use (summaries, commands, organization, security) (Oasis playbook)': 'Rashmi',
+  '7 AI browser features you\u2019ll actually use (summaries, commands, organization, security) (Oasis playbook)': 'Rashmi', // curly apostrophe (U+2019) from markdown
+}
+
 function ContentPipeline() {
   const { sections, allItems } = useMemo(() => parsePriorityMarkdown(priorityMd), [])
 
@@ -1319,6 +1329,12 @@ function ContentPipeline() {
                               <div className="pipeline-title-row">
                                 <span className="pipeline-rank">#{rank}</span>
                                 <span className="pipeline-title-text">{title}</span>
+                              </div>
+                              <div className="pipeline-video-responsible">
+                                <span className="pipeline-responsible-label">Responsible:</span>
+                                <span className={`pipeline-responsible-value ${videoResponsible[title] ? 'assigned' : 'unassigned'}`}>
+                                  {videoResponsible[title] || '—'}
+                                </span>
                               </div>
                             </div>
                           </div>
