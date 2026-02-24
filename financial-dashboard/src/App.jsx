@@ -13,6 +13,7 @@ import WeeklyReports from './pages/WeeklyReports'
 import ContentPipeline from './pages/ContentPipeline'
 import Q1MidpointUpdate from './pages/Q1MidpointUpdate'
 import Competitors from './pages/Competitors'
+import StrategicNarrative from './pages/StrategicNarrative'
 import './App.css'
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path="/weekly-reports" element={<WeeklyReports />} />
           <Route path="/content-pipeline" element={<ContentPipeline />} />
           <Route path="/competitors" element={<Competitors />} />
+          <Route path="/strategic-narrative" element={<StrategicNarrative />} />
         </Routes>
       </div>
     </Router>
