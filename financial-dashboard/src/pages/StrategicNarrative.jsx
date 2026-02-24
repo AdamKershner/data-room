@@ -23,7 +23,7 @@ function StrategicNarrative() {
   return (
     <div className="page">
       <div className="page-header">
-        <h1>Strategic Narrative: Buying Champion</h1>
+        <h1>B2B Strategic Narrative</h1>
         <p className="page-subtitle">
           Enterprise Solutions Architect / Security Architect (Julian-type persona at Culture Amp–like companies). Exercise completed February 2026.
         </p>
