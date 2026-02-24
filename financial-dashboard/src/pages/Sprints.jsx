@@ -1693,6 +1693,32 @@ function Sprints() {
             items: ["Security whitepaper", "Architecture overview", "DLP integration guide (Netskope/others)", "IdP integration guide (Okta/Entra)", "Deployment guide", "Compliance mapping document"]
           }
         ]
+      },
+      sprintLog: {
+        intro: "Review feedback from Sprint 17 review (Feb 2026)",
+        sections: [
+          {
+            title: "Review Summary",
+            content: "Overall this is a strong enterprise foundation. The Chromium base, SSO integration, policy management, admin-free installation, and licensing model cover the core requirements for enterprise readiness. From a review perspective, the sprint captures the essential technical pillars."
+          },
+          {
+            title: "Potential Enhancements to Consider",
+            items: [
+              "Audit logging and admin visibility (enterprises often require detailed activity logs for compliance reviews)",
+              "Real-time policy updates and session revocation capability",
+              "Basic admin dashboard visibility (active sessions, license usage)"
+            ]
+          },
+          {
+            title: "Policy Management — Cinder & Alternatives Evaluation",
+            content: "For policies, include a link to Cinder for review by the engineers. We should evaluate Cinder, other alternatives, and in-house alternatives. Cinder provides businesses everything they need to orchestrate and automate safety at scale with industry leading tools for content moderation, AI safety, and data compliance.",
+            link: { url: "https://www.cinder.co/", text: "Cinder | Responsible AI, Trust & Safety, and Data Labeling At Scale" }
+          },
+          {
+            title: "Pallavi — Governance for Agentic/Autonomous Systems",
+            content: "Key questions for Cinder evaluation: Does their enforcement model support non-human actors acting on behalf of users, with continuous authorization and scoped permissions? As automation increases across enterprise workflows, can their architecture scale safely with high-frequency, machine-driven actions — not just human moderation flows? Cinder's architecture features a centralized policy engine with real-time enforcement and auditability. The strategic question: Can that enforcement layer move upstream closer to runtime execution in agentic environments where actions are triggered autonomously? Governance at the API or browser execution layer requires policy validation before state mutation, not just post-event moderation. If Cinder can operate as a pre-execution decision engine rather than only a workflow orchestrator, that becomes strategically powerful."
+          }
+        ]
       }
     },
     {
@@ -1917,7 +1943,7 @@ function Sprints() {
     <div className="page" id="product-roadmap">
       <div className="sprint-update-banner">
         The newest version of the browser in GitHub has been tested as of February 19th, 2026, 12:00 PM EST. Any resolved issues and sprints have been archived. All open sprints and issues are up to date.
-        <span className="sprint-banner-branch">Current most updated branch: <code>uiupdates/dynamic</code></span>
+        <span className="sprint-banner-branch">Build off of <code>OTA/determine-ota-update-feasibility</code> (not <code>uiupdates/dynamic</code>). This branch has the newest updates from Sprint 15 (Automatic Software Updates).</span>
       </div>
       <div className="page-header">
         <h1>Engineering Sprints</h1>
@@ -2137,6 +2163,34 @@ function Sprints() {
                                 </ul>
                               </div>
                             ))}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    {sprint.sprintLog && (
+                      <div style={{ marginTop: '24px', padding: '20px', backgroundColor: '#fefce8', border: '1px solid #eab308', borderRadius: '8px' }}>
+                        <h4 style={{ marginTop: 0, marginBottom: '12px', color: '#713f12' }}>📋 Sprint Log</h4>
+                        <p style={{ marginBottom: '16px', fontSize: '0.95rem', color: '#854d0e' }}>{sprint.sprintLog.intro}</p>
+                        {sprint.sprintLog.sections.map((section, sIdx) => (
+                          <div key={sIdx} style={{ marginBottom: '16px' }}>
+                            <div style={{ fontWeight: 600, marginBottom: '8px', color: '#713f12' }}>{section.title}</div>
+                            {section.content && (
+                              <p style={{ margin: 0, marginBottom: section.items ? '8px' : 0, fontSize: '0.9rem', color: '#854d0e', lineHeight: 1.5 }}>{section.content}</p>
+                            )}
+                            {section.link && (
+                              <p style={{ margin: '8px 0 0 0', fontSize: '0.9rem' }}>
+                                <a href={section.link.url} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--oasis-green-medium)', textDecoration: 'underline', fontWeight: 500 }}>
+                                  {section.link.text} →
+                                </a>
+                              </p>
+                            )}
+                            {section.items && (
+                              <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '0.9rem', color: '#854d0e' }}>
+                                {section.items.map((item, iIdx) => (
+                                  <li key={iIdx} style={{ marginBottom: '4px' }}>{item}</li>
+                                ))}
+                              </ul>
+                            )}
                           </div>
                         ))}
                       </div>
