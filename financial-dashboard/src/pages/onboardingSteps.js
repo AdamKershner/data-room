@@ -1,0 +1,25 @@
+export const ONBOARDING_STEPS = [
+  // Day 1
+  { id: 'schedule-1on1', label: 'Schedule Weekly 1-on-1 meeting with Adam', category: 'Admin & Setup', day: 1, badge: 'minutes' },
+  { id: 'company-rules', label: 'Read Company Rules, Values, & Guidelines', category: 'Company & Culture', day: 1, badge: 'minutes' },
+  { id: 'social-media', label: 'Follow all Kahana social media channels', category: 'External Presence', day: 1, badge: 'minutes' },
+  { id: 'internal-channels', label: 'Join Internal Communication Channels (Slack/Discord)', category: 'Communication', day: 1, badge: 'minutes' },
+  { id: 'slack-phone', label: 'Install Slack on your Phone and configure notifications', category: 'Communication', day: 1, badge: 'minutes' },
+  { id: 'avenger-profile', label: 'Create your Avenger profile', category: 'Product', day: 1, badge: 'minutes' },
+  { id: 'tools-access', label: 'Get Access to Tools relevant to your function', category: 'Admin & Setup', day: 1, badge: 'minutes' },
+  { id: 'producthunt', label: 'Create ProductHunt account and follow all other accounts on here', category: 'External Presence', day: 1, badge: 'minutes' },
+  { id: 'install-oasis', label: 'Install Oasis (make it your default browser)', category: 'Product', day: 1, badge: 'minutes' },
+  // Day 2
+  { id: 'linkedin', label: 'Update your LinkedIn account', category: 'External Presence', day: 2, badge: '1-2 hours' },
+  // Day 3
+  { id: 'business-plan', label: 'Read the full Business Plan (all sections)', category: 'Company & Culture', day: 3, badge: '1 business day' },
+  // Day 4
+  { id: 'duolingo-article', label: 'Learn the Growth Framework', category: 'Company & Culture', day: 4, badge: '1 business day' },
+  // Ongoing (5 business days)
+  { id: 'use-oasis-5-days', label: 'Use Oasis as your default browser for 5 business days and fill out the NPS survey', category: 'Product', day: 'ongoing', badge: '5 business days' },
+  // Complete
+  { id: 'time-log', label: 'Fill out the weekly Time Log and add a calendar reminder', category: 'Admin & Setup', day: 'complete', badge: 'minutes' },
+  { id: 'onboarding-survey', label: 'Complete the Onboarding Experience Survey', category: 'Wrap-up', day: 'complete', badge: null },
+  // Coming soon
+  { id: 'soc2-compliance', label: 'Review SOC 2 & Compliance Policies (Coming soon)', category: 'Company & Culture', comingSoon: true },
+]
