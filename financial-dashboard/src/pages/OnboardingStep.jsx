@@ -698,6 +698,29 @@ function StepToolsAccess() {
   )
 }
 
+function StepOnboardingSurvey() {
+  return (
+    <div className="onboarding-step-content">
+      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You've completed the Onboarding Experience Survey.</p>
+
+      <p>Share your feedback so we can improve onboarding for future team members.</p>
+
+      <div className="onboarding-survey-embed">
+        <iframe
+          data-tally-embed
+          src="https://tally.so/embed/PdAARd"
+          width="100%"
+          height="600"
+          frameBorder="0"
+          marginHeight="0"
+          marginWidth="0"
+          title="Onboarding Experience Survey"
+        />
+      </div>
+    </div>
+  )
+}
+
 const STEP_CONTENT = {
   'schedule-1on1': StepSchedule1on1,
   'company-rules': StepCompanyRules,
@@ -714,6 +737,7 @@ const STEP_CONTENT = {
   'linkedin': StepLinkedin,
   'social-media': StepSocialMedia,
   'tools-access': StepToolsAccess,
+  'onboarding-survey': StepOnboardingSurvey,
 }
 
 function OnboardingStep() {
