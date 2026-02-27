@@ -20,7 +20,8 @@ function Navigation() {
     { path: '/team-execution', label: 'Team, Execution & Milestones', id: 'team-execution' },
     { path: '/sprints', label: 'Sprints', id: 'sprints' },
     { path: '/weekly-reports', label: 'Weekly Reports', id: 'weekly-reports' },
-    { path: '/content-pipeline', label: 'Content Pipeline', id: 'content-pipeline' }
+    { path: '/content-pipeline', label: 'Content Pipeline', id: 'content-pipeline' },
+    { path: '/onboarding', label: 'Onboarding', id: 'onboarding' }
   ]
 
   const toggleMenu = () => {
@@ -32,6 +33,9 @@ function Navigation() {
   }
 
   const isActive = (path) => {
+    if (path === '/onboarding') {
+      return location.pathname === '/onboarding' || location.pathname.startsWith('/onboarding/')
+    }
     return location.pathname === path
   }
 

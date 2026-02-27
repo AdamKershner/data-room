@@ -15,6 +15,8 @@ import Q1MidpointUpdate from './pages/Q1MidpointUpdate'
 import Competitors from './pages/Competitors'
 import StrategicNarrative from './pages/StrategicNarrative'
 import B2CStrategicNarrative from './pages/B2CStrategicNarrative'
+import Onboarding from './pages/Onboarding'
+import OnboardingStep from './pages/OnboardingStep'
 import './App.css'
 
 function App() {
@@ -37,6 +39,8 @@ function App() {
           <Route path="/competitors" element={<Competitors />} />
           <Route path="/b2b-strategic-narrative" element={<StrategicNarrative />} />
           <Route path="/b2c-strategic-narrative" element={<B2CStrategicNarrative />} />
+          <Route path="/onboarding" element={<Onboarding />} />
+          <Route path="/onboarding/:stepId" element={<OnboardingStep />} />
         </Routes>
       </div>
     </Router>
