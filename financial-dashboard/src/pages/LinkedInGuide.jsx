@@ -157,7 +157,7 @@ function LinkedInGuide() {
             <div className="linkedin-strategy-card">
               <div className="linkedin-strategy-icon">💬</div>
               <h4>50 Comments per Week</h4>
-              <p>Comment on 50 relevant posts per week. Make it a rule, otherwise you'll forget. Go on your feed or check out posts from your own connections and network (friends, family, colleagues) and comment naturally on them to support them or add value. Comment meaningfully, not "Great post." (ChatGPT can help with prompts, but use a good one.)</p>
+              <p>Comment on 50 relevant posts per week. Make it a rule, otherwise you'll forget. Go on your feed or check out posts from your own connections and network (friends, family, colleagues) and comment naturally on them to support them or add value. Comment meaningfully, not "Great post."</p>
             </div>
             <div className="linkedin-strategy-card">
               <div className="linkedin-strategy-icon">🔗</div>
