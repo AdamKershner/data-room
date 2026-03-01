@@ -107,7 +107,7 @@ function LinkedInGuide() {
       </section>
 
       <section className="page-section">
-        <h2>3. LinkedIn Growth Playbook</h2>
+        <h2>3. The Actual Strategy</h2>
         <div className="content-block">
           <p>
             The Growth Playbook is the core strategy—especially for Category 2, but useful for everyone to understand how we grow together. We are <strong>not</strong> relying on viral posts for growth. Instead we focus on making posts perform well through early engagement—and we do it as a team.
