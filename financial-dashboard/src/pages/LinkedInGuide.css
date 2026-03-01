@@ -270,3 +270,19 @@
 .linkedin-algorithm-benefits p:last-child {
   margin-bottom: 0;
 }
+
+/* Questions / reach out note at bottom */
+.linkedin-questions-note {
+  margin-top: 48px;
+  padding: 24px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.linkedin-questions-note p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #475569;
+}

@@ -279,6 +279,10 @@ function LinkedInGuide() {
           </div>
         </div>
       </section>
+
+      <div className="linkedin-questions-note">
+        <p><strong>Questions?</strong> Reach out to Dhruv Patel, Sai Preetika Shyamwale, or Adam Kershner. When in doubt... reach out :-)</p>
+      </div>
     </div>
   )
 }
