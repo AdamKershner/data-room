@@ -9,6 +9,7 @@ import GoToMarket from './pages/GoToMarket'
 import FinancialPlan from './pages/FinancialPlan'
 import TeamExecution from './pages/TeamExecution'
 import Sprints from './pages/Sprints'
+import MarketSize from './pages/MarketSize'
 import WeeklyReports from './pages/WeeklyReports'
 import ContentPipeline from './pages/ContentPipeline'
 import Q1MidpointUpdate from './pages/Q1MidpointUpdate'
@@ -17,6 +18,7 @@ import StrategicNarrative from './pages/StrategicNarrative'
 import B2CStrategicNarrative from './pages/B2CStrategicNarrative'
 import Onboarding from './pages/Onboarding'
 import OnboardingStep from './pages/OnboardingStep'
+import LinkedInGuide from './pages/LinkedInGuide'
 import './App.css'
 
 function App() {
@@ -34,6 +36,7 @@ function App() {
           <Route path="/financial-plan" element={<FinancialPlan />} />
           <Route path="/team-execution" element={<TeamExecution />} />
           <Route path="/sprints" element={<Sprints />} />
+          <Route path="/market-size" element={<MarketSize />} />
           <Route path="/weekly-reports" element={<WeeklyReports />} />
           <Route path="/content-pipeline" element={<ContentPipeline />} />
           <Route path="/competitors" element={<Competitors />} />
@@ -41,6 +44,7 @@ function App() {
           <Route path="/b2c-strategic-narrative" element={<B2CStrategicNarrative />} />
           <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/onboarding/:stepId" element={<OnboardingStep />} />
+          <Route path="/linkedin-guide" element={<LinkedInGuide />} />
         </Routes>
       </div>
     </Router>

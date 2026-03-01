@@ -1,0 +1,272 @@
+/* LinkedIn Guide page - uses Page.css for base styles */
+
+/* Intro paragraph - first thing below title */
+.linkedin-intro {
+  margin: 0 0 20px 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #334155;
+}
+
+/* Mandatory participation callout */
+.linkedin-mandatory-callout {
+  margin: 0 0 32px 0;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border: 2px solid #f59e0b;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.2);
+}
+
+.linkedin-mandatory-callout p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #92400e;
+}
+
+#linkedin-guide .onboarding-inline-link {
+  color: var(--oasis-green-medium, #0d9488);
+  text-decoration: underline;
+}
+
+#linkedin-guide .onboarding-inline-link:hover {
+  color: var(--oasis-green-dark, #0f766e);
+}
+
+.linkedin-guide-warning {
+  margin: 24px 0 32px 0;
+  padding: 20px;
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  border-radius: 8px;
+}
+
+.linkedin-guide-warning p {
+  margin: 0 0 12px 0;
+  color: #92400e;
+}
+
+.linkedin-guide-warning p:last-child {
+  margin-bottom: 0;
+}
+
+/* Core Strategy - two-column cards */
+.linkedin-strategy-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .linkedin-strategy-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 2x2 quadrant for checklist */
+.linkedin-checklist-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .linkedin-checklist-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.linkedin-strategy-card {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.2s ease;
+}
+
+.linkedin-strategy-card:hover {
+  border-color: var(--oasis-green-medium, #0d9488);
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.1);
+}
+
+.linkedin-strategy-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.linkedin-strategy-card h4 {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  color: #1e293b;
+}
+
+.linkedin-time-badge {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #047857;
+  background: rgba(13, 148, 136, 0.12);
+  border-radius: 6px;
+}
+
+.linkedin-category-callout {
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  background: rgba(13, 148, 136, 0.08);
+  border-left: 3px solid var(--oasis-green-medium, #0d9488);
+  border-radius: 0 6px 6px 0;
+}
+
+.linkedin-category-callout p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #047857;
+}
+
+.linkedin-form-embed {
+  margin: 24px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+.linkedin-rationale-columns {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .linkedin-rationale-columns {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.linkedin-rationale-text {
+  padding-right: 8px;
+}
+
+.linkedin-rationale-text p {
+  margin: 0 0 20px 0;
+  line-height: 1.7;
+}
+
+.linkedin-rationale-text p:last-child {
+  margin-bottom: 0;
+}
+
+.linkedin-rationale-example {
+  padding: 24px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  flex-shrink: 0;
+}
+
+.linkedin-rationale-example p {
+  margin: 0 0 16px 0;
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.linkedin-example-image {
+  max-width: 100%;
+  width: 320px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  display: block;
+}
+
+.linkedin-strategy-card p {
+  margin: 0 0 12px 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #475569;
+}
+
+.linkedin-strategy-card p:last-child {
+  margin-bottom: 0;
+}
+
+.linkedin-strategy-tip {
+  margin-top: 16px !important;
+  padding-top: 12px;
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.9rem !important;
+}
+
+/* Category checklist - compact, at-a-glance */
+.linkedin-category-checklist {
+  margin: 8px 0 0 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.linkedin-category-checklist li {
+  position: relative;
+  padding-left: 8px;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #475569;
+}
+
+.linkedin-category-checklist li::before {
+  content: "☐";
+  position: absolute;
+  left: -20px;
+  font-size: 0.85rem;
+  color: var(--oasis-green-medium, #0d9488);
+}
+
+.linkedin-category-checklist li:last-child {
+  margin-bottom: 0;
+}
+
+/* Algorithm callout - key insight */
+.linkedin-algorithm-callout {
+  margin: 24px 0;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border: 2px solid var(--oasis-green-medium, #0d9488);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.15);
+}
+
+.linkedin-algorithm-callout > p {
+  margin: 0 0 16px 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #065f46;
+  font-weight: 500;
+}
+
+.linkedin-algorithm-callout > p:last-child {
+  margin-bottom: 0;
+}
+
+.linkedin-algorithm-benefits {
+  padding-top: 16px;
+  border-top: 1px solid rgba(13, 148, 136, 0.3);
+}
+
+.linkedin-algorithm-benefits p {
+  margin: 0 0 12px 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #047857;
+}
+
+.linkedin-algorithm-benefits p:last-child {
+  margin-bottom: 0;
+}

@@ -29,9 +29,9 @@ print("=" * 60)
 
 if all_installed:
     print("\n✓ All dependencies are installed!")
-    print("\nYou can now run:")
-    print("  python generate_investor_summary.py")
-    print("  python run_analysis.py")
+    print("\nYou can now run (from project root):")
+    print("  python scripts/generate_investor_summary.py")
+    print("  python scripts/run_analysis.py")
 else:
     print("\n✗ Some dependencies are missing.")
     print("\nTo install, run:")

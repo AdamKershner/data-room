@@ -1,0 +1,118 @@
+Emails from Onboarding CSV for Team Members Currently Listed in TeamExecution.jsx
+================================================================================
+
+1. Adam Kershner
+   Email: adam@kahana.co
+
+2. Sonakshi Singh
+   Email: sonakshisingh27001@gmail.com
+
+3. Dhruv Patel
+   Email: dp668@cornell.edu
+
+4. Hritik Sanjay Chalse
+   Email: hritiksanjay.chalse@duke.edu
+
+5. Sonali Ankolikar
+   Email: sonaliankolikar@gmail.com
+
+6. Lokesh Nenavath
+   Email: lokesh.nenavath@duke.edu
+
+7. Navile Mahesh
+   Email: navilemahesh2022@gmail.com
+
+8. Akansha Parihar
+   Email: akansha.parihar@duke.edu
+
+9. Rohith Anthony Aleti Joseph
+   Email: raletijo@depaul.edu
+
+10. Konika Dhull
+    Email: dhullkonika@gmail.com
+
+11. Ashwin John
+    Email: ashwinjohn2820@gmail.com
+
+12. Rashmila Mitra
+    Email: rashmilamitra97@gmail.com
+
+13. Afshaan Khan
+    Email: afshaank338@gmail.com
+
+14. Nithish Sampath
+    Email: nithish2917@gmail.com
+
+15. Rohan Mehere
+    Email: rohan.mehere@duke.edu
+
+16. Rushyanth Nerellakunta
+    Email: rushyanth55@gmail.com
+
+17. Davis Victor
+    Email: dvktym@gmail.com
+
+18. Agrima Gupta
+    Email: agrimagupta2425@gmail.com
+
+19. Aishwarya Shetiya
+    Email: aishwarya.shetiya@gmail.com
+
+20. Likhitha Guggilla
+    Email: guggills.likhitha4500@gmail.com
+
+21. Mohammed Muneebuddin
+    Email: muneeb.mohammad.16@gmail.com
+
+22. Atharva Joshi
+    Email: atharvajoshi067@gmail.com
+
+23. Naveen Prashanna Gurumurthy
+    Email: gnaveen1509@gmail.com
+
+24. Abhinav Chandra
+    Email: ethicallyabhinav@gmail.com
+
+25. Hasan Bohra
+    Email: hasan.bohra@outlook.com
+
+26. Rajrajeshwari Gaware
+    Email: rajrajeshwarigaware10@gmail.com
+
+27. Durgesh Tiwari
+    Email: workwithdurgesh99@gmail.com
+
+28. Kaushik Shridhar
+    Email: shridharkaushik1@gmail.com
+
+29. Pournami Pottekat
+    Email: pournami.pottekat@gmail.com
+
+30. Revanth Ganga
+    Email: revanth7667@gmail.com
+
+31. Akalpit Dawkhar
+    Email: akalpit.dawkhar@duke.edu
+
+32. Saideep Pajjuri
+    Email: Pajjuri1216@csu.fullerton.edu
+
+33. Ammemah Naeem
+    Email: ammemah.naeem@duke.edu
+
+34. Ruturaj Marathe
+    Email: rmarathe.work@gmail.com
+
+35. Ankit Sai Allam
+    Email: ankit.allam@duke.edu
+
+36. Yaseer Meera
+    Email: yaseer.meera@duke.edu
+
+37. Srishti Goyal
+    Email: sg8871@nyu.edu
+
+NOTES:
+- "Ravi" is listed in TeamExecution.jsx but was not found in the Onboarding CSV
+- Some team members may have multiple entries in the onboarding CSV (e.g., Adam Kershner, Dhruv Patel)
+- The email addresses shown are from the "Preferred email" column in the onboarding CSV

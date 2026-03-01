@@ -8,13 +8,23 @@ This script demonstrates how to use the model for various analyses:
 - Scenario comparisons
 - Tripwire/red-line analysis
 
-Usage:
-    python run_analysis.py                    # Run all analyses
-    python run_analysis.py --scenario base     # Run only base scenario
-    python run_analysis.py --scenario conservative  # Run only conservative
-    python run_analysis.py --no-export        # Skip Excel export
-    python run_analysis.py --scenario aggressive --no-export  # Combined options
+Usage (from project root):
+    python scripts/run_analysis.py                    # Run all analyses
+    python scripts/run_analysis.py --scenario base     # Run only base scenario
+    python scripts/run_analysis.py --scenario conservative  # Run only conservative
+    python scripts/run_analysis.py --no-export        # Skip Excel export
 """
+
+import sys
+from pathlib import Path
+
+# Ensure scripts dir is on path when run from project root
+_script_dir = Path(__file__).resolve().parent
+if str(_script_dir) not in sys.path:
+    sys.path.insert(0, str(_script_dir))
+
+# Output goes to spreadsheets/ folder (sibling of scripts/)
+_OUTPUT_DIR = _script_dir.parent / "spreadsheets"
 
 import argparse
 import pandas as pd
@@ -322,7 +332,7 @@ def print_base_case_investor_summary():
 
 
 def export_to_excel(
-    output_file: str = "oasis_2026_analysis.xlsx",
+    output_file: str = None,
     scenario_results: dict = None,
     summary_table: pd.DataFrame = None,
     tripwire_table: pd.DataFrame = None
@@ -331,11 +341,14 @@ def export_to_excel(
     Export all analyses to an Excel file.
     
     Args:
-        output_file: Output Excel filename
+        output_file: Output Excel filename (default: spreadsheets/oasis_2026_analysis.xlsx)
         scenario_results: Optional pre-computed scenario results
         summary_table: Optional pre-computed summary table
         tripwire_table: Optional pre-computed tripwire table
     """
+    if output_file is None:
+        output_file = str(_OUTPUT_DIR / "oasis_2026_analysis.xlsx")
+    Path(output_file).parent.mkdir(parents=True, exist_ok=True)
     print_section(f"EXPORTING TO EXCEL: {output_file}")
     
     base_assumptions = create_base_scenario()
@@ -421,8 +434,8 @@ Examples:
     )
     parser.add_argument(
         '--output',
-        default='oasis_2026_analysis.xlsx',
-        help='Output Excel filename (default: oasis_2026_analysis.xlsx)'
+        default=None,
+        help='Output Excel filename (default: spreadsheets/oasis_2026_analysis.xlsx)'
     )
     
     args = parser.parse_args()
@@ -450,7 +463,7 @@ Examples:
     if not args.no_export:
         try:
             export_to_excel(
-                args.output,
+                args.output or str(_OUTPUT_DIR / "oasis_2026_analysis.xlsx"),
                 scenario_results=scenario_results,
                 summary_table=summary_table,
                 tripwire_table=tripwire_table
