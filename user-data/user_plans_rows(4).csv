@@ -1,0 +1,4 @@
+user_plan_id,user_id,plan_id,start_date,end_date,is_active,auto_renew,payment_method_id,stripe_subscription_id,stripe_customer_id
+d40007db-af57-434b-be15-c69783eb2b7f,d9d9e9e1-f3e5-4412-9a87-34a826de2781,,2026-01-17 17:52:44,2026-02-17 17:52:44,true,true,0c7ff0b7-ba8a-4404-b29a-f50f97322ae1,sub_1Sqdg2GAiwY6zSuoJudm5ToO,cus_ToGCxM2Q1UgdMQ
+28a4543a-ece7-4691-8af3-51e7ff0be1d6,cb0b2660-ab8a-4e35-b793-2606f3e18a4d,,2026-02-05 17:52:44,2026-03-07 17:52:44,true,true,0c7ff0b7-ba8a-4404-b29a-f50f97322ae1,sub_p85pQ28TUAqiFyiaYUu3Cq0a,cus_WQYDBAHXba8lFQD5E0mCFTDl
+306b0226-7e4c-4b9e-8d88-e16863a25402,268fc558-2157-4280-94f4-957fda49fdc0,,2026-02-06 17:52:44,2026-03-08 17:52:44,true,true,0c7ff0b7-ba8a-4404-b29a-f50f97322ae1,sub_NEWSUB1234567890ABCDEF,cus_NEWCUST1234567890ABCDEF

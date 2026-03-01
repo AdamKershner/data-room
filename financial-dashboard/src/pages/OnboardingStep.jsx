@@ -557,6 +557,10 @@ function StepLinkedin() {
 
       <p>Update your LinkedIn profile to reflect your role at Kahana. We also recommend preparing to post on LinkedIn frequently as part of your responsibilities — it's a key channel for reach, credibility, and growth.</p>
 
+      <div className="onboarding-note onboarding-note-help">
+        <p><strong>Full guide:</strong> See the <Link to="/linkedin-guide" className="onboarding-inline-link">LinkedIn Guide & Best Practices</Link> for complete instructions and expectations for all team members.</p>
+      </div>
+
       <h3>Follow and connect</h3>
       <ul className="onboarding-rules-list">
         <li>Follow the <a href="https://www.linkedin.com/company/kahana-co" target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">Kahana company page</a> on LinkedIn</li>

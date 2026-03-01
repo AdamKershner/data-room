@@ -1891,6 +1891,60 @@ function Sprints() {
         "Web search executes reliably with proper error handling",
         "Clear fallback messaging when search fails"
       ]
+    },
+    {
+      id: 24,
+      title: "Authentication Friction — Passkeys, Biometrics & SSO",
+      emoji: "🔑",
+      priority: "HIGH",
+      storyPoints: 13,
+      effort: "Medium-High",
+      impact: "High",
+      severity: "8-10/10",
+      overview: "Reduce authentication friction that causes Chrome switchers to revert. Internal reflection (Duke student): biggest barrier to Oasis adoption is not performance or features—it's auth. Chrome stores passkeys and integrates with device biometrics (face scan); Oasis requires manual password + Duo 2FA at every institutional login. For students and knowledge workers who switch contexts quickly (Zoom, Canvas, DukeHub, SharePoint), 20–30 second delays compound. **Source:** Internal Reflection: Switching to Oasis as a Duke Student — Why I Came Back to Chrome (Feb 2026).",
+      primaryFiles: "Browser password/passkey storage, WebAuthn integration, Duo/2FA flow handling, credential migration from Chrome",
+      issues: [
+        {
+          title: "Passkey Migration from Chrome",
+          count: 1,
+          submissionIds: ["DUKE-REFLECTION"],
+          description: "Oasis cannot seamlessly access or migrate passkeys from Chrome. Chrome's passkey ecosystem is deeply embedded; when Oasis can't migrate those passkeys, it introduces measurable slowdown at every login point.",
+          impact: "Retention blocker for Chrome switchers (severity 10/10)",
+          technicalNotes: "Implement passkey import/migration from Chrome. WebAuthn credential storage compatibility. May require platform-specific handling for Chrome credential export.",
+          feedback: [
+            { id: "DUKE-REFLECTION", text: "Chrome stores my passkeys and integrates directly with my device's biometric authentication. Instead of typing passwords and manually completing a two-step flow, I simply scan my face. Authentication happens almost invisibly. Chrome's passkey ecosystem is deeply embedded into my daily digital life. When Oasis cannot seamlessly access or migrate those passkeys, it introduces a measurable slowdown at every login point." }
+          ]
+        },
+        {
+          title: "Device-Native Biometric Authentication",
+          count: 1,
+          submissionIds: ["DUKE-REFLECTION"],
+          description: "Chrome integrates with device biometrics (face scan, fingerprint); Oasis requires typing passwords and manually completing Duo 2FA. Biometric auth isn't just more convenient—it fundamentally changes the pace of workflow.",
+          impact: "Auth speed is part of accessibility for fast context-switchers (severity 9/10)",
+          technicalNotes: "Integrate WebAuthn with platform biometric APIs. Ensure passkey auth flows use device-native biometric prompts where available.",
+          feedback: [
+            { id: "DUKE-REFLECTION", text: "In Chrome, the experience is materially different. Chrome stores my passkeys and integrates directly with my device's biometric authentication. Instead of typing passwords and manually completing a two-step flow, I simply scan my face. Authentication happens almost invisibly. This isn't just more convenient - it fundamentally changes the pace of workflow." }
+          ]
+        },
+        {
+          title: "Streamlined Duo/SSO Flows for Institutional Portals",
+          count: 1,
+          submissionIds: ["DUKE-REFLECTION"],
+          description: "University and enterprise portals (DukeHub, Canvas, SharePoint) require SSO + Duo Mobile 2FA. Each protected platform triggers full credential + Duo flow. Need streamlined Duo verification within institutional SSO systems.",
+          impact: "20–30 second delay per login compounds for students switching between Zoom, Canvas, coursework (severity 8/10)",
+          technicalNotes: "Improve Duo Mobile flow handling. Consider session persistence for institutional SSO. Reduce friction in 2FA completion.",
+          feedback: [
+            { id: "DUKE-REFLECTION", text: "As a Duke student, I rely heavily on multiple institutional platforms, including DukeHub, Canvas, SharePoint, and other university portals. These systems require single sign-on credentials followed by two-step authentication through Duo Mobile. While my usernames and passwords migrated successfully into Oasis, the login experience was not seamless. Each time I accessed a protected Duke platform, I had to enter credentials and complete Duo verification. As a student, I move quickly between online meetings, presentations, coursework submissions, and collaborative tools. In those moments, authentication speed becomes part of accessibility. Even a 20–30 second delay feels significant when joining a Zoom presentation or sharing a screen in class." }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "Passkey migration from Chrome works (import/migrate passkeys)",
+        "Device-native biometric authentication integrated for passkey auth",
+        "Duo/2FA flows streamlined for institutional SSO (DukeHub, Canvas, etc.)",
+        "Auth experience comparable to Chrome for institutional portals",
+        "Documented: If Oasis supported full passkey migration, biometric auth, and streamlined Duo flows, switching barrier would drop dramatically"
+      ]
     }
   ]
 

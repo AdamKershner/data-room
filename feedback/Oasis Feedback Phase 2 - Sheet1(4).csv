@@ -1,0 +1,631 @@
+Submission ID,Respondent ID,Submitted at,What type of feedback are you providing? (select one),"Please describe your experience, feedback, and/or request",Include a screenshot (if applicable),"What were you trying to do when you encountered the issue, had the idea for the feature request, or had the feedback? (optional, helps with context)",How did this impact your experience? (choose one or more),How important is this issue or feature request to you?,Any suggestions or additional details? (optional),Do you give the Oasis Team permission to contact you for more details?,Email (optional)
+VkVzz6,zvGeLM,2025-03-03 5:48:47,,test,,,,,,,
+R7vApd,75P7ea,2025-03-04 21:08:01,,"Things I didn't like and observations while using:
+1. When setting up, you need to login for the first time from within the hub after you save it. Recommendation would be to save the login screens of key apps (JIRA, Figma, etc.) into hubs and then access
+2. I was thinking about notifications from applications and sites within the browser. However, I think it would make sense to configure notifications for those individually and not have browser notifications for now
+3. Slack browser-based version was a bit slow to load compared to the application, but that's okay
+4. Be prepared for a lot of 2-factor authentication if you're first setting up your Oasis work environment
+5. While tagging Sites and adding them to hubs, I mainly added tags that were related to the name of the article or thing. For example, I did a ""Grok"" tag for ""Grok""
+6. I noticed that some sites like Grok and Notion do not load and may only be available on specific browsers
+7. I found myself relying on the ai buddy a lot rather than remember where each site was saved",,,,,,,adam@kahana.co
+2qADze,ao7P89,2025-03-11 17:26:31,,feedback,https://storage.tally.so/private/Screenshot-2025-03-11-at-10.48.02-AM.png?id=Lb2ZNj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkxiMlpOaiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc0MTcxMzk5N30.MQ9WLMQP2_s4YPnylAsz2fo2f6SlvNpgWP2sdxrd1wE&signature=20da9beeb61c46f37a6ce919231903e7b2adaffc3b76893dcac02def3990174a,,,,,,adam@kahana.co
+loRZPN,el5LPl,2025-03-13 8:21:37,Bug Report,abcd,,Setting up and launching,Made my work slower,3,,"Yes, I'm open to follow-ups",sonaliankolikar@gmail.com
+OpYMPg,p1rQqP,2025-03-13 17:42:24,Feature Request,"In addition to the AI assist, it'd be great to have another info button or like an onboarding tour for users to understand how to create the hubs and paste links into the hubs. ",,Managing hubs or saved sites,Made my work slower,7,,"Yes, I'm open to follow-ups",sinchana.t517@gmail.com
+VRdMO6,ao7P89,2025-03-16 23:04:48,Feature Request,Add a CONTROL+F command ,,Browsing sites on the Internet,It was a minor inconvenience,10,,"Yes, I'm open to follow-ups",adam@kahana.co
+GNVE4Q,el5LPl,2025-03-18 5:00:25,Bug Report,wdcs test,,"Browsing sites on the Internet, Managing hubs or saved sites",Made my work slower,2,,"Yes, I'm open to follow-ups",sonaliankolikar@gmail.com
+XVXdve,o15alP,2025-03-19 21:59:13,Usability / User Experience (UX) concern,"I have installed the browser on Windows. Upon opening the browser, I noticed that a .exe file is running in the background.
+
+Additionally, when I create hubs (two hubs in total), I observe that two .exe files are opened and running for each hub.
+
+",https://storage.tally.so/private/Screenshot-29-.png?id=zKEVaM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpLRVZhTSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc0MjQyMTU1NX0.v1pAhUqXKvI8I7hCoMFYQl2_M_NAuL6BKRL5rQD_1gs&signature=fae504660d2b1dcb2a6e79898da7959a079900b32d1b3515a65284c1493dc999,Setting up and launching,"Felt confusing or unintuitive, It was a minor inconvenience",10,,"Yes, I'm open to follow-ups",Pajjuri1216@csu.fullerton.edu
+4WW6Kd,ao7P89,2025-03-20 15:16:57,Feature Request,"As an Oasis user, I want to be able to use commands like ""New Window"" from the File menu ",https://storage.tally.so/private/Screenshot-2025-03-20-at-10.13.40-AM.png?id=YZPBQ0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IllaUEJRMCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc0MjQ4MzgyMH0.3XuA9biewMLTdHhDNp7spbp9hPW2pXk7R9XJmFaVHTg&signature=01eea7bbeb749068268f55e5f58fa7890a9f0088814813768ba545863f68867b,"Working with tools (e.g., Slack, JIRA, Figma, SharePoint, etc.)",It was a minor inconvenience,6,,"Yes, I'm open to follow-ups",adam@kahana.co
+44XXQoo,ao7P89,2025-03-20 16:17:53,Feature Request,"As a user, I would like to see a list of recently visited sites or suggested sites based on past search history when I click into the search bar at the top of the browser",https://storage.tally.so/private/Screenshot-2025-03-20-at-11.17.20-AM.png?id=ylMa26&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InlsTWEyNiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc0MjQ4NzQ3NX0.uAB82rJ2KU0bRHuML_Sqt_NRvRmHgFRnELRYoyO2HY0&signature=d03df2035b451f10fe309220b378e4f301a8a4845c6042eb93539143d7ceabb8,"Working with tools (e.g., Slack, JIRA, Figma, SharePoint, etc.)",Made my work slower,8,,"Yes, I'm open to follow-ups",adam@kahana.co
+WO9jbbR,1gWGoW,2025-03-24 5:56:11,Usability / User Experience (UX) concern,Not able to copy the URL of the website from the address Bar,,Managing hubs or saved sites,Made my work slower,10,,"Yes, I'm open to follow-ups",Pajjuri1216@csu.fullerton.edu
+dWqOBED,PWYXyd,2025-03-26 14:22:50,Bug Report,when I have multiple browsers open- 3 youtube channels. it doesn't work,,i went back to using chrome,Made my work slower,9,make it work for multi-tasking,"Yes, I'm open to follow-ups",fahizafreen2@gmail.com
+68JgaV5,PWYXyd,2025-03-26 14:25:18,Bug Report,good thing- i can create multiple hubs- bad thing i can use the same name for all,,Managing hubs or saved sites,Felt confusing or unintuitive,9,please put in a condition to check & give a warning to replace existing hub or rename. This will stop user using same name for all hubs,"Yes, I'm open to follow-ups",fahizafreen2@gmail.com
+RGKAEXd,PWYXyd,2025-03-26 14:27:21,Bug Report,the http while trying to search on browser. a http gets added default,https://storage.tally.so/private/Pasted-Graphic.png?id=eB6MRQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVCNk1SUSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc0Mjk5OTI0Mn0.aEv93tebjk-1r3ypsyp-eU8SmFlsa23w3JGvqw4bbtg&signature=0b2a0e08f20fae1831e45997b058985a784363b956379faace3b23a8e15bdfde,Browsing sites on the Internet,It was a minor inconvenience,7,using search engine was not seamless as i had to remove the http everytime(from the search textbox) after clicking search,"Yes, I'm open to follow-ups",fahizafreen2@gmail.com
+KYQ9q0g,PWYXyd,2025-03-26 14:28:54,Bug Report,"As a 1st time user, I am unable to approve layout w/o link",https://storage.tally.so/private/Pasted-Graphic-1.png?id=oAyE7P&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im9BeUU3UCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc0Mjk5OTMzNX0.4cs3dWB62X7OFtc9kcIzmsYHXft90V3wgzgOojeSpGc&signature=e02a66c077f077282092d7b6b0aea89d129ef80e7aa526899b262b92ab6524bd,Managing hubs or saved sites,Felt confusing or unintuitive,10,it was like getting stuck in an error loop. stops only after i relaunch,"Yes, I'm open to follow-ups",fahizafreen2@gmail.com
+0QrKpg0,PWYXyd,2025-03-26 14:30:36,Usability / User Experience (UX) concern,This sometimes turns to info icon in red. Either ways doesn’t work,https://storage.tally.so/private/Pasted-Graphic-2.png?id=g50avN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Imc1MGF2TiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc0Mjk5OTQzOH0.pkg61HC4KiTlqIFnwTq3UWimYMw-OwxWEb-jNU3V4gE&signature=40b955f6e5d7a8b681a292a72235f3759bb8aca7b006c9e2ef25fe1d4626e19d,this is not bothersome,It was a minor inconvenience,3,,"Yes, I'm open to follow-ups",fahizafreen2@gmail.com
+9qN2aE5,ao7P89,2025-04-07 15:50:31,Bug Report,"As an oasis user, I attempted to use the find command from a browser window in Oasis (not a hub) while having 2 other open oasis windows, and when i clicked the ""hub"" that returned in AI Assistant (LLM hub), the hub did not open",https://storage.tally.so/private/Screenshot-2025-04-07-at-10.48.34-AM.png?id=kYrz2j&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImtZcnoyaiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc0NDA0MTAzN30.LPv-F4tN7uu5C9EjvutPGGgL6RNtUhcYbKA6qNpmlDU&signature=0996897d386a502462cd7e9ad2234c322146e5bd5e5bb3e4c12dbcd884dd186f,"Managing hubs or saved sites, Browsing sites on the Internet","Made my work slower, Made the browser harder to use, Felt confusing or unintuitive",10,,"Yes, I'm open to follow-ups",adam@kahana.co
+BzEv5ER,Nv2Lx0,2025-04-11 16:34:18,Usability / User Experience (UX) concern,"When I want to identify the aliases I assigned to different links under a specific hub, some of the information gets cut off. For instance, in the screenshot below showing phase 2 of the Oasis browser testing, I created two aliases for two links: ""product testing types"" and ""product metrics."" However, the letters get cropped in their display. As a result, it's difficult for me to get a clear overview of the different links I've added from this view.",https://storage.tally.so/private/Screenshot-2025-04-11-123250.png?id=24gQKp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjI0Z1FLcCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc0NDM4OTI2MH0.WGSU2OL9WSF-_sffwiVoNPrGCP9QJLrp_rFmE4_-1pM&signature=c7fa647bcca03d9ebfe5977d0c8055ce267e39aaf9a1388dac7ccb4349ba89ca,Managing hubs or saved sites,It was a minor inconvenience,6,,"Yes, I'm open to follow-ups",divyatata30@gmail.com
+obRBa9O,ao7P89,2025-05-13 19:51:07,Usability / User Experience (UX) concern,"I noticed you can't create tabs like Google Chrome. As a user, I want to be able to create tabs of sites and then use a command like ""create tab group"" through the AI assistant, thus grouping all open tabs and allowing me to create a Name and hub metatags associated with it ",,Browsing sites on the Internet,Felt confusing or unintuitive,10,,"Yes, I'm open to follow-ups",adam@kahana.co
+D4z2ZKb,ao7P89,2025-05-27 22:01:09,Feature Request,"As a user, I want to be able to use various commands to change my hub view to become split-view, single-view, and triple-view while simultaneously specifying which saved link in the hubs should be displayed in said view. For example - ""show me a triple-view with perplexity, google sheet, claude""",,Managing hubs or saved sites,Made my work slower,5,,"Yes, I'm open to follow-ups",adam@kahana.co
+pbKK6E8,J4vLJY,2025-06-17 15:57:51,Feature Request,Not able to choose which google account to sign into when trying to access ChatGPT. It automatically logs me into one account.,,Browsing sites on the Internet,"Made the browser harder to use, Made my work slower",10,,"Yes, I'm open to follow-ups",bhoopalnitin@gmail.com
+q4ddlrd,J4vLJY,2025-06-17 16:30:12,Bug Report,"Can't use multi view for LinkedIn, ChatGPT, HubSpot. It automatically resets to just two views. Sometimes it resets to just the single view too. ",,Managing hubs or saved sites,"Made my work slower, Made the browser harder to use",10,,"Yes, I'm open to follow-ups",bhoopalnitin@gmail.com
+aQ6BayX,J4vLJY,2025-06-17 19:26:10,Bug Report,Dropdown menu for the multi view bugged when trying to demo the product to Jordan,https://storage.tally.so/private/Screenshot-2025-06-17-at-3.25.19-PM.png?id=RLe5Jp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJMZTVKcCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc1MDE4ODM3NH0.Up9Kepp_-Fwl0WBMT5NSQABglumEaGkOlCjqitkqVCA&signature=be1e70c0710257e3d869f48c4a870851fd94e4b505bfe6b4f280340d52448bc5,"Browsing sites on the Internet, Managing hubs or saved sites","Made my work slower, Made the browser harder to use",8,,"Yes, I'm open to follow-ups",bhoopalnitin@gmail.com
+rjlDj0R,D8Dekl,2025-06-25 1:04:03,Usability / User Experience (UX) concern,"Whenever I transcribe something with voice to text, it adds a period to the end of the text. I've noticed that if you leave the period there, it often causes the AI Assistant to incorrectly perform the desired command (e.g., it'll open a new window instead of organizing). So I always have to manually delete the period before I hit enter - if this period is just not included in the transcription, performance will improve",,Using the AI Assistant (AI Chat Buddy),"Made my work slower, Made the browser harder to use",10,,"Yes, I'm open to follow-ups",jonathan@kahana.co
+A7lr7ak,D8Dekl,2025-06-25 1:05:39,Feature Request,"A command where you can tell the AI Assistant to go to a specific URL would be awesome so that you don't have to type it in the URL (e.g., using voice to text to say ""go to keeptradecut.com"" and then it just searches that for you and takes you there). ",,"Using the AI Assistant (AI Chat Buddy), Browsing sites on the Internet","Made my work slower, Other",8,,"Yes, I'm open to follow-ups",jonathan@kahana.co
+A7lpVMN,O2j8Vp,2025-06-26 1:05:55,Bug Report,"Error with the mic, audio gets choppy when using the voice assistant ",,Using the AI Assistant (AI Chat Buddy),Felt confusing or unintuitive,9,,"Yes, I'm open to follow-ups",akalpitdawkhar10@gmail.com
+5Bd96KZ,O2j8Vp,2025-06-26 1:07:57,Bug Report,"The feedback form says the email field is optional, but it still wants me to enter a correct value, won't even take NA",,/newOther (please specify),It was a minor inconvenience,9,,"Yes, I'm open to follow-ups",akalpitdawkhar10@gmail.com
+EkPxWYB,D8Dekl,2025-06-26 2:36:14,Feature Request,"The ability to search for something on google directly from the AI Assistant (e.g., a ""google search"" command) - ""google search [insert whatever you want to look up]"" and the ai assistant puts taht in google and returns the results",,"Using the AI Assistant (AI Chat Buddy), Browsing sites on the Internet",Just another way to be voice first instead of needing to type,7,,"Yes, I'm open to follow-ups",jonathan@kahana.co
+442ZgDr,D8Dekl,2025-07-02 17:15:05,Feature Request,"Voice commands to control layout beyond just ""organize"" (e.g., pull up XYZ article, show this in split screen view). It should be possible to do anything that you can currently do from the control panel of hubs just from voice",,"Browsing sites on the Internet, Using the AI Assistant (AI Chat Buddy), Managing hubs or saved sites","Made my work slower, Made the browser harder to use",10,,"Yes, I'm open to follow-ups",jonathan@kahana.co
+9q1JjvK,VKJVZg,2025-07-07 21:04:13,Bug Report,"The AI assistant determined that my intent was to open a new window after i clicked the green link 'dynasty research.' The correct behavior would be to sense the intent to ""see the dynasty research hub' and thus open the dynasty research hub. Instead, it determined that my intent was 'new_window' and opened a new window.",https://storage.tally.so/private/Screenshot-2025-07-07-at-4.01.37-PM.png?id=PlBkA5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBsQmtBNSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc1MTkyMjI1Nn0.cetPm2bWC0znVM1TjX3vFHDh1vBxkGisIf7d87N1S10&signature=a5cabfaa1d497d73839f1cb6dcec1ea2e11c2fb09a6edf3f39a202e2e0cdf28c,Using the AI Assistant (AI Chat Buddy),Felt confusing or unintuitive,10,,"Yes, I'm open to follow-ups",adam@kahana.co
+Bz126MK,O2j8Vp,2025-07-08 19:03:12,Bug Report,Creating new windows when clicking on sponsored tabs in google search in browser mode,,Browsing sites on the Internet,It was a minor inconvenience,6,,"Yes, I'm open to follow-ups",akalpitdawkhar10@gmail.com
+Ek1OyQo,D8Dekl,2025-07-11 20:23:04,Performance Issue,"If you're using google drive, every time you open a new tab, you have to re-sign in, which is a frustrating experience. It should detect your first sign in and not make you sign in again when you open new tabs ",,Browsing sites on the Internet,"Made my work slower, Made the browser harder to use",10,,"Yes, I'm open to follow-ups",jonathan@kahana.co
+NpVj9ep,aRAJ5b,2025-07-12 1:12:59,Usability / User Experience (UX) concern,The black theme isn't applied completely in Hub view for Windows.,https://storage.tally.so/private/Screenshot-2025-07-11-210906.jpg?id=5LMbQd&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVMTWJRZCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc1MjI4Mjc4MH0.KmISxwTFzbBQgRnG58A1V-0XtU2DIil53pJ13s0BIXA&signature=e0e28a2a4245aed04151852510660ce19b3e82ee9e9344e5f7d33a5beb5d1190,UI,It was a minor inconvenience,1,,"No, just providing feedback",
+WOPpRjL,D8Dekl,2025-07-26 21:11:40,Performance Issue,"All transcriptions of voice to text end in a period, which I have to manually delete each time so that the command can be interpreted accurately - including the period before hitting enter often causes the AI Assistant to misinterpret the command. This should be updated so the period is removed from the end of transcriptions",,Using the AI Assistant (AI Chat Buddy),"Made the browser harder to use, Felt confusing or unintuitive",10,,"Yes, I'm open to follow-ups",jonathan@kahana.co
+LZXMKLv,D8Dekl,2025-07-26 21:14:49,Performance Issue,"Whenever a new window is opened in Oasis by clicking on a link in a window you currently have open, that window doesn't have any Oasis components - the AI Assistant isn't there, you can't save it to a hub, etc. - it's just a disconnected, stand-alone new window that doesn't have any useful functionality. This should be fixed so that any new browser window that's opened through Oasis has all the Oasis functionality you would expect it to have. ",,"Browsing sites on the Internet, Using the AI Assistant (AI Chat Buddy), Managing hubs or saved sites","Made my work slower, Made the browser harder to use, Felt confusing or unintuitive",10,,"Yes, I'm open to follow-ups",jonathan@kahana.co
+NpLB7AO,D8Dekl,2025-07-26 21:19:54,Usability / User Experience (UX) concern,"Right now, it is not possible to change the title of a link you saved to a hub such that the change appears in the ""Select View Layout"" panel. Whatever the title of that link is within the browser window/tab at the the time you save it is permanently what stays in the menu (even though you can add a meta-title, that doesn't show up in the ""Select View Layout"" panel. This can be very confusing and sometimes makes it difficult or even impossible to remember what the link is (see screenshot with titles like ""Google Sheets: Sign-in"" and ""Page Not Found"".
+
+This should be updated such that you can change the title of the link that appears within the Select View Layout menu. ",https://storage.tally.so/private/Screen-Shot-2025-07-26-at-4.15.08-PM.png?id=a07x5v&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImEwN3g1diIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc1MzU2NDc5NX0.euRXzLuV_ztqMsRaqOXQ7CsowS8QNA0uaq3SkVEtgPw&signature=2ca09a64a856876c39d6f7e6f556476b232c5f370894f88fcbbfb31b1028d864,"Managing hubs or saved sites, Browsing sites on the Internet","Made the browser harder to use, Felt confusing or unintuitive",10,,"Yes, I'm open to follow-ups",jonathan@kahana.co
+68RQZ1P,D8Dekl,2025-07-26 21:21:31,Bug Report,"Certain websites do not work within the downloaded version of Oasis, where you are unable to access them in any capacity. The ones that I have discovered so far are Slack and ChatGPT. If I run into any others, I will report them here.",,Browsing sites on the Internet,"Made my work slower, Made the browser harder to use",10,,"Yes, I'm open to follow-ups",jonathan@kahana.co
+GxLBRkz,D8Dekl,2025-07-26 21:23:26,Bug Report,"When you need to give permission to the browser to access your microphone for voice to text transcription, sometimes, the popup where you need to choose to Allow or Decline permission keeps appearing over and over for multiple times, even after you click ""Allow"". You basically just have to keep clicking Allow over and over until it eventually goes away. But this should be fixed so that you only have to click Allow once every single time.",,Using the AI Assistant (AI Chat Buddy),"Made my work slower, Made the browser harder to use, Felt confusing or unintuitive",10,,"Yes, I'm open to follow-ups",jonathan@kahana.co
+XxEB4bL,D8Dekl,2025-07-26 21:26:08,Usability / User Experience (UX) concern,"The latest round of UI updates made it impossible to tell whether the microphone is on and detecting what you are saying - the icon used to turn red to indicate that it was active, but now it doesn't change in any capacity. As a user, that's confusing to me because then I continue talking into without knowing whether I am being picked up. ",,Using the AI Assistant (AI Chat Buddy),"Felt confusing or unintuitive, Made the browser harder to use",8,,"Yes, I'm open to follow-ups",jonathan@kahana.co
+oboa6aP,D8Dekl,2025-07-29 15:31:21,Performance Issue,"The default behavior for clicking on a link within a window should be to create a new tab, not a new window, which would indirectly solve the issue where a new window is created that doesn't have any of the functionality of Oasis (e.g., when you click on a document within Google Docs, it should create a new tab). 
+
+This makes navigability easier and facilitates the ability to use the ""add all tabs to hub"" functionality",,"Browsing sites on the Internet, Managing hubs or saved sites","Made my work slower, Made the browser harder to use",9,,"Yes, I'm open to follow-ups",jonathan@kahana.co
+BzYo494,ob2a1z1,2025-12-18 21:40:44,Bug Report,"Error: Recursion limit of 16 reached without hitting a stop condition. You can increase the limit by setting the ""recursionLimit"" config key.
+
+Troubleshooting URL: https://langchain-ai.github.io/langgraphjs/troubleshooting/errors/GRAPH_RECURSION_LIMIT/
+",https://storage.tally.so/private/Screenshot-2025-12-18-at-3.13.53-PM.png?id=VvPo8N&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZ2UG84TiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2NjA5NDA0Nn0.f7N0BwiZX4duJaoxaACW91A_ISm5oXcM5oVSXx0Ybf8&signature=9559e660ff071885dab64e4a870a50d51417d9a6a0bbec1c5d1fae6a413bcbb9,"I was trying to use the ""open"" command to open yahoo.com from the ai assistant",It made me feel like the product is buggy,10,,"Yes, I'm open to follow-ups",adam@kahana.co
+NpN4MYQ,7RxLXr6,2025-12-25 21:38:38,Bug Report,"I tried to use command open ""open youtube""
+It recursively opened youtube multiple times and hit max limit error
+
+Some one who is working on This implementation should fix this",https://storage.tally.so/private/Screenshot-2025-12-25-163711.jpg?id=8APjvO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhBUGp2TyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2NjY5ODcyMH0.geBT_PksdebHoWpCNur05P1RXdbcNGOAAniWUIPowbU&signature=b56bb7f4d59ca012acfe4c7b82d22605f5766e5afc78182aa840dfcf96e0891a,Using the AI Assistant (AI Chat Buddy),,10,,"No, just providing feedback",
+EkVjrzX,VLJbb9E,2025-12-31 16:05:57,Bug Report,"When I typed in the command ""search wall street journal on google"", it opened two tabs instead of 1. ",https://storage.tally.so/private/Screenshot-2025-12-31-at-10.04.29-AM.png?id=Yp9EzW&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IllwOUV6VyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2NzE5NzE2MH0.cMo5Iri4mlDThUaC73LgtA2trflaYP3Wms1xSWOHTYs&signature=260b53e878af38846f84f3a4265e925a2fa322d7883c973920644f3836511e7d,Browsing sites on the Internet,Felt confusing or unintuitive,10,,"Yes, I'm open to follow-ups",adam@kahana.co
+5Ba1GQo,vGYpRoX,2026-01-02 22:53:56,Bug Report,"I tried to search recipes on google and open the first one, and it opened a bunch of tabs ",https://storage.tally.so/private/Screenshot-2026-01-02-at-4.53.01-PM.png?id=gYpO7K&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdZcE83SyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2NzM5NDQzOX0.0JE2ZHbnnUcWdWcveCNJQddBYdJchJvGk_VKPTO7eRU&signature=1a0035bddb43fcc0334e4fce17a56e596a2fee27f1b738cabeacdf38eebfbdcb,Browsing sites on the Internet,Felt confusing or unintuitive,10,,"Yes, I'm open to follow-ups",adam@kahana.co
+7R72950,vGYpRoX,2026-01-02 23:01:47,Feature Request,"As a user opening 15 tabs on a topic that I'm researching , I want to be able to prompt the AI assistant to ""summarize and give me insights across these 15 tabs."" ",,Browsing sites on the Internet,It would make a lot of my research easier because i wouldn't have to manually read everythign or copy content into ChatGPT. It would reduce the number of steps in my process,6,,"No, just providing feedback",
+44lODNA,VLJbb9E,2026-01-05 20:43:38,Bug Report,"I was dragging the AI assistant, and I saw a glitch where it seemed to oscillate a lot between two positions, like it was vibrating ",,Using the AI Assistant (AI Chat Buddy),Felt confusing or unintuitive,9,,"Yes, I'm open to follow-ups",adam@kahana.co
+MepR5JX,vGYpRoX,2026-01-09 17:39:27,Bug Report,"I prompted the ai assistant to ""open youtube in a new window,"" however, while it did open youtube in a new window, it did it twice, which was strange and jarring. ",https://storage.tally.so/private/Screenshot-2026-01-09-at-11.38.39-AM.png?id=VvgNXg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZ2Z05YZyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2Nzk4MDM3MH0.BkkGgtaw2kemyHkzohMyc3S0ARdkg9k-0ifuA-5uUFk&signature=6cf9a8ae52e00d4e50385ad676ed7e561efd1586aaff729ea1c67ff727bb48a1,Using the AI Assistant (AI Chat Buddy),Felt confusing or unintuitive,10,,"Yes, I'm open to follow-ups",adam@kahana.co
+Ek7WeDB,vGYpRoX,2026-01-09 19:00:28,Bug Report,"When I submitted this prompt ""create a tab group ""Webapp Application Creators"" i received this error message ""Error: Recursion limit of 16 reached without hitting a stop condition. You can increase the limit by setting the ""recursionLimit"" config key.
+
+Troubleshooting URL: https://langchain-ai.github.io/langgraphjs/troubleshooting/errors/GRAPH_RECURSION_LIMIT/""",https://storage.tally.so/private/Screenshot-2026-01-09-at-12.59.42-PM.png?id=j5N2DQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Imo1TjJEUSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2Nzk4NTIzMH0.8lv2pJrV-ygq6UsywT0qZSlQaOR_fYaAO0Xye09A_dE&signature=78c8e3ad471c553a90c464cfa99aa2d11b3fa5b80e8fafc5030049c04efacd45,Using the AI Assistant (AI Chat Buddy),Felt confusing or unintuitive,10,,"Yes, I'm open to follow-ups",adam@kahana.co
+lbkVQEp,aQYZg8b,2026-01-11 18:00:24,Bug Report,"I asked AI assistant to remove ""Wyzant"" bookmark I imported from Google Chrome and it couldn't find it.",https://storage.tally.so/private/Screen-Shot-2026-01-11-at-11.57.16-AM.png?id=6AbGpe&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZBYkdwZSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE1NDQyNn0.EkbFQCmWDUmFM6L-sRD-iGb8KhxKAfeTNoVOXkJDIaM&signature=8396795c26d2ee3720592bc4d5a8ddb151858f3e0a1ecbde62f71ead00b63694,Setting up and launching,It was a minor inconvenience,7,I consider this basic functionality that should work. It's not a feature.,"Yes, I'm open to follow-ups",lasalettek@yahoo.com
+obLl495,aQYZg8b,2026-01-11 18:04:30,Bug Report,"I entered ""show subscription"" in the AI assistant and it showed the following ""[Tool Output for show_url]: Opened subscription://""
+",,Setting up and launching,Felt confusing or unintuitive,10,I should be able to see how many AI commands I have entered which I will call AI command count since this is tied to pricing.,"No, just providing feedback",
+Np1MpWB,aQYZg8b,2026-01-11 18:17:37,Feature Request,"The AI assistant should default to a smaller size so it doesn't take up all my screen space. It should also be off to the side. I wonder, if I resize it and place it in a certain spot on my screen, if it would remember that's where I want the AI assistant. Or do I have to resize it and place it every time I use the Oasis browser.",,Setting up and launching,Felt confusing or unintuitive,10,It is important for Oasis to remember where I want the AI assistant to be placed on my screen and the size of the AI assistant so that I don't have to keep doing it.,"Yes, I'm open to follow-ups",lasalettek@yahoo.com
+Zjrv9OV,aQYZg8b,2026-01-11 18:21:38,Bug Report,"When i click on a screen behind the AI assistant screen, the focus does not go to the screen. I expect the screen I click on to be brought forward and the AI assistant to be behind it. This is general practice. It's very annoying that I have to minimize the AI assistant first to see the screen that I want to see and I have to maximize the AI assistant to use it. ",,Setting up and launching,Made the browser harder to use,9,,"Yes, I'm open to follow-ups",lasalettek@yahoo.com
+rjMGoNN,aQYZg8b,2026-01-11 18:51:51,Bug Report,"I entered ""Open Google Sheets"" in AI assistant and i received an Invalid URL error.",https://storage.tally.so/private/Screen-Shot-2026-01-11-at-12.49.51-PM.png?id=OdpqX8&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik9kcHFYOCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE1NzUxNX0.zkM9pJd33GaeDDGa_ztIL9MPYunfLqOuoH4ZGBziu8A&signature=b74d9303bde20b21ddc97e0832a44310aee9b968458edb4fe1144a010a58c0d8,Browsing sites on the Internet,Made the browser harder to use,10,The AI assistant was no help. I should have just entered google sheets on browser instead of AI assistant.,"No, just providing feedback",
+KYKWzVV,aQYZg8b,2026-01-11 22:47:32,Feature Request,I entered the following in AI assistant: put my tabs with google sheets in a hub called Google Sheets. It didnt put any of the tabs in the new hub it created. From the screenshot you can see I had 3 Google Sheet tabs open  ,https://storage.tally.so/private/Screen-Shot-2026-01-11-at-4.39.03-PM.png?id=OdpRop&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik9kcFJvcCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE3MTY1NX0.dlGcIS2hAH2sJIJHmHFXIvZ_y_SBDYVUBoqQecrOKWM&signature=b4d08e4ec98efd713c9f361fe2036d6b13a5d45f46f011a33121980c2a370156,"Browsing sites on the Internet, Managing hubs or saved sites",Made my work slower,9,,"Yes, I'm open to follow-ups",lasalettek@yahoo.com
+eqW0MdE,aQYZg8b,2026-01-11 22:53:05,Bug Report,Entered the following command in AI assistant: add this tab to my Google Sheets hub. My current tab had a google spreadsheet. The tab was not added.,https://storage.tally.so/private/Screen-Shot-2026-01-11-at-4.51.16-PM.png?id=X1Vjvz&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlgxVmp2eiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE3MTk4N30.mpqdBFowWh6yVTAHIy-ps7MAg_x92rfwLldv25fMjac&signature=cd20dd07c1f78e4cb73003845a1b67af50e985ad47fe30ab00cccf42976ae37d,"Managing hubs or saved sites, Browsing sites on the Internet","Made my work slower, Made the browser harder to use",10,,"No, just providing feedback",
+1AoNk71,aQYZg8b,2026-01-11 22:55:00,Bug Report,I entered the following in AI assistant: how do i add a tab to an existing hub.. No helpful response. See screenshot.,https://storage.tally.so/private/Screen-Shot-2026-01-11-at-4.53.45-PM.png?id=RvXOeK&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJ2WE9lSyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE3MjEwMn0.UsUmAo97hRKZrOKBGJFf3wR5n4MhhgFtNSDiMeonE7k&signature=cf4012ab2e5e3c8c0b275efb0578c155381398ab63966d9514354ab85dd64ddd,"Managing hubs or saved sites, Browsing sites on the Internet",Made my work slower,10,,"No, just providing feedback",
+RGybMDP,aQYZg8b,2026-01-11 23:01:32,Bug Report,I entered the following command in AI assistant: How do i remove a tab from a group. See screenshot for output that was not helpful. ,https://storage.tally.so/private/Screen-Shot-2026-01-11-at-4.57.58-PM.png?id=z2pVkR&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InoycFZrUiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE3MjQ5NH0._g33T0vUmKQSc8UkOBsMzjNZQJ_MixjmZdgLP14SVMA&signature=2423becf39b91dc652df82a7f944194705751b17ae4bff6f9129fbf557c95059,"Browsing sites on the Internet, Managing hubs or saved sites","Made my work slower, Made the browser harder to use",10,"AI assistant needs to be able to provide instructions on usage of the Oasis browser that will be helpful to the users. For example, How to create a hub, How to add/remove a tab from a hub. How to view a hub. How to go to a tab in a hub. All these how to's should be available. This is minimum functionality. The AI assistant should be able to execute these how to's so the user does not have to do them manually.","Yes, I'm open to follow-ups",lasalettek@yahoo.com
+aQqA5Xy,aQYZg8b,2026-01-11 23:05:05,Bug Report,I entered the following in AI assistant: Add 2026 expenses tab to Google Sheets hub. The 2026 expenses tab was not added but the Oasis Feedback tab was added.,https://storage.tally.so/private/Screen-Shot-2026-01-11-at-5.03.17-PM.png?id=Zv40j0&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ilp2NDBqMCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE3MjcwN30.opoxJUs2r1R9NCtd159iHcL5by9FJWaisdJNfczpu_k&signature=e836ab5e56275716aa5b6c561db6046e3455449f5993699993668d7260515298,Managing hubs or saved sites,"Made my work slower, Made the browser harder to use",10,,"No, just providing feedback",
+jaAJoPR,aQYZg8b,2026-01-11 23:08:15,Bug Report,The icons for my google spreadsheets in a hub are different. I expect the icons to be the same since they are all spreadsheets. The icon displayed when it is shown as a tab should be the same icon in the hub group.,,Managing hubs or saved sites,Felt confusing or unintuitive,6,Need a consistent UI.. don't change icons.,"Yes, I'm open to follow-ups",lasalettek@yahoo.com
+gD6kaoM,QK5zDr8,2026-01-12 3:35:17,Bug Report,"Mic button is not working, and while dragging the assistant it feel lot of resistance.",https://storage.tally.so/private/Screenshot-2026-01-11-at-22.33.49.png?id=2l8Aep&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJsOEFlcCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODE4ODkxOX0.HshMp002TTPoKaPJyQJrNQtO3aM3Wzh0xA9X_3O1AJA&signature=a5e5e81beaade313b6571d72e8c56bcdb4d91524de3e6e14334e419f77fab3c6,"Setting up and launching, Using the AI Assistant (AI Chat Buddy)","It was a minor inconvenience, Made my work slower",6,,"No, just providing feedback",
+RGykzvP,BzkjJd5,2026-01-12 8:14:18,Bug Report,"while moving the ai assistant window, the placement of the address bar was getting interrupted with the ai window. fix the elevation hierarchy by increasing the z-index value of the ai assistant window.",https://storage.tally.so/private/Screenshot-2026-01-12-at-2.53.14-AM.png?id=lYDjjN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImxZRGpqTiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODIwNTY2MX0.99V-nTZsfhBUaaf3sZ7zbrOie1phd4V9sJshaRkQPjE&signature=353665a8c0c3085f14023a044a87dbd19d21cea1fcf37f39ce616ec91a4ab34b,"Using the AI Assistant (AI Chat Buddy), Browsing sites on the Internet",Felt confusing or unintuitive,10,,"Yes, I'm open to follow-ups",pournami.pottekat@gmail.com
+rjMvKZ2,BzkjJd5,2026-01-12 8:20:04,Usability / User Experience (UX) concern,"The AI Assistant window should be draggable by clicking anywhere across all edges  within the ai chat window, and not just the top bar. It is counter-intuitive to expect users to figure out where to click and enable the dragging. ",,Using the AI Assistant (AI Chat Buddy),"Felt confusing or unintuitive, Made my work slower",10,,"Yes, I'm open to follow-ups",pournami.pottekat@gmail.com
+b5QvG2e,Gxdq2Rj,2026-01-12 9:21:48,Bug Report,"When I gave the command ""open new tab,"" instead of opening a new tab, it opened a new window. ",,Using the AI Assistant (AI Chat Buddy),"Made my work slower, Felt confusing or unintuitive",10,,"Yes, I'm open to follow-ups",pournami.pottekat@gmail.com
+gD6v1rK,Gxdq2Rj,2026-01-12 9:26:38,Usability / User Experience (UX) concern,"The AI outputs need formatting fixes. 
+1. Remove white bg color from all the ai responses.
+2. Headings in the text output must be bolded (right now it's showing markdown text with astericks)",https://storage.tally.so/private/Screenshot-2026-01-12-at-4.23.06-AM.png?id=Qz2PlX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlF6MlBsWCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODIwOTk5OX0.ZJQYj6HYXKZ-V8LjWxwEPr6QlGCtgIVn-r-um129H3Y&signature=e6b760f0559d5e81c1bee432db07e748eeaafe2aae68d75c1048aebe1e5844fa,Using the AI Assistant (AI Chat Buddy),"Felt confusing or unintuitive, It was a minor inconvenience",7,,"Yes, I'm open to follow-ups",pournami.pottekat@gmail.com
+Y5lkXDW,Gxdq2Rj,2026-01-12 9:31:45,Usability / User Experience (UX) concern,"When the user clicks on the voice icon, there is not visual feedback that the button is working or the words are getting dictated since, the words display only after you hit the pause button. 
+
+",,Using the AI Assistant (AI Chat Buddy),Felt confusing or unintuitive,8,,"No, just providing feedback",
+jaAvX8E,Gxdq2Rj,2026-01-12 9:34:50,Usability / User Experience (UX) concern,"In the minimized version of the ai chat window, I should be able to click anywhere to expand it to at least, display the input box. It's counter intuitive to ask the users to click on the icon to expand and only then be able to use the ai assistant. ",https://storage.tally.so/private/Screenshot-2026-01-12-at-4.32.27-AM.png?id=d8q5JD&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4cTVKRCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODIxMDQ5Mn0.1UMNejpn5KWz_Gvs18OvShqhIxqnq2DikmjtLHyFUpQ&signature=76edebcd5bac8ebdd8e7a5684f78147df0bbda0e9c1d97201a832b828e2488f7,Using the AI Assistant (AI Chat Buddy),"Made my work slower, Felt confusing or unintuitive",9,,"No, just providing feedback",
+q41vqMO,Gxdq2Rj,2026-01-12 9:38:13,Bug Report,"In the minimized version of the ai assistant, when I click on the 3 dot menu, I should be able to see all the dropdown options. Since the options are displayed inside the ai window, they are getting hidden. Instead place it outside the ai window",https://storage.tally.so/private/Screenshot-2026-01-12-at-4.35.35-AM.png?id=aANbd9&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBTmJkOSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODIxMDY5NX0.lKvYZe5H7QsirtNO1cB7xscbYwW_SAhZpxY6tjYu0kA&signature=7e2c6757adbe4cd5caf948fa756901f08044347175f2905fd370dd3d1c712764,Using the AI Assistant (AI Chat Buddy),Made the browser harder to use,8,,"No, just providing feedback",
+A7eyejy,Gxdq2Rj,2026-01-12 9:49:01,Feature Request,"when I click on the minimize icon within the ai assistant, it should minimize and automatically snap to the bottom right corner of the web page.",,Using the AI Assistant (AI Chat Buddy),"Made my work slower, Made the browser harder to use",10,,"No, just providing feedback",
+dWevyQy,Gxdq2Rj,2026-01-12 9:52:15,Bug Report,"when I select the text in the ai response, the selected text is not readable to the eye. Change the text color from black to white when selected. ",https://storage.tally.so/private/Screenshot-2026-01-12-at-4.50.01-AM.png?id=861oBx&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg2MW9CeCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODIxMTUzN30.PO_H95atGMKdsU3o4QhDTcbS9BMY_CEIIBrKWJZWcHo&signature=5df5c2af2d56d3c425d4a44f7cfe324ac8f4eeb25625eb904c161dd6ee7cca40,Using the AI Assistant (AI Chat Buddy),Made the browser harder to use,10,,"No, just providing feedback",
+44Vz6dd,Gxdq2Rj,2026-01-12 9:56:40,Bug Report,"when I switch from minimized version to the maximized version, sometimes the ai assistant is displayed out of viewport window, this makes me take another step of dragging the ai window into the viewport which makes the browsing experience slow. ",https://storage.tally.so/private/Screenshot-2026-01-12-at-4.54.10-AM.png?id=yoPPvB&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InlvUFB2QiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODIxMTgwMn0.55Jrs-V0vWX27WBaBXCI5iwXOYob9sZh_Tm3RsxtVLE&signature=a6ce32cac0282a98c01be191b6b1901802274f9c5ab0080c8422dc68bc19cb17,Using the AI Assistant (AI Chat Buddy),"Made my work slower, Felt confusing or unintuitive",9,,"No, just providing feedback",
+BzW0r7Y,Gxdq2Rj,2026-01-12 9:58:48,Usability / User Experience (UX) concern,"when the user clicks outside the ai assistant window, the window should automatically minimize and snap to the bottom right corner because the user is expecting the ai window to get out of their way while browsing. ",,Using the AI Assistant (AI Chat Buddy),"Made my work slower, Felt confusing or unintuitive",10,,"No, just providing feedback",
+jaAvjr9,Gxdq2Rj,2026-01-12 10:01:04,Usability / User Experience (UX) concern,"the ai chat window should be resizable from all the edges of the chat window. set a minimum width and height for the window. 
+also, add a shortcut to show and hide the ai assistant window. ",,Using the AI Assistant (AI Chat Buddy),"Made my work slower, Made the browser harder to use",10,,"No, just providing feedback",
+7RrMGb0,Gxdq2Rj,2026-01-12 10:06:24,Usability / User Experience (UX) concern,"fix the empty state for the ai chat window, right now it feels incomplete. (add the illustration and remove the oasis ai text placement)",https://storage.tally.so/private/Screenshot-2026-01-12-at-5.03.10-AM.png?id=GqxezO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxeGV6TyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODIxMjM4Nn0.RZCVhTBm_ol6rSr3e-ET9jA4Ss2L4kGRSeTmqzOyjlM&signature=45959b7561c8e774f90af9bfa219893690e567554ebea43f794dd83c661c7f51,Using the AI Assistant (AI Chat Buddy),"It was a minor inconvenience, Felt confusing or unintuitive",7,"since this is the initial interaction with oasis ai assistant, the experience should be memorable. Add some example prompts for the empty state which will give users a head start with ai assistant and its capabilities.","No, just providing feedback",
+A7ey1jB,Gxdq2Rj,2026-01-12 10:11:31,Usability / User Experience (UX) concern,"when I gave the command to open a new tab and split view, it showed 2 ai assistant windows, it felt confusing. It should show only one and that one should be displayed in the original window. This made me think, where can I access the previous chats I had with oasis ai?",,Using the AI Assistant (AI Chat Buddy),"Felt confusing or unintuitive, Made my work slower",8,,"No, just providing feedback",
+5BPrdvv,dW0ek8V,2026-01-12 16:13:14,Usability / User Experience (UX) concern,"When I drag the AI Assistant interface, at times there is a jarring ""vibration"" effect that makes the Interface oscillate, causing me to feel shocked and frustrated. It should be updated so that the dragging motion is always smooth and the interface rarely if ever vibrates/oscillates",,Setting up and launching,"Felt confusing or unintuitive, Made the browser harder to use",10,It might make sense to evaluate the root cause of this and ensure we can replicate the behavior consistently in development in order to identify the right solution,"Yes, I'm open to follow-ups",adam@kahana.co
+lbkg7x5,dW0ek8V,2026-01-12 16:32:55,Usability / User Experience (UX) concern,"When I click the 3 dots button to see the menu with ""sign in,"" ""sign up,"" and ""account"" on the AI asssistant, sometimes the menu appears behind the ""Oasis AI"" bar. In general, the menu should never be hidden by any element or component. For instance it should have the highest Z index",https://storage.tally.so/private/Screenshot-2026-01-12-at-10.15.33-AM.png?id=PbdQge&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBiZFFnZSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODIzNTU3N30.JEq3PhT627_iVURaamo6UEC5pbBSRububsmR_EbUPAM&signature=01151ee77fb891fc322a4a816a5c5b22477c35fbbb1611e4691edf6f361c872a,Using the AI Assistant (AI Chat Buddy),"Felt confusing or unintuitive, Made the browser harder to use",10,,"Yes, I'm open to follow-ups",adam@kahana.co
+rjMgGBN,aQYZg8b,2026-01-12 16:45:11,Bug Report,"I used the microphone and said ""Open Yahoo Mail"" in the AI assistant. The AI assistant correctly typed in Open Yahoo Mail but it failed to open Yahoo Mail. As you can see in the screen in the screen shot, it opened a tab (marked invalid URL as tab name. AI assistant put Yahoo mail in the url. I had a Yahoo mail tab. What I wanted the AI assistant to do is to open up the existing Yahoo mail tab. Now I did have two tabs that are related to Yahoo mail. I wanted AI assistant to open or put focus on my Yahoo mail inbox tab.",https://storage.tally.so/private/Screen-Shot-2026-01-12-at-10.40.56-AM.png?id=PbdJ85&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBiZEo4NSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODIzNjMxMn0.lDooR6vNKV-iisyArJTPXyLYst-NACBq-SusaVaTuVo&signature=6eae02b9cc11264cf7b66bfe47b402a0f9375bff65e67772c147113107a19c16,Browsing sites on the Internet,Made my work slower,10,No value in AI assistant if it can't open/find existing tabs. It would be helpful if I say open or find a tab that the AI assistant finds it and opens it.,"Yes, I'm open to follow-ups",lasalettek@yahoo.com
+Y5leyZq,OD5kxJp,2026-01-12 17:15:41,Bug Report,"When I entered ""open new tab"" in the Oasis AI assistant, it wouldn't stop opening new tabs",https://storage.tally.so/private/Screenshot-2026-01-12-at-12.14.38-PM.png?id=4946A5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5NDZBNSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODIzODE0NH0.HA9UYYk1PMsRsT87VliYy_ASKoNw8V16qVokYdjly64&signature=8284587647514a76962aeadb8953b6b9deb708a39f22fb5d17819105e6241983,Browsing sites on the Internet,"Made the browser harder to use, Made my work slower",9,,"Yes, I'm open to follow-ups",mehere.rohan@gmail.com
+VLOdzYy,KYlGxOV,2026-01-12 18:51:57,Usability / User Experience (UX) concern,"I was giving a voice command to the oasis assistant and i was waiting for my voice command to be interpreted into textual format, however that did not happen and i had to manually press stop recording for the text to be displayed which led to confusion. The command however was executed but i had to press the stop recording button as well as hit enter. ",,Using the AI Assistant (AI Chat Buddy),"Made my work slower, Felt confusing or unintuitive",8,,"Yes, I'm open to follow-ups",rajrajeshwarigaware10@gmail.com
+44Vqkb5,A7L9dje,2026-01-12 19:16:50,Performance Issue,Could not summarize wiki page. Given prompt was to open apple Inc. wiki and summarize their history,https://storage.tally.so/private/Screenshot-2026-01-12-at-11.14.54-AM.png?id=EZqzzN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVacXp6TiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI0NTQxM30.iVDd1BgRn3aRQuEqdPfzgiLVviFxt-uDfDSi_CsvBN8&signature=9ae58bb5cd89f66728af482eeb94a75437f83902c56bae75e03b0e982d9f5dfc,Browsing sites on the Internet,Made the browser harder to use,8,,"No, just providing feedback",
+2EGZJvD,Gxdq2Rj,2026-01-12 19:32:50,Bug Report,"when the length of the conversation in ai chat increased, i saw 2 scrollbars",https://storage.tally.so/private/Screenshot-2026-01-12-at-2.31.52-PM.png?id=Nbq51N&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5icTUxTiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI0NjM3M30.MhjJ1LV6-AZZdnPrpAnruE2O-o1Zx4VGdr8HNpBtUFI&signature=96d15b67208d0adbe98f0d604794f0777b45cc702b81d1bff532be8b66e070ae,Using the AI Assistant (AI Chat Buddy),"Felt confusing or unintuitive, It was a minor inconvenience",6,,"No, just providing feedback",
+GxAgbQo,lbdz0X5,2026-01-12 20:10:02,Bug Report,"When I tried to log in using my credentials, I intentionally entered incorrect credentials. However, there was no user-facing error message or popup indicating that the credentials were invalid.
+
+When I checked the logs, I could see the following:
+
+console.log: ""Attempting email sign in for:"" ""lokesh.naik1329@gmail.com""
+console.error: ""Email sign in error:"" ""Invalid login credentials""
+
+Based on this, it would be better to display a clear error message to the user when they attempt to log in with incorrect credentials, instead of only logging the error in the console.",https://storage.tally.so/private/Screenshot-2026-01-12-at-15.06.59.png?id=RbWW8P&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJiV1c4UCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI0ODYwNX0.sTGpJJFmYznqAux8OPytrxRfGwISikp26nkRaTvtmyo&signature=d3470744823cb78bd43b2d8eaa5de26093636521d50ab64a06c3bab0136de44c,login,It was a minor inconvenience,8,,"Yes, I'm open to follow-ups",lokesh.naik1329@gmail.com
+5BPQY2Z,lbdz0X5,2026-01-12 20:47:50,Bug Report,"When tried to close the whole bookmark(multiple tabs inside that), it says it closed, but i can still se them open.
+
+
+Steps to generate this bug:
+
+open multiple tabs(like espn, virat kohli, cnn etc)
+bundle them as a bookmark (eg:test)
+insert this prompt: close that bookmark test
+then, insert this prompt : can you close all open tabs?
+
+it says it closed, but i still see them open.
+
+this is the output:
+[Tool Output for list_tabs]: 1. New Tab
+2. WhatsApp | Secure and Reliable Free Private Messaging and Calling
+3. YouTube
+4. Breaking News, Latest News and Videos | CNN
+5. ESPN - Serving Sports Fans. Anytime. Anywhere.
+6. virat kohli - Google Search
+7. Virat Kohli - Wikipedia
+8. ESPN - Serving Sports Fans. Anytime. Anywhere.
+
+[Tool Output for close_tab]: Closed: New Tab
+
+[Tool Output for close_tab]: Closed: WhatsApp | Secure and Reliable Free Private Messaging and Calling
+[Tool Output for close_tab]: Closed: YouTube
+[Tool Output for close_tab]: Closed: Breaking News, Latest News and Videos | CNN
+[Tool Output for close_tab]: Closed: ESPN - Serving Sports Fans. Anytime. Anywhere.
+[Tool Output for close_tab]: Closed: virat kohli - Google Search
+[Tool Output for close_tab]: Closed: Virat Kohli - Wikipedia
+[Tool Output for close_tab]: Closed: ESPN - Serving Sports Fans. Anytime. Anywhere.
+
+
+I have provided the screenshot below.",https://storage.tally.so/private/Screenshot-2026-01-12-at-15.38.37.png?id=VbpGRJ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZicEdSSiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI1MDg3Mn0.l9Yy-pVu_YHNZ5l63w581XAE7AhcsJ0FZQqZBf2WSgw&signature=444974b4326362535ebb5753661a84c8702325bc8c72f119591899f781a6f2cd,"Managing hubs or saved sites, Browsing sites on the Internet",Felt confusing or unintuitive,8,,"Yes, I'm open to follow-ups",lokesh.naik1329@gmail.com
+1Aoxolp,MezVPJl,2026-01-12 21:03:08,Performance Issue,"tried rename the tab group sports, the result is below:
+
+Error: Recursion limit of 16 reached without hitting a stop condition. You can increase the limit by setting the ""recursionLimit"" config key.
+
+Troubleshooting URL: https://langchain-ai.github.io/langgraphjs/troubleshooting/errors/GRAPH_RECURSION_LIMIT/",,Using the AI Assistant (AI Chat Buddy),It was a minor inconvenience,7,,"Yes, I'm open to follow-ups",navilemahesh2022@gmail.com
+J9vEroY,MezVPJl,2026-01-13 18:41:59,Bug Report,"command : can you open new windown
+result : kept opening multiple windows until i started closing them.
+
+Error: Recursion limit of 16 reached without hitting a stop condition. You can increase the limit by setting the ""recursionLimit"" config key.
+
+Troubleshooting URL: https://langchain-ai.github.io/langgraphjs/troubleshooting/errors/GRAPH_RECURSION_LIMIT/",,Using the AI Assistant (AI Chat Buddy),Made the browser harder to use,9,,"No, just providing feedback",
+2EG9Y6D,MezVPJl,2026-01-13 18:43:13,Bug Report,"command: open one new window
+result: opened multiple windows
+
+Error: Recursion limit of 16 reached without hitting a stop condition. You can increase the limit by setting the ""recursionLimit"" config key.
+
+Troubleshooting URL: https://langchain-ai.github.io/langgraphjs/troubleshooting/errors/GRAPH_RECURSION_LIMIT/
+",,Using the AI Assistant (AI Chat Buddy),Made the browser harder to use,9,,"No, just providing feedback",
+ODMMLvY,MezVPJl,2026-01-13 20:42:41,Bug Report,"command: close all the youtube tabs except one
+result: just closed the latest 2 tabs among the 5 youtube tabs
+[Tool Output for close_tab]: Closed: adobe platform videos highest view - YouTube[Tool Output for close_tab]: Closed: adobe platform courses - YouTube
+
+command: close all the youtube tabs except one
+result: closed the latest opened tab which wasn't youtube
+[Tool Output for close_tab]: Closed: Oasis Feedback",,Using the AI Assistant (AI Chat Buddy),It was a minor inconvenience,8,,"No, just providing feedback",
+Ek77J5r,MezVPJl,2026-01-13 20:48:36,Bug Report,"command: create a group called youtube learning and add all the youtube tabs under it
+result: added all the opened tabs instead of just the youtube ones
+
+[Tool Output for create_hub]: Created hub ""youtube learning"" with 15 items.
+
+command: do not add all the tabs, add just the youtube tabs
+result: added all the opened tabs instead of just the youtube ones
+[Tool Output for add_tab_to_hub]: Added 1 tab(s) to hub ""youtube learning"".
+
+command: remove all the tabs under youtube learning except youtube tabs
+result: added all the opened tabs instead of just the youtube ones
+Error: Recursion limit of 16 reached without hitting a stop condition. You can increase the limit by setting the ""recursionLimit"" config key.
+
+Troubleshooting URL: https://langchain-ai.github.io/langgraphjs/troubleshooting/errors/GRAPH_RECURSION_LIMIT/",,Using the AI Assistant (AI Chat Buddy),Made the browser harder to use,8,,"No, just providing feedback",
+q41xByO,D4dOGrj,2026-01-14 21:58:11,Usability / User Experience (UX) concern,The Sign-in menu was hidden behind the Oasis Ai's Navigation bar! It should be visible below the bar!,,Using the AI Assistant (AI Chat Buddy),Felt confusing or unintuitive,6,"The sign-in should be made easier, it was kinda hard to find this option","Yes, I'm open to follow-ups",nithish2@illinois.edu
+RGyXvL4,aQYZg8b,2026-01-14 22:42:28,Bug Report,"I logged out of the AI assistant. I could not enter any commands which is appropriate. I tried to log back in so I clicked on the 3 dots and nothing seemed to happen. Eventually, I accidentally clicked on white space behind the 3 dots and the login screen came up. ",https://storage.tally.so/private/Screen-Shot-2026-01-14-at-4.39.38-PM.png?id=pJDOgJ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKRE9nSiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODQzMDU1MH0.DPv5dIeuXuKWk8c_YXeUGLOssJhLF2n8wWc7KnEc0E0&signature=88ccc506db27522ddeeeffa39fe4672eb3b887c1d59778789902061d7ab09afd,Browsing sites on the Internet,"Made my work slower, Felt confusing or unintuitive",10,"When I click on the 3 dots, menu items or the login screen should pop up where I can see it if I'm not logged in.","Yes, I'm open to follow-ups",lasalettek@yahoo.com
+J94KydJ,lbd8k6X,2026-01-15 4:32:43,Usability / User Experience (UX) concern,"After I run ai commands like ""add this tab to the hub"", the output displays text [Tool Output for add_tab_to_hub], which is unnecessary to the user to see. The user experience would be more elegant if the response came only with natural language that directly addresses the original prompt in a conversational style, for example saying ""Added the selected tab to hub ""ai browsers"".",,Using the AI Assistant (AI Chat Buddy),Felt confusing or unintuitive,10,,"Yes, I'm open to follow-ups",adam@kahana.co
+J94dBYY,D4dG60R,2026-01-15 14:50:25,Bug Report,"Error: Recursion limit of 16 reached without hitting a stop condition. You can increase the limit by setting the ""recursionLimit"" config key.
+
+Troubleshooting URL: https://langchain-ai.github.io/langgraphjs/troubleshooting/errors/GRAPH_RECURSION_LIMIT/",,"Using the AI Assistant (AI Chat Buddy), Browsing sites on the Internet","Felt confusing or unintuitive, Made the browser harder to use",9,,"Yes, I'm open to follow-ups",agrimagupta2425@gmail.com
+68BeBDA,q4Al0Y8,2026-01-15 15:25:06,Performance Issue,"AI command: ""list my hubs""
+Output: ""Error: NetworkError when attempting to fetch resource.""",,Using the AI Assistant (AI Chat Buddy),Felt confusing or unintuitive,9,,"Yes, I'm open to follow-ups",adam@kahana.co
+kdPNA4R,81QXy5r,2026-01-16 0:41:45,Bug Report,"I used the ai command ""create tab group called ""GTM""
+[Tool Output for create_hub]: Created hub ""GTM"" with 0 items.
+open product hunt"" ",https://storage.tally.so/private/Screenshot-2026-01-15-at-6.40.10-PM.png?id=d8xVDq&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4eFZEcSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODUyNDEwOH0.eZ0fCDEw34xvnggFzJ_42z9KXYIZa4YuVBsyXGWBlaI&signature=cc7b0d68d31fa07462369a6ca69fe4818130deb6386fb8f1f05a5072f8cdcd5f,Using the AI Assistant (AI Chat Buddy),Felt confusing or unintuitive,7,,"Yes, I'm open to follow-ups",adam@kahana.co
+EkOx1yq,81QXy5r,2026-01-16 0:42:59,Bug Report,"The Recursion error persists in version 1.0.1 
+
+Error: Recursion limit of 16 reached without hitting a stop condition. You can increase the limit by setting the ""recursionLimit"" config key.
+
+Troubleshooting URL: https://langchain-ai.github.io/langgraphjs/troubleshooting/errors/GRAPH_RECURSION_LIMIT/",https://storage.tally.so/private/Screenshot-2026-01-15-at-6.42.30-PM.png?id=aAYoK9&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFBWW9LOSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODUyNDE4Mn0.ivf0-x79TzVo4F1F7pC9NTor0Fkpzoh-HLmpQus_9kk&signature=cf4d4632289bbdd5b762c17d2cc1170ece4997f7d33b0af0d06c73acc5219ac0,Using the AI Assistant (AI Chat Buddy),Felt confusing or unintuitive,10,,"Yes, I'm open to follow-ups",adam@kahana.co
+KYjV0ak,81QXy5r,2026-01-16 0:46:40,Feature Request,"If someone provides feedback, we can say ""Oasis executed incorrectly"" and return tokens to users as part of a retention policy",,Using the AI Assistant (AI Chat Buddy),It would enhance my experience,8,"Ideally, this could be included within the onboarding flow of the Oasis AI assistant, which would lead to people becoming more focused on the personalization of the browser. ","Yes, I'm open to follow-ups",hritik.chalse03@gmail.com
+5BAlPpE,dW6qGZK,2026-01-17 16:35:29,Bug Report,"I am using Oasis-Packaged-v1.0.1 and am unable to sign in to use the AI assistant. I created an account, and then every time I try to log in nothing happens - it keeps showing ""Please sign in first..."" no matter how many times I log in",https://storage.tally.so/private/Screenshot-2026-01-17-at-10.34.19-AM.png?id=gJAyAP&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImdKQXlBUCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODY2NzczMn0.eykRdK69ioHOSCsShptOem_h7-9kgQABs5ko6k3m9pw&signature=bec729888060120b1b6072d5ae80f3b8328027aa53d77778cbaebaf367d2ce4e,"Setting up and launching, Using the AI Assistant (AI Chat Buddy)","Made my work slower, Made the browser harder to use, Felt confusing or unintuitive",10,,"Yes, I'm open to follow-ups",jgans888@gmail.com
+ODN872M,vGAGjg4,2026-01-17 18:01:33,Bug Report,"After upgrading from a free plan to the $20/month paid plan via https://kahana.co/oasis-pricing, I logged in to the AI assistant and then received a message that ""Usage limit reached (50/50 units). Please upgrade your plan via the menu.""
+
+",https://storage.tally.so/private/Screenshot-2026-01-17-at-12.00.08-PM.png?id=pJVeMy&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKVmVNeSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODY3Mjg5Nn0.NLVgqblN3ivWInA4mLXL0RQuVWNxWsltibzrty1Cko4&signature=bef8f004c33431c2251eebd85b2d81b11e4432b1838c87cce7acd2d8d156a71c,Setting up and launching,Felt confusing or unintuitive,10,"The logic for upgrades and unlocking more ai commands credits needs to be tested more thoroughly by the engineering team, ensuring the logic works with Supabase","Yes, I'm open to follow-ups",adam@kahana.co
+EkO6rLL,pbKd0BB,2026-01-18 18:02:03,Bug Report,"I had a GoogleMail tab group. I asked AI assistant to rename it to GoogleSheets. It was not able to rename it, so I did it manually. I then asked the AI assistant to create a GooglMail tab group. It said it created it but I could not see it. So I asked it to show me the tab groups. It said I had a GoogleMail and GooglMail tab groups.  See screen shot. Note that I don't have a GoogleMail tab since I renamed it to GoogleSheets yet the AI assistant thinks I have one. I asked AI assistant to open GooglMail tab group. It said it opened it but I didn't see anything change. When I looked manually to see what tab groups exist, I did not see GooglMail tab group.",https://storage.tally.so/private/Screen-Shot-2026-01-18-at-11.55.56-AM.png?id=e0LegQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUwTGVnUSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODc1OTMyNX0.6WVl9B9knEYWrhhh4QsdmMYyY6PnJvVYsJ9CtEkjYKo&signature=7bd0fef6cf0cf57f21cf0fc79dbf9adfc4e6c4ac643b5b5796eac6233c5e5fdb,Setting up and launching,"Made my work slower, Made the browser harder to use",10,,"Yes, I'm open to follow-ups",lasalettek@yahoo.com
+ODNEKMR,pbKd0BB,2026-01-18 18:10:40,Feature Request,I created a tab group called GoogleMail. There was another tab open after the tab group. I went to my personal GoogleMail tab and asked AI assistant to put it in my GoogleMail tab group. The AI assistant moved it to the GoogleMail tab group correctly and also moved the position of my personal GoogleMail tab to the rightmost position. There was a tab between my GoogleMail tab group tab and my personal GoogleMail tab which made it look like the tab in between the GoogleMail tab group tab and my personal GoogleMail tab also belonged in the GoogleMail tab group. ,,Setting up and launching,Felt confusing or unintuitive,7,I think the personal GoogleMail tab should have been moved right next to the GoogleMail tab group tab.,"Yes, I'm open to follow-ups",lasalettek@yahoo.com
+68BP0AJ,pbKd0BB,2026-01-18 18:20:08,Bug Report,"I asked AI assistant what is in my GoogleSheets tab group and it said I had nothing in it. As you can see from the screenshot, there are tabs in it.",https://storage.tally.so/private/Screen-Shot-2026-01-18-at-12.18.41-PM.png?id=1NMl6l&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOTWw2bCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODc2MDQxMX0.p4G4AtlNoH7OaMGS6N2oL4pICVgBQbnDEp7Zjfcmtfk&signature=7f767a62e0bbf707925efaceafc3a0c3db165ddbf5c3f76223210227d437034a,Setting up and launching,"Made my work slower, Made the browser harder to use",10,,"No, just providing feedback",
+QKQ4N2G,pbKd0BB,2026-01-18 18:23:25,Bug Report,"I asked AI assistant to open 2026 expenses tab. It said it opened it. As you can see in the screenshot, it opened a new tab (Page Not Found) with GoogleSheets. It did not open my existing 2026 expenses tab.",https://storage.tally.so/private/Screen-Shot-2026-01-18-at-12.21.27-PM.png?id=bYL7Dg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZTDdEZyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODc2MDYwN30.krGmO1q8eqhuXEed_Hi2aOv_p3W0LWNUNCE5QFYgMPY&signature=c78c4911000225c0f2ae4cca5097736bd3fefddf364254971b58d1593267a024,Setting up and launching,Made my work slower,10,,"No, just providing feedback",
+BzReJQ4,pbKd0BB,2026-01-18 18:25:28,Bug Report,"I asked AI assistant to open the Yahoo mail tab. Instead of opening the existing one, I opened a new tab with my yahoo.mail.",https://storage.tally.so/private/Screen-Shot-2026-01-18-at-12.24.11-PM.png?id=M6LblY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik02TGJsWSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODc2MDczMH0.HAub0E_8RHY5Pg3p6VLFV9S2myiSwbBanIMAj8ZlglQ&signature=0c535cd2391732b7f9ece232f336861292c6043aae21de15b33c36be3af3daa2,Browsing sites on the Internet,"Made the browser harder to use, Made my work slower",10,,"No, just providing feedback",
+NpZvGdG,pbKd0BB,2026-01-19 17:23:13,Feature Request,It would be nice if I could add tags to a website which would allow me to search more easily.,,Managing hubs or saved sites,Made my work slower,9,,"No, just providing feedback",
+xXW77z5,obyME51,2026-01-19 19:51:20,Bug Report,"When I am trying to sign up for using the AI assistant, the account is not getting created. It does not reflect any message, nor does it allow me to sign in.",,Using the AI Assistant (AI Chat Buddy),Felt confusing or unintuitive,10,,"Yes, I'm open to follow-ups",aishwaray.shetiya@duke.edu
+1Aaj6WW,QKD08kg,2026-01-20 19:06:18,Bug Report,The sloth default image (empty state image) is not loading in all instances.,https://storage.tally.so/private/Screenshot-2026-01-20-at-1.05.33-PM.png?id=rJ0plv&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKMHBsdiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODkzNTk4MX0.aDZ0MWposXerNJDNbozoIgAz84yOeXhzaXFP35SNmCA&signature=07c2c7244fdd12329d09eabf3019ff56087771c9daef4f7c8c53c473311cc8bd,Using the AI Assistant (AI Chat Buddy),"Felt confusing or unintuitive, It was a minor inconvenience",1,,"Yes, I'm open to follow-ups",adam@kahana.co
+OD2QMrp,xXp0J5v,2026-01-21 21:42:36,Bug Report," Sign-in option not visible , unable to sign in
+",https://storage.tally.so/private/bug1.png?id=Qzv6xY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlF6djZ4WSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTAzMTc1N30.PB8CzPjxWxc03HCOgye79sXauK-ukiBCoAGt7qiMroc&signature=5afb369661ef1c427ff09b75f2796ee96167bfda9f722a112cc2db5d8fd3ffad,Using the AI Assistant (AI Chat Buddy),"Made the browser harder to use, Made my work slower",10,,"Yes, I'm open to follow-ups",example@gmail.com
+kdobDeZ,4481jJk,2026-01-21 22:25:47,Bug Report,I was not able to change my password from the Oasis Assistant for my Kahana account,,Setting up a new password for my account,It was a minor inconvenience,7,,"Yes, I'm open to follow-ups",nithish2@illinois.edu
+kdobD0M,4481jJk,2026-01-21 22:27:42,Usability / User Experience (UX) concern,"As a first time user, it is not obvious to log in to AI assistant, it is difficult to find and how to access it. Once I open it, its difficult to figure out how to sign up in it.",,Setting up and launching,Felt confusing or unintuitive,6,,"Yes, I'm open to follow-ups",nithish2@illinois.edu
+xXqrxDJ,4481jJk,2026-01-21 22:31:40,Feature Request,"I wanted to see the summary of the webpage that I visited, which wasn't happening and the assistant just mentioned the webpage title and was asking me about further details.
+
+My request: open articles about setting up an organization in salesforce
+
+review this and let me know the insights
+
+Oasis AI: 
+I have opened a tab with a Salesforce article titled ""How to Set Up Salesforce: A Step-by-Step Guide"". To give you insights, I need you to give me a moment to review the contents of the webpage. Once I've done that, I'll provide a summary of the key steps and insights from the article.",,Browsing sites on the Internet,"Made my work slower, It was a minor inconvenience",6,,"Yes, I'm open to follow-ups",nithish2@illinois.edu
+2EWX81j,4481jJk,2026-01-21 22:33:30,Bug Report,"My input: open articles about setting up an organization in salesforce
+
+Oasis AI:  in a new tab.
+
+This prompt actually opened a new tab with the article about the salesforce accounts but the AI replied - ""in a new tab."" which was confusing for me",,Browsing sites on the Internet,Felt confusing or unintuitive,4,,"Yes, I'm open to follow-ups",nithish2@illinois.edu
+OD2aDK8,4481jJk,2026-01-21 22:41:07,Feature Request,"I wanted to open an article about uploading an video in youtube, but the AI replied and opened and URL which was not actually a webpage. 
+
+Oasis AI: in a new tab. [The opened URL link - https://www.youtube.com/howyoutubeworks/creators/upload-videos/]",https://storage.tally.so/private/Screenshot-2026-01-21-at-4.40.24-PM.png?id=qJJZQg&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFKSlpRZyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTAzNTI3MH0.oZB18p6NLlQ7vXLJ3nVASTbX-DZ1GPpLNCxMOAtW7eY&signature=0c4aca5180c70dbb9253ccd94c56de11a2eff2d5e00926f790ddc58f0ffc0786,"Using the AI Assistant (AI Chat Buddy), Browsing sites on the Internet","Felt confusing or unintuitive, Made my work slower",9,,"Yes, I'm open to follow-ups",nithish2@illinois.edu
+5B7jrkM,1AlGj8g,2026-01-22 10:20:37,Bug Report,"I asked to close duplicate tabs it closed only one tab and when I asked to close all the duplicate tabs it closed all the tabs 
+
+Error: Recursion limit of 16 reached without hitting a stop condition. You can increase the limit by setting the ""recursionLimit"" config key.
+
+Troubleshooting URL: https://langchain-ai.github.io/langgraphjs/troubleshooting/errors/GRAPH_RECURSION_LIMIT/",,Using the AI Assistant (AI Chat Buddy),Made the browser harder to use,7,,"Yes, I'm open to follow-ups",agrimagupta2425@gmail.com
+0Q9exbZ,XxD1ZMP,2026-01-22 15:04:40,Usability / User Experience (UX) concern,"When typing longer text, the content goes beyond the visible input area rather than wrapping or scrolling, causing readability and UX issue. ",https://storage.tally.so/private/Screenshot-2026-01-22-at-8.30.21-PM.png?id=YJxkz5&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IllKeGt6NSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTA5NDI4NX0.obp_ayTrs1xZrc-I4xRfTsFDWJw-0iO633KABYxJFGg&signature=1182859eb9f047c1837039419e5e0352ebc7d90b75f4faa4f46979daf87ce925,Using the AI Assistant (AI Chat Buddy),It was a minor inconvenience,5,,"Yes, I'm open to follow-ups",agrimagupta2425@gmail.com
+Xxa0l5V,7RWa4eR,2026-01-22 17:15:43,Feature Request,"After minimizing the chat by clicking the minimize button, clicking it again has no effect. It would be great if clicking it again restored the chat to its original size.",,Using the AI Assistant (AI Chat Buddy),It was a minor inconvenience,6,,"No, just providing feedback",
+GxGl65Q,eq600bk,2026-01-22 17:30:00,Feature Request,"As I start my workday as a worker with 37+ tabs open upon launching the Oasis Browser, the day feels overhwelming. I think about what tasks I want to do first. I begin my day by checking my email and meetings for the day on Calendar. Then, I look at all my open tabs and feel daunted by the lack of organization. The first command I try to do to resolve this is ""close all duplicate tabs""
+
+AI response: ""I've closed all duplicate tabs for you.""
+
+However, I still saw similar tabs still open such as: 
+1. https://us05web.zoom.us/postattendee?mn=22P_K-DiY6HOoqWkYddHu01flIYmBXoHCpea.lfRgizEwPiZGoJZ3
+2. https://us05web.zoom.us/postattendee?mn=b38vkvX3r3S3ECj6WUdP4yUNsQ0V5Ci-XZNJ.vRwc2lQvqLxV6Fm8
+
+Then I used the command ""close all tabs for Zoom""
+
+AI response: ""I've closed all tabs related to Zoom.""
+
+However, not all tabs that begin with ""https://us05web.zoom.us"" were closed after doing that command",https://storage.tally.so/private/Screenshot-2026-01-22-at-11.27.28-AM.png?id=NbRN5l&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iUk41bCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwMzAwMX0._sNSNX8xPTTZNqiSBfxlkI-gnhW9uukPp6sFFxygsfw&signature=d323dd8c375c520ae8f8c8c42b21ff12fee079de1d9f61b6481c7b38ac1bf90d,Using the AI Assistant (AI Chat Buddy),Made my work slower,7,"There seems to already be an existing ""Close all duplicate tabs"" command in Firefox itself. It may be possible to leverage this","Yes, I'm open to follow-ups",adam@kahana.co
+b5pdjNZ,eq600bk,2026-01-22 17:38:15,Feature Request,"As a worker starting his day with 37+ tabs open, I wish I could easily use the ai assistant and command it to ""organize my tabs into groups based on context."" 
+
+For example, I want to be able to say something like ""I have multiple tabs open relating to AWS, Deepgram, Lambda functions, and Supabase. Create a group for these.""
+
+I want the result of that command to be the following: the browser creates a new tab group with tabs related to AWS, Deepgram, Lambda Functoins, and Supabse inside of it.
+
+Currently, the behavior is the following: a new tab group named ""AWS, Deepgram, Lambda, Supabase"" is created with one tab (the Oasis Feedback tab) saved in it. ",https://storage.tally.so/private/Screenshot-2026-01-22-at-11.31.35-AM.png?id=EZNV8l&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaTlY4bCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwMzQ5Nn0.bRo8VyGQOkR0G9_K4kJmDN2hmcPVRAJHVm6A4qGARmk&signature=112352375738d4577df0e11f9f4104986110b2d5659a67eb82afc50f1ee83c18,Using the AI Assistant (AI Chat Buddy),Made my work slower,7,"There is already a feature in firefox called ""suggest more of my tabs"". It is available when you manually create a tab group by clicking and dragging tabs on top of each other. If you click ""suggest more of my tabs"", the browser analyzes the tabs you have open and suggests more to be added ot the group, and it also suggests a contextual name for the tab group. ","Yes, I'm open to follow-ups",adam@kahana.co
+5B7xd7d,xXpRog5,2026-01-22 18:06:56,Automatic software updates,"As an Oasis user, rather than receive new software updates by manually installing a new version through a file on the kahana.co/installations page, I would prefer to receive notifications within Oasis itself where I can follow the notification to a ""software update"" page similar to the UI of Apple System settings, where I can check if new software updates are available and actually click an Update button to update my software, and/or turn on Automatic software updates. ",https://storage.tally.so/private/Screenshot-2026-01-22-at-12.05.22-PM.png?id=rJkMyp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKa015cCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTIxOH0.NTmCc8VtMpUIj7E6umxXQMqtydAJAD5BTXecUOoo2-k&signature=34299a9179a06127cc230c092e18d21875a00a9e325e67c33f6d3eb17db2f6d8,Setting up and launching,"Made my work slower, Made the browser harder to use",9,,"Yes, I'm open to follow-ups",adam@kahana.co
+PdxOEY5,xXpRog5,2026-01-22 18:09:22,Usability / User Experience (UX) concern,"When I ""turn on vertical tabs"" as a new user, I see a purple popup with the firefox logo and a cartoon fox. This is not on-brand for Oasis and seems confusing and buggy. It would make sense to swap the firefox portions of the popup and modify the pop up so it is on-brand with Oasis",https://storage.tally.so/private/Screenshot-2026-01-22-at-12.07.48-PM.png?id=pJkpy1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKa3B5MSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTM2NH0.hGh4YjifQ96MGhKw8dEfLBBNP7VizfxUZnWcOaJkgQc&signature=1a50fb17952fec483e7c72b09629954ed0a8b93c3ce45072cd9be04b76dddb54,Setting up and launching,Felt confusing or unintuitive,8,,"Yes, I'm open to follow-ups",adam@kahana.co
+Bzy7Bj5,xXpRog5,2026-01-22 18:14:41,Usability / User Experience (UX) concern,"As a first-time Oasis user, when I install and open the browser for the first time, I see a Firefox privacy policy tab open https://www.mozilla.org/en-US/privacy/firefox/
+
+This is confusing because I would expect to see the ""new tab"" page for Oasis or the Kahana privacy policy instead https://kahana.co/privacy-policy",https://storage.tally.so/private/Screenshot-2026-01-22-at-12.13.15-PM.png?id=GqQAoj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxUUFvaiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTY4Mn0.5OzFjPRZVDMaKYkJGtwKEcTz4K9we1U2ZSlWDKWHSXk&signature=cfc9ccdfca6548993adc659512d9557b285cb2b23d91ea3268f8f27a351ce009,Setting up and launching,Felt confusing or unintuitive,10,,"Yes, I'm open to follow-ups",adam@kahana.co
+xXqY2aJ,xXpRog5,2026-01-22 18:17:46,Feature Request,"As an early Oasis user, I expect to be able to access previous AI Assistant chat threads (conversation history) and/or get a clear answer about AI Assistant history works and what I should expect. 
+
+""how is our ai assistant chat history handled? Can I access previous chats from other days?""
+
+Current AI response: ""I can access the complete conversation history within our current interaction. However, I don't have the ability to access previous chats from other days. My memory is limited to the current session.""",https://storage.tally.so/private/Screenshot-2026-01-22-at-12.16.37-PM.png?id=zG15bZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpHMTViWiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTg2N30.jCeih9O-1CfQfCzVYxkYOYKWKkB3g1md-QWx8pMzyZo&signature=ae16daaae6b282cff1d9399c6855a155d447334b6e2a49b0a3743ad741962eb0,Using the AI Assistant (AI Chat Buddy),Felt confusing or unintuitive,7,,"Yes, I'm open to follow-ups",adam@kahana.co
+jaRPLRY,xXpRog5,2026-01-22 18:20:40,Gemini Model Migration,"Google recently announced 
+
+""We’re discontinuing Gemini 2.0 models on AIS.
+ 
+
+Hello Adam,
+
+We're writing to inform you that as we continue to make significant model improvements with our Gemini models, we are discontinuing the following GA models on Gemini API and Google AI Studio (AIS) on March 31, 2026:
+
+    Gemini 2.0 Flash
+    Gemini 2.0 Flash Lite
+
+We understand that making this change may require some planning and have provided additional information below to help you with the transition.
+What you need to know
+
+Key changes:
+
+On March 31, 2026, we’re discontinuing the following Gemini 2.0 models:
+Model / Endpoint type 	Name / ID 	Availability 	Required action
+Gemini 2.0 Flash 	gemini-2.0-flash gemini-2.0-flash-001 	Will be shut down on this date 	Migrate to a supported Gemini model (e.g., 2.5 Flash, 2.5 Flash Lite).
+Gemini 2.0 Flash Lite 	gemini-2.0-flash-lite gemini-2.0-flash-lite-001 	Will be shut down on this date 	Migrate to a supported Gemini model (e.g., 2.5 Flash Lite).
+
+Impacted projects:
+
+Your affected projects are listed below:
+
+    oasis-browser-469518
+
+We’re here to help
+
+If you have any questions or need help, please check our product documentation or visit the Gemini AI community.
+
+Thanks for choosing Google AI Studio and Gemini API.
+
+– The Gemini Team",,Checking my email,"If we don't proprly address the Gemini change from Google, it could cause the AI assistant to stop working universally",10,,"Yes, I'm open to follow-ups",adam@kahana.co
+2EWPvvA,xXpRog5,2026-01-22 18:23:03,Usability / User Experience (UX) concern,"As a new user, when I click the ""tabs from other devices"" button, I see a Firefox branded interface and link to log into my Mozilla account. This is confusing.
+
+There should be no option to click the ""tabs from other devices"" button. It should be hidden to avoid confusion",https://storage.tally.so/private/Screenshot-2026-01-22-at-12.21.34-PM.png?id=xRl555&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSbDU1NSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNjE4NX0.G8XN6JYVyVMeTbnB2b9XMMpgUYGF4RVL9KlNtdu3Xgg&signature=f9d7983e7015b11e5584b4ad173940052bc84f87ec10933d857bf3865995fc6b,Setting up and launching,Felt confusing or unintuitive,8,,"Yes, I'm open to follow-ups",adam@kahana.co
+rj4PdO2,xXpRog5,2026-01-22 18:26:56,Feature Request,"When I initially install Oasis, the AI assistant isn't immediately open by default. I have to search for it and don't know where to open it. By default, the AI assistant should always be open and displayed when the browser is initially installed and whenever it is loaded.",,Setting up and launching,Made the browser harder to use,10,,"Yes, I'm open to follow-ups",adam@kahana.co
+Me4RJ4M,xXpRog5,2026-01-22 18:30:12,Usability / User Experience (UX) concern,"When a user installs Oasis for the first time, there should be an option to import data from chrome/safari and other browsers immediately in the onboarding flow. The user should know that it is possible to import immediately and be able to easily take action. ",https://storage.tally.so/private/Screenshot-2026-01-22-at-12.29.46-PM.png?id=Bj2R71&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJqMlI3MSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNjYxNX0.__rJRjYu7WImp-45-L-ZrXfXlL6erlULqlTdpepwdoA&signature=feaa1fa4a1ba1fbcd4ba89dd43c1b1f8d099d2f513f172e484d0271ed1c1c0f9,Setting up and launching,"Made the browser harder to use, Made my work slower",10,,"Yes, I'm open to follow-ups",adam@kahana.co
+Bzy7bq4,xXpRog5,2026-01-22 18:34:18,Feature Request,"As a new Oasis user, I would appreciate it if I could setup good default preferences when I initially install Oasis. For example, when i click the ""settings"" option, I see multiple good defaults taht I have to manually turn on, but I wish they were automatically on when i install
+
+These are:
+
+Ctrl+Tab cycles through tabs in recently used order
+Open links in tabs instead of new windows
+Open links from apps next to your active tab
+Warn you when opening multiple tabs might slow down Oasis
+When you open a link, image or media in a new tab, switch to it immediately
+Ask before closing multiple tabs
+Browser Layout
+Horizontal tabs
+Display at top of browser
+Vertical tabs
+Display on the side, in the sidebar
+Show sidebar
+Quickly access bookmarks, tabs from your phone, AI chatbots, and more without leaving your main view.
+",https://storage.tally.so/private/Screenshot-2026-01-22-at-12.33.29-PM.png?id=NbRZYj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iUlpZaiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNjg1OX0.aAR5p5BoqJmXDJf_V2u_LGAbmyRxtFtL0LBBcw6dXVs&signature=60bc609e3c8c542ef567b65039e5a6931f5848650e31b853d5fc175a799e7176,Setting up and launching,It was a minor inconvenience,6,,"Yes, I'm open to follow-ups",adam@kahana.co
+xXqY1vJ,eq600bk,2026-01-22 19:30:45,Feature Request,"if I saved an article about Apple’s latest tech in one of my
+tab groups, I can simply ask Oasis: “Find my Apple article.” In seconds, the AI Assistant searches through all my saved tab groups and pulls up the exact page I need. It’s like having a super-smart librarian for all your web content.
+",https://storage.tally.so/private/Screenshot-2026-01-22-at-1.26.14-PM.png?id=KWa9EM&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IktXYTlFTSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExMDI0OH0.h0NLlFZCog53Gp384zaoAlC3GcdHFX8K2z_8y_nWoSg&signature=2d8526b6b1f5110951c8971f25b030170f31e8da71b7db6b4746153867c75406,Browsing sites on the Internet,Made my work slower,8,,"Yes, I'm open to follow-ups",adam@kahana.co
+QKZVWp1,eq600bk,2026-01-22 19:31:37,Feature Request,"I’d like to request a new Oasis feature called Semantic History Search.
+Problem
+
+    Users often struggle to find pages they know they visited before, especially when they can’t remember exact titles, URLs, or specific keywords.
+
+    People tend to remember the idea or context of what they saw (“that article about beginner investing” or “the recipe with lemon and garlic”) rather than precise page names.
+
+    As a result, digging through history or trying multiple vague searches can be slow, frustrating, and sometimes unsuccessful.
+
+Desired user experience
+
+    Users can type natural, fuzzy descriptions of what they remember (topics, purposes, or rough phrases) and quickly see the most relevant past pages surface from their history.
+
+    The history search should feel like asking “Show me that site I used to compare HDMI monitors” instead of having to recall the exact site name or words in its title.
+
+    This makes Oasis feel more like a true personal memory assistant for the web, helping users easily return to important research, tools, and resources—even when their memory of the specifics is incomplete.
+",,"Browsing sites on the Internet, Managing hubs or saved sites",Made my work slower,10,There is already a semantic search capability in firefox which can be a reference: https://connect.mozilla.org/t5/discussions/try-out-the-new-semantic-history-search-feature-and-share/m-p/99835,"Yes, I'm open to follow-ups",adam@kahana.co
+XxaWDBj,xXpRog5,2026-01-22 21:30:42,Feature Request,"As a user, I want to be able to use an ai command that triggers the new existing ""splitview"" (Add splitview) feature in Oasis. Firefox introduced a ""splitview"" feature to see two tabs side by side. I want to be able to control that feature and use it through the AI assistant.
+
+In the past, we created a ""splitview"" command that opens the tabs in two new windows which are in a splitview, so that functionality should be called something else. ""Splitview"" commands should pertain to the existing splitview functionality that is native to firefox, where two tabs are arranged in a splitview within the same window",https://storage.tally.so/private/Screenshot-2026-01-22-at-3.27.25-PM.png?id=1NpZ8W&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFOcFo4VyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExNzQ0NX0.BonC49LjrWP1wPg1dVy9BW6doK7AQEeV-ihZICciuj4&signature=42fea6b90fee1dc3c64efbc1afc2d17761d28a1c319cd8996f7e5cc6f2a0d7bb,Managing hubs or saved sites,It would enhance my experience and ability to get work done,10,,"Yes, I'm open to follow-ups",adam@kahana.co
+7RA2oJA,xXpRog5,2026-01-22 21:51:21,Bug Report,"I’d like to request a new Oasis feature to make managing too many tabs much easier using tab groups.
+
+A common scenario: there are a dozen tabs open for a single project—news articles, references, emails—and everything quickly becomes unwieldy. With this feature, Oasis would let users say something like, “Add all tabs to Research tab group,” and every open tab would be saved into a tab group called “Research” for later. All those pages would be neatly organized in one place, so the user can close the on-screen clutter with confidence. Later, they could reopen that tab group and have everything restored just as they left it.",https://storage.tally.so/private/Screenshot-2026-01-22-at-3.49.08-PM.png?id=vJKjV4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZKS2pWNCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExODY4NH0.QZyZKM8fy6EBRr5sXdhAK2ft93hXHejB5EAy06F8Ecs&signature=437ca53e87e55feb2cdf531fbe8bfe7ac445c0c1b5774a02d1994374ebe349e3,Managing hubs or saved sites,Made my work slower,10,,"Yes, I'm open to follow-ups",adam@kahana.co
+kdo5KLo,xXpRog5,2026-01-23 18:50:24,Bug Report,"User command: ""find Oasis Pricing""
+
+AI output: ""No matches found for ""Oasis Pricing"".
+
+[Tool Output for search_internet]: ```tool_code
+from serpapi import GoogleSearch
+
+params = {
+    ""engine"": ""google"",
+    ""q"": ""Oasis Pricing"",
+    ""api_key"": ""5f8f9a042b39b715e3c968b8191431c68b5131329699c7f7165f9f615d414601""
+}
+
+search = GoogleSearch(params)
+results = search.get_dict()
+print(results)
+```""
+",https://storage.tally.so/private/Screenshot-2026-01-23-at-12.49.53-PM.png?id=VbNNr6&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiTk5yNiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTE5NDIyNn0.Ij7oSH9cTL9JuNRj3SKrgXAewUqPE2NY3JZeJjfsrOM&signature=a786f6d2f5dffe651aed708535aacada44d628953b80a6bfa4eefe87ea6a2b2e,"Using the AI Assistant (AI Chat Buddy), Managing hubs or saved sites",Felt confusing or unintuitive,10,,"Yes, I'm open to follow-ups",adam@kahana.co
+rj42xGN,oby17LM,2026-01-24 20:40:44,Usability / User Experience (UX) concern,"As a new Oasis user setting up a New Profile, it was confusing to see a Firefox Branded image popup upon entering the new profile i created",https://storage.tally.so/private/Screenshot-2026-01-24-at-2.39.44-PM.png?id=EZa4Z4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaYTRaNCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTI4NzI0Nn0.aCfmdfDYUQ3xHHY3j9Y-dO7Qpp0ZYUXVsd1ehDZlFYQ&signature=43dd7b8de08820b0b574908e152d8735c2ca013ea9b78364004e8c301e431f07,Setting up and launching,Felt confusing or unintuitive,6,,"Yes, I'm open to follow-ups",adam@kahana.co
+RGNvdo9,oby17LM,2026-01-24 21:18:01,Bug Report,"As a user, I want to be able to use the AI assistant to rename tab groups and get a list of tabs that are saved within a tab group. Here is an example of my dialogue with the AI assistant, and what went wrong:
+
+Ai command thread:
+
+User: ""Create a tab group ""Sprints""
+AI: ""Created hub ""Sprints"" with 0 items.""
+User: ""add this tab to the tab group""
+AI: ""Added 1 tab(s) to hub ""Sprints"".""
+User: ""list my tab groups""
+AI: ""- Sprints (1)""
+User: ""Rename the tab group ""Sprint Planning""""
+AI: "".""
+
+User: ""what is in my Sprints Tab group""
+
+AI: "".""
+
+",https://storage.tally.so/private/Screenshot-2026-01-24-at-3.15.09-PM.png?id=pJZjAE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKWmpBRSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTI4OTQ4M30.QyemEYSpascwbMvgLIA0vn_3qzcXkoL-GJaeqFPk9d4&signature=c6757647fecacd7b07514f44cdedc0cbac397a370dcff174156fdd03e0d849ee,"Using the AI Assistant (AI Chat Buddy), Managing hubs or saved sites","Felt confusing or unintuitive, Made my work slower",10,,"Yes, I'm open to follow-ups",adam@kahana.co
+b5pKjkZ,oby17LM,2026-01-24 21:25:35,Bug Report,"As a user, I want to be able to create a new tab group and add an open tab to it with a single compound command. Here is an example of my dialogue and attempt to do this:
+
+User: ""Create a new tab group called ""Email"" and add my Gmail tab to it""
+AI: ""Created hub ""Email"" with 0 items.""
+
+""[Tool Output for add_tab_to_hub]: Added 1 tab(s) to hub ""Email"".""
+
+The outcome was 1/2 correct. A new tab group called ""Email"" was created, however, the wrong tab was added to it. My open Gmail tab was not added to it.
+",https://storage.tally.so/private/Screenshot-2026-01-24-at-3.23.17-PM.png?id=JeBaXr&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkplQmFYciIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTI4OTkzN30.ABGGBUtl3Vo4ADF2rDpS5reAlnWM7QVZ1puzHb5d36g&signature=8f922ec462cadd09545180cb12f4b36b1263eb184e1cbf780fdbd9d7b341edfa,"Using the AI Assistant (AI Chat Buddy), Managing hubs or saved sites","Made my work slower, Felt confusing or unintuitive",10,,"Yes, I'm open to follow-ups",adam@kahana.co
+VLevPEv,oby17LM,2026-01-24 21:30:40,Bug Report,"As a user, I want to be able to use the AI Assistant to ""close"" a tab group or close open tabs. Here is an example of a dialogue between me and the AI Assistant:
+
+User: ""Close my Email tab group""
+AI: ""Deleted hub ""Email"" (1 items removed).""
+
+First of all, I didn't want it to delete the tab group. It ultimately did not delete the tab group or close the tab group. 
+",https://storage.tally.so/private/Screenshot-2026-01-24-at-3.29.51-PM.png?id=bYABDL&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZQUJETCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTI5MDI0Mn0.-BpxhVTnZHHZ491BX9rUZv6flqqYOVM6P2T6keDqrwM&signature=8a0306805fa11d2dba1b43c7cbbb081ef3cd4d9daf210788e7694b1af07d223d,"Using the AI Assistant (AI Chat Buddy), Managing hubs or saved sites","Made my work slower, Felt confusing or unintuitive",10,,"Yes, I'm open to follow-ups",adam@kahana.co
+446ylgO,LZb2K7y,2026-01-26 17:05:49,Performance Issue,"Did not close all tabs but the current one when asked to do so.
+
+Removed URL from hub ""research"" and ungrouped any matching tabs.
+
+[Tool Output for close_all_tabs_except_hub]: Closed all tabs except for those in hub ""research""",,"Browsing sites on the Internet, Managing hubs or saved sites",It was a minor inconvenience,8,,"Yes, I'm open to follow-ups",muneeb.mohammad.16@gmail.com
+XxakaYd,Pd6qzx1,2026-01-26 17:15:12,Bug Report,"there's no way to minimize the assistant window back to the original size, the size in which it opens for the first time. either it minimizes to the tiny rectangle window or maximizes to the full width size. there's no option to resize the window horizontally or vertically too. 
+
+In the minimized version, the input area should always be visible, as a user I shouldn't need to maximize and then enter text",,Using the AI Assistant (AI Chat Buddy),"Made my work slower, Made the browser harder to use, Felt confusing or unintuitive",10,,"No, just providing feedback",
+KYEZEqK,Pd6qzx1,2026-01-26 17:17:38,Feature Request,"as a user i should be able to add feedback within the assistant. navigating me to a separate tab to log in feedback is time consuming, especially if I'm logging feedback multiple times.",https://storage.tally.so/private/Screenshot-2026-01-26-at-12.16.49-PM.png?id=49dOxO&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5ZE94TyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTQ0Nzg2MH0.GAtQ4LKl0aaRjdYdWY3-e3vdmwwCSPPF1lz-zCMFtB0&signature=2be3c4cd72469112ae5a2b2bd5609234c346ded7c89847fbfb478880e7515c07,logging feedback,"Made my work slower, Felt confusing or unintuitive",10,,"No, just providing feedback",
+xXq1KPk,Pd6qzx1,2026-01-26 17:26:51,Performance Issue,"this minimized version of the assistant doesn't help much, need to improve this design since there's no way to add input, the input area is hidden behind the top bar, the menu options are not visible either. improve the elevation hierarchy of all the elements. ",https://storage.tally.so/private/Screenshot-2026-01-26-at-12.24.39-PM.png?id=49dOdY&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5ZE9kWSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTQ0ODQxM30.S-GQoF_g646tFHrYxwCRe2msJbXCXCjllMrKmbyS6iU&signature=c58883757656892ecbf4e8b437129bb0dcad607ad10f9c2c4cb061b9df5f772a,Using the AI Assistant (AI Chat Buddy),Made the browser harder to use,10,,"No, just providing feedback",
+D48PgkR,Pd6qzx1,2026-01-26 17:29:25,Bug Report,"when you maximize the ai assistant and if it is snapped to right corner, the assistant window extends outside the viewport, as a user I have to take an extra step to move it back in the view port. ",https://storage.tally.so/private/Screenshot-2026-01-26-at-12.28.57-PM.png?id=7a5EQ9&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdhNUVROSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTQ0ODU2N30.YUq1NYfRbj36JIqNqH6Idab0uDV16x2VSbuijS7QUf8&signature=a418b5af626b3800a5e7b050521883445d124a44117bf3d83d52fcc29fe52910,Using the AI Assistant (AI Chat Buddy),"Made my work slower, Made the browser harder to use, Felt confusing or unintuitive",10,,"No, just providing feedback",
+zx9RN0M,BzXRD8N,2026-01-26 17:53:48,Usability / User Experience (UX) concern,"in the voice dictation mode, following are some ux improvements I suggest:
+
+there are too many buttons causing confusion. the correct and wrong icon buttons can be removed. 
+
+the close button does not work, instead it could be removed and simply the mic icon can be changed to pause button and instead of the correct icon, simply hitting the stop button should display the text. 
+
+when I click on the mic icon to start dictating, it takes a while to display the sound bars which makes me think it's taking longer for it to load, instead it should load instantly so i can start dictating immediately. ",https://storage.tally.so/private/Screenshot-2026-01-26-at-12.36.58-PM.png?id=WKdZPa&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IldLZFpQYSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTQ1MDAzMX0.MmJ655PtdUjtZLKkPS6JmB9NNhGods6tK_1BUhpHkM4&signature=f6be6ccd290fc6d7addcde317fd67e27cde4b512f98bf90b769249dba64b98c8,Using the AI Assistant (AI Chat Buddy),"Made my work slower, Felt confusing or unintuitive",10,,"No, just providing feedback",
+EkRrl5B,BzXRD8N,2026-01-26 17:59:22,Bug Report,"when i gave the command to open tabs in split view, it gave me this error. another instance where I gave the same command, it opened the 3 new tabs, each in separate window, and then arranged the windows instead of tabs in splitview. also the ai assistant chat went away. as a user, i'm curious in which window will it display, if I'll lose my chat history in it.  it's counter intuitive to expect users to again find where the assistant window went after the split view action. 
+
+lastly, the split view should make use of firefox split tabs feature. ",https://storage.tally.so/private/Screenshot-2026-01-26-at-12.55.30-PM.png?id=lYZgLv&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImxZWmdMdiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTQ1MDM2NX0.DRxq4agnRPOeX39Q3C95fCfkYXl5TV4g1Rj4V4lyuf4&signature=a12f07c0d22c34ea9d3f4a822c47abdc2a7ce1433916a14c6af861acaa2ac2a7,"Browsing sites on the Internet, Using the AI Assistant (AI Chat Buddy)","Made my work slower, Made the browser harder to use, Felt confusing or unintuitive",10,,"No, just providing feedback",
+dWMypgz,QKDLA6X,2026-01-27 16:10:11,Bug Report,"User: ""can we rename ""Videos"" to ""Images"""" (referring to a tab group)
+
+AI assistant: I encountered an error when trying to rename the ""Videos"" tab group to ""Images"". I was unable to complete your request.",https://storage.tally.so/private/Screenshot-2026-01-27-at-10.09.37-AM.png?id=JeZkjr&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkplWmtqciIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTUzMDIxMn0.iRN9dWgFxjIHNn4wiKKn_4LdEJajVk8nNAd6wcTJF3w&signature=5aa846dbfd442d840e0723ca90ceaf051c38cc85a977f28aa847958f5c3241bd,Using the AI Assistant (AI Chat Buddy),Made my work slower,7,,"Yes, I'm open to follow-ups",adam@kahana.co
+J9P4bBJ,oby17LM,2026-01-27 16:22:56,Bug Report,"The formatting of the AI response includes unnecessary asterisks and looks weird.
+
+User: ""explain how to make coffee with a french press
+AI response: ""Okay, here's how to make coffee using a French press:
+
+**What you'll need:**
+
+*   French press
+*   Coffee beans (coarsely ground)
+*   Hot water (just off the boil, around 200°F or 93°C)
+*   Kettle
+*   Spoon or stirring utensil
+*   Timer (optional, but helpful)
+*   Scale (optional, for precise measurements)
+
+**Instructions:**
+
+1.  **Heat Water:** Heat water in your kettle to just below boiling (around 200°F or 93°C). If you don't have a temperature-controlled kettle, bring it to a boil and then let it sit for about a minute.
+
+2.  **Grind Coffee:** Grind your coffee beans to a coarse grind. It should resemble coarse sea salt. A burr grinder is recommended for a consistent grind.
+
+3.  **Preheat French Press (Optional):** Preheat the French press by rinsing it with hot water. This helps maintain the water temperature during brewing. Discard the water.
+
+4.  **Add Coffee Grounds:** Add the ground coffee to the French press. A general guideline is a 1:15 coffee-to-water ratio (e.g., 1 gram of coffee for every 15 grams of water). A common starting point is about 2 tablespoons of coffee per 6 ounces of water. Adjust to your taste.
+
+5.  **Bloom the Coffee:** Pour a small amount of the hot water over the grounds, just enough to saturate them (about twice the amount of coffee). Let it sit for about 30 seconds. This is called the ""bloom,"" and it allows the coffee to degas, releasing trapped carbon dioxide.
+
+6.  **Pour Remaining Water:** Slowly pour the remaining hot water over the grounds, filling the French press to the desired level.
+
+7.  **Stir Gently:** Gently stir the coffee and water mixture to ensure all the grounds are saturated.
+
+8.  **Place Lid and Plunger:** Place the lid on the French press with the plunger in the raised (up) position. Do *not* press the plunger down yet.
+
+9.  **Brew:** Let the coffee brew for 4 minutes.
+
+10. **Press the Plunger:** Slowly and gently press the plunger down. Avoid pressing too quickly or forcing it, as this can result in sediment in your coffee. Press until the plunger reaches the bottom.
+
+11. **Serve Immediately:** Pour the coffee immediately into your cup or a serving carafe. Leaving the coffee in the French press after pressing will result in over-extraction and a bitter taste.
+
+12. **Clean:** Clean the French press thoroughly after use.
+
+**Tips for Better French Press Coffee:**
+
+*   **Use Freshly Roasted Beans:** Freshly roasted beans will provide the best flavor.
+*   **Use Filtered Water:** Filtered water will improve the taste of your coffee.
+*   **Experiment with Grind Size:** Adjust the grind size to find what works best for your taste. If the coffee tastes bitter, try a coarser grind. If it tastes weak, try a finer grind.
+*   **Adjust Brewing Time:** Adjust the brewing time to your preference.
+*   **Clean Your French Press Regularly:** A clean French press will ensure the best flavor.
+
+Enjoy your coffee!""
+
+User: ""what is photosynthesis""
+
+AI response: ""Photosynthesis is the process by which plants, algae, and some bacteria convert light energy into chemical energy in the form of glucose (sugar). This process uses water and carbon dioxide, and releases oxygen as a byproduct.
+
+Here's a breakdown of the key components:
+
+*   **Light Energy:** Photosynthesis requires light, typically from the sun. This light energy is absorbed by pigments, most notably chlorophyll.
+*   **Chlorophyll:** This is the green pigment found in plants and algae that absorbs light energy. It's located in organelles called chloroplasts within plant cells.
+*   **Carbon Dioxide (CO2):** Plants take in carbon dioxide from the atmosphere through small pores on their leaves called stomata.
+*   **Water (H2O):** Plants absorb water from the soil through their roots.
+*   **Glucose (C6H12O6):** This is a sugar molecule that serves as the primary source of energy for the plant. It's created during photosynthesis.
+*   **Oxygen (O2):** Oxygen is released as a byproduct of photosynthesis. This is the oxygen that we breathe!
+
+**The overall equation for photosynthesis is:**
+
+6CO2 + 6H2O + Light Energy → C6H12O6 + 6O2
+
+**In simpler terms:**
+
+Carbon dioxide + Water + Light Energy → Glucose + Oxygen
+
+**The process of photosynthesis can be divided into two main stages:**
+
+1.  **Light-Dependent Reactions (Light Reactions):** These reactions occur in the thylakoid membranes within the chloroplasts. Light energy is absorbed by chlorophyll and used to split water molecules into hydrogen ions, electrons, and oxygen. The energy from light is also used to create ATP (adenosine triphosphate) and NADPH, which are energy-carrying molecules. Oxygen is released as a byproduct.
+
+2.  **Light-Independent Reactions (Calvin Cycle or Dark Reactions):** These reactions occur in the stroma, the fluid-filled space within the chloroplasts. The ATP and NADPH produced in the light-dependent reactions are used to convert carbon dioxide into glucose. This process doesn't directly require light, but it relies on the products of the light-dependent reactions.
+
+**Why is Photosynthesis Important?**
+
+*   **Primary Energy Source:** Photosynthesis is the foundation of most food chains on Earth. Plants produce their own food through photosynthesis, and animals eat plants (or other animals that eat plants) to obtain energy.
+*   **Oxygen Production:** Photosynthesis is responsible for producing the oxygen in our atmosphere, which is essential for the survival of most living organisms.
+*   **Carbon Dioxide Removal:** Photosynthesis removes carbon dioxide from the atmosphere, helping to regulate the Earth's climate. Carbon dioxide is a greenhouse gas, and excessive amounts can contribute to global warming.
+
+In summary, photosynthesis is a vital process that sustains life on Earth by converting light energy into chemical energy, producing oxygen, and removing carbon dioxide from the atmosphere.""
+
+",https://storage.tally.so/private/Screenshot-2026-01-27-at-10.22.27-AM.png?id=pJ606Z&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKNjA2WiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTUzMDk3OH0.3TfpN5mSBtPo7baHHqaKeLDxE8cj4XOJEXkIUXJVUTo&signature=8bd38329b4acd0f86ed2df96af309a8139811d15b44241500ff05f8f8f4a5e0b,Using the AI Assistant (AI Chat Buddy),Felt confusing or unintuitive,10,,"Yes, I'm open to follow-ups",adam@kahana.co
+obq6YYP,68d8QPY,2026-01-28 18:22:55,Bug Report,"I requested the agent to summarize the page - however in all cases (1. incomplete scrolling through the tab/page opened & 2. complete scrolling of the tab/page opened) , however no matter ho many times i repeat the process of scrolling this is what is happening. Agent refuses to register that the page has been scrolled or ""gone through"". tried this for multiple subjects of research.",https://storage.tally.so/private/Screenshot-2026-01-28-132018.png?id=JerWMo&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkplcldNbyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTYyNDU3N30.UZF3Nmv7NfV4BlobtQFMgmokJ61gdWR3C6jGuTIVVOg&signature=240659d5379e9dd7249e4081072366bba35ccc27274e8b5def04d5a0da885c70,Browsing sites on the Internet,"Made my work slower, Felt confusing or unintuitive",6,,"Yes, I'm open to follow-ups",sonaliankolikar@gmail.com
+68gJ6Ge,68d8QPY,2026-01-28 18:31:42,Bug Report,"while creating a shopping ""hub"" , agent failed to group all sites that were related to shopping . Zara is a commercial shopping website and so is hnm but the hub did not group all shopping websites.",https://storage.tally.so/private/Screenshot-2026-01-28-133011.png?id=bYM606&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJZTTYwNiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTYyNTEwM30.xiZU1Jso48MCLQyHxirqR82jXdVNWwbm2NUyRjriOIA&signature=71f715b1e7851d98158c410124d15ff6b64472e6c0f6ef1cb81581a05386a599,"Managing hubs or saved sites, Browsing sites on the Internet, Using the AI Assistant (AI Chat Buddy)","Made my work slower, Felt confusing or unintuitive",7,i think how the agent is scraping data needs to be considered because this could further make creation of accurate hubs confusing,"Yes, I'm open to follow-ups",sonaliankolikar@gmail.com
+obq6jeO,68d8QPY,2026-01-28 18:37:12,Usability / User Experience (UX) concern,While i am typing my command text the text box seems to not have boundaries on the right side so it looks like it is going off the window,https://storage.tally.so/private/Screenshot-2026-01-28-133516.png?id=zGALK1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpHQUxLMSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTYyNTQzM30.heMfy4ngK6Lt8UFNoa6FxPaECV_Pz95oiF3sHr61B9Q&signature=decdf50c66736599b30063666c9b65c453e360c43ee3f5d404daea8e2eaefac9,Browsing sites on the Internet,It was a minor inconvenience,8,,"Yes, I'm open to follow-ups",sonaliankolikar@gmail.com
+LZe1eEl,68d8QPY,2026-01-28 18:45:30,Bug Report,when i gave the instructions to open different pages ( unrelated to the previously opened hub) they got added to the hub unrelated to them.,https://storage.tally.so/private/Screenshot-2026-01-28-134342.png?id=VbaDyy&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlZiYUR5eSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTYyNTkzMX0.vGoY1l_7QgccIRaNrFhUIKN_-n6w58WjPk61oD19xQU&signature=910f14665b0f63006524989492234baa2ec8f317126ec2c146b3c47a7d67ab5a,Browsing sites on the Internet,"It was a minor inconvenience, Made the browser harder to use",7,"i wonder if there is a way to analyze open tabs and see if there are related sites/tabs that need to be added to a preexisting hub and if not, then that hub should be closed down/archived.","Yes, I'm open to follow-ups",sonaliankolikar@gmail.com
+KY9YakM,68d8QPY,2026-01-28 20:40:56,Bug Report,"my prompt was requesting the agent to "" tell me what the tv show the office is all about"" , when i received the response it provided this :
+Found 2 matches:
+1. explain the idea behind the tv show ""the office"" - Google Search ()
+   ""Title: explain the idea behind the tv show ""the office"" - Google Search
+URL: https://www.google.com/...""
+
+2. weather and climates of different places in the world - Google Search ()
+   ""Title: weather and climates of different places in the world - Google Search
+URL: https://www.google..."". 
+
+when i asked why it gave me the second match it explained itself where the flaw in the logic occurs: You asked me to tell you what the TV show ""The Office"" is all about. I searched my history and found two matches that included the words ""the office"":
+
+1.  **explain the idea behind the tv show ""the office"" - Google Search:** This is a search I performed earlier in our conversation, directly related to your question.
+2.  **weather and climates of different places in the world - Google Search:** This match likely occurred because the search results page for weather and climates might contain the words ""office"" somewhere on the page (perhaps in an advertisement, a related search, or a news article snippet). Since I'm just matching keywords in the titles and URLs, it's not a perfect system and can sometimes produce irrelevant results.",,Browsing sites on the Internet,Felt confusing or unintuitive,8,I think this issue is necessary to highlight the importance of the agent being able to generate a context based off of the information it has scraped in from the matches.,"Yes, I'm open to follow-ups",sonaliankolikar@gmail.com
+MeWeyJE,68d8QPY,2026-01-28 21:08:34,Usability / User Experience (UX) concern,"whenever i minimize the window and then try to maximize it to use the agent, it is not the same size that it starts off in and that makes it much harder to use since it ends up taking up a lot of the space on the screen and i cant adjust it either.",,Browsing sites on the Internet,Made the browser harder to use,8,,"Yes, I'm open to follow-ups",sonaliankolikar@gmail.com
+VLKpWQJ,RGzW19p,2026-01-29 1:49:04,Bug Report,"""Don't show this message again"" pop up, click seems disabled.",,Setting up and launching,Felt confusing or unintuitive,2,Either the check in is disabled or the click functionality isnt introduced.,"Yes, I'm open to follow-ups",dvktym@gmail.com
+5BJZkrb,68d8QPY,2026-01-29 18:25:01,Performance Issue,(windows version) this issue is recurring even when i try to start a new topic to research.,https://storage.tally.so/private/Screenshot-2026-01-29-132313.png?id=49lxyb&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ5bHh5YiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTcxMTEwNH0.MIZM2MZUIg7Cjw9uNc0bwgriXDNMP6qRri4ghgg0bC4&signature=b9d0d2c03f299130e1af2dba013f2fbf2dbef96242fb441b688f31e83e7fd709,Browsing sites on the Internet,Felt confusing or unintuitive,9,,"Yes, I'm open to follow-ups",sonaliankolikar@gmail.com
+A7E8AzB,68d8QPY,2026-01-30 18:31:30,Bug Report,( windows user) ,https://storage.tally.so/private/Screenshot-2026-01-30-133030.png?id=zG5Vqk&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpHNVZxayIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTc5Nzg5NH0.EiAYdf_guknVa5HK9l2zZtnsT27CPFiq4pgLwT46SS8&signature=1688bbec9bc869c48ceba1952921b822c347e8d76e5182e687ee193061b664b9,Browsing sites on the Internet,"Made the browser harder to use, Made my work slower",10,,"Yes, I'm open to follow-ups",sonaliankolikar@gmail.com
+PdojLRQ,rjl10Lp,2026-02-04 22:10:25,Bug Report,The profile button next to the extensions button does not work when i try to click on it. I expect it to open a new tab which allows me to enter my details.,,Browsing sites on the Internet,It was a minor inconvenience,9,,"Yes, I'm open to follow-ups",yaseer.meera@duke.edu
+NpzlZz0,PdANyN5,2026-02-05 16:32:42,Usability / User Experience (UX) concern,"When I try to minimize the chat agent, it works correctly. However, when I try to undo the minimization, it does not work.
+
+Steps to reproduce:
+
+1. Click on the chat agent (before signing in).
+2. Click the menu button and select Minimize chat -> this works as expected.
+3. Click the menu button again to undo the minimization.
+",https://storage.tally.so/private/Screenshot-2026-02-05-at-11.23.27.png?id=kkll6d&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImtrbGw2ZCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDMwOTE2NX0.tIZPMh7eqKjqjzVvGNVF4reslpMYCbc7FXPmIq2hDiM&signature=2498f28f1ef36255d073603b737f65140f857aed4e4794d7281c25d69ef59fb7,Using the AI Assistant (AI Chat Buddy),Made the browser harder to use,8,,"Yes, I'm open to follow-ups",lokesh.naik1329@gmail.com
+dW7a7Zq,PdANyN5,2026-02-05 16:42:44,Bug Report,"When I tried to open YouTube and the login page, the system interpreted them as two separate commands. After that, when I tried to open a new link, it executed the previous login command again instead of the new one.
+
+Steps to reproduce:
+
+Prompt: “Open YouTube and the login page.”
+
+Prompt: “Open ESPN” (or any other site).
+
+Actual behavior: The system opens the YouTube login page again.
+
+Expected behavior:
+The system should open the newly requested link (e.g., ESPN) and not repeat the previous command.",https://storage.tally.so/private/Screenshot-2026-02-05-at-11.36.24.png?id=Ooaao7&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik9vYWFvNyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDMwOTc2Nn0.dTLo99I-yulMj6iWVETPtEkY8iSK3NwPSov-xGCWHC0&signature=4b72a040db2db7e54c25b064c5e305b23627e43fc9c93977bea890b6c0f9de30,Browsing sites on the Internet,Made the browser harder to use,8,,"Yes, I'm open to follow-ups",lokesh.naik1329@gmail.com
+GxM9W62,PdANyN5,2026-02-05 16:45:28,Bug Report,"When I open ESPN, the tab opens successfully, but the chat shows an “Internal Server Error” message even though the action completes.",https://storage.tally.so/private/Screenshot-2026-02-05-at-11.43.18.png?id=YxPPLJ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ill4UFBMSiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDMwOTkzMH0.bMKBqSF6CA-AYxebqn9PAN1uefAVeedhrm8ybVuJomE&signature=57f50f9b678cce99e4dce8f408045730599219847fe6db8e9d5d521ad5cf47d5,Browsing sites on the Internet,Felt confusing or unintuitive,8,,"Yes, I'm open to follow-ups",lokesh.naik1329@gmail.com
+rjXODON,PdANyN5,2026-02-05 17:10:50,Bug Report,"When I expand the chat sidebar from the compact toggle view (top-right corner) to the full vertical sidebar on the left, some of my previous chats are missing.
+
+Steps to reproduce:
+
+1. Open the chat using the small toggle in the bottom-right corner.
+2. Verify that previous chats are visible.
+3. Expand the chat into the full vertical sidebar on the left.
+4. Then there will not be any chats visible.",https://storage.tally.so/private/Screenshot-2026-02-05-at-11.46.14.png?id=ENK5Wo&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVOSzVXbyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDMxMTQ1Mn0.zYE8viG2gMtAhRn3CZkpH8An-OfYsJf1JcmgTDT3XpI&signature=cda80279e2ac4b2913d1b143e9616c894fce29e2d09b5cc94f3734171b50c938,Using the AI Assistant (AI Chat Buddy),Made my work slower,9,,"Yes, I'm open to follow-ups",lokesh.naik1329@gmail.com
+ODRXaqY,PdANyN5,2026-02-05 17:17:40,Bug Report,"When I asked to close the tab, it closed and then reopened the same tab.
+
+Prompt: “Close ESPN tab”
+
+UI on screen:
+Thinking…
+Opening tab
+Closing tab
+
+Chat message shown:
+“I’ve opened ESPN and then closed the ESPN tab for you.”",https://storage.tally.so/private/Screenshot-2026-02-05-at-12.15.00.png?id=z1jypE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InoxanlwRSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDMxMTg2Mn0.aY9_jH5Zupv5WN2bja3NDqHmts5h3mcekh2GXQI63Nw&signature=de66241b0014d2a762c14f41fc1f49ce288f8c024d17fe7df68ad4572d146017,Browsing sites on the Internet,Felt confusing or unintuitive,8,,"Yes, I'm open to follow-ups",lokesh.naik1329@gmail.com
+ODRXd5Y,PdANyN5,2026-02-05 18:35:50,Performance Issue,"When I try to close multiple tabs, the command does not execute correctly.
+
+Steps to reproduce:
+
+1. Prompt: “List all the open tabs.”
+2. Prompt: “Can you close 3 tabs of Oasis Feedback and 1 tab of any other tab?”
+
+Actual result:
+The system responds:
+“Okay, I have closed one ‘Oasis Feedback’ tab. I will continue closing the other tabs you requested.”
+
+However, the remaining tabs are not closed.",https://storage.tally.so/private/Screenshot-2026-02-05-at-13.26.20.png?id=L69bWp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikw2OWJXcCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDMxNjU1Mn0.v8PynULkcEUfH_PgIr_GgSu8LxXDq40bsSNXCmgvXXM&signature=e9456979c324a1ee666390cc12748d5acb112b122b4b8484e183fe886d74ee9b,Using the AI Assistant (AI Chat Buddy),Made the browser harder to use,8,,"Yes, I'm open to follow-ups",lokesh.naik1329@gmail.com
+jaKMqd6,68d8QPY,2026-02-06 19:47:07,Bug Report,confusion in the ai with prompts - causing it to bring up unrelated prompt results  ( windows version),https://storage.tally.so/private/Screenshot-2026-02-06-144606.png?id=PGDale&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlBHRGFsZSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDQwNzIzMH0.olHlrL5jdmJajNHt48-6SQdbIwhzAidlE7WPSzxPv-w&signature=86bef991733ca24ccf20a24b3d057642a49c5339f0c7457f9414326de52a61d3,Browsing sites on the Internet,"Made my work slower, Felt confusing or unintuitive",8,,"Yes, I'm open to follow-ups",sonaliankolikar@gmail.com
+XxjNy8P,kdAdYpr,2026-02-09 15:06:27,Usability / User Experience (UX) concern,"The minimized version should have the input area visible at all times. Currently, I only see the header. ",https://storage.tally.so/private/Screenshot-2026-02-09-at-10.05.19-AM.png?id=9oQPGE&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlvUVBHRSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY0OTU5MH0.QwoZsnglSuDFfQowKVj0xzwk2HcEVs4rZ7MM46AMM6o&signature=13f98f9dc98bf4ffca0a95d104fe52c8896a72818248690a0dbb7d10149b256b,Using the AI Assistant (AI Chat Buddy),"Made the browser harder to use, Made my work slower, Felt confusing or unintuitive",10,,"No, just providing feedback",
+0Q4Ayqy,kdAdYpr,2026-02-09 15:11:35,Performance Issue,"Waveform should be input-reactive, not a looped animation. Animate on detected speech + amplitude; idle on silence.
+
+Right now the waveform animation is basically “always on,” so it reads as decorative and doesn’t communicate state. The intent is: only animate when we’re actually detecting speech, so users get real-time feedback that recording is working.
+
+",https://storage.tally.so/private/Screenshot-2026-02-09-at-10.06.50-AM.png?id=rkPRaR&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJrUFJhUiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY0OTg5N30.kkKDIXz9mMn-uBNJoe-D5hR5XDj5TFKseZLYwcea8IA&signature=ec12a193895ad566644f6bda67ea618791bd752a03628f0f16712359f5d9f32d,Using the AI Assistant (AI Chat Buddy),Felt confusing or unintuitive,8,,"No, just providing feedback",
+VLrxB1J,kdAdYpr,2026-02-09 15:13:56,Bug Report,"Let’s replace the current sloth mascot placeholder with the finalized logo asset. The existing one reads temporary and hurts brand credibility, especially in demos.",https://storage.tally.so/private/Screenshot-2026-02-09-at-10.12.16-AM.png?id=5pxorN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVweG9yTiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MDAzOH0.-CPuIQWaZMIfK53OJh9HwY4HKV92Vt30CLz2mzeF4K8&signature=96034ad84e62b6f887400a33d0f1f25c1bb73316dac15c2cfca13c6e8bca4b67,Using the AI Assistant (AI Chat Buddy),It was a minor inconvenience,7,,"No, just providing feedback",
+KYXR45A,kdAdYpr,2026-02-09 15:20:55,Bug Report,"For voice dictation, when the stop button is clicked, recording doesn’t stop immediately. There’s a noticeable lag, which makes it unclear whether dictation has actually ended. Recording should stop instantly, or at least reflect an immediate state change, so users can quickly switch between dictating, reviewing, and playback without confusion.",https://storage.tally.so/private/Screenshot-2026-02-09-at-10.15.54-AM.png?id=8RxV9A&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhSeFY5QSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MDQ1N30.9EU3xaeiM-NSPlgYDU4ebdnJMcPM2fIH0tFam2gxUHQ&signature=a8f78d59b119e8fc19ddc6379ff9dac9ca5382927c78abd041902bac63f093c7,Using the AI Assistant (AI Chat Buddy),"Made my work slower, Felt confusing or unintuitive",10,,"No, just providing feedback",
+aQWlJBv,kdAdYpr,2026-02-09 15:25:31,Usability / User Experience (UX) concern,"Text selection contrast is too low right now, which hurts readability. Let’s increase contrast so selected text remains clearly readable and accessible.",https://storage.tally.so/private/Screenshot-2026-02-09-at-10.21.50-AM.png?id=L6pjJj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikw2cGpKaiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MDczM30.gAzZtPqLxFRA69bCApnMD98_UZdeBAgknEC_62M-Tw0&signature=5ef36d2325d23f80b7309916b6de55cb95d8b973ca7d6f5d41c943aa3c122b8b,Using the AI Assistant (AI Chat Buddy),"Made the browser harder to use, Felt confusing or unintuitive",9,,"No, just providing feedback",
+D4LWR7l,kdAdYpr,2026-02-09 15:29:23,Bug Report,"When users click the upvote or downvote icons, the feedback modal isn’t immediately visible and requires manual scrolling. This adds friction. The modal should automatically come into view, either by auto-scrolling or repositioning it in the viewport so users can continue the feedback flow without extra effort.",https://storage.tally.so/private/Screenshot-2026-02-09-at-10.26.38-AM.png?id=YxabXN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ill4YWJYTiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MDk2NX0.nY7XVTjj0lUQQlt5kh-tU_z-Tjnh5wz2DRQyPJn-TMI&signature=0becef6ab3931381bcdcd32f6b3e98c1e13de1ec34bc4dfd30853999539a972e,Using the AI Assistant (AI Chat Buddy),"Made my work slower, Made the browser harder to use",10,,"No, just providing feedback",
+RGOr9Kj,kdAdYpr,2026-02-09 15:36:55,Feature Request,"After the output, users often need to decide their next step. In this case, ‘search the web’ was the obvious next action. Instead of expecting users to type it again, we could surface a contextual CTA badge like ‘Search the web’ to reduce friction and speed up browsing. Also, based on the prompt context, it likely could have inferred intent and proactively surfaced relevant links which it didn't.",https://storage.tally.so/private/Screenshot-2026-02-09-at-10.35.15-AM.png?id=1pV02l&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFwVjAybCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MTQxN30.xSunGkPnT0ccahYDUBXKfjn9d6lzjuMBw_QDhth9-xI&signature=b30885241aa86f14d064eca11caf554beb4217880a24028bab8da5c791da19bd,Using the AI Assistant (AI Chat Buddy),"Made my work slower, Made the browser harder to use, Felt confusing or unintuitive",10,,"No, just providing feedback",
+eqboX4J,kdAdYpr,2026-02-09 15:40:49,Bug Report,"The AI assistant seems to run into issues when initiating web search. It states that it will perform a search but doesn’t actually return any results or follow-up output. This creates a broken experience. Either the search should execute reliably, or we should show clear fallback messaging or status feedback instead of leaving users hanging.",https://storage.tally.so/private/Screenshot-2026-02-09-at-10.40.15-AM.png?id=AjvRRo&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFqdlJSbyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MTY1MX0.6jS7YxZn3_-dqVf1zWAnZlWEnuMCMje51wWffoThuQg&signature=98948e5c5dd4b5882f33ea7369e4c55dad1575909f8b27dc4b4d6d5d49321213,Using the AI Assistant (AI Chat Buddy),"Made the browser harder to use, Made my work slower, Felt confusing or unintuitive",10,,"No, just providing feedback",
+Me0G0N0,kdAdYpr,2026-02-09 15:49:58,Usability / User Experience (UX) concern,"Feedback modal isn’t aligned with the design specs. Here are the fixes needed:
+
+Input field background: The input area is dark while the modal is light. This feels visually inconsistent. Align the input background with the modal design.
+
+Checkbox states: Current checkbox styling doesn’t follow the design system. The unchecked state lacks a visible border, so it’s easy to miss. Needs clearer borders and stronger state differentiation.
+
+CTA button: Button color isn’t using the primary brand color. Update the color and change the label to just “Submit.”
+
+Chip close icon: The close icon inside selected chips is too small and thin. Make it more prominent for visibility and usability.
+
+Modal shadow: Remove the shadow behind the feedback modal since it isn’t part of the design spec and adds visual noise.
+
+If anything is unclear, please connect with the Pournami (designer) for alignment!",https://storage.tally.so/private/Screenshot-2026-02-09-at-10.43.19-AM.png?id=2DP98j&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjJEUDk4aiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MjE5OX0.Rj9YZnuASKmAbETndDnEaMU-nvSEfwZawsXp5FcvLZo&signature=3eb0c6fbc1e1974fc6ada27d186cbd38e10521c6f1fc2df0d6e47d0ab155a75f,Using the AI Assistant (AI Chat Buddy),Felt confusing or unintuitive,9,,"No, just providing feedback",
+PdoPooB,kdAdYpr,2026-02-09 15:53:11,Bug Report,"“When I prompted ‘open both the feedback tabs in split view,’ the system executed the split action but missed the actual intent. Instead of splitting the two existing feedback tabs, it opened a new tab and included that in the split. The expectation is to detect and use the already open relevant tabs rather than creating a new one.",https://storage.tally.so/private/Screenshot-2026-02-09-at-10.51.11-AM.png?id=jkP8pa&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImprUDhwYSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MjM5M30.W7CQH7WwvJex5Hoq-U_tGsPDLxB1A7_z9GT-En0Ki1c&signature=4e41952c0ae4963afaade319b14d16f0a27cd6547480f767391ea1356934c955,Using the AI Assistant (AI Chat Buddy),"Made my work slower, Made the browser harder to use, Felt confusing or unintuitive",10,,"No, just providing feedback",
+J9yB5MX,kdAdYpr,2026-02-09 16:00:23,Bug Report,"The refresh icon next to voice dictation is currently labeled as ‘clear chat history,’ which is unexpected. That icon originally signaled restarting voice dictation, not wiping conversation history. It should only appear when voice dictation is active and clearly reflect that function.
+
+Separately, instead of clearing chat history from there, we should provide a ‘New Chat’ option for starting fresh conversations and let users access past chats through chat history. Clearing chat history is a higher-impact action and would be better placed in Settings for now.",https://storage.tally.so/private/Screenshot-2026-02-09-at-10.54.14-AM.png?id=Yxa760&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ill4YTc2MCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MjgyNX0.g6O5Sub6W3OW2B_IGkbfOXovqh4FkulWO-Of3AatWXQ&signature=c008eecf286f2fa522e7cf9e4ab4f04eacd604301f0bfc0a1b930e2e1841fc66,Using the AI Assistant (AI Chat Buddy),"Made my work slower, Made the browser harder to use, Felt confusing or unintuitive",10,,"No, just providing feedback",

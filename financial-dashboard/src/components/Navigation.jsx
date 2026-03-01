@@ -10,6 +10,8 @@ function Navigation() {
     { path: '/', label: 'Executive Summary', id: 'executive-summary' },
     { path: '/q1-midpoint', label: 'Q1 Midpoint Update', id: 'q1-midpoint' },
     { path: '/problem-market', label: 'Problem, Market & Users', id: 'problem-market' },
+    { path: '/linkedin-guide', label: 'LinkedIn Guide', id: 'linkedin-guide' },
+    { path: '/market-size', label: 'Market Size', id: 'market-size' },
     { path: '/competitors', label: 'Competitors', id: 'competitors' },
     { path: '/b2b-strategic-narrative', label: 'B2B Strategic Narrative', id: 'b2b-strategic-narrative' },
     { path: '/b2c-strategic-narrative', label: 'B2C Strategic Narrative', id: 'b2c-strategic-narrative' },
