@@ -19,6 +19,7 @@ import B2CStrategicNarrative from './pages/B2CStrategicNarrative'
 import Onboarding from './pages/Onboarding'
 import OnboardingStep from './pages/OnboardingStep'
 import LinkedInGuide from './pages/LinkedInGuide'
+import OTAGuide from './pages/OTAGuide'
 import './App.css'
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
           <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/onboarding/:stepId" element={<OnboardingStep />} />
           <Route path="/linkedin-guide" element={<LinkedInGuide />} />
+          <Route path="/ota-guide" element={<OTAGuide />} />
         </Routes>
       </div>
     </Router>

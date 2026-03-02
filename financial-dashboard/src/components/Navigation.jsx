@@ -6,24 +6,75 @@ function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const location = useLocation()
 
-  const menuItems = [
-    { path: '/', label: 'Executive Summary', id: 'executive-summary' },
-    { path: '/q1-midpoint', label: 'Q1 Midpoint Update', id: 'q1-midpoint' },
-    { path: '/problem-market', label: 'Problem, Market & Users', id: 'problem-market' },
-    { path: '/linkedin-guide', label: 'LinkedIn Guide', id: 'linkedin-guide' },
-    { path: '/market-size', label: 'Market Size', id: 'market-size' },
-    { path: '/competitors', label: 'Competitors', id: 'competitors' },
-    { path: '/b2b-strategic-narrative', label: 'B2B Strategic Narrative', id: 'b2b-strategic-narrative' },
-    { path: '/b2c-strategic-narrative', label: 'B2C Strategic Narrative', id: 'b2c-strategic-narrative' },
-    { path: '/product-technology', label: 'Product & Technology', id: 'product-technology' },
-    { path: '/business-model', label: 'Business Model & Unit Economics', id: 'business-model' },
-    { path: '/go-to-market', label: 'Go-to-Market & Growth', id: 'go-to-market' },
-    { path: '/financial-plan', label: 'Financial Plan & Sensitivity', id: 'financial-plan' },
-    { path: '/team-execution', label: 'Team, Execution & Milestones', id: 'team-execution' },
-    { path: '/sprints', label: 'Sprints', id: 'sprints' },
-    { path: '/weekly-reports', label: 'Weekly Reports', id: 'weekly-reports' },
-    { path: '/content-pipeline', label: 'Content Pipeline', id: 'content-pipeline' },
-    { path: '/onboarding', label: 'Onboarding', id: 'onboarding' }
+  const menuCategories = [
+    {
+      name: 'Executive Summary',
+      items: [
+        { path: '/', label: 'Executive Summary', id: 'executive-summary' }
+      ]
+    },
+    {
+      name: 'Weekly Updates',
+      items: [
+        { path: '/weekly-reports', label: 'Weekly Reports', id: 'weekly-reports' }
+      ]
+    },
+    {
+      name: 'Q1 Midpoint Update',
+      items: [
+        { path: '/q1-midpoint', label: 'Q1 Midpoint Update', id: 'q1-midpoint' }
+      ]
+    },
+    {
+      name: 'Human Resources',
+      items: [
+        { path: '/onboarding', label: 'Onboarding', id: 'onboarding' }
+      ]
+    },
+    {
+      name: 'Operations',
+      items: [
+        { path: '/team-execution', label: 'Team, Execution & Milestones', id: 'team-execution' }
+      ]
+    },
+    {
+      name: 'Marketing',
+      items: [
+        { path: '/market-size', label: 'Market Size', id: 'market-size' },
+        { path: '/b2c-strategic-narrative', label: 'B2C Strategic Narrative', id: 'b2c-strategic-narrative' },
+        { path: '/b2b-strategic-narrative', label: 'B2B Strategic Narrative', id: 'b2b-strategic-narrative' },
+        { path: '/competitors', label: 'Competitors', id: 'competitors' },
+        { path: '/linkedin-guide', label: 'LinkedIn Guide', id: 'linkedin-guide' },
+        { path: '/content-pipeline', label: 'Content Pipeline', id: 'content-pipeline' }
+      ]
+    },
+    {
+      name: 'Sales',
+      items: [
+        { path: '/go-to-market', label: 'Go-to-Market & Growth', id: 'go-to-market' }
+      ]
+    },
+    {
+      name: 'Finance',
+      items: [
+        { path: '/financial-plan', label: 'Financial Plan & Sensitivity', id: 'financial-plan' },
+        { path: '/business-model', label: 'Business Model & Unit Economics', id: 'business-model' }
+      ]
+    },
+    {
+      name: 'Product',
+      items: [
+        { path: '/product-technology', label: 'Product & Technology', id: 'product-technology' },
+        { path: '/problem-market', label: 'Problem, Market & Users', id: 'problem-market' }
+      ]
+    },
+    {
+      name: 'Technical',
+      items: [
+        { path: '/ota-guide', label: 'OTA & Updates Guide', id: 'ota-guide' },
+        { path: '/sprints', label: 'Sprints', id: 'sprints' }
+      ]
+    }
   ]
 
   const toggleMenu = () => {
@@ -64,15 +115,22 @@ function Navigation() {
           </button>
         </div>
         <ul className="menu-list">
-          {menuItems.map((item) => (
-            <li key={item.id}>
-              <Link
-                to={item.path}
-                className={`menu-link ${isActive(item.path) ? 'active' : ''}`}
-                onClick={closeMenu}
-              >
-                {item.label}
-              </Link>
+          {menuCategories.map((category) => (
+            <li key={category.name} className="menu-category">
+              <div className="menu-category-header">{category.name}</div>
+              <ul className="menu-sublist">
+                {category.items.map((item) => (
+                  <li key={item.id}>
+                    <Link
+                      to={item.path}
+                      className={`menu-link ${isActive(item.path) ? 'active' : ''}`}
+                      onClick={closeMenu}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </li>
           ))}
         </ul>
