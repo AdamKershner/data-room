@@ -156,7 +156,22 @@ function OTAGuide() {
       </section>
 
       <section className="page-section">
-        <h2>6. Glossary</h2>
+        <h2>6. OTA for Windows (To Be Implemented)</h2>
+        <div className="content-block">
+          <p>
+            OTA updates are currently implemented for macOS. Windows support is still needed—but <strong>most of the work is done</strong>. The architecture (canary/stable rings, update service, MAR signing, ring pointers) is the same. The remaining work is mainly adapting the pipeline to Windows signing.
+          </p>
+          <p>
+            <strong>What needs to be done:</strong> Find the Windows update procedure and Mozilla build configuration for Windows. Adapt the existing workflows for Windows signing (code signing certs, SmartScreen, Maintenance Service rename/re-sign). The full technical doc in the Logos repo (<code>OTA_AND_RELEASE_WORKFLOWS.md</code>) is a good guide for this.
+          </p>
+          <div className="ota-callout">
+            <p><strong>For most engineers:</strong> Update URLs, build configs, certificates, ring pointers, and backend service scripts are configured by people actively working on the pipeline—they change rarely. The system is designed so engineers can focus on the frontend and UI without worrying about the complexities of the update system. If you're not on the pipeline team, you generally don't need to touch this.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section">
+        <h2>7. Glossary</h2>
         <div className="content-block">
           <div className="ota-glossary">
             <div className="ota-glossary-item"><strong>MAR</strong> – Mozilla Archive. Custom compressed format for browser updates.</div>
