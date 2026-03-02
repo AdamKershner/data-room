@@ -553,13 +553,19 @@ function StepProductHunt() {
 function StepLinkedin() {
   return (
     <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> Your LinkedIn profile lists Kahana as your current experience, you've joined #linkedin-focus-group on Slack, followed the Kahana company page, connected with Adam and turned on notifications for his posts, and you're prepared to post regularly as part of your role.</p>
+      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You've read the LinkedIn Guide, chosen your participation category (Category 1 or 2), your LinkedIn profile lists Kahana as your current experience, you've joined #linkedin-focus-group on Slack, followed the Kahana company page, connected with Adam and turned on notifications for his posts, and you're prepared to post regularly as part of your role.</p>
+
+      <div className="onboarding-note onboarding-note-important onboarding-linkedin-callout">
+        <p><strong>Start here:</strong> Read the <Link to="/linkedin-guide" className="onboarding-inline-link">LinkedIn Guide & Best Practices</Link> and choose your participation category (Category 1 or Category 2). The guide explains expectations, time commitments, and includes the form to select your category. Everyone at Kahana participates—this step is required.</p>
+      </div>
+
+      <div className="onboarding-cta-row">
+        <Link to="/linkedin-guide" className="onboarding-cta-link">
+          📖 Read LinkedIn Guide & Choose Category →
+        </Link>
+      </div>
 
       <p>Update your LinkedIn profile to reflect your role at Kahana. We also recommend preparing to post on LinkedIn frequently as part of your responsibilities — it's a key channel for reach, credibility, and growth.</p>
-
-      <div className="onboarding-note onboarding-note-help">
-        <p><strong>Full guide:</strong> See the <Link to="/linkedin-guide" className="onboarding-inline-link">LinkedIn Guide & Best Practices</Link> for complete instructions and expectations for all team members.</p>
-      </div>
 
       <h3>Follow and connect</h3>
       <ul className="onboarding-rules-list">
