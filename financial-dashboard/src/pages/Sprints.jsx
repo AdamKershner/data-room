@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Page.css'
 import './Sprints.css'
 
@@ -2157,6 +2158,11 @@ function Sprints() {
                     {sprint.id === 7 && (
                       <p style={{ marginTop: '10px', fontSize: '0.95rem' }}>
                         <strong>Prototype:</strong> <a href="https://oasis-roadmap.vercel.app/tuning-analytics" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--oasis-green-medium)', textDecoration: 'underline' }}>User Analytics Dashboard</a>
+                      </p>
+                    )}
+                    {sprint.id === 15 && (
+                      <p style={{ marginTop: '10px', fontSize: '0.95rem' }}>
+                        <strong>Developer Guide:</strong> <Link to="/ota-guide" style={{ color: 'var(--oasis-green-medium)', textDecoration: 'underline' }}>OTA & Automatic Software Updates Guide</Link> – Read this to get up to speed on the update system and release workflows.
                       </p>
                     )}
                     {sprint.rewardSystem && (
