@@ -107,31 +107,7 @@ function OTAGuide() {
       </section>
 
       <section className="page-section">
-        <h2>3. Impact on Development Cycles</h2>
-        <div className="content-block">
-          <h3>Before Releasing</h3>
-          <ul className="ota-checklist">
-            <li><strong>Version format</strong> – Use <code>X.Y.Z.N</code> in <code>browser/config/version.txt</code> and <code>version_display.txt</code>.</li>
-            <li><strong>Assistant bundles</strong> – CI builds <code>ui-preact</code> and <code>build</code> before the main build. Local changes must be committed and included in the tagged commit.</li>
-            <li><strong>Tag before release</strong> – Create and push a tag (e.g. <code>v1.0.0.2</code>) before running the canary workflow.</li>
-          </ul>
-          <h3>Release Flow</h3>
-          <ol className="ota-numbered-list">
-            <li>Merge and test on main (or your release branch).</li>
-            <li>Create tag: <code>git tag v1.0.0.2 && git push origin v1.0.0.2</code></li>
-            <li>Run <strong>Oasis Release Canary</strong> with <code>release_tag: v1.0.0.2</code></li>
-            <li>Wait for build, sign, notarize (~30–60 min).</li>
-            <li>Test canary installs and OTA updates.</li>
-            <li>Run <strong>Oasis Stable Ring Promote</strong> with <code>target_version: 1.0.0.2</code> when ready.</li>
-          </ol>
-          <div className="ota-callout">
-            <p><strong>Constraints:</strong> No tag reuse. Canary-first—stable promotion requires the version to exist on canary. Current workflows target <code>Darwin_aarch64-gcc3</code> (Apple Silicon).</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="page-section">
-        <h2>4. Update Service & Key Files</h2>
+        <h2>3. Update Service & Key Files</h2>
         <div className="content-block">
           <p><strong>Local testing:</strong> <code>tools/oasis-update-service/server.py</code></p>
           <p><strong>Production:</strong> <code>supabase/functions/oasis-update/index.ts</code></p>
@@ -146,7 +122,7 @@ function OTAGuide() {
       </section>
 
       <section className="page-section">
-        <h2>5. Rollback & Incident Response</h2>
+        <h2>4. Rollback & Incident Response</h2>
         <div className="content-block">
           <p>Rollback is done by repointing the ring metadata to a prior known-good version. No rebuild required.</p>
           <div className="ota-incident-cards">
@@ -167,40 +143,7 @@ function OTAGuide() {
       </section>
 
       <section className="page-section">
-        <h2>6. Troubleshooting</h2>
-        <div className="content-block">
-          <div className="ota-troubleshoot-table">
-            <div className="ota-troubleshoot-row ota-troubleshoot-header">
-              <span>Symptom</span>
-              <span>Likely cause</span>
-              <span>Action</span>
-            </div>
-            <div className="ota-troubleshoot-row">
-              <span>Update loop (repeated download, never applies)</span>
-              <span>Wrong MAR_CHANNEL_ID or signature mismatch</span>
-              <span>Verify client channel matches MAR channel. Check MAR signed with correct cert.</span>
-            </div>
-            <div className="ota-troubleshoot-row">
-              <span>"Access Denied" on Windows</span>
-              <span>Maintenance Service not installed/renamed/re-signed</span>
-              <span>Ensure Maintenance Service is built, renamed for Oasis, and signed with fork certs.</span>
-            </div>
-            <div className="ota-troubleshoot-row">
-              <span>User on old version, not seeing updates</span>
-              <span>Update URL wrong; channel mismatch; no artifact for build_target/locale</span>
-              <span>Check AppUpdateURL policy. Verify ring points to version with artifact for user's platform.</span>
-            </div>
-            <div className="ota-troubleshoot-row">
-              <span>De-forking (user gets Firefox after "update")</span>
-              <span>Update URL still points to Mozilla</span>
-              <span>Verify AppUpdateURL policy and build config. Never ship with default Mozilla URL.</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="page-section">
-        <h2>7. Strategic Context – Why This Matters</h2>
+        <h2>5. Strategic Context – Why This Matters</h2>
         <div className="content-block">
           <p>The update service is not just a file delivery tool—it's a recurring engineering commitment. Mozilla follows a strict 4-week release cadence. Every update includes critical security patches (CVEs) and internal API changes.</p>
           <ul className="ota-checklist">
@@ -213,7 +156,7 @@ function OTAGuide() {
       </section>
 
       <section className="page-section">
-        <h2>8. Glossary</h2>
+        <h2>6. Glossary</h2>
         <div className="content-block">
           <div className="ota-glossary">
             <div className="ota-glossary-item"><strong>MAR</strong> – Mozilla Archive. Custom compressed format for browser updates.</div>
