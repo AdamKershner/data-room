@@ -12,7 +12,7 @@ export const ONBOARDING_STEPS = [
   // Across 5 business days (right below Day 1)
   { id: 'use-oasis-5-days', label: 'Use Oasis as your default browser for 5 business days and fill out the NPS survey', category: 'Product', day: 'across', badge: '5 business days' },
   // Day 2
-  { id: 'linkedin', label: 'Update your LinkedIn account', category: 'External Presence', day: 2, badge: '1-2 hours' },
+  { id: 'linkedin', label: 'Read LinkedIn Guide, complete the form to choose your participation category & update your profile', category: 'External Presence', day: 2, badge: '1-2 hours' },
   // Day 3
   { id: 'business-plan', label: 'Read the full Business Plan (all sections)', category: 'Company & Culture', day: 3, badge: '1 business day' },
   // Day 4
