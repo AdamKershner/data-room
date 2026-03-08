@@ -1102,12 +1102,12 @@ function Sprints() {
       title: "UI/Bug Fixes",
       emoji: "🐛",
       priority: "MEDIUM",
-      storyPoints: 3,
+      storyPoints: 8,
       effort: "Low-Medium",
       impact: "Medium",
       severity: "6-9/10",
       teamMembers: ["Durgesh"],
-      overview: "Fix various UI issues and bugs in the AI Assistant interface. Includes bookmark management fixes and profile button functionality. **UPDATED:** Added story points from Feb 2026 feedback (profile button). Logo Asset Replacement archived.",
+      overview: "Fix various UI issues and bugs in the AI Assistant interface. Includes bookmark management fixes and profile button functionality. **UPDATED:** Added issues from Mar 2026 feedback (bookmark management limitations). Logo Asset Replacement archived.",
       primaryFiles: "browser/base/content/assistant/build/src/assistant.ts, browser/base/content/assistant/build/src/commands.ts, browser/base/content/assistant/assistant.ui.js, Firefox bookmark API",
       issues: [
         {
@@ -1144,13 +1144,25 @@ function Sprints() {
           feedback: [
             { id: "PdojLRQ", text: "The profile button next to the extensions button does not work when i try to click on it. I expect it to open a new tab which allows me to enter my details." }
           ]
+        },
+        {
+          title: "Bookmark Management Limitations",
+          count: 1,
+          submissionIds: ["A7Zg0Py"],
+          description: "AI assistant has limited bookmark management: can't retrieve specific bookmark details, can't find/delete certain bookmarks, can't add bookmarks to bookmarks bar. User must use Firefox bookmark manager for many operations.",
+          impact: "Incomplete bookmark management via AI (severity 6/10)",
+          technicalNotes: "Expand bookmark commands - retrieve details, improve search/delete, support bookmarks bar placement",
+          feedback: [
+            { id: "A7Zg0Py", text: "The user tried to use an AI assistant to manage bookmarks. When asked what bookmarks they had, assistant reported no folders then created 'default' on bookmark current tab. Could not retrieve specific bookmark details. When asked to remove 'Martha Stewart' bookmark, assistant could not find or delete it. When asked to make bookmark appear on bookmarks bar, assistant hit error - operation not yet supported." }
+          ]
         }
       ],
       acceptanceCriteria: [
         "Minimize/maximize buttons show correct states (minimize greyed when minimized, maximize greyed when maximized)",
         "Assistant interface is resizable by dragging any of its 4 sides",
         "Bookmark removal works for imported bookmarks via AI commands",
-        "Profile button opens profile settings tab correctly"
+        "Profile button opens profile settings tab correctly",
+        "Bookmark management via AI supports retrieve, delete, and bookmarks bar placement"
       ]
     },
     {
@@ -1158,12 +1170,12 @@ function Sprints() {
       title: "Tab Group & Tab/Window Operations",
       emoji: "📁",
       priority: "HIGH",
-      storyPoints: 44,
+      storyPoints: 62,
       effort: "Medium-High",
       impact: "High",
       severity: "7-10/10",
       teamMembers: ["Rushyanth"],
-      overview: "Fix tab group operations including renaming, finding tabs within groups, adding/removing tabs, and tab group state accuracy. Also fix core tab/window commands that users perceive as 'it said it worked but nothing happened.' This sprint covers both tab group management and tab/window command correctness. Includes context-based tab organization using AI to automatically group related tabs. ⚠️ PARTIALLY RESOLVED: \"Close Tab Group\" Command Deletes Hub Instead (Delete command works, but Close command doesn't exist - Close should hide tab group, Open should restore it). **UPDATED:** Added 9 story points from Feb 2026 feedback (context-based grouping improvements, tab closing issues).",
+      overview: "Fix tab group operations including renaming, finding tabs within groups, adding/removing tabs, and tab group state accuracy. Also fix core tab/window commands that users perceive as 'it said it worked but nothing happened.' This sprint covers both tab group management and tab/window command correctness. Includes context-based tab organization using AI to automatically group related tabs. ⚠️ PARTIALLY RESOLVED: \"Close Tab Group\" Command Deletes Hub Instead (Delete command works, but Close command doesn't exist - Close should hide tab group, Open should restore it). **UPDATED:** Added 18 story points from Mar 2026 feedback (tab group show/hide, close tab opens multiple, organize/close window confusion, group all tabs, tab group creation, GraphRecursionError on remove tab).",
       primaryFiles: "browser/base/content/assistant/build/src/hubs.ts, browser/base/content/assistant/build/src/commands.ts, browser/base/content/assistant/build/src/services/localMemory.ts, Browser first-run / startup UI (for browser import, privacy policy, vertical tabs popup), browser/branding/**",
       issues: [
         {
@@ -1222,6 +1234,83 @@ function Sprints() {
           feedback: [
             { id: "ODRXd5Y", text: "When I try to close multiple tabs, the command does not execute correctly. Steps: 1. Prompt: \"List all the open tabs.\" 2. Prompt: \"Can you close 3 tabs of Oasis Feedback and 1 tab of any other tab?\" Actual result: The system responds: \"Okay, I have closed one 'Oasis Feedback' tab. I will continue closing the other tabs you requested.\" However, the remaining tabs are not closed.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-05-at-13.26.20.png?id=L69bWp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ikw2OWJXcCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDMxNjU1Mn0.v8PynULkcEUfH_PgIr_GgSu8LxXDq40bsSNXCmgvXXM&signature=e9456979c324a1ee666390cc12748d5acb112b122b4b8484e183fe886d74ee9b" }
           ]
+        },
+        {
+          title: "Feature Request: Tab Group Show/Hide Control",
+          count: 1,
+          submissionIds: ["Npk52pO"],
+          description: "Users want to use AI assistant to control whether tab groups are open or closed (shown/hidden) so they can see the tabs inside.",
+          impact: "Can't manage tab group visibility via AI (severity 7/10)",
+          technicalNotes: "Implement show/hide tab group commands in hub command module",
+          feedback: [
+            { id: "Npk52pO", text: "as a user, I want to be able to use the ai assistant to control whether tab groups are open or closed (shown/hidden) so I can see the tabs inside" }
+          ]
+        },
+        {
+          title: "Close Tab Opens Multiple Tabs Instead",
+          count: 1,
+          submissionIds: ["Y58VVDN"],
+          description: "When asked to close a tab, the AI opens multiple tabs instead of closing.",
+          impact: "Opposite of intended behavior (severity 7/10)",
+          technicalNotes: "Tab close command execution - check for inverted or duplicate command triggers",
+          feedback: [
+            { id: "Y58VVDN", text: "opened multiple tabs when asked to close the tab", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-16-at-7.36.48-PM.png?id=rk29Wv&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJrMjlXdiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MTI1MDg5Mn0.Rul5ZfSY5J8nvBqur5BNA3CUqNPLNdrwln2HCxn4x7M&signature=6236f2da44ec8768f43af84c20391d4efe7ad2081f138c0f5d27fb0494776f32" }
+          ]
+        },
+        {
+          title: "Organize Tabs Opens New Window Instead",
+          count: 1,
+          submissionIds: ["RGEWdE4"],
+          description: "When asking AI to organize tabs, it prompts to open another window and splits screens instead of organizing tabs in the current window.",
+          impact: "Wrong action executed (severity 10/10)",
+          technicalNotes: "Command intent parsing - distinguish organize from split view",
+          feedback: [
+            { id: "RGEWdE4", text: "When I asked the AI to organize my tabs, it prompted me to open another window and then proceeded to not organizing the tabs but splitting the screens. My goal here was to organize the tabs on the ongoing window." }
+          ]
+        },
+        {
+          title: "Close Window Closes Tabs Instead",
+          count: 1,
+          submissionIds: ["KYdp5e7"],
+          description: "When given command to close the other window, AI closes tabs instead of the window.",
+          impact: "Wrong action executed (severity 10/10)",
+          technicalNotes: "Command intent parsing - distinguish window close from tab close",
+          feedback: [
+            { id: "KYdp5e7", text: "When given the command to Oasis AI of closing the other window it redirects and closes the tabs instead of the window." }
+          ]
+        },
+        {
+          title: "Group All Tabs Only Groups One Tab",
+          count: 1,
+          submissionIds: ["0QNjlKB"],
+          description: "Command to create group and include all open tabs only groups the last-opened tab instead of all tabs.",
+          impact: "Tab organization doesn't work as expected (severity 6/10)",
+          technicalNotes: "Tab group creation - ensure all tabs are added, not just active tab",
+          feedback: [
+            { id: "0QNjlKB", text: "I wanted to add all the existing into a single group to organize them. I gave the command initially \"Group all the open tabs as Jobs to Apply to\" however the AI replied saying it was not able to add the open tabs because it could not find a group so i clarified the prompt and asked it to \"Create a new group and include all the open tabs in it\" It did create a new tab group and named it as i requested, however it only grouped one tab which was the open i opened at last.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-23-at-5.27.39-PM.png?id=9oPJLV&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlvUEpMViIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MTg4OTMwNn0.u62vrzysJZ9tFSA6J4yrDNejmHSSxYAaWpM3ntds3Y0&signature=f3f9e8924252026b2009538815bf649d998154335f3027c8f79c11876bc34322" }
+          ]
+        },
+        {
+          title: "Tab Group Creation Misinterprets Request",
+          count: 1,
+          submissionIds: ["xXKqBYv"],
+          description: "Creating tab group of existing tabs (e.g., Wikipedia tabs) creates group with wrong name and only adds new tab. Backend 502 error on first attempt.",
+          impact: "Tab grouping fails or produces wrong result (severity 10/10)",
+          technicalNotes: "Tab group creation - match existing tabs by URL/title, handle backend errors gracefully",
+          feedback: [
+            { id: "xXKqBYv", text: "The user asked: 'Can you make a tab group of all the Wikipedia tabs?' The system first hit a backend error (Lambda 502 Internal Server Error). User repeated the request, and the assistant created a new tab group but named it literally 'of all the wikipedia tabs?' and only included a new tab in the group instead of the existing Wikipedia tabs." }
+          ]
+        },
+        {
+          title: "GraphRecursionError on Remove Tab from Group",
+          count: 1,
+          submissionIds: ["7RGjOB2"],
+          description: "Removing a tab from a group triggers GraphRecursionError (recursion limit of 32). Confirm action loops repeatedly.",
+          impact: "Command fails with technical error exposed to user (severity 8/10)",
+          technicalNotes: "LangGraph recursion limit, confirm action loop - prevent infinite recursion in tab removal flow",
+          feedback: [
+            { id: "7RGjOB2", text: "remove 'What Is about:blank, and How Do You Remove It?' tab from the group. The tool removed the wrong tab. User said yes to remove the correct one. Then: Confirm action / Remove tab from group repeated many times. Error: GraphRecursionError: Recursion limit of 32 reached without hitting a stop condition.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-17-at-2.53.02-PM.png?id=rkJQMX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJrSlFNWCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MTM2MTYyNX0.NYALgWLyeLqd4vwNYbijpwTpEFf8LfBcgkmLlPrNeAo&signature=c2b38f6234788cdc85b4407786e159940cceaa32ceb650e5856c3a33fe2fdffc" }
+          ]
         }
       ],
       acceptanceCriteria: [
@@ -1232,7 +1321,13 @@ function Sprints() {
         "Context-based tab organization using AI implemented",
         "AI correctly identifies related tabs based on context",
         "Tab groups are created with correct tabs and appropriate names",
-        "Context-based grouping correctly identifies related websites"
+        "Context-based grouping correctly identifies related websites",
+        "Close tab does not open multiple tabs",
+        "Organize tabs works in current window (does not open new window)",
+        "Close window closes window not tabs",
+        "Group all tabs adds all tabs not just one",
+        "Tab group creation correctly identifies and adds existing tabs",
+        "Remove tab from group does not trigger GraphRecursionError"
       ]
     },
     {
@@ -1240,12 +1335,12 @@ function Sprints() {
       title: "Authentication + Subscription UX (login, signup, session restore, limits)",
       emoji: "🔐",
       priority: "HIGH",
-      storyPoints: 13,
+      storyPoints: 21,
       effort: "Medium-High",
       impact: "High",
       severity: "8-10/10",
       teamMembers: ["Pournami", "Saideep", "Durgesh"],
-      overview: "Fix authentication, login, signup, password management, and the 'paid but still limited' experience. This sprint is UI-heavy and should be owned by one engineer (or split by 'UI vs backend service' if needed) due to the size of `assistant.ui.js`.",
+      overview: "Fix authentication, login, signup, password management, and the 'paid but still limited' experience. This sprint is UI-heavy and should be owned by one engineer (or split by 'UI vs backend service' if needed) due to the size of `assistant.ui.js`. **UPDATED:** Added issues from Mar 2026 feedback (forgot password, signup with existing email, cannot login/signup, NetworkError/Supabase downtime).",
       primaryFiles: "browser/base/content/assistant/assistant.ui.js, browser/base/content/assistant/build/src/services/supabase.ts, browser/base/content/assistant/build/src/services/subscription.ts, browser/base/content/assistant/build/src/proxyClient.ts",
       issues: [
         {
@@ -1271,12 +1366,63 @@ function Sprints() {
           feedback: [
             { id: "xXW77z5", text: "When I am trying to sign up for using the AI assistant, the account is not getting created. It does not reflect any message, nor does it allow me to sign in." }
           ]
+        },
+        {
+          title: "Cannot Login or Signup (Latest Version)",
+          count: 1,
+          submissionIds: ["EkpV9GB"],
+          description: "Cannot login or signup with the latest version. No forgot password option. Signup window returns to original state after clicking signup.",
+          impact: "Users blocked from accessing Oasis (severity 9/10)",
+          technicalNotes: "Signup flow and forgot password in assistant.ui.js or supabase.ts",
+          requiresUI: true,
+          feedback: [
+            { id: "EkpV9GB", text: "Cannot Login or Signup with the latest version. No forgot password option. The signup window after clicking on signup returns into original state (prior to signup)." }
+          ]
+        },
+        {
+          title: "No Forgot Password Recovery Path",
+          count: 1,
+          submissionIds: ["obW66G1"],
+          description: "Invalid password error shown but no Forgot Password recovery path. User is forced to create a new account when password cannot be recovered.",
+          impact: "Causes churn and duplicate accounts (severity 7/10)",
+          technicalNotes: "Implement forgot password flow in assistant.ui.js, integrate with Supabase auth",
+          requiresUI: true,
+          feedback: [
+            { id: "obW66G1", text: "Invalid password error shown, but no Forgot Password recovery path. Because password cannot be recovered : user is forced to create a new account. This will cause churn and duplicate accounts." }
+          ]
+        },
+        {
+          title: "Signup with Existing Email Provides No Guidance",
+          count: 1,
+          submissionIds: ["2E08Aob"],
+          description: "When signing up with an email that already has an account, nothing happens. No sign-in redirect, no password reset route, no message that account exists.",
+          impact: "Users don't know what to do next (severity 9/10)",
+          technicalNotes: "Signup flow error handling - detect existing account and surface clear guidance (sign in, reset password)",
+          requiresUI: true,
+          feedback: [
+            { id: "2E08Aob", text: "Signing up with an existing email does not proceed and does not provide any guidance. When I enter an email that already has an account and attempt to sign up, nothing happens. It does not sign me in, does not route me to Sign In, and does not route me to password reset. There is no clear message telling me the account already exists or what to do next." }
+          ]
+        },
+        {
+          title: "NetworkError / Supabase Downtime Blocks Sign-In",
+          count: 1,
+          submissionIds: ["Eky7MZ4"],
+          description: "Users receive NetworkError when signing in during Supabase downtime (e.g., India region). No guidance to check status page or report the issue.",
+          impact: "Users blocked from signing in during outages (severity 10/10)",
+          technicalNotes: "Improve error messaging for network/auth failures, suggest Supabase status page, add user reporting flow",
+          requiresUI: true,
+          feedback: [
+            { id: "Eky7MZ4", text: "As a user in India, I was not able to sign in within the 24 hour span on February 26th. Received a message \"NetworkError\" upon attempting to sign in with my user email and password. It likely has to do with this reported Supabase downtime in India: https://status.supabase.com/. As this is the 2nd time in the last 1 month that a Supabase downtime error has affected users' ability to log in, we should consider addressing this with improved error messaging that suggests for users to check the Supabase status page in the event they receive a \"Network Error\" upon signing in. We can also give them the ability to report this at that moment, which can notify us more quickly so we can potentially send a mass communication to users affected.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-26-at-8.34.30-PM.png?id=okjBab&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im9rakJhYiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MjExODQyMn0.oATBNppRgMzfRGLxj3XYxrM7nhijOS1vN6Ki2tyMcNA&signature=6168ca0f3d81136a59b3f6d15d9ea3eb255184deb0ea5b25fe5dc0867ffe3a58" }
+          ]
         }
       ],
       acceptanceCriteria: [
         "Clear error messages displayed for invalid login credentials",
         "Signup flow works and creates accounts successfully",
-        "All authentication errors are user-friendly and actionable"
+        "All authentication errors are user-friendly and actionable",
+        "Forgot password recovery path implemented",
+        "Signup with existing email shows clear guidance (sign in or reset password)",
+        "NetworkError / Supabase downtime shows helpful messaging and reporting option"
       ]
     },
     {
@@ -1284,12 +1430,12 @@ function Sprints() {
       title: "Onboarding + Branding polish (first run, visibility, Firefox remnants)",
       emoji: "🎯",
       priority: "MEDIUM-HIGH",
-      storyPoints: 8,
+      storyPoints: 14,
       effort: "Medium",
       impact: "High",
       severity: "10/10",
       teamMembers: ["Pournami", "Saideep"],
-      overview: "Improve the first-time user experience including onboarding flow, default preferences, browser import, AI Assistant visibility, and removing Firefox branding. Includes browser import in onboarding, Firefox privacy policy replacement on first launch, and Firefox branding removal in vertical tabs popup.",
+      overview: "Improve the first-time user experience including onboarding flow, default preferences, browser import, AI Assistant visibility, and removing Firefox branding. Includes browser import in onboarding, Firefox privacy policy replacement on first launch, and Firefox branding removal in vertical tabs popup. **UPDATED:** Added issues from Mar 2026 feedback (Firefox branding in recent browsing modal, profile popup; Chrome import duplicates).",
       primaryFiles: "browser/base/content/assistant/assistant.ui.js (assistant visibility / entry points), Browser first-run / startup UI (exact files TBD when implementing), browser/branding/**",
       issues: [
         {
@@ -1385,6 +1531,42 @@ function Sprints() {
           feedback: [
             { id: "PdxOEY5", text: "When I 'turn on vertical tabs' as a new user, I see a purple popup with the firefox logo and a cartoon fox. This is not on-brand for Oasis and seems confusing and buggy. It would make sense to swap the firefox portions of the popup and modify the pop up so it is on-brand with Oasis", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.07.48-PM.png?id=pJkpy1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKa3B5MSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTM2NH0.hGh4YjifQ96MGhKw8dEfLBBNP7VizfxUZnWcOaJkgQc&signature=1a50fb17952fec483e7c72b09629954ed0a8b93c3ce45072cd9be04b76dddb54" }
           ]
+        },
+        {
+          title: "Firefox Branding in Recent Browsing Modal",
+          count: 1,
+          submissionIds: ["kdqdlkd"],
+          description: "Recent browsing view includes Firefox branding and CTA to sync Oasis across all devices (not a feature). Modal should be hidden or use Oasis branding.",
+          impact: "Confusing branding (severity 10/10)",
+          technicalNotes: "Hide or replace recent browsing modal, ensure Oasis branding consistency",
+          requiresUI: true,
+          feedback: [
+            { id: "kdqdlkd", text: "This view for recent browsing includes Firefox branding and a CTA to sync Oasis across all devices, which is not a feature, so that modal should be hidden. The branding should be consistent with Oasis branding, not Firefox.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-12-at-11.28.33-AM.png?id=vd4pdQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZkNHBkUSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDkxNzQxMn0.OnMqRfO5V3OHlzhZu5LDukE7M0CZPac7HT3u49JC1l4&signature=13111370e6781deb54f90824debe2d639640b782e81f69f49af9f8cdf68a6940" }
+          ]
+        },
+        {
+          title: "Firefox Branded Profile Popup",
+          count: 1,
+          submissionIds: ["aQVL069"],
+          description: "Profile popup shows Firefox branding instead of Oasis branding.",
+          impact: "Confusing branding (severity 10/10)",
+          technicalNotes: "Replace Firefox branding in profile popup with Oasis branding",
+          requiresUI: true,
+          feedback: [
+            { id: "aQVL069", text: "Firefox branded profile popup", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-19-at-8.47.18-AM.png?id=yd18oX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InlkMThvWCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MTUxMzc4N30.wLGQdWlcWHtjz9jMVrKyVe84TPzI4-jP_e8qNrzP5Zs&signature=0f7cb5252f2947423cd5a4e3c75ecb8d7a018068fccb8a88e5f7805864e0befc" }
+          ]
+        },
+        {
+          title: "Chrome Import Duplicates Bookmarks",
+          count: 1,
+          submissionIds: ["9qbWNO5"],
+          description: "Importing data from Chrome twice results in bookmarks being saved twice (duplicates).",
+          impact: "Duplicate bookmarks after import (severity 6/10)",
+          technicalNotes: "Browser import logic - deduplicate or prevent duplicate imports",
+          requiresUI: true,
+          feedback: [
+            { id: "9qbWNO5", text: "I imported my data from Chrome, I did it twice however the bookmarks were saved twice.", screenshot: "https://storage.tally.so/private/SCR-20260222-oxyg.png?id=8RyjWP&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhSeWpXUCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MTc5NzYyOX0.i1JGs5ACPDIKHWhZQDGJxPBeogirOR1cKlflb36-LY0&signature=65e973e415b5534051c9ab54efaee090a158da244f88afb9732e5b3ba45f3fae" }
+          ]
         }
       ],
       acceptanceCriteria: [
@@ -1396,7 +1578,9 @@ function Sprints() {
         "New profile creation shows Oasis branding instead of Firefox branded image popup",
         "Onboarding flow includes browser import option (Chrome, Safari, etc.)",
         "First launch shows Oasis/Kahana page instead of Firefox privacy policy",
-        "Firefox branding in vertical tabs popup is replaced with Oasis branding"
+        "Firefox branding in vertical tabs popup is replaced with Oasis branding",
+        "Firefox branding in recent browsing modal and profile popup replaced with Oasis branding",
+        "Chrome import does not create duplicate bookmarks"
       ]
     },
     {
@@ -1831,11 +2015,11 @@ function Sprints() {
       title: "Search & Command Interpretation",
       emoji: "🔍",
       priority: "MEDIUM-HIGH",
-      storyPoints: 9,
+      storyPoints: 18,
       effort: "Medium-High",
       impact: "High",
       severity: "8-10/10",
-      overview: "Fix web search functionality and improve command interpretation to reduce confusion and incorrect prompt results. Includes contextual CTAs. **NEW SPRINT** from Feb 2026 feedback.",
+      overview: "Fix web search functionality and improve command interpretation to reduce confusion and incorrect prompt results. Includes contextual CTAs. **UPDATED:** Added issues from Mar 2026 feedback (splitview command not recognized, split screen opens multiple tabs, AI summarizes wrong page).",
       primaryFiles: "browser/base/content/assistant/build/src/commands.ts, browser/components/aiwindow/models/Tools.sys.mjs, browser/base/content/assistant/build/src/assistant.ts",
       issues: [
         {
@@ -1882,6 +2066,39 @@ function Sprints() {
           feedback: [
             { id: "eqboX4J", text: "The AI assistant seems to run into issues when initiating web search. It states that it will perform a search but doesn't actually return any results or follow-up output. This creates a broken experience. Either the search should execute reliably, or we should show clear fallback messaging or status feedback instead of leaving users hanging.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.40.15-AM.png?id=AjvRRo&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkFqdlJSbyIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MTY1MX0.6jS7YxZn3_-dqVf1zWAnZlWEnuMCMje51wWffoThuQg&signature=98948e5c5dd4b5882f33ea7369e4c55dad1575909f8b27dc4b4d6d5d49321213" }
           ]
+        },
+        {
+          title: "AI Doesn't Understand Splitview Command",
+          count: 1,
+          submissionIds: ["aQ7RRBE"],
+          description: "AI responds that it cannot perform splitview, suggests OS-level split screen instead. Oasis has split view feature but AI doesn't recognize the command.",
+          impact: "Core Oasis feature inaccessible via AI (severity 10/10)",
+          technicalNotes: "Command interpretation - map 'splitview' to Oasis split view command",
+          feedback: [
+            { id: "aQ7RRBE", text: "User said 'splitview this'. AI responded it can't perform splitview and suggested Windows/macOS split screen. User repeated 'splitview'. AI again said it can't control browser layout. Oasis has split view - AI should recognize and execute it." }
+          ]
+        },
+        {
+          title: "Split Screen Command Opens Multiple Tabs",
+          count: 1,
+          submissionIds: ["ZjpANJB"],
+          description: "When asked to open site in left split screen, browser opens it multiple times instead of placing correctly in split view. Also: no autocorrect feature while typing.",
+          impact: "Split view doesn't work correctly (severity 3/10 for split, separate for autocorrect)",
+          technicalNotes: "Split view command execution, tab placement logic",
+          feedback: [
+            { id: "ZjpANJB", text: "1. Split Screen Command Accuracy: When I asked it to open Instagram on the left split screen, the browser repeatedly opened Instagram multiple times instead of placing it correctly in split view. 2. Autocorrect Feature: I noticed there doesn't appear to be an autocorrect feature while typing, which would be helpful for improving the browsing and search experience." }
+          ]
+        },
+        {
+          title: "AI Summarizes Wrong Page",
+          count: 1,
+          submissionIds: ["Me0okAl"],
+          description: "When asked to summarize content not on current page (e.g., interview process while viewing mission/values), AI summarizes current page instead. Should flag that requested content isn't on active page or prompt user to navigate.",
+          impact: "Reduces trust in contextual accuracy (severity 8/10)",
+          technicalNotes: "Summarization context - ensure AI checks if requested content is on active page before summarizing",
+          feedback: [
+            { id: "Me0okAl", text: "I had two tabs open from the same company's website — one for purpose/mission/values and another for interview process. While viewing purpose/mission/values, I asked the chatbot to summarize the interview process. Instead of indicating that the interview process content was not on the current page, it summarized the purpose/mission/values page. I would expect the chatbot to either flag that the requested content isn't on the active page or prompt me to navigate to the correct page." }
+          ]
         }
       ],
       acceptanceCriteria: [
@@ -1890,7 +2107,10 @@ function Sprints() {
         "Contextual CTA badges implemented",
         "Proactive link surfacing based on prompt context",
         "Web search executes reliably with proper error handling",
-        "Clear fallback messaging when search fails"
+        "Clear fallback messaging when search fails",
+        "Splitview command recognized and executed by AI",
+        "Split screen command places tabs correctly (no duplicate opens)",
+        "Summarization checks if requested content is on active page before summarizing"
       ]
     },
     {
@@ -1946,11 +2166,121 @@ function Sprints() {
         "Auth experience comparable to Chrome for institutional portals",
         "Documented: If Oasis supported full passkey migration, biometric auth, and streamlined Duo flows, switching barrier would drop dramatically"
       ]
+    },
+    {
+      id: 25,
+      title: "Daily AI Command Limits",
+      emoji: "📊",
+      priority: "HIGH",
+      storyPoints: 13,
+      effort: "Medium-High",
+      impact: "High",
+      severity: "7-8/10",
+      overview: "Migrate Oasis pricing from monthly AI command limits to daily limits for all plans. Current pricing: Beta (free) = 50 AI commands/month, Zen ($20/month) = 1,500 AI commands/month. Goal: enforce AI command limits per day instead of per month across all plans. Requires backend usage tracking changes, limit enforcement logic, UI updates for daily usage display, and pricing/marketing copy updates.",
+      primaryFiles: "Usage/limit tracking service, plan configuration, AI assistant pre-request check, pricing page, in-app usage display",
+      issues: [
+        {
+          title: "Backend: Daily Usage Tracking & Limit Enforcement",
+          count: 1,
+          submissionIds: ["PRICING-MIGRATION"],
+          description: "Implement daily (vs monthly) usage tracking for AI commands. Store usage per user per day; reset counters at midnight (user timezone or UTC). Enforce limits before executing AI commands. Plan config must support daily limits (e.g., Beta: ~2/day, Zen: ~50/day as rough equivalents, or new target values).",
+          impact: "Core requirement for pricing model change (severity 8/10)",
+          technicalNotes: "Modify usage tracking schema/logic to aggregate by day. Add pre-request check in AI assistant flow. Plan table/config needs daily_limit field. Consider timezone handling for reset.",
+          feedback: [
+            { id: "PRICING-MIGRATION", text: "Current: Beta = 50 AI commands/month, Zen = 1,500 AI commands/month. Migrate to daily limits for all plans." }
+          ]
+        },
+        {
+          title: "UI: Daily Usage Display & Limit Messaging",
+          count: 1,
+          submissionIds: ["PRICING-MIGRATION"],
+          description: "Update in-app UI to show daily usage (e.g., '12 / 50 AI commands today') instead of monthly. When limit reached, show clear message: 'Daily limit reached. Resets at midnight.' Replace 'Usage limit reached (50/50 units). Please upgrade your plan via the menu.' style messaging with daily context.",
+          impact: "Users need visibility into daily limits (severity 7/10)",
+          technicalNotes: "AI assistant UI, settings/profile area. Update limit-reached modal or inline message. Ensure messaging is accurate for daily reset.",
+          requiresUI: true,
+          feedback: [
+            { id: "PRICING-MIGRATION", text: "Users should see daily usage and understand when their limit resets." }
+          ]
+        },
+        {
+          title: "Pricing Page & Plan Configuration",
+          count: 1,
+          submissionIds: ["PRICING-MIGRATION"],
+          description: "Update kahana.co/oasis-pricing and any in-app pricing surfaces to reflect daily limits. Define and document new daily limits per plan (e.g., Beta: X/day, Zen: Y/day). Update Stripe/product metadata if needed.",
+          impact: "Accurate marketing and sales (severity 7/10)",
+          technicalNotes: "Pricing page copy, plan config in DB or env. Ensure consistency between marketing and enforcement.",
+          feedback: [
+            { id: "PRICING-MIGRATION", text: "Pricing page currently shows '50 AI commands per month' (Beta) and '1,500 AI commands per month' (Zen). Change to daily limits." }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "Usage tracked and enforced per day (not per month) for all plans",
+        "Daily limits defined per plan and configurable",
+        "In-app UI shows daily usage (e.g., X / Y AI commands today)",
+        "Limit-reached message explains daily reset (midnight)",
+        "Pricing page and marketing copy updated to daily limits",
+        "Existing users migrated gracefully (no unexpected lockouts)"
+      ]
+    },
+    {
+      id: 26,
+      title: "Discoverability: What Can Oasis Do?",
+      emoji: "💡",
+      priority: "MEDIUM",
+      storyPoints: 8,
+      effort: "Medium",
+      impact: "High",
+      severity: "6-7/10",
+      overview: "Improve how new users discover what Oasis can do. Users often ask 'Can you tell me what you can do?' and expect a response listing commands or workflows. As we add more commands, listing all will be overwhelming. Solution: organize commands into categories (Planning, learning, fun, development, writing, reasoning, research, shopping, marketing). The AI assistant responds with high-level categories first; users can then deep dive on 1 or a few categories to get explicit commands and example workflows in those areas.",
+      primaryFiles: "assistant.ts (system prompt / capabilities response), commands.ts (command registry), any capability-discovery or help flow",
+      issues: [
+        {
+          title: "What Can You Do? Response",
+          count: 1,
+          submissionIds: ["DISCOVERABILITY"],
+          description: "New users ask 'Can you tell me what you can do?' or similar. The AI assistant should respond with a structured overview of capabilities—not a raw dump of every command, but a categorized summary that invites exploration.",
+          impact: "Onboarding and activation—users need to understand value quickly (severity 7/10)",
+          technicalNotes: "Add or improve handling for capability-discovery prompts. System prompt or dedicated response logic. Consider structured output (categories + brief descriptions).",
+          feedback: [
+            { id: "DISCOVERABILITY", text: "New users often use prompts like 'Can you tell me what you can do?' and expect a response that tells them commands or workflows the AI can execute." }
+          ]
+        },
+        {
+          title: "Command Categories",
+          count: 1,
+          submissionIds: ["DISCOVERABILITY"],
+          description: "Organize commands into categories: Planning, learning, fun, development, writing, reasoning, research, shopping, marketing. Map each command to one or more categories. This taxonomy enables scalable discovery as command count grows.",
+          impact: "Scalable discoverability—avoids overwhelming users with long lists (severity 6/10)",
+          technicalNotes: "Define category taxonomy. Command registry or metadata needs category field(s). Ensure categories are user-facing and intuitive.",
+          feedback: [
+            { id: "DISCOVERABILITY", text: "As we add more commands, there will be too many to list. Break them into categories: Planning, learning, fun, development, writing, reasoning, research, shopping, marketing." }
+          ]
+        },
+        {
+          title: "Deep Dive on Categories",
+          count: 1,
+          submissionIds: ["DISCOVERABILITY"],
+          description: "When a user asks to explore a category (e.g., 'Tell me more about research commands' or 'What can you do for writing?'), the AI assistant should return explicit commands and example workflows for that category only.",
+          impact: "Progressive disclosure—users get detail when they want it (severity 6/10)",
+          technicalNotes: "Follow-up flow for category-specific queries. Filter commands by category. Provide example prompts or workflows per category.",
+          feedback: [
+            { id: "DISCOVERABILITY", text: "User can choose to deep dive on 1 or a few categories and the AI assistant can give explicit commands in those categories." }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "'What can you do?' (and similar prompts) returns a categorized overview of capabilities",
+        "Commands mapped to categories: Planning, learning, fun, development, writing, reasoning, research, shopping, marketing",
+        "User can ask for more detail on a specific category and receive explicit commands + example workflows",
+        "Response avoids overwhelming users—high-level first, detail on request",
+        "Category taxonomy documented and extensible for new commands"
+      ]
     }
   ]
 
-  // Top severity sprints (ranked most critical): 10, 15, 17
-  const topSeveritySprintIds = [10, 15, 17]
+  // Top severity sprints (ranked most critical): 10, 15, 25, 17
+  const topSeveritySprintIds = [10, 15, 25, 17]
   const topSeveritySprints = activeSprints.filter(s => topSeveritySprintIds.includes(s.id))
   const otherSprints = activeSprints.filter(s => !topSeveritySprintIds.includes(s.id))
   const sortedActiveSprints = [
@@ -2163,6 +2493,11 @@ function Sprints() {
                     {sprint.id === 15 && (
                       <p style={{ marginTop: '10px', fontSize: '0.95rem' }}>
                         <strong>Developer Guide:</strong> <Link to="/ota-guide" style={{ color: 'var(--oasis-green-medium)', textDecoration: 'underline' }}>OTA & Automatic Software Updates Guide</Link> – Read this to get up to speed on the update system and release workflows.
+                      </p>
+                    )}
+                    {sprint.id === 19 && (
+                      <p style={{ marginTop: '10px', fontSize: '0.95rem' }}>
+                        <strong>Current HITL outputs:</strong> <Link to="/hitl" style={{ color: 'var(--oasis-green-medium)', textDecoration: 'underline' }}>HITL Feedback page</Link> – Shows our current feedback_events export, categories, ratio, and schema gaps. Use this for context when auditing and improving the HITL setup.
                       </p>
                     )}
                     {sprint.rewardSystem && (

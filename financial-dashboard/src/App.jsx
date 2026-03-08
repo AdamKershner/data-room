@@ -4,6 +4,8 @@ import Navigation from './components/Navigation'
 import ExecutiveSummary from './pages/ExecutiveSummary'
 import ProblemMarket from './pages/ProblemMarket'
 import ProductTechnology from './pages/ProductTechnology'
+import NPS from './pages/NPS'
+import HITL from './pages/HITL'
 import BusinessModel from './pages/BusinessModel'
 import GoToMarket from './pages/GoToMarket'
 import FinancialPlan from './pages/FinancialPlan'
@@ -19,6 +21,8 @@ import B2CStrategicNarrative from './pages/B2CStrategicNarrative'
 import Onboarding from './pages/Onboarding'
 import OnboardingStep from './pages/OnboardingStep'
 import LinkedInGuide from './pages/LinkedInGuide'
+import LinkedInConnectionsGuide from './pages/LinkedInConnectionsGuide'
+import ProductHuntTasks from './pages/ProductHuntTasks'
 import OTAGuide from './pages/OTAGuide'
 import './App.css'
 
@@ -32,6 +36,8 @@ function App() {
           <Route path="/q1-midpoint" element={<Q1MidpointUpdate />} />
           <Route path="/problem-market" element={<ProblemMarket />} />
           <Route path="/product-technology" element={<ProductTechnology />} />
+          <Route path="/nps" element={<NPS />} />
+          <Route path="/hitl" element={<HITL />} />
           <Route path="/business-model" element={<BusinessModel />} />
           <Route path="/go-to-market" element={<GoToMarket />} />
           <Route path="/financial-plan" element={<FinancialPlan />} />
@@ -46,6 +52,8 @@ function App() {
           <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/onboarding/:stepId" element={<OnboardingStep />} />
           <Route path="/linkedin-guide" element={<LinkedInGuide />} />
+          <Route path="/linkedin-connections-guide" element={<LinkedInConnectionsGuide />} />
+          <Route path="/producthunt-tasks" element={<ProductHuntTasks />} />
           <Route path="/ota-guide" element={<OTAGuide />} />
         </Routes>
       </div>

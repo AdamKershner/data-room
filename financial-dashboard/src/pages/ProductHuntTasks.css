@@ -1,0 +1,370 @@
+/* ProductHunt Tasks page */
+
+/* What supporters need to do - example callout at top */
+.producthunt-example-callout {
+  margin: 0 0 40px 0;
+  padding: 28px 32px;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border: 2px solid var(--oasis-green-medium, #0d9488);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.15);
+}
+
+.producthunt-example-callout h3 {
+  margin: 0 0 16px 0;
+  font-size: 1.35rem;
+  color: #065f46;
+  font-weight: 700;
+}
+
+.producthunt-example-callout p {
+  margin: 0 0 12px 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #047857;
+}
+
+.producthunt-example-callout p:last-child {
+  margin-bottom: 0;
+}
+
+.producthunt-example-callout ul {
+  margin: 8px 0 12px 0;
+  padding-left: 24px;
+}
+
+.producthunt-example-callout ul li {
+  margin-bottom: 6px;
+}
+
+/* Text message conversation style */
+.producthunt-copy-hint {
+  margin: 0 0 12px 0 !important;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.producthunt-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 16px;
+  padding: 24px;
+  background: #f8fafc;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.producthunt-chat-row {
+  display: flex;
+}
+
+.producthunt-chat-you-row {
+  justify-content: flex-end;
+}
+
+.producthunt-chat-them-row {
+  justify-content: flex-start;
+}
+
+.producthunt-chat-bubble {
+  max-width: 85%;
+  padding: 16px 20px;
+  border-radius: 18px;
+  line-height: 1.65;
+  font-size: 0.95rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.producthunt-chat-bubble-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.producthunt-chat-bubble-header .producthunt-chat-label {
+  margin-bottom: 0;
+}
+
+.producthunt-chat-them .producthunt-chat-label {
+  margin-bottom: 8px;
+}
+
+.producthunt-copy-btn {
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #2196F3;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.producthunt-copy-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  color: #1976d2;
+}
+
+.producthunt-copy-btn:active {
+  transform: scale(0.98);
+}
+
+.producthunt-chat-bubble p {
+  margin: 0 0 10px 0;
+}
+
+.producthunt-chat-bubble p:last-child {
+  margin-bottom: 0;
+}
+
+.producthunt-chat-bubble p + p {
+  margin-top: 12px;
+}
+
+.producthunt-chat-bubble ul,
+.producthunt-chat-bubble ol {
+  margin: 10px 0 12px 0;
+  padding-left: 22px;
+}
+
+.producthunt-chat-bubble ul li,
+.producthunt-chat-bubble ol li {
+  margin-bottom: 6px;
+}
+
+.producthunt-chat-bubble ul li:last-child,
+.producthunt-chat-bubble ol li:last-child {
+  margin-bottom: 0;
+}
+
+.producthunt-chat-you {
+  background: #2196F3;
+  color: #ffffff;
+  border: none;
+  border-bottom-right-radius: 6px;
+}
+
+.producthunt-chat-you p,
+.producthunt-chat-you li,
+.producthunt-chat-you strong {
+  color: #ffffff;
+}
+
+.producthunt-chat-you .producthunt-link {
+  color: #90caf9;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.producthunt-chat-them {
+  background: #e9e9eb;
+  color: #000000;
+  border: 1px solid #d1d1d6;
+  border-bottom-left-radius: 6px;
+}
+
+.producthunt-chat-them p,
+.producthunt-chat-them li {
+  color: #000000;
+}
+
+.producthunt-chat-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 8px;
+}
+
+.producthunt-chat-you .producthunt-chat-label {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.producthunt-chat-them .producthunt-chat-label {
+  color: #8e8e93;
+}
+
+/* Template variations section */
+.producthunt-variations-section {
+  margin-top: 48px;
+}
+
+.producthunt-variation {
+  margin-bottom: 40px;
+}
+
+.producthunt-variation:last-child {
+  margin-bottom: 0;
+}
+
+.producthunt-variation-title {
+  font-size: 1.2rem;
+  color: var(--oasis-green-medium, #0d9488);
+  margin: 0 0 16px 0;
+  font-weight: 600;
+}
+
+/* Sign-off form section */
+.producthunt-form-section {
+  margin-bottom: 40px;
+}
+
+.producthunt-form-intro {
+  margin: 0 0 16px 0;
+  font-size: 1.05rem;
+  color: #334155;
+}
+
+.producthunt-form-wrapper {
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.producthunt-form-embed {
+  display: block;
+}
+
+/* Success Criteria section */
+.producthunt-success-section {
+  padding: 24px 28px;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border: 2px solid #f59e0b;
+  border-radius: 12px;
+  margin-bottom: 32px;
+}
+
+.producthunt-success-section h2 {
+  margin-top: 0;
+}
+
+.producthunt-success-content p {
+  margin: 0 0 12px 0;
+  color: #92400e;
+  line-height: 1.6;
+}
+
+.producthunt-success-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Product Hunt Accounts Tracker callout */
+.producthunt-accounts-callout {
+  margin: 0 0 40px 0;
+  padding: 28px 32px;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border: 2px solid var(--oasis-green-medium, #0d9488);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.15);
+}
+
+.producthunt-accounts-callout h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.35rem;
+  color: #065f46;
+  font-weight: 700;
+}
+
+.producthunt-accounts-callout p {
+  margin: 0 0 20px 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #047857;
+}
+
+.producthunt-accounts-callout p:last-of-type {
+  margin-bottom: 20px;
+}
+
+.producthunt-accounts-button {
+  display: inline-block;
+  padding: 14px 28px;
+  background: var(--oasis-green-medium, #0d9488);
+  color: white !important;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.producthunt-accounts-button:hover {
+  background: var(--oasis-green-dark, #0f766e);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.4);
+}
+
+.producthunt-intro {
+  margin: 0 0 24px 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.producthunt-template-title {
+  font-size: 1.35rem;
+  color: var(--oasis-green-medium, #0d9488);
+  margin: 0 0 12px 0;
+  font-weight: 600;
+}
+
+.producthunt-template-section {
+  margin-bottom: 40px;
+}
+
+.producthunt-template-block {
+  padding: 24px 28px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  line-height: 1.7;
+  color: #334155;
+}
+
+.producthunt-template-block p {
+  margin: 0 0 12px 0;
+}
+
+.producthunt-template-block p:last-child {
+  margin-bottom: 0;
+}
+
+.producthunt-template-block ul {
+  margin: 12px 0;
+  padding-left: 24px;
+}
+
+.producthunt-template-block ul li {
+  margin-bottom: 8px;
+}
+
+.producthunt-template-block ul li:last-child {
+  margin-bottom: 0;
+}
+
+.producthunt-email-subject {
+  margin: 0 0 12px 0 !important;
+  font-size: 1rem;
+  color: #64748b;
+}
+
+.producthunt-link {
+  color: var(--oasis-green-medium, #0d9488);
+  text-decoration: underline;
+}
+
+.producthunt-link:hover {
+  color: var(--oasis-green-dark, #0f766e);
+}
+
+.producthunt-followup-block {
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border-color: var(--oasis-green-medium, #0d9488);
+}

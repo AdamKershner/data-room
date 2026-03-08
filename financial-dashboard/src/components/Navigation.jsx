@@ -45,6 +45,8 @@ function Navigation() {
         { path: '/b2b-strategic-narrative', label: 'B2B Strategic Narrative', id: 'b2b-strategic-narrative' },
         { path: '/competitors', label: 'Competitors', id: 'competitors' },
         { path: '/linkedin-guide', label: 'LinkedIn Guide', id: 'linkedin-guide' },
+        { path: '/linkedin-connections-guide', label: 'LinkedIn Connections Guide', id: 'linkedin-connections-guide' },
+        { path: '/producthunt-tasks', label: 'ProductHunt Tasks', id: 'producthunt-tasks' },
         { path: '/content-pipeline', label: 'Content Pipeline', id: 'content-pipeline' }
       ]
     },
@@ -65,7 +67,9 @@ function Navigation() {
       name: 'Product',
       items: [
         { path: '/product-technology', label: 'Product & Technology', id: 'product-technology' },
-        { path: '/problem-market', label: 'Problem, Market & Users', id: 'problem-market' }
+        { path: '/problem-market', label: 'Problem, Market & Users', id: 'problem-market' },
+        { path: '/nps', label: 'NPS', id: 'nps' },
+        { path: '/hitl', label: 'HITL Feedback', id: 'hitl' }
       ]
     },
     {

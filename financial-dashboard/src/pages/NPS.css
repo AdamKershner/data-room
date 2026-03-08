@@ -1,0 +1,249 @@
+.page-subtitle {
+  margin-top: 8px;
+  color: #666;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.nps-score-display {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.nps-number {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--oasis-green-medium);
+  line-height: 1;
+}
+
+.nps-label {
+  font-size: 1.5rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.nps-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.nps-callout {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 2px solid;
+  background: white;
+}
+.nps-callout-promoters { border-color: #2e7d32; background: #e8f5e9; }
+.nps-callout-passives { border-color: #ed6c02; background: #fff3e0; }
+.nps-callout-detractors { border-color: #d32f2f; background: #ffebee; }
+.nps-callout-sample { border-color: #d32f2f; background: #ffebee; }
+.nps-callout-form {
+  border-color: #666;
+  background: #f5f5f5;
+  padding: 14px 18px;
+}
+.nps-callout-form p { margin: 0; }
+
+.nps-promoters { color: #2e7d32; }
+.nps-passives { color: #ed6c02; }
+.nps-detractors { color: #d32f2f; }
+.nps-total { color: #555; font-weight: 500; }
+.nps-sample-size {
+  color: #d32f2f;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.nps-warning-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* NPS scale (-100 to +100) */
+.nps-scale {
+  margin-bottom: 24px;
+}
+
+.nps-scale-track {
+  position: relative;
+  height: 24px;
+  background: linear-gradient(to right, #d32f2f 0%, #ff9800 50%, #2e7d32 100%);
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.nps-scale-marker {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 28px;
+  background: #1a1a1a;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  z-index: 1;
+}
+
+.nps-scale-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #666;
+  padding: 0 4px;
+}
+
+.nps-scale-context {
+  margin-bottom: 20px !important;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Cohort tabs */
+.nps-cohort-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.nps-cohort-tab {
+  padding: 12px 20px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nps-cohort-tab:hover {
+  background: #f8f8f8;
+}
+
+.nps-cohort-tab.cohort-very-disappointed { border-color: #d32f2f; color: #d32f2f; }
+.nps-cohort-tab.cohort-somewhat-disappointed { border-color: #ed6c02; color: #ed6c02; }
+.nps-cohort-tab.cohort-not-disappointed { border-color: #2e7d32; color: #2e7d32; }
+
+.nps-cohort-tab.cohort-very-disappointed.active { background: #d32f2f; color: white; }
+.nps-cohort-tab.cohort-somewhat-disappointed.active { background: #ed6c02; color: white; }
+.nps-cohort-tab.cohort-not-disappointed.active { background: #2e7d32; color: white; }
+
+/* Feedback table */
+.nps-feedback-table-wrap {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background: white;
+}
+
+.nps-feedback-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.nps-feedback-table th {
+  text-align: left;
+  padding: 14px 18px;
+  background: #f5f5f5;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.nps-feedback-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.nps-feedback-table tbody tr:hover {
+  background: #fafafa;
+}
+
+.nps-feedback-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.nps-empty {
+  color: #888;
+  font-style: italic;
+  margin: 0;
+  padding: 24px;
+}
+
+/* Summary section for PMs */
+.nps-summary-section {
+  background: #f8faf8;
+  padding: 28px;
+  border-radius: 8px;
+  border: 1px solid #e8ece8;
+}
+
+.nps-summary-section h3 {
+  font-size: 1.15rem;
+  color: #333;
+  margin: 24px 0 12px 0;
+}
+
+.nps-summary-section h3:first-child {
+  margin-top: 0;
+}
+
+.nps-summary-list {
+  margin: 0 0 20px 0;
+  padding-left: 24px;
+}
+
+.nps-summary-list li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.nps-cohort-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.nps-cohort-summary-block {
+  padding: 16px 18px;
+  border-radius: 6px;
+  border-left: 4px solid #ccc;
+}
+
+.nps-cohort-summary-block h4 {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+}
+
+.nps-cohort-summary-block p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.nps-cohort-summary-block.cohort-very-disappointed { border-left-color: #d32f2f; background: #ffebee; }
+.nps-cohort-summary-block.cohort-somewhat-disappointed { border-left-color: #ed6c02; background: #fff3e0; }
+.nps-cohort-summary-block.cohort-not-disappointed { border-left-color: #2e7d32; background: #e8f5e9; }
+
+.nps-summary-takeaway {
+  margin-top: 24px !important;
+  padding: 16px;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  font-size: 0.95rem;
+}
