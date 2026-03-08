@@ -1,0 +1,158 @@
+.page-subtitle {
+  margin-top: 8px;
+  color: #666;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.hitl-ratio-display {
+  padding: 24px;
+  background: #e8f5e9;
+  border: 2px solid #2e7d32;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.hitl-ratio-main {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.hitl-ratio-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--oasis-green-medium);
+  line-height: 1;
+}
+
+.hitl-ratio-label {
+  font-size: 1.25rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.hitl-ratio-context {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.hitl-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.hitl-stat {
+  padding: 16px 24px;
+  background: #f8faf8;
+  border-radius: 8px;
+  border: 1px solid #e8ece8;
+  text-align: center;
+}
+
+.hitl-stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--oasis-green-medium);
+}
+
+.hitl-stat-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.hitl-pie-chart-wrap {
+  margin-bottom: 32px;
+  padding: 24px;
+  background: #f8faf8;
+  border-radius: 8px;
+  border: 1px solid #e8ece8;
+}
+
+.hitl-summary-section .content-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hitl-issue-block {
+  padding: 16px 20px;
+  border-radius: 8px;
+  border-left: 4px solid #ccc;
+}
+
+.hitl-issue-block h4 {
+  margin: 0 0 8px 0;
+  font-size: 1rem;
+}
+
+.hitl-count {
+  font-weight: 500;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.hitl-issue-block p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.hitl-issue-negative {
+  border-left-color: #d32f2f;
+  background: #ffebee;
+}
+
+.hitl-issue-positive {
+  border-left-color: #2e7d32;
+  background: #e8f5e9;
+}
+
+.hitl-theme-list {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.hitl-theme-list li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.hitl-gap-list {
+  margin: 12px 0 20px 0;
+  padding-left: 24px;
+}
+
+.hitl-gap-list li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.hitl-category-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.hitl-category-table th,
+.hitl-category-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.hitl-category-table th {
+  background: #f5f5f5;
+  font-weight: 600;
+  color: #333;
+}
+
+.hitl-category-table tbody tr:hover {
+  background: #fafafa;
+}

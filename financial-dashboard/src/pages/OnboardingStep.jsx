@@ -346,6 +346,7 @@ const BUSINESS_PLAN_SECTIONS = [
   { path: '/b2b-strategic-narrative', label: 'B2B Strategic Narrative' },
   { path: '/b2c-strategic-narrative', label: 'B2C Strategic Narrative' },
   { path: '/product-technology', label: 'Product & Technology' },
+  { path: '/nps', label: 'NPS' },
   { path: '/business-model', label: 'Business Model & Unit Economics' },
   { path: '/go-to-market', label: 'Go-to-Market & Growth' },
   { path: '/financial-plan', label: 'Financial Plan & Sensitivity' },

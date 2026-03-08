@@ -25,12 +25,14 @@
   color: #92400e;
 }
 
-#linkedin-guide .onboarding-inline-link {
+#linkedin-guide .onboarding-inline-link,
+#linkedin-connections-guide .onboarding-inline-link {
   color: var(--oasis-green-medium, #0d9488);
   text-decoration: underline;
 }
 
-#linkedin-guide .onboarding-inline-link:hover {
+#linkedin-guide .onboarding-inline-link:hover,
+#linkedin-connections-guide .onboarding-inline-link:hover {
   color: var(--oasis-green-dark, #0f766e);
 }
 
@@ -269,6 +271,208 @@
 
 .linkedin-algorithm-benefits p:last-child {
   margin-bottom: 0;
+}
+
+/* Success Criteria section - LinkedIn Connections Guide */
+.linkedin-connections-success-section {
+  padding: 24px 28px;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border: 2px solid #f59e0b;
+  border-radius: 12px;
+  margin-bottom: 32px;
+}
+
+.linkedin-connections-success-section h2 {
+  margin-top: 0;
+}
+
+.linkedin-connections-success-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+  margin-top: 20px;
+}
+
+.linkedin-connections-success-instructions p {
+  margin: 0 0 12px 0;
+  color: #92400e;
+}
+
+.linkedin-connections-success-instructions p:last-of-type {
+  margin-bottom: 8px;
+}
+
+.linkedin-connections-instructions {
+  margin: 12px 0 0 0;
+  padding-left: 24px;
+  line-height: 1.8;
+  color: #92400e;
+}
+
+.linkedin-connections-instructions li {
+  margin-bottom: 8px;
+}
+
+.linkedin-connections-instructions li:last-child {
+  margin-bottom: 0;
+}
+
+.linkedin-connections-success-screenshot {
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.linkedin-connections-success-screenshot .linkedin-connections-screenshot-large {
+  max-width: 100%;
+}
+
+.linkedin-connections-success-screenshot .linkedin-connections-screenshot-caption {
+  margin: 12px 0 0 0;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+@media (max-width: 900px) {
+  .linkedin-connections-success-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Walkthrough Video section - LinkedIn Connections Guide */
+.linkedin-connections-video-section {
+  margin-bottom: 40px;
+}
+
+.linkedin-connections-video-intro {
+  margin: 0 0 16px 0;
+  font-size: 1.05rem;
+  color: #334155;
+}
+
+.linkedin-connections-video-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.linkedin-connections-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Goals & Purpose section - LinkedIn Connections Guide */
+.linkedin-connections-goals-section .content-block > p:first-child {
+  margin-bottom: 16px;
+}
+
+.linkedin-connections-goals-list {
+  margin: 0 0 24px 0;
+  padding-left: 24px;
+  list-style: none;
+}
+
+.linkedin-connections-goals-list li {
+  margin-bottom: 16px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.linkedin-connections-goals-list li:last-child {
+  margin-bottom: 0;
+}
+
+.linkedin-connections-goals-section .content-block > p:last-child {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Large screenshot hero - LinkedIn Connections Guide */
+.linkedin-connections-screenshot-hero {
+  margin: 0 0 36px 0;
+  padding: 24px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.linkedin-connections-screenshot-large {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.linkedin-connections-screenshot-caption {
+  margin: 16px 0 0 0;
+  font-size: 0.95rem;
+  color: #64748b;
+  text-align: center;
+}
+
+/* ICP Prospect Tracker callout - LinkedIn Connections Guide */
+.linkedin-connections-tracker-callout {
+  margin: 0 0 40px 0;
+  padding: 28px 32px;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border: 2px solid var(--oasis-green-medium, #0d9488);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.15);
+}
+
+.linkedin-connections-tracker-callout h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.35rem;
+  color: #065f46;
+  font-weight: 700;
+}
+
+.linkedin-connections-tracker-callout p {
+  margin: 0 0 20px 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #047857;
+}
+
+.linkedin-connections-tracker-callout p:last-of-type {
+  margin-bottom: 20px;
+}
+
+.linkedin-connections-tracker-button {
+  display: inline-block;
+  padding: 14px 28px;
+  background: var(--oasis-green-medium, #0d9488);
+  color: white !important;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3);
+}
+
+.linkedin-connections-tracker-button:hover {
+  background: var(--oasis-green-dark, #0f766e);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.4);
 }
 
 /* Questions / reach out note at bottom */
