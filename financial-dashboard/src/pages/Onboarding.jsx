@@ -97,7 +97,11 @@ function Onboarding() {
       <div className="page-header">
         <h1>Onboarding</h1>
         <p className="page-subtitle">
-          New team member checklist. Complete each step and click through for detailed instructions. Subpages for each step coming soon.
+          New team member checklist. Complete each step and click through for detailed instructions.
+        </p>
+        <p className="onboarding-hint">
+          <span className="onboarding-hint-item">☐ Click the box to mark complete</span>
+          <span className="onboarding-hint-item">→ Click the task name to open instructions</span>
         </p>
       </div>
 
@@ -135,28 +139,33 @@ function Onboarding() {
                 <ul className="onboarding-list">
                   {daySteps.map((step) => (
                     <li key={step.id} className="onboarding-item">
-                      <label
-                        className="onboarding-item-label"
-                        onClick={(e) => { lastClickRef.current = { x: e.clientX, y: e.clientY } }}
-                      >
-                        <input
-                          type="checkbox"
-                          checked={!!checked[step.id]}
-                          onChange={() => toggleChecked(step.id, lastClickRef.current)}
-                          className="onboarding-checkbox"
-                        />
-                        <span className="onboarding-checkbox-custom" />
+                      <div className="onboarding-item-row">
+                        <label
+                          className="onboarding-checkbox-wrapper"
+                          onClick={(e) => { lastClickRef.current = { x: e.clientX, y: e.clientY } }}
+                          title="Mark complete"
+                        >
+                          <input
+                            type="checkbox"
+                            checked={!!checked[step.id]}
+                            onChange={() => toggleChecked(step.id, lastClickRef.current)}
+                            className="onboarding-checkbox"
+                          />
+                          <span className="onboarding-checkbox-custom" />
+                          <span className="onboarding-checkbox-label">Mark complete</span>
+                        </label>
                         <Link
                           to={`/onboarding/${step.id}`}
                           className="onboarding-item-link"
-                          onClick={(e) => e.stopPropagation()}
+                          title="Open instructions"
                         >
-                          {step.label}
+                          <span className="onboarding-item-text">{step.label}</span>
+                          <span className="onboarding-item-arrow">View instructions →</span>
                         </Link>
                         {step.badge && (
                           <span className="onboarding-badge">{step.badge}</span>
                         )}
-                      </label>
+                      </div>
                     </li>
                   ))}
                 </ul>
