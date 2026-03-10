@@ -86,7 +86,7 @@ function TeamExecution() {
     },
     {
       name: "Preetika Shyamwale",
-      roles: ["Design"],
+      roles: ["Product Marketing"],
       employmentStatus: "intern",
       hoursPerWeek: 20,
       timeLogs: []
@@ -583,96 +583,6 @@ function TeamExecution() {
             "Increase LinkedIn engagement by 50%",
             "Generate 30+ sign-ups from social media",
             "Maintain daily posting schedule"
-          ]
-        }
-      ]
-    },
-    {
-      name: "Rohith Anthony Aleti Joseph",
-      roles: ["Sales"],
-      employmentStatus: "intern",
-      hoursPerWeek: 20,
-      timeLogs: [
-        {
-          submissionId: "Rohith1",
-          respondentId: "Rohith",
-          submittedAt: "2025-01-10 10:00:00",
-          name: "Rohith Anthony Aleti Joseph",
-          date: "2025-01-03",
-          hours: 20,
-          description: "Week of Dec 30 - Jan 3. Conducted product demos for prospects. Scheduled discovery calls with potential B2B customers. Followed up with demo attendees. Negotiated pilot contracts."
-        },
-        {
-          submissionId: "Rohith2",
-          respondentId: "Rohith",
-          submittedAt: "2025-01-17 10:00:00",
-          name: "Rohith Anthony Aleti Joseph",
-          date: "2025-01-10",
-          hours: 20,
-          description: "Week of Jan 6-10. Conducted demos for qualified leads. Scheduled discovery calls. Followed up with prospects. Built pipeline for $50K ARR target."
-        },
-        {
-          submissionId: "Rohith3",
-          respondentId: "Rohith",
-          submittedAt: "2025-01-24 10:00:00",
-          name: "Rohith Anthony Aleti Joseph",
-          date: "2025-01-17",
-          hours: 20,
-          description: "Week of Jan 13-17. Conducted demos and discovery calls. Negotiated pilot contract terms. Followed up with prospects. Tracked pipeline value toward $50K ARR goal."
-        },
-        {
-          submissionId: "Rohith4",
-          respondentId: "Rohith",
-          submittedAt: "2025-01-31 10:00:00",
-          name: "Rohith Anthony Aleti Joseph",
-          date: "2025-01-24",
-          hours: 20,
-          description: "Week of Jan 20-24. Closed pilot contract negotiations. Conducted final demos. Followed up with signed pilots. Achieved $50K ARR milestone."
-        }
-      ],
-      q1Goals: {
-        overview: "Drive B2B revenue through pilot acquisition",
-        target: "Generate $50,000 ARR in Q1 (1 pilot at $50K or 2 pilots at $25K each)",
-        weeklyBreakdown: [
-          { week: 1, goal: "Research target companies", metric: "20+ qualified leads identified" },
-          { week: 2, goal: "Week 2 outreach", metric: "5+ emails sent, 2+ responses" },
-          { week: 3, goal: "Week 3 outreach", metric: "5+ emails sent, 2+ responses" },
-          { week: 4, goal: "Week 4 outreach & discovery calls", metric: "1+ discovery call, $25K+ pipeline" },
-          { week: 5, goal: "Week 5 outreach & discovery calls", metric: "1+ discovery call, $50K+ pipeline" },
-          { week: 6, goal: "Week 6 outreach & discovery calls", metric: "1+ discovery call, $75K+ pipeline" },
-          { week: 7, goal: "Week 7 demo scheduling", metric: "1+ demo scheduled, $100K+ pipeline" },
-          { week: 8, goal: "Week 8 demo scheduling", metric: "1+ demo scheduled, $100K+ pipeline" },
-          { week: 9, goal: "Week 9 pilot negotiations", metric: "$50K+ ARR in active negotiations" },
-          { week: 10, goal: "Week 10 pilot negotiations", metric: "$50K+ ARR in active negotiations" },
-          { week: 11, goal: "Week 11 pilot closing", metric: "$50K ARR closed" },
-          { week: 12, goal: "Week 12 follow-up", metric: "$50K ARR confirmed" },
-          { week: 13, goal: "Q1 sales review", metric: "$50,000 ARR achieved" }
-        ],
-        keyMetrics: [
-          "ARR generated (target $50,000)",
-          "Qualified B2B leads generated (target 20+)",
-          "Pipeline value (target $100K+ by week 7)",
-          "Discovery calls scheduled (target 5+)",
-          "Demos conducted (target 3+)",
-          "Pilot contracts closed (1 at $50K or 2 at $25K)"
-        ]
-      },
-      projects: [
-        {
-          title: "B2B Lead Generation & Outreach",
-          status: "active",
-          startDate: "January 2026",
-          description: "Identify and reach out to potential B2B customers for pilot program participation.",
-          scope: [
-            "Research and identify target companies for B2B pilots",
-            "Create outreach sequences and email templates",
-            "Conduct initial discovery calls with prospects",
-            "Qualify leads and schedule demos for qualified opportunities"
-          ],
-          goals: [
-            "Generate 20+ qualified B2B leads",
-            "Schedule 5+ discovery calls",
-            "Convert 1 lead to pilot contract"
           ]
         }
       ]
@@ -2710,6 +2620,48 @@ function TeamExecution() {
         weeklyBreakdown: [],
         keyMetrics: ["Onboarding completion", "Product contributions"]
       }
+    },
+    {
+      name: "Sudhire Rahul Karunakaran",
+      roles: ["Sales"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: []
+    },
+    {
+      name: "Rohith CMR",
+      roles: ["Product"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: []
+    },
+    {
+      name: "Mukesh Basvekar",
+      roles: ["Sales"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: []
+    },
+    {
+      name: "Harika Kurra",
+      roles: ["Product"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: []
+    },
+    {
+      name: "Alisha Reji",
+      roles: ["Product"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: []
+    },
+    {
+      name: "Hasitha Sigatapu",
+      roles: ["Project Management"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: []
     }
   ]
 
