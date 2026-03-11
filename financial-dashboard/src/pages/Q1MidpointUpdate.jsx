@@ -260,6 +260,7 @@ function Q1MidpointUpdate() {
             <a className="toc-link" href="#design">Design</a>
             <a className="toc-link" href="#engineering">Engineering</a>
             <a className="toc-link" href="#hr">HR</a>
+            <a className="toc-link" href="#team-feedback">Team Feedback</a>
             <a className="toc-link" href="#goals-mar-31">Goals for March 31st</a>
             <a className="toc-link" href="#faq">Strategic FAQ</a>
           </div>
@@ -860,6 +861,45 @@ function Q1MidpointUpdate() {
           <p>
             Goal: make it easy for every team member to contribute signal—clear onboarding, clear ownership, and consistent participation in testing + feedback loops.
           </p>
+        </div>
+      </section>
+
+      <section className="page-section" id="team-feedback">
+        <h2>Team Feedback</h2>
+        <div className="content-block">
+          <p className="team-feedback-intro">
+            Retrospective feedback from the team (submitted Feb 18, 2026). Prompts: What would we start/stop doing? More of? Less of? What surprised us? What should we do earlier next time?
+          </p>
+          <div className="team-feedback-grid">
+            <div className="team-feedback-card">
+              <h3>What would we start doing?</h3>
+              <p>Start going to more networking events and company events to talk about our product and get potential clients.</p>
+            </div>
+            <div className="team-feedback-card">
+              <h3>What would we stop doing?</h3>
+              <p>We should finalise a date on when we launch the product and then work backwards to our goal if we haven&apos;t done that.</p>
+            </div>
+            <div className="team-feedback-card">
+              <h3>What would we do more of?</h3>
+              <p>Reach out to as many people as possible, and not just the sales team, to talk about our product. Learn from competitors more—maybe even get a demo of how they are doing things.</p>
+            </div>
+            <div className="team-feedback-card">
+              <h3>What would we do less of?</h3>
+              <p>Everything is good-paced and well thought out by Adam!</p>
+            </div>
+            <div className="team-feedback-card">
+              <h3>What surprised you?</h3>
+              <p>How did our content and product help us get our first paid user?</p>
+            </div>
+            <div className="team-feedback-card">
+              <h3>What should we do earlier next time?</h3>
+              <p>n/a</p>
+            </div>
+          </div>
+          <div className="team-feedback-followup">
+            <h3>Open question</h3>
+            <p>How did our content and product help us get our first paid user?</p>
+          </div>
         </div>
       </section>
 

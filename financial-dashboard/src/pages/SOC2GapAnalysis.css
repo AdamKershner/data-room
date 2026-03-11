@@ -1,0 +1,90 @@
+.soc2-updated {
+  margin: 8px 0 0 0;
+  font-size: 0.9rem;
+  color: rgba(15, 23, 42, 0.6);
+}
+
+.soc2-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.soc2-table th,
+.soc2-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.soc2-table thead th {
+  background: rgba(45, 80, 22, 0.08);
+  color: var(--oasis-green-medium, #2d5016);
+  font-weight: 700;
+}
+
+.soc2-table tbody tr:hover {
+  background: rgba(45, 80, 22, 0.03);
+}
+
+.soc2-table td.soc2-gap {
+  color: #b45309;
+  font-weight: 600;
+}
+
+.soc2-table code {
+  background: rgba(0, 0, 0, 0.06);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.soc2-checklist-section h3 {
+  font-size: 1.2rem;
+  color: var(--oasis-green-medium, #2d5016);
+  margin: 24px 0 12px 0;
+  font-weight: 600;
+}
+
+.soc2-checklist-section h3:first-of-type {
+  margin-top: 0;
+}
+
+.soc2-checklist-intro {
+  margin-bottom: 20px;
+}
+
+.soc2-checklist {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 20px 0;
+}
+
+.soc2-checklist li {
+  padding: 10px 0 10px 24px;
+  position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  line-height: 1.55;
+}
+
+.soc2-checklist li::before {
+  content: '☐';
+  position: absolute;
+  left: 0;
+  font-size: 1.1rem;
+}
+
+.soc2-checklist code {
+  background: rgba(0, 0, 0, 0.06);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.soc2-source {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+  color: rgba(15, 23, 42, 0.6);
+}

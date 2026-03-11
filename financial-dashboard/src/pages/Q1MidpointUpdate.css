@@ -1369,3 +1369,59 @@
   color: white;
 }
 
+/* Team Feedback – retrospective cards */
+.team-feedback-intro {
+  margin-bottom: 24px;
+  line-height: 1.55;
+  color: rgba(15, 23, 42, 0.85);
+}
+
+.team-feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.team-feedback-card {
+  background: linear-gradient(135deg, rgba(45, 80, 22, 0.04) 0%, rgba(45, 80, 22, 0.01) 100%);
+  border: 1px solid rgba(45, 80, 22, 0.18);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.team-feedback-card h4 {
+  font-size: 1rem;
+  color: var(--oasis-green-medium, #2d5016);
+  margin: 0 0 10px 0;
+  font-weight: 700;
+}
+
+.team-feedback-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(15, 23, 42, 0.85);
+}
+
+.team-feedback-followup {
+  margin-top: 24px;
+  padding: 18px 20px;
+  background: rgba(45, 80, 22, 0.06);
+  border: 1px solid rgba(45, 80, 22, 0.2);
+  border-radius: 12px;
+}
+
+.team-feedback-followup h4 {
+  font-size: 1.05rem;
+  color: var(--oasis-green-medium, #2d5016);
+  margin: 0 0 8px 0;
+  font-weight: 700;
+}
+
+.team-feedback-followup p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(15, 23, 42, 0.9);
+}
+
