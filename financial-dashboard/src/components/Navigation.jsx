@@ -76,7 +76,8 @@ function Navigation() {
       name: 'Technical',
       items: [
         { path: '/ota-guide', label: 'OTA & Updates Guide', id: 'ota-guide' },
-        { path: '/sprints', label: 'Sprints', id: 'sprints' }
+        { path: '/sprints', label: 'Sprints', id: 'sprints' },
+        { path: '/soc2-gap-analysis', label: 'SOC2 Gap Analysis', id: 'soc2-gap-analysis' }
       ]
     }
   ]

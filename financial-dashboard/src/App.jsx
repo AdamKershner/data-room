@@ -24,6 +24,7 @@ import LinkedInGuide from './pages/LinkedInGuide'
 import LinkedInConnectionsGuide from './pages/LinkedInConnectionsGuide'
 import ProductHuntTasks from './pages/ProductHuntTasks'
 import OTAGuide from './pages/OTAGuide'
+import SOC2GapAnalysis from './pages/SOC2GapAnalysis'
 import './App.css'
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
           <Route path="/linkedin-connections-guide" element={<LinkedInConnectionsGuide />} />
           <Route path="/producthunt-tasks" element={<ProductHuntTasks />} />
           <Route path="/ota-guide" element={<OTAGuide />} />
+          <Route path="/soc2-gap-analysis" element={<SOC2GapAnalysis />} />
         </Routes>
       </div>
     </Router>
