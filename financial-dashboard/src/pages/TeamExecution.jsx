@@ -113,6 +113,13 @@ function TeamExecution() {
       timeLogs: []
     },
     {
+      name: "Archit Gupta",
+      roles: ["Engineering"],
+      employmentStatus: "intern",
+      hoursPerWeek: 20,
+      timeLogs: []
+    },
+    {
       name: "Samyak Jain",
       roles: ["Product Marketing"],
       employmentStatus: "intern",
