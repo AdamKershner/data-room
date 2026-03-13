@@ -10,13 +10,24 @@ function WeeklyReports() {
       week: '2026-03-09',
       weekLabel: 'Week of March 9–13, 2026',
       keyUpdates: [
-        'NPS survey: 31 responses as of March 13 (up from 15). NPS score and cohort breakdown updated.',
+        'Akansha, Pournami, and Adam are working on a pitch competition application for ArchGrants $75K non-dilutive funding. Deadline: March 31st at 11:59 PM EST. Focus for the next 2 weeks: driving traction in key areas.',
+        'Impressions: 1M+ impressions this quarter (up 70%). Impressions in the last 7 days: 89K (down 37% from prior week). Waitlist at 162; ideally 2000.',
+        'Prospects: LinkedIn Connections strategy (25 in-network Enterprise architects identified); Apollo outreach via Sudhire (1/60 success rate); Product Hunt supporters; potential revenue in pipeline based on average LTV ($25K annually for 3 years).',
+        'NPS survey: 32 responses as of March 13. NPS score: 25 (14 promoters, 6 detractors, 12 passives). Matches NPS page.',
+        'Srishti is driving forward as project manager for the LinkedIn Connections Guide. For the next 1–2 weeks, all team members will be executing this and connecting with more ideal prospects through LinkedIn, bringing them into our networks.',
+        'Sudhire identified a good strategy for meeting with ideal prospects (enterprise solutions architects) using Apollo and sending mass emails. The approach focuses on genuinely requesting meetings to learn more about the role and career path of an enterprise solutions architect. We will look to scale this strategy.',
         'Product Hunt Tasks page launched: Team members can recruit 10 confirmed supporters over the next 2 weeks. Individual Slack outreach began.',
         'SOC2 Gap Analysis: Added auditor-focused sections (Executive Summary, Control Mapping, Gap Summary, Evidence Inventory, Action Plan) to factsheet and dashboard.',
+        'Sudhire, BD, Hasan, and Abhinav are working together to set up the sales pipeline and CRM so that as prospects are identified and engaged (chats, demos, discovery calls, webinars), they are added to the CRM with a clear action plan for the sales team to take appropriate next steps.',
         'Archit Gupta added to engineering team.',
-        '[Add key updates as time logs and feedback are collected]'
+        'Srishti Goyal: LinkedIn Connections and Reddit Forums (10 hours)',
+        'Nithish Sampath: Tested browser AI feature (4 hours)',
+        'Ammemah Naeem: Meeting with Adam, reviewing LinkedIn docs, HubSpot knowledge gathering (3 hours); Product Hunt reachouts (1 hour)'
       ],
-      timeBreakdown: {},
+      timeBreakdown: {
+        'Marketing & Content': 14.0,
+        'Product & Testing': 4.0
+      },
       areasToImprove: [
         <>For more MQLs: Use <a href="/linkedin-guide">LinkedIn Marketing Guide</a> (team-wide initiative)</>,
         <>For more SQLs and enterprise solutions architects: Use <a href="/linkedin-connections-guide">LinkedIn Connections Guide</a> (team-wide initiative)</>,
@@ -29,23 +40,32 @@ function WeeklyReports() {
         'Scale blog creation and content calendar execution'
       ],
       metrics: {
+        impressions: 89000,
+        impressionsGrowth: -37,
         mqls: 0,
         sqls: 1,
-        npsScore: 7,
-        npsResponses: 31,
+        npsScore: 25,
+        npsResponses: 32,
+        npsParticipation: 65.3,
         npsParticipationTotal: 49,
-        waitlistSignups: 158,
-        timeLogFilledOut: [],
-        timeLogDidNotFillOut: []
+        productHuntSupporters: 63,
+        productHuntSupportersTarget: 350,
+        waitlistSignups: 162,
+        totalHours: 18.0,
+        teamMembers: 3,
+        entries: 4,
+        timeLogParticipation: 6.1,
+        timeLogFilledOut: ['Srishti Goyal', 'Nithish Sampath', 'Ammemah Naeem'],
+        timeLogDidNotFillOut: ['Abhinav Chandra', 'Adam Kershner', 'Afshaan Khan', 'Agrima Gupta', 'Aishwarya Shetiya', 'Akansha Parihar', 'Alisha Reji', 'Ankit', 'Archana Ramalingam', 'Archit Gupta', 'Ashwin John', 'Atharva Joshi', 'BD Manikandan', 'Dhruv Patel', 'Durgesh Tiwari', 'Harika Kurra', 'Hasitha Sigatapu', 'Hasan Bohra', 'Hritik Sanjay Chalse', 'Kaushik Shridhar', 'Konika Dhull', 'Lalith Donkina', 'Likhitha Guggilla', 'Lokesh Nenavath', 'Mohammed Muneebuddin', 'Mukesh Basvekar', 'Naveen Prashanna Gurumurthy', 'Navile Mahesh', 'Pallavi', 'Pournami Pottekat', 'Preetika Shyamwale', 'Rajrajeshwari Gaware', 'Rashmi Kadwani', 'Rashmila Mitra', 'Ravi', 'Revanth Ganga', 'Rohith Anthony Aleti Joseph', 'Rohith CMR', 'Rohan Mehere', 'Ruhani Vinzuda', 'Rushyanth Nerellakunta', 'Ruturaj', 'Saideep Pajjuri', 'Saksham Mehta', 'Samyak Jain', 'Sudhire Rahul Karunakaran', 'Yaseer']
       },
       quarterlyGoals: {
-        nps: 7,
+        nps: 25,
         npsTarget: 30,
         pilots: 0,
         pilotsTarget: 3,
         payingSubscribers: 0,
         payingSubscribersTarget: 40,
-        payingSubscribersNote: 'Culture Amp active sales lead from late January',
+        payingSubscribersNote: '1 paying subscriber officially downgraded on March 12 and is no longer paying. We had 1 paying subscriber in February, and now 0 in March.',
         waitlistTarget: 2000
       }
     },
@@ -812,6 +832,15 @@ function WeeklyReports() {
                     <div className="metric-card">
                       <div className="metric-value">{report.metrics.waitlistSignups}</div>
                       <div className="metric-label">Total Waitlist Signups</div>
+                    </div>
+                  )}
+                  {report.metrics.productHuntSupporters !== undefined && report.metrics.productHuntSupportersTarget !== undefined && (
+                    <div className="metric-card">
+                      <div className="metric-value">{report.metrics.productHuntSupporters}/{report.metrics.productHuntSupportersTarget}</div>
+                      <div className="metric-label">Product Hunt Supporters</div>
+                      <div style={{ fontSize: '0.75rem', marginTop: '4px', color: 'rgba(255, 255, 255, 0.8)', fontStyle: 'italic' }}>
+                        Target for launch day
+                      </div>
                     </div>
                   )}
                   {report.metrics.npsSurveyCompletions !== undefined && (
