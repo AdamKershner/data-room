@@ -75,6 +75,7 @@ function NPS() {
 
   const npsKey = 'How likely are you to recommend to a friend or colleague?'
   const disappointedKey = '1. How would you feel if you could no longer use Oasis?'
+  const targetUsersKey = 'What type of of people do you think would most benefit from Oasis?'
   const mainBenefitKey = 'What is the main benefit you receive from Oasis?'
   const improveKey = 'How can we improve Oasis for you?'
 
@@ -252,6 +253,7 @@ function NPS() {
             <table className="nps-feedback-table">
               <thead>
                 <tr>
+                  <th>Who benefits</th>
                   <th>Main benefit</th>
                   <th>How to improve</th>
                 </tr>
@@ -259,6 +261,7 @@ function NPS() {
               <tbody>
                 {cohorts[selectedCohort].map((row, idx) => (
                   <tr key={row['Submission ID'] || idx}>
+                    <td>{(row[targetUsersKey] || '-').trim() || '-'}</td>
                     <td>{(row[mainBenefitKey] || '-').trim() || '-'}</td>
                     <td>{(row[improveKey] || '-').trim() || '-'}</td>
                   </tr>
