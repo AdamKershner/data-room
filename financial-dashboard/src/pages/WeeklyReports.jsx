@@ -6,6 +6,163 @@ function WeeklyReports() {
   // Weekly reports generated from time log data
   const [reports] = useState([
     {
+      id: -3,
+      week: '2026-03-09',
+      weekLabel: 'Week of March 9–13, 2026',
+      keyUpdates: [
+        'NPS survey: 31 responses as of March 13 (up from 15). NPS score and cohort breakdown updated.',
+        'Product Hunt Tasks page launched: Team members can recruit 10 confirmed supporters over the next 2 weeks. Individual Slack outreach began.',
+        'SOC2 Gap Analysis: Added auditor-focused sections (Executive Summary, Control Mapping, Gap Summary, Evidence Inventory, Action Plan) to factsheet and dashboard.',
+        'Archit Gupta added to engineering team.',
+        '[Add key updates as time logs and feedback are collected]'
+      ],
+      timeBreakdown: {},
+      areasToImprove: [
+        <>For more MQLs: Use <a href="/linkedin-guide">LinkedIn Marketing Guide</a> (team-wide initiative)</>,
+        <>For more SQLs and enterprise solutions architects: Use <a href="/linkedin-connections-guide">LinkedIn Connections Guide</a> (team-wide initiative)</>,
+        <>For more waitlist signups and paying customers: Use <a href="/producthunt-tasks">Product Hunt Tasks</a> (team-wide initiative)</>,
+        <>Forum-based, software/tech directory, and Reddit marketing: Preetika Shyamwale and Srishti Goyal are focusing on building the waitlist using these channels. See the <a href="https://docs.google.com/spreadsheets/d/1AcB5wF0T7f2jOD2rlTeytza4oTlgu4dZx2dQ_2YjJCI/edit?gid=1458694724#gid=1458694724" target="_blank" rel="noopener noreferrer">Post-Launch Distribution</a> spreadsheet.</>,
+        'Improve NPS sample size: Target 100+ responses for reliable insights',
+        'Address split screen and autocorrect issues',
+        'Continue enterprise landing page redesign and pitch deck development',
+        'Complete Mixpanel dashboard migration to Supabase backend',
+        'Scale blog creation and content calendar execution'
+      ],
+      metrics: {
+        mqls: 0,
+        sqls: 1,
+        npsScore: 7,
+        npsResponses: 31,
+        npsParticipationTotal: 49,
+        waitlistSignups: 158,
+        timeLogFilledOut: [],
+        timeLogDidNotFillOut: []
+      },
+      quarterlyGoals: {
+        nps: 7,
+        npsTarget: 30,
+        pilots: 0,
+        pilotsTarget: 3,
+        payingSubscribers: 0,
+        payingSubscribersTarget: 40,
+        payingSubscribersNote: 'Culture Amp active sales lead from late January',
+        waitlistTarget: 2000
+      }
+    },
+    {
+      id: -2,
+      week: '2026-03-01',
+      weekLabel: 'Week of March 1–7, 2026',
+      keyUpdates: [
+        'Automatic Software Updates have been implemented for Mac versions of Oasis Firefox. End users only need to install once and will receive automatic updates. This also makes adding new enhancements and testing more efficient.',
+        'Improved onboarding and signup/login authentication options for Google, Microsoft, and Apple have been added to improve conversion and adoption.',
+        'Impressions this week: 123.8K (+36% vs. prior week)',
+        'Waitlist signups as of March 7: 158',
+        '0 paying subscribers (prior subscriber downgraded after first month)',
+        '1 sales lead from late January: Culture Amp (previously scheduled demo; follow up on LOI)',
+        'Rohan Mehere: Blog creation, bug testing, meetings, upskilling (21 hours)',
+        'Revanth: Worked on OTA implementation verification, Mixpanel configuration change to Supabase backend (25 hours)',
+        'Pournami Pottekat: Designed wireframes for Oasis enterprise landing page, collaborated with Ruhani on mascot design, created sloth icon animations (blinking, thinking, sleeping), collected pitch deck inspiration (25 hours)',
+        'Rajrajeshwari Gaware: Product testing, MixPanel board creation, weekly meetings, onboarding checklist, LinkedIn content calendar (20 hours)',
+        'Harika Kurra: Completed onboarding (company guidelines, internal channels, tools setup), check-in with Adam, tested Oasis as default browser—noted split screen issues (YouTube/Google opened Mozilla start page; Instagram opened multiple times) and missing autocorrect (21 hours)',
+        'Agrima Gupta: Reviewed Mixpanel events for AI Assistant, built engagement/feedback dashboard, identified tracking gaps for usage analytics (20 hours)',
+        'Akansha: Working on checklist and Arch Grants (8 hours)',
+        'Hasan Bohra: Learning and connecting (4 hours)',
+        'Srishti Goyal: Team meeting and waitlist tasks (4 hours, logged for Mar 7)'
+      ],
+      timeBreakdown: {
+        'Product & Design': 95.0,
+        'Marketing & Content': 33.0,
+        'Testing & Onboarding': 25.0
+      },
+      areasToImprove: [
+        <>For more MQLs: Use <a href="/linkedin-guide">LinkedIn Marketing Guide</a> (team-wide initiative)</>,
+        <>For more SQLs and enterprise solutions architects: Use <a href="/linkedin-connections-guide">LinkedIn Connections Guide</a> (team-wide initiative)</>,
+        <>For more waitlist signups and paying customers: Use <a href="/producthunt-tasks">Product Hunt Tasks</a> (team-wide initiative)</>,
+        <>Forum-based, software/tech directory, and Reddit marketing: Preetika Shyamwale and Srishti Goyal are focusing on building the waitlist using these channels. See the <a href="https://docs.google.com/spreadsheets/d/1AcB5wF0T7f2jOD2rlTeytza4oTlgu4dZx2dQ_2YjJCI/edit?gid=1458694724#gid=1458694724" target="_blank" rel="noopener noreferrer">Post-Launch Distribution</a> spreadsheet.</>,
+        'Improve NPS sample size: Increase NPS participation (currently 15/49 = 30.6%; target 100+ responses for reliable insights)',
+        'Address split screen and autocorrect issues identified during Harika\'s Oasis testing',
+        'Continue enterprise landing page redesign and pitch deck development',
+        'Complete Mixpanel dashboard migration to Supabase backend',
+        'Scale blog creation and content calendar execution'
+      ],
+      metrics: {
+        impressions: 123800,
+        impressionsGrowth: 36,
+        waitlistSignups: 158,
+        totalHours: 153.0,
+        teamMembers: 9,
+        entries: 10,
+        mqls: 0,
+        sqls: 1,
+        npsScore: 7,
+        npsResponses: 15,
+        npsParticipation: 30.6,
+        npsParticipationTotal: 49,
+        timeLogParticipation: 18.4,
+        timeLogFilledOut: ['Agrima Gupta', 'Akansha Parihar', 'Hasan Bohra', 'Harika Kurra', 'Pournami Pottekat', 'Rajrajeshwari Gaware', 'Revanth Ganga', 'Rohan Mehere', 'Srishti Goyal'],
+        timeLogDidNotFillOut: ['Abhinav Chandra', 'Adam Kershner', 'Afshaan Khan', 'Aishwarya Shetiya', 'Alisha Reji', 'Ammemah Naeem', 'Ankit', 'Archana Ramalingam', 'Ashwin John', 'Atharva Joshi', 'BD Manikandan', 'Dhruv Patel', 'Durgesh Tiwari', 'Hasitha Sigatapu', 'Hritik Sanjay Chalse', 'Kaushik Shridhar', 'Konika Dhull', 'Lalith Donkina', 'Likhitha Guggilla', 'Lokesh Nenavath', 'Mohammed Muneebuddin', 'Mukesh Basvekar', 'Naveen Prashanna Gurumurthy', 'Navile Mahesh', 'Nithish Sampath', 'Pallavi', 'Preetika Shyamwale', 'Rashmi Kadwani', 'Rashmila Mitra', 'Ravi', 'Rohith Anthony Aleti Joseph', 'Rohith CMR', 'Ruhani Vinzuda', 'Rushyanth Nerellakunta', 'Ruturaj', 'Saideep Pajjuri', 'Saksham Mehta', 'Samyak Jain', 'Sudhire Rahul Karunakaran', 'Yaseer']
+      },
+      quarterlyGoals: {
+        nps: 7,
+        npsTarget: 30,
+        pilots: 0,
+        pilotsTarget: 3,
+        payingSubscribers: 0,
+        payingSubscribersTarget: 40,
+        payingSubscribersNote: 'Prior subscriber downgraded; Culture Amp active sales lead from late January',
+        waitlistTarget: 2000
+      }
+    },
+    {
+      id: -1,
+      week: '2026-02-23',
+      weekLabel: 'Week of February 23–27, 2026',
+      keyUpdates: [
+        'Enterprise browser and Chromium: Atharva Joshi set up Chromium for Windows (20h). Kaushik documented Chromium build on AWS, researched CI/CD pipeline and auto-updates (25h). Revanth completed forced policy implementation for enterprise browser, worked on GitHub+AWS build/versioning with Kaushik (25h). Lalith Donkina onboarded with local Oasis code setup (40h).',
+        'Mixpanel and analytics: Agrima Gupta built Oasis Growth and Engagement dashboard (20h). Rashmila Mitra built Oasis AI Browser dashboard with At-Risk WAU/DAU cohorts, funnel and retention reports; adapted Duolingo-style user-state model; tested Oasis and submitted NPS (20h). Navile Mahesh reviewed GTM Mixpanel docs, created new funnel (20h). Konika Dhull worked on Mixpanel project, website updates, new blogs (40h).',
+        'Design: Pournami Pottekat collaborated on onboarding flow handoff, audited Oasis website vs Dex and Echotab competitors (22h). Ruhani Vinzuda worked on reel concept and animation in Clip Studio Paint (6h).',
+        'Content and marketing: Dhruv Patel prepared 10 blogs, onboarded new person, tested Oasis for NPS (25h). Ankit Sai Allam created blogs (10h). Ravi chandra Dasari: blogs and marketing (21h). BD Manikandan: HubSpot setup, Clay lead enrichment, Mixpanel analysis, Stripe integration (22h). Pallavi M: blog on autonomous browser governance (4h).',
+        'Product and PM: Samyak Jain and Saksham Mehta got up to speed on GTM Mixpanel project charter and user journey framework (21h each). Srishti Goyal: team discussions, onboarding checklist, automation research (10h).',
+        'Semantic search: Likhitha Guggilla created data collection scripts for semantic search through history (21h).',
+        'Sales: Abhinav Chandra worked on LOI, battle cards, vertical-specific ICPs (16h). Mohammed Muneebuddin drafted readiness checklist for Oasis Enterprise, tested browser (25h).',
+        'Product testing and UX: Nithish Sampath, Lokesh Naik Nenavath, Aishwarya, Rajrajeshwari Gaware, Archana Ramalingam, Rashmi Kadwani, Ammemah Naeem, Ruturaj Marathe, and others logged testing, Mixpanel review, onboarding, and content pipeline work.',
+        'Revanth implemented auto-update and archiving framework in AWS (25h). Saideep Pajjuri implemented onboarding flow (25h).'
+      ],
+      timeBreakdown: {
+        'Product Development': 180.0,
+        'Marketing & Content': 130.0,
+        'Analytics & Mixpanel': 120.0,
+        'Design': 50.0,
+        'Sales & Enterprise': 65.0
+      },
+      areasToImprove: [
+        <>For more MQLs: Use <a href="/linkedin-guide">LinkedIn Marketing Guide</a> (team-wide initiative)</>,
+        <>For more SQLs and enterprise solutions architects: Use <a href="/linkedin-connections-guide">LinkedIn Connections Guide</a> (team-wide initiative)</>,
+        <>For more waitlist signups and paying customers: Use <a href="/producthunt-tasks">Product Hunt Tasks</a> (team-wide initiative)</>,
+        <>Forum-based, software/tech directory, and Reddit marketing: Preetika Shyamwale and Srishti Goyal are focusing on building the waitlist using these channels. See the <a href="https://docs.google.com/spreadsheets/d/1AcB5wF0T7f2jOD2rlTeytza4oTlgu4dZx2dQ_2YjJCI/edit?gid=1458694724#gid=1458694724" target="_blank" rel="noopener noreferrer">Post-Launch Distribution</a> spreadsheet.</>,
+        'Complete Chromium Enterprise build and CI/CD pipeline for OTA updates',
+        'Finalize Mixpanel dashboard migration and event definitions',
+        'Increase NPS survey completion across team',
+        'Accelerate enterprise landing page redesign and pitch deck',
+        'Prioritize passkey memory bug fix for Firefox (Chrome-to-Oasis migration)'
+      ],
+      metrics: {
+        totalHours: 545.0,
+        teamMembers: 28,
+        entries: 65
+      },
+      quarterlyGoals: {
+        nps: 0,
+        npsTarget: 30,
+        pilots: 0,
+        pilotsTarget: 3,
+        payingSubscribers: 0,
+        payingSubscribersTarget: 40,
+        waitlistTarget: 2000
+      }
+    },
+    {
       id: 0,
       week: '2026-02-16',
       weekLabel: 'Week of February 14–20, 2026',
@@ -33,6 +190,10 @@ function WeeklyReports() {
       ],
       timeBreakdown: {},
       areasToImprove: [
+        <>For more MQLs: Use <a href="/linkedin-guide">LinkedIn Marketing Guide</a> (team-wide initiative)</>,
+        <>For more SQLs and enterprise solutions architects: Use <a href="/linkedin-connections-guide">LinkedIn Connections Guide</a> (team-wide initiative)</>,
+        <>For more waitlist signups and paying customers: Use <a href="/producthunt-tasks">Product Hunt Tasks</a> (team-wide initiative)</>,
+        <>Forum-based, software/tech directory, and Reddit marketing: Preetika Shyamwale and Srishti Goyal are focusing on building the waitlist using these channels. See the <a href="https://docs.google.com/spreadsheets/d/1AcB5wF0T7f2jOD2rlTeytza4oTlgu4dZx2dQ_2YjJCI/edit?gid=1458694724#gid=1458694724" target="_blank" rel="noopener noreferrer">Post-Launch Distribution</a> spreadsheet.</>,
         'Increase NPS survey completion rate (4/43 this week)',
         'Collect 50–100 NPS responses as next milestone for more reliable insights',
         'Continue YouTube content production per Content Pipeline',
@@ -50,15 +211,21 @@ function WeeklyReports() {
         hitlFeedbacks: 16,
         npsScore: 50,
         npsResponses: 4,
+        npsParticipation: 8.2,
+        npsParticipationTotal: 49,
         timeLogParticipation: 9.3,
         timeLogFilledOut: ['Aishwarya Shetiya', 'Rashmila Mitra', 'Ruturaj Marathe', 'Srishti Goyal'],
         timeLogDidNotFillOut: ['Adam Kershner', 'Afshaan Khan', 'Ammemah Naeem', 'Ankit', 'Archana Ramalingam', 'Ashwin John', 'Atharva Joshi', 'BD Manikandan', 'Dhruv Patel', 'Durgesh Tiwari', 'Hasan Bohra', 'Hritik Sanjay Chalse', 'Kaushik Shridhar', 'Konika Dhull', 'Lalith Donkina', 'Likhitha Guggilla', 'Lokesh Nenavath', 'Mohammed Muneebuddin', 'Naveen Prashanna Gurumurthy', 'Navile Mahesh', 'Nithish Sampath', 'Pallavi', 'Pournami Pottekat', 'Preetika Shyamwale', 'Ravi', 'Rajrajeshwari Gaware', 'Revanth Ganga', 'Rohith Anthony Aleti Joseph', 'Rohan Mehere', 'Rushyanth Nerellakunta', 'Ruhani Vinzuda', 'Rashmi Kadwani', 'Saideep Pajjuri', 'Saksham Mehta', 'Samyak Jain', 'Agrima Gupta', 'Abhinav Chandra', 'Akansha Parihar', 'Yaseer']
       },
       quarterlyGoals: {
         nps: 50,
+        npsTarget: 30,
         pilots: 0,
+        pilotsTarget: 3,
         payingSubscribers: 1,
-        payingSubscribersNote: 'Slated to downgrade after first month'
+        payingSubscribersTarget: 40,
+        payingSubscribersNote: 'Slated to downgrade after first month',
+        waitlistTarget: 2000
       }
     },
     {
@@ -679,6 +846,17 @@ function WeeklyReports() {
                       )}
                     </div>
                   )}
+                  {report.metrics.npsParticipation !== undefined && (
+                    <div className="metric-card">
+                      <div className="metric-value">{report.metrics.npsParticipation.toFixed(1)}%</div>
+                      <div className="metric-label">NPS Participation</div>
+                      {report.metrics.npsResponses !== undefined && report.metrics.npsParticipationTotal !== undefined && (
+                        <div style={{ fontSize: '0.75rem', marginTop: '4px', color: 'rgba(255, 255, 255, 0.8)', fontStyle: 'italic' }}>
+                          {report.metrics.npsResponses}/{report.metrics.npsParticipationTotal} team members
+                        </div>
+                      )}
+                    </div>
+                  )}
                   {!report.metrics.mqls && !report.metrics.impressions && !report.metrics.timeLogParticipation && !report.metrics.waitlistSignups && !report.metrics.npsSurveyCompletions && (
                     <>
                       <div className="metric-card">
@@ -757,7 +935,7 @@ function WeeklyReports() {
                     </p>
                     <div className="metrics-grid">
                       <div className="metric-card">
-                        <div className="metric-value">{report.quarterlyGoals.nps}</div>
+                        <div className="metric-value">{report.quarterlyGoals.nps}/{report.quarterlyGoals.npsTarget ?? 30}+</div>
                         <div className="metric-label">NPS</div>
                         {npsChange !== null && (
                           <div style={{ 
@@ -775,11 +953,11 @@ function WeeklyReports() {
                           color: 'rgba(255, 255, 255, 0.8)',
                           fontStyle: 'italic'
                         }}>
-                          Baseline not calculated
+                          Target: 30+
                         </div>
                       </div>
                       <div className="metric-card">
-                        <div className="metric-value">{report.quarterlyGoals.pilots}</div>
+                        <div className="metric-value">{report.quarterlyGoals.pilots}/{report.quarterlyGoals.pilotsTarget ?? 3}</div>
                         <div className="metric-label">Enterprise Pilots</div>
                         {pilotsChange !== null && (
                           <div style={{ 
@@ -801,7 +979,7 @@ function WeeklyReports() {
                         </div>
                       </div>
                       <div className="metric-card">
-                        <div className="metric-value">{report.quarterlyGoals.payingSubscribers}</div>
+                        <div className="metric-value">{report.quarterlyGoals.payingSubscribers}/{report.quarterlyGoals.payingSubscribersTarget ?? 40}</div>
                         <div className="metric-label">Paying Subscribers</div>
                         {subscribersChange !== null && (
                           <div style={{ 
@@ -819,9 +997,23 @@ function WeeklyReports() {
                           color: 'rgba(255, 255, 255, 0.8)',
                           fontStyle: 'italic'
                         }}>
-                          {report.quarterlyGoals.payingSubscribersNote || '$20/month plan'}
+                          {report.quarterlyGoals.payingSubscribersNote || 'Target: 40'}
                         </div>
                       </div>
+                      {report.quarterlyGoals.waitlistTarget !== undefined && (
+                        <div className="metric-card">
+                          <div className="metric-value">{report.metrics.waitlistSignups ?? '-'}/{report.quarterlyGoals.waitlistTarget}+</div>
+                          <div className="metric-label">Waitlist Signups</div>
+                          <div style={{ 
+                            fontSize: '0.75rem', 
+                            marginTop: '4px',
+                            color: 'rgba(255, 255, 255, 0.8)',
+                            fontStyle: 'italic'
+                          }}>
+                            Target: 2,000+ by end of quarter
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 )
