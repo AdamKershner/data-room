@@ -65,6 +65,13 @@ function LinkedInConnectionsGuide() {
               <li>Include the location filters for: United States, United Kingdom, Canada, Australia, New Zealand, France, Spain, Germany, Netherlands, Hong Kong, Singapore.</li>
               <li>Based on the results, go page by page. Whenever you see someone with the title (or similar title) who is also a <strong>2nd</strong> or <strong>1st</strong> connection, add them to the Google Sheet.</li>
             </ol>
+            <div className="linkedin-connections-example-note">
+              <p><strong>Example note to include with a connection request (tweak and tailor as needed):</strong></p>
+              <p>
+                “I’m working on building an enterprise browser that helps teams stay secure and productive online.
+                I noticed your background in enterprise architecture and thought it would be great to connect and exchange ideas.”
+              </p>
+            </div>
           </div>
           <div className="linkedin-connections-success-screenshot">
             <img

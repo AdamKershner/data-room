@@ -12,7 +12,7 @@ function WeeklyReports() {
       keyUpdates: [
         'Akansha, Pournami, and Adam are working on a pitch competition application for ArchGrants $75K non-dilutive funding. Deadline: March 31st at 11:59 PM EST. Focus for the next 2 weeks: driving traction in key areas.',
         'Impressions: 1M+ impressions this quarter (up 70%). Impressions in the last 7 days: 89K (down 37% from prior week). Waitlist at 162; ideally 2000.',
-        'Prospects: LinkedIn Connections strategy (25 in-network Enterprise architects identified); Apollo outreach via Sudhire (1/60 success rate); Product Hunt supporters; potential revenue in pipeline based on average LTV ($25K annually for 3 years).',
+        'Prospects: 25 new prospects identified this week; 3/48 team members (6.3%) identified a new prospect. LinkedIn Connections strategy (25 in-network Enterprise architects identified); Apollo outreach via Sudhire (1/60 success rate); Product Hunt supporters; potential revenue in pipeline based on average LTV ($25K annually for 3 years).',
         'NPS survey: 32 responses as of March 13. NPS score: 25 (14 promoters, 6 detractors, 12 passives). Matches NPS page.',
         'Srishti is driving forward as project manager for the LinkedIn Connections Guide. For the next 1–2 weeks, all team members will be executing this and connecting with more ideal prospects through LinkedIn, bringing them into our networks.',
         'Sudhire identified a good strategy for meeting with ideal prospects (enterprise solutions architects) using Apollo and sending mass emails. The approach focuses on genuinely requesting meetings to learn more about the role and career path of an enterprise solutions architect. We will look to scale this strategy.',
@@ -33,6 +33,7 @@ function WeeklyReports() {
         <>For more SQLs and enterprise solutions architects: Use <a href="/linkedin-connections-guide">LinkedIn Connections Guide</a> (team-wide initiative)</>,
         <>For more waitlist signups and paying customers: Use <a href="/producthunt-tasks">Product Hunt Tasks</a> (team-wide initiative)</>,
         <>Forum-based, software/tech directory, and Reddit marketing: Preetika Shyamwale and Srishti Goyal are focusing on building the waitlist using these channels. See the <a href="https://docs.google.com/spreadsheets/d/1AcB5wF0T7f2jOD2rlTeytza4oTlgu4dZx2dQ_2YjJCI/edit?gid=1458694724#gid=1458694724" target="_blank" rel="noopener noreferrer">Post-Launch Distribution</a> spreadsheet.</>,
+        <>Identify more new prospects on average each week, and get to 100% of team members identifying a new prospect using the <a href="/linkedin-connections-guide">LinkedIn Connections Guide</a> method, starting next week. This will help improve LOIs signed and hit goals for enterprise pilots.</>,
         'Improve NPS sample size: Target 100+ responses for reliable insights',
         'Address split screen and autocorrect issues',
         'Continue enterprise landing page redesign and pitch deck development',
@@ -50,6 +51,9 @@ function WeeklyReports() {
         npsParticipationTotal: 49,
         productHuntSupporters: 63,
         productHuntSupportersTarget: 350,
+        newProspectsIdentified: 25,
+        prospectsIdentifiedTeamMembers: 3,
+        prospectsIdentifiedTotal: 48,
         waitlistSignups: 162,
         totalHours: 18.0,
         teamMembers: 3,
@@ -840,6 +844,21 @@ function WeeklyReports() {
                       <div className="metric-label">Product Hunt Supporters</div>
                       <div style={{ fontSize: '0.75rem', marginTop: '4px', color: 'rgba(255, 255, 255, 0.8)', fontStyle: 'italic' }}>
                         Target for launch day
+                      </div>
+                    </div>
+                  )}
+                  {report.metrics.newProspectsIdentified !== undefined && (
+                    <div className="metric-card">
+                      <div className="metric-value">{report.metrics.newProspectsIdentified}</div>
+                      <div className="metric-label">New Prospects Identified (per week)</div>
+                    </div>
+                  )}
+                  {report.metrics.prospectsIdentifiedTeamMembers !== undefined && report.metrics.prospectsIdentifiedTotal !== undefined && (
+                    <div className="metric-card">
+                      <div className="metric-value">{report.metrics.prospectsIdentifiedTeamMembers}/{report.metrics.prospectsIdentifiedTotal}</div>
+                      <div className="metric-label">Team Members Who Identified a Prospect</div>
+                      <div style={{ fontSize: '0.75rem', marginTop: '4px', color: 'rgba(255, 255, 255, 0.8)', fontStyle: 'italic' }}>
+                        {((report.metrics.prospectsIdentifiedTeamMembers / report.metrics.prospectsIdentifiedTotal) * 100).toFixed(1)}% participation
                       </div>
                     </div>
                   )}
