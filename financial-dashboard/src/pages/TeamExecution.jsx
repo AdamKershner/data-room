@@ -2514,29 +2514,6 @@ function TeamExecution() {
       }
     },
     {
-      name: "Srishti Goyal",
-      roles: ["Project Management"],
-      employmentStatus: "intern",
-      hoursPerWeek: 20,
-      timeLogs: [
-        {
-          submissionId: "Srishti1",
-          respondentId: "Srishti",
-          submittedAt: "2026-01-26 17:59:45",
-          name: "Srishti Goyal",
-          date: "2026-01-26",
-          hours: 8,
-          description: "First Week Orientation and Team Calls"
-        }
-      ],
-      q1Goals: {
-        overview: "Product development and team integration",
-        target: "Complete onboarding and contribute to product initiatives in Q1",
-        weeklyBreakdown: [],
-        keyMetrics: ["Onboarding completion", "Product contributions"]
-      }
-    },
-    {
       name: "Sudhire Rahul Karunakaran",
       roles: ["Sales"],
       employmentStatus: "intern",
