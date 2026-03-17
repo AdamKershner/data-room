@@ -9,6 +9,7 @@ const GOOGLE_DRIVE_URL = 'https://drive.google.com/drive/folders/1F4k70oaZgZ6kmY
 const PERPLEXITY_URL = 'https://www.perplexity.ai/'
 const ANTIGRAVITY_URL = 'https://antigravity.google/'
 const DATA_ROOM_REPO_URL = 'https://github.com/AdamKershner/data-room'
+const TALLY_FEEDBACK_FORM_URL = 'https://tally.so/embed/obOlb1'
 
 const ASSIGNMENTS = {
   'ev-setup': 'Hasitha, Konika',
@@ -144,7 +145,7 @@ function parseInstructionWithLinks(text, onNavigateToTask) {
   )
 }
 
-function CheckRowWithInstructions({ id, checked, onToggle, label, sublabel, tag, openId, onToggleOpen, onNavigateToTask }) {
+function CheckRowWithInstructions({ id, checked, onToggle, label, sublabel, tag, openId, onToggleOpen, onNavigateToTask, onOpenFeedback }) {
   const instruction = INSTRUCTIONS[id]
   const isOpen = openId === id
   const lastClickRef = React.useRef(null)
@@ -178,16 +179,24 @@ function CheckRowWithInstructions({ id, checked, onToggle, label, sublabel, tag,
                 {isOpen ? 'Hide instructions' : 'View instructions'}
               </button>
             )}
+            <button
+              type="button"
+              className="soc2-feedback-link"
+              onClick={() => onOpenFeedback?.(id)}
+              title="Log feedback or questions for this task"
+            >
+              Feedback
+            </button>
           </label>
+        </td>
+        <td className="soc2-id-cell">
+          <code className="soc2-task-id">{id}</code>
         </td>
         <td className="soc2-assigned-cell">
           {displayTag ? (
             <span className="soc2-tags">
-              {displayTag.split(',').map((name) => name.trim()).filter(Boolean).map((name, i, arr) => (
-                <React.Fragment key={i}>
-                  <span className="soc2-tag">{name}</span>
-                  {i < arr.length - 1 && <span className="soc2-tag-sep">, </span>}
-                </React.Fragment>
+              {displayTag.split(',').map((name) => name.trim()).filter(Boolean).map((name, i) => (
+                <span key={i} className="soc2-tag">{name}</span>
               ))}
             </span>
           ) : '—'}
@@ -202,7 +211,7 @@ function CheckRowWithInstructions({ id, checked, onToggle, label, sublabel, tag,
       </tr>
       {instruction && isOpen && (
         <tr>
-          <td colSpan={4} className="soc2-instruction-cell">
+          <td colSpan={5} className="soc2-instruction-cell">
             <div className="soc2-instruction-panel">
               {instruction.prompt && (
                 <div className="soc2-instruction-block soc2-prompt-block">
@@ -256,6 +265,7 @@ function SOC2Type1Checklist() {
     }
   })
   const [openId, setOpenId] = useState(null)
+  const [feedbackTaskId, setFeedbackTaskId] = useState(null)
   const [confetti, setConfetti] = useState(null)
   const lastClickRef = useRef(null)
 
@@ -278,6 +288,8 @@ function SOC2Type1Checklist() {
   }, [])
 
   const clearConfetti = useCallback(() => setConfetti(null), [])
+
+  const handleOpenFeedback = useCallback((taskId) => setFeedbackTaskId(taskId), [])
 
   const isChecked = (id) => !!checked[id]
 
@@ -379,9 +391,9 @@ function SOC2Type1Checklist() {
           <h3>Evidence folder structure</h3>
           <p>Create an Evidence folder (and subfolders) in the SOC2 Docs &amp; Policies folder before saving evidence documents. Use &quot;View instructions&quot; for the full list of subfolders.</p>
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Task</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Task</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="ev-setup" checked={isChecked('ev-setup')} onToggle={toggle} label="Create Evidence folder structure in [[GOOGLE_DRIVE|Google Drive]]: Evidence folder with subfolders (Access-Review-Logs, Backup-Test-Results, Change-Management, Employee-Onboarding-Offboarding, Vendor-Review)" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="ev-setup" checked={isChecked('ev-setup')} onToggle={toggle} label="Create Evidence folder structure in [[GOOGLE_DRIVE|Google Drive]]: Evidence folder with subfolders (Access-Review-Logs, Backup-Test-Results, Change-Management, Employee-Onboarding-Offboarding, Vendor-Review)" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -402,21 +414,21 @@ function SOC2Type1Checklist() {
         <h3>Core Policies</h3>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Document</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Document</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="doc-1" checked={isChecked('doc-1')} onToggle={toggle} label="Create Information Security Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-2" checked={isChecked('doc-2')} onToggle={toggle} label="Create Access Control Policy and add to [[GOOGLE_DRIVE|Google Drive]] (include: Google Workspace for Adam only; IdP deferred with rationale; provisioning, deprovisioning, quarterly access reviews)" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-3" checked={isChecked('doc-3')} onToggle={toggle} label="Create Change Management Policy and add to [[GOOGLE_DRIVE|Google Drive]] (include: GitHub PRs, Tally→Slack→Sheets→GitHub, CI/CD flow)" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-4" checked={isChecked('doc-4')} onToggle={toggle} label="Create Backup and Restoration Policy and add to [[GOOGLE_DRIVE|Google Drive]] (include: backup location S3, retention 7 days Pro, who can restore)" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-5" checked={isChecked('doc-5')} onToggle={toggle} label="Create Logging and Monitoring Policy and add to [[GOOGLE_DRIVE|Google Drive]] (include: Supabase logs, Mixpanel, 7-day retention, where logs are stored, who can access)" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-6" checked={isChecked('doc-6')} onToggle={toggle} label="Create Encryption Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-7" checked={isChecked('doc-7')} onToggle={toggle} label="Create Data Classification and Handling Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-8" checked={isChecked('doc-8')} onToggle={toggle} label="Create Incident Response Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-9" checked={isChecked('doc-9')} onToggle={toggle} label="Create Acceptable Use Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-10" checked={isChecked('doc-10')} onToggle={toggle} label="Create Business Continuity and Disaster Recovery Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-11" checked={isChecked('doc-11')} onToggle={toggle} label="Create Vendor and Third-Party Risk Management Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-12" checked={isChecked('doc-12')} onToggle={toggle} label="Create Privacy Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-13" checked={isChecked('doc-13')} onToggle={toggle} label="Create Risk Assessment Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="doc-1" checked={isChecked('doc-1')} onToggle={toggle} label="Create Information Security Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-2" checked={isChecked('doc-2')} onToggle={toggle} label="Create Access Control Policy and add to [[GOOGLE_DRIVE|Google Drive]] (include: Google Workspace for Adam only; IdP deferred with rationale; provisioning, deprovisioning, quarterly access reviews)" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-3" checked={isChecked('doc-3')} onToggle={toggle} label="Create Change Management Policy and add to [[GOOGLE_DRIVE|Google Drive]] (include: GitHub PRs, Tally→Slack→Sheets→GitHub, CI/CD flow)" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-4" checked={isChecked('doc-4')} onToggle={toggle} label="Create Backup and Restoration Policy and add to [[GOOGLE_DRIVE|Google Drive]] (include: backup location S3, retention 7 days Pro, who can restore)" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-5" checked={isChecked('doc-5')} onToggle={toggle} label="Create Logging and Monitoring Policy and add to [[GOOGLE_DRIVE|Google Drive]] (include: Supabase logs, Mixpanel, 7-day retention, where logs are stored, who can access)" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-6" checked={isChecked('doc-6')} onToggle={toggle} label="Create Encryption Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-7" checked={isChecked('doc-7')} onToggle={toggle} label="Create Data Classification and Handling Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-8" checked={isChecked('doc-8')} onToggle={toggle} label="Create Incident Response Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-9" checked={isChecked('doc-9')} onToggle={toggle} label="Create Acceptable Use Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-10" checked={isChecked('doc-10')} onToggle={toggle} label="Create Business Continuity and Disaster Recovery Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-11" checked={isChecked('doc-11')} onToggle={toggle} label="Create Vendor and Third-Party Risk Management Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-12" checked={isChecked('doc-12')} onToggle={toggle} label="Create Privacy Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-13" checked={isChecked('doc-13')} onToggle={toggle} label="Create Risk Assessment Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -424,14 +436,14 @@ function SOC2Type1Checklist() {
         <h3>Management and Governance</h3>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Document</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Document</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="doc-14" checked={isChecked('doc-14')} onToggle={toggle} label="Create System Description Document and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-15" checked={isChecked('doc-15')} onToggle={toggle} label="Create Organization Chart and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-16" checked={isChecked('doc-16')} onToggle={toggle} label="Create Management Assertion Letter and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-17" checked={isChecked('doc-17')} onToggle={toggle} label="Create Compliance Program Overview and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-18" checked={isChecked('doc-18')} onToggle={toggle} label="Create Corporate Governance Manual and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-19" checked={isChecked('doc-19')} onToggle={toggle} label="Create Controls Matrix (CC1–CC9) and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="doc-14" checked={isChecked('doc-14')} onToggle={toggle} label="Create System Description Document and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-15" checked={isChecked('doc-15')} onToggle={toggle} label="Create Organization Chart and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-16" checked={isChecked('doc-16')} onToggle={toggle} label="Create Management Assertion Letter and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-17" checked={isChecked('doc-17')} onToggle={toggle} label="Create Compliance Program Overview and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-18" checked={isChecked('doc-18')} onToggle={toggle} label="Create Corporate Governance Manual and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-19" checked={isChecked('doc-19')} onToggle={toggle} label="Create Controls Matrix (CC1–CC9) and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -439,14 +451,14 @@ function SOC2Type1Checklist() {
         <h3>Risk and Compliance</h3>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Document</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Document</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="doc-20" checked={isChecked('doc-20')} onToggle={toggle} label="Create Risk Assessment Report and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-21" checked={isChecked('doc-21')} onToggle={toggle} label="Create Information Security Risk Register and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-22" checked={isChecked('doc-22')} onToggle={toggle} label="Create Risk Treatment Plan and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-23" checked={isChecked('doc-23')} onToggle={toggle} label="Create Risk Assessment Methods and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-24" checked={isChecked('doc-24')} onToggle={toggle} label="Create Vendor Risk Assessment Template and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-25" checked={isChecked('doc-25')} onToggle={toggle} label="Create Third-Party Service Agreement and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="doc-20" checked={isChecked('doc-20')} onToggle={toggle} label="Create Risk Assessment Report and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-21" checked={isChecked('doc-21')} onToggle={toggle} label="Create Information Security Risk Register and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-22" checked={isChecked('doc-22')} onToggle={toggle} label="Create Risk Treatment Plan and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-23" checked={isChecked('doc-23')} onToggle={toggle} label="Create Risk Assessment Methods and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-24" checked={isChecked('doc-24')} onToggle={toggle} label="Create Vendor Risk Assessment Template and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-25" checked={isChecked('doc-25')} onToggle={toggle} label="Create Third-Party Service Agreement and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -454,14 +466,14 @@ function SOC2Type1Checklist() {
         <h3>Technical and Development</h3>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Document</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Document</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="doc-26" checked={isChecked('doc-26')} onToggle={toggle} label="Create SDLC Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-27" checked={isChecked('doc-27')} onToggle={toggle} label="Create Code Review Procedures and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-28" checked={isChecked('doc-28')} onToggle={toggle} label="Create Configuration Management Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-29" checked={isChecked('doc-29')} onToggle={toggle} label="Create Password and Authentication Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-30" checked={isChecked('doc-30')} onToggle={toggle} label="Create Remote Access Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-31" checked={isChecked('doc-31')} onToggle={toggle} label="Create Data Retention and Destruction Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="doc-26" checked={isChecked('doc-26')} onToggle={toggle} label="Create SDLC Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-27" checked={isChecked('doc-27')} onToggle={toggle} label="Create Code Review Procedures and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-28" checked={isChecked('doc-28')} onToggle={toggle} label="Create Configuration Management Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-29" checked={isChecked('doc-29')} onToggle={toggle} label="Create Password and Authentication Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-30" checked={isChecked('doc-30')} onToggle={toggle} label="Create Remote Access Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-31" checked={isChecked('doc-31')} onToggle={toggle} label="Create Data Retention and Destruction Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -469,14 +481,14 @@ function SOC2Type1Checklist() {
         <h3>Security and Operations</h3>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Document</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Document</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="doc-32" checked={isChecked('doc-32')} onToggle={toggle} label="Create Subservice Organization and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-33" checked={isChecked('doc-33')} onToggle={toggle} label="Create Vulnerability Management Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-34" checked={isChecked('doc-34')} onToggle={toggle} label="Create Workstation Security Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-35" checked={isChecked('doc-35')} onToggle={toggle} label="Create Physical Security Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-36" checked={isChecked('doc-36')} onToggle={toggle} label="Create Network Security Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-37" checked={isChecked('doc-37')} onToggle={toggle} label="Create Phishing Simulation Program and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="doc-32" checked={isChecked('doc-32')} onToggle={toggle} label="Create Subservice Organization and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-33" checked={isChecked('doc-33')} onToggle={toggle} label="Create Vulnerability Management Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-34" checked={isChecked('doc-34')} onToggle={toggle} label="Create Workstation Security Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-35" checked={isChecked('doc-35')} onToggle={toggle} label="Create Physical Security Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-36" checked={isChecked('doc-36')} onToggle={toggle} label="Create Network Security Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-37" checked={isChecked('doc-37')} onToggle={toggle} label="Create Phishing Simulation Program and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -484,15 +496,15 @@ function SOC2Type1Checklist() {
         <h3>HR and Personnel</h3>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Document</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Document</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="doc-38" checked={isChecked('doc-38')} onToggle={toggle} label="Create Employee Onboarding Checklist and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-39" checked={isChecked('doc-39')} onToggle={toggle} label="Create Employee Offboarding Checklist and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-40" checked={isChecked('doc-40')} onToggle={toggle} label="Create Employee Handbook and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-41" checked={isChecked('doc-41')} onToggle={toggle} label="Create Code of Conduct and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-42" checked={isChecked('doc-42')} onToggle={toggle} label="Create NDA and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-43" checked={isChecked('doc-43')} onToggle={toggle} label="Create Background Check Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-44" checked={isChecked('doc-44')} onToggle={toggle} label="Create Security Awareness Training and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="doc-38" checked={isChecked('doc-38')} onToggle={toggle} label="Create Employee Onboarding Checklist and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-39" checked={isChecked('doc-39')} onToggle={toggle} label="Create Employee Offboarding Checklist and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-40" checked={isChecked('doc-40')} onToggle={toggle} label="Create Employee Handbook and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-41" checked={isChecked('doc-41')} onToggle={toggle} label="Create Code of Conduct and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-42" checked={isChecked('doc-42')} onToggle={toggle} label="Create NDA and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-43" checked={isChecked('doc-43')} onToggle={toggle} label="Create Background Check Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-44" checked={isChecked('doc-44')} onToggle={toggle} label="Create Security Awareness Training and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -500,11 +512,11 @@ function SOC2Type1Checklist() {
         <h3>Privacy and Data Protection</h3>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Document</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Document</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="doc-45" checked={isChecked('doc-45')} onToggle={toggle} label="Create Data Protection Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-46" checked={isChecked('doc-46')} onToggle={toggle} label="Create Confidentiality Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-47" checked={isChecked('doc-47')} onToggle={toggle} label="Create Customer Data Protection and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="doc-45" checked={isChecked('doc-45')} onToggle={toggle} label="Create Data Protection Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-46" checked={isChecked('doc-46')} onToggle={toggle} label="Create Confidentiality Policy and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-47" checked={isChecked('doc-47')} onToggle={toggle} label="Create Customer Data Protection and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -512,14 +524,14 @@ function SOC2Type1Checklist() {
         <h3>Technical Documentation</h3>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Document</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Document</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="doc-48" checked={isChecked('doc-48')} onToggle={toggle} label="Create System Architecture Design and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-49" checked={isChecked('doc-49')} onToggle={toggle} label="Create Data Flow Diagram and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-50" checked={isChecked('doc-50')} onToggle={toggle} label="Create Network Architecture and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-51" checked={isChecked('doc-51')} onToggle={toggle} label="Create Asset Inventory and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-52" checked={isChecked('doc-52')} onToggle={toggle} label="Create Firewall Rules and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="doc-53" checked={isChecked('doc-53')} onToggle={toggle} label="Create System Configuration Standards and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="doc-48" checked={isChecked('doc-48')} onToggle={toggle} label="Create System Architecture Design and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-49" checked={isChecked('doc-49')} onToggle={toggle} label="Create Data Flow Diagram and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-50" checked={isChecked('doc-50')} onToggle={toggle} label="Create Network Architecture and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-51" checked={isChecked('doc-51')} onToggle={toggle} label="Create Asset Inventory and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-52" checked={isChecked('doc-52')} onToggle={toggle} label="Create Firewall Rules and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="doc-53" checked={isChecked('doc-53')} onToggle={toggle} label="Create System Configuration Standards and add to [[GOOGLE_DRIVE|Google Drive]]" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -531,14 +543,14 @@ function SOC2Type1Checklist() {
         <div className="content-block">
           <table className="soc2-checklist-table">
             <thead>
-              <tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Task</th><th className="soc2-th-time">Est. time</th></tr>
+              <tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Task</th><th className="soc2-th-time">Est. time</th></tr>
             </thead>
             <tbody>
-              <CheckRowWithInstructions id="dec-1" checked={isChecked('dec-1')} onToggle={toggle} label="Decide second signatory for Management Assertion (CFO, COO, or CTO if no CFO)" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="dec-2" checked={isChecked('dec-2')} onToggle={toggle} label="Assign CTO/Security Lead as technical contact for auditor" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="dec-3" checked={isChecked('dec-3')} onToggle={toggle} label="Confirm Supabase plan (Free or Pro); upgrade to Pro if Free for backups" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="dec-4" checked={isChecked('dec-4')} onToggle={toggle} label="Set RTO target (max acceptable downtime, e.g. 8 hours)" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="dec-5" checked={isChecked('dec-5')} onToggle={toggle} label="Set RPO target (max acceptable data loss, e.g. 24 hours)" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="dec-1" checked={isChecked('dec-1')} onToggle={toggle} label="Decide second signatory for Management Assertion (CFO, COO, or CTO if no CFO)" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="dec-2" checked={isChecked('dec-2')} onToggle={toggle} label="Assign CTO/Security Lead as technical contact for auditor" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="dec-3" checked={isChecked('dec-3')} onToggle={toggle} label="Confirm Supabase plan (Free or Pro); upgrade to Pro if Free for backups" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="dec-4" checked={isChecked('dec-4')} onToggle={toggle} label="Set RTO target (max acceptable downtime, e.g. 8 hours)" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="dec-5" checked={isChecked('dec-5')} onToggle={toggle} label="Set RPO target (max acceptable data loss, e.g. 24 hours)" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -551,10 +563,10 @@ function SOC2Type1Checklist() {
         <h3>AWS</h3>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="vc-aws-1" checked={isChecked('vc-aws-1')} onToggle={toggle} label="Verify AWS: Enable MFA for root and IAM users; apply least-privilege IAM policies" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="vc-aws-2" checked={isChecked('vc-aws-2')} onToggle={toggle} label="Verify AWS: Enable CloudTrail; confirm S3 encryption and block public access; verify Secrets Manager usage" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="vc-aws-1" checked={isChecked('vc-aws-1')} onToggle={toggle} label="Verify AWS: Enable MFA for root and IAM users; apply least-privilege IAM policies" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="vc-aws-2" checked={isChecked('vc-aws-2')} onToggle={toggle} label="Verify AWS: Enable CloudTrail; confirm S3 encryption and block public access; verify Secrets Manager usage" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -562,9 +574,9 @@ function SOC2Type1Checklist() {
         <h3>Supabase</h3>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="vc-supabase-1" checked={isChecked('vc-supabase-1')} onToggle={toggle} label="Verify Supabase: Enable RLS on sensitive tables; confirm auth providers, encryption, and API key restrictions" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="vc-supabase-1" checked={isChecked('vc-supabase-1')} onToggle={toggle} label="Verify Supabase: Enable RLS on sensitive tables; confirm auth providers, encryption, and API key restrictions" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -572,9 +584,9 @@ function SOC2Type1Checklist() {
         <h3>GitHub</h3>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="vc-github-1" checked={isChecked('vc-github-1')} onToggle={toggle} label="Verify GitHub: Require 2FA for org members; enable branch protection on main" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="vc-github-1" checked={isChecked('vc-github-1')} onToggle={toggle} label="Verify GitHub: Require 2FA for org members; enable branch protection on main" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -582,9 +594,9 @@ function SOC2Type1Checklist() {
         <h3>Google Workspace</h3>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="vc-google-1" checked={isChecked('vc-google-1')} onToggle={toggle} label="Verify Google Workspace: Enforce 2-Step Verification; confirm admin roles (Adam only); enable audit log" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="vc-google-1" checked={isChecked('vc-google-1')} onToggle={toggle} label="Verify Google Workspace: Enforce 2-Step Verification; confirm admin roles (Adam only); enable audit log" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -592,9 +604,9 @@ function SOC2Type1Checklist() {
         <h3>Stripe</h3>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="vc-stripe-1" checked={isChecked('vc-stripe-1')} onToggle={toggle} label="Verify Stripe: Use restricted API keys; verify webhook signatures; confirm no raw card storage" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="vc-stripe-1" checked={isChecked('vc-stripe-1')} onToggle={toggle} label="Verify Stripe: Use restricted API keys; verify webhook signatures; confirm no raw card storage" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -607,13 +619,13 @@ function SOC2Type1Checklist() {
         <h3>P0 – Access reviews (quarterly)</h3>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="p0a-1" checked={isChecked('p0a-1')} onToggle={toggle} label="Create access list template: spreadsheet or doc with columns Person, System, Access Level, Last Reviewed" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="p0a-2" checked={isChecked('p0a-2')} onToggle={toggle} label="Populate first access list: list every person with access to Supabase, Stripe, AWS, GitHub, Google Workspace and their access level" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="p0a-3" checked={isChecked('p0a-3')} onToggle={toggle} label="Manager reviews access list and signs off (confirms access is appropriate)" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="p0a-4" checked={isChecked('p0a-4')} onToggle={toggle} label="Save signed access list and sign-off in Evidence/Access-Review-Logs folder" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="p0a-5" checked={isChecked('p0a-5')} onToggle={toggle} label="Complete quarterly access reviews: update list, get manager sign-off, save to Access-Review-Logs (Q1, Q2, Q3, Q4)" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="p0a-1" checked={isChecked('p0a-1')} onToggle={toggle} label="Create access list template: spreadsheet or doc with columns Person, System, Access Level, Last Reviewed" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="p0a-2" checked={isChecked('p0a-2')} onToggle={toggle} label="Populate first access list: list every person with access to Supabase, Stripe, AWS, GitHub, Google Workspace and their access level" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="p0a-3" checked={isChecked('p0a-3')} onToggle={toggle} label="Manager reviews access list and signs off (confirms access is appropriate)" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="p0a-4" checked={isChecked('p0a-4')} onToggle={toggle} label="Save signed access list and sign-off in Evidence/Access-Review-Logs folder" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="p0a-5" checked={isChecked('p0a-5')} onToggle={toggle} label="Complete quarterly access reviews: update list, get manager sign-off, save to Access-Review-Logs (Q1, Q2, Q3, Q4)" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
           <p className="soc2-why"><strong>Why:</strong> CC6.1 – auditor expects proof you verify who has access and remove access when people leave.</p>
@@ -622,11 +634,11 @@ function SOC2Type1Checklist() {
         <h3>P0 – Backups (Supabase)</h3>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="p0b-1" checked={isChecked('p0b-1')} onToggle={toggle} label="Confirm Supabase plan: check Project Settings → Billing; document whether Free or Pro" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="p0b-2" checked={isChecked('p0b-2')} onToggle={toggle} label="If Free: upgrade to Pro ($25/mo) for backups, or document manual backup process in policy" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="p0b-4" checked={isChecked('p0b-4')} onToggle={toggle} label="Run one backup restore test and document date, result, steps in Evidence/Backup-Test-Results" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="p0b-1" checked={isChecked('p0b-1')} onToggle={toggle} label="Confirm Supabase plan: check Project Settings → Billing; document whether Free or Pro" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="p0b-2" checked={isChecked('p0b-2')} onToggle={toggle} label="If Free: upgrade to Pro ($25/mo) for backups, or document manual backup process in policy" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="p0b-4" checked={isChecked('p0b-4')} onToggle={toggle} label="Run one backup restore test and document date, result, steps in Evidence/Backup-Test-Results" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
           <p className="soc2-why"><strong>Why:</strong> BC/DR – auditor needs proof financial/billing data can be recovered. Free tier has no automatic backups.</p>
@@ -635,9 +647,9 @@ function SOC2Type1Checklist() {
         <h3>P1 – Logging / SIEM</h3>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="p1log-3" checked={isChecked('p1log-3')} onToggle={toggle} label="(Optional) Evaluate Datadog; document decision and timeline in Logging Policy" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="p1log-3" checked={isChecked('p1log-3')} onToggle={toggle} label="(Optional) Evaluate Datadog; document decision and timeline in Logging Policy" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -645,9 +657,9 @@ function SOC2Type1Checklist() {
         <h3>P2 – Change management</h3>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="p2ch-2" checked={isChecked('p2ch-2')} onToggle={toggle} label="Document evidence sources for auditor: GitHub PR history, workflow runs, deployment logs" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="p2ch-2" checked={isChecked('p2ch-2')} onToggle={toggle} label="Document evidence sources for auditor: GitHub PR history, workflow runs, deployment logs" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -655,11 +667,11 @@ function SOC2Type1Checklist() {
         <h3>P2 – Risk assessment</h3>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="p2r-1" checked={isChecked('p2r-1')} onToggle={toggle} label="Conduct risk assessment session: list risks (breach, outage, data loss), score likelihood/impact, define mitigations" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="p2r-2" checked={isChecked('p2r-2')} onToggle={toggle} label="Populate Risk-Assessment-Report, Risk-Register, and Risk-Treatment-Plan with risk IDs, descriptions, owners, status, and concrete actions for each risk" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="p2r-4" checked={isChecked('p2r-4')} onToggle={toggle} label="Manager reviews and approves risk assessment; sign and date" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="p2r-1" checked={isChecked('p2r-1')} onToggle={toggle} label="Conduct risk assessment session: list risks (breach, outage, data loss), score likelihood/impact, define mitigations" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="p2r-2" checked={isChecked('p2r-2')} onToggle={toggle} label="Populate Risk-Assessment-Report, Risk-Register, and Risk-Treatment-Plan with risk IDs, descriptions, owners, status, and concrete actions for each risk" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="p2r-4" checked={isChecked('p2r-4')} onToggle={toggle} label="Manager reviews and approves risk assessment; sign and date" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -670,11 +682,11 @@ function SOC2Type1Checklist() {
         <p className="soc2-section-intro">The Management Assertion Letter is the formal statement that controls are in place. These tasks ensure the letter is ready with both signatories named and the audit period set; signing happens when the auditor provides the final version.</p>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="assert-1" checked={isChecked('assert-1')} onToggle={toggle} label="Confirm CEO and second signatory" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="assert-2" checked={isChecked('assert-2')} onToggle={toggle} label="Update Management-Assertion-Letter with both names and audit period" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="assert-3" checked={isChecked('assert-3')} onToggle={toggle} label="Both sign and date the Management Assertion when auditor provides final version" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="assert-1" checked={isChecked('assert-1')} onToggle={toggle} label="Confirm CEO and second signatory" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="assert-2" checked={isChecked('assert-2')} onToggle={toggle} label="Update Management-Assertion-Letter with both names and audit period" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="assert-3" checked={isChecked('assert-3')} onToggle={toggle} label="Both sign and date the Management Assertion when auditor provides final version" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -685,11 +697,11 @@ function SOC2Type1Checklist() {
         <p className="soc2-section-intro">Tasks you do once to finalize policies and vendor documentation. These depend on Section 1 decisions (e.g. add RTO/RPO after dec-4/dec-5; add CTO name after dec-2).</p>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Task</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Task</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="one-1" checked={isChecked('one-1')} onToggle={toggle} label="Add RTO/RPO to Backup and BC/DR policies" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="one-2" checked={isChecked('one-2')} onToggle={toggle} label="Add CTO / Security Lead to System Description and Org Chart" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="one-6" checked={isChecked('one-6')} onToggle={toggle} label="Collect DPAs and SOC 2 reports from critical vendors" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="one-1" checked={isChecked('one-1')} onToggle={toggle} label="Add RTO/RPO to Backup and BC/DR policies" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="one-2" checked={isChecked('one-2')} onToggle={toggle} label="Add CTO / Security Lead to System Description and Org Chart" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="one-6" checked={isChecked('one-6')} onToggle={toggle} label="Collect DPAs and SOC 2 reports from critical vendors" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -701,21 +713,21 @@ function SOC2Type1Checklist() {
         <h3>Access review (quarterly)</h3>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Task</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Task</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="rec-q1" checked={isChecked('rec-q1')} onToggle={toggle} label="Complete Q1 access review; obtain manager sign-off; save in Evidence" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="rec-q2" checked={isChecked('rec-q2')} onToggle={toggle} label="Complete Q2 access review; obtain manager sign-off; save in Evidence" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="rec-q3" checked={isChecked('rec-q3')} onToggle={toggle} label="Complete Q3 access review; obtain manager sign-off; save in Evidence" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="rec-q4" checked={isChecked('rec-q4')} onToggle={toggle} label="Complete Q4 access review; obtain manager sign-off; save in Evidence" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="rec-q1" checked={isChecked('rec-q1')} onToggle={toggle} label="Complete Q1 access review; obtain manager sign-off; save in Evidence" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="rec-q2" checked={isChecked('rec-q2')} onToggle={toggle} label="Complete Q2 access review; obtain manager sign-off; save in Evidence" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="rec-q3" checked={isChecked('rec-q3')} onToggle={toggle} label="Complete Q3 access review; obtain manager sign-off; save in Evidence" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="rec-q4" checked={isChecked('rec-q4')} onToggle={toggle} label="Complete Q4 access review; obtain manager sign-off; save in Evidence" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
         <h3>Risk assessment (annual)</h3>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Step</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="rec-risk" checked={isChecked('rec-risk')} onToggle={toggle} label="Conduct annual risk assessment; update Risk Report, Register, Treatment Plan; obtain manager approval" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="rec-risk" checked={isChecked('rec-risk')} onToggle={toggle} label="Conduct annual risk assessment; update Risk Report, Register, Treatment Plan; obtain manager approval" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -726,17 +738,17 @@ function SOC2Type1Checklist() {
         <p className="soc2-section-intro">Gather and verify each item below before the audit. Most items come from completing earlier sections (e.g. access sign-offs from Section 5, backup test from Section 2). Use this to confirm nothing is missing.</p>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Task</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Task</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="ev-1" checked={isChecked('ev-1')} onToggle={toggle} label="Collect access list and quarterly sign-offs; save in Evidence/Access-Review-Logs" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="ev-2" checked={isChecked('ev-2')} onToggle={toggle} label="Gather documented change management flow for auditor" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="ev-3" checked={isChecked('ev-3')} onToggle={toggle} label="Prepare GitHub PR history and deployment logs for auditor" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="ev-4" checked={isChecked('ev-4')} onToggle={toggle} label="Collect Risk Assessment Report and Register with management approval" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="ev-5" checked={isChecked('ev-5')} onToggle={toggle} label="Collect backup/restore test record; save in Evidence/Backup-Test-Results" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="ev-6" checked={isChecked('ev-6')} onToggle={toggle} label="Obtain signed Management Assertion from both signatories" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="ev-7" checked={isChecked('ev-7')} onToggle={toggle} label="Verify RTO/RPO are documented in Backup and BC/DR policies" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="ev-8" checked={isChecked('ev-8')} onToggle={toggle} label="Complete onboarding checklist for each hire; save in Evidence/Employee-Onboarding-Offboarding" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="ev-9" checked={isChecked('ev-9')} onToggle={toggle} label="Complete offboarding checklist for each departure; save in Evidence/Employee-Onboarding-Offboarding" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="ev-1" checked={isChecked('ev-1')} onToggle={toggle} label="Collect access list and quarterly sign-offs; save in Evidence/Access-Review-Logs" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="ev-2" checked={isChecked('ev-2')} onToggle={toggle} label="Gather documented change management flow for auditor" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="ev-3" checked={isChecked('ev-3')} onToggle={toggle} label="Prepare GitHub PR history and deployment logs for auditor" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="ev-4" checked={isChecked('ev-4')} onToggle={toggle} label="Collect Risk Assessment Report and Register with management approval" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="ev-5" checked={isChecked('ev-5')} onToggle={toggle} label="Collect backup/restore test record; save in Evidence/Backup-Test-Results" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="ev-6" checked={isChecked('ev-6')} onToggle={toggle} label="Obtain signed Management Assertion from both signatories" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="ev-7" checked={isChecked('ev-7')} onToggle={toggle} label="Verify RTO/RPO are documented in Backup and BC/DR policies" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="ev-8" checked={isChecked('ev-8')} onToggle={toggle} label="Complete onboarding checklist for each hire; save in Evidence/Employee-Onboarding-Offboarding" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="ev-9" checked={isChecked('ev-9')} onToggle={toggle} label="Complete offboarding checklist for each departure; save in Evidence/Employee-Onboarding-Offboarding" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
@@ -747,16 +759,33 @@ function SOC2Type1Checklist() {
         <p className="soc2-section-intro">Manager commitments that the process will be followed. These are not evidence items—they confirm the manager has reviewed the checklist and will provide sign-offs when required (quarterly access reviews, Management Assertion).</p>
         <div className="content-block">
           <table className="soc2-checklist-table">
-            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-assigned">Assigned</th><th>Task</th><th className="soc2-th-time">Est. time</th></tr></thead>
+            <thead><tr><th className="soc2-th-check">Done</th><th className="soc2-th-id">ID</th><th className="soc2-th-assigned">Assigned</th><th>Task</th><th className="soc2-th-time">Est. time</th></tr></thead>
             <tbody>
-              <CheckRowWithInstructions id="so-1" checked={isChecked('so-1')} onToggle={toggle} label="Review this entire checklist and confirm understanding" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="so-2" checked={isChecked('so-2')} onToggle={toggle} label="Complete all decisions in Section 1" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="so-3" checked={isChecked('so-3')} onToggle={toggle} label="Commit to providing sign-off for each quarterly access review" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
-              <CheckRowWithInstructions id="so-4" checked={isChecked('so-4')} onToggle={toggle} label="Commit to signing the Management Assertion when auditor provides final version" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} />
+              <CheckRowWithInstructions id="so-1" checked={isChecked('so-1')} onToggle={toggle} label="Review this entire checklist and confirm understanding" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="so-2" checked={isChecked('so-2')} onToggle={toggle} label="Complete all decisions in Section 1" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="so-3" checked={isChecked('so-3')} onToggle={toggle} label="Commit to providing sign-off for each quarterly access review" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
+              <CheckRowWithInstructions id="so-4" checked={isChecked('so-4')} onToggle={toggle} label="Commit to signing the Management Assertion when auditor provides final version" openId={openId} onToggleOpen={setOpenId} onNavigateToTask={handleNavigateToTask} onOpenFeedback={handleOpenFeedback} />
             </tbody>
           </table>
         </div>
       </section>
+
+      {feedbackTaskId && (
+        <div className="soc2-feedback-overlay" onClick={() => setFeedbackTaskId(null)}>
+          <div className="soc2-feedback-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="soc2-feedback-header">
+              <h3>Log feedback for task <code className="soc2-feedback-task-id">{feedbackTaskId}</code></h3>
+              <button type="button" className="soc2-feedback-close" onClick={() => setFeedbackTaskId(null)} aria-label="Close">×</button>
+            </div>
+            <p className="soc2-feedback-hint">Log comments, questions, or feedback for this task. Add a hidden field named &quot;taskId&quot; in your Tally form to auto-fill the task ID, or copy it above and paste into the form.</p>
+            <iframe
+              src={`${TALLY_FEEDBACK_FORM_URL}?taskId=${encodeURIComponent(feedbackTaskId)}`}
+              className="soc2-feedback-iframe"
+              title="SOC2 Checklist Feedback"
+            />
+          </div>
+        </div>
+      )}
     </div>
   )
 }
