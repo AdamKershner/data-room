@@ -1,0 +1,241 @@
+/* SOC 2 Type 1 Checklist – summary & progress */
+.soc2-checklist-summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 12px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.soc2-checklist-count {
+  font-weight: 700;
+  color: var(--oasis-green-medium, #0d9488);
+}
+
+.soc2-checklist-progress {
+  color: #64748b;
+}
+
+.soc2-progress-bar {
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 12px;
+  max-width: 400px;
+}
+
+.soc2-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--oasis-green-medium, #0d9488), #34d399);
+  border-radius: 999px;
+  transition: width 0.4s ease-out;
+}
+
+/* Section styling */
+#soc2-type1-checklist .soc2-section {
+  background: rgba(45, 80, 22, 0.03);
+  border-left: 4px solid var(--oasis-green-medium, #2d5016);
+  padding-left: 20px;
+  margin-left: -20px;
+  padding-right: 20px;
+}
+
+#soc2-type1-checklist .soc2-section h3 {
+  font-size: 1.15rem;
+  color: #333;
+  margin: 20px 0 12px;
+  font-weight: 600;
+}
+
+#soc2-type1-checklist .soc2-section h3:first-of-type {
+  margin-top: 0;
+}
+
+.soc2-note {
+  background: #f8faf8;
+  padding: 16px 20px;
+  border-radius: 8px;
+  border: 1px solid #e8f0e8;
+}
+
+.soc2-note p {
+  margin: 0 0 8px;
+  font-size: 0.98rem;
+}
+
+.soc2-note p:last-child {
+  margin-bottom: 0;
+}
+
+.soc2-why {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Checklist tables */
+.soc2-checklist-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+}
+
+.soc2-checklist-table thead th {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 2px solid #e5e7eb;
+  color: #374151;
+  font-weight: 600;
+}
+
+.soc2-checklist-table .soc2-th-check {
+  width: 56px;
+  text-align: center;
+}
+
+.soc2-checklist-table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.soc2-checklist-table tbody tr:hover {
+  background: rgba(13, 148, 136, 0.04);
+}
+
+.soc2-check-cell {
+  padding: 10px 14px;
+  vertical-align: middle;
+}
+
+.soc2-label-cell {
+  padding: 10px 14px;
+  vertical-align: middle;
+  color: #333;
+}
+
+.soc2-sublabel {
+  display: block;
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+/* Checkbox – same pattern as Onboarding */
+.soc2-checkbox-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.soc2-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.soc2-checkbox-custom {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  transition: all 0.2s;
+}
+
+.soc2-checkbox-wrapper:hover .soc2-checkbox-custom {
+  border-color: var(--oasis-green-medium, #0d9488);
+}
+
+.soc2-checkbox:checked + .soc2-checkbox-custom {
+  background: var(--oasis-green-medium, #0d9488);
+  border-color: var(--oasis-green-medium, #0d9488);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.soc2-checkbox:checked + .soc2-checkbox-custom::after {
+  content: "✓";
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* View instructions link */
+.soc2-view-instructions-link {
+  display: inline-block;
+  margin-top: 14 px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  color: var(--oasis-green-medium, #0d9488);
+  background: none;
+  border: 1px solid var(--oasis-green-medium, #0d9488);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+
+.soc2-view-instructions-link:hover {
+  background: rgba(13, 148, 136, 0.1);
+  color: #0a7c6f;
+}
+
+/* Instruction panel (expanded below row) */
+.soc2-instruction-cell {
+  padding: 0 !important;
+  vertical-align: top;
+  border-bottom: 1px solid #e5e7eb;
+  background: #fafbfc;
+}
+
+.soc2-instruction-panel {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.soc2-instruction-block {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.soc2-instruction-block strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--oasis-green-medium, #0d9488);
+  font-size: 0.9rem;
+}
+
+.soc2-instruction-block p {
+  margin: 0;
+}
+
+/* Auditor section */
+.soc2-auditor-section {
+  border-left-color: #0ea5e9;
+  background: rgba(14, 165, 233, 0.05);
+}
+
+.soc2-auditor-verdict {
+  margin-bottom: 12px !important;
+  font-size: 1rem;
+}
+
+.soc2-auditor-list {
+  margin: 0 0 16px;
+  padding-left: 24px;
+  line-height: 1.7;
+}
+
+.soc2-auditor-list li {
+  margin-bottom: 10px;
+}

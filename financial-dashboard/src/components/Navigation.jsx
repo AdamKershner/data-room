@@ -77,7 +77,8 @@ function Navigation() {
       items: [
         { path: '/ota-guide', label: 'OTA & Updates Guide', id: 'ota-guide' },
         { path: '/sprints', label: 'Sprints', id: 'sprints' },
-        { path: '/soc2-gap-analysis', label: 'SOC2 Gap Analysis', id: 'soc2-gap-analysis' }
+        { path: '/soc2-gap-analysis', label: 'SOC2 Gap Analysis', id: 'soc2-gap-analysis' },
+        { path: '/soc2-type1-checklist', label: 'SOC2 Type 1 Checklist', id: 'soc2-type1-checklist' }
       ]
     }
   ]
