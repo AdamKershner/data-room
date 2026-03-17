@@ -183,8 +183,11 @@ function CheckRowWithInstructions({ id, checked, onToggle, label, sublabel, tag,
         <td className="soc2-assigned-cell">
           {displayTag ? (
             <span className="soc2-tags">
-              {displayTag.split(',').map((name) => name.trim()).filter(Boolean).map((name, i) => (
-                <span key={i} className="soc2-tag">{name}</span>
+              {displayTag.split(',').map((name) => name.trim()).filter(Boolean).map((name, i, arr) => (
+                <React.Fragment key={i}>
+                  <span className="soc2-tag">{name}</span>
+                  {i < arr.length - 1 && <span className="soc2-tag-sep">, </span>}
+                </React.Fragment>
               ))}
             </span>
           ) : '—'}
