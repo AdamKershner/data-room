@@ -1,6 +1,6 @@
 export const ONBOARDING_STEPS = [
   // Day 1
-  { id: 'schedule-1on1', label: 'Schedule Weekly 1-on-1 meeting with Adam', category: 'Admin & Setup', day: 1, badge: 'minutes' },
+  { id: 'schedule-1on1', label: 'Biweekly 1-on-1 check in with Adam', category: 'Admin & Setup', day: 1, badge: 'minutes' },
   { id: 'company-rules', label: 'Read Company Rules, Values, & Guidelines', category: 'Company & Culture', day: 1, badge: 'minutes' },
   { id: 'social-media', label: 'Follow all Kahana social media channels', category: 'External Presence', day: 1, badge: 'minutes' },
   { id: 'internal-channels', label: 'Join Internal Communication Channels (Slack/Discord/WhatsApp)', category: 'Communication', day: 1, badge: 'minutes' },

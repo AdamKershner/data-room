@@ -7,18 +7,20 @@ import './Onboarding.css'
 function StepSchedule1on1() {
   return (
     <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You schedule the meeting on the calendar link below.</p>
+      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You've scheduled the biweekly 1-on-1 meeting with Adam.</p>
+
+      <p>It's mandatory to schedule the meeting. This creates a 15-minute block on your and Adam's calendars, serving as a reminder to check in every 2 weeks. At that time, you can either join the meeting or text over Slack or WhatsApp — it's just about connecting at least once every 2 weeks.</p>
 
       <p>
         <a href="https://go.oncehub.com/AdamKershner" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link">
-          📅 Schedule your 1-on-1 with Adam →
+          📅 Schedule your biweekly 1-on-1 with Adam →
         </a>
       </p>
 
       <h3>FAQs</h3>
       <dl className="onboarding-faq">
         <dt>Frequency</dt>
-        <dd>Meet once a week for 15 minutes.</dd>
+        <dd>Every 2 weeks. The scheduled 15-minute block is a reminder — you can join the meeting or check in over Slack or WhatsApp at that time.</dd>
 
         <dt>Agenda</dt>
         <dd>Share updates about what you're focusing on and learning about.</dd>
@@ -28,11 +30,11 @@ function StepSchedule1on1() {
       </dl>
 
       <div className="onboarding-note">
-        <p><strong>Recurring meeting:</strong> When you schedule via the calendar link, Adam will update it to make it a recurring meeting.</p>
+        <p><strong>Recurring meeting:</strong> When you schedule via the calendar link, Adam will update it to make it a recurring biweekly meeting.</p>
       </div>
 
       <div className="onboarding-note onboarding-note-important">
-        <p><strong>If you cannot attend:</strong> Please let Adam know in advance on Slack or via email.</p>
+        <p><strong>If you cannot attend a scheduled meeting:</strong> Please let Adam know in advance on Slack or WhatsApp.</p>
       </div>
     </div>
   )
