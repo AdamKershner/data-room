@@ -2173,6 +2173,7 @@ function Sprints() {
       emoji: "📊",
       priority: "HIGH",
       storyPoints: 13,
+      teamMembers: ["Archit Gupta"],
       effort: "Medium-High",
       impact: "High",
       severity: "7-8/10",
@@ -2276,6 +2277,510 @@ function Sprints() {
         "Response avoids overwhelming users—high-level first, detail on request",
         "Category taxonomy documented and extensible for new commands"
       ]
+    },
+    {
+      id: 27,
+      title: "Mar W3: Voice-to-Text & AI Command Reliability",
+      emoji: "🎤",
+      priority: "HIGH",
+      storyPoints: 11,
+      effort: "Low-Medium",
+      impact: "High",
+      severity: "10/10",
+      overview: "Directly addresses passives and detractors who cite 'AI doesn't understand my request' and 'prompt needs to be very clear.' Multiple users report this as a 10/10 importance issue. **Source:** proposed sprints for march week 3.md (NPS-driven).",
+      primaryFiles: "voiceInput.ts, proxyClient.ts, useAssistantRuntime.ts, Composer.tsx, intentParser.ts",
+      issues: [
+        {
+          title: "Strip trailing period from voice transcription",
+          count: 2,
+          submissionIds: ["WOPpRjL"],
+          description: "Voice-to-text adds a period at the end; this causes the AI to misinterpret commands (e.g., opens new window instead of organizing). Reported multiple times.",
+          impact: "Command misinterpretation (severity 10/10)",
+          technicalNotes: "One-line fix in useAssistantRuntime.ts or voiceInput.ts before setInput(text). Strip trailing period from transcription.",
+          feedback: [
+            { id: "WOPpRjL", text: "All transcriptions of voice to text end in a period, which I have to manually delete each time so that the command can be interpreted accurately - including the period before hitting enter often causes the AI Assistant to misinterpret the command." }
+          ]
+        },
+        {
+          title: "Improve AI understanding of imperfect/shorter prompts",
+          count: 2,
+          submissionIds: [],
+          description: "Users in a hurry don't explain everything perfectly. Better handling of conversational tone vs. definitive format.",
+          impact: "Reduces friction for non-power users (severity 10/10)",
+          technicalNotes: "intentParser.ts, hiddenInstructions.ts, decisionEngine.ts - prompt tuning, regex expansion",
+          feedback: []
+        },
+        {
+          title: "Fix voice dictation pause latency",
+          count: 1,
+          submissionIds: [],
+          description: "When pausing, it takes a while to stop; users feel it's not working.",
+          impact: "Confusing UX (severity 8/10)",
+          technicalNotes: "voiceInput.ts - MediaRecorder stop timing, chunk flush",
+          feedback: []
+        },
+        {
+          title: "Add visual feedback for voice recording",
+          count: 1,
+          submissionIds: [],
+          description: "Microphone icon should indicate when recording is active; words should display in real-time, not only after pause.",
+          impact: "Improves voice UX clarity (severity 7/10)",
+          technicalNotes: "Composer.tsx - enhance wave + real-time words display",
+          requiresUI: true,
+          feedback: []
+        }
+      ],
+      acceptanceCriteria: [
+        "Trailing period stripped from voice transcription before AI processes",
+        "AI handles conversational and imperfect prompts more reliably",
+        "Voice pause responds quickly when user stops",
+        "Microphone shows active state; words display in real-time during recording"
+      ]
+    },
+    {
+      id: 28,
+      title: "Mar W3: Sign-In, Login & Session Persistence",
+      emoji: "🔐",
+      priority: "HIGH",
+      storyPoints: 20,
+      effort: "Medium-High",
+      impact: "High",
+      severity: "8-10/10",
+      overview: "Repeatedly cited by detractors and passives. 'Remember me' and smoother sign-in are blockers for daily use. **Source:** proposed sprints for march week 3.md (NPS-driven).",
+      primaryFiles: "supabase.ts, Auth.tsx, useAuthSync.ts, oasis-auth.html, LoginManagerAuthPrompter.sys.mjs",
+      issues: [
+        {
+          title: "Implement 'Remember me' for browser login",
+          count: 1,
+          submissionIds: [],
+          description: "Users keep getting logged out; typing credentials every time is friction.",
+          impact: "Daily use blocker (severity 10/10)",
+          technicalNotes: "LoginManagerAuthPrompter.sys.mjs, prefs - Firefox password manager integration",
+          feedback: []
+        },
+        {
+          title: "Improve AI assistant sign-in flow",
+          count: 3,
+          submissionIds: [],
+          description: "Make it more intuitive and easier.",
+          impact: "Onboarding friction (severity 9/10)",
+          technicalNotes: "Auth.tsx, oasis-auth.html - UX simplification",
+          requiresUI: true,
+          feedback: []
+        },
+        {
+          title: "Reduce browser startup time",
+          count: 1,
+          submissionIds: [],
+          description: "Takes a really long time to open up.",
+          impact: "First-use friction (severity 8/10)",
+          technicalNotes: "Build/startup pipeline - defer to Sprint 8 or separate initiative",
+          feedback: []
+        },
+        {
+          title: "Fix Google Drive re-sign-in on new tabs",
+          count: 1,
+          submissionIds: [],
+          description: "Detect first sign-in and persist across new tabs.",
+          impact: "Session friction (severity 10/10)",
+          technicalNotes: "supabase.ts, session handling - persist OAuth across tabs",
+          feedback: []
+        },
+        {
+          title: "Display clear error message for invalid login credentials",
+          count: 1,
+          submissionIds: ["GxAgbQo"],
+          description: "Currently only logs to console.",
+          impact: "Users don't know why login failed (severity 8/10)",
+          technicalNotes: "Auth.tsx, supabase.ts - surface error to UI",
+          requiresUI: true,
+          feedback: [
+            { id: "GxAgbQo", text: "When I tried to log in using my credentials, I intentionally entered incorrect credentials. However, there was no user-facing error message or popup indicating that the credentials were invalid." }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "Remember me persists browser login",
+        "AI assistant sign-in flow is intuitive",
+        "Invalid login shows clear error message",
+        "Google Drive session persists across new tabs"
+      ]
+    },
+    {
+      id: 29,
+      title: "Mar W3: AI Action Accuracy — Tabs, Hubs & Split View",
+      emoji: "📁",
+      priority: "HIGH",
+      storyPoints: 21,
+      effort: "Medium-High",
+      impact: "High",
+      severity: "7-10/10",
+      overview: "Wrong tab, wrong action, wrong site is the #1 HITL complaint. Directly blocks trust and daily use. **CONFLICT:** Do not run Sprint 31 or 32 in parallel (shared commands.ts, bookmarkFolders.ts). **Source:** proposed sprints for march week 3.md.",
+      primaryFiles: "commands.ts, bookmarkFolders.ts, firefoxFacade.ts, proxyClient.ts, tab-stacking.js, browser-sidebar.js",
+      issues: [
+        {
+          title: "Fix 'open intended tab' reliability",
+          count: 3,
+          submissionIds: ["f668c113", "c64d22a7"],
+          description: "AI occasionally opens wrong tab (e.g., dictionary instead of Google, YouTube + Mozilla instead of YouTube + Google).",
+          impact: "Wrong action erodes trust (severity 10/10)",
+          technicalNotes: "commands.ts, mutationExplicitResolver.ts, firefoxFacade.ts - tab matching logic",
+          feedback: []
+        },
+        {
+          title: "Fix 'add tab to hub' / Lambda 502 errors",
+          count: 4,
+          submissionIds: ["3025a2f7", "17d2e05c", "eqW0MdE", "aQqA5Xy"],
+          description: "Add tab to hub frequently fails with Lambda 502.",
+          impact: "Core hub feature broken (severity 10/10)",
+          technicalNotes: "proxyClient.ts, awsSignedFetch.ts, commands.ts - retry, backoff, error handling",
+          feedback: []
+        },
+        {
+          title: "Fix split view / multi-view bugs",
+          count: 3,
+          submissionIds: ["q4ddlrd", "aQ6BayX"],
+          description: "Wrong tabs in split, resets to 2 or 1 view, dropdown bugged.",
+          impact: "Split view unreliable (severity 10/10)",
+          technicalNotes: "tab-stacking.js, browser-sidebar.js, commands.ts - pane correctness, dropdown",
+          feedback: []
+        },
+        {
+          title: "Fix 'close tab' vs 'open multiple tabs'",
+          count: 2,
+          submissionIds: ["303a4ed8", "f1e5b7d7"],
+          description: "AI opens multiple tabs when asked to close.",
+          impact: "Opposite of intended behavior (severity 8/10)",
+          technicalNotes: "intentParser.ts, commands.ts - intent disambiguation",
+          feedback: []
+        },
+        {
+          title: "Fix 'open first result' behavior",
+          count: 2,
+          submissionIds: ["615d5d1b", "ec56c2d1"],
+          description: "Duplicates search page instead of opening first result; doesn't open first sponsored result correctly.",
+          impact: "Search workflow broken (severity 9/10)",
+          technicalNotes: "Search result handling, commands.ts - first-result vs sponsored",
+          feedback: []
+        }
+      ],
+      acceptanceCriteria: [
+        "AI opens intended tab correctly",
+        "Add tab to hub works without Lambda 502",
+        "Split view places correct tabs, doesn't reset",
+        "Close tab closes (doesn't open multiple)",
+        "Open first result opens first result correctly"
+      ]
+    },
+    {
+      id: 30,
+      title: "Mar W3: Chat Bar, Minimized Chat & AI Assistant UX",
+      emoji: "💬",
+      priority: "MEDIUM-HIGH",
+      storyPoints: 15,
+      effort: "Medium",
+      impact: "High",
+      severity: "7-10/10",
+      overview: "Chat bar behavior and minimized chat accessibility are cited by detractors. Promoters want polish. **CONFLICT:** Shares Composer with Sprint 27 (voice). Run after Sprint 27. **Source:** proposed sprints for march week 3.md.",
+      primaryFiles: "browser-sidebar.js, Composer.tsx, App.tsx, browser-box.inc.xhtml, Header.tsx",
+      issues: [
+        {
+          title: "Fix chat bar double-click behavior",
+          count: 1,
+          submissionIds: [],
+          description: "Closes when double-clicking text while typing; should close when clicking the bar on top.",
+          impact: "Frustrating UX (severity 7/10)",
+          technicalNotes: "browser-sidebar.js, _oasisOverlayDblclickHandler - target bar top, not text",
+          feedback: []
+        },
+        {
+          title: "Make minimized chat accessible",
+          count: 2,
+          submissionIds: ["jaAvX8E"],
+          description: "Users must maximize to use it; allow click-anywhere to expand or show input.",
+          impact: "Minimized chat unusable (severity 8/10)",
+          technicalNotes: "browser-sidebar.js - click to expand or show input",
+          requiresUI: true,
+          feedback: []
+        },
+        {
+          title: "Fix chat history disappearing",
+          count: 1,
+          submissionIds: [],
+          description: "When switching views (sidebar → minimized), history is lost.",
+          impact: "Lose conversation context (severity 8/10)",
+          technicalNotes: "localMemory.ts, AssistantSession.sys.mjs, browser-sidebar.js - persist across sidebar/minimized",
+          feedback: []
+        },
+        {
+          title: "Fix AI assistant z-index / elevation",
+          count: 1,
+          submissionIds: ["RGykzvP"],
+          description: "Address bar gets interrupted when dragging AI window.",
+          impact: "UI overlap (severity 7/10)",
+          technicalNotes: "browser-box.inc.xhtml, Header.tsx, browser-shared.css - address bar overlap",
+          requiresUI: true,
+          feedback: []
+        },
+        {
+          title: "Default: new tab instead of new window for links",
+          count: 2,
+          submissionIds: ["LZXMKLv", "oboa6aP"],
+          description: "Links opened from current window create standalone windows without Oasis functionality.",
+          impact: "New windows lack Oasis features (severity 10/10)",
+          technicalNotes: "Link handling in assistant context - Oasis window vs plain window",
+          feedback: []
+        }
+      ],
+      acceptanceCriteria: [
+        "Chat bar double-click targets bar, not text",
+        "Minimized chat click-anywhere expands or shows input",
+        "Chat history persists across sidebar/minimized switch",
+        "AI assistant doesn't overlap address bar when dragging",
+        "Links open in new tab with Oasis functionality"
+      ]
+    },
+    {
+      id: 31,
+      title: "Mar W3: Autocorrect, Control+F & In-Product Guidance",
+      emoji: "✨",
+      priority: "MEDIUM",
+      storyPoints: 16,
+      effort: "Medium",
+      impact: "High",
+      severity: "6-10/10",
+      overview: "Promoters and passives explicitly request these. 'Basic features like autocorrect would improve usability and polish.' **CONFLICT:** Autocorrect shares Composer with Sprints 27 and 30. **Source:** proposed sprints for march week 3.md.",
+      primaryFiles: "Composer.tsx, oasiswelcome.html, findbar.js, tabbrowser.js",
+      issues: [
+        {
+          title: "Add autocorrect to AI assistant and search inputs",
+          count: 2,
+          submissionIds: ["ZjpANJB"],
+          description: "Cited by NPS and Feedback. Quick win for polish.",
+          impact: "Improves typing experience (severity 7/10)",
+          technicalNotes: "Composer.tsx, oasiswelcome search - autocorrect/autocapitalize attrs or spellcheck",
+          requiresUI: true,
+          feedback: []
+        },
+        {
+          title: "Implement Control+F (find in page)",
+          count: 1,
+          submissionIds: ["VRdMO6"],
+          description: "Feature request, importance 10.",
+          impact: "Missing core browser feature (severity 10/10)",
+          technicalNotes: "findbar.js, tabbrowser.js - ensure findbar works in Oasis context",
+          feedback: []
+        },
+        {
+          title: "Add clearer in-product guidance",
+          count: 1,
+          submissionIds: [],
+          description: "Adding clearer guidance for features could make the experience even smoother.",
+          impact: "Onboarding improvement (severity 6/10)",
+          technicalNotes: "Tooltips, onboarding strings - low code impact",
+          requiresUI: true,
+          feedback: []
+        },
+        {
+          title: "Onboarding tour for hubs",
+          count: 1,
+          submissionIds: ["OpYMPg"],
+          description: "Info button or tour for creating hubs and pasting links.",
+          impact: "Hub discovery (severity 7/10)",
+          technicalNotes: "oasiswelcome/, assistant UI - info button or tour",
+          requiresUI: true,
+          feedback: []
+        }
+      ],
+      acceptanceCriteria: [
+        "Autocorrect enabled on AI assistant and search inputs",
+        "Control+F (find in page) works in Oasis",
+        "Clearer in-product guidance for features",
+        "Onboarding tour for hub creation"
+      ]
+    },
+    {
+      id: 32,
+      title: "Mar W3: Hub & Layout UX",
+      emoji: "📐",
+      priority: "MEDIUM",
+      storyPoints: 12,
+      effort: "Medium",
+      impact: "High",
+      severity: "6-10/10",
+      overview: "Hub management is core to Oasis value. Confusion here blocks organization benefits. **CONFLICT:** Run after Sprint 29 (shared bookmarkFolders.ts). **Source:** proposed sprints for march week 3.md.",
+      primaryFiles: "bookmarkFolders.ts, oasiswelcome/",
+      issues: [
+        {
+          title: "Allow editing link titles in Select View Layout",
+          count: 1,
+          submissionIds: ["NpLB7AO"],
+          description: "Meta-title doesn't show; users see 'Google Sheets: Sign-in' or 'Page Not Found' permanently.",
+          impact: "Can't identify saved links (severity 10/10)",
+          technicalNotes: "bookmarkFolders.ts, hub UI - updateBookmark + editable title",
+          requiresUI: true,
+          feedback: []
+        },
+        {
+          title: "Duplicate hub name warning",
+          count: 1,
+          submissionIds: ["68JgaV5"],
+          description: "Check and warn when creating hub with existing name; offer replace or rename.",
+          impact: "Prevents accidental overwrites (severity 9/10)",
+          technicalNotes: "bookmarkFolders.ts - check before create, offer replace/rename",
+          feedback: []
+        },
+        {
+          title: "Fix layout approval without link",
+          count: 1,
+          submissionIds: ["KYQ9q0g"],
+          description: "First-time users get stuck in error loop; can't approve layout without link.",
+          impact: "Onboarding blocker (severity 10/10)",
+          technicalNotes: "oasiswelcome/ - first-time flow, allow approve without link",
+          feedback: []
+        },
+        {
+          title: "Fix HTTP auto-added in search",
+          count: 1,
+          submissionIds: ["RGKAEXd"],
+          description: "Users must remove http from search textbox; search not seamless.",
+          impact: "Search friction (severity 7/10)",
+          technicalNotes: "oasiswelcome.html, search input - strip or prevent http prefix",
+          feedback: []
+        },
+        {
+          title: "Copy URL from address bar",
+          count: 1,
+          submissionIds: ["WO9jbbR"],
+          description: "Users cannot copy URL.",
+          impact: "Missing basic browser feature (severity 10/10)",
+          technicalNotes: "Urlbar / navigator toolbox - expose copy action",
+          feedback: []
+        }
+      ],
+      acceptanceCriteria: [
+        "Link titles editable in Select View Layout",
+        "Duplicate hub name shows warning with replace/rename options",
+        "Layout can be approved without link (first-time flow)",
+        "Search doesn't auto-add http",
+        "URL copyable from address bar"
+      ]
+    },
+    {
+      id: 33,
+      title: "Mar W3: Page Context for Chatbot & Summarization",
+      emoji: "📄",
+      priority: "MEDIUM",
+      storyPoints: 13,
+      effort: "Medium-High",
+      impact: "High",
+      severity: "7-8/10",
+      overview: "Requested by passives and promoters. Enables 'ask questions about this page' workflow. **CONFLICT:** Run after Sprint 29 (shared commands.ts). **Source:** proposed sprints for march week 3.md.",
+      primaryFiles: "commands.ts, runtime.ts, hiddenInstructions.ts, summarizeExplicitResolver.ts, interactionState.ts",
+      issues: [
+        {
+          title: "Add current page as context to chatbot",
+          count: 2,
+          submissionIds: ["Y5EMLy5"],
+          description: "Webpage added as context so I can ask questions about it.",
+          impact: "Enables page Q&A workflow (severity 9/10)",
+          technicalNotes: "interactionState.ts, runtime.ts, prompt assembly - inject page content into context",
+          feedback: []
+        },
+        {
+          title: "Improve summarization accuracy",
+          count: 1,
+          submissionIds: [],
+          description: "Section summarization inconsistent; sometimes lacks reading capabilities within current tab.",
+          impact: "Summarization unreliable (severity 8/10)",
+          technicalNotes: "summarizeExplicitResolver.ts, hiddenInstructions.ts - section handling, retry",
+          feedback: []
+        },
+        {
+          title: "Summarize specific part of page",
+          count: 1,
+          submissionIds: ["e076b373"],
+          description: "AI gives generic whole-page summary when user asks for specific section.",
+          impact: "Wrong summary scope (severity 8/10)",
+          technicalNotes: "SummarizePageCommand, selection/content extraction - section targeting",
+          feedback: []
+        }
+      ],
+      acceptanceCriteria: [
+        "Current page content available as chatbot context",
+        "Summarization accurate for current tab",
+        "Summarize specific section returns section content, not whole page"
+      ]
+    },
+    {
+      id: 34,
+      title: "Mar W3: Polish, Performance & Trust",
+      emoji: "🎨",
+      priority: "MEDIUM",
+      storyPoints: 21,
+      effort: "Medium-High",
+      impact: "High",
+      severity: "6-10/10",
+      overview: "Retains promoters; addresses 'unfinished' feel. Low conflict; can run in parallel with most sprints. **Source:** proposed sprints for march week 3.md.",
+      primaryFiles: "Scattered - branding, CSS, decisionEngine.ts",
+      issues: [
+        {
+          title: "Branding polish",
+          count: 1,
+          submissionIds: [],
+          description: "Remove Firefox aspects; make product feel finished.",
+          impact: "Unfinished feel (severity 10/10)",
+          technicalNotes: "Branding assets, strings - remove Firefox references",
+          requiresUI: true,
+          feedback: []
+        },
+        {
+          title: "Visibility into background processes",
+          count: 1,
+          submissionIds: [],
+          description: "Updates, AI tasks, sync status.",
+          impact: "Transparency (severity 7/10)",
+          technicalNotes: "New UI component - status indicators",
+          requiresUI: true,
+          feedback: []
+        },
+        {
+          title: "AI action transparency",
+          count: 1,
+          submissionIds: [],
+          description: "Preview/confirm how AI interpreted intent before executing.",
+          impact: "Trust (severity 8/10)",
+          technicalNotes: "Confirmation flow, interactionState.ts - preview before execute",
+          requiresUI: true,
+          feedback: []
+        },
+        {
+          title: "Chain of commands / recursion limit",
+          count: 2,
+          submissionIds: [],
+          description: "Fix recursion/limit issues; support multi-step commands.",
+          impact: "Command execution fails (severity 8/10)",
+          technicalNotes: "decisionEngine.ts, command execution - multi-step, limit handling",
+          feedback: []
+        },
+        {
+          title: "Dark mode toggle",
+          count: 1,
+          submissionIds: [],
+          description: "Match user's browser theme.",
+          impact: "Theme consistency (severity 6/10)",
+          technicalNotes: "CSS vars, prefs - match browser theme",
+          requiresUI: true,
+          feedback: []
+        }
+      ],
+      acceptanceCriteria: [
+        "Firefox branding removed",
+        "Background process status visible",
+        "AI action preview/confirm before execute",
+        "Recursion limit errors resolved",
+        "Dark mode toggle available"
+      ]
     }
   ]
 
@@ -2329,6 +2834,7 @@ function Sprints() {
       <div className="sprint-update-banner">
         The newest version of the browser in GitHub has been tested as of February 19th, 2026, 12:00 PM EST. Any resolved issues and sprints have been archived. All open sprints and issues are up to date.
         <span className="sprint-banner-branch">Build off of <code>OTA/determine-ota-update-feasibility</code> (not <code>uiupdates/dynamic</code>). This branch has the newest updates from Sprint 15 (Automatic Software Updates).</span>
+        <span className="sprint-banner-branch"><strong>March Week 3:</strong> Added 8 NPS-focused sprints (27–34) from proposed sprints for march week 3.md — Voice/AI reliability, Sign-in, AI action accuracy, Chat UX, Autocorrect/Control+F, Hub & layout, Page context, Polish. See conflict notes for parallelization.</span>
       </div>
       <div className="page-header">
         <h1>Engineering Sprints</h1>
