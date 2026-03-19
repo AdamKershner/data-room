@@ -431,9 +431,9 @@ function StepDuolingoArticle() {
 function StepInternalChannels() {
   return (
     <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You've joined both Slack and Discord.</p>
+      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You've joined Slack, Discord, and WhatsApp.</p>
 
-      <p>We use Slack for day-to-day team communication and Discord for community, support, and product updates. Join both to stay connected.</p>
+      <p>We use Slack for day-to-day team communication, Discord for community and support, and WhatsApp for updates. Join all three to stay connected.</p>
 
       <div className="onboarding-avenger-tasks">
         <div className="onboarding-nps-step">
@@ -449,6 +449,14 @@ function StepInternalChannels() {
           <p>Community hub for support, feedback, feature updates, and connecting with the team and other Oasis users.</p>
           <a href="https://kahana.co/community" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
             Join Kahana Discord →
+          </a>
+        </div>
+
+        <div className="onboarding-nps-step">
+          <strong>WhatsApp</strong>
+          <p>Channel for announcements and updates from the team.</p>
+          <a href="https://whatsapp.com/channel/0029Vb85N8HAO7RG1I8P5v1Z" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
+            Join Kahana WhatsApp →
           </a>
         </div>
       </div>
