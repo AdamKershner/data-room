@@ -342,28 +342,37 @@ function StepAvengerProfile() {
 
 const BUSINESS_PLAN_SECTIONS = [
   { path: '/', label: 'Executive Summary' },
+  { path: '/weekly-reports', label: 'Weekly Reports' },
   { path: '/q1-midpoint', label: 'Q1 Midpoint Update' },
-  { path: '/problem-market', label: 'Problem, Market & Users' },
-  { path: '/competitors', label: 'Competitors' },
-  { path: '/b2b-strategic-narrative', label: 'B2B Strategic Narrative' },
+  { path: '/onboarding', label: 'Onboarding' },
+  { path: '/team-execution', label: 'Team, Execution & Milestones' },
+  { path: '/market-size', label: 'Market Size' },
   { path: '/b2c-strategic-narrative', label: 'B2C Strategic Narrative' },
-  { path: '/product-technology', label: 'Product & Technology' },
-  { path: '/nps', label: 'NPS' },
-  { path: '/business-model', label: 'Business Model & Unit Economics' },
+  { path: '/b2b-strategic-narrative', label: 'B2B Strategic Narrative' },
+  { path: '/competitors', label: 'Competitors' },
+  { path: '/linkedin-guide', label: 'LinkedIn Guide' },
+  { path: '/linkedin-connections-guide', label: 'LinkedIn Connections Guide' },
+  { path: '/producthunt-tasks', label: 'ProductHunt Tasks' },
+  { path: '/content-pipeline', label: 'Content Pipeline' },
   { path: '/go-to-market', label: 'Go-to-Market & Growth' },
   { path: '/financial-plan', label: 'Financial Plan & Sensitivity' },
-  { path: '/team-execution', label: 'Team, Execution & Milestones' },
+  { path: '/business-model', label: 'Business Model & Unit Economics' },
+  { path: '/product-technology', label: 'Product & Technology' },
+  { path: '/problem-market', label: 'Problem, Market & Users' },
+  { path: '/nps', label: 'NPS' },
+  { path: '/hitl', label: 'HITL Feedback' },
+  { path: '/ota-guide', label: 'OTA & Updates Guide' },
   { path: '/sprints', label: 'Sprints' },
-  { path: '/weekly-reports', label: 'Weekly Reports' },
-  { path: '/content-pipeline', label: 'Content Pipeline' },
+  { path: '/soc2-gap-analysis', label: 'SOC2 Gap Analysis' },
+  { path: '/soc2-type1-checklist', label: 'SOC2 Type 1 Checklist' },
 ]
 
 function StepBusinessPlan() {
   return (
     <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You've read all sections from Executive Summary through Content Pipeline.</p>
+      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You've read all sections listed below (every item in the Table of Contents).</p>
 
-      <p>Reading the full Business Plan means reading all sections of this entire site. In case you didn't notice, there's a menu in the top left corner that lets you navigate between the various sections — it's more than one page. Start with Executive Summary and work through each section in order down to Weekly Reports and Content Pipeline.</p>
+      <p>Reading the full Business Plan means reading all sections of this entire site. In case you didn't notice, there's a menu in the top left corner that lets you navigate between the various sections — it's more than one page. Work through each section in the order listed below.</p>
 
       <h3>Sections to read</h3>
       <ol className="onboarding-steps-list">
