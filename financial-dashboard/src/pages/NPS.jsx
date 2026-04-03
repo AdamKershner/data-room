@@ -194,6 +194,8 @@ function NPS() {
           <h3>Overall Trends</h3>
           <p>
             Respondents consistently value <strong>organization and structure</strong>—tab groups and staying in one place. The AI assistant integration, summarization, and minimal interface are cited as main benefits. Target users are power users: researchers, students, project managers, and anyone with many tabs who wants AI help inside the browser.
+            {' '}
+            Recent feedback also highlights <strong>faster tab switching</strong> (e.g. keywords instead of full titles), <strong>semantic search across tabs</strong>, AI that follows <strong>user intent</strong> rather than overly literal commands, and <strong>split-view polish</strong> (extra tabs, tab titles with certain themes).
           </p>
           <h3>What's Working Well</h3>
           <ul className="nps-summary-list">
