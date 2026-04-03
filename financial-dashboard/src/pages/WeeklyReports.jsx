@@ -6,6 +6,141 @@ function WeeklyReports() {
   // Weekly reports generated from time log data
   const [reports] = useState([
     {
+      id: -4,
+      week: '2026-03-30',
+      weekLabel: 'Week of March 30–April 3, 2026',
+      keyUpdates: [
+        'Sudhire Rahul Karunakaran attended a tech conference this week and gathered feedback from senior data engineers on Oasis as an enterprise browser. Two conversations below stand out for product strategy, security roadmap, and GTM narrative (LinkedIn profiles included for follow-up).',
+        'GTM: Waitlist signups at 169 (up from 162). B2B prospect pool: 942 enterprise solutions architects identified as 2nd connections on LinkedIn. 38 new MQLs for the week ending April 3, 2026. Product Hunt supporter accounts: 178 (target 350 for launch day).',
+        'NPS export (Sheet1(6)): 40 valid responses; score 25 (16 promoters, 18 passives, 6 detractors)—matches NPS dashboard after CSV refresh.',
+        <>Conversation with <a href="https://www.linkedin.com/in/elangovanm/" target="_blank" rel="noopener noreferrer">Elangovan M.</a> (senior data engineer): He was receptive to Oasis’s zero-trust continuous verification model and hub-based workspace isolation. His main pushback: identity- and session-layer zero-trust is increasingly table stakes — Island, Talon (Palo Alto), and Chrome Enterprise all claim some form of it — and he asked what Kahana’s architectural moat is beyond that.</>,
+        <>Elangovan recommended <strong>DNS rebinding attack prevention</strong> as a differentiator. He noted that most enterprise browsers, including Chrome Enterprise, rely on the OS-level DNS resolver and do not perform rebinding analysis at the browser layer. A DNS rebinding attack lets a malicious site bypass same-origin assumptions by making an attacker-controlled domain resolve to a private IP, effectively tunneling toward internal network resources — a live threat vector in regulated enterprises that is rarely addressed in the browser.</>,
+        <>His suggested feature direction: a <strong>browser-native DNS rebinding analysis layer</strong> that validates DNS responses before establishing connections — flagging anomalous TTL values, detecting private IP resolution from public domains, and blocking attack patterns in real time — especially valuable for healthcare and financial services customers with strict network segmentation.</>,
+        <>Conversation with <a href="https://www.linkedin.com/in/krishna-satyavarapu-09413b7/" target="_blank" rel="noopener noreferrer">Krishna Satyavarapu</a>: Hub-based workspace isolation is conceptually strong, but when prospects ask “how is this different from Chrome profiles?” the answer must live in the <strong>security layer</strong>, not just the UX layer.</>,
+        <>Krishna raised DNS rebinding independently (without prompting) as a known gap in the enterprise browser category: no current vendor addresses it natively at the browser level. He focused on the <strong>SaaS multi-tenant attack surface</strong> — misconfigured SaaS DNS or attacks on SaaS subdomains can allow lateral movement between sessions that look isolated; in a hub-based browser where multiple workspaces coexist, that risk is compounded.</>,
+        <>Krishna’s recommendation: a DNS rebinding analysis layer at the <strong>network request interception layer</strong> (before the request leaves the browser) with <strong>configurable policy controls for IT admins</strong>. He framed this as making the zero-trust story complete: “You have identity trust, you have session trust — now add network trust” — and as a compelling differentiator for security-conscious verticals.</>,
+        'Action item: Route DNS rebinding defense concepts to product and security for feasibility and roadmap consideration; have PMM/sales refine “architectural moat” and hub-vs-Chrome-profiles messaging around network trust and workspace-boundary guarantees.',
+        'Preethi B K: Internship onboarding (3 hours, April 3; from time log export).'
+      ],
+      timeBreakdown: {
+        'Sales & Enterprise': 16.0,
+        'Learning & Onboarding': 3.0
+      },
+      areasToImprove: [
+        <>Develop a crisp answer to “What is Kahana’s architectural moat?” that goes beyond table-stakes identity/session zero-trust — incorporating network-trust and browser-layer controls prospects cannot get from OS-resolver-only stacks.</>,
+        'Prioritize technical discovery on browser-native DNS rebinding analysis (validation before connect, TTL anomalies, public-domain-to-private-IP resolution, real-time blocking) and IT policy hooks.',
+        'Sharpen hub isolation narrative vs Chrome profiles: lead with enforced boundaries, policy, and auditability, not only tab UX.',
+        <>For more MQLs: Use <a href="/linkedin-guide">LinkedIn Marketing Guide</a> (team-wide initiative)</>,
+        <>For more SQLs and enterprise solutions architects: Use <a href="/linkedin-connections-guide">LinkedIn Connections Guide</a> (team-wide initiative)</>,
+        'Refresh impressions and NPS when Friday close data is available (time log partially reflected: Sudhire conference block + Preethi onboarding).'
+      ],
+      metrics: {
+        totalHours: 19.0,
+        teamMembers: 2,
+        entries: 2,
+        mqls: 38,
+        sqls: 1,
+        waitlistSignups: 169,
+        b2bProspectsEsaSecondDegreeLinkedIn: 942,
+        npsScore: 25,
+        npsResponses: 40,
+        npsParticipation: 65.3,
+        npsParticipationTotal: 49,
+        productHuntSupporters: 178,
+        productHuntSupportersTarget: 350
+      },
+      quarterlyGoals: {
+        nps: 25,
+        npsTarget: 30,
+        pilots: 0,
+        pilotsTarget: 3,
+        payingSubscribers: 0,
+        payingSubscribersTarget: 40,
+        payingSubscribersNote: '1 paying subscriber officially downgraded on March 12 and is no longer paying. We had 1 paying subscriber in February, and now 0 in March.',
+        waitlistTarget: 2000
+      }
+    },
+    {
+      id: -5,
+      week: '2026-03-23',
+      weekLabel: 'Week of March 23–27, 2026',
+      keyUpdates: [
+        'Weekly narrative synthesized from Time Log — Sheet1(12) export (work dates March 21–27 falling in this reporting window).',
+        'Rajrajeshwari Gaware: Oasis product testing and LinkedIn ICP prospecting (20 hours; work date March 21).',
+        'Ruturaj Marathe: Initial test plan and critical test cases for QA; coordination toward Adam’s upcoming presentation on browser security (21 hours, March 24).',
+        'Harsh Vora: Internship onboarding, Oasis testing, and Sprint 11 (21 hours, March 27).',
+        'Themes: security/QA readiness ahead of stakeholder presentations, LinkedIn outbound aligned to ICP, and new engineer onboarding.'
+      ],
+      timeBreakdown: {
+        'Product Testing & Onboarding': 41.0,
+        'Security & QA Planning': 21.0
+      },
+      areasToImprove: [
+        'Drive time log participation through end of week; several March rows were filed in batch—encourage same-week submission.',
+        <>For more MQLs: Use <a href="/linkedin-guide">LinkedIn Marketing Guide</a> (team-wide initiative)</>,
+        <>For more SQLs and enterprise solutions architects: Use <a href="/linkedin-connections-guide">LinkedIn Connections Guide</a> (team-wide initiative)</>,
+        'Continue Mixpanel → Supabase migration and event-definition cleanup where it blocks analytics accuracy.'
+      ],
+      metrics: {
+        totalHours: 62.0,
+        teamMembers: 3,
+        entries: 3,
+        mqls: 0,
+        sqls: 1
+      },
+      quarterlyGoals: {
+        nps: 25,
+        npsTarget: 30,
+        pilots: 0,
+        pilotsTarget: 3,
+        payingSubscribers: 0,
+        payingSubscribersTarget: 40,
+        payingSubscribersNote: '1 paying subscriber officially downgraded on March 12 and is no longer paying. We had 1 paying subscriber in February, and now 0 in March.',
+        waitlistTarget: 2000
+      }
+    },
+    {
+      id: -6,
+      week: '2026-03-16',
+      weekLabel: 'Week of March 16–20, 2026',
+      keyUpdates: [
+        'Weekly narrative synthesized from Time Log — Sheet1(12) export (work dates March 19–20).',
+        'Archit Gupta: Engineering onboarding and GitHub repository analysis (20 hours, March 19).',
+        'Agrima Gupta: Mock dataset project — table variants, AI command and intent categories, and 2,000-user simulation (15 hours, March 20).',
+        'Ruturaj Marathe: Oasis browser security research from materials shared by Adam (15 hours, March 19); LinkedIn connection outreach and Product Hunt tasks (6 hours, March 20).',
+        'Note: Additional hours for March 13 (Harika, Agrima, Rajrajeshwari, Pournami) were submitted March 16 and are captured in the March 9–13 week narrative where applicable; this week focuses on work dated March 16–20 only.'
+      ],
+      timeBreakdown: {
+        'Product & Onboarding': 20.0,
+        'Analytics & Data': 15.0,
+        'Security Research': 15.0,
+        'Marketing & Outreach': 6.0
+      },
+      areasToImprove: [
+        'Backfill any missing time logs for March 17–18 if work occurred but was not yet exported.',
+        <>For more MQLs: Use <a href="/linkedin-guide">LinkedIn Marketing Guide</a> (team-wide initiative)</>,
+        <>For more SQLs and enterprise solutions architects: Use <a href="/linkedin-connections-guide">LinkedIn Connections Guide</a> (team-wide initiative)</>,
+        'Keep security research outputs tied to roadmap themes (e.g. enterprise buyer questions on browser-layer controls).'
+      ],
+      metrics: {
+        totalHours: 56.0,
+        teamMembers: 3,
+        entries: 4,
+        mqls: 0,
+        sqls: 1
+      },
+      quarterlyGoals: {
+        nps: 25,
+        npsTarget: 30,
+        pilots: 0,
+        pilotsTarget: 3,
+        payingSubscribers: 0,
+        payingSubscribersTarget: 40,
+        payingSubscribersNote: '1 paying subscriber officially downgraded on March 12 and is no longer paying. We had 1 paying subscriber in February, and now 0 in March.',
+        waitlistTarget: 2000
+      }
+    },
+    {
       id: -3,
       week: '2026-03-09',
       weekLabel: 'Week of March 9–13, 2026',
@@ -22,11 +157,15 @@ function WeeklyReports() {
         'Archit Gupta added to engineering team.',
         'Srishti Goyal: LinkedIn Connections and Reddit Forums (10 hours)',
         'Nithish Sampath: Tested browser AI feature (4 hours)',
-        'Ammemah Naeem: Meeting with Adam, reviewing LinkedIn docs, HubSpot knowledge gathering (3 hours); Product Hunt reachouts (1 hour)'
+        'Ammemah Naeem: Meeting with Adam, reviewing LinkedIn docs, HubSpot knowledge gathering (3 hours); Product Hunt reachouts (1 hour)',
+        'Time log export (Sheet1(12)) — Revanth (25 hours, work date March 13): macOS Passkey investigation, non-event tracking in Supabase, LLM-usage categorization exploration. Harika Kurra (21 hours, March 13): Week 2 internship focus — feedback-to-sprint framework, Cursor/repo work, login-on-reopen bug found, PM meeting, LinkedIn and Product Hunt prep.',
+        'Time log export (Sheet1(12)) — Agrima Gupta (15 hours, March 13): Mixpanel AI assistant events — documentation and plan for additional tracking. Rajrajeshwari Gaware (20 hours, March 13): product testing, Mixpanel project, LinkedIn content planning. Pournami Pottekat (25 hours, March 13): ArchGrants pitch deck and alignment meetings. (Several rows submitted March 16; work dated March 13.)'
       ],
       timeBreakdown: {
+        'Product & Engineering': 70.0,
         'Marketing & Content': 14.0,
-        'Product & Testing': 4.0
+        'Analytics & Mixpanel': 15.0,
+        'Design & Grants': 25.0
       },
       areasToImprove: [
         <>For more MQLs: Use <a href="/linkedin-guide">LinkedIn Marketing Guide</a> (team-wide initiative)</>,
@@ -55,12 +194,12 @@ function WeeklyReports() {
         prospectsIdentifiedTeamMembers: 3,
         prospectsIdentifiedTotal: 48,
         waitlistSignups: 162,
-        totalHours: 18.0,
-        teamMembers: 3,
-        entries: 4,
-        timeLogParticipation: 6.1,
-        timeLogFilledOut: ['Srishti Goyal', 'Nithish Sampath', 'Ammemah Naeem'],
-        timeLogDidNotFillOut: ['Abhinav Chandra', 'Adam Kershner', 'Afshaan Khan', 'Agrima Gupta', 'Aishwarya Shetiya', 'Akansha Parihar', 'Alisha Reji', 'Ankit', 'Archana Ramalingam', 'Archit Gupta', 'Ashwin John', 'Atharva Joshi', 'BD Manikandan', 'Dhruv Patel', 'Durgesh Tiwari', 'Harika Kurra', 'Hasitha Sigatapu', 'Hasan Bohra', 'Hritik Sanjay Chalse', 'Kaushik Shridhar', 'Konika Dhull', 'Lalith Donkina', 'Likhitha Guggilla', 'Lokesh Nenavath', 'Mohammed Muneebuddin', 'Mukesh Basvekar', 'Naveen Prashanna Gurumurthy', 'Navile Mahesh', 'Pallavi', 'Pournami Pottekat', 'Preetika Shyamwale', 'Rajrajeshwari Gaware', 'Rashmi Kadwani', 'Rashmila Mitra', 'Ravi', 'Revanth Ganga', 'Rohith Anthony Aleti Joseph', 'Rohith CMR', 'Rohan Mehere', 'Ruhani Vinzuda', 'Rushyanth Nerellakunta', 'Ruturaj', 'Saideep Pajjuri', 'Saksham Mehta', 'Samyak Jain', 'Sudhire Rahul Karunakaran', 'Yaseer']
+        totalHours: 124.0,
+        teamMembers: 8,
+        entries: 9,
+        timeLogParticipation: 16.0,
+        timeLogFilledOut: ['Srishti Goyal', 'Nithish Sampath', 'Ammemah Naeem', 'Revanth', 'Harika Kurra', 'Agrima Gupta', 'Rajrajeshwari Gaware', 'Pournami Pottekat'],
+        timeLogDidNotFillOut: ['Abhinav Chandra', 'Adam Kershner', 'Afshaan Khan', 'Aishwarya Shetiya', 'Akansha Parihar', 'Alisha Reji', 'Ankit', 'Archana Ramalingam', 'Archit Gupta', 'Ashwin John', 'Atharva Joshi', 'BD Manikandan', 'Dhruv Patel', 'Durgesh Tiwari', 'Hasitha Sigatapu', 'Hasan Bohra', 'Hritik Sanjay Chalse', 'Kaushik Shridhar', 'Konika Dhull', 'Lalith Donkina', 'Likhitha Guggilla', 'Lokesh Nenavath', 'Mohammed Muneebuddin', 'Mukesh Basvekar', 'Naveen Prashanna Gurumurthy', 'Navile Mahesh', 'Pallavi', 'Preetika Shyamwale', 'Rashmi Kadwani', 'Rashmila Mitra', 'Ravi', 'Rohith Anthony Aleti Joseph', 'Rohith CMR', 'Rohan Mehere', 'Ruhani Vinzuda', 'Rushyanth Nerellakunta', 'Ruturaj', 'Saideep Pajjuri', 'Saksham Mehta', 'Samyak Jain', 'Sudhire Rahul Karunakaran', 'Yaseer']
       },
       quarterlyGoals: {
         nps: 25,
@@ -851,6 +990,15 @@ function WeeklyReports() {
                     <div className="metric-card">
                       <div className="metric-value">{report.metrics.newProspectsIdentified}</div>
                       <div className="metric-label">New Prospects Identified (per week)</div>
+                    </div>
+                  )}
+                  {report.metrics.b2bProspectsEsaSecondDegreeLinkedIn !== undefined && (
+                    <div className="metric-card">
+                      <div className="metric-value">{report.metrics.b2bProspectsEsaSecondDegreeLinkedIn}</div>
+                      <div className="metric-label">B2B prospects (ESAs, 2nd connections)</div>
+                      <div style={{ fontSize: '0.75rem', marginTop: '4px', color: 'rgba(255, 255, 255, 0.8)', fontStyle: 'italic' }}>
+                        Enterprise solutions architects on LinkedIn
+                      </div>
                     </div>
                   )}
                   {report.metrics.prospectsIdentifiedTeamMembers !== undefined && report.metrics.prospectsIdentifiedTotal !== undefined && (
