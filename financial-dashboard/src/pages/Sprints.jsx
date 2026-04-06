@@ -2781,6 +2781,67 @@ function Sprints() {
         "Recursion limit errors resolved",
         "Dark mode toggle available"
       ]
+    },
+    {
+      id: 35,
+      title: "Apr W1: Multi-Model Router (Local + Commercial)",
+      emoji: "🧠",
+      priority: "HIGH",
+      storyPoints: 21,
+      effort: "Medium-High",
+      impact: "High",
+      severity: "9/10",
+      overview: "Build a model-orchestration layer that selects the right model for each task to maximize speed, output quality, and cost efficiency. Principle: 'We don't need a chainsaw to slice a piece of bread.' Use LLM Council-style multi-model workflows as a reference point (parallel first opinions, lightweight review/ranking, final synthesis when needed), adapted for Oasis assistant needs.",
+      primaryFiles: "decisionEngine.ts, proxyClient.ts, runtime.ts, hiddenInstructions.ts, interactionState.ts, model routing/config module (new)",
+      issues: [
+        {
+          title: "Define model catalog and routing policy",
+          count: 1,
+          submissionIds: ["STRATEGIC_INITIATIVE"],
+          description: "Create a central model registry with capability metadata (latency, context length, tool reliability, quality band, cost per token, local vs hosted).",
+          impact: "Foundation for predictable performance/cost (severity 9/10)",
+          technicalNotes: "Add config-driven model metadata and per-task routing rules. Include Gemini + Deepgram + additional local/commercial models."
+        },
+        {
+          title: "Intent-based model selection",
+          count: 1,
+          submissionIds: ["STRATEGIC_INITIATIVE"],
+          description: "Route simple tasks to fast/cheap models and complex reasoning/planning to stronger models. Add confidence thresholds and fallback policies.",
+          impact: "Reduces cost and latency without quality loss (severity 10/10)",
+          technicalNotes: "decisionEngine.ts + intentParser.ts: map intents to model classes (cheap, balanced, premium). Add fallback if confidence/quality is low."
+        },
+        {
+          title: "Parallel multi-model mode for high-stakes prompts",
+          count: 1,
+          submissionIds: ["STRATEGIC_INITIATIVE"],
+          description: "For selected tasks, run 2-3 models in parallel, rank outputs, and synthesize a final answer.",
+          impact: "Improves answer accuracy/robustness (severity 8/10)",
+          technicalNotes: "Implement optional council mode inspired by llm-council pattern: first opinions -> review/rank -> final synthesis. Keep disabled by default except configured use cases."
+        },
+        {
+          title: "Cost/latency guardrails and budgets",
+          count: 1,
+          submissionIds: ["STRATEGIC_INITIATIVE"],
+          description: "Add per-session and per-user budget controls plus hard caps for premium-model usage.",
+          impact: "Prevents cost blowups (severity 9/10)",
+          technicalNotes: "Integrate with token usage accounting (align with Sprint 25). Enforce max spend/request, max premium calls/session, and graceful downgrade."
+        },
+        {
+          title: "Evaluation harness: speed, quality, cost",
+          count: 1,
+          submissionIds: ["STRATEGIC_INITIATIVE"],
+          description: "Create repeatable benchmarks over real Oasis tasks (tab commands, summarization, split view, workflow automation).",
+          impact: "Enables data-driven model selection (severity 9/10)",
+          technicalNotes: "Build offline eval dataset + scoring rubric (task success rate, latency p50/p95, token cost, retry rate). Compare single-model baseline vs routed vs council mode."
+        }
+      ],
+      acceptanceCriteria: [
+        "Model registry exists with latency/quality/cost metadata and routing classes",
+        "Intent-based router selects model class (cheap/balanced/premium) with fallback behavior",
+        "Optional council mode works for configured high-stakes tasks with ranked/synthesized output",
+        "Budget guardrails enforce usage limits and degrade gracefully to lower-cost models",
+        "Benchmark report shows measurable improvement on at least one axis (cost, latency, or quality) without regressions on the others"
+      ]
     }
   ]
 
@@ -2832,14 +2893,14 @@ function Sprints() {
   return (
     <div className="page" id="product-roadmap">
       <div className="sprint-update-banner">
-        The newest version of the browser in GitHub has been tested as of February 19th, 2026, 12:00 PM EST. Any resolved issues and sprints have been archived. All open sprints and issues are up to date.
+        Sprint board refreshed through early April 2026. Any resolved issues and sprints have been archived. Open sprints are prioritized from current product feedback and NPS.
         <span className="sprint-banner-branch">Build off of <code>OTA/determine-ota-update-feasibility</code> (not <code>uiupdates/dynamic</code>). This branch has the newest updates from Sprint 15 (Automatic Software Updates).</span>
-        <span className="sprint-banner-branch"><strong>March Week 3:</strong> Added 8 NPS-focused sprints (27–34) from proposed sprints for march week 3.md — Voice/AI reliability, Sign-in, AI action accuracy, Chat UX, Autocorrect/Control+F, Hub & layout, Page context, Polish. See conflict notes for parallelization.</span>
+        <span className="sprint-banner-branch"><strong>NPS alignment:</strong> Sprints 27–34 remain the active NPS-focused track and map to latest themes from <code>NPS-Sheet1.csv</code> (intent understanding, split-view/tab accuracy, onboarding/session flow, voice responsiveness, semantic search/context, and trust/polish). See conflict notes for parallelization.</span>
       </div>
       <div className="page-header">
         <h1>Engineering Sprints</h1>
         <p style={{ marginTop: '10px', color: '#666', fontSize: '1rem' }}>
-          December 2025 - February 2026 Feedback | 167 Total Feedback Items (37 New from Feb 2026)
+          Feedback-driven sprint backlog (HITL + NPS), updated through April 2026
         </p>
       </div>
 
