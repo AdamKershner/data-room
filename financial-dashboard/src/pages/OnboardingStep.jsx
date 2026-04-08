@@ -342,6 +342,7 @@ function StepAvengerProfile() {
 
 const BUSINESS_PLAN_SECTIONS = [
   { path: '/', label: 'Executive Summary' },
+  { path: '/Q1-executive-report', label: 'Q1 Executive Update' },
   { path: '/weekly-reports', label: 'Weekly Reports' },
   { path: '/q1-midpoint', label: 'Q1 Midpoint Update' },
   { path: '/onboarding', label: 'Onboarding' },

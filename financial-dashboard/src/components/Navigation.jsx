@@ -10,7 +10,8 @@ function Navigation() {
     {
       name: 'Executive Summary',
       items: [
-        { path: '/', label: 'Executive Summary', id: 'executive-summary' }
+        { path: '/', label: 'Executive Summary', id: 'executive-summary' },
+        { path: '/Q1-executive-report', label: 'Q1 Executive Update', id: 'q1-executive-report' }
       ]
     },
     {

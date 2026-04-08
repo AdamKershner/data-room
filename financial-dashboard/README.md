@@ -2,6 +2,8 @@
 
 A React-based dashboard for displaying Oasis Browser's 2026 financial projections and key metrics.
 
+**Managers:** To clone the repo, run the app locally, and add your own checklist page (e.g. `/firstname-lastname-projects` by copying the Onboarding or SOC2 checklist components), see **[README_MANAGER_CHECKLISTS.md](./README_MANAGER_CHECKLISTS.md)**.
+
 ## Features
 
 - **Key Highlights**: Visual cards showing ARR, subscribers, contracts, margins, and cash position
