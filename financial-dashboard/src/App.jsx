@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import ExecutiveSummary from './pages/ExecutiveSummary'
+import Q1ExecutiveReport from './pages/Q1ExecutiveReport'
 import ProblemMarket from './pages/ProblemMarket'
 import ProductTechnology from './pages/ProductTechnology'
 import NPS from './pages/NPS'
@@ -35,6 +36,7 @@ function App() {
         <Navigation />
         <Routes>
           <Route path="/" element={<ExecutiveSummary />} />
+          <Route path="/Q1-executive-report" element={<Q1ExecutiveReport />} />
           <Route path="/q1-midpoint" element={<Q1MidpointUpdate />} />
           <Route path="/problem-market" element={<ProblemMarket />} />
           <Route path="/product-technology" element={<ProductTechnology />} />
