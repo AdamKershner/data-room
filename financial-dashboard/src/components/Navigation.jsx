@@ -48,7 +48,8 @@ function Navigation() {
         { path: '/linkedin-guide', label: 'LinkedIn Guide', id: 'linkedin-guide' },
         { path: '/linkedin-connections-guide', label: 'LinkedIn Connections Guide', id: 'linkedin-connections-guide' },
         { path: '/producthunt-tasks', label: 'ProductHunt Tasks', id: 'producthunt-tasks' },
-        { path: '/content-pipeline', label: 'Content Pipeline', id: 'content-pipeline' }
+        { path: '/content-pipeline', label: 'Content Pipeline', id: 'content-pipeline' },
+        { path: '/events', label: 'Events', id: 'events' }
       ]
     },
     {

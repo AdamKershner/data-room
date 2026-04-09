@@ -4,6 +4,7 @@ import './Page.css'
 import './Q1MidpointUpdate.css'
 import hubspotLeadViewerImage from '../assets/hubspot-lead-viewer-fit-score.png'
 import { FAQ_ITEMS } from '../data/strategicFaqItems.jsx'
+import { OASIS_LOI_LETTER_DOC_URL } from '../constants/oasisCommercialDocs'
 
 
 function Q1MidpointUpdate() {
@@ -276,10 +277,20 @@ function Q1MidpointUpdate() {
           <div className="section-detail-block" style={{ marginTop: '28px' }}>
             <h3>Fundraising path</h3>
             <p>
-              <strong>Open question:</strong> How do we create a client-friendly and investor-friendly LOI such that we get signed LOIs and fundraise with less friction?
+              <strong>Open question:</strong> How do we create a client-friendly and investor-friendly{' '}
+              <a href={OASIS_LOI_LETTER_DOC_URL} target="_blank" rel="noopener noreferrer">LOI</a> such that we get signed{' '}
+              <a href={OASIS_LOI_LETTER_DOC_URL} target="_blank" rel="noopener noreferrer">LOIs</a> and fundraise with less friction?
             </p>
             <p>
-              We can secure <strong>Letters of Intent (LOIs)</strong> for the enterprise solution assuming SOC 2 compliance—SOC 2 can be in progress in parallel. When we have LOIs representing <strong>$100K in future ARR</strong>, we can approach Venture Capital. <a href="https://drive.google.com/file/d/11CUNNG3Y7ckHeJXY1IJYSwP-3n9sr_zB/view?usp=sharing" target="_blank" rel="noopener noreferrer">Enterprise LOI Template</a> (for reference and discussion). Target: <strong>$5M seed funding</strong> to fund a full-time hiring plan. <a href="https://drive.google.com/file/d/11CUNNG3Y7ckHeJXY1IJYSwP-3n9sr_zB/view?usp=sharing" target="_blank" rel="noopener noreferrer">Enterprise LOI template</a> (for reference and discussion).
+              We can secure{' '}
+              <strong>
+                <a href={OASIS_LOI_LETTER_DOC_URL} target="_blank" rel="noopener noreferrer">Letters of Intent (LOIs)</a>
+              </strong>{' '}
+              for the enterprise solution assuming SOC 2 compliance—SOC 2 can be in progress in parallel. When we have{' '}
+              <a href={OASIS_LOI_LETTER_DOC_URL} target="_blank" rel="noopener noreferrer">LOIs</a> representing{' '}
+              <strong>$100K in future ARR</strong>, we can approach Venture Capital.{' '}
+              <a href={OASIS_LOI_LETTER_DOC_URL} target="_blank" rel="noopener noreferrer">Enterprise LOI Template</a> (for reference and discussion). Target: <strong>$5M seed funding</strong> to fund a full-time hiring plan.{' '}
+              <a href={OASIS_LOI_LETTER_DOC_URL} target="_blank" rel="noopener noreferrer">Enterprise LOI template</a> (for reference and discussion).
             </p>
             <p>
               <strong>Investor database:</strong>{' '}
@@ -304,7 +315,11 @@ function Q1MidpointUpdate() {
               <li><Link to="/financial-plan#financial-snapshot"><strong>Financial Snapshot</strong></Link> (burn, runway) — already in data room</li>
               <li><Link to="/financial-plan#financial-projections"><strong>18–24 Month Financial Projections</strong></Link> — already in data room</li>
               <li><strong>Pitch Deck</strong> — ON HOLD (not typically aiming to share)</li>
-              <li><strong>Traction &amp; Validation</strong> (pilots, LOIs, waitlist, testimonials) — ON HOLD (testimonials post successful conversion)</li>
+              <li>
+                <strong>Traction &amp; Validation</strong> (pilots,{' '}
+                <a href={OASIS_LOI_LETTER_DOC_URL} target="_blank" rel="noopener noreferrer">LOIs</a>, waitlist, testimonials) — ON
+                HOLD (testimonials post successful conversion)
+              </li>
               <li><strong>Hiring Plan</strong> (next 3–6 roles) — ON HOLD (priority is current team)</li>
             </ul>
           </div>

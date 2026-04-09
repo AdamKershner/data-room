@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import './Page.css'
 import './WeeklyReports.css'
+import { OASIS_LOI_LETTER_DOC_URL } from '../constants/oasisCommercialDocs'
 
 function WeeklyReports() {
   // Weekly reports generated from time log data
@@ -357,7 +358,14 @@ function WeeklyReports() {
         '1 paying subscriber; slated to downgrade after the first month',
         'Waitlist users from these companies (signed up with work emails, not Gmail/personal): qixent.com, franshares.com, mhub.org, fedresources.com, oxfordwebservices.com, duck.com (DuckDuckGo), kapya.io, centerstone.org, sagemount.com, datadoghq.com',
         'After Sprint 10 and Sprint 15 are completed (projected within 2 weeks), we will be ready to launch on Product Hunt and accept more users—expecting them to find the product useful based on initial NPS results. The Product Hunt launch campaign will be led and orchestrated by Dhruv. We have 53 Product Hunt accounts created by our internal team, so we can account for 53 upvotes and comments on launch day. We need to get to ~400 confirmed accounts from our team and recruit friends, family, and our networks to support by creating Product Hunt accounts in advance.',
-        <>Letter of Intent (LOI) has been established. We need to refine this LOI and get prospective enterprises to sign it. Start by reaching out to Culture Amp (who previously scheduled a demo) to see if they will sign it. <a href="https://drive.google.com/file/d/11CUNNG3Y7ckHeJXY1IJYSwP-3n9sr_zB/view?usp=sharing" target="_blank" rel="noopener noreferrer">Enterprise LOI Template</a> (see Q1 Midpoint Update for full context)</>,
+        <>
+          <a href={OASIS_LOI_LETTER_DOC_URL} target="_blank" rel="noopener noreferrer">Letter of Intent (LOI)</a> has been
+          established. We need to refine{' '}
+          <a href={OASIS_LOI_LETTER_DOC_URL} target="_blank" rel="noopener noreferrer">this LOI</a> and get prospective enterprises
+          to sign it. Start by reaching out to Culture Amp (who previously scheduled a demo) to see if they will sign it.{' '}
+          <a href={OASIS_LOI_LETTER_DOC_URL} target="_blank" rel="noopener noreferrer">Enterprise LOI Template</a> (see Q1 Midpoint
+          Update for full context)
+        </>,
         'Progress on Sprint 17 (Oasis Chromium Enterprise Browser): Building a version that meets Culture Amp and other enterprise client requirements. Revanth built a version with pre-installed Okta plugin that is not removable; Adam tested it and it worked. Mohammed created a checklist of Enterprise browser requirements, which is being reviewed and implemented by Kaushik, Revanth, Atharva, Ruturaj, and Naveen.',
         'Agrima: Worked on figuring out how to connect Supabase with Mixpanel for feedback data. Worked on creating the feedback dashboard on Mixpanel.',
         'Likhitha: Integrated vector search engine (Orama) as a service in the code for semantic history search feature. This is for Sprint 11: Making it Easy to Find Saved Websites.',
@@ -373,7 +381,10 @@ function WeeklyReports() {
         'Increase NPS survey completion rate (4/43 this week)',
         'Collect 50–100 NPS responses as next milestone for more reliable insights',
         'Continue YouTube content production per Content Pipeline',
-        'More signed LOIs from interested companies',
+        <>
+          More signed{' '}
+          <a href={OASIS_LOI_LETTER_DOC_URL} target="_blank" rel="noopener noreferrer">LOIs</a> from interested companies
+        </>,
         'Identify in-person networking events across the geographies where team members are: St. Louis MO, Cockeysville MD, Durham NC, Apex NC, Chicago IL, Washington DC, Seattle WA, Pittsburgh PA, Arbutus MD, Bentonville AR, Indianapolis IN, Jersey City NJ, Bluffdale UT, Raleigh NC, Dallas TX, Bloomington IN, Fullerton CA, Farmington Hills MI, New York NY. At these events, make friends and pitch Oasis, seeking people interested in trying it out—especially those already at companies beyond the pre-seed/seed stage startup stage. We can offer special free access for specific people at these companies to try it out. Prospects should be added to HubSpot.',
         'Product Hunt pre-launch hype activities begin now: (1) Team members systematically encouraged to post about what they\'ve been working on at Kahana on LinkedIn; (2) Start spending 15 minutes a day commenting on friends\' LinkedIn posts on their feed (warm up the algorithm); (3) Get 10 supporters for our Product Hunt launch (friends, family, former coworkers, mentors) to give a verbal/text-based "yes" that they will support; (4) Help them set up a Product Hunt account and get the profile link to add to our database. Once we hit 400 accounts, we will feel confident we will get to #1 on Product Hunt when we launch (Google Gemini 3.1 got 350 upvotes and became #1 for the day as a proxy).'
       ],
