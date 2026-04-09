@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { EmbeddedCompetitorsTable } from './Competitors'
 import { FAQ_ITEMS } from '../data/strategicFaqItems.jsx'
+import { OASIS_LOI_LETTER_DOC_URL } from '../constants/oasisCommercialDocs'
 import './Page.css'
 import './Q1MidpointUpdate.css'
 import './Q1ExecutiveReport.css'
@@ -446,7 +447,16 @@ function Q1ExecutiveReport() {
         <div className="q1-er-hero">
           <h2>Summary</h2>
           <p>
-            In Q1 we improved the product materially, grew organic reach, and validated that inbound marketing can surface real enterprise conversations. We are scaling a repeatable prospecting motion toward signed pilot engagement letters or LOIs in Q2, while lining up investor relationships so those commitments become clear proof points for a seed round.
+            In Q1 we improved the product materially, grew organic reach, and validated that inbound marketing can surface real enterprise conversations. We are scaling a repeatable prospecting motion toward signed pilot{' '}
+            <a
+              className="q1-er-inline-link"
+              href={OASIS_LOI_LETTER_DOC_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              engagement letters or LOIs
+            </a>{' '}
+            in Q2, while lining up investor relationships so those commitments become clear proof points for a seed round.
           </p>
         </div>
 
@@ -499,7 +509,17 @@ function Q1ExecutiveReport() {
           </div>
           <div className="q1-er-stat">
             <div className="q1-er-stat-value">3</div>
-            <div className="q1-er-stat-label">Engagement letters / LOIs target (Q2)</div>
+            <div className="q1-er-stat-label">
+              <a
+                className="q1-er-inline-link"
+                href={OASIS_LOI_LETTER_DOC_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Engagement letters / LOIs
+              </a>{' '}
+              target (Q2)
+            </div>
           </div>
           <div className="q1-er-stat">
             <div className="q1-er-stat-value">{WAITLIST_COUNT_LATEST}</div>
@@ -1442,10 +1462,39 @@ function Q1ExecutiveReport() {
                 <div className="q1-er-mf-step q1-er-mf-step--loi-goal">
                   <div className="q1-er-mf-step-kicker">Goal — Q2 pipeline</div>
                   <div className="q1-er-mf-step-stat">{Q2_LOI_TARGET}</div>
-                  <div className="q1-er-mf-step-stat-caption">Engagement letters or LOIs signed by end of Q2</div>
+                  <div className="q1-er-mf-step-stat-caption">
+                    <a
+                      className="q1-er-inline-link"
+                      href={OASIS_LOI_LETTER_DOC_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Engagement letters or LOIs
+                    </a>{' '}
+                    signed by end of Q2
+                  </div>
                   <p className="q1-er-mf-step-body">
-                    Signed <strong>engagement letters</strong> or <strong>letters of intent (LOIs)</strong> for enterprise
-                    browser pilots—north star for turning this outbound motion into <strong>live evaluations</strong>.
+                    Signed{' '}
+                    <a
+                      className="q1-er-inline-link"
+                      href={OASIS_LOI_LETTER_DOC_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <strong>engagement letters</strong>
+                    </a>
+                    {' '}
+                    or{' '}
+                    <a
+                      className="q1-er-inline-link"
+                      href={OASIS_LOI_LETTER_DOC_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <strong>letters of intent (LOIs)</strong>
+                    </a>
+                    {' '}
+                    for enterprise browser pilots—north star for turning this outbound motion into <strong>live evaluations</strong>.
                   </p>
                 </div>
               </div>
@@ -1895,8 +1944,16 @@ function Q1ExecutiveReport() {
             We have reached a stable operating position: as long as we maintain our current customers and fixed tooling
             costs, day-to-day business operations and subscriptions are covered by revenue from the SaaS platform (web
             application) we built in the past. That gives us effectively <strong>infinite runway</strong> at the current
-            pace—room to focus on the product, recruiting, business development and GTM, partnerships, and signed engagement
-            letters or LOIs for enterprise pilots—without needing to fund baseline operations out of pocket each month.
+            pace—room to focus on the product, recruiting, business development and GTM, partnerships, and signed{' '}
+            <a
+              className="q1-er-inline-link"
+              href={OASIS_LOI_LETTER_DOC_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              engagement letters or LOIs
+            </a>{' '}
+            for enterprise pilots—without needing to fund baseline operations out of pocket each month.
           </p>
           <section className="q1-er-proforma" aria-labelledby="q1-er-proforma-heading">
             <h3 className="q1-er-team-subsection-title" id="q1-er-proforma-heading">
@@ -1953,14 +2010,34 @@ function Q1ExecutiveReport() {
             </h3>
             <p className="q1-er-meta q1-er-team-subsection-copy" style={{ marginBottom: '0.75rem' }}>
               The next milestone does not depend on raising additional capital for baseline operations:{' '}
-              <strong>three engagement letters or LOIs signed</strong>, then <strong>three enterprise pilots launched</strong>,
+              <strong>
+                three{' '}
+                <a
+                  className="q1-er-inline-link"
+                  href={OASIS_LOI_LETTER_DOC_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  engagement letters or LOIs signed
+                </a>
+              </strong>
+              , then <strong>three enterprise pilots launched</strong>,
               starting in{' '}
               <strong>Q2</strong>. At current burn and revenue, we can pursue that path while continuing product work,
               recruiting, and GTM.
             </p>
             <ul className="q1-er-checklist q1-er-product-sprint-checklist" style={{ marginBottom: 0 }}>
               <li>
-                <strong>Target:</strong> 3 signed engagement letters or LOIs for enterprise pilots
+                <strong>Target:</strong> 3 signed{' '}
+                <a
+                  className="q1-er-inline-link"
+                  href={OASIS_LOI_LETTER_DOC_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  engagement letters or LOIs
+                </a>{' '}
+                for enterprise pilots
               </li>
               <li>
                 <strong>Execution:</strong> 3 pilots live with enterprises, beginning in Q2
