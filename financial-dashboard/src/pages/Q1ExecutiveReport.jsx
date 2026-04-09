@@ -1779,7 +1779,7 @@ function Q1ExecutiveReport() {
             <div className="q1-er-team-subsection-grid">
               <div>
                 <p className="q1-er-meta q1-er-team-subsection-copy">
-                  The team has been built in an unusually <strong>organic</strong> way, which investors consistently appreciate. Kahana and Oasis continue to attract high-caliber <strong>engineering</strong> and <strong>product management</strong> talent through the learning internship.
+                  The team has been built in an unusually <strong>organic</strong> way. Kahana and Oasis continue to attract high-caliber <strong>engineering</strong> and <strong>product management</strong> talent through the learning internship.
                 </p>
                 <p className="q1-er-meta q1-er-team-subsection-copy">
                   Our onboarding process is now refined enough that new interns typically complete onboarding in about <strong>one week</strong> and are immediately staffed onto teams across <strong>product</strong>, <strong>sales</strong>, <strong>engineering</strong>, <strong>marketing</strong>, and <strong>project management</strong>.
@@ -1905,6 +1905,10 @@ function Q1ExecutiveReport() {
             <p className="q1-er-meta" style={{ lineHeight: 1.65, marginTop: 0 }}>
               Figures are approximate and rounded to the nearest $10; month-to-month variation is small at this scale.
               Net is SaaS subscription revenue minus tooling and infrastructure (before variable AI usage and salaries).
+            </p>
+            <p className="q1-er-meta" style={{ lineHeight: 1.65, marginTop: 0 }}>
+              We currently have <strong>$1,000 in AWS credits</strong> available, which provides additional near-term cloud cost
+              coverage.
             </p>
             <div className="q1-er-proforma-table-wrap">
               <table className="q1-er-proforma-table">
