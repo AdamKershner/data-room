@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { EmbeddedCompetitorsTable } from './Competitors'
+import { FAQ_ITEMS } from '../data/strategicFaqItems.jsx'
 import './Page.css'
+import './Q1MidpointUpdate.css'
 import './Q1ExecutiveReport.css'
 
 /** Latest waitlist total from WeeklyReports (first / most recent week in the array). */
@@ -52,13 +54,21 @@ const PITCH_VIDEO_URL = `https://youtu.be/${PITCH_VIDEO_ID}`
 const MARKET_OPPORTUNITY_IMAGE_URL =
   '/images/market-opportunity-tam-sam-som.png'
 const GTM_STRATEGY_IMAGE_URL = '/images/gtm-strategy-b2c2b-workshops.png'
+/** Solution overview slide: Oasis Admin console + Oasis AI monitoring story. */
+const OASIS_ADMIN_SOLUTION_OVERVIEW_URL = '/images/oasis-admin-solution-overview.png'
 /** Public survey to shape community-led virtual events (Tally). */
 const COMMUNITY_EVENTS_SURVEY_URL = 'https://tally.so/r/NpYZqB'
+/** Q1 Executive Update — retrospective feedback (Tally); submissions go to the CEO. */
+const RETROSPECTIVE_TALLY_EMBED_URL =
+  'https://tally.so/embed/BzX7JK?alignLeft=1&transparentBackground=1&dynamicHeight=1'
+const RETROSPECTIVE_TALLY_FORM_URL = 'https://tally.so/r/BzX7JK'
 /** Oasis Early User Lifecycle Strategy (0–90 day CS framework). */
 const OASIS_EARLY_USER_LIFECYCLE_DOC_URL =
   'https://docs.google.com/document/d/1qpgZyb4knfjATM1rjnawHvSYXfEQEyURJ7HOA90cXS0/edit?usp=sharing'
 const BUSINESS_MODEL_IMAGE_URL =
   '/images/business-model-pricing-strategy.png'
+/** Sloth-in-hammock line art for Unique differentiation (Oasis = calm, ease). */
+const OASIS_DIFFERENTIATION_ILLUSTRATION_URL = '/images/oasis-sloth-hammock-differentiation.png'
 const CULTURE_AMP_LOGO_URL = '/images/culture-amp-logo.png'
 const CULTURE_AMP_CASE_STUDY_IMAGE_URL = '/images/culture-amp-case-study.png'
 const JULIAN_BRENNAN_PHOTO_URL = '/images/julian-brennan-culture-amp.jpg'
@@ -190,6 +200,12 @@ const ROADMAP_SECURITY_ITEMS = [
     title: 'Multimodal injection via images',
     description:
       'Rebus-style image sequences (e.g. icons encoding text) can carry instructions for multimodal models, bypassing text-only filters.',
+    severity: 'mediumHigh',
+  },
+  {
+    title: 'Policy enforcement partnership exploration (Cinder)',
+    description:
+      'Explore a partnership with **Cinder** (cinder.ai) to strengthen enterprise policy enforcement workflows, human review operations, and auditable enforcement actions in the enterprise browser stack.',
     severity: 'mediumHigh',
   },
 ]
@@ -387,6 +403,9 @@ function Q1ExecutiveReport() {
     som: false,
   })
   const [roadmapOpenKeys, setRoadmapOpenKeys] = useState({})
+  const [faqOpen, setFaqOpen] = useState(null)
+  const toggleFaq = (idx) => setFaqOpen(faqOpen === idx ? null : idx)
+  const ROADMAP_SECURITY_ITEMS_DISPLAY = ROADMAP_SECURITY_ITEMS.slice(0, ROADMAP_PRODUCTIVITY_ITEMS.length)
 
   function toggleRoadmapKey(key) {
     setRoadmapOpenKeys((prev) => ({ ...prev, [key]: !prev[key] }))
@@ -416,6 +435,8 @@ function Q1ExecutiveReport() {
             <li><a className="q1-er-toc-link" href="#product-soc2-compliance">SOC 2 compliance</a></li>
             <li><a className="q1-er-toc-link" href="#management-team">Management Team</a></li>
             <li><a className="q1-er-toc-link" href="#financial-projections">Financial Projections</a></li>
+            <li><a className="q1-er-toc-link" href="#strategic-faq">Strategic FAQ</a></li>
+            <li><a className="q1-er-toc-link" href="#q1-er-retrospective">Retrospective feedback</a></li>
           </ol>
         </div>
       </section>
@@ -761,6 +782,20 @@ function Q1ExecutiveReport() {
             </div>
           </div>
 
+          <figure className="q1-er-solution-overview-figure">
+            <img
+              className="q1-er-solution-overview-image"
+              src={OASIS_ADMIN_SOLUTION_OVERVIEW_URL}
+              alt="Solution overview: Oasis Admin—role-based access, audit logs of browser and AI usage, monitor and revoke access, remote configuration; Oasis AI client linked to Admin Console session monitoring"
+              loading="lazy"
+            />
+            <figcaption className="q1-er-solution-overview-caption">
+              <strong>Oasis Admin</strong> is the management console for the enterprise browser: role-based access controls, a full
+              audit log of browser and AI usage, the ability to monitor and revoke sessions, and remote configuration—illustrated
+              here with the connection from end-user Oasis AI activity to active sessions in the admin console.
+            </figcaption>
+          </figure>
+
           <h3 className="q1-er-subsection-title">Features of Secure Enterprise Browsers</h3>
           <p className="q1-er-meta" style={{ marginBottom: '6px' }}>Updated March 2026</p>
           <p className="q1-er-meta" style={{ marginBottom: '8px' }}>
@@ -797,12 +832,26 @@ function Q1ExecutiveReport() {
           </div>
           <div className="q1-er-unique-differentiation" id="unique-differentiation">
             <h3 className="q1-er-unique-differentiation-title">Unique differentiation</h3>
-            <p className="q1-er-meta q1-er-unique-differentiation-body">
-              It is called &quot;Oasis&quot; for a reason: most enterprise browsers feel clunky and restrictive, while Oasis combines enterprise-grade security with an elegant, user-friendly interface and an AI assistant that understands natural language and accelerates everyday work.
-            </p>
+            <div className="q1-er-unique-differentiation-row">
+              <p className="q1-er-meta q1-er-unique-differentiation-body">
+                It is called &quot;Oasis&quot; for a reason: most enterprise browsers feel clunky and restrictive, while Oasis
+                combines enterprise-grade security with an elegant, user-friendly interface and an AI assistant that understands
+                natural language and accelerates everyday work—so work doesn&apos;t feel like work anymore.
+              </p>
+              <div className="q1-er-unique-differentiation-visual">
+                <img
+                  className="q1-er-unique-differentiation-img"
+                  src={OASIS_DIFFERENTIATION_ILLUSTRATION_URL}
+                  alt="Minimal illustration: a relaxed sloth in a hammock between palm trees, suggesting calm and ease"
+                  loading="lazy"
+                />
+              </div>
+            </div>
           </div>
           <p className="q1-er-meta" style={{ marginBottom: 0 }}>
-            <strong>Note:</strong> Security and productivity scores are directional placeholders. Comprehensive benchmarking across all browsers is currently in progress, and scores will be updated as testing is completed.
+            <strong>Note:</strong> We are underway with a <strong>Benchmarking Assessment</strong> to calculate{' '}
+            <strong>productivity</strong> and <strong>security</strong> scores for all competitors; those scores will appear here
+            once the assessment is complete.
           </p>
         </div>
         <EmbeddedCompetitorsTable />
@@ -1057,7 +1106,7 @@ function Q1ExecutiveReport() {
       <section className="page-section q1-er-page" id="current-traction">
         <h2>Current Traction</h2>
         <div className="content-block">
-          <div className="q1-er-case-study-brand" id="case-study-culture-amp">
+          <div className="q1-er-case-study-brand" id="marketing">
             <h3 className="q1-er-subsection-title q1-er-case-study-title" style={{ marginTop: 0 }}>
               Case study: Culture Amp (first organic enterprise prospect)
             </h3>
@@ -1240,6 +1289,18 @@ function Q1ExecutiveReport() {
           <p className="q1-er-meta" style={{ lineHeight: 1.7, marginBottom: 0 }}>
             This case validates <strong>inbound enterprise pull</strong>, a <strong>real vendor selection</strong>, and <strong>budget that matches the category</strong>. It sets the product bar for similar deals: identity, DLP, Chromium enterprise build, no-admin deployment, and BYOD-friendly rollout.
           </p>
+          <aside className="q1-er-callout" aria-label="Organic B2C conversion validation" style={{ marginTop: '14px' }}>
+            <div className="q1-er-callout-title">Additional B2C conversion signal</div>
+            <p className="q1-er-callout-body">
+              We also had an individual user (<strong>Mark</strong>) discover Oasis organically on our website, review pricing, skip
+              the waitlist, and pay <strong> $20</strong> for the consumer product. He later downgraded after one month.
+            </p>
+            <p className="q1-er-callout-body" style={{ marginBottom: 0 }}>
+              We are addressing this with ongoing onboarding and activation enhancements: improved onboarding flow plus expanded
+              OAuth sign-in options (<strong>Google</strong>, <strong>Microsoft</strong>, and <strong>Apple</strong>). Even with the
+              downgrade, this remains strong validation that organic traffic can convert into paid usage.
+            </p>
+          </aside>
 
           <section className="q1-er-marketing-funnel" id="waitlist" aria-labelledby="q1-er-marketing-funnel-heading">
             <h3 className="q1-er-subsection-title" id="q1-er-marketing-funnel-heading">
@@ -1521,15 +1582,66 @@ function Q1ExecutiveReport() {
             scenarios we test against) with <strong>productivity</strong> outcomes we are driving from NPS and shipped sprint
             themes. <strong>SOC 2 Type I</strong> approval is <strong>underway</strong>.
           </p>
+          <aside className="q1-er-callout" aria-label="Browser engine demand from enterprise buyers">
+            <div className="q1-er-callout-title">Browser engine demand shaping the roadmap</div>
+            <p className="q1-er-callout-body">
+              We continue to see demand for both <strong>Firefox</strong> and <strong>Chromium</strong> versions. At the enterprise
+              level, however, multiple companies have specifically requested a <strong>Chromium</strong> build or have formal
+              policy constraints that require Chromium-based browsers.
+            </p>
+            <ul className="q1-er-callout-checklist">
+              <li>
+                <span className="q1-er-callout-check" aria-hidden="true">✓</span> Critical Chromium extensions/plugins used in
+                production are not always available in Firefox Marketplace
+              </li>
+              <li>
+                <span className="q1-er-callout-check" aria-hidden="true">✓</span> Google Passkeys are already configured and
+                embedded in existing enterprise security policies
+              </li>
+            </ul>
+          </aside>
+          <div className="q1-er-roadmap-strategy-cols" aria-label="Chromium vs Firefox and plugin strategy">
+            <section className="q1-er-team-subsection" aria-label="Firefox to Chromium migration plan">
+              <h4 className="q1-er-team-subsection-title">Chromium vs. Firefox</h4>
+              <p className="q1-er-meta q1-er-team-subsection-copy">
+                We are actively migrating our core <strong>security</strong> and <strong>productivity</strong> capabilities from Firefox
+                into Chromium so enterprise deployments can run on the engine many buyers require today. This includes policy controls,
+                session governance, AI workflow safeguards, and the productivity layer users depend on day to day.
+              </p>
+              <p className="q1-er-meta q1-er-team-subsection-copy">
+                Multiple engineers we surveyed also said they prefer <strong>Chromium</strong> and advised us to prioritize Chromium
+                over Firefox for near-term execution and compatibility.
+              </p>
+              <p className="q1-er-meta q1-er-team-subsection-copy" style={{ marginBottom: 0 }}>
+                Long term, we plan to support both <strong>Firefox</strong> and <strong>Chromium</strong> versions. Shared systems
+                (including <strong>Amplifier</strong> and other cross-platform capabilities) are being designed to aggregate learning
+                signals and user data across both engines so improvements in reliability, speed, and outcomes can compound across all
+                versions of the Oasis browser in ecosystem we are building.
+              </p>
+            </section>
+            <section className="q1-er-team-subsection" aria-label="Plugin strategy exploration">
+              <h4 className="q1-er-team-subsection-title">Plugin strategy exploration (security + productivity)</h4>
+              <p className="q1-er-meta q1-er-team-subsection-copy">
+                We are also evaluating a plugin path for users who prefer staying in their existing browser while still getting Oasis
+                value. The goal is to analyze what we can deliver through a plugin, where browser-extension constraints limit security
+                or workflow depth, and whether a plugin-first motion could be favorable for specific adoption segments.
+              </p>
+              <p className="q1-er-meta q1-er-team-subsection-copy" style={{ marginBottom: 0 }}>
+                Exploration scope includes: (1) which unique Oasis <strong>security</strong> and <strong>productivity</strong> features
+                can ship in plugin form, (2) what remains better served in a full managed browser, and (3) launching a
+                <strong> plugin waitlist</strong> to capture and prioritize demand while we validate the approach.
+              </p>
+            </section>
+          </div>
           <div className="q1-er-roadmap-cols" aria-label="Roadmap: security tests and productivity pillars">
             <div className="q1-er-roadmap-col">
               <h4 className="q1-er-roadmap-col-title">Security</h4>
               <p className="q1-er-meta q1-er-roadmap-col-lead">
                 High-level <strong>adversarial and abuse scenarios</strong> we incorporate into testing and hardening—not an
-                exhaustive list, but the classes of risk we design guardrails around.
+                exhaustive list, but selected classes of risk we design guardrails around.
               </p>
               <ul className="q1-er-roadmap-list">
-                {ROADMAP_SECURITY_ITEMS.map(({ title, description, severity }, index) => {
+                {ROADMAP_SECURITY_ITEMS_DISPLAY.map(({ title, description, severity }, index) => {
                   const itemKey = `sec-${index}`
                   return (
                     <RoadmapCollapsibleItem
@@ -1549,8 +1661,7 @@ function Q1ExecutiveReport() {
               <h4 className="q1-er-roadmap-col-title">Productivity</h4>
               <p className="q1-er-meta q1-er-roadmap-col-lead">
                 <strong>User-visible outcomes</strong> we are prioritizing alongside security work—velocity on these tracks
-                supports NPS, Product Hunt readiness, and enterprise pilots. We are especially investing in{' '}
-                <strong>Amplifier</strong> so command speed and accuracy can compete with staying in Chrome.
+                supports NPS, Product Hunt readiness, and enterprise pilots.
               </p>
               <ul className="q1-er-roadmap-list">
                 {ROADMAP_PRODUCTIVITY_ITEMS.map(({ title, description, featured, tag }, index) => {
@@ -1571,6 +1682,10 @@ function Q1ExecutiveReport() {
               </ul>
             </div>
           </div>
+          <p className="q1-er-meta q1-er-roadmap-backlog-note">
+            <strong>Backlog note:</strong> these Security and Productivity lists are a focused snapshot for this report, not the
+            full product backlog.
+          </p>
 
           <h3 className="q1-er-subsection-title" id="product-demos">
             Oasis in action
@@ -1863,6 +1978,89 @@ function Q1ExecutiveReport() {
             </Link>{' '}
             views in this dashboard.
           </p>
+        </div>
+      </section>
+
+      <section className="page-section q1-er-page" id="strategic-faq">
+        <h2>Strategic FAQ</h2>
+        <div className="content-block">
+          <p className="faq-intro">
+            Questions that translate our Q1 midpoint position into execution: first paying customer, Culture Amp–style enterprise
+            interest, and how we allocate product and GTM. Answers match the{' '}
+            <Link className="q1-er-inline-link" to="/q1-midpoint">
+              Q1 Midpoint Update
+            </Link>{' '}
+            strategic FAQ; we will refine each item here as we mark topics complete or still in progress.
+          </p>
+          <div className="faq-accordion">
+            {FAQ_ITEMS.map((item, idx) => (
+              <div key={idx} className={`faq-item ${faqOpen === idx ? 'faq-item-open' : ''}`}>
+                <button
+                  type="button"
+                  className="faq-question"
+                  onClick={() => toggleFaq(idx)}
+                  aria-expanded={faqOpen === idx}
+                  aria-controls={`q1-er-faq-answer-${idx}`}
+                  id={`q1-er-faq-question-${idx}`}
+                >
+                  <span className="faq-question-text">
+                    {idx + 1}. {item.question}
+                  </span>
+                  <span className="faq-chevron" aria-hidden="true">
+                    {faqOpen === idx ? '−' : '+'}
+                  </span>
+                </button>
+                <div
+                  id={`q1-er-faq-answer-${idx}`}
+                  className="faq-answer"
+                  role="region"
+                  aria-labelledby={`q1-er-faq-question-${idx}`}
+                >
+                  <div className="faq-answer-body">
+                    <span className="faq-category">{item.category}</span>
+                    {typeof item.answer === 'string' ? (
+                      <p>{item.answer}</p>
+                    ) : (
+                      <div className="faq-answer-content">{item.answer}</div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section q1-er-page" id="q1-er-retrospective" aria-labelledby="q1-er-retrospective-heading">
+        <h2 id="q1-er-retrospective-heading">Retrospective feedback</h2>
+        <div className="content-block">
+          <p className="q1-er-meta" style={{ lineHeight: 1.7, marginBottom: '1rem' }}>
+            Share comments, questions, and suggestions tied to this update—structured around what we would do differently if we
+            could re-run the last six weeks. Submissions go directly to the <strong>CEO</strong> via our secure Tally form. If the
+            embed does not load,{' '}
+            <a
+              className="q1-er-inline-link"
+              href={RETROSPECTIVE_TALLY_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              open the Retrospective Survey
+            </a>{' '}
+            in a new tab.
+          </p>
+          <div className="q1-er-retrospective-embed">
+            <iframe
+              data-tally-embed
+              src={RETROSPECTIVE_TALLY_EMBED_URL}
+              width="100%"
+              height={1100}
+              frameBorder={0}
+              marginHeight={0}
+              marginWidth={0}
+              title="Retrospective Survey — feedback for the CEO"
+              loading="lazy"
+            />
+          </div>
         </div>
       </section>
 
