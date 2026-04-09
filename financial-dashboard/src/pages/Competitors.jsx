@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import './Page.css'
 import './Competitors.css'
 
+/** Set to true when benchmarking delivers production security/productivity scores. */
+const SHOW_COMPETITOR_SCORES = false
+
 const COMPETITOR_SCORES = {
   oasis: { security: 9.0, productivity: 9.0 },
   perplexitycomet: { security: 6.0, productivity: 8.0 }, // Chrome row id in CSV
@@ -135,20 +138,31 @@ function Competitors() {
       .finally(() => setLoading(false))
   }, [])
 
-  const filtered = competitors.filter(c => {
+  const filtered = competitors.filter((c) => {
+    const matchType =
+      filter === 'all' || filter === 'newcomer'
+        ? filter === 'newcomer'
+          ? (c.newcomer || '').toLowerCase() === 'yes'
+          : true
+        : c.type === filter
+    const matchSearch =
+      !search ||
+      c.name.toLowerCase().includes(search.toLowerCase()) ||
+      (c.summary && c.summary.toLowerCase().includes(search.toLowerCase())) ||
+      (c.uniqueStrength && c.uniqueStrength.toLowerCase().includes(search.toLowerCase()))
+
+    if (!SHOW_COMPETITOR_SCORES) {
+      return matchType && matchSearch
+    }
+
     const securityThreshold = minSecurity === '' ? null : Number.parseFloat(minSecurity)
     const productivityThreshold = minProductivity === '' ? null : Number.parseFloat(minProductivity)
     const cSecurity = parseScore(c.securityScore)
     const cProductivity = parseScore(c.productivityScore)
-    const matchType = filter === 'all' || filter === 'newcomer'
-      ? (filter === 'newcomer' ? (c.newcomer || '').toLowerCase() === 'yes' : true)
-      : c.type === filter
-    const matchSearch = !search || 
-      c.name.toLowerCase().includes(search.toLowerCase()) ||
-      (c.summary && c.summary.toLowerCase().includes(search.toLowerCase())) ||
-      (c.uniqueStrength && c.uniqueStrength.toLowerCase().includes(search.toLowerCase()))
-    const matchSecurityThreshold = securityThreshold == null || (cSecurity != null && cSecurity >= securityThreshold)
-    const matchProductivityThreshold = productivityThreshold == null || (cProductivity != null && cProductivity >= productivityThreshold)
+    const matchSecurityThreshold =
+      securityThreshold == null || (cSecurity != null && cSecurity >= securityThreshold)
+    const matchProductivityThreshold =
+      productivityThreshold == null || (cProductivity != null && cProductivity >= productivityThreshold)
     return matchType && matchSearch && matchSecurityThreshold && matchProductivityThreshold
   })
 
@@ -190,6 +204,13 @@ function Competitors() {
         <p className="page-subtitle" style={{ marginTop: '8px', color: '#666', fontSize: '1rem' }}>
           Browser and workspace competitors across Enterprise and Consumer segments
         </p>
+        {!SHOW_COMPETITOR_SCORES && (
+          <p className="competitors-benchmark-note">
+            <strong>Note:</strong> We are underway with a <strong>Benchmarking Assessment</strong> to calculate{' '}
+            <strong>productivity</strong> and <strong>security</strong> scores for all competitors; those scores will appear on
+            these cards once the assessment is complete.
+          </p>
+        )}
       </div>
 
       <section className="page-section competitors-filters">
@@ -235,32 +256,36 @@ function Competitors() {
               className="competitors-search"
             />
           </div>
-          <div className="filter-group score-filter-group">
-            <label>Min Security (0-10)</label>
-            <input
-              type="number"
-              min="0"
-              max="10"
-              step="0.1"
-              placeholder="e.g. 8.5"
-              value={minSecurity}
-              onChange={e => setMinSecurity(e.target.value)}
-              className="competitors-score-input"
-            />
-          </div>
-          <div className="filter-group score-filter-group">
-            <label>Min Productivity (0-10)</label>
-            <input
-              type="number"
-              min="0"
-              max="10"
-              step="0.1"
-              placeholder="e.g. 7.0"
-              value={minProductivity}
-              onChange={e => setMinProductivity(e.target.value)}
-              className="competitors-score-input"
-            />
-          </div>
+          {SHOW_COMPETITOR_SCORES && (
+            <>
+              <div className="filter-group score-filter-group">
+                <label>Min Security (0-10)</label>
+                <input
+                  type="number"
+                  min="0"
+                  max="10"
+                  step="0.1"
+                  placeholder="e.g. 8.5"
+                  value={minSecurity}
+                  onChange={(e) => setMinSecurity(e.target.value)}
+                  className="competitors-score-input"
+                />
+              </div>
+              <div className="filter-group score-filter-group">
+                <label>Min Productivity (0-10)</label>
+                <input
+                  type="number"
+                  min="0"
+                  max="10"
+                  step="0.1"
+                  placeholder="e.g. 7.0"
+                  value={minProductivity}
+                  onChange={(e) => setMinProductivity(e.target.value)}
+                  className="competitors-score-input"
+                />
+              </div>
+            </>
+          )}
         </div>
       </section>
 
@@ -273,6 +298,7 @@ function Competitors() {
               isExpanded={expandedId === competitor.id}
               onToggle={() => setExpandedId(expandedId === competitor.id ? null : competitor.id)}
               isOasis={competitor.id === 'oasis'}
+              showScores={SHOW_COMPETITOR_SCORES}
             />
           ))}
         </div>
@@ -309,20 +335,31 @@ export function EmbeddedCompetitorsTable({ pageSize = 9 }) {
       .finally(() => setLoading(false))
   }, [])
 
-  const filtered = competitors.filter(c => {
+  const filtered = competitors.filter((c) => {
+    const matchType =
+      filter === 'all' || filter === 'newcomer'
+        ? filter === 'newcomer'
+          ? (c.newcomer || '').toLowerCase() === 'yes'
+          : true
+        : c.type === filter
+    const matchSearch =
+      !search ||
+      c.name.toLowerCase().includes(search.toLowerCase()) ||
+      (c.summary && c.summary.toLowerCase().includes(search.toLowerCase())) ||
+      (c.uniqueStrength && c.uniqueStrength.toLowerCase().includes(search.toLowerCase()))
+
+    if (!SHOW_COMPETITOR_SCORES) {
+      return matchType && matchSearch
+    }
+
     const securityThreshold = minSecurity === '' ? null : Number.parseFloat(minSecurity)
     const productivityThreshold = minProductivity === '' ? null : Number.parseFloat(minProductivity)
     const cSecurity = parseScore(c.securityScore)
     const cProductivity = parseScore(c.productivityScore)
-    const matchType = filter === 'all' || filter === 'newcomer'
-      ? (filter === 'newcomer' ? (c.newcomer || '').toLowerCase() === 'yes' : true)
-      : c.type === filter
-    const matchSearch = !search || 
-      c.name.toLowerCase().includes(search.toLowerCase()) ||
-      (c.summary && c.summary.toLowerCase().includes(search.toLowerCase())) ||
-      (c.uniqueStrength && c.uniqueStrength.toLowerCase().includes(search.toLowerCase()))
-    const matchSecurityThreshold = securityThreshold == null || (cSecurity != null && cSecurity >= securityThreshold)
-    const matchProductivityThreshold = productivityThreshold == null || (cProductivity != null && cProductivity >= productivityThreshold)
+    const matchSecurityThreshold =
+      securityThreshold == null || (cSecurity != null && cSecurity >= securityThreshold)
+    const matchProductivityThreshold =
+      productivityThreshold == null || (cProductivity != null && cProductivity >= productivityThreshold)
     return matchType && matchSearch && matchSecurityThreshold && matchProductivityThreshold
   })
 
@@ -403,32 +440,36 @@ export function EmbeddedCompetitorsTable({ pageSize = 9 }) {
               className="competitors-search"
             />
           </div>
-          <div className="filter-group score-filter-group">
-            <label>Min Security (0-10)</label>
-            <input
-              type="number"
-              min="0"
-              max="10"
-              step="0.1"
-              placeholder="e.g. 8.5"
-              value={minSecurity}
-              onChange={e => setMinSecurity(e.target.value)}
-              className="competitors-score-input"
-            />
-          </div>
-          <div className="filter-group score-filter-group">
-            <label>Min Productivity (0-10)</label>
-            <input
-              type="number"
-              min="0"
-              max="10"
-              step="0.1"
-              placeholder="e.g. 7.0"
-              value={minProductivity}
-              onChange={e => setMinProductivity(e.target.value)}
-              className="competitors-score-input"
-            />
-          </div>
+          {SHOW_COMPETITOR_SCORES && (
+            <>
+              <div className="filter-group score-filter-group">
+                <label>Min Security (0-10)</label>
+                <input
+                  type="number"
+                  min="0"
+                  max="10"
+                  step="0.1"
+                  placeholder="e.g. 8.5"
+                  value={minSecurity}
+                  onChange={(e) => setMinSecurity(e.target.value)}
+                  className="competitors-score-input"
+                />
+              </div>
+              <div className="filter-group score-filter-group">
+                <label>Min Productivity (0-10)</label>
+                <input
+                  type="number"
+                  min="0"
+                  max="10"
+                  step="0.1"
+                  placeholder="e.g. 7.0"
+                  value={minProductivity}
+                  onChange={(e) => setMinProductivity(e.target.value)}
+                  className="competitors-score-input"
+                />
+              </div>
+            </>
+          )}
         </div>
       </section>
 
@@ -441,6 +482,7 @@ export function EmbeddedCompetitorsTable({ pageSize = 9 }) {
               isExpanded={expandedId === competitor.id}
               onToggle={() => setExpandedId(expandedId === competitor.id ? null : competitor.id)}
               isOasis={competitor.id === 'oasis'}
+              showScores={SHOW_COMPETITOR_SCORES}
             />
           ))}
         </div>
@@ -473,10 +515,10 @@ export function EmbeddedCompetitorsTable({ pageSize = 9 }) {
   )
 }
 
-function CompetitorCard({ competitor, isExpanded, onToggle, isOasis }) {
+function CompetitorCard({ competitor, isExpanded, onToggle, isOasis, showScores = false }) {
   const isNewcomer = (competitor.newcomer || '').toLowerCase() === 'yes'
-  const securityScore = parseScore(competitor.securityScore)
-  const productivityScore = parseScore(competitor.productivityScore)
+  const securityScore = showScores ? parseScore(competitor.securityScore) : null
+  const productivityScore = showScores ? parseScore(competitor.productivityScore) : null
   const fields = [
     { key: 'whoUsesIt', label: 'Who uses it' },
     { key: 'privacy', label: 'Privacy' },
