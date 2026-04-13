@@ -1,0 +1,43 @@
+Document Title: Risk Treatment Plan – Kahana Oasis
+Version: 1.0
+Effective Date: March 2026
+Owner: Security Lead / Compliance Lead
+Approved By: CTO / CEO (Adam Kershner)
+
+1. Purpose
+This Risk Treatment Plan defines how Kahana addresses risks identified in the Information Security Risk Register and Risk Assessment Report. It assigns treatment decisions, owners, actions, and status so remediation can be tracked and demonstrated for SOC 2.
+
+2. Scope
+This plan applies to all in-scope risks affecting Kahana Oasis and supporting systems (AWS, Supabase, CI/CD, logging/monitoring, vendor dependencies, and related security/compliance operations).
+
+3. Treatment Options
+- Mitigate: reduce likelihood and/or impact with additional controls
+- Accept: formally accept residual risk with documented rationale and review date
+- Transfer: shift part of risk via contractual/insurance/vendor obligations
+- Avoid: discontinue the risky activity/process
+
+4. Risk Treatment Plan (Kahana-Specific)
+
+| Risk ID | Risk Title | Current Risk Rating | Treatment Decision | Planned Actions | Owner | Target Completion | Status | Residual Risk Target | Notes / References |
+|---------|------------|---------------------|--------------------|-----------------|-------|-------------------|--------|----------------------|--------------------|
+| R-01 | Compromised privileged account leading to production access | High | Mitigate | 1) Enforce MFA for all privileged/admin paths; 2) tighten IAM least-privilege role mapping; 3) execute quarterly access reviews with sign-off evidence | Security Lead / DevOps Lead | Q2 2026 | In Progress | Medium | Access-Control-Policy, Password-and-Authentication-Policy, Logging-&-Monitoring-Policy |
+| R-02 | Data loss/corruption in primary Supabase database | Medium (P0 if Free plan) | Mitigate | 1) Confirm/maintain backup-capable plan; 2) run periodic restore tests; 3) monitor backup failures and update restore runbook | DevOps Lead | Q2 2026 | In Progress | Low-Medium | Backup-and-Restoration-Policy, Disaster-Recovery-Plan |
+| R-03 | Misconfigured IAM/storage exposing sensitive data | High | Mitigate | 1) Implement periodic permission/config audits; 2) add IaC guardrails/checks; 3) require explicit review for high-risk infra changes | DevOps Lead | Q2 2026 | In Progress | Medium | Change-Management-Policy, Encryption-Policy |
+| R-04 | Critical vulnerability in dependencies/components | Medium | Mitigate | 1) Enforce remediation SLAs; 2) integrate scanning outputs into release workflow; 3) monthly vuln review with engineering leadership | Engineering Lead | Q3 2026 | In Progress | Medium | Vulnerability-Management-Policy, SDLC Policy |
+| R-05 | Single-region dependency outage (AWS us-east-1 / Supabase) | Medium | Mitigate / Partially Accept | 1) Maintain tested restore/rebuild playbook; 2) run annual DR scenario test; 3) evaluate multi-region options and document decision | CTO / DevOps Lead | Q4 2026 | Open | Medium | Business-Continuity-Plan, Disaster-Recovery-Plan |
+| R-06 | Delayed incident detection from limited centralized SIEM | Medium | Mitigate | 1) Define and tune high-risk alert set; 2) improve log correlation process; 3) evaluate Log Drains/Datadog for centralized visibility | Security Lead / DevOps Lead | Q3 2026 | In Progress | Medium-Low | Logging-&-Monitoring-Policy, Incident-Response-Plan |
+| R-07 | Vendor/sub-processor incident affecting Kahana data | High | Mitigate | 1) Perform annual critical-vendor assurance review; 2) maintain DPA/contract obligations tracking; 3) update vendor contingency actions for critical services | Security Lead / Vendor Owner | Q3 2026 | In Progress | Medium | Vendor-Management-Policy, Subservice-Organization procedure |
+| R-08 | Missing quarterly access review evidence (SOC 2 CC6.1) | High | Mitigate | 1) Implement access review workflow by quarter; 2) store sign-off logs in evidence location; 3) remediate stale/excess access within defined SLA | Security Lead | Q2 2026 | Open | Medium | Access-Review-Logs evidence folder, Access-Control-Policy |
+| R-09 | Backup/restore evidence gap (SOC 2 BC/DR) | High | Mitigate | 1) Execute and document restore tests; 2) capture backup verification evidence; 3) map results to RTO/RPO targets and corrective actions | DevOps Lead | Q2 2026 | Open | Medium-Low | Backup-Test-Results evidence folder, Backup/DR/BCP docs |
+| R-10 | AI prompt/content handling risk (Gemini/Deepgram) | Medium | Mitigate | 1) Enforce classification/handling controls for AI interaction data; 2) validate vendor contractual protections and DPA coverage; 3) apply minimization and retention controls to AI-related records | Security Lead / Product Engineering | Q3 2026 | In Progress | Medium-Low | Data-Classification-Policy, Privacy-Policy, Vendor-Management-Policy |
+
+5. Governance and Review
+- This plan is reviewed at least quarterly for status updates and blockers.
+- High risks and accepted risks are reviewed with leadership.
+- Any accepted risk must include documented rationale, compensating controls, and next review date.
+- Changes to risk status must be synchronized with:
+  - Information-Security-Risk-Register
+  - Risk-Assessment-Report
+
+6. Evidence and Audit Readiness
+Kahana retains treatment evidence (tickets, approvals, screenshots/exports, logs, test results) in designated evidence locations to support SOC 2 readiness and audit sampling.

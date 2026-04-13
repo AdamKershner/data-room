@@ -103,6 +103,11 @@ function Onboarding() {
           <span className="onboarding-hint-item">☐ Click the box to mark complete</span>
           <span className="onboarding-hint-item">→ Click the task name to open instructions</span>
         </p>
+        <p className="onboarding-konika-growth-link-wrap">
+          <Link to="/onboarding/growth-content-konika" className="onboarding-konika-growth-link">
+            Growth &amp; content onboarding (Konika): success criteria &amp; checklist →
+          </Link>
+        </p>
       </div>
 
       <section className="onboarding-summary">

@@ -1,8 +1,11 @@
 Owner: CISO / Security Team
 Approved By: CTO
+Effective Date: March 2026
 
 1. Purpose
 This policy defines how Kahana uses encryption to protect customer and company data at rest and in transit across all Kahana Oasis systems. It ensures that sensitive information cannot be read or altered by unauthorized parties, supporting SOC 2 Trust Services Criteria for Security and Confidentiality.
+
+Kahana-specific implementation baselines in this policy are aligned to the documented Oasis architecture: Supabase encryption at rest, TLS in transit, and AWS Secrets Manager for secrets handling.
 
 2. Scope
 This policy applies to:
@@ -12,6 +15,11 @@ All Kahana environments: production, staging, development, and internal corporat
 All data stores and communication channels used by Kahana Oasis (databases, object storage, logs, backups, message queues, APIs, web traffic).
 
 All Kahana employees, contractors, and third parties who design, implement, or operate systems where encryption is used.
+
+2.1 Kahana Implementation Summary (Current State)
+- Supabase PostgreSQL and Supabase Storage are used for primary backend data and are encrypted at rest.
+- Data in transit to/from Oasis services uses TLS (including client-to-service and applicable service-to-service flows).
+- Application secrets are stored in AWS Secrets Manager and accessed by approved runtime components (including Lambda-based flows).
 
 3. Data Classification and Encryption Requirements
 Encryption requirements are based on Kahana’s data classification levels:

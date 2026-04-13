@@ -1,0 +1,122 @@
+Privacy Policy
+
+Effective Date: March 2026
+
+Kahana Inc. ("Kahana", "we", "us", "our") provides Kahana Oasis, an AI-powered browser and workspace platform. This Privacy Policy explains what information we collect, how we use it, how long we keep it, and what choices you have.
+
+This is a public-facing policy intended for users, customers, and website visitors.
+
+1. Scope
+This Privacy Policy applies when you:
+- Use Kahana Oasis (including related web services and integrations)
+- Visit Kahana websites or landing pages
+- Contact us (for example, support requests or account questions)
+
+It applies to individual users, customer organization users, and prospective customers. It does not apply to third-party websites or services you access through Oasis; those services have their own privacy policies.
+
+2. Information We Collect
+2.1 Information you provide
+We may collect:
+- Account data (name, email, organization, role)
+- Workspace/configuration data (workspace names, settings, labels, and related metadata)
+- Communications data (support messages, feedback, survey responses)
+
+2.2 Information collected automatically
+We may collect:
+- Device and technical data (browser type, OS, timestamps, diagnostic metadata)
+- Service logs and telemetry (error logs, feature usage, operational events)
+- Limited analytics data to improve product quality and reliability
+
+Kahana aims to minimize sensitive collection. As documented in our system description, we intentionally avoid collecting unnecessary sensitive browsing content (for example, full URL/page content) unless required for a feature you actively use.
+
+2.3 Information from third parties
+We may receive:
+- Authentication/profile attributes from identity providers used for login (for example, Supabase Auth social providers)
+- Subscription/billing status and transaction references from payment providers (for example, Stripe)
+- Operational information from vendors needed to provide Kahana services
+
+3. How We Use Information
+We use information to:
+- Provide and operate Kahana Oasis
+- Authenticate users and maintain account/workspace functionality
+- Secure systems and detect/prevent abuse or unauthorized activity
+- Monitor reliability, troubleshoot issues, and improve product features
+- Communicate service updates, account/security notices, and support responses
+- Meet legal, contractual, and compliance obligations (including SOC 2 program requirements)
+
+We do not sell personal information.
+
+4. How We Share Information
+We share information only when needed to provide services, operate the business, or comply with law:
+
+4.1 Service providers and sub-processors
+Kahana uses third-party providers that may process data on our behalf, including:
+- Cloud/backend: AWS and Supabase
+- Authentication: Supabase Auth (and supported identity integrations)
+- Analytics/operations: Mixpanel, Google Analytics, Looker (where used)
+- Payments: Stripe
+- AI services: Google Gemini and Deepgram (where feature flows require)
+
+These providers are subject to contractual confidentiality and security requirements. For in-scope processing of customer/personal data, Kahana uses Data Processing Agreements (DPAs) or equivalent contractual controls where applicable.
+
+4.2 Customer organization admins
+If you use Oasis through an organization account, authorized admins in your organization may access account/workspace information according to your organization settings and policies.
+
+4.3 Legal and safety
+We may disclose information when required by law or legal process, or when needed to protect rights, safety, and platform integrity.
+
+4.4 Corporate transactions
+If Kahana is involved in a merger, acquisition, financing, or asset transfer, information may be transferred as part of that transaction, subject to applicable privacy protections.
+
+5. Data Retention
+We retain data only as long as necessary for service delivery, legitimate business needs, and legal/contractual obligations. Retention details are governed by our Data Retention and Destruction Policy.
+
+Current retention practices include:
+- Account and workspace data: retained while account is active; then retained for a limited period and deleted/anonymized per policy and legal requirements
+- Billing-related records: retained per legal/tax/contract needs
+- Security and operational logs: retained according to platform capabilities and policy-defined targets
+  - Current documented state: Supabase Pro log retention is 7 days
+  - Extended retention may be implemented through additional logging architecture
+- Backups: retained according to backup plan/tiers and lifecycle settings
+
+When data is no longer needed (and no legal hold applies), it is deleted or anonymized using defined procedures.
+
+6. Security
+Kahana uses technical and organizational controls designed to protect data, including:
+- Encryption in transit (TLS) and encryption at rest where applicable
+- Access control, least privilege, and MFA for critical systems
+- Logging/monitoring and incident response processes
+- Backup and restoration controls
+- Security awareness and policy-based operational controls
+
+No system is completely risk-free, but we continuously improve controls as part of our security and SOC 2 compliance program.
+
+7. International Processing
+Kahana and its service providers may process data in jurisdictions outside your location. We apply appropriate safeguards as required by applicable law and contractual commitments.
+
+8. Your Rights and Choices
+Depending on applicable law, you may have rights to:
+- Access personal information
+- Correct inaccurate information
+- Request deletion (subject to legal/contractual limits)
+- Restrict or object to certain processing
+- Request data portability where feasible
+
+To submit a request, contact us using the channels in Section 11.
+
+9. Cookies and Similar Technologies
+Kahana websites and services may use cookies or similar technologies for session management, preferences, analytics, and service operation. You can manage cookies via browser settings, but disabling cookies may impact functionality.
+
+10. Changes to This Privacy Policy
+We may update this Privacy Policy from time to time. If we make material changes, we will update the effective date and provide notice where appropriate.
+
+11. Contact Us
+For privacy questions or data requests, contact:
+- Email: privacy@kahana.co
+- Support: through official Kahana support channels
+
+Related SOC 2 policy documents:
+- Data-Protection-Policy
+- Data-Classification-Policy
+- Data-Retention-and-Destruction-Polic
+- Information-Security-Policy

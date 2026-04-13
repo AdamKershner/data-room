@@ -5,6 +5,8 @@ Approved By: CEO / CTO
 1. Purpose
 This document provides an overview of Kahana’s information security and compliance program for the Kahana Oasis platform. It explains how policies, processes, and controls are organized and governed to meet SOC 2 Trust Services Criteria (Security, and any additional criteria in scope).
 
+This document is Kahana-specific and references the data-room SOC 2 gap analysis artifacts used to prioritize remediation and audit readiness work.
+
 2. Governance and Roles
 Executive Oversight: CEO Adam Kershner and CTO are ultimately accountable for security and compliance outcomes and approve key policies, risk decisions, and SOC 2 scope.
 
@@ -100,6 +102,16 @@ Risk Treatment Plan: Mapping of risks to treatment decisions (mitigate, accept, 
 
 Results are reviewed with leadership at least annually and after major changes or incidents.
 
+4.1 Gap Reference Baseline (Data-Room)
+Kahana tracks prioritized remediation using the SOC 2 gap baseline (P0/P1/P2), including:
+- P0: quarterly access reviews not yet operating with sign-off logs
+- P0: Supabase Free plan backup gap (upgrade to Pro or equivalent documented backup process)
+- P1: no org-wide internal IdP (documented deferral)
+- P1: no dedicated SIEM (current state documented; Datadog under consideration)
+- P2: risk assessment execution and documentation completeness
+
+These references are maintained in the SOC2 Documentation Review Summary and Controls Matrix documents in this repository.
+
 5. Control Framework and Mapping (CC1–CC9)
 Kahana operates a Controls Matrix that:
 
@@ -147,5 +159,12 @@ By March 16, 2026: All first drafts of SOC documentation complete. One week for 
 March 16, 2026: Mock audit begins. Two weeks for engineering (Adam and team) to fix identified security gaps.
 Post–mock audit: SOC 1 audit engagement. Target SOC 2 Type II within 6–12 months.
 Gap analysis reference: See data-room SOC2 Gap Analysis for current implementation status, P0/P1/P2 gaps, and evidence inventory.
+
+9.1 Timeline Ownership and Review
+- Executive owner: CEO Adam Kershner
+- Program owner: Security Lead / Compliance Lead
+- Technical implementation owner: CTO / Engineering-DevOps leadership
+
+Timeline status and gap closure progress are reviewed in leadership syncs and compliance checkpoints until SOC 2 audit readiness objectives are met.
 
 

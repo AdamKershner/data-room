@@ -117,6 +117,26 @@
   gap: 6px;
 }
 
+.onboarding-konika-growth-link-wrap {
+  margin: 18px 0 0;
+}
+
+.onboarding-konika-growth-link {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--oasis-green-medium, #0d9488);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.onboarding-konika-growth-link:hover {
+  color: #0f766e;
+  border-bottom-color: #0f766e;
+}
+
 .onboarding-item {
   padding: 12px 0;
   border-bottom: 1px solid #f0f0f0;

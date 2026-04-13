@@ -1,0 +1,161 @@
+Document Title: Risk Assessment Policy – Kahana Oasis
+
+Owner: Security Lead / Compliance Lead
+Approved By: CTO / CEO
+Effective Date: March 2026
+
+1. Purpose
+This Risk Assessment Policy defines how Kahana identifies, evaluates, and treats information security and operational risks affecting Kahana Oasis and supporting systems. The objective is to apply a consistent, repeatable process that supports business decisions, customer trust, and SOC 2 readiness.
+
+2. Scope
+This policy applies to:
+- Kahana Oasis production and supporting environments (AWS, Supabase, CI/CD, auth, logging, backups/DR, and critical SaaS tools)
+- People, processes, and vendors involved in delivering and operating Oasis
+- Security, availability, confidentiality, and compliance risks that could affect customer or company data
+
+3. SOC 2 Alignment
+This policy supports SOC 2 risk management expectations (including CC9.x concepts) by requiring:
+- A formal recurring risk assessment process
+- Documented risk ratings and treatment decisions
+- Leadership review and approval
+- Evidence of progress through risk register/treatment tracking
+
+4. Risk Assessment Cadence
+Kahana conducts risk assessment on the following schedule:
+- Annual baseline assessment: at least once per year
+- Trigger-based reassessment: after material changes or incidents, including:
+  - major architecture or vendor changes
+  - significant security incidents or control failures
+  - major product/data processing changes
+  - regulatory or contractual requirement changes
+
+Annual baseline + trigger-based reassessments together form Kahana's risk management cadence.
+
+5. Methodology (How Risks Are Assessed)
+Kahana follows a structured methodology:
+
+5.1 Scope and Context Definition
+- Define assessment scope (systems, data, processes, vendors)
+- Identify business/service commitments and critical assets
+
+5.2 Asset and Process Identification
+- List key assets and processes (for example: auth, data storage, CI/CD, logging, backup/restore, incident response, vendor dependencies)
+
+5.3 Threat and Vulnerability Identification
+- Identify realistic threats (unauthorized access, data exposure, misconfiguration, outages, dependency/vendor failures, insider misuse, phishing, etc.)
+- Identify known control gaps and vulnerabilities
+
+5.4 Risk Analysis and Scoring
+For each risk, score:
+- Likelihood: Low / Medium / High
+- Impact: Low / Medium / High
+- Inherent risk rating derived from likelihood + impact
+
+Then document:
+- Existing controls
+- Residual risk (expected after mitigation)
+
+5.4.1 Scoring Definitions (Kahana Standard)
+Likelihood:
+- Low: Unlikely given current controls; no recent related incidents; requires multiple control failures
+- Medium: Credible scenario under current operating conditions; may occur occasionally
+- High: Expected or likely without immediate control improvement; known gaps or repeated indicators exist
+
+Impact:
+- Low: Limited operational impact; minimal customer effect; no material compliance concern
+- Medium: Noticeable service/customer impact; internal escalation required; potential contractual/compliance implications
+- High: Significant confidentiality/integrity/availability impact; material customer impact and/or regulatory/contractual exposure
+
+5.4.2 Inherent Risk Matrix
+Use this matrix before considering new mitigation actions:
+
+| Likelihood \\ Impact | Low | Medium | High |
+|----------------------|-----|--------|------|
+| Low                  | Low | Low-Medium | Medium |
+| Medium               | Low-Medium | Medium | High |
+| High                 | Medium | High | High |
+
+Normalization rule:
+- Low-Medium values are recorded as Medium for prioritization unless leadership documents an explicit rationale to keep them as Low.
+
+5.4.3 Residual Risk
+Residual risk is reassessed after planned controls are implemented:
+- If treatment is complete and effective evidence exists, reduce rating accordingly.
+- If treatment is partially complete or evidence is missing, do not reduce residual risk below Medium without Security Lead approval.
+
+5.5 Risk Treatment Decision
+Each risk must be assigned one or more treatment decisions:
+- Mitigate
+- Accept
+- Transfer
+- Avoid
+
+Treatment decisions must include owners, target dates, and evidence references.
+
+5.6 Leadership Review and Approval
+Assessment outcomes are reviewed with Security Lead and leadership (CTO/CEO), with approval of:
+- prioritized risks
+- accepted risks
+- treatment plans and timelines
+
+6. Risk Rating Guidance
+Use consistent rating criteria:
+- High risk: likely and/or high business/customer impact; requires prompt mitigation and leadership visibility
+- Medium risk: meaningful impact with manageable exposure; mitigation planned/tracked
+- Low risk: limited impact/likelihood; may be accepted with periodic review
+
+High risks should not be accepted without explicit leadership approval and documented rationale.
+
+7. Required Outputs and Artifacts
+Each formal assessment produces or updates:
+- Risk Assessment Report
+- Information Security Risk Register
+- Risk Treatment Plan
+
+These documents must be internally consistent (IDs, ratings, owners, actions, statuses).
+
+8. Roles and Responsibilities
+- Security Lead / Compliance Lead:
+  - owns assessment process, scoring consistency, and report quality
+- Engineering / DevOps / System Owners:
+  - provide technical input, control status, and remediation plans
+- Vendor Owner / Legal (as needed):
+  - provide vendor risk and contractual dependency input
+- CTO / CEO:
+  - review and approve risk posture and treatment priorities
+
+9. Tracking and Follow-Up
+Risk treatment actions must be tracked to completion in the Risk Register/Treatment Plan with:
+- status updates (Open, In Progress, Mitigated, Accepted)
+- target and completion dates
+- evidence links where applicable
+
+Progress should be reviewed at least quarterly for high/medium risks.
+
+10. Integration with Other Policies
+Risk assessment outputs must inform and be informed by:
+- Access Control Policy
+- Logging & Monitoring Policy
+- Backup and Restoration Policy
+- Incident Response Plan
+- Business Continuity and Disaster Recovery plans
+- Vendor Management Policy
+
+11. Evidence and Audit Readiness
+For SOC 2 readiness, Kahana retains evidence of:
+- annual assessment execution
+- leadership review/approval
+- risk register updates
+- treatment progress and completed remediation
+
+Evidence should be stored in approved internal documentation/evidence locations.
+
+12. Exceptions
+Any exception to this policy (for example, delayed assessment or deferred treatment) must be:
+- documented with justification and risk impact
+- approved by Security Lead and CTO
+- time-bound with an explicit follow-up date
+
+13. Review and Maintenance
+This policy is reviewed at least annually and updated when risk methodology, architecture, or compliance obligations materially change.
+

@@ -1,0 +1,40 @@
+Kahana Inc.
+Management Assertion Letter (SOC 2 Type 1 Template)
+
+Effective Date: March 2026
+
+Audit Period (Type 1): As of [AUDIT DATE]
+
+Kahana Inc. ("Kahana" or the "service organization") management has prepared the accompanying description of the Kahana Oasis system (the "system") for the SOC 2 Type 1 examination.
+
+Management is responsible for:
+1) preparing and presenting the system description in accordance with the AICPA description criteria for a service organization's system, and
+2) designing controls to provide reasonable assurance that the applicable Trust Services Criteria for Security are met as of the specified date.
+
+Management asserts that, as of [AUDIT DATE]:
+- The system description fairly presents, in all material respects, the Kahana Oasis system that was designed and implemented, including:
+  - services provided,
+  - system boundaries and in-scope components,
+  - infrastructure/software/people/procedures/data,
+  - relevant subservice organizations and complementary controls.
+- The controls related to the Kahana Oasis system were suitably designed to provide reasonable assurance that the applicable Trust Services Criteria for Security would be achieved if the controls operated as designed.
+
+Scope note:
+This assertion is for SOC 2 Type 1 only (design of controls as of a point in time). It does not include an operating-effectiveness assertion over a period.
+
+Kahana Inc.
+
+By: ______________________________
+Name: [CEO NAME]
+Title: Chief Executive Officer
+Date: [DATE]
+
+By: ______________________________
+Name: [SECOND SIGNATORY NAME - DEC-1]
+Title: [SECOND SIGNATORY TITLE - DEC-1]
+Date: [DATE]
+
+Template instructions (remove before final):
+- Set [AUDIT DATE] to the final Type 1 "as of" date agreed with the auditor.
+- Fill CEO and second signatory placeholders per management decision (dec-1).
+- Sign only after the auditor provides the final assertion wording/version for execution.

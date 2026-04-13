@@ -29,7 +29,8 @@ function Navigation() {
     {
       name: 'Human Resources',
       items: [
-        { path: '/onboarding', label: 'Onboarding', id: 'onboarding' }
+        { path: '/onboarding', label: 'Onboarding', id: 'onboarding' },
+        { path: '/onboarding/growth-content-konika', label: 'Website & content onboarding (Konika)', id: 'konika-growth-onboarding' }
       ]
     },
     {
@@ -94,7 +95,11 @@ function Navigation() {
   }
 
   const isActive = (path) => {
+    if (path === '/onboarding/growth-content-konika') {
+      return location.pathname === '/onboarding/growth-content-konika'
+    }
     if (path === '/onboarding') {
+      if (location.pathname === '/onboarding/growth-content-konika') return false
       return location.pathname === '/onboarding' || location.pathname.startsWith('/onboarding/')
     }
     return location.pathname === path

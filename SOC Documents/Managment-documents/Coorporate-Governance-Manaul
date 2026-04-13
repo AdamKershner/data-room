@@ -1,7 +1,7 @@
-Doument Title: Corporate Governance & Security Governance Manual – Kahana Inc.
+Document Title: Corporate Governance & Security Governance Manual – Kahana Inc.
 
 Version: 1.0
-Effective Date: <set date>
+Effective Date: March 2026
 Owner: CEO
 Approved By: Board / Founders
 
@@ -12,6 +12,12 @@ It applies to Kahana Inc. as a whole, including all teams involved in delivering
 
 2. Governance Structure and Board / Ownership Oversight
 Kahana is led by its founders and executive team, who act as the primary governing body (equivalent to a board for early‑stage companies).
+
+Current executive governance structure:
+- CEO (Adam Kershner) provides top-level oversight and final executive accountability.
+- CTO oversees engineering and infrastructure governance.
+- Security Lead / CISO oversees security governance and compliance operations.
+- Functional leads (Engineering, DevOps, Operations, HR, Legal/Privacy) report through executive ownership for policy and control execution.
 
 The governing body:
 
@@ -28,17 +34,23 @@ Key executive roles in governance:
 
 Chief Executive Officer (CEO)
 
+CEO: Adam Kershner
+
 Ultimately accountable for company performance, including security and compliance outcomes.
 
 Approves major security policies, the SOC 2 program, and key risk decisions.
 
 Chief Technology Officer (CTO)
 
+CTO: [Name]
+
 Responsible for technology strategy and architecture for Kahana Oasis.
 
 Chairs or co‑chairs decisions on technical risk, uptime, architecture changes, and major security improvements.
 
 Chief Information Security Officer (CISO) / Security Lead
+
+Security Lead / CISO: [Name]
 
 Designs and oversees the information security program and SOC 2 control framework.
 
@@ -50,7 +62,7 @@ Oversees business operations, including business continuity and physical office 
 
 CFO
 
-Oversees financial reporting and contracts, and co‑signs SOC 2 management assertions with the CEO.
+Oversees financial reporting and contracts, and co‑signs SOC 2 management assertions with the CEO (or designated second signatory where no CFO role exists).
 
 Decisions on high‑impact topics (e.g., accepting major security risk, large vendor commitments, substantial architectural changes) require approval from the CEO and CTO, with input from the Security Lead and relevant stakeholders.
 ​

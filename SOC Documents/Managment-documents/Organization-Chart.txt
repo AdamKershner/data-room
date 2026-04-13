@@ -1,0 +1,73 @@
+Document Title: Organization Chart – Kahana Oasis (SOC 2)
+Version: 1.0
+Effective Date: March 2026
+Owner: CEO / Security Lead
+
+1. Purpose
+This document defines Kahana's reporting structure and key control ownership roles for SOC 2 scope. It clarifies who is accountable for security, engineering, operations, compliance, and incident-related decisions.
+
+2. Current Reporting Structure (Kahana-specific)
+
+Board / Founders
+  -> Chief Executive Officer (CEO): Adam Kershner
+      -> Chief Technology Officer (CTO): [Name]
+          -> Engineering (application development, SDLC, code review)
+          -> DevOps / Infrastructure (AWS, Supabase operations, CI/CD, backup/DR)
+      -> Security Lead / CISO: [Name]
+          -> Security & Compliance activities (risk, policy, SOC 2 controls, incident response)
+      -> Operations / Business Functions
+          -> Customer Support / Success
+          -> HR / People Operations
+          -> Legal / Privacy support (internal or external counsel)
+
+3. Executive Roles and Accountability
+
+CEO – Adam Kershner
+- Ultimate executive accountability for Kahana Oasis, SOC program sponsorship, and major policy approvals.
+- Reviews material risk, incident communications, and major remediation decisions.
+
+CTO – [Name]
+- Owns technology strategy and architecture for Oasis.
+- Accountable for secure engineering, deployment controls, and technical reliability.
+- Oversees Engineering and DevOps / Infrastructure.
+
+Security Lead / CISO – [Name]
+- Owns information security program and SOC 2 control design/operation.
+- Leads risk assessments, policy lifecycle, and incident response coordination.
+- Coordinates control testing/evidence readiness with Engineering, Ops, and leadership.
+
+4. Functional Reporting Detail
+
+Engineering (reports to CTO)
+- Implements product features and fixes through SDLC, code review, and change management controls.
+- Supports security remediation and incident follow-up actions.
+
+DevOps / Infrastructure (reports to CTO)
+- Operates AWS us-east-1 and Supabase production environment.
+- Maintains CI/CD, infrastructure-as-code, backup/restore, and monitoring controls.
+- Executes technical recovery procedures during continuity/DR events.
+
+Security & Compliance (reports to Security Lead / CISO)
+- Maintains SOC 2 policy framework and control mapping.
+- Runs risk management process (assessment, register, treatment tracking).
+- Coordinates security monitoring, incident handling, and post-incident review actions.
+
+Customer Support / Success (reports via Operations to CEO)
+- Manages customer-facing communications, including during incidents and continuity events.
+- Handles customer requests under data handling and privacy policies.
+
+HR / People Operations (reports via Operations to CEO)
+- Runs onboarding/offboarding and security awareness requirements.
+- Ensures workforce acknowledgment of security and acceptable use requirements.
+
+Legal / Privacy (reports via Operations/Leadership)
+- Reviews contracts, DPAs, and breach/notification obligations.
+- Advises on data handling and retention obligations.
+
+5. SOC 2 Alignment Notes
+- Reporting lines support clear accountability for SOC 2 control operation and oversight.
+- CTO and Security Lead ownership is separated for technical control execution vs. security governance.
+- CEO provides top-level governance and escalation authority for material incidents and risk decisions.
+
+6. Maintenance
+This organization chart is reviewed at least annually, and upon significant organizational changes (new executives, role changes, or control ownership changes). Updates must be approved by CEO and Security Lead.

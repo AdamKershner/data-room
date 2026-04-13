@@ -1,0 +1,191 @@
+Document Title: Kahana Inc. – Information Security Risk Assessment Report
+Version: 1.0
+Assessment Date: March 2026
+Prepared By: Security Lead / Compliance Lead
+Reviewed By: CTO / CEO
+
+1. Purpose and Scope
+This report documents Kahana's annual information security risk assessment for Kahana Oasis. It identifies key risks to confidentiality, integrity, and availability; evaluates likelihood and impact; and defines mitigations in alignment with SOC 2 expectations.
+
+In-scope systems and processes include:
+- Kahana Oasis production systems (AWS us-east-1, Supabase backend, Lambda-based services, Terraform-managed infrastructure)
+- Authentication and access (Supabase Auth, internal Google Workspace administration, privileged access paths)
+- Change/deployment workflows (GitHub PRs, CI/CD, OTA canary/stable release flow)
+- Logging/monitoring, incident response, backup/restore, and continuity/DR controls
+- Critical third-party dependencies (AWS, Supabase, Stripe, Mixpanel, Google Analytics, Looker, Gemini, Deepgram, Okta)
+
+2. Methodology
+Kahana uses a repeatable risk method:
+1) Identify critical assets/processes and data flows.
+2) Identify threats/vulnerabilities and known control gaps.
+3) Score each risk:
+   - Likelihood: Low / Medium / High
+   - Impact: Low / Medium / High
+   - Risk Rating: derived from likelihood + impact
+4) Define treatment: Mitigate, Accept, Transfer, or Avoid.
+5) Assign owner, target date, and status in Risk Register / Risk Treatment Plan.
+6) Review with leadership at least annually and after major incidents/changes.
+
+3. Risk Summary Table
+
+| ID | Risk Description | Likelihood | Impact | Risk Rating | Treatment |
+|----|------------------|------------|--------|-------------|-----------|
+| R-01 | Compromised privileged account leading to production access | Medium | High | High | Mitigate |
+| R-02 | Data loss/corruption in primary Supabase database | Low | High | Medium (P0 if Free Plan) | Mitigate |
+| R-03 | Misconfigured storage or IAM exposing sensitive data | Medium | High | High | Mitigate |
+| R-04 | Critical vulnerability in dependencies or service components | Medium | Medium | Medium | Mitigate |
+| R-05 | Single-region dependency outage (AWS us-east-1 / Supabase region impact) | Low | High | Medium | Mitigate / Partially Accept |
+| R-06 | Delayed incident detection due to limited centralized logging/SIEM | Medium | Medium | Medium | Mitigate |
+| R-07 | Vendor/sub-processor incident impacting Kahana data | Medium | High | High | Mitigate |
+| R-08 | Incomplete quarterly access review evidence | High | Medium | High | Mitigate |
+| R-09 | Backup/restore execution gaps (testing/evidence) | Medium | High | High | Mitigate |
+| R-10 | AI prompt/content handling risk (sensitive data in model interactions) | Medium | Medium | Medium | Mitigate |
+
+4. Detailed Risks and Mitigations
+
+R-01 – Compromised privileged account leading to production access
+- Description: A privileged engineering/admin account is compromised and used to access production systems/data.
+- Affected Areas: AWS IAM, Supabase admin paths, CI/CD, secrets access paths.
+- Likelihood: Medium
+- Impact: High
+- Existing Controls: MFA requirements for core systems, access policy framework, logging policies.
+- Mitigations:
+  - Enforce MFA on all privileged/admin access paths.
+  - Tighten least-privilege role mappings and approval workflows.
+  - Execute and evidence quarterly access reviews with sign-off.
+- Owner: Security Lead / DevOps Lead
+- Status: In Progress
+
+R-02 – Data loss/corruption in primary Supabase database
+- Description: Accidental or malicious data corruption/deletion affects production data.
+- Affected Areas: Supabase PostgreSQL, backup/restore process.
+- Likelihood: Low
+- Impact: High
+- Existing Controls: Backup/DR policy set; managed backup capability on Supabase Pro.
+- Mitigations:
+  - Confirm and maintain Pro backup posture (or equivalent controlled backup process).
+  - Execute periodic restore tests and record outcomes.
+  - Improve backup failure alerting and runbook detail.
+- Owner: DevOps Lead
+- Status: In Progress
+
+R-03 – Misconfigured storage or IAM exposing sensitive data
+- Description: Overly permissive IAM/storage settings expose customer/internal data.
+- Affected Areas: AWS IAM/security groups, Supabase storage/database permissions.
+- Likelihood: Medium
+- Impact: High
+- Existing Controls: IaC usage, code review/change controls, access control policy.
+- Mitigations:
+  - Implement periodic configuration reviews/automated checks.
+  - Harden guardrails for IAM/storage permission changes.
+  - Require explicit review for high-risk infra changes.
+- Owner: DevOps Lead
+- Status: In Progress
+
+R-04 – Critical vulnerability in dependencies or service components
+- Description: Unpatched critical vulnerabilities create exploit risk.
+- Affected Areas: Application dependencies, service components, CI/CD artifacts.
+- Likelihood: Medium
+- Impact: Medium
+- Existing Controls: SDLC and vulnerability management policies.
+- Mitigations:
+  - Enforce remediation SLAs for Critical/High findings.
+  - Integrate scanning outputs into sprint and release gates.
+  - Perform regular vulnerability review checkpoints.
+- Owner: Engineering Lead
+- Status: In Progress
+
+R-05 – Single-region dependency outage
+- Description: Outage in primary region/dependency disrupts service.
+- Affected Areas: AWS us-east-1, Supabase availability, core APIs and user access.
+- Likelihood: Low
+- Impact: High
+- Existing Controls: BCP/DR plans, documented RTO/RPO, backup strategy.
+- Mitigations:
+  - Maintain tested restore/rebuild playbook.
+  - Run annual DR scenario tests and track outcomes.
+  - Evaluate multi-region options as roadmap item.
+- Owner: CTO / DevOps Lead
+- Status: Open (Partially accepted short-term)
+
+R-06 – Delayed detection from limited centralized SIEM capability
+- Description: Monitoring fragmentation reduces detection speed.
+- Affected Areas: Incident detection, triage, evidence timelines.
+- Likelihood: Medium
+- Impact: Medium
+- Existing Controls: Supabase logs, Mixpanel telemetry, incident response plan.
+- Mitigations:
+  - Continue documenting current-state monitoring and retention.
+  - Define required alerting for high-risk events.
+  - Evaluate Datadog/log-drain architecture for improved centralization.
+- Owner: Security Lead / DevOps Lead
+- Status: In Progress
+
+R-07 – Vendor/sub-processor incident affecting Kahana data
+- Description: Third-party provider incident causes confidentiality/availability impact.
+- Affected Areas: AWS, Supabase, Stripe, Mixpanel, AI vendors, auth providers.
+- Likelihood: Medium
+- Impact: High
+- Existing Controls: Vendor management policy, subservice review process.
+- Mitigations:
+  - Maintain annual vendor assurance review (SOC reports/equivalent).
+  - Track DPA/contractual security obligations for in-scope processors.
+  - Maintain contingency/incident coordination playbooks for critical vendors.
+- Owner: Security Lead / Vendor Owner
+- Status: In Progress
+
+R-08 – Incomplete quarterly access review evidence
+- Description: Required access-review process not evidenced consistently.
+- Affected Areas: SOC 2 CC6.1 control operation evidence.
+- Likelihood: High
+- Impact: Medium
+- Existing Controls: Access review requirement documented in policy.
+- Mitigations:
+  - Implement formal quarterly review workflow + sign-off logs.
+  - Store evidence in designated evidence repository.
+  - Track completion by quarter and owner.
+- Owner: Security Lead
+- Status: Open
+
+R-09 – Backup/restore execution evidence gap
+- Description: Backup and recovery controls exist in policy but insufficient executed evidence.
+- Affected Areas: BC/DR readiness and audit support.
+- Likelihood: Medium
+- Impact: High
+- Existing Controls: Backup, DR, and BCP policies updated.
+- Mitigations:
+  - Run and document restore tests.
+  - Capture backup verification logs and remediation actions.
+  - Align RTO/RPO performance with test metrics.
+- Owner: DevOps Lead
+- Status: Open
+
+R-10 – AI prompt/content handling risk
+- Description: Sensitive customer content may appear in AI prompt/interaction flows.
+- Affected Areas: Gemini/Deepgram integration, data classification/privacy handling.
+- Likelihood: Medium
+- Impact: Medium
+- Existing Controls: Data classification, privacy, vendor management, acceptable use policies.
+- Mitigations:
+  - Enforce prompt/data handling controls for Confidential/Restricted content.
+  - Validate vendor contractual protections (DPA and usage terms).
+  - Apply minimization and retention controls to AI-related data.
+- Owner: Security Lead / Product Engineering
+- Status: In Progress
+
+5. Risk Treatment and Tracking
+All risks in this report must be represented in:
+- Information Security Risk Register
+- Risk Treatment Plan
+
+Each risk includes owner, treatment actions, status, and target completion. High risks are reviewed with leadership and are not accepted without explicit approval.
+
+6. Changes Since Prior Assessment
+This report serves as Kahana's initial baseline formal risk assessment for the current SOC readiness cycle.
+
+7. Management Review and Approval
+This assessment was reviewed with leadership. Management acknowledges the identified risks and agrees with treatment directions.
+
+Security Lead: ____________________  Date: __________
+CTO: _____________________________  Date: __________
+CEO: Adam Kershner _______________  Date: __________

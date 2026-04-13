@@ -1,8 +1,11 @@
 Owner: Operations Lead
 Approved By: CEO
+Effective Date: March 2026
 
 1. Purpose
 This Business Continuity Plan describes how Kahana will continue critical operations and services—especially Kahana Oasis—during and after a disruption (e.g., infrastructure outages, office inaccessibility, major incidents). The goal is to minimize downtime for customers and maintain essential internal functions.
+
+This plan supports SOC 2 Security and Availability criteria by defining continuity objectives, response roles, and recovery coordination requirements.
 
 2. Scope
 This BCP covers:
@@ -55,7 +58,7 @@ Backups and monitoring are functioning as defined in Backup/DR and Logging polic
 5.1 Cloud / Infrastructure Outage (Partial or Regional)
 Use multi‑AZ or multi‑zone architecture where possible for critical components.
 
-For regional failures, DR Plan defines steps to fail over to a secondary region (if configured) or restore from backups in a different location.
+Current state note: Kahana operates AWS + Supabase without a secondary live database. For regional failures, DR focuses on restoring service from backups and infrastructure-as-code rather than immediate active failover.
 
 Priorities:
 
@@ -64,6 +67,10 @@ Restore core APIs and web front‑end.
 Restore database and storage access.
 
 Restore non‑critical background jobs and analytics.
+
+RTO/RPO execution target for this scenario:
+- RTO: 4-8 hours for core Oasis service
+- RPO: up to 24 hours data loss when relying on Supabase Pro daily backups
 
 5.2 Kahana Office Unavailable (e.g., Chandigarh)
 All critical roles can work remotely using laptops and secure remote access.

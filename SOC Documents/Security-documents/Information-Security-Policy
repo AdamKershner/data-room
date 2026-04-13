@@ -1,163 +1,187 @@
-Owner: CISO / CTO
-Approved by: CEO
+Owner: Security Lead / Compliance Lead
+Approved By: CEO / CTO
+Effective Date:
 
 1. Purpose
-The purpose of this Information Security Policy is to define how Kahana secures the systems, data, and services that power Kahana Oasis, our agentic browser and workspace platform. The policy establishes requirements to protect customer data and company assets against unauthorized access, disclosure, alteration, and destruction.
-
-2. Scope
-This policy applies to:
-
-All Kahana employees, contractors, and interns.
-
-All information systems used to deliver Kahana Oasis, including production, staging, and development environments.
-
-All customer and company data processed, stored, or transmitted by Kahana (e.g., customer workspaces, files, account information, logs).
-
-It covers on‑premise offices, remote work locations, cloud infrastructure (AWS us-east-1, Supabase), and all SaaS tools (GitHub, Google Workspace, Mixpanel, Stripe, etc.) used in connection with Kahana business operations.
-
-3. Security Objectives
-Kahana’s information security program is designed to achieve the following objectives:
-
-Confidentiality: Ensure that customer and company data is accessible only to authorized individuals and services.
-
-Integrity: Ensure that data and systems are accurate, complete, and protected from unauthorized modification.
-
-Availability: Ensure that Kahana Oasis and supporting systems remain available to authorized users within defined service levels.
-
-These objectives align with the SOC 2 Trust Services Criteria for Security and, where applicable, Availability, Confidentiality, and Privacy.
-
-4. Roles and Responsibilities
-CEO: Provides overall sponsorship for the security program and allocates resources.
-
-CISO / Security Lead: Owns the information security program, policies, risk management, and incident response.
-
-CTO / Engineering Leadership: Ensures secure design, development, and operation of Kahana Oasis and supporting infrastructure.
-
-DevOps / Infrastructure: Implements and maintains secure configurations, monitoring, backup, and recovery mechanisms.
-
-HR: Ensures security requirements are included in hiring, onboarding, training, and offboarding.
-
-All Employees and Contractors: Must understand and comply with this policy and all supporting security policies and procedures.
-
-Responsibilities are further detailed in supporting policies (Access Control, SDLC, Incident Response, etc.).
-
-5. Governance and Policy Framework
-Kahana maintains a documented information security program that includes, at a minimum, the following supporting policies and standards:
-
-Access Control Policy
-
-Password / Authentication Policy
-
-Encryption Policy
-
-Logging and Monitoring Policy
-
-Remote Access Policy
-
-Workstation / Endpoint Security Policy
-
-Network Security Policy
-
-Physical Security Policy
-
-Change Management Policy
-
-Incident Response Plan
-
-Business Continuity and Disaster Recovery Plans
-
-Vulnerability Management Policy
-
-Secure SDLC / Development Policy
-
-Configuration Management / Baseline Standards
-
-Vendor Management Policy
-
-Risk Management (Risk Assessment, Risk Register, Risk Treatment Plan)
-
-Privacy, Data Classification, Data Protection, and Data Retention Policies
-
-This Information Security Policy is the top‑level document; all other policies must be consistent with it.
-
-6. Asset Management
-Kahana maintains an inventory of information assets, including laptops, servers, cloud resources, applications, and critical data stores.
-
-Assets must have an owner responsible for ensuring appropriate classification and protection.
-
-All devices accessing Kahana systems must be properly managed (e.g., enrolled in device management, encrypted, and patched) in accordance with the Workstation Security and Configuration Management policies.
-
-7. Access Control
-Access to systems and data is granted based on the principle of least privilege and role-based access control (RBAC).
-
-All access must be requested, approved, and documented as defined in the Access Control Policy.
-
-Strong authentication, including MFA, is required for all administrative and production access and for critical SaaS tools.
-
-Access rights are reviewed on a regular basis (at least quarterly) and promptly updated when roles change or employment ends.
-
-8. Data Classification and Handling
-Kahana classifies data into at least the following categories: Public, Internal, Confidential, and Restricted.
-
-Customer data stored in Kahana workspaces and associated files is treated as at least Confidential or Restricted.
-
-Handling requirements (e.g., encryption, sharing limitations, storage locations) for each classification are defined in the Data Classification and Data Protection Policies and must be followed by all personnel.
-
-9. Cryptography and Key Management
-Customer and company data at rest in production databases and storage must be encrypted using industry‑standard algorithms (e.g., AES‑256).
-
-Data in transit between client browsers, Kahana services, and third‑party providers must be protected using strong TLS configurations.
-
-Cryptographic keys and certificates are managed using secure key management systems (e.g., cloud KMS) with restricted access, rotation, and monitoring as defined in the Encryption Policy.
-
-10. Secure Development and Change Management
-All changes to Kahana Oasis code and infrastructure must follow the Secure SDLC and Change Management policies.
-
-Code changes must be peer‑reviewed, tested, and tracked via the approved issue tracking and version control systems.
-
-Security testing (e.g., dependency scanning, SAST/DAST, vulnerability scans) must be integrated into the development and deployment processes where practical.
-
-11. Logging, Monitoring, and Incident Management
-Security‑relevant events (authentication, authorization changes, configuration changes, administrative actions, and system errors) must be logged in centralized logging or SIEM systems.
-
-Logs must be protected from tampering and retained for a defined period to support investigations and audit requirements.
-
-Suspected or confirmed security incidents must be reported immediately through defined channels and handled according to the Incident Response Plan.
-
-12. Business Continuity and Disaster Recovery
-Kahana maintains Business Continuity and Disaster Recovery plans to ensure the continued availability of Kahana Oasis and protection of customer data during disruptions.
-
-Regular backups and restoration tests are performed for critical systems in line with the Backup and Restoration Policy.
-
-BCP/DR plans are reviewed and tested periodically; lessons learned are used to improve resilience.
-
-13. Vendor and Third‑Party Management
-Third‑party service providers that store, process, or transmit Kahana or customer data must be assessed and approved in accordance with the Vendor Management Policy.
-
-Security and privacy requirements must be included in contracts and data processing agreements.
-
-Vendor performance and security posture are reviewed periodically, including obtaining SOC reports or equivalent assurance where applicable.
-
-14. Human Resources Security
-Security requirements are embedded into hiring, onboarding, and offboarding processes.
-
-All employees and relevant contractors must complete security awareness training at hire and at least annually thereafter.
-
-Employees must sign confidentiality agreements and acknowledge key security policies as part of onboarding.
-
-15. Compliance and Risk Management
-Kahana conducts regular risk assessments to identify and evaluate threats to systems and data, and maintains a Risk Register and Risk Treatment Plan.
-
-The security program is designed to support compliance with applicable legal, regulatory, and contractual requirements, including SOC 2 and, where relevant, SOC 1 control objectives.
-
-Internal audits and control testing are performed to assess policy effectiveness and readiness for external audits.
-
-16. Policy Exceptions
-Any exception to this policy must be formally documented, justified by business need, approved by the CISO/Security Lead, and, where appropriate, time‑bound.
-
-Approved exceptions must include compensating controls to manage the associated risks.
-
-17. Policy Review and Maintenance
-This Information Security Policy is reviewed at least annually, or upon significant changes to Kahana’s systems, business operations, or regulatory requirements.
-
-Updates must be approved by senior management and communicated to all affected personnel.
+This Information Security Policy defines how Kahana protects information assets used to deliver Kahana Oasis (our agentic browser and productivity workspace platform). The policy establishes requirements to protect customer and company data against unauthorized access, disclosure, alteration, or destruction.
+
+2. Security Framework (SOC 2 Aligned)
+2.1 SOC 2 Trust Services Criteria
+This policy is designed to support SOC 2 Trust Services Criteria (TSC) selected for the Kahana Oasis system. In this repository, the control objectives are mapped using `SOC Documents/Risk-&-Compliance/Controls-Matrix-CC1-CC9.md`.
+
+2.2 Control Environment and Evidence
+Kahana operates a documented information security program consisting of this top-level policy plus supporting policies and procedures. Evidence is collected and stored according to the repository-defined evidence folders (for SOC 2 Type 1 and later Type 2).
+
+2.3 Security Objectives
+Kahana security objectives are:
+- Confidentiality: Customer and company information is accessible only to authorized users and services.
+- Integrity: Information and systems are protected from unauthorized modification.
+- Availability: Kahana Oasis and supporting systems remain available for authorized users and intended business use.
+
+3. Scope
+3.1 People
+This policy applies to all Kahana employees, contractors, and interns who design, develop, operate, administer, support, or otherwise access Kahana systems or data.
+
+3.2 Systems and Environments
+This policy applies to production, staging, and development environments used to deliver Kahana Oasis, plus internal corporate systems used to administer and support the service.
+
+3.3 In-Scope Technology (Kahana-specific)
+The in-scope environment includes the following platforms and tools described in `SOC Documents/Managment-documents/System-Description-Document` and related policies:
+
+A. Infrastructure
+- AWS (us-east-1): Lambda, Terraform (IaC), networking/security groups, cloud services
+- CI/CD: GitHub Actions and workflows used to deploy and manage releases
+
+B. Data and Application Backends
+- Supabase (managed PostgreSQL): user/account metadata, workspace metadata, application backend services
+- Supabase Auth (end-user login): Google, Microsoft, Apple sign-in
+- Supabase Storage / AWS S3: object storage for workspace-related content and metadata
+
+C. Secrets and Keys
+- AWS Secrets Manager (accessed via Lambda) for application secrets
+
+D. Identity and Admin Tools
+- Google Workspace (currently for Adam)
+- Okta enterprise (enterprise browser SSO; integration depends on deployment)
+- GitHub organization and CI/CD admin access
+
+E. Security-relevant SaaS tools used for Kahana operations
+- GitHub (source control, PRs, code review, workflow execution)
+- Slack and/or Google Sheets (feedback/sprint inputs per change management policy)
+- Mixpanel (analytics/telemetry)
+- Stripe (subscription billing; Kahana does not directly handle payment card data)
+- Google Analytics and Looker (analytics/reporting)
+- Google Gemini and Deepgram (AI features; treat data handling via vendor risk and DPA expectations)
+
+3.4 Data Types
+In scope data includes:
+- Account and profile data
+- Workspace metadata, tab grouping configuration, and related service metadata
+- Technical metadata and privacy-preserving telemetry/events
+- Security and audit logs, access events, and administrative actions
+
+3.5 Out of Scope (unless added by engagement or amendment)
+- Marketing-only content and websites not required to deliver Oasis
+- Internal-only tooling with no impact on delivery/operation
+
+4. Governance and Roles
+- CEO: Provides overall sponsorship for the security program and approves key security decisions.
+- Security Lead / Compliance Lead: Owns the information security program, coordinates SOC readiness, manages risk assessments, and oversees incident response and vendor risk.
+- CTO / Engineering Leadership: Ensures secure design, development, and operation of the Oasis platform.
+- DevOps / Infrastructure: Implements and maintains secure configurations, monitoring, backup/restore, and recovery mechanisms.
+- HR / People: Ensures security requirements are included in hiring, onboarding, training, and offboarding.
+- All users of systems (employees and contractors): Follow this policy and supporting policies and report suspicious activity.
+
+5. Security Principles
+Kahana security is implemented using the following principles:
+- Least privilege and need-to-know access
+- Separation of duties where practical (e.g., code authors vs approvers)
+- Secure defaults for administrative and production access
+- Defense in depth across identity, configuration, monitoring, and change control
+- Privacy and data minimization in logging and telemetry
+- Continuous improvement through risk management and lessons learned
+
+6. Access Control
+Access to systems and data is granted based on least privilege and documented roles. Requirements are defined in `SOC Documents/Security-documents/Access-Control-Policy` and include:
+- Unique user accounts (no shared human accounts)
+- MFA for supported systems (notably AWS consoles, GitHub org, Oasis admin tools and production databases)
+- Joiner/Mover/Leaver processes, including revocation within 24 hours of offboarding
+- Periodic access reviews (target at least quarterly) and documented sign-off
+- Privileged access restrictions and logging/monitoring
+
+7. Authentication and Password / Secrets Protection
+Requirements are defined in `SOC Documents/Security-documents/Password-and-Authentication-Policy` and include:
+- Strong password/passphrase practices
+- Mandatory MFA for critical administrative access
+- Use of approved password managers
+- Prohibition on storing or transmitting passwords/secrets in plain text
+- Storage of service account secrets and API keys in AWS Secrets Manager
+- Rotation of secrets and API keys for departures or suspected compromise
+
+8. Encryption and Key Management
+Encryption requirements are defined in `SOC Documents/Security-documents/Encryption-Policy` and are implemented as follows in the Kahana Oasis system:
+- Encryption at rest for Supabase (database) and Supabase Storage / S3 objects
+- TLS for data in transit between clients and Kahana services and, where applicable, between internal services
+- Backups and exported data containing confidential/restricted data are encrypted
+- Cryptographic material is protected using AWS Secrets Manager and other approved mechanisms
+
+9. Secure Development and Change Management
+9.1 Secure Development Lifecycle
+Kahana follows the documented secure development lifecycle in:
+- `SOC Documents/Development-Policies/Software-Development-Lifecycle-(SDLC)-Policy`
+- `SOC Documents/Development-Policies/Code-Review-Procedures`
+
+9.2 Change Management
+Kahana tracks and controls changes to production and staging via `SOC Documents/Operational-Policies/Change-Management-Policy`, including:
+- GitHub PRs, peer review, and documented approvals
+- CI/CD deployments through GitHub workflows
+- Testing in non-production environments where feasible
+- Rollback/mitigation planning for changes
+- Emergency changes still tracked and reviewed after implementation
+- OTA release process using canary/stable rings and Supabase update service (rollback by repointing rings)
+
+10. Logging, Monitoring, and Incident Management
+Logging and monitoring requirements are defined in `SOC Documents/Security-documents/Logging-&-Monitoring-Policy`, and incident handling is defined in `SOC Documents/Operational-Policies/Incident-Response-Plan`.
+
+10.1 Current State (Repository-defined)
+- Application and access events are logged in Supabase tables.
+- Mixpanel is used for analytics/telemetry.
+- There is no dedicated SIEM at present.
+- Supabase Pro provides 7-day log retention; Log Drains may extend collection at additional cost; Datadog is under consideration.
+
+10.2 Security Event Logging
+The following security-relevant events must be logged where supported:
+- Authentication and access events (success/fail, MFA changes, account lockouts)
+- Authorization and permission changes (roles/groups/access revocations)
+- Security-relevant admin actions
+- Infrastructure changes affecting security or availability
+- Critical application errors and exceptions
+
+10.3 Incident Response
+Suspected or confirmed security incidents must be reported immediately and handled through the Incident Response Plan. Logs are used as primary evidence for investigation and post-incident review.
+
+11. Backup, Business Continuity, and Disaster Recovery
+Backup and recovery requirements are defined in:
+- `SOC Documents/Operational-Policies/Backup-and-Restoration-Policy`
+- `SOC Documents/Operational-Policies/Business-Continuity-Plan`
+- `SOC Documents/Operational-Policies/Disaster-Recovery-Plan`
+
+- Supabase Free Plan: no automatic backups (gap identified in repository).
+- Supabase Pro Plan: daily backups with 7-day retention (as documented).
+- Backup testing/restore validation is required for audit readiness.
+- RTO/RPO targets must be set and documented to ensure recovery plans match business needs.
+
+12. Risk Management
+Risk management requirements are defined in `SOC Documents/Risk-&-Compliance/Compliance-Program-Overview` and related risk documents (risk assessment report, risk register, and risk treatment plan). Kahana:
+- Conducts formal risk assessments and maintains a risk register
+- Selects and tracks treatment plans for prioritized risks
+- Reviews risk results with leadership at least annually or after major changes/incidents
+
+13. Vulnerability and Security Testing
+Kahana performs vulnerability management and security testing requirements documented in `SOC Documents/Development-Policies/Vulnerability-Management-Policy` and relevant evidence folders (used during audit periods).
+
+14. Vendor and Third-Party Security
+Vendor management requirements are defined in `SOC Documents/Vendor-and-Third-Party/Vendor-Management-Policy`.
+Kahana ensures third parties that store, process, or transmit Kahana or customer information are assessed and included in contracts/DPAs where required. In-scope subservice organizations include AWS, Supabase, Stripe, Mixpanel, Google Analytics, Looker, Google Gemini, and Deepgram.
+
+15. HR Security and Training
+Kahana embeds security requirements into onboarding and offboarding processes and requires security awareness training via:
+- `SOC Documents/HR-&-Personnel/Employee-Onboarding-Checklist`
+- `SOC Documents/HR-&-Personnel/Employee-Offboarding-Checklist`
+- `SOC Documents/HR-&-Personnel/Security-Awareness-Training-Program`
+
+Employees and relevant contractors acknowledge confidentiality and security expectations as part of onboarding, and complete training at least annually.
+
+16. Acceptable Use, Remote Access, and Endpoint Security
+Remote access and acceptable use requirements are defined in:
+- `SOC Documents/Security-documents/Remote-Access-Policy`
+- `SOC Documents/Security-documents/Acceptable-Use-Policy`
+- `SOC Documents/Security-documents/Workstation-Security-Policy`
+
+These policies include requirements such as approved remote access methods, MFA enforcement, and protections for devices accessing production or other sensitive systems.
+
+17. Exceptions and Compensating Controls
+Any exception to this policy must be formally documented, approved by the Security Lead/CISO, and include compensating controls and a time-bound remediation plan where applicable.
+
+18. Policy Review and Maintenance
+This policy is reviewed at least annually or upon significant changes to Kahana systems, infrastructure, services, or regulatory requirements. Updates must be approved by senior management and communicated to affected personnel.

@@ -1,8 +1,11 @@
 Owner: DevOps / Infrastructure Lead
 Approved By: CTO
+Effective Date: March 2026
 
 1. Purpose
-This policy defines how Kahana backs up and restores systems and data that support Kahana Oasis. The goal is to ensure that critical data and services can be recovered within acceptable timeframes and with minimal data loss after failures, errors, or incidents.
+This policy defines how Kahana backs up and restores systems and data that support Kahana Oasis. The goal is to ensure critical data and services can be recovered within acceptable timeframes and with minimal data loss after failures, errors, security incidents, or operational mistakes.
+
+This policy is designed to support SOC 2 Security and Availability criteria (including backup, recovery, and resilience-related controls).
 
 2. Scope
 This policy applies to:
@@ -24,24 +27,33 @@ Backup strategy is designed to meet Kahana’s continuity goals:
 
 Recovery Time Objective (RTO):
 
-Target maximum time to restore critical services after a data‑related incident (e.g., <4 hours – adjust as needed>).
+Target maximum time to restore critical services after a data-related incident. Kahana target should be formally approved in BC/DR documents (for example, 4–8 hours for critical systems).
 
 Recovery Point Objective (RPO):
 
-Target maximum acceptable data loss from the last backup or replicated state (e.g., <15–60 minutes – adjust as needed>).
+Target maximum acceptable data loss from the last available backup. Kahana target should be formally approved in BC/DR documents (for example, 24 hours if relying on daily managed backups).
 
-These objectives drive backup frequency, retention, and restoration procedures.
+These objectives drive backup frequency, retention, and restoration procedures. RTO/RPO values must be reviewed at least annually or after major architecture changes.
 
-4. Data Types and Backup Requirements
+4. Data Types and Backup Requirements (Kahana-specific)
 Kahana backs up the following categories of data:
 
 Production Databases (Supabase PostgreSQL)
 
-Supabase provides automated daily backups on Pro Plan and above. Free Plan has no backups (gap—upgrade or use custom db dump for compliance).
+Current state is plan-dependent:
+- Supabase Free Plan: no automated backups (known gap)
+- Supabase Pro Plan and above: automated daily backups
 
-Backup frequency: daily on Pro Plan ($25/mo); custom supabase db dump if on Free Plan.
+Backup frequency:
+- Pro/Team/Enterprise: daily managed backups
+- If Free Plan is used temporarily: manual `supabase db dump` process must be implemented, scheduled, and logged
 
-Retention: Pro = 7 days, Team = 14 days, Enterprise = 30 days. Minimum 7 days for SOC readiness.
+Retention:
+- Pro: 7 days
+- Team: 14 days
+- Enterprise: 30 days
+
+For current SOC readiness, Kahana requires at least 7-day retention and documented restore capability.
 
 Customer Files and Content (Object Storage)
 
@@ -64,9 +76,11 @@ Managed in secure secrets management services; configuration and mapping are doc
 5. Backup Methods and Locations
 Managed Cloud Backups:
 
-Use built‑in backup features of managed databases and storage where possible.
+Use built-in backup features of managed databases and storage where possible.
 
 Configure automatic backups and retention per this policy.
+
+Primary managed backup location (for Supabase managed backups): AWS S3 in us-east-1, as documented in Kahana system and backup documentation.
 
 Snapshots and Replication:
 
@@ -110,25 +124,30 @@ Storage capacity is adequate.
 9. Restoration Procedures
 Restoration procedures must be documented and tested for each major system:
 
-Database Restore
+Database Restore (Supabase PostgreSQL)
 
-Identify the incident and the time to which data must be restored (pre‑corruption/pre‑deletion time).
+1) Identify incident type and target restore point (pre-corruption/pre-deletion time).
 
-Use managed DB recovery tools to restore to the chosen backup or point in time.
+2) Confirm backup source based on plan:
+- Pro/Team/Enterprise: select managed backup from Supabase backup history
+- Free (temporary workaround): locate latest validated manual `supabase db dump`
 
-Where possible, first restore to a test instance to validate data integrity before applying to production.
+3) Restore into a non-production/test target first when feasible and validate:
+- schema integrity
+- critical table row counts
+- application connectivity for key workflows
 
-Once validated, either:
+4) Execute production recovery approach:
+- switch application to restored dataset/environment, or
+- migrate validated recovered data into production using controlled procedures
 
-Swap application to use the restored instance, or
-
-Migrate cleaned data into the existing instance via controlled procedures.
+5) Record start/end time, selected backup timestamp, data validation results, approver, and any residual issues in incident/DR records.
 
 File/Object Storage Restore
 
-For accidental deletion/overwrites: restore specific objects using versioning or snapshots.
+For accidental deletion/overwrites: restore specific objects using versioning/snapshots where enabled.
 
-For larger issues: restore affected buckets or directories from backup or replicated copies.
+For larger issues: restore affected buckets/directories from backup or replicated copies according to provider capabilities.
 
 Configuration and Infrastructure
 
@@ -139,7 +158,7 @@ Reapply configurations and deploy application from known‑good versions.
 All restoration steps must be recorded in an incident/DR log for traceability.
 
 10. Testing Restores
-Kahana must perform regular restore tests to verify backup reliability—at least quarterly for critical databases and key data stores.
+Kahana must perform regular restore tests to verify backup reliability—at least quarterly for critical databases and key data stores, or more frequently after major data model/infrastructure changes.
 
 Tests should include:
 
@@ -149,7 +168,12 @@ Verifying that data is complete, usable, and consistent.
 
 Measuring time taken to restore (compare with RTO).
 
-Results of each test must be documented, including issues found and any changes needed in backup or restore procedures.
+Results of each test must be documented, including:
+- test date and owner
+- system restored and backup timestamp used
+- restore duration (for RTO comparison)
+- estimated data recovery window (for RPO comparison)
+- issues found and remediation actions
 
 11. Integration with Incident Response and DR
 During security incidents or major outages, backup and restore actions will be coordinated under the Incident Response Plan and Disaster Recovery Plan.

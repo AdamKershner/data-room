@@ -1,0 +1,174 @@
+Owner: Security Lead / Compliance Lead
+Approved By: CTO
+Effective Date: March 2026
+
+1. Purpose
+This Access Control Policy defines how Kahana manages user and system access for Kahana Oasis to prevent unauthorized access and protect customer and company information. This policy is aligned to SOC 2 Common Criteria (especially CC6.1) and supports Kahana's Security Trust Services Criteria scope.
+
+2. Scope
+This policy applies to:
+- All Kahana employees, contractors, and interns
+- All Kahana Oasis environments (production, staging, development)
+- All systems used to operate or support Oasis, including:
+  - AWS (accounts, IAM, infrastructure services)
+  - Supabase (PostgreSQL, Auth, Storage, backend admin interfaces)
+  - GitHub and CI/CD tooling
+  - Corporate and operational SaaS tools (Google Workspace, Slack, Sheets, Mixpanel, Stripe, and other approved tools)
+- All access types: user login, privileged/admin access, API/service accounts, and remote access to production
+
+3. SOC 2 Access Control Principles
+Kahana applies the following principles:
+- Least Privilege: grant only the minimum access required for a role
+- Need-to-Know: grant sensitive data/system access only when business-justified
+- Role-Based Access Control (RBAC): permissions are assigned by role, not by person
+- Separation of Duties: where practical, separate request/implementation/approval and code-author vs approver functions
+- Accountability: all access is tied to unique identities and auditable records
+
+4. Roles and Responsibilities
+- Security Lead / Compliance Lead: owns this policy, defines standards, oversees access reviews, and validates remediation of access gaps
+- System Owners (AWS, Supabase, GitHub, Google Workspace, etc.): approve role mappings and high-risk access
+- Managers: approve access requests based on job need
+- IT/DevOps/Engineering administrators: implement approved access and remove access when no longer needed
+- HR/People Operations: trigger onboarding/offboarding events to ensure timely provisioning/deprovisioning
+- All users: protect credentials, use MFA, and report suspicious activity immediately
+
+5. Identity Model (Kahana-specific)
+5.1 Unique Accounts
+Each person must use a unique account. Shared human user accounts are prohibited.
+
+5.2 Internal Identity Provider Current State
+Kahana currently uses Google Workspace for internal access management for Adam only.
+
+5.3 IdP Deferral (Documented Rationale)
+Kahana has evaluated broader internal IdP rollout (including Okta/Azure) and is deferring organization-wide deployment at current team size due to cost and operational overhead relative to current risk profile. This deferral is temporary and will be revisited as headcount and enterprise requirements increase.
+
+5.4 IdP Re-evaluation Triggers
+Kahana will re-evaluate org-wide IdP rollout when one or more of the following occurs:
+- Team growth beyond current operating model
+- Increased privileged-user count
+- Enterprise customer/security requirements mandate centralized IdP
+- Audit or risk assessment findings indicate elevated identity risk
+
+6. Provisioning (Joiners and Access Changes)
+6.1 Provisioning Requirements
+Access provisioning requires:
+- Verified onboarding event (HR/manager request)
+- Documented request identifying systems, requested role, and business justification
+- Manager approval
+- System owner and/or Security approval for high-risk access (production, database admin, IAM admin, billing/security settings)
+- Access implementation by authorized admin personnel
+
+6.2 Role-Based Provisioning
+Provisioning must use predefined roles where possible. Default role should be least privilege, with time-bound elevation only when required.
+
+6.3 Change of Role (Movers)
+When responsibilities change, access must be re-evaluated and reduced/updated to match the new role.
+
+7. Deprovisioning (Leavers and Access Revocation)
+7.1 Revocation Timeline
+All access for departing personnel must be revoked within 24 hours of termination/contract end, and immediately for high-risk departures where practical.
+
+7.2 Deprovisioning Scope
+Revocation includes, at minimum:
+- AWS/IAM and infrastructure access
+- Supabase project and admin access
+- GitHub repositories and CI/CD permissions
+- Google Workspace and other corporate SaaS access
+- API keys/tokens/secrets known to or controlled by the user (rotate as needed)
+
+7.3 Deprovisioning Evidence
+Completion must be documented using the Employee Offboarding Checklist and retained as audit evidence.
+
+8. Authentication and MFA
+8.1 MFA Requirement
+MFA is required for all systems that support it, with priority enforcement on:
+- AWS cloud consoles and administrative interfaces
+- GitHub organization access
+- Supabase/admin and production-related access
+- Other critical SaaS tools containing sensitive data or security/admin controls
+
+8.2 Credential Protection
+Passwords and secrets are managed per the Password-and-Authentication-Policy. Credentials must not be shared or transmitted in plain text.
+
+9. Privileged Access Controls
+Privileged access (admin/root-equivalent) must be limited to a small set of authorized users with clear business need and management approval.
+
+Where technically feasible:
+- Use temporary/assumed roles rather than persistent standing privilege
+- Log privileged actions
+- Review privileged assignments during quarterly access reviews
+
+10. Access Request and Approval Workflow (Kahana process)
+Kahana records access requests using approved internal workflows and systems (for example: manager-driven request records, GitHub issue/PR-linked records where appropriate, and internal operational tracking tools). The request must include:
+- Requestor/user identity
+- System(s) requested
+- Role/permission level requested
+- Business justification
+- Required approvals
+
+No production or high-risk access may be granted without recorded approval.
+
+11. Quarterly Access Reviews (SOC 2 requirement)
+11.1 Frequency and Ownership
+Kahana performs access reviews at least quarterly (target cadence: Q1/Q2/Q3/Q4), led by Security Lead and system owners with management sign-off.
+
+11.2 Systems in Review Scope
+Quarterly review covers at least:
+- AWS accounts and IAM roles/policies
+- Supabase production/admin access
+- GitHub organization and repository permissions
+- Google Workspace administrative and relevant user access
+- Other critical SaaS tools used in delivery/operations
+
+11.3 Review Outcomes
+Each review must:
+- Confirm access remains appropriate to role
+- Remove stale, excessive, or unnecessary permissions
+- Document findings, actions, and sign-off
+
+11.4 Current Status
+Kahana has documented quarterly access review requirements and is implementing formal sign-off logs as a SOC readiness remediation item.
+
+12. Service Accounts, API Keys, and Shared Credentials
+Service accounts and API keys must:
+- Be used only for system-to-system purposes
+- Have least-privilege permissions
+- Be stored in approved secret management tools (AWS Secrets Manager)
+- Be rotated on defined schedule and on personnel changes/incidents
+
+Shared credentials are discouraged and require explicit Security approval plus compensating controls.
+
+13. Monitoring and Logging of Access Events
+Access-related events must be logged as available, including:
+- Successful/failed authentication attempts
+- Privilege and permission changes
+- Administrative actions
+
+Logs must be retained per Logging-&-Monitoring-Policy and used for incident investigation and audit support.
+
+14. Third-Party/Vendor Access
+Vendor access to Kahana systems must be:
+- Approved under Vendor Management Policy
+- Time-bound and least privilege
+- Protected by MFA where supported
+- Revoked when no longer required
+
+15. Policy Violations and Enforcement
+Violations (e.g., unauthorized access, bypassing approvals, credential sharing, MFA non-compliance) may result in disciplinary action up to termination of employment/contract and incident escalation under Incident Response Plan.
+
+16. Exceptions
+Exceptions to this policy must be documented, risk-assessed, approved by Security Lead (and CTO for high-risk exceptions), time-bound, and include compensating controls.
+
+17. Related Policies and Documents
+- Security-documents/Information-Security-Policy
+- Security-documents/Password-and-Authentication-Policy
+- Security-documents/Logging-&-Monitoring-Policy
+- Security-documents/Remote-Access-Policy
+- Operational-Policies/Change-Management-Policy
+- HR-&-Personnel/Employee-Onboarding-Checklist
+- HR-&-Personnel/Employee-Offboarding-Checklist
+- Risk-&-Compliance/Controls-Matrix-CC1-CC9.md
+- Managment-documents/System-Description-Document
+
+18. Review and Maintenance
+This policy is reviewed at least annually or after significant organizational/system changes. Updates require approval by policy owner and senior management and must be communicated to affected personnel.

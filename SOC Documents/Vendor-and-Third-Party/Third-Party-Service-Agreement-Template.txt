@@ -1,0 +1,181 @@
+Document Title: Third-Party Service Agreement Template - Kahana Oasis
+Version: 1.0
+Effective Date: March 2026
+Owner: Security Lead / Compliance Lead
+Approved By: CEO / CTO
+
+IMPORTANT:
+- This is an internal template and must be reviewed by legal counsel before execution.
+- Use together with the Vendor Risk Assessment Template and vendor security review evidence.
+- For vendors processing personal data, attach a DPA and reference it in Section 9.
+
+------------------------------------------------------------
+THIRD-PARTY SERVICE AGREEMENT
+------------------------------------------------------------
+
+This Third-Party Service Agreement ("Agreement") is entered into by and between:
+
+Customer: Kahana Labs, Inc. ("Kahana")
+and
+Vendor: [LEGAL VENDOR NAME] ("Vendor")
+
+Effective Date: [DATE]
+Term: [INITIAL TERM] with [RENEWAL TERMS]
+
+1) PURPOSE AND SCOPE
+1.1 Vendor will provide the services described in Exhibit A ("Services").
+1.2 Services are limited to approved use cases for Kahana Oasis products and operations.
+1.3 Vendor must not process Kahana data outside documented and approved scope.
+
+2) DEFINITIONS
+2.1 "Kahana Data" means all data provided by or generated for Kahana, including customer data, usage events, support data, and derived metadata.
+2.2 "Personal Data" has the meaning assigned by applicable privacy/data protection law.
+2.3 "Security Incident" means unauthorized access, disclosure, destruction, alteration, or loss of Kahana Data, or suspected compromise of systems processing Kahana Data.
+2.4 "Subprocessor" means any third party engaged by Vendor that processes Kahana Data.
+
+3) SERVICE REQUIREMENTS
+
+3.1 Vendor will provide Services in accordance with documented service descriptions, support commitments, and any agreed service levels in Exhibit B.
+3.2 Vendor will maintain operational capacity and resilience suitable to the service criticality.
+3.3 Vendor will notify Kahana of material changes to service architecture, hosting region, or subprocessors before such changes take effect where feasible.
+
+4) INFORMATION SECURITY OBLIGATIONS
+4.1 Vendor shall maintain a written information security program aligned with recognized standards (e.g., SOC 2, ISO 27001, or equivalent controls).
+4.2 Vendor shall implement administrative, technical, and physical controls including:
+  (a) Encryption in transit using TLS 1.2+;
+  (b) Encryption at rest for Kahana Data;
+  (c) Role-based access control and least privilege;
+  (d) MFA for privileged/admin access;
+  (e) Logging and monitoring of security-relevant events;
+  (f) Vulnerability and patch management processes;
+  (g) Backup and recovery controls where Vendor stores critical Kahana Data.
+4.3 Vendor shall provide, upon request, current security documentation and independent assurance artifacts (e.g., SOC reports, ISO certificates, penetration summaries, or equivalent evidence).
+
+5) INCIDENT NOTIFICATION AND RESPONSE
+5.1 Vendor will notify Kahana without undue delay and no later than [24/48] hours after confirming a Security Incident affecting Kahana Data.
+5.2 Notification must include known scope, impacted data categories, containment actions, and remediation plan.
+5.3 Vendor will cooperate with Kahana investigation, evidence requests, and customer/regulatory notification obligations as applicable.
+5.4 Vendor will provide a written post-incident report within [10] business days (or mutually agreed period).
+
+6) AUDIT, ASSURANCE, AND EVIDENCE RIGHTS
+6.1 Vendor will provide current independent assurance reports (SOC 2 Type II preferred for critical vendors, SOC 2 Type I acceptable with compensating review where appropriate).
+6.2 If reports are unavailable or materially limited, Kahana may request additional due diligence responses and control evidence.
+6.3 Kahana may reassess Vendor risk at least annually for medium/high-risk vendors and upon material changes or incidents.
+
+7) DATA HANDLING, RETENTION, AND DELETION
+7.1 Vendor shall process Kahana Data only on documented instructions from Kahana and solely for purposes in this Agreement.
+7.2 Vendor will maintain data retention and deletion procedures and support Kahana requests for deletion/export within agreed timelines.
+7.3 Upon termination or Kahana request, Vendor shall return and/or securely delete Kahana Data, unless retention is legally required.
+7.4 If legal retention applies, Vendor must continue applicable confidentiality and security protections.
+
+8) SUBPROCESSORS
+8.1 Vendor will maintain an up-to-date subprocessor list and provide notice of intended changes.
+8.2 Vendor remains fully responsible for subprocessor performance and compliance with this Agreement.
+8.3 Vendor shall flow down equivalent data protection and security obligations to subprocessors.
+
+9) DATA PROCESSING ADDENDUM (DPA)
+9.1 If Vendor processes Personal Data for Kahana, the parties shall execute a DPA that forms part of this Agreement.
+9.2 The DPA shall include, as applicable:
+  (a) Subject matter and duration of processing;
+  (b) Nature and purpose of processing;
+  (c) Categories of data subjects and Personal Data;
+  (d) Security measures;
+  (e) Subprocessor terms;
+  (f) Cross-border transfer mechanisms where needed;
+  (g) Data subject rights assistance;
+  (h) Breach notification and cooperation duties.
+9.3 In case of conflict between this Agreement and the DPA on Personal Data processing terms, the DPA controls.
+
+10) COMPLIANCE WITH LAW
+10.1 Vendor will comply with applicable data protection, privacy, and information security laws relevant to Services.
+10.2 Vendor will promptly notify Kahana of material legal or regulatory actions that could impact service delivery or data protection commitments.
+
+11) CONFIDENTIALITY
+11.1 Each party will protect Confidential Information with at least reasonable care, and not less than the care used to protect its own similar information.
+11.2 Confidential Information may only be used to perform obligations under this Agreement.
+
+12) BUSINESS CONTINUITY AND DISASTER RECOVERY
+12.1 Vendor shall maintain BC/DR capabilities proportionate to criticality of Services.
+12.2 Upon request, Vendor will provide a summary of BC/DR testing cadence and recent test outcomes.
+12.3 Where vendor service materially affects Kahana operations, Vendor agrees to support restoration objectives defined in Exhibit B or service documentation.
+
+13) TERMINATION AND EXIT ASSISTANCE
+13.1 Kahana may terminate for material breach not cured within [30] days.
+13.2 Upon termination/expiration, Vendor will provide reasonable transition assistance and data portability/export support for [30-90] days as agreed.
+
+14) LIABILITY AND INDEMNIFICATION
+14.1 Liability caps, exclusions, and indemnification terms are set forth in the commercial order form/MSA.
+14.2 Nothing limits obligations for confidentiality breaches, data protection violations, or willful misconduct to the extent restricted by law.
+
+15) GOVERNING TERMS
+15.1 Order of precedence: (1) DPA for Personal Data terms, (2) this Agreement, (3) exhibits/order form, unless otherwise stated in writing.
+15.2 This Agreement may be executed electronically and in counterparts.
+
+------------------------------------------------------------
+EXHIBIT A - SERVICE DESCRIPTION (Template)
+------------------------------------------------------------
+Vendor Service Name:
+Service Category:
+Use Case at Kahana:
+Data Categories In Scope:
+Hosting/Processing Region(s):
+Production Access Required (Y/N):
+Subprocessors Used:
+
+------------------------------------------------------------
+EXHIBIT B - SECURITY AND SERVICE SCHEDULE (Template)
+------------------------------------------------------------
+Security Contacts:
+Incident Notification SLA:
+Support Hours / Escalation Path:
+Service Availability Target:
+Backup / Restore Commitments (if applicable):
+Evidence Shared (SOC report date, cert links):
+
+------------------------------------------------------------
+EXHIBIT C - VENDOR-SPECIFIC CLAUSES (Select/Add)
+------------------------------------------------------------
+Choose relevant clause blocks based on vendor type and risk profile.
+
+[A] Cloud Infrastructure Vendor (e.g., AWS)
+- Vendor maintains region-level controls and resilience for agreed deployment regions (for Kahana currently expected in us-east-1 unless otherwise approved).
+- Vendor will provide security and compliance documentation suitable for Kahana SOC 2 evidence needs.
+- Vendor shall notify Kahana of material service deprecations or security-impacting architecture changes.
+
+[B] Database / Backend Platform Vendor (e.g., Supabase)
+- Vendor shall maintain controls for database security, authentication, and storage protection.
+- Vendor shall provide backup/restore capabilities and retention details applicable to contracted plan/tier.
+- Vendor shall support export/deletion workflows for Kahana data at offboarding.
+
+[C] Payment Processor (e.g., Stripe)
+- Vendor shall maintain controls suitable for payment processing security and fraud monitoring.
+- Vendor shall provide incident response coordination for payment-related security events affecting Kahana.
+
+[D] Analytics Provider (e.g., Mixpanel)
+- Vendor shall support configuration minimizing collection of unnecessary personal data.
+- Vendor shall provide retention/deletion controls and event-level governance settings.
+
+[E] AI Service Provider (e.g., Gemini, Deepgram)
+- Vendor shall describe model data handling, retention, and training-use posture for submitted prompts/content.
+- Vendor shall provide controls for API key protection, tenancy boundaries, and data confidentiality.
+- Vendor shall support restrictions on prohibited data classes if configured by Kahana.
+
+[F] Identity/SSO Provider (e.g., Okta, enterprise auth partner)
+- Vendor shall enforce strong identity and access controls, including MFA and policy enforcement features.
+- Vendor shall provide audit logs and administrative security controls needed for incident investigations.
+
+------------------------------------------------------------
+SIGNATURES
+------------------------------------------------------------
+Kahana Labs, Inc.
+Name:
+Title:
+Date:
+Signature:
+
+Vendor:
+Legal Entity Name:
+Name:
+Title:
+Date:
+Signature:

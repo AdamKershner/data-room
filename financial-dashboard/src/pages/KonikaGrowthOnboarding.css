@@ -1,0 +1,38 @@
+#konika-growth-onboarding .konika-growth-checklist {
+  max-width: 880px;
+}
+
+.konika-growth-kpi-callout {
+  max-width: 880px;
+  margin-bottom: 28px;
+}
+
+.konika-growth-kpi-callout p {
+  margin: 0 0 12px;
+}
+
+.konika-growth-kpi-callout p:last-child {
+  margin-bottom: 0;
+}
+
+.konika-growth-section-intro {
+  margin: 0 0 12px;
+  color: #475569;
+  line-height: 1.55;
+  max-width: 800px;
+}
+
+.konika-growth-item-row {
+  align-items: flex-start;
+}
+
+.konika-growth-label-block {
+  flex: 1;
+  min-width: 200px;
+}
+
+.konika-growth-item-label {
+  font-weight: 500;
+  color: #1e293b;
+  line-height: 1.45;
+}

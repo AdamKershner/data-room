@@ -1,8 +1,9 @@
 Owner: Security / DevOps
 Approved By: CTO
+Effective Date: March 2026
 
 1. Purpose
-This policy defines how Kahana logs and monitors activities on its systems to detect security events, performance issues, and misuse. It supports SOC 2 requirements for system monitoring, incident detection, and evidence collection for both Type I and Type II audits.
+This policy defines how Kahana logs and monitors activities on systems that deliver Kahana Oasis to detect security events, performance issues, and misuse. It supports SOC 2 requirements for system monitoring, incident detection, and evidence collection for both Type I and Type II audits, including SOC 2 Common Criteria (notably CC7.1 monitoring controls).
 
 2. Scope
 This policy applies to:
@@ -83,8 +84,17 @@ Intrusion detection/prevention events (if used).
 
 Denied network connections where relevant (firewall logs).
 
-5. Centralized Logging
-Kahana’s current state: Events are logged directly in Supabase tables; Mixpanel for analytics. No dedicated SIEM. Supabase Pro Plan includes 7‑day log retention; Log Drains available at additional cost ($60/drain/project). Datadog is under consideration. AWS infrastructure logs where applicable.
+5. Centralized Logging (Kahana Current State)
+Kahana's current logging architecture is:
+- Supabase logs/tables for backend and application events
+- Mixpanel for analytics and product telemetry
+- AWS infrastructure logs where applicable
+
+Current constraints and planned direction:
+- No dedicated SIEM platform is currently deployed
+- Supabase Pro Plan includes 7-day log retention
+- Supabase Log Drains are available at additional cost ($60/drain/project) for forwarding logs
+- Datadog is under consideration for centralized collection, retention extension, and alerting maturity
 
 Logs from critical systems should, at minimum, collect:
 
@@ -104,7 +114,12 @@ Systems generating logs must use synchronized time (e.g., NTP) so events from di
 Time zone settings and formats should be consistent and documented.
 
 7. Log Retention
-Current state: Supabase Pro Plan = 7‑day log retention. Target: Security and access logs for production should be retained for at least 12 months where feasible, or longer if required by regulation or contracts. Kahana is evaluating extended retention (e.g., Log Drains, Datadog) for audit readiness.
+Current state:
+- Supabase Pro Plan = 7-day log retention
+- Retention beyond 7 days requires additional architecture (e.g., Log Drains and external storage/SIEM)
+
+Target state:
+Security and access logs for production should be retained for at least 12 months where feasible, or longer if required by regulation or contracts. Kahana is evaluating extended retention using Supabase Log Drains and Datadog for SOC 2 audit readiness.
 
 Less critical logs may have shorter retention but must meet business, legal, and audit needs. Log retention configurations must be documented.
 

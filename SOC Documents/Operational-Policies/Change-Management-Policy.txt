@@ -1,5 +1,6 @@
 Owner: Engineering Lead / DevOps
 Approved By: CTO
+Effective Date: March 2026
 
 1. Purpose
 This policy defines how changes to Kahana Oasis systems (code, infrastructure, configurations, and data structures) are requested, reviewed, approved, tested, implemented, and documented. The goal is to reduce the risk of outages, security issues, and unexpected behavior while enabling safe and predictable delivery.
@@ -37,7 +38,11 @@ Changes made urgently to address a critical incident (major outage, severe secur
 May use a streamlined approval path but must be documented and reviewed after implementation.
 
 4. Change Request and Tracking
-All non‑trivial changes must be tracked in an approved system. Kahana uses GitHub (PRs, issues, merge history) for code changes; Tally.so feedback forms routed to Slack and Google Sheets for product feedback; and sprints are created from feedback using Cursor and GitHub. No Jira or Linear; releases are managed via GitHub workflows and CI pipeline (see OTA & Updates Guide).
+All non‑trivial changes must be tracked in an approved system. Kahana's change tracking and planning flow is:
+
+Tally.so -> Slack -> Google Sheets -> Cursor/GitHub sprint planning -> GitHub issues/PRs -> GitHub workflows and CI/CD deployment.
+
+Kahana does not use Jira or Linear for change tracking. GitHub (PRs, issues, merge history, workflow runs) is the system of record for code and deployment changes.
 
 Each change request should include:
 
@@ -54,7 +59,17 @@ Planned implementation date/time and responsible engineer(s).
 No production change should occur without an associated ticket or record.
 
 4.1 OTA (Over-the-Air) Client Updates
-Oasis client updates use a two-ring model: oasis-canary (early validation) and oasis-stable (production). New versions land on canary first; after validation, stable is promoted by updating the ring pointer (no rebuild). Release workflows (GitHub Actions: oasis-canary.yml, oasis-stable-promote.yml) use tags vX.Y.Z.N. Rollback is done by repointing the ring to a prior known-good version. Update service: Supabase function (oasis-update). See OTA & Updates Guide for details.
+Oasis client updates use a two-ring model:
+- oasis-canary (early validation)
+- oasis-stable (production)
+
+New versions are promoted to canary first; after validation, stable is promoted by updating the ring pointer (no rebuild).
+
+Release workflows use GitHub Actions (`oasis-canary.yml`, `oasis-stable-promote.yml`) and version tags in the form `vX.Y.Z.N`.
+
+Rollback is performed by repointing the ring to a prior known-good version. Update service is the Supabase function (`oasis-update`).
+
+See OTA & Updates Guide for full operational details.
 
 5. Design, Review, and Approval
 5.1 Code and Configuration Changes
@@ -155,6 +170,14 @@ Testing evidence or references.
 Any incident or rollback information.
 
 These records support internal reviews and external audits (SOC 2/SOC 1).
+
+12.1 SOC 2 Alignment
+This policy supports SOC 2 CC8.1 (Change Management) and related common criteria by requiring:
+- Documented change initiation and traceability
+- Peer review and approval before production release
+- CI/CD-based controlled deployments
+- Testing evidence and rollback readiness
+- Post-change monitoring and incident-linked remediation
 
 13. Access Controls for Changes
 Only authorized personnel may deploy changes to production environments.

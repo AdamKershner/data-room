@@ -1,8 +1,11 @@
 Owner: Security Lead / COO
 Approved By: CEO
+Effective Date: March 2026
 
 1. Purpose
 This policy defines how Kahana selects, assesses, monitors, and offboards third‑party vendors and service providers that support Kahana Oasis. It aims to manage third‑party risk, protect customer and company data, and meet security and compliance requirements (including SOC 2).
+
+This policy is aligned to SOC 2 Common Criteria related to risk management, vendor oversight, and control monitoring (including CC9.x concepts).
 
 2. Scope
 This policy applies to:
@@ -12,6 +15,14 @@ All third parties that provide products or services to Kahana: AWS, Supabase, Ok
 All Kahana employees involved in selecting, onboarding, managing, or offboarding vendors.
 
 “Vendor” in this policy includes service providers, subcontractors, and key partners.
+
+2.1 Critical Kahana Vendors (Current State)
+The following vendors are considered critical to current Kahana Oasis operations and are subject to enhanced review:
+- AWS (core infrastructure, compute/storage/networking)
+- Supabase (database, auth, storage, backend services)
+- Google Gemini and Deepgram (AI capabilities used in product features)
+
+Other important vendors in scope include Stripe, Mixpanel, Google Analytics, Looker, Okta, and Google Workspace.
 
 3. Roles and Responsibilities
 Vendor Owner (Business Owner):
@@ -84,6 +95,15 @@ For High/Critical vendors, the Security Lead and relevant leadership must explic
 
 Low‑risk vendors (e.g., tools with no access to confidential data) may follow a lightweight review process.
 
+5.1 Kahana Vendor Evaluation Workflow (Required)
+For Medium/High/Critical vendors, Kahana follows this process:
+1) Vendor owner submits onboarding request with business purpose and data/system scope.
+2) Security/Compliance completes `Vendor-Risk-Assessment-Template`.
+3) Legal reviews contract package, including DPA needs.
+4) Risk rating is assigned (Low/Medium/High/Critical) and required controls are documented.
+5) Approvals are obtained (Security Lead + leadership for High/Critical).
+6) Vendor is added to inventory with owner, review cadence, and evidence links.
+
 6. Contract and Security Requirements
 Contracts with Medium/High‑risk vendors should, where possible, include:
 
@@ -115,6 +135,10 @@ Data Retention and Deletion:
 
 Requirements for data return or secure deletion at contract end or upon request.
 
+Data Processing Agreements (DPAs):
+
+Where a vendor processes Kahana customer data, personal data, or other Confidential/Restricted data, a DPA (or equivalent data protection addendum) is required unless Legal documents a justified exception.
+
 7. Onboarding
 Once a vendor is approved:
 
@@ -144,6 +168,14 @@ Monitor for major service outages or security news affecting critical vendors.
 Review actual usage and access to ensure least privilege is maintained.
 
 Findings should be documented and, where necessary, result in risk mitigations, contract changes, or vendor replacement.
+
+8.1 Annual Assurance Artifacts (Critical Vendors)
+For critical vendors (including AWS, Supabase, Gemini, Deepgram where available), Kahana should collect and review:
+- SOC 2/SOC 1 reports or equivalent assurance artifacts
+- Updated privacy/security documentation
+- DPA status and any sub-processor changes
+
+Review outputs should be documented and retained in vendor review evidence for audit readiness.
 
 9. Access Management for Vendors
 Vendor accounts and access (e.g., support accounts, admin portals, API keys) must be:
@@ -176,6 +208,11 @@ Steps taken for containment and remediation.
 Kahana assesses impact on its own risk, systems, and customers and determines whether customer or regulatory notifications are required.
 
 Outcomes may influence vendor risk rating and continued use.
+
+For critical vendors (AWS, Supabase, Gemini, Deepgram), incident follow-up must include an explicit decision record on:
+- continued use without changes,
+- continued use with compensating controls, or
+- migration/contingency planning.
 
 11. Offboarding Vendors
 When a vendor is no longer needed or a contract is terminated:

@@ -1,5 +1,6 @@
 Owner: Security Team
 Approved By: CEO / CISO
+Effective Date: March 2026
 
 1. Purpose
 This policy defines how Kahana classifies data and what protection requirements apply to each classification. The goal is to ensure that data used by Kahana Oasis is handled, stored, and shared in a way that matches its sensitivity and risk.
@@ -13,7 +14,7 @@ All formats (databases, files, documents, messages, logs, backups, paper, etc.).
 
 All Kahana employees, contractors, and vendors with access to Kahana data.
 
-3. Classification Levels
+3. Classification Levels (SOC 2 Aligned)
 Kahana uses four main data classification levels:
 
 Public
@@ -30,7 +31,7 @@ Each level builds on the previous one; higher levels require stronger protection
 Definition
 Information that is intended for public disclosure and whose unauthorized use or disclosure would not cause harm to Kahana, its customers, or partners.
 
-Examples
+Examples (Kahana Oasis)
 
 Public website content (marketing pages, blog posts, documentation intended for the public).
 
@@ -50,7 +51,7 @@ No special technical protection required beyond normal website and infrastructur
 Definition
 Information intended for use inside Kahana that is not meant for public distribution, but whose unauthorized disclosure would have limited impact.
 
-Examples
+Examples (Kahana Oasis)
 
 Internal process documents, runbooks, non‑sensitive project docs.
 
@@ -72,15 +73,19 @@ Basic access controls must be applied (e.g., login required, not publicly readab
 Definition
 Information that, if disclosed or altered without authorization, could cause harm to Kahana or its customers (e.g., reputational, financial, or operational impact).
 
-Examples
+Examples (Kahana Oasis)
 
 Most customer business information that is not publicly available.
+
+User account and profile data (name, email, workspace membership, subscription/account metadata).
 
 Product roadmaps, internal financials, non‑public metrics.
 
 Internal security documentation (e.g., network diagrams, some policy details).
 
 Support tickets containing customer context (but not highly sensitive personal data).
+
+AI prompt metadata and model usage records that do not contain highly sensitive content, but are still non-public.
 
 Handling Requirements
 
@@ -98,11 +103,15 @@ When shared externally (e.g., with partners), must be under appropriate agreemen
 Definition
 The most sensitive information Kahana processes. Unauthorized access, disclosure, or modification could cause significant harm to customers, individuals, or Kahana (e.g., legal, regulatory, or serious reputational damage).
 
-Examples
+Examples (Kahana Oasis)
 
 For Kahana Oasis, Restricted typically includes:
 
 Customer workspace content and files that may contain proprietary or sensitive information.
+
+Browse history and browsing/session activity data where stored and linkable to a user or workspace (including tab/session context and potentially sensitive navigation patterns).
+
+Raw AI prompts and AI interaction content when stored and when they may contain customer proprietary, personal, or sensitive business information.
 
 Authentication data and security tokens (password hashes, access tokens, API keys).
 
@@ -157,13 +166,13 @@ Provide guidance on classification and required controls.
 Periodically review samples of data handling to verify classification and protections are appropriate.
 
 10. Data Handling by Classification (Summary)
-You can turn this into a quick reference table in your doc:
-
 Public
 
 Sharing: Unrestricted.
 
 Storage: Standard controls.
+
+Handling procedure: Validate accuracy and owner approval before publication.
 
 Internal
 
@@ -171,17 +180,45 @@ Sharing: Inside Kahana only, except with approval.
 
 Storage: Authenticated internal tools.
 
+Handling procedure: Do not post externally; apply baseline access controls.
+
 Confidential
 
 Sharing: Need‑to‑know within Kahana; limited external sharing under NDA/contract.
 
 Storage: Approved systems with access control; secure transmission.
 
+Handling procedure: Use approved tools only, enforce access controls, and avoid unnecessary copies to local/personal systems.
+
 Restricted
 
 Sharing: Strict need‑to‑know, minimal audience.
 
 Storage: Strong access control, encryption at rest and in transit, secrets managers for credentials.
+
+Handling procedure: Explicit owner approval, minimal access grants, documented transfers, and secure deletion/anonymization per retention policy.
+
+10.1 Operational Handling Procedures (Required Controls)
+For Confidential and Restricted data in Kahana Oasis workflows:
+- Access must be granted through role-based approvals and least privilege (see Access Control Policy).
+- Data must be stored only in approved platforms (e.g., Supabase, approved storage, approved internal tools).
+- Transmission must use secure channels (HTTPS/TLS, approved secure integrations).
+- Sensitive values (tokens, secrets, keys) must be stored in AWS Secrets Manager, not in source code/chat/tickets.
+- Support exports and diagnostics should be minimized and sanitized where possible.
+- Backup and restoration handling must follow Backup-and-Restoration-Policy.
+- Logging/monitoring of access and administrative actions must follow Logging-&-Monitoring-Policy.
+- Vendor sharing must follow Vendor Management Policy and contractual controls.
+
+10.2 Oasis-Specific Data Classification Reference
+- Browse history / session activity:
+  - Default classification: Restricted when user/workspace-linkable
+  - Minimum handling: strict need-to-know, encrypted storage/transit, restricted sharing
+- AI prompts / AI interaction content:
+  - Default classification: Restricted when prompt content may include sensitive customer/user information
+  - May be Confidential only if sanitized/aggregated and non-sensitive
+- User data (account/profile/subscription metadata):
+  - Default classification: Confidential
+  - Elevated to Restricted when combined with sensitive identifiers or security context
 
 11. Violations and Enforcement
 Mishandling data (e.g., posting Restricted data in public channels, copying to unauthorized tools, or sharing beyond allowed scope) is a violation of this policy.

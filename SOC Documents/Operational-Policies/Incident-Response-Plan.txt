@@ -1,5 +1,6 @@
 Owner: CISO / Security Lead
 Approved By: CEO / CTO
+Effective Date: March 2026
 
 1. Purpose
 This Incident Response Plan (IRP) defines how Kahana detects, responds to, and recovers from security and privacy incidents that could affect Kahana Oasis, customer data, or company operations. The goal is to minimize impact, restore normal service quickly, meet legal and contractual obligations, and learn from each incident.
@@ -98,6 +99,11 @@ An incident may be detected by:
 
 Monitoring alerts (auth anomalies, malware, unusual system errors).
 
+Kahana monitoring sources:
+- Supabase logs/tables (application/backend/auth events)
+- Mixpanel telemetry (behavior and anomaly context)
+- AWS infrastructure/audit logs where available
+
 Users or employees noticing suspicious behavior or data exposure.
 
 Vendors or partners notifying Kahana of issues.
@@ -127,6 +133,14 @@ Medium: Some risk to systems or internal data, limited customer impact.
 High/Critical: Confirmed or likely compromise of customer data, major outage, or regulatory impact.
 
 Severity determines urgency, communications, and escalation.
+
+7.1 Initial Investigation Data Sources (Kahana-specific)
+During triage, responders should collect and correlate:
+- Supabase authentication and backend event logs
+- Mixpanel event timeline for user/session anomalies
+- AWS logs for infrastructure-level changes or suspicious activity
+
+The goal is to quickly determine blast radius, affected users/workspaces, probable root cause, and whether customer data exposure is likely.
 
 8. Phase 3 – Containment
 Goal: Limit damage and prevent further spread or data loss.
@@ -190,6 +204,18 @@ Relevant teams (engineering, support, customer success, product, HR if applicabl
 
 Internal updates should be factual, concise, and avoid speculation.
 
+11.1 Escalation Path (Kahana)
+Escalation is severity-based:
+- Low: Security Lead + Technical Lead handle and document.
+- Medium: Add CTO and relevant functional leads (Engineering/Support/Product).
+- High/Critical: Immediate escalation to CEO + CTO + Security Lead, with Legal/Privacy engagement and formal incident-communications cadence.
+
+Escalation must include:
+- Current severity and confidence level
+- Affected systems/data
+- Current containment status
+- Next decision point and owner
+
 Customer and External Communication
 
 If customers or external parties are affected or need to be informed:
@@ -249,6 +275,16 @@ Updating policies or procedures.
 Fixing process gaps (e.g., missing access reviews, incomplete backups).
 
 The goal is learning, not blame. Reviews should foster openness and continuous improvement.
+
+13.1 Required Post‑Incident Outputs
+Each significant incident must produce:
+- Incident timeline (detection -> containment -> eradication -> recovery)
+- Root cause summary and contributing factors
+- Evidence references (Supabase logs, Mixpanel events, AWS logs, screenshots/exports)
+- Corrective actions with owners and due dates
+- Control/policy updates required for SOC 2 readiness
+
+Post-incident actions should be tracked to completion and reviewed by Security Lead and CTO.
 
 14. Training and Exercises
 All employees receive basic awareness training on what a security incident is and how to report it.

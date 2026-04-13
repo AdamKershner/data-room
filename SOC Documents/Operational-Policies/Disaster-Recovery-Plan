@@ -1,8 +1,11 @@
 Owner: DevOps / Infrastructure Lead
 Approved By: CTO
+Effective Date: March 2026
 
 1. Purpose
 This Disaster Recovery Plan defines the technical steps Kahana takes to restore Kahana Oasis and supporting systems after a major disruption (e.g., cloud provider issues, data corruption, major misconfiguration). It supports the Business Continuity Plan by focusing on restoring IT services and data within defined RTO/RPO targets.
+
+This plan is aligned with SOC 2 Security and Availability expectations for technical recovery, backup restoration, and evidence-based recovery testing.
 
 2. Scope
 This DRP covers:
@@ -24,20 +27,20 @@ Catastrophic deployment or configuration changes that break production.
 Security incidents that require rebuilding systems or restoring from backups.
 
 3. Recovery Objectives
-These values are examples – you should set real numbers with engineering:
+Kahana target recovery objectives:
 
 Recovery Time Objective (RTO):
 
-Target maximum outage duration for Kahana Oasis core services: 4–8 hours.
+Target maximum outage duration for Kahana Oasis core services: 4-8 hours.
 
 Recovery Point Objective (RPO):
 
-Target maximum acceptable data loss (time since last usable backup/replica): 24 hours with Supabase Pro daily backups; N/A if on Free Plan (no backups—gap).
+Target maximum acceptable data loss (time since last usable backup/replica): 24 hours with Supabase Pro daily backups; N/A if on Free Plan (no backups - gap).
 
 These objectives drive backup frequency, replication, and DR architecture.
 
 4. Systems and Components in Scope
-List your main components (adjust names later):
+Kahana production components in scope:
 
 Application Layer:
 
@@ -45,7 +48,7 @@ Web frontend and backend services (AWS Lambda, Supabase backend, Oasis app).
 
 Data Layer:
 
-Primary production database: Supabase PostgreSQL (analytics, UTM, HITL feedback, Mixpanel). No secondary DB/redundancy.
+Primary production database: Supabase PostgreSQL (account/workspace metadata, analytics, UTM, HITL feedback). No secondary live database/redundancy.
 
 Object/file storage: Supabase Storage / AWS S3.
 
@@ -193,7 +196,7 @@ Update procedures, add controls to prevent recurrence (e.g., safer tooling, acce
 10. Recovery Procedures – Region or Major Infrastructure Failure
 Goal: Restore service in an alternate environment if primary region is unavailable.
 
-(If you don’t have full multi‑region now, treat this as a roadmap and focus on restoring from backups into a working region.)
+Current state: Kahana does not operate full multi-region active-active infrastructure and has no secondary live DB. Primary recovery method is rebuild + restore from backups.
 
 Confirm Regional/Infra Failure:
 

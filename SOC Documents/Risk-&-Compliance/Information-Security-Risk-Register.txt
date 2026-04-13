@@ -1,0 +1,42 @@
+Document Title: Information Security Risk Register – Kahana Oasis
+Version: 1.0
+Effective Date: March 2026
+Owner: Security Lead / Compliance Lead
+Approved By: CTO / CEO
+
+1. Purpose
+This register tracks Kahana's identified information security and operational risks for Kahana Oasis in support of SOC 2 risk management expectations. It is the operational tracking artifact paired with:
+- Risk Assessment Report
+- Risk Treatment Plan
+
+2. Status Legend
+- Open: Risk identified; treatment not started or incomplete
+- In Progress: Mitigation work underway
+- Mitigated: Planned treatment complete; residual risk accepted as manageable
+- Accepted: Risk formally accepted by leadership with rationale
+
+3. Risk Register (Kahana-Specific)
+
+| Risk ID | Risk Description | Owner | Status | Treatment Decision | Link to Risk Treatment Plan |
+|---------|------------------|-------|--------|--------------------|-----------------------------|
+| R-01 | Compromised privileged account enables unauthorized production access (AWS/Supabase/GitHub admin paths) | Security Lead / DevOps Lead | In Progress | Mitigate | Risk Treatment Plan - R-01 |
+| R-02 | Data loss or corruption in primary Supabase PostgreSQL database | DevOps Lead | In Progress | Mitigate | Risk Treatment Plan - R-02 |
+| R-03 | Misconfigured IAM/storage permissions expose customer or internal sensitive data | DevOps Lead | In Progress | Mitigate | Risk Treatment Plan - R-03 |
+| R-04 | Critical unpatched vulnerability in dependencies or service components | Engineering Lead | In Progress | Mitigate | Risk Treatment Plan - R-04 |
+| R-05 | Single-region dependency (AWS us-east-1 / Supabase) causes availability disruption | CTO / DevOps Lead | Open | Mitigate / Partially Accept | Risk Treatment Plan - R-05 |
+| R-06 | Limited centralized SIEM capability delays incident detection/triage | Security Lead / DevOps Lead | In Progress | Mitigate | Risk Treatment Plan - R-06 |
+| R-07 | Vendor/sub-processor security incident impacts Kahana data or service continuity | Security Lead / Vendor Owner | In Progress | Mitigate | Risk Treatment Plan - R-07 |
+| R-08 | Quarterly access reviews not executed with sign-off evidence (SOC 2 CC6.1 gap) | Security Lead | Open | Mitigate | Risk Treatment Plan - R-08 |
+| R-09 | Backup/restore testing and evidence not consistently executed (SOC 2 BC/DR evidence gap) | DevOps Lead | Open | Mitigate | Risk Treatment Plan - R-09 |
+| R-10 | Sensitive data exposure risk in AI prompt/interaction flows (Gemini/Deepgram integrations) | Security Lead / Product Engineering | In Progress | Mitigate | Risk Treatment Plan - R-10 |
+
+4. Operating Rules
+- Every risk in this register must have a corresponding treatment entry in the Risk Treatment Plan.
+- Status and owner must be updated whenever mitigation progress changes.
+- High risks must be reviewed with leadership and are not accepted without explicit approval.
+- Register is reviewed at least quarterly; full risk assessment is reviewed at least annually and after major incidents/changes.
+
+5. References
+- `SOC Documents/Risk-&-Compliance/Risk-Assessment-Report`
+- `SOC Documents/Risk-&-Compliance/Risk-Treatment-Plan`
+- `SOC Documents/Risk-&-Compliance/Controls-Matrix-CC1-CC9.md`

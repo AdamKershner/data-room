@@ -1,8 +1,11 @@
 Owner: HR / IT
 Approved By: CEO
+Effective Date: March 2026
 
 1. Purpose
 This policy defines what is and is not allowed when employees, contractors, and interns use Kahana’s systems, devices, and networks. The goal is to protect Kahana Oasis, customer data, and company assets from misuse, accidental damage, and security incidents.
+
+This policy supports SOC 2 Security criteria by establishing acceptable behavior, prohibited activities, and reporting obligations for users of Kahana systems.
 
 2. Scope
 This policy applies to:
@@ -15,10 +18,20 @@ All networks and systems used to access Kahana Oasis or company data (office net
 
 Any personal devices used to access Kahana systems or data, where allowed by IT.
 
+2.1 Kahana Systems and Tools in Scope
+This policy applies to company use of platforms and tools used to operate and support Kahana Oasis, including:
+- AWS and Supabase environments
+- GitHub and CI/CD workflows
+- Google Workspace, Slack, and approved collaboration systems
+- Mixpanel and other approved analytics/operations tooling
+- Customer-impacting tools and services used for support and delivery
+
 3. General Acceptable Use
 Users must:
 
 Use Kahana devices and systems primarily for legitimate business purposes.
+
+Use only approved work tools and workflows for business operations (Kahana currently uses GitHub + supporting internal workflows; no Jira/Linear requirement in current process documentation).
 
 Follow all security policies (Information Security, Access Control, Password, Encryption, Workstation Security, Remote Access, etc.).
 
@@ -70,12 +83,16 @@ Engage in harassment, discrimination, or any form of abusive behavior.
 
 Perform hacking, port scanning, or other unauthorized security testing.
 
+Attempt unauthorized access to Kahana production systems, customer environments, or third-party platforms connected to Kahana operations.
+
 6. Access to Systems and Data
 Users must:
 
 Access only the systems and data they are authorized to use, and only for legitimate business purposes.
 
 Respect data classification rules (Public, Internal, Confidential, Restricted) and handle data accordingly.
+
+Treat Oasis customer workspace data, browse/session history, AI prompts/interactions, and authentication/security data according to the Data Classification Policy and applicable security controls.
 
 Not attempt to bypass access controls, escalate privileges, or view data outside their job responsibilities.
 
@@ -101,6 +118,8 @@ Using Kahana resources for personal commercial activities, political campaigns, 
 Sending spam, phishing, or other deceptive communications.
 
 Storing or transmitting offensive, discriminatory, or inappropriate content that violates company values or law.
+
+Using unapproved external AI or cloud tools to process customer or internal sensitive data when those tools are not approved by Kahana Security/Legal.
 
 8. Social Media and Professional Networks (e.g., LinkedIn)
 Kahana encourages use of LinkedIn as part of growth and branding initiatives. When posting or engaging on LinkedIn or other professional/social platforms:

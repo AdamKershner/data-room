@@ -1,6 +1,8 @@
 Title: System Description – Kahana Oasis (SOC 2)
 
 Version: 1.0
+Owner: Compliance Lead
+Approved By: CEO / CTO
 Effective Date / Period Covered: For SOC 2 Type I: as of [audit date]. For Type II: from [START DATE] to [END DATE] (audit period to be set upon engagement; target SOC 2 Type II within 6–12 months post–SOC 1)
 
 1. Company Overview and Services Provided
@@ -23,6 +25,8 @@ Logging, monitoring, and security controls for the in‑scope environment.
 Change management, incident response, and supporting processes relevant to the Security Trust Services Criteria.
 
 Out of scope (for this report, unless later added): non‑production environments beyond their role supporting production, purely marketing websites, and purely internal‑only tooling not used to deliver the Oasis service.
+
+Primary cloud scope for this system is AWS us-east-1 and Supabase-managed backend services used by Oasis.
 
 3. Principal Service Commitments and System Requirements
 Kahana’s principal commitments for the Oasis system, as communicated in marketing materials, security documentation, and contracts/SLAs, focus on:
@@ -85,7 +89,10 @@ Software is built and deployed through a secure development lifecycle and change
 4.3 People
 Key roles involved in operating and securing the system include:
 
-Executive leadership (CEO Adam Kershner, CTO, Security Lead).
+Executive leadership:
+- CEO: Adam Kershner
+- CTO: [Name]
+- Security Lead: [Name]
 
 Engineering and DevOps teams responsible for building, deploying, and operating Oasis.
 
@@ -122,6 +129,8 @@ Analytics and Monitoring: Mixpanel (analytics); Supabase logs (backend events; 7
 Payment: Stripe (subscription billing; Kahana does not directly handle payment card data).
 
 Other: Google Analytics, Looker; AI: Google Gemini, Deepgram (DPAs and SOC 2 considerations per checklist).
+
+In summary, key vendors in current scope include: AWS, Supabase, Okta, Stripe, Mixpanel, Google Analytics, Looker, Google Gemini, and Deepgram.
 
 These subservice organizations are expected to maintain security and compliance controls appropriate to their services. Kahana reviews them through vendor management processes and, where available, obtains their security documentation or SOC/ISO reports.
 
