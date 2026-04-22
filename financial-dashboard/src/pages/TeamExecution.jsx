@@ -418,94 +418,6 @@ function TeamExecution() {
       ]
     },
     {
-      name: "Navile Mahesh",
-      roles: ["Product Marketing"],
-      employmentStatus: "intern",
-      hoursPerWeek: 20,
-      timeLogs: [
-        {
-          submissionId: "Navile1",
-          respondentId: "Navile",
-          submittedAt: "2025-01-10 10:00:00",
-          name: "Navile Mahesh",
-          date: "2025-01-03",
-          hours: 20,
-          description: "Week of Dec 30 - Jan 3. Created social media content and posted daily. Engaged with community on Product Hunt. Supported content marketing initiatives. Tracked sign-ups and conversion metrics."
-        },
-        {
-          submissionId: "Navile2",
-          respondentId: "Navile",
-          submittedAt: "2025-01-17 10:00:00",
-          name: "Navile Mahesh",
-          date: "2025-01-10",
-          hours: 20,
-          description: "Week of Jan 6-10. Generated social media content ideas. Created engaging posts for Twitter and LinkedIn. Engaged with online communities. Tracked subscriber growth from content."
-        },
-        {
-          submissionId: "Navile3",
-          respondentId: "Navile",
-          submittedAt: "2025-01-24 10:00:00",
-          name: "Navile Mahesh",
-          date: "2025-01-17",
-          hours: 20,
-          description: "Week of Jan 13-17. Developed new content series themes. Created visual content for social media. Supported Product Hunt campaign. Analyzed content performance metrics."
-        },
-        {
-          submissionId: "Navile4",
-          respondentId: "Navile",
-          submittedAt: "2025-01-31 10:00:00",
-          name: "Navile Mahesh",
-          date: "2025-01-24",
-          hours: 20,
-          description: "Week of Jan 20-24. Continued content creation and distribution. Engaged with community on Product Hunt. Created content calendar for February. Tracked sign-ups and conversion rates."
-        }
-      ],
-      q1Goals: {
-        overview: "Support sales through competitive analysis and positioning",
-        target: "Complete competitive analysis and create sales enablement materials",
-        weeklyBreakdown: [
-          { week: 1, goal: "Research competitor products", metric: "Analysis started" },
-          { week: 2, goal: "Week 2 competitive analysis", metric: "Analysis progress" },
-          { week: 3, goal: "Week 3 competitive analysis", metric: "Analysis progress" },
-          { week: 4, goal: "Complete competitive analysis", metric: "Report ready" },
-          { week: 5, goal: "Develop positioning messaging", metric: "Messaging ready" },
-          { week: 6, goal: "Create sales enablement materials", metric: "Materials ready" },
-          { week: 7, goal: "Week 7 positioning refinement", metric: "Ongoing support" },
-          { week: 8, goal: "Week 8 positioning refinement", metric: "Ongoing support" },
-          { week: 9, goal: "Week 9 positioning refinement", metric: "Ongoing support" },
-          { week: 10, goal: "Week 10 positioning refinement", metric: "Ongoing support" },
-          { week: 11, goal: "Week 11 positioning refinement", metric: "Ongoing support" },
-          { week: 12, goal: "Week 12 positioning refinement", metric: "Ongoing support" },
-          { week: 13, goal: "Q1 positioning review", metric: "Sales support complete" }
-        ],
-        keyMetrics: [
-          "Competitive analysis completion",
-          "Positioning messaging clarity",
-          "Sales enablement materials created",
-          "Sales team support effectiveness"
-        ]
-      },
-      projects: [
-        {
-          title: "Competitive Analysis & Positioning",
-          status: "active",
-          startDate: "January 2026",
-          description: "Analyze competitive landscape and develop positioning strategy for Oasis Browser.",
-          scope: [
-            "Research and analyze competitor products (Arc, Sidekick, etc.)",
-            "Identify Oasis's unique value propositions and differentiators",
-            "Develop positioning messaging for B2C and B2B markets",
-            "Create competitive comparison materials for sales team"
-          ],
-          goals: [
-            "Complete competitive analysis report",
-            "Define clear positioning for Oasis Browser",
-            "Create sales enablement materials"
-          ]
-        }
-      ]
-    },
-    {
       name: "Akansha Parihar",
       roles: ["Product Marketing"],
       employmentStatus: "intern",
@@ -2530,20 +2442,6 @@ function TeamExecution() {
     {
       name: "Mukesh Basvekar",
       roles: ["Sales"],
-      employmentStatus: "intern",
-      hoursPerWeek: 20,
-      timeLogs: []
-    },
-    {
-      name: "Harika Kurra",
-      roles: ["Product"],
-      employmentStatus: "intern",
-      hoursPerWeek: 20,
-      timeLogs: []
-    },
-    {
-      name: "Alisha Reji",
-      roles: ["Product"],
       employmentStatus: "intern",
       hoursPerWeek: 20,
       timeLogs: []
