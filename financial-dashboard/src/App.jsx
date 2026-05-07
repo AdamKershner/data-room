@@ -29,6 +29,7 @@ import ProductHuntTasks from './pages/ProductHuntTasks'
 import OTAGuide from './pages/OTAGuide'
 import SOC2GapAnalysis from './pages/SOC2GapAnalysis'
 import SOC2Type1Checklist from './pages/SOC2Type1Checklist'
+import ProjectCharter from './pages/ProjectCharter'
 import './App.css'
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
           <Route path="/ota-guide" element={<OTAGuide />} />
           <Route path="/soc2-gap-analysis" element={<SOC2GapAnalysis />} />
           <Route path="/soc2-type1-checklist" element={<SOC2Type1Checklist />} />
+          <Route path="/project-charter" element={<ProjectCharter />} />
         </Routes>
       </div>
     </Router>
