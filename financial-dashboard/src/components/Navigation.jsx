@@ -71,6 +71,7 @@ function Navigation() {
       items: [
         { path: '/product-technology', label: 'Product & Technology', id: 'product-technology' },
         { path: '/problem-market', label: 'Problem, Market & Users', id: 'problem-market' },
+        { path: '/project-charter', label: 'Project Charter', id: 'project-charter' },
         { path: '/nps', label: 'NPS', id: 'nps' },
         { path: '/hitl', label: 'HITL Feedback', id: 'hitl' }
       ]
