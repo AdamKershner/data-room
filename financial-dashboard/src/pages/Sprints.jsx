@@ -1092,14 +1092,11 @@ function Sprints() {
         "Elevation hierarchy improved in minimized state"
       ],
       completionNote: "Archived Feb 2026"
-    }
-  ]
-
-  // Active sprints (in progress)
-  const activeSprints = [
+    },
     {
-      id: 5,
-      title: "UI/Bug Fixes",
+      id: 2005,
+      sprintNumber: 5,
+      title: "UI/Bug Fixes (Archived May 2026)",
       emoji: "🐛",
       priority: "MEDIUM",
       storyPoints: 8,
@@ -1163,11 +1160,521 @@ function Sprints() {
         "Bookmark removal works for imported bookmarks via AI commands",
         "Profile button opens profile settings tab correctly",
         "Bookmark management via AI supports retrieve, delete, and bookmarks bar placement"
-      ]
+      ],
+      completionNote: "Archived May 2026 — moved from active board."
     },
     {
-      id: 8,
-      title: "Tab Group & Tab/Window Operations",
+      id: 2009,
+      sprintNumber: 9,
+      title: "Authentication + Subscription UX (login, signup, session restore, limits) (Archived May 2026)",
+      emoji: "🔐",
+      priority: "HIGH",
+      storyPoints: 21,
+      effort: "Medium-High",
+      impact: "High",
+      severity: "8-10/10",
+      teamMembers: ["Pournami", "Saideep", "Durgesh"],
+      overview: "Fix authentication, login, signup, password management, and the 'paid but still limited' experience. This sprint is UI-heavy and should be owned by one engineer (or split by 'UI vs backend service' if needed) due to the size of `assistant.ui.js`. **UPDATED:** Added issues from Mar 2026 feedback (forgot password, signup with existing email, cannot login/signup, NetworkError/Supabase downtime).",
+      primaryFiles: "browser/base/content/assistant/assistant.ui.js, browser/base/content/assistant/build/src/services/supabase.ts, browser/base/content/assistant/build/src/services/subscription.ts, browser/base/content/assistant/build/src/proxyClient.ts",
+      issues: [
+        {
+          title: "No Error Message on Invalid Login",
+          count: 1,
+          submissionIds: ["GxAgbQo"],
+          description: "When entering incorrect credentials, no user-facing error message is displayed. Error only appears in console logs.",
+          impact: "Users don't know why login failed (severity 8/10)",
+          technicalNotes: "Error handling in assistant.ui.js or supabase.ts - need to surface console errors to user",
+          requiresUI: true,
+          feedback: [
+            { id: "GxAgbQo", text: "When I tried to log in using my credentials, I intentionally entered incorrect credentials. However, there was no user-facing error message or popup indicating that the credentials were invalid. When I checked the logs, I could see: console.error: 'Email sign in error:' 'Invalid login credentials'. Based on this, it would be better to display a clear error message to the user when they attempt to log in with incorrect credentials, instead of only logging the error in the console.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-15.06.59.png?id=RbWW8P&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJiV1c4UCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI0ODYwNX0.sTGpJJFmYznqAux8OPytrxRfGwISikp26nkRaTvtmyo&signature=d3470744823cb78bd43b2d8eaa5de26093636521d50ab64a06c3bab0136de44c" }
+          ]
+        },
+        {
+          title: "Signup Doesn't Work",
+          count: 1,
+          submissionIds: ["xXW77z5"],
+          description: "When trying to sign up, account is not created. No error message displayed, and user cannot sign in after attempted signup.",
+          impact: "New users can't create accounts (severity 10/10)",
+          technicalNotes: "Signup flow in assistant.ui.js or services/supabase.ts - error handling and user feedback needed",
+          requiresUI: true,
+          feedback: [
+            { id: "xXW77z5", text: "When I am trying to sign up for using the AI assistant, the account is not getting created. It does not reflect any message, nor does it allow me to sign in." }
+          ]
+        },
+        {
+          title: "Cannot Login or Signup (Latest Version)",
+          count: 1,
+          submissionIds: ["EkpV9GB"],
+          description: "Cannot login or signup with the latest version. No forgot password option. Signup window returns to original state after clicking signup.",
+          impact: "Users blocked from accessing Oasis (severity 9/10)",
+          technicalNotes: "Signup flow and forgot password in assistant.ui.js or supabase.ts",
+          requiresUI: true,
+          feedback: [
+            { id: "EkpV9GB", text: "Cannot Login or Signup with the latest version. No forgot password option. The signup window after clicking on signup returns into original state (prior to signup)." }
+          ]
+        },
+        {
+          title: "No Forgot Password Recovery Path",
+          count: 1,
+          submissionIds: ["obW66G1"],
+          description: "Invalid password error shown but no Forgot Password recovery path. User is forced to create a new account when password cannot be recovered.",
+          impact: "Causes churn and duplicate accounts (severity 7/10)",
+          technicalNotes: "Implement forgot password flow in assistant.ui.js, integrate with Supabase auth",
+          requiresUI: true,
+          feedback: [
+            { id: "obW66G1", text: "Invalid password error shown, but no Forgot Password recovery path. Because password cannot be recovered : user is forced to create a new account. This will cause churn and duplicate accounts." }
+          ]
+        },
+        {
+          title: "Signup with Existing Email Provides No Guidance",
+          count: 1,
+          submissionIds: ["2E08Aob"],
+          description: "When signing up with an email that already has an account, nothing happens. No sign-in redirect, no password reset route, no message that account exists.",
+          impact: "Users don't know what to do next (severity 9/10)",
+          technicalNotes: "Signup flow error handling - detect existing account and surface clear guidance (sign in, reset password)",
+          requiresUI: true,
+          feedback: [
+            { id: "2E08Aob", text: "Signing up with an existing email does not proceed and does not provide any guidance. When I enter an email that already has an account and attempt to sign up, nothing happens. It does not sign me in, does not route me to Sign In, and does not route me to password reset. There is no clear message telling me the account already exists or what to do next." }
+          ]
+        },
+        {
+          title: "NetworkError / Supabase Downtime Blocks Sign-In",
+          count: 1,
+          submissionIds: ["Eky7MZ4"],
+          description: "Users receive NetworkError when signing in during Supabase downtime (e.g., India region). No guidance to check status page or report the issue.",
+          impact: "Users blocked from signing in during outages (severity 10/10)",
+          technicalNotes: "Improve error messaging for network/auth failures, suggest Supabase status page, add user reporting flow",
+          requiresUI: true,
+          feedback: [
+            { id: "Eky7MZ4", text: "As a user in India, I was not able to sign in within the 24 hour span on February 26th. Received a message \"NetworkError\" upon attempting to sign in with my user email and password. It likely has to do with this reported Supabase downtime in India: https://status.supabase.com/. As this is the 2nd time in the last 1 month that a Supabase downtime error has affected users' ability to log in, we should consider addressing this with improved error messaging that suggests for users to check the Supabase status page in the event they receive a \"Network Error\" upon signing in. We can also give them the ability to report this at that moment, which can notify us more quickly so we can potentially send a mass communication to users affected.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-26-at-8.34.30-PM.png?id=okjBab&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im9rakJhYiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MjExODQyMn0.oATBNppRgMzfRGLxj3XYxrM7nhijOS1vN6Ki2tyMcNA&signature=6168ca0f3d81136a59b3f6d15d9ea3eb255184deb0ea5b25fe5dc0867ffe3a58" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "Clear error messages displayed for invalid login credentials",
+        "Signup flow works and creates accounts successfully",
+        "All authentication errors are user-friendly and actionable",
+        "Forgot password recovery path implemented",
+        "Signup with existing email shows clear guidance (sign in or reset password)",
+        "NetworkError / Supabase downtime shows helpful messaging and reporting option"
+      ],
+      completionNote: "Archived May 2026 — moved from active board."
+    },
+    {
+      id: 2010,
+      sprintNumber: 10,
+      title: "Onboarding + Branding polish (first run, visibility, Firefox remnants) (Archived May 2026)",
+      emoji: "🎯",
+      priority: "MEDIUM-HIGH",
+      storyPoints: 14,
+      effort: "Medium",
+      impact: "High",
+      severity: "10/10",
+      teamMembers: ["Pournami", "Saideep"],
+      overview: "Improve the first-time user experience including onboarding flow, default preferences, browser import, AI Assistant visibility, and removing Firefox branding. Includes browser import in onboarding, Firefox privacy policy replacement on first launch, and Firefox branding removal in vertical tabs popup. **UPDATED:** Added issues from Mar 2026 feedback (Firefox branding in recent browsing modal, profile popup; Chrome import duplicates).",
+      primaryFiles: "browser/base/content/assistant/assistant.ui.js (assistant visibility / entry points), Browser first-run / startup UI (exact files TBD when implementing), browser/branding/**",
+      issues: [
+        {
+          title: "AI Assistant Not Visible by Default",
+          count: 1,
+          submissionIds: ["rj4PdO2"],
+          description: "When initially installing Oasis, the AI assistant isn't immediately open by default. Users have to search for it and don't know where to open it.",
+          impact: "Poor discoverability of core feature (severity 10/10)",
+          technicalNotes: "Browser initialization logic - AI Assistant should be open by default on first install and whenever browser loads",
+          requiresUI: true,
+          feedback: [
+            { id: "rj4PdO2", text: "When I initially install Oasis, the AI assistant isn't immediately open by default. I have to search for it and don't know where to open it. By default, the AI assistant should always be open and displayed when the browser is initially installed and whenever it is loaded." }
+          ]
+        },
+        {
+          title: "Tabs from Other Devices Shows Firefox",
+          count: 1,
+          submissionIds: ["2EWPvvA"],
+          description: "When clicking 'tabs from other devices' button, user sees Firefox branded interface and link to log into Mozilla account. This is confusing.",
+          impact: "Confusing for users (severity 8/10)",
+          technicalNotes: "Hide or replace 'tabs from other devices' functionality - should be hidden to avoid confusion",
+          requiresUI: true,
+          feedback: [
+            { id: "2EWPvvA", text: "As a new user, when I click the 'tabs from other devices' button, I see a Firefox branded interface and link to log into my Mozilla account. This is confusing. There should be no option to click the 'tabs from other devices' button. It should be hidden to avoid confusion", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.21.34-PM.png?id=xRl555&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSbDU1NSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNjE4NX0.G8XN6JYVyVMeTbnB2b9XMMpgUYGF4RVL9KlNtdu3Xgg&signature=f9d7983e7015b11e5584b4ad173940052bc84f87ec10933d857bf3865995fc6b" }
+          ]
+        },
+        {
+          title: "Default Preferences Not Set",
+          count: 1,
+          submissionIds: ["Bzy7bq4"],
+          description: "As a new Oasis user, good default preferences are not automatically enabled. Users have to manually turn on settings like 'Open links in tabs instead of new windows', 'Ctrl+Tab cycles through tabs in recently used order', etc.",
+          impact: "Users have to configure settings manually (severity 6/10)",
+          technicalNotes: "Set optimal default preferences on first install in settings.ts",
+          feedback: [
+            { id: "Bzy7bq4", text: "As a new Oasis user, I would appreciate it if I could setup good default preferences when I initially install Oasis. For example, when i click the 'settings' option, I see multiple good defaults that I have to manually turn on, but I wish they were automatically on when i install. These are: Ctrl+Tab cycles through tabs in recently used order, Open links in tabs instead of new windows, Open links from apps next to your active tab, Warn you when opening multiple tabs might slow down Oasis, When you open a link, image or media in a new tab, switch to it immediately, Ask before closing multiple tabs, Browser Layout - Horizontal tabs, Display at top of browser, Vertical tabs, Display on the side, in the sidebar, Show sidebar", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.33.29-PM.png?id=NbRZYj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iUlpZaiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNjg1OX0.aAR5p5BoqJmXDJf_V2u_LGAbmyRxtFtL0LBBcw6dXVs&signature=60bc609e3c8c542ef567b65039e5a6931f5848650e31b853d5fc175a799e7176" }
+          ]
+        },
+        {
+          title: "Login Not Obvious for First-Time Users",
+          count: 1,
+          submissionIds: ["kdobD0M"],
+          description: "As a first time user, it is not obvious to log in to AI assistant, it is difficult to find and how to access it. Once opened, it's difficult to figure out how to sign up.",
+          impact: "Users can't get started (severity 6/10)",
+          technicalNotes: "Onboarding flow should guide users to sign up/login, make it more discoverable",
+          requiresUI: true,
+          feedback: [
+            { id: "kdobD0M", text: "As a first time user, it is not obvious to log in to AI assistant, it is difficult to find and how to access it. Once I open it, its difficult to figure out how to sign up in it." }
+          ]
+        },
+        {
+          title: "Firefox Branded Image Popup on New Profile",
+          count: 1,
+          submissionIds: ["rj42xGN"],
+          description: "As a new Oasis user setting up a New Profile, it was confusing to see a Firefox Branded image popup upon entering the new profile created.",
+          impact: "Confusing branding for new users (severity 6/10)",
+          technicalNotes: "Replace Firefox branding in new profile creation flow with Oasis branding",
+          requiresUI: true,
+          feedback: [
+            { id: "rj42xGN", text: "As a new Oasis user setting up a New Profile, it was confusing to see a Firefox Branded image popup upon entering the new profile i created", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-24-at-2.39.44-PM.png?id=EZa4Z4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaYTRaNCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTI4NzI0Nn0.aCfmdfDYUQ3xHHY3j9Y-dO7Qpp0ZYUXVsd1ehDZlFYQ&signature=43dd7b8de08820b0b574908e152d8735c2ca013ea9b78364004e8c301e431f07" }
+          ]
+        },
+        {
+          title: "No Browser Import in Onboarding",
+          count: 1,
+          submissionIds: ["Me4RJ4M"],
+          description: "When installing Oasis for the first time, there's no option to import data from Chrome/Safari and other browsers immediately in the onboarding flow.",
+          impact: "Users can't easily migrate from other browsers (severity 10/10)",
+          technicalNotes: "Onboarding flow needs browser import option - can leverage Firefox's existing import functionality",
+          requiresUI: true,
+          feedback: [
+            { id: "Me4RJ4M", text: "When a user installs Oasis for the first time, there should be an option to import data from chrome/safari and other browsers immediately in the onboarding flow. The user should know that it is possible to import immediately and be able to easily take action.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.29.46-PM.png?id=Bj2R71&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJqMlI3MSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNjYxNX0.__rJRjYu7WImp-45-L-ZrXfXlL6erlULqlTdpepwdoA&signature=feaa1fa4a1ba1fbcd4ba89dd43c1b1f8d099d2f513f172e484d0271ed1c1c0f9" }
+          ]
+        },
+        {
+          title: "Firefox Privacy Policy on First Launch",
+          count: 1,
+          submissionIds: ["Bzy7Bj5"],
+          description: "As a first-time Oasis user, when installing and opening the browser for the first time, a Firefox privacy policy tab opens instead of Oasis new tab page or Kahana privacy policy.",
+          impact: "Confusing branding, poor first impression (severity 10/10)",
+          technicalNotes: "Browser initialization - replace Firefox default page with Oasis/Kahana page",
+          feedback: [
+            { id: "Bzy7Bj5", text: "As a first-time Oasis user, when I install and open the browser for the first time, I see a Firefox privacy policy tab open https://www.mozilla.org/en-US/privacy/firefox/. This is confusing because I would expect to see the 'new tab' page for Oasis or the Kahana privacy policy instead https://kahana.co/privacy-policy", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.13.15-PM.png?id=GqQAoj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxUUFvaiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTY4Mn0.5OzFjPRZVDMaKYkJGtwKEcTz4K9we1U2ZSlWDKWHSXk&signature=cfc9ccdfca6548993adc659512d9557b285cb2b23d91ea3268f8f27a351ce009" }
+          ]
+        },
+        {
+          title: "Firefox Branding in Vertical Tabs Popup",
+          count: 1,
+          submissionIds: ["PdxOEY5"],
+          description: "When turning on vertical tabs as a new user, a purple popup with Firefox logo and cartoon fox appears. This is not on-brand for Oasis.",
+          impact: "Confusing branding (severity 8/10)",
+          technicalNotes: "Replace Firefox branding in vertical tabs popup with Oasis branding",
+          requiresUI: true,
+          feedback: [
+            { id: "PdxOEY5", text: "When I 'turn on vertical tabs' as a new user, I see a purple popup with the firefox logo and a cartoon fox. This is not on-brand for Oasis and seems confusing and buggy. It would make sense to swap the firefox portions of the popup and modify the pop up so it is on-brand with Oasis", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.07.48-PM.png?id=pJkpy1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKa3B5MSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTM2NH0.hGh4YjifQ96MGhKw8dEfLBBNP7VizfxUZnWcOaJkgQc&signature=1a50fb17952fec483e7c72b09629954ed0a8b93c3ce45072cd9be04b76dddb54" }
+          ]
+        },
+        {
+          title: "Firefox Branding in Recent Browsing Modal",
+          count: 1,
+          submissionIds: ["kdqdlkd"],
+          description: "Recent browsing view includes Firefox branding and CTA to sync Oasis across all devices (not a feature). Modal should be hidden or use Oasis branding.",
+          impact: "Confusing branding (severity 10/10)",
+          technicalNotes: "Hide or replace recent browsing modal, ensure Oasis branding consistency",
+          requiresUI: true,
+          feedback: [
+            { id: "kdqdlkd", text: "This view for recent browsing includes Firefox branding and a CTA to sync Oasis across all devices, which is not a feature, so that modal should be hidden. The branding should be consistent with Oasis branding, not Firefox.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-12-at-11.28.33-AM.png?id=vd4pdQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZkNHBkUSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDkxNzQxMn0.OnMqRfO5V3OHlzhZu5LDukE7M0CZPac7HT3u49JC1l4&signature=13111370e6781deb54f90824debe2d639640b782e81f69f49af9f8cdf68a6940" }
+          ]
+        },
+        {
+          title: "Firefox Branded Profile Popup",
+          count: 1,
+          submissionIds: ["aQVL069"],
+          description: "Profile popup shows Firefox branding instead of Oasis branding.",
+          impact: "Confusing branding (severity 10/10)",
+          technicalNotes: "Replace Firefox branding in profile popup with Oasis branding",
+          requiresUI: true,
+          feedback: [
+            { id: "aQVL069", text: "Firefox branded profile popup", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-19-at-8.47.18-AM.png?id=yd18oX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InlkMThvWCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MTUxMzc4N30.wLGQdWlcWHtjz9jMVrKyVe84TPzI4-jP_e8qNrzP5Zs&signature=0f7cb5252f2947423cd5a4e3c75ecb8d7a018068fccb8a88e5f7805864e0befc" }
+          ]
+        },
+        {
+          title: "Chrome Import Duplicates Bookmarks",
+          count: 1,
+          submissionIds: ["9qbWNO5"],
+          description: "Importing data from Chrome twice results in bookmarks being saved twice (duplicates).",
+          impact: "Duplicate bookmarks after import (severity 6/10)",
+          technicalNotes: "Browser import logic - deduplicate or prevent duplicate imports",
+          requiresUI: true,
+          feedback: [
+            { id: "9qbWNO5", text: "I imported my data from Chrome, I did it twice however the bookmarks were saved twice.", screenshot: "https://storage.tally.so/private/SCR-20260222-oxyg.png?id=8RyjWP&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhSeWpXUCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MTc5NzYyOX0.i1JGs5ACPDIKHWhZQDGJxPBeogirOR1cKlflb36-LY0&signature=65e973e415b5534051c9ab54efaee090a158da244f88afb9732e5b3ba45f3fae" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "AI Assistant is open and visible by default on first install and browser launch",
+        "All Firefox branding is replaced with Oasis branding",
+        "'Tabs from other devices' button is hidden or replaced",
+        "Optimal default preferences are set automatically on first install",
+        "Login/signup is discoverable and guided in onboarding",
+        "New profile creation shows Oasis branding instead of Firefox branded image popup",
+        "Onboarding flow includes browser import option (Chrome, Safari, etc.)",
+        "First launch shows Oasis/Kahana page instead of Firefox privacy policy",
+        "Firefox branding in vertical tabs popup is replaced with Oasis branding",
+        "Firefox branding in recent browsing modal and profile popup replaced with Oasis branding",
+        "Chrome import does not create duplicate bookmarks"
+      ],
+      completionNote: "Archived May 2026 — moved from active board."
+    },
+    {
+      id: 2013,
+      sprintNumber: 13,
+      title: "Chat History Access (Archived May 2026)",
+      emoji: "💬",
+      priority: "MEDIUM",
+      storyPoints: 14,
+      effort: "Medium-High",
+      impact: "Medium",
+      severity: "7/10",
+      teamMembers: ["Ashwin", "Saideep", "Pournami"],
+      overview: "Implement chat history storage and retrieval, allowing users to access previous AI Assistant chat threads from other days. Includes New Chat feature and proper icon labeling for chat management.",
+      primaryFiles: "browser/base/content/assistant/build/src/chatHistory.ts (NEW), browser/base/content/assistant/assistant.ui.js, services/supabase.ts",
+      issues: [
+        {
+          title: "Feature Request: Chat History Access",
+          count: 1,
+          submissionIds: ["xXqY2aJ"],
+          description: "Users expect to be able to access previous AI Assistant chat threads (conversation history) from other days. Currently AI says it can only access current session.",
+          impact: "Users want persistent chat history (severity 7/10)",
+          technicalNotes: "Implement chat history storage and retrieval - store conversations in Supabase, create UI to access past conversations. Create new chatHistory.ts module.",
+          requiresUI: true,
+          feedback: [
+            { id: "xXqY2aJ", text: "As an early Oasis user, I expect to be able to access previous AI Assistant chat threads (conversation history) and/or get a clear answer about AI Assistant history works and what I should expect. 'how is our ai assistant chat history handled? Can I access previous chats from other days?' Current AI response: 'I can access the complete conversation history within our current interaction. However, I don't have the ability to access previous chats from other days. My memory is limited to the current session.'", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.16.37-PM.png?id=zG15bZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpHMTViWiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExMDI0OH0.jCeih9O-1CfQfCzVYxkYOYKWKkB3g1md-QWx8pMzyZo&signature=ae16daaae6b282cff1d9399c6855a155d447334b6e2a49b0a3743ad741962eb0" }
+          ]
+        },
+        {
+          title: "Refresh Icon Labeling and New Chat Feature",
+          count: 1,
+          submissionIds: ["J9yB5MX"],
+          description: "The refresh icon next to voice dictation is currently labeled as 'clear chat history,' which is unexpected. It should only appear when voice dictation is active and clearly reflect that function. Separately, provide a 'New Chat' option for starting fresh conversations.",
+          impact: "Confusing labeling and missing feature (severity 10/10)",
+          technicalNotes: "Fix icon labeling, add 'New Chat' feature, move chat history clearing to Settings",
+          requiresUI: true,
+          feedback: [
+            { id: "J9yB5MX", text: "The refresh icon next to voice dictation is currently labeled as 'clear chat history,' which is unexpected. That icon originally signaled restarting voice dictation, not wiping conversation history. It should only appear when voice dictation is active and clearly reflect that function. Separately, instead of clearing chat history from there, we should provide a 'New Chat' option for starting fresh conversations and let users access past chats through chat history. Clearing chat history is a higher-impact action and would be better placed in Settings for now.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.54.14-AM.png?id=Yxa760&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ill4YTc2MCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MjgyNX0.g6O5Sub6W3OW2B_IGkbfOXovqh4FkulWO-Of3AatWXQ&signature=c008eecf286f2fa522e7cf9e4ab4f04eacd604301f0bfc0a1b930e2e1841fc66" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "Chat history storage and access implemented",
+        "Conversations are stored in Supabase",
+        "UI allows users to access past conversations",
+        "Chat history persists across sessions",
+        "Refresh icon labeling is correct and contextual (only appears when voice dictation is active)",
+        "New Chat feature implemented for starting fresh conversations",
+        "Chat history clearing moved to Settings"
+      ],
+      completionNote: "Archived May 2026 — moved from active board."
+    },
+    {
+      id: 2015,
+      sprintNumber: 15,
+      title: "Automatic Software Updates (Archived May 2026)",
+      emoji: "🔄",
+      priority: "MEDIUM",
+      storyPoints: 13,
+      effort: "Medium-High",
+      impact: "High",
+      severity: "10/10",
+      teamMembers: ["Afshaan", "Lalith", "Revanth", "Ashwin", "Kaushik"],
+      overview: "Implement update checking, notification system, and update UI within Oasis for software updates. Users who have installed Oasis on Windows or Mac should be able to go to a clear place in the app (e.g., Settings → Software Update) and see a macOS-style Software Update screen with status, installed version, check/download/install buttons, and optional Automatic Updates / Beta toggles.",
+      primaryFiles: "toolkit/mozapps/update/, browser/components/preferences/main.inc.xhtml, browser/base/content/aboutDialog-appUpdater.js, resource://gre/modules/AppUpdater.sys.mjs, browser/base/content/assistant/ (Settings entry point)",
+      keyConsiderations: {
+        context: "Oasis is built on Firefox (Gecko). The Firefox update pipeline (MAR + updater binary) already exists and works on macOS and Windows. However, the built-in update UI is hidden for packaged builds, and the app currently points to Mozilla's update server—not an Oasis-specific one.",
+        sections: [
+          {
+            title: "Current State (What Exists)",
+            items: [
+              "Firefox update pipeline in toolkit/mozapps/update/ — MAR-based flow, updater binary, signature verification",
+              "Update protocol works on macOS and Windows (same flow; platform-specific elevation)",
+              "Preferences update UI exists (check, download, restart, auto/manual) but is hidden for packaged apps via display: none in main.js (lines 4731–4735)",
+              "Update URL baked in at build time; default host is aus5.mozilla.org",
+              "AppUpdateURL enterprise policy can override URL without rebuild (policies.json)",
+              "Assistant Settings shows \"Settings coming soon\" — no Software Update section yet",
+              "AWS infrastructure available for hosting update server"
+            ]
+          },
+          {
+            title: "Gaps (What's Missing)",
+            items: [
+              "No Oasis update server — no service serving update.xml and Oasis MARs",
+              "No Oasis MAR build/signing process — need Oasis-specific MARs and signing",
+              "Update URL points to Mozilla — must override (build or policy) to point to Oasis server",
+              "Packaged app hides update UI — installed Mac/Windows users have no in-app update button today",
+              "No dedicated Software Update screen — no macOS-style status, version, toggles, legal/help"
+            ]
+          },
+          {
+            title: "Desired End State",
+            items: [
+              "Dedicated Software Update screen (e.g., Settings → Software Update) with: status (checking/up to date/update available), installed version, Check for updates button, Download and install when available, Restart to update",
+              "Optional toggles: Automatic Updates on/off, Beta Updates on/off",
+              "Legal/help links",
+              "Updates delivered via existing Firefox pipeline but with Oasis server + Oasis MARs"
+            ]
+          },
+          {
+            title: "Implementation Phases",
+            items: [
+              "Phase 1: Oasis update server (host update.xml + MARs on AWS), MAR build/signing pipeline, override update URL",
+              "Phase 2: Un-hide or replace Preferences update UI with dedicated Software Update screen in Assistant Settings",
+              "Phase 3: Add Automatic Updates and Beta toggles, legal/help copy"
+            ]
+          }
+        ]
+      },
+      issues: [
+        {
+          title: "Feature Request: Automatic Software Updates",
+          count: 1,
+          submissionIds: ["5B7xd7d"],
+          description: "Users want to receive software update notifications within Oasis itself, with an Update button and option to turn on Automatic software updates, similar to Apple System settings UI.",
+          impact: "Would improve update experience (severity 9/10)",
+          technicalNotes: "Implement update checking, notification system, and update UI in settings or dedicated update component",
+          requiresUI: true,
+          feedback: [
+            { id: "5B7xd7d", text: "As an Oasis user, rather than receive new software updates by manually installing a new version through a file on the kahana.co/installations page, I would prefer to receive notifications within Oasis itself where I can follow the notification to a 'software update' page similar to the UI of Apple System settings, where I can check if new software updates are available and actually click an Update button to update my software, and/or turn on Automatic software updates.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.05.22-PM.png?id=rJkMyp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKa015cCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTIxOH0.NTmCc8VtMpUIj7E6umxXQMqtydAJAD5BTXecUOoo2-k&signature=34299a9179a06127cc230c092e18d21875a00a9e325e67c33f6d3eb17db2f6d8" }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "Automatic software updates system implemented",
+        "Update notifications appear within Oasis",
+        "Update UI is accessible and intuitive",
+        "Users can enable/disable automatic updates"
+      ],
+      completionNote: "Archived May 2026 — moved from active board."
+    },
+    {
+      id: 2019,
+      sprintNumber: 19,
+      title: "Sprint 19 - Feedback Modal & HITL (Archived May 2026)",
+      emoji: "💬",
+      priority: "MEDIUM-HIGH",
+      storyPoints: 12,
+      effort: "Medium",
+      impact: "High",
+      severity: "7-10/10",
+      teamMembers: ["Rushyanth"],
+      overview: "Feedback modal implementation and HITL audit. **Feedback modal:** Implement in-app feedback functionality; modal auto-scroll when triggered. **HITL objective:** Make the AI error-free and bring it to max efficiency—NPS surveys cite this as what could make the product better. Identify errors that negatively impact user experience (commands that feel wrong, too slow, or don't work) and make it easy for users to log these thoroughly with enough context to resolve each issue. Audit current HITL setup and output to improve the experience for users and the data for engineers.",
+      primaryFiles: "browser/base/content/assistant/ui-preact/src/components/Feedback.tsx, browser/base/content/assistant/ui-preact/src/App.tsx, browser/components/aiwindow/ui/components/ai-chat-content/chat-assistant-footer/assistant-message-footer.mjs, hitlFeedback.ts, feedback_events table, assistant.ts, feedback_events_rows.csv (current export)",
+      issues: [
+        {
+          title: "Feedback Modal Auto-Scroll",
+          count: 1,
+          submissionIds: ["D4LWR7l"],
+          description: "When users click the upvote or downvote icons, the feedback modal isn't immediately visible and requires manual scrolling. The modal should automatically come into view.",
+          impact: "Friction in feedback flow (severity 10/10)",
+          technicalNotes: "Implement auto-scroll or repositioning of feedback modal when triggered",
+          requiresUI: true,
+          feedback: [
+            { id: "D4LWR7l", text: "When users click the upvote or downvote icons, the feedback modal isn't immediately visible and requires manual scrolling. This adds friction. The modal should automatically come into view, either by auto-scrolling or repositioning it in the viewport so users can continue the feedback flow without extra effort.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.26.38-AM.png?id=YxabXN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ill4YWJYTiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MDk2NX0.nY7XVTjj0lUQQlt5kh-tU_z-Tjnh5wz2DRQyPJn-TMI&signature=0becef6ab3931381bcdcd32f6b3e98c1e13de1ec34bc4dfd30853999539a972e" }
+          ]
+        },
+        {
+          title: "Audit Current HITL User Experience",
+          count: 0,
+          submissionIds: [],
+          description: "Review the in-product feedback flow from the user's perspective: Where does the feedback prompt appear? How easy is it to submit? What friction exists (e.g., too many steps, unclear categories, no prompt to add context)? Document pain points and opportunities to make logging errors easier and more thorough.",
+          impact: "Informs UX improvements to increase feedback quality and volume",
+          technicalNotes: "Walk through feedback flow in assistant UI. Review Feedback.tsx, assistant-message-footer. Consider user testing or internal dogfooding.",
+          feedback: []
+        },
+        {
+          title: "Audit Current Output Data & Gaps",
+          count: 0,
+          submissionIds: [],
+          description: "Analyze feedback_events export (schema, CSV output) against what engineers need to reproduce issues, triage to sprints, and improve the AI. Document gaps: missing user_prompt, ai_response, tool_output, conversation context, command_type, user_plan, etc. Reference feedback_events_IMPROVED_SAMPLE.csv for target state.",
+          impact: "Identifies data improvements needed for actionable engineering",
+          technicalNotes: "Compare current export to improved sample. Trace data flow from UI → hitlFeedback → Supabase → export.",
+          feedback: []
+        },
+        {
+          title: "Document Recommendations & Prioritized Roadmap",
+          count: 0,
+          submissionIds: [],
+          description: "Synthesize audit findings into a prioritized list of recommendations: (1) User experience improvements—what would make it easier for users to log errors with sufficient context; (2) Output data improvements—what columns/capture changes would make the export actionable for engineers. Include effort estimates and impact.",
+          impact: "Creates clear roadmap for future HITL enhancement sprints",
+          technicalNotes: "Deliverable: markdown or doc with recommendations, prioritized by impact/effort.",
+          feedback: []
+        }
+      ],
+      acceptanceCriteria: [
+        "Feedback modal auto-scrolls/repositions when triggered",
+        "Current HITL user flow audited and documented with pain points",
+        "Current output data gaps documented vs. engineering needs",
+        "Prioritized recommendations delivered (UX + data improvements)",
+        "Roadmap for implementation sprints defined"
+      ],
+      completionNote: "Archived May 2026 — moved from active board."
+    },
+    {
+      id: 2025,
+      sprintNumber: 25,
+      title: "Daily AI Command Limits (Archived May 2026)",
+      emoji: "📊",
+      priority: "HIGH",
+      storyPoints: 13,
+      teamMembers: ["Archit Gupta"],
+      effort: "Medium-High",
+      impact: "High",
+      severity: "7-8/10",
+      overview: "Migrate Oasis pricing from monthly AI command limits to daily limits for all plans. Current pricing: Beta (free) = 50 AI commands/month, Zen ($20/month) = 1,500 AI commands/month. Goal: enforce AI command limits per day instead of per month across all plans. Requires backend usage tracking changes, limit enforcement logic, UI updates for daily usage display, and pricing/marketing copy updates.",
+      primaryFiles: "Usage/limit tracking service, plan configuration, AI assistant pre-request check, pricing page, in-app usage display",
+      issues: [
+        {
+          title: "Backend: Daily Usage Tracking & Limit Enforcement",
+          count: 1,
+          submissionIds: ["PRICING-MIGRATION"],
+          description: "Implement daily (vs monthly) usage tracking for AI commands. Store usage per user per day; reset counters at midnight (user timezone or UTC). Enforce limits before executing AI commands. Plan config must support daily limits (e.g., Beta: ~2/day, Zen: ~50/day as rough equivalents, or new target values).",
+          impact: "Core requirement for pricing model change (severity 8/10)",
+          technicalNotes: "Modify usage tracking schema/logic to aggregate by day. Add pre-request check in AI assistant flow. Plan table/config needs daily_limit field. Consider timezone handling for reset.",
+          feedback: [
+            { id: "PRICING-MIGRATION", text: "Current: Beta = 50 AI commands/month, Zen = 1,500 AI commands/month. Migrate to daily limits for all plans." }
+          ]
+        },
+        {
+          title: "UI: Daily Usage Display & Limit Messaging",
+          count: 1,
+          submissionIds: ["PRICING-MIGRATION"],
+          description: "Update in-app UI to show daily usage (e.g., '12 / 50 AI commands today') instead of monthly. When limit reached, show clear message: 'Daily limit reached. Resets at midnight.' Replace 'Usage limit reached (50/50 units). Please upgrade your plan via the menu.' style messaging with daily context.",
+          impact: "Users need visibility into daily limits (severity 7/10)",
+          technicalNotes: "AI assistant UI, settings/profile area. Update limit-reached modal or inline message. Ensure messaging is accurate for daily reset.",
+          requiresUI: true,
+          feedback: [
+            { id: "PRICING-MIGRATION", text: "Users should see daily usage and understand when their limit resets." }
+          ]
+        },
+        {
+          title: "Pricing Page & Plan Configuration",
+          count: 1,
+          submissionIds: ["PRICING-MIGRATION"],
+          description: "Update kahana.co/oasis-pricing and any in-app pricing surfaces to reflect daily limits. Define and document new daily limits per plan (e.g., Beta: X/day, Zen: Y/day). Update Stripe/product metadata if needed.",
+          impact: "Accurate marketing and sales (severity 7/10)",
+          technicalNotes: "Pricing page copy, plan config in DB or env. Ensure consistency between marketing and enforcement.",
+          feedback: [
+            { id: "PRICING-MIGRATION", text: "Pricing page currently shows '50 AI commands per month' (Beta) and '1,500 AI commands per month' (Zen). Change to daily limits." }
+          ]
+        }
+      ],
+      acceptanceCriteria: [
+        "Usage tracked and enforced per day (not per month) for all plans",
+        "Daily limits defined per plan and configurable",
+        "In-app UI shows daily usage (e.g., X / Y AI commands today)",
+        "Limit-reached message explains daily reset (midnight)",
+        "Pricing page and marketing copy updated to daily limits",
+        "Existing users migrated gracefully (no unexpected lockouts)"
+      ],
+      completionNote: "Archived May 2026 — moved from active board."
+    },
+    {
+      id: 5008,
+      sprintNumber: 8,
+      title: "Tab Group & Tab/Window Operations (Archived May 2026)",
       emoji: "📁",
       priority: "HIGH",
       storyPoints: 62,
@@ -1328,264 +1835,13 @@ function Sprints() {
         "Group all tabs adds all tabs not just one",
         "Tab group creation correctly identifies and adds existing tabs",
         "Remove tab from group does not trigger GraphRecursionError"
-      ]
-    },
-    {
-      id: 9,
-      title: "Authentication + Subscription UX (login, signup, session restore, limits)",
-      emoji: "🔐",
-      priority: "HIGH",
-      storyPoints: 21,
-      effort: "Medium-High",
-      impact: "High",
-      severity: "8-10/10",
-      teamMembers: ["Pournami", "Saideep", "Durgesh"],
-      overview: "Fix authentication, login, signup, password management, and the 'paid but still limited' experience. This sprint is UI-heavy and should be owned by one engineer (or split by 'UI vs backend service' if needed) due to the size of `assistant.ui.js`. **UPDATED:** Added issues from Mar 2026 feedback (forgot password, signup with existing email, cannot login/signup, NetworkError/Supabase downtime).",
-      primaryFiles: "browser/base/content/assistant/assistant.ui.js, browser/base/content/assistant/build/src/services/supabase.ts, browser/base/content/assistant/build/src/services/subscription.ts, browser/base/content/assistant/build/src/proxyClient.ts",
-      issues: [
-        {
-          title: "No Error Message on Invalid Login",
-          count: 1,
-          submissionIds: ["GxAgbQo"],
-          description: "When entering incorrect credentials, no user-facing error message is displayed. Error only appears in console logs.",
-          impact: "Users don't know why login failed (severity 8/10)",
-          technicalNotes: "Error handling in assistant.ui.js or supabase.ts - need to surface console errors to user",
-          requiresUI: true,
-          feedback: [
-            { id: "GxAgbQo", text: "When I tried to log in using my credentials, I intentionally entered incorrect credentials. However, there was no user-facing error message or popup indicating that the credentials were invalid. When I checked the logs, I could see: console.error: 'Email sign in error:' 'Invalid login credentials'. Based on this, it would be better to display a clear error message to the user when they attempt to log in with incorrect credentials, instead of only logging the error in the console.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-12-at-15.06.59.png?id=RbWW8P&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IlJiV1c4UCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2ODI0ODYwNX0.sTGpJJFmYznqAux8OPytrxRfGwISikp26nkRaTvtmyo&signature=d3470744823cb78bd43b2d8eaa5de26093636521d50ab64a06c3bab0136de44c" }
-          ]
-        },
-        {
-          title: "Signup Doesn't Work",
-          count: 1,
-          submissionIds: ["xXW77z5"],
-          description: "When trying to sign up, account is not created. No error message displayed, and user cannot sign in after attempted signup.",
-          impact: "New users can't create accounts (severity 10/10)",
-          technicalNotes: "Signup flow in assistant.ui.js or services/supabase.ts - error handling and user feedback needed",
-          requiresUI: true,
-          feedback: [
-            { id: "xXW77z5", text: "When I am trying to sign up for using the AI assistant, the account is not getting created. It does not reflect any message, nor does it allow me to sign in." }
-          ]
-        },
-        {
-          title: "Cannot Login or Signup (Latest Version)",
-          count: 1,
-          submissionIds: ["EkpV9GB"],
-          description: "Cannot login or signup with the latest version. No forgot password option. Signup window returns to original state after clicking signup.",
-          impact: "Users blocked from accessing Oasis (severity 9/10)",
-          technicalNotes: "Signup flow and forgot password in assistant.ui.js or supabase.ts",
-          requiresUI: true,
-          feedback: [
-            { id: "EkpV9GB", text: "Cannot Login or Signup with the latest version. No forgot password option. The signup window after clicking on signup returns into original state (prior to signup)." }
-          ]
-        },
-        {
-          title: "No Forgot Password Recovery Path",
-          count: 1,
-          submissionIds: ["obW66G1"],
-          description: "Invalid password error shown but no Forgot Password recovery path. User is forced to create a new account when password cannot be recovered.",
-          impact: "Causes churn and duplicate accounts (severity 7/10)",
-          technicalNotes: "Implement forgot password flow in assistant.ui.js, integrate with Supabase auth",
-          requiresUI: true,
-          feedback: [
-            { id: "obW66G1", text: "Invalid password error shown, but no Forgot Password recovery path. Because password cannot be recovered : user is forced to create a new account. This will cause churn and duplicate accounts." }
-          ]
-        },
-        {
-          title: "Signup with Existing Email Provides No Guidance",
-          count: 1,
-          submissionIds: ["2E08Aob"],
-          description: "When signing up with an email that already has an account, nothing happens. No sign-in redirect, no password reset route, no message that account exists.",
-          impact: "Users don't know what to do next (severity 9/10)",
-          technicalNotes: "Signup flow error handling - detect existing account and surface clear guidance (sign in, reset password)",
-          requiresUI: true,
-          feedback: [
-            { id: "2E08Aob", text: "Signing up with an existing email does not proceed and does not provide any guidance. When I enter an email that already has an account and attempt to sign up, nothing happens. It does not sign me in, does not route me to Sign In, and does not route me to password reset. There is no clear message telling me the account already exists or what to do next." }
-          ]
-        },
-        {
-          title: "NetworkError / Supabase Downtime Blocks Sign-In",
-          count: 1,
-          submissionIds: ["Eky7MZ4"],
-          description: "Users receive NetworkError when signing in during Supabase downtime (e.g., India region). No guidance to check status page or report the issue.",
-          impact: "Users blocked from signing in during outages (severity 10/10)",
-          technicalNotes: "Improve error messaging for network/auth failures, suggest Supabase status page, add user reporting flow",
-          requiresUI: true,
-          feedback: [
-            { id: "Eky7MZ4", text: "As a user in India, I was not able to sign in within the 24 hour span on February 26th. Received a message \"NetworkError\" upon attempting to sign in with my user email and password. It likely has to do with this reported Supabase downtime in India: https://status.supabase.com/. As this is the 2nd time in the last 1 month that a Supabase downtime error has affected users' ability to log in, we should consider addressing this with improved error messaging that suggests for users to check the Supabase status page in the event they receive a \"Network Error\" upon signing in. We can also give them the ability to report this at that moment, which can notify us more quickly so we can potentially send a mass communication to users affected.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-26-at-8.34.30-PM.png?id=okjBab&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Im9rakJhYiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MjExODQyMn0.oATBNppRgMzfRGLxj3XYxrM7nhijOS1vN6Ki2tyMcNA&signature=6168ca0f3d81136a59b3f6d15d9ea3eb255184deb0ea5b25fe5dc0867ffe3a58" }
-          ]
-        }
       ],
-      acceptanceCriteria: [
-        "Clear error messages displayed for invalid login credentials",
-        "Signup flow works and creates accounts successfully",
-        "All authentication errors are user-friendly and actionable",
-        "Forgot password recovery path implemented",
-        "Signup with existing email shows clear guidance (sign in or reset password)",
-        "NetworkError / Supabase downtime shows helpful messaging and reporting option"
-      ]
+      completionNote: "Archived May 2026 — moved from active board (only B2B Sprint 1 + B2C Sprint 2 remain open; former Sprint 34 merged into Sprint 2)."
     },
     {
-      id: 10,
-      title: "Onboarding + Branding polish (first run, visibility, Firefox remnants)",
-      emoji: "🎯",
-      priority: "MEDIUM-HIGH",
-      storyPoints: 14,
-      effort: "Medium",
-      impact: "High",
-      severity: "10/10",
-      teamMembers: ["Pournami", "Saideep"],
-      overview: "Improve the first-time user experience including onboarding flow, default preferences, browser import, AI Assistant visibility, and removing Firefox branding. Includes browser import in onboarding, Firefox privacy policy replacement on first launch, and Firefox branding removal in vertical tabs popup. **UPDATED:** Added issues from Mar 2026 feedback (Firefox branding in recent browsing modal, profile popup; Chrome import duplicates).",
-      primaryFiles: "browser/base/content/assistant/assistant.ui.js (assistant visibility / entry points), Browser first-run / startup UI (exact files TBD when implementing), browser/branding/**",
-      issues: [
-        {
-          title: "AI Assistant Not Visible by Default",
-          count: 1,
-          submissionIds: ["rj4PdO2"],
-          description: "When initially installing Oasis, the AI assistant isn't immediately open by default. Users have to search for it and don't know where to open it.",
-          impact: "Poor discoverability of core feature (severity 10/10)",
-          technicalNotes: "Browser initialization logic - AI Assistant should be open by default on first install and whenever browser loads",
-          requiresUI: true,
-          feedback: [
-            { id: "rj4PdO2", text: "When I initially install Oasis, the AI assistant isn't immediately open by default. I have to search for it and don't know where to open it. By default, the AI assistant should always be open and displayed when the browser is initially installed and whenever it is loaded." }
-          ]
-        },
-        {
-          title: "Tabs from Other Devices Shows Firefox",
-          count: 1,
-          submissionIds: ["2EWPvvA"],
-          description: "When clicking 'tabs from other devices' button, user sees Firefox branded interface and link to log into Mozilla account. This is confusing.",
-          impact: "Confusing for users (severity 8/10)",
-          technicalNotes: "Hide or replace 'tabs from other devices' functionality - should be hidden to avoid confusion",
-          requiresUI: true,
-          feedback: [
-            { id: "2EWPvvA", text: "As a new user, when I click the 'tabs from other devices' button, I see a Firefox branded interface and link to log into my Mozilla account. This is confusing. There should be no option to click the 'tabs from other devices' button. It should be hidden to avoid confusion", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.21.34-PM.png?id=xRl555&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InhSbDU1NSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNjE4NX0.G8XN6JYVyVMeTbnB2b9XMMpgUYGF4RVL9KlNtdu3Xgg&signature=f9d7983e7015b11e5584b4ad173940052bc84f87ec10933d857bf3865995fc6b" }
-          ]
-        },
-        {
-          title: "Default Preferences Not Set",
-          count: 1,
-          submissionIds: ["Bzy7bq4"],
-          description: "As a new Oasis user, good default preferences are not automatically enabled. Users have to manually turn on settings like 'Open links in tabs instead of new windows', 'Ctrl+Tab cycles through tabs in recently used order', etc.",
-          impact: "Users have to configure settings manually (severity 6/10)",
-          technicalNotes: "Set optimal default preferences on first install in settings.ts",
-          feedback: [
-            { id: "Bzy7bq4", text: "As a new Oasis user, I would appreciate it if I could setup good default preferences when I initially install Oasis. For example, when i click the 'settings' option, I see multiple good defaults that I have to manually turn on, but I wish they were automatically on when i install. These are: Ctrl+Tab cycles through tabs in recently used order, Open links in tabs instead of new windows, Open links from apps next to your active tab, Warn you when opening multiple tabs might slow down Oasis, When you open a link, image or media in a new tab, switch to it immediately, Ask before closing multiple tabs, Browser Layout - Horizontal tabs, Display at top of browser, Vertical tabs, Display on the side, in the sidebar, Show sidebar", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.33.29-PM.png?id=NbRZYj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ik5iUlpZaiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNjg1OX0.aAR5p5BoqJmXDJf_V2u_LGAbmyRxtFtL0LBBcw6dXVs&signature=60bc609e3c8c542ef567b65039e5a6931f5848650e31b853d5fc175a799e7176" }
-          ]
-        },
-        {
-          title: "Login Not Obvious for First-Time Users",
-          count: 1,
-          submissionIds: ["kdobD0M"],
-          description: "As a first time user, it is not obvious to log in to AI assistant, it is difficult to find and how to access it. Once opened, it's difficult to figure out how to sign up.",
-          impact: "Users can't get started (severity 6/10)",
-          technicalNotes: "Onboarding flow should guide users to sign up/login, make it more discoverable",
-          requiresUI: true,
-          feedback: [
-            { id: "kdobD0M", text: "As a first time user, it is not obvious to log in to AI assistant, it is difficult to find and how to access it. Once I open it, its difficult to figure out how to sign up in it." }
-          ]
-        },
-        {
-          title: "Firefox Branded Image Popup on New Profile",
-          count: 1,
-          submissionIds: ["rj42xGN"],
-          description: "As a new Oasis user setting up a New Profile, it was confusing to see a Firefox Branded image popup upon entering the new profile created.",
-          impact: "Confusing branding for new users (severity 6/10)",
-          technicalNotes: "Replace Firefox branding in new profile creation flow with Oasis branding",
-          requiresUI: true,
-          feedback: [
-            { id: "rj42xGN", text: "As a new Oasis user setting up a New Profile, it was confusing to see a Firefox Branded image popup upon entering the new profile i created", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-24-at-2.39.44-PM.png?id=EZa4Z4&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkVaYTRaNCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTI4NzI0Nn0.aCfmdfDYUQ3xHHY3j9Y-dO7Qpp0ZYUXVsd1ehDZlFYQ&signature=43dd7b8de08820b0b574908e152d8735c2ca013ea9b78364004e8c301e431f07" }
-          ]
-        },
-        {
-          title: "No Browser Import in Onboarding",
-          count: 1,
-          submissionIds: ["Me4RJ4M"],
-          description: "When installing Oasis for the first time, there's no option to import data from Chrome/Safari and other browsers immediately in the onboarding flow.",
-          impact: "Users can't easily migrate from other browsers (severity 10/10)",
-          technicalNotes: "Onboarding flow needs browser import option - can leverage Firefox's existing import functionality",
-          requiresUI: true,
-          feedback: [
-            { id: "Me4RJ4M", text: "When a user installs Oasis for the first time, there should be an option to import data from chrome/safari and other browsers immediately in the onboarding flow. The user should know that it is possible to import immediately and be able to easily take action.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.29.46-PM.png?id=Bj2R71&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkJqMlI3MSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNjYxNX0.__rJRjYu7WImp-45-L-ZrXfXlL6erlULqlTdpepwdoA&signature=feaa1fa4a1ba1fbcd4ba89dd43c1b1f8d099d2f513f172e484d0271ed1c1c0f9" }
-          ]
-        },
-        {
-          title: "Firefox Privacy Policy on First Launch",
-          count: 1,
-          submissionIds: ["Bzy7Bj5"],
-          description: "As a first-time Oasis user, when installing and opening the browser for the first time, a Firefox privacy policy tab opens instead of Oasis new tab page or Kahana privacy policy.",
-          impact: "Confusing branding, poor first impression (severity 10/10)",
-          technicalNotes: "Browser initialization - replace Firefox default page with Oasis/Kahana page",
-          feedback: [
-            { id: "Bzy7Bj5", text: "As a first-time Oasis user, when I install and open the browser for the first time, I see a Firefox privacy policy tab open https://www.mozilla.org/en-US/privacy/firefox/. This is confusing because I would expect to see the 'new tab' page for Oasis or the Kahana privacy policy instead https://kahana.co/privacy-policy", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.13.15-PM.png?id=GqQAoj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxUUFvaiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTY4Mn0.5OzFjPRZVDMaKYkJGtwKEcTz4K9we1U2ZSlWDKWHSXk&signature=cfc9ccdfca6548993adc659512d9557b285cb2b23d91ea3268f8f27a351ce009" }
-          ]
-        },
-        {
-          title: "Firefox Branding in Vertical Tabs Popup",
-          count: 1,
-          submissionIds: ["PdxOEY5"],
-          description: "When turning on vertical tabs as a new user, a purple popup with Firefox logo and cartoon fox appears. This is not on-brand for Oasis.",
-          impact: "Confusing branding (severity 8/10)",
-          technicalNotes: "Replace Firefox branding in vertical tabs popup with Oasis branding",
-          requiresUI: true,
-          feedback: [
-            { id: "PdxOEY5", text: "When I 'turn on vertical tabs' as a new user, I see a purple popup with the firefox logo and a cartoon fox. This is not on-brand for Oasis and seems confusing and buggy. It would make sense to swap the firefox portions of the popup and modify the pop up so it is on-brand with Oasis", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.07.48-PM.png?id=pJkpy1&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InBKa3B5MSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTM2NH0.hGh4YjifQ96MGhKw8dEfLBBNP7VizfxUZnWcOaJkgQc&signature=1a50fb17952fec483e7c72b09629954ed0a8b93c3ce45072cd9be04b76dddb54" }
-          ]
-        },
-        {
-          title: "Firefox Branding in Recent Browsing Modal",
-          count: 1,
-          submissionIds: ["kdqdlkd"],
-          description: "Recent browsing view includes Firefox branding and CTA to sync Oasis across all devices (not a feature). Modal should be hidden or use Oasis branding.",
-          impact: "Confusing branding (severity 10/10)",
-          technicalNotes: "Hide or replace recent browsing modal, ensure Oasis branding consistency",
-          requiresUI: true,
-          feedback: [
-            { id: "kdqdlkd", text: "This view for recent browsing includes Firefox branding and a CTA to sync Oasis across all devices, which is not a feature, so that modal should be hidden. The branding should be consistent with Oasis branding, not Firefox.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-12-at-11.28.33-AM.png?id=vd4pdQ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InZkNHBkUSIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDkxNzQxMn0.OnMqRfO5V3OHlzhZu5LDukE7M0CZPac7HT3u49JC1l4&signature=13111370e6781deb54f90824debe2d639640b782e81f69f49af9f8cdf68a6940" }
-          ]
-        },
-        {
-          title: "Firefox Branded Profile Popup",
-          count: 1,
-          submissionIds: ["aQVL069"],
-          description: "Profile popup shows Firefox branding instead of Oasis branding.",
-          impact: "Confusing branding (severity 10/10)",
-          technicalNotes: "Replace Firefox branding in profile popup with Oasis branding",
-          requiresUI: true,
-          feedback: [
-            { id: "aQVL069", text: "Firefox branded profile popup", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-19-at-8.47.18-AM.png?id=yd18oX&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InlkMThvWCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MTUxMzc4N30.wLGQdWlcWHtjz9jMVrKyVe84TPzI4-jP_e8qNrzP5Zs&signature=0f7cb5252f2947423cd5a4e3c75ecb8d7a018068fccb8a88e5f7805864e0befc" }
-          ]
-        },
-        {
-          title: "Chrome Import Duplicates Bookmarks",
-          count: 1,
-          submissionIds: ["9qbWNO5"],
-          description: "Importing data from Chrome twice results in bookmarks being saved twice (duplicates).",
-          impact: "Duplicate bookmarks after import (severity 6/10)",
-          technicalNotes: "Browser import logic - deduplicate or prevent duplicate imports",
-          requiresUI: true,
-          feedback: [
-            { id: "9qbWNO5", text: "I imported my data from Chrome, I did it twice however the bookmarks were saved twice.", screenshot: "https://storage.tally.so/private/SCR-20260222-oxyg.png?id=8RyjWP&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhSeWpXUCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MTc5NzYyOX0.i1JGs5ACPDIKHWhZQDGJxPBeogirOR1cKlflb36-LY0&signature=65e973e415b5534051c9ab54efaee090a158da244f88afb9732e5b3ba45f3fae" }
-          ]
-        }
-      ],
-      acceptanceCriteria: [
-        "AI Assistant is open and visible by default on first install and browser launch",
-        "All Firefox branding is replaced with Oasis branding",
-        "'Tabs from other devices' button is hidden or replaced",
-        "Optimal default preferences are set automatically on first install",
-        "Login/signup is discoverable and guided in onboarding",
-        "New profile creation shows Oasis branding instead of Firefox branded image popup",
-        "Onboarding flow includes browser import option (Chrome, Safari, etc.)",
-        "First launch shows Oasis/Kahana page instead of Firefox privacy policy",
-        "Firefox branding in vertical tabs popup is replaced with Oasis branding",
-        "Firefox branding in recent browsing modal and profile popup replaced with Oasis branding",
-        "Chrome import does not create duplicate bookmarks"
-      ]
-    },
-    {
-      id: 11,
-      title: "Making it Easy to Find Saved Websites",
+      id: 5011,
+      sprintNumber: 11,
+      title: "Making it Easy to Find Saved Websites (Archived May 2026)",
       emoji: "🔍",
       priority: "MEDIUM",
       storyPoints: 21,
@@ -1645,270 +1901,13 @@ function Sprints() {
         "Tagging UI is intuitive and accessible",
         "Unified search interface allows searching across history, tab groups, and bookmarks",
         "AI assistant can open found pages directly from search results"
-      ]
+      ],
+      completionNote: "Archived May 2026 — moved from active board (only B2B Sprint 1 + B2C Sprint 2 remain open; former Sprint 34 merged into Sprint 2)."
     },
     {
-      id: 13,
-      title: "Chat History Access",
-      emoji: "💬",
-      priority: "MEDIUM",
-      storyPoints: 14,
-      effort: "Medium-High",
-      impact: "Medium",
-      severity: "7/10",
-      teamMembers: ["Ashwin", "Saideep", "Pournami"],
-      overview: "Implement chat history storage and retrieval, allowing users to access previous AI Assistant chat threads from other days. Includes New Chat feature and proper icon labeling for chat management.",
-      primaryFiles: "browser/base/content/assistant/build/src/chatHistory.ts (NEW), browser/base/content/assistant/assistant.ui.js, services/supabase.ts",
-      issues: [
-        {
-          title: "Feature Request: Chat History Access",
-          count: 1,
-          submissionIds: ["xXqY2aJ"],
-          description: "Users expect to be able to access previous AI Assistant chat threads (conversation history) from other days. Currently AI says it can only access current session.",
-          impact: "Users want persistent chat history (severity 7/10)",
-          technicalNotes: "Implement chat history storage and retrieval - store conversations in Supabase, create UI to access past conversations. Create new chatHistory.ts module.",
-          requiresUI: true,
-          feedback: [
-            { id: "xXqY2aJ", text: "As an early Oasis user, I expect to be able to access previous AI Assistant chat threads (conversation history) and/or get a clear answer about AI Assistant history works and what I should expect. 'how is our ai assistant chat history handled? Can I access previous chats from other days?' Current AI response: 'I can access the complete conversation history within our current interaction. However, I don't have the ability to access previous chats from other days. My memory is limited to the current session.'", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.16.37-PM.png?id=zG15bZ&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InpHMTViWiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTExMDI0OH0.jCeih9O-1CfQfCzVYxkYOYKWKkB3g1md-QWx8pMzyZo&signature=ae16daaae6b282cff1d9399c6855a155d447334b6e2a49b0a3743ad741962eb0" }
-          ]
-        },
-        {
-          title: "Refresh Icon Labeling and New Chat Feature",
-          count: 1,
-          submissionIds: ["J9yB5MX"],
-          description: "The refresh icon next to voice dictation is currently labeled as 'clear chat history,' which is unexpected. It should only appear when voice dictation is active and clearly reflect that function. Separately, provide a 'New Chat' option for starting fresh conversations.",
-          impact: "Confusing labeling and missing feature (severity 10/10)",
-          technicalNotes: "Fix icon labeling, add 'New Chat' feature, move chat history clearing to Settings",
-          requiresUI: true,
-          feedback: [
-            { id: "J9yB5MX", text: "The refresh icon next to voice dictation is currently labeled as 'clear chat history,' which is unexpected. That icon originally signaled restarting voice dictation, not wiping conversation history. It should only appear when voice dictation is active and clearly reflect that function. Separately, instead of clearing chat history from there, we should provide a 'New Chat' option for starting fresh conversations and let users access past chats through chat history. Clearing chat history is a higher-impact action and would be better placed in Settings for now.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.54.14-AM.png?id=Yxa760&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ill4YTc2MCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MjgyNX0.g6O5Sub6W3OW2B_IGkbfOXovqh4FkulWO-Of3AatWXQ&signature=c008eecf286f2fa522e7cf9e4ab4f04eacd604301f0bfc0a1b930e2e1841fc66" }
-          ]
-        }
-      ],
-      acceptanceCriteria: [
-        "Chat history storage and access implemented",
-        "Conversations are stored in Supabase",
-        "UI allows users to access past conversations",
-        "Chat history persists across sessions",
-        "Refresh icon labeling is correct and contextual (only appears when voice dictation is active)",
-        "New Chat feature implemented for starting fresh conversations",
-        "Chat history clearing moved to Settings"
-      ]
-    },
-    {
-      id: 15,
-      title: "Automatic Software Updates",
-      emoji: "🔄",
-      priority: "MEDIUM",
-      storyPoints: 13,
-      effort: "Medium-High",
-      impact: "High",
-      severity: "10/10",
-      teamMembers: ["Afshaan", "Lalith", "Revanth", "Ashwin", "Kaushik"],
-      overview: "Implement update checking, notification system, and update UI within Oasis for software updates. Users who have installed Oasis on Windows or Mac should be able to go to a clear place in the app (e.g., Settings → Software Update) and see a macOS-style Software Update screen with status, installed version, check/download/install buttons, and optional Automatic Updates / Beta toggles.",
-      primaryFiles: "toolkit/mozapps/update/, browser/components/preferences/main.inc.xhtml, browser/base/content/aboutDialog-appUpdater.js, resource://gre/modules/AppUpdater.sys.mjs, browser/base/content/assistant/ (Settings entry point)",
-      keyConsiderations: {
-        context: "Oasis is built on Firefox (Gecko). The Firefox update pipeline (MAR + updater binary) already exists and works on macOS and Windows. However, the built-in update UI is hidden for packaged builds, and the app currently points to Mozilla's update server—not an Oasis-specific one.",
-        sections: [
-          {
-            title: "Current State (What Exists)",
-            items: [
-              "Firefox update pipeline in toolkit/mozapps/update/ — MAR-based flow, updater binary, signature verification",
-              "Update protocol works on macOS and Windows (same flow; platform-specific elevation)",
-              "Preferences update UI exists (check, download, restart, auto/manual) but is hidden for packaged apps via display: none in main.js (lines 4731–4735)",
-              "Update URL baked in at build time; default host is aus5.mozilla.org",
-              "AppUpdateURL enterprise policy can override URL without rebuild (policies.json)",
-              "Assistant Settings shows \"Settings coming soon\" — no Software Update section yet",
-              "AWS infrastructure available for hosting update server"
-            ]
-          },
-          {
-            title: "Gaps (What's Missing)",
-            items: [
-              "No Oasis update server — no service serving update.xml and Oasis MARs",
-              "No Oasis MAR build/signing process — need Oasis-specific MARs and signing",
-              "Update URL points to Mozilla — must override (build or policy) to point to Oasis server",
-              "Packaged app hides update UI — installed Mac/Windows users have no in-app update button today",
-              "No dedicated Software Update screen — no macOS-style status, version, toggles, legal/help"
-            ]
-          },
-          {
-            title: "Desired End State",
-            items: [
-              "Dedicated Software Update screen (e.g., Settings → Software Update) with: status (checking/up to date/update available), installed version, Check for updates button, Download and install when available, Restart to update",
-              "Optional toggles: Automatic Updates on/off, Beta Updates on/off",
-              "Legal/help links",
-              "Updates delivered via existing Firefox pipeline but with Oasis server + Oasis MARs"
-            ]
-          },
-          {
-            title: "Implementation Phases",
-            items: [
-              "Phase 1: Oasis update server (host update.xml + MARs on AWS), MAR build/signing pipeline, override update URL",
-              "Phase 2: Un-hide or replace Preferences update UI with dedicated Software Update screen in Assistant Settings",
-              "Phase 3: Add Automatic Updates and Beta toggles, legal/help copy"
-            ]
-          }
-        ]
-      },
-      issues: [
-        {
-          title: "Feature Request: Automatic Software Updates",
-          count: 1,
-          submissionIds: ["5B7xd7d"],
-          description: "Users want to receive software update notifications within Oasis itself, with an Update button and option to turn on Automatic software updates, similar to Apple System settings UI.",
-          impact: "Would improve update experience (severity 9/10)",
-          technicalNotes: "Implement update checking, notification system, and update UI in settings or dedicated update component",
-          requiresUI: true,
-          feedback: [
-            { id: "5B7xd7d", text: "As an Oasis user, rather than receive new software updates by manually installing a new version through a file on the kahana.co/installations page, I would prefer to receive notifications within Oasis itself where I can follow the notification to a 'software update' page similar to the UI of Apple System settings, where I can check if new software updates are available and actually click an Update button to update my software, and/or turn on Automatic software updates.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.05.22-PM.png?id=rJkMyp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKa015cCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTIxOH0.NTmCc8VtMpUIj7E6umxXQMqtydAJAD5BTXecUOoo2-k&signature=34299a9179a06127cc230c092e18d21875a00a9e325e67c33f6d3eb17db2f6d8" }
-          ]
-        }
-      ],
-      acceptanceCriteria: [
-        "Automatic software updates system implemented",
-        "Update notifications appear within Oasis",
-        "Update UI is accessible and intuitive",
-        "Users can enable/disable automatic updates"
-      ]
-    },
-    {
-      id: 17,
-      title: "Oasis Enterprise Browser Chromium Version",
-      emoji: "🏢",
-      priority: "HIGH",
-      storyPoints: 55,
-      effort: "High",
-      impact: "High",
-      severity: "9/10",
-      teamMembers: ["Mohammad", "Revanth", "Kaushik", "Atharva", "Ruturaj", "Naveen"],
-      overview: "Develop a Chromium-based version of Oasis Enterprise Browser to address enterprise customer requirements for secure SaaS access. Culture Amp (Julian) is ready to invest but we didn't have a Chromium enterprise version to demo—this sprint delivers the product. Requirements broadly apply to enterprise prospects like Culture Amp (see readiness checklist below). This sprint is motivated by enterprise demand for managed browsers that can provide secure access to cloud applications for short-term consultants and third-party partners without requiring full device management or shipping hardware. By 2026, analysts project that roughly 25% of enterprises will be using managed browsers or extensions for security and access control. The enterprise browser market is growing rapidly, with most enterprise browsers being Chromium-based due to Chromium's dominant share of global browser usage and compatibility with modern SaaS applications. Organizations now use an average of 100+ SaaS apps, with large enterprises often using well over 150-400, which increases the need for centralized, browser-level security controls. This creates a significant market opportunity for Chromium-based enterprise browsers that can provide secure SaaS access for external users via managed browser sessions, with per-user, per-month licensing aligned to flexible contractor headcount. The goal is to reduce hardware and IT overhead, improve security posture for third-party access, and maintain a familiar user experience while enabling centralized controls for data protection and policy enforcement at the browser/session level.",
-      primaryFiles: "Chromium browser fork (NEW), SSO integration module (NEW), Enterprise policy management (NEW), Browser installation without admin privileges (NEW)",
-      issues: [
-        {
-          title: "SSO (Single Sign-On) Integration",
-          count: 0,
-          submissionIds: [],
-          description: "Implement SSO integration to enable enterprise identity providers (e.g., Okta, Azure AD, Google Workspace) to authenticate users accessing SaaS applications through the managed browser. SSO is a critical requirement for enterprise customers who need to provide secure access to their SaaS apps for short-term consultants and third-party partners without granting broad device trust or network access.",
-          impact: "Enables enterprise authentication and access control (severity 10/10)",
-          technicalNotes: "Implement OAuth 2.0 / SAML 2.0 SSO flows, integrate with common identity providers (Okta, Azure AD, Google Workspace, etc.), handle token management and refresh, implement session management for SSO-authenticated sessions",
-          feedback: []
-        },
-        {
-          title: "Chromium Engine Integration",
-          count: 0,
-          submissionIds: [],
-          description: "Build Oasis Enterprise Browser on Chromium engine for compatibility with modern SaaS applications and to match user expectations from mainstream browsers like Chrome. Chromium-based browsers are preferred by enterprises due to Chromium's dominant market share and web compatibility.",
-          impact: "Ensures compatibility with enterprise SaaS applications (severity 9/10)",
-          technicalNotes: "Fork Chromium or use Chromium Embedded Framework (CEF), integrate Oasis AI Assistant and enterprise features into Chromium, maintain compatibility with existing Chromium extensions and web standards",
-          feedback: []
-        },
-        {
-          title: "Installation Without Admin Privileges",
-          count: 0,
-          submissionIds: [],
-          description: "Enable browser installation and operation without requiring local administrator privileges. This is essential for enterprise deployments where contractors and third-party partners may not have admin access on their devices.",
-          impact: "Enables deployment on contractor devices without admin rights (severity 10/10)",
-          technicalNotes: "Design portable installation that doesn't require system-level changes, use user-level installation paths, implement portable browser architecture, handle permissions and security contexts appropriately",
-          feedback: []
-        },
-        {
-          title: "Enterprise Policy Management",
-          count: 0,
-          submissionIds: [],
-          description: "Implement centralized policy management for data protection and access control. Enable administrators to enforce policies at the browser/session level, such as blocking downloads, uploads, or risky actions, without requiring full device management.",
-          impact: "Provides centralized security controls for enterprise deployments (severity 9/10)",
-          technicalNotes: "Design policy management API and UI, implement policy enforcement engine, support common enterprise policies (download blocking, upload restrictions, URL filtering, etc.), integrate with enterprise management platforms",
-          feedback: []
-        },
-        {
-          title: "Per-User Per-Month Licensing Model",
-          count: 0,
-          submissionIds: [],
-          description: "Implement licensing system that supports per-user, per-month pricing aligned to flexible and fluctuating contractor headcount. This aligns with enterprise requirements for scalable, usage-based licensing.",
-          impact: "Enables flexible enterprise pricing model (severity 8/10)",
-          technicalNotes: "Design licensing system with per-user tracking, implement monthly billing cycles, support user provisioning and deprovisioning, integrate with billing and subscription management",
-          feedback: []
-        }
-      ],
-      acceptanceCriteria: [
-        "SSO integration supports major identity providers (Okta, Azure AD, Google Workspace)",
-        "Browser runs on Chromium engine with full SaaS application compatibility",
-        "Browser installs and operates without requiring local admin privileges",
-        "Enterprise policy management enables centralized security controls",
-        "Per-user, per-month licensing model is implemented and functional",
-        "Browser can be easily deployed and removed for contractor engagements",
-        "All enterprise features work seamlessly with existing Oasis AI Assistant functionality"
-      ],
-      readinessChecklist: {
-        intro: "Below is a checklist that will help us transform Oasis into its secure, deployable, enterprise grade browser platform.",
-        sections: [
-          {
-            title: "1. Identity & Access Management (Critical)",
-            items: ["Support SAML 2.0/SSO", "Support multiple IDPs (Okta, EntraID)", "Support RBAC", "Admin vs User separation"]
-          },
-          {
-            title: "2. Browser Security Controls",
-            items: ["Domain allowlist / denylist", "Disable downloads (configurable)", "Disable uploads (configurable)", "Disable clipboard copy/paste", "Disable printing", "Disable file system access", "Disable extensions", "Disable developer tools (optional policy)"]
-          },
-          {
-            title: "3. Session Security",
-            items: ["Idle timeout enforcement", "Clear cache on logout", "Optional ephemeral sessions", "Block credential storage"]
-          },
-          {
-            title: "4. Network and DLP compatibility",
-            subsections: [
-              { title: "Traffic Enforcement", items: ["Explicit proxy configuration support", "Lock proxy settings (no user override)", "No direct connection bypass", "DNS resolution enforcement"] },
-              { title: "SSL Inspection", items: ["Support enterprise CA injection", "Compatible with SSL inspection", "No breakage under HTTPS inspection"] }
-            ]
-          },
-          {
-            title: "5. Deployment and Endpoint Requirements",
-            subsections: [
-              { title: "Installation", items: ["No local admin required", "User level installation", "Clean uninstall", "Auto-update without admin"] },
-              { title: "Platform Support", items: ["macOS enterprise support", "Windows enterprise support", "Version management capability"] }
-            ]
-          },
-          {
-            title: "6. Commercial Readiness",
-            items: ["Per-user per-month licensing model", "Usage metering", "Contract-based provisioning", "Customer onboarding playbook", "Offboarding automation"]
-          },
-          {
-            title: "7. Enterprise Documentation",
-            items: ["Security whitepaper", "Architecture overview", "DLP integration guide (Netskope/others)", "IdP integration guide (Okta/Entra)", "Deployment guide", "Compliance mapping document"]
-          }
-        ]
-      },
-      sprintLog: {
-        intro: "Review feedback from Sprint 17 review (Feb 2026)",
-        sections: [
-          {
-            title: "Review Summary",
-            content: "Overall this is a strong enterprise foundation. The Chromium base, SSO integration, policy management, admin-free installation, and licensing model cover the core requirements for enterprise readiness. From a review perspective, the sprint captures the essential technical pillars."
-          },
-          {
-            title: "Potential Enhancements to Consider",
-            items: [
-              "Audit logging and admin visibility (enterprises often require detailed activity logs for compliance reviews)",
-              "Real-time policy updates and session revocation capability",
-              "Basic admin dashboard visibility (active sessions, license usage)"
-            ]
-          },
-          {
-            title: "Policy Management — Cinder & Alternatives Evaluation",
-            content: "For policies, include a link to Cinder for review by the engineers. We should evaluate Cinder, other alternatives, and in-house alternatives. Cinder provides businesses everything they need to orchestrate and automate safety at scale with industry leading tools for content moderation, AI safety, and data compliance.",
-            link: { url: "https://www.cinder.co/", text: "Cinder | Responsible AI, Trust & Safety, and Data Labeling At Scale" }
-          },
-          {
-            title: "Pallavi — Governance for Agentic/Autonomous Systems",
-            content: "Key questions for Cinder evaluation: Does their enforcement model support non-human actors acting on behalf of users, with continuous authorization and scoped permissions? As automation increases across enterprise workflows, can their architecture scale safely with high-frequency, machine-driven actions — not just human moderation flows? Cinder's architecture features a centralized policy engine with real-time enforcement and auditability. The strategic question: Can that enforcement layer move upstream closer to runtime execution in agentic environments where actions are triggered autonomously? Governance at the API or browser execution layer requires policy validation before state mutation, not just post-event moderation. If Cinder can operate as a pre-execution decision engine rather than only a workflow orchestrator, that becomes strategically powerful."
-          }
-        ]
-      }
-    },
-    {
-      id: 18,
-      title: "Voice Dictation Improvements",
+      id: 5018,
+      sprintNumber: 18,
+      title: "Voice Dictation Improvements (Archived May 2026)",
       emoji: "🎤",
       priority: "HIGH",
       storyPoints: 5,
@@ -1947,72 +1946,13 @@ function Sprints() {
       acceptanceCriteria: [
         "Waveform animation is input-reactive (animates on speech, idle on silence)",
         "Stop button provides immediate state change feedback"
-      ]
-    },
-    {
-      id: 19,
-      title: "Sprint 19 - Feedback Modal & HITL",
-      emoji: "💬",
-      priority: "MEDIUM-HIGH",
-      storyPoints: 12,
-      effort: "Medium",
-      impact: "High",
-      severity: "7-10/10",
-      teamMembers: ["Rushyanth"],
-      overview: "Feedback modal implementation and HITL audit. **Feedback modal:** Implement in-app feedback functionality; modal auto-scroll when triggered. **HITL objective:** Make the AI error-free and bring it to max efficiency—NPS surveys cite this as what could make the product better. Identify errors that negatively impact user experience (commands that feel wrong, too slow, or don't work) and make it easy for users to log these thoroughly with enough context to resolve each issue. Audit current HITL setup and output to improve the experience for users and the data for engineers.",
-      primaryFiles: "browser/base/content/assistant/ui-preact/src/components/Feedback.tsx, browser/base/content/assistant/ui-preact/src/App.tsx, browser/components/aiwindow/ui/components/ai-chat-content/chat-assistant-footer/assistant-message-footer.mjs, hitlFeedback.ts, feedback_events table, assistant.ts, feedback_events_rows.csv (current export)",
-      issues: [
-        {
-          title: "Feedback Modal Auto-Scroll",
-          count: 1,
-          submissionIds: ["D4LWR7l"],
-          description: "When users click the upvote or downvote icons, the feedback modal isn't immediately visible and requires manual scrolling. The modal should automatically come into view.",
-          impact: "Friction in feedback flow (severity 10/10)",
-          technicalNotes: "Implement auto-scroll or repositioning of feedback modal when triggered",
-          requiresUI: true,
-          feedback: [
-            { id: "D4LWR7l", text: "When users click the upvote or downvote icons, the feedback modal isn't immediately visible and requires manual scrolling. This adds friction. The modal should automatically come into view, either by auto-scrolling or repositioning it in the viewport so users can continue the feedback flow without extra effort.", screenshot: "https://storage.tally.so/private/Screenshot-2026-02-09-at-10.26.38-AM.png?id=YxabXN&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ill4YWJYTiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc3MDY1MDk2NX0.nY7XVTjj0lUQQlt5kh-tU_z-Tjnh5wz2DRQyPJn-TMI&signature=0becef6ab3931381bcdcd32f6b3e98c1e13de1ec34bc4dfd30853999539a972e" }
-          ]
-        },
-        {
-          title: "Audit Current HITL User Experience",
-          count: 0,
-          submissionIds: [],
-          description: "Review the in-product feedback flow from the user's perspective: Where does the feedback prompt appear? How easy is it to submit? What friction exists (e.g., too many steps, unclear categories, no prompt to add context)? Document pain points and opportunities to make logging errors easier and more thorough.",
-          impact: "Informs UX improvements to increase feedback quality and volume",
-          technicalNotes: "Walk through feedback flow in assistant UI. Review Feedback.tsx, assistant-message-footer. Consider user testing or internal dogfooding.",
-          feedback: []
-        },
-        {
-          title: "Audit Current Output Data & Gaps",
-          count: 0,
-          submissionIds: [],
-          description: "Analyze feedback_events export (schema, CSV output) against what engineers need to reproduce issues, triage to sprints, and improve the AI. Document gaps: missing user_prompt, ai_response, tool_output, conversation context, command_type, user_plan, etc. Reference feedback_events_IMPROVED_SAMPLE.csv for target state.",
-          impact: "Identifies data improvements needed for actionable engineering",
-          technicalNotes: "Compare current export to improved sample. Trace data flow from UI → hitlFeedback → Supabase → export.",
-          feedback: []
-        },
-        {
-          title: "Document Recommendations & Prioritized Roadmap",
-          count: 0,
-          submissionIds: [],
-          description: "Synthesize audit findings into a prioritized list of recommendations: (1) User experience improvements—what would make it easier for users to log errors with sufficient context; (2) Output data improvements—what columns/capture changes would make the export actionable for engineers. Include effort estimates and impact.",
-          impact: "Creates clear roadmap for future HITL enhancement sprints",
-          technicalNotes: "Deliverable: markdown or doc with recommendations, prioritized by impact/effort.",
-          feedback: []
-        }
       ],
-      acceptanceCriteria: [
-        "Feedback modal auto-scrolls/repositions when triggered",
-        "Current HITL user flow audited and documented with pain points",
-        "Current output data gaps documented vs. engineering needs",
-        "Prioritized recommendations delivered (UX + data improvements)",
-        "Roadmap for implementation sprints defined"
-      ]
+      completionNote: "Archived May 2026 — moved from active board (only B2B Sprint 1 + B2C Sprint 2 remain open; former Sprint 34 merged into Sprint 2)."
     },
     {
-      id: 22,
-      title: "Search & Command Interpretation",
+      id: 5022,
+      sprintNumber: 22,
+      title: "Search & Command Interpretation (Archived May 2026)",
       emoji: "🔍",
       priority: "MEDIUM-HIGH",
       storyPoints: 18,
@@ -2111,11 +2051,13 @@ function Sprints() {
         "Splitview command recognized and executed by AI",
         "Split screen command places tabs correctly (no duplicate opens)",
         "Summarization checks if requested content is on active page before summarizing"
-      ]
+      ],
+      completionNote: "Archived May 2026 — moved from active board (only B2B Sprint 1 + B2C Sprint 2 remain open; former Sprint 34 merged into Sprint 2)."
     },
     {
-      id: 24,
-      title: "Authentication Friction — Passkeys, Biometrics & SSO",
+      id: 5024,
+      sprintNumber: 24,
+      title: "Authentication Friction — Passkeys, Biometrics & SSO (Archived May 2026)",
       emoji: "🔑",
       priority: "HIGH",
       storyPoints: 13,
@@ -2165,68 +2107,13 @@ function Sprints() {
         "Duo/2FA flows streamlined for institutional SSO (DukeHub, Canvas, etc.)",
         "Auth experience comparable to Chrome for institutional portals",
         "Documented: If Oasis supported full passkey migration, biometric auth, and streamlined Duo flows, switching barrier would drop dramatically"
-      ]
-    },
-    {
-      id: 25,
-      title: "Daily AI Command Limits",
-      emoji: "📊",
-      priority: "HIGH",
-      storyPoints: 13,
-      teamMembers: ["Archit Gupta"],
-      effort: "Medium-High",
-      impact: "High",
-      severity: "7-8/10",
-      overview: "Migrate Oasis pricing from monthly AI command limits to daily limits for all plans. Current pricing: Beta (free) = 50 AI commands/month, Zen ($20/month) = 1,500 AI commands/month. Goal: enforce AI command limits per day instead of per month across all plans. Requires backend usage tracking changes, limit enforcement logic, UI updates for daily usage display, and pricing/marketing copy updates.",
-      primaryFiles: "Usage/limit tracking service, plan configuration, AI assistant pre-request check, pricing page, in-app usage display",
-      issues: [
-        {
-          title: "Backend: Daily Usage Tracking & Limit Enforcement",
-          count: 1,
-          submissionIds: ["PRICING-MIGRATION"],
-          description: "Implement daily (vs monthly) usage tracking for AI commands. Store usage per user per day; reset counters at midnight (user timezone or UTC). Enforce limits before executing AI commands. Plan config must support daily limits (e.g., Beta: ~2/day, Zen: ~50/day as rough equivalents, or new target values).",
-          impact: "Core requirement for pricing model change (severity 8/10)",
-          technicalNotes: "Modify usage tracking schema/logic to aggregate by day. Add pre-request check in AI assistant flow. Plan table/config needs daily_limit field. Consider timezone handling for reset.",
-          feedback: [
-            { id: "PRICING-MIGRATION", text: "Current: Beta = 50 AI commands/month, Zen = 1,500 AI commands/month. Migrate to daily limits for all plans." }
-          ]
-        },
-        {
-          title: "UI: Daily Usage Display & Limit Messaging",
-          count: 1,
-          submissionIds: ["PRICING-MIGRATION"],
-          description: "Update in-app UI to show daily usage (e.g., '12 / 50 AI commands today') instead of monthly. When limit reached, show clear message: 'Daily limit reached. Resets at midnight.' Replace 'Usage limit reached (50/50 units). Please upgrade your plan via the menu.' style messaging with daily context.",
-          impact: "Users need visibility into daily limits (severity 7/10)",
-          technicalNotes: "AI assistant UI, settings/profile area. Update limit-reached modal or inline message. Ensure messaging is accurate for daily reset.",
-          requiresUI: true,
-          feedback: [
-            { id: "PRICING-MIGRATION", text: "Users should see daily usage and understand when their limit resets." }
-          ]
-        },
-        {
-          title: "Pricing Page & Plan Configuration",
-          count: 1,
-          submissionIds: ["PRICING-MIGRATION"],
-          description: "Update kahana.co/oasis-pricing and any in-app pricing surfaces to reflect daily limits. Define and document new daily limits per plan (e.g., Beta: X/day, Zen: Y/day). Update Stripe/product metadata if needed.",
-          impact: "Accurate marketing and sales (severity 7/10)",
-          technicalNotes: "Pricing page copy, plan config in DB or env. Ensure consistency between marketing and enforcement.",
-          feedback: [
-            { id: "PRICING-MIGRATION", text: "Pricing page currently shows '50 AI commands per month' (Beta) and '1,500 AI commands per month' (Zen). Change to daily limits." }
-          ]
-        }
       ],
-      acceptanceCriteria: [
-        "Usage tracked and enforced per day (not per month) for all plans",
-        "Daily limits defined per plan and configurable",
-        "In-app UI shows daily usage (e.g., X / Y AI commands today)",
-        "Limit-reached message explains daily reset (midnight)",
-        "Pricing page and marketing copy updated to daily limits",
-        "Existing users migrated gracefully (no unexpected lockouts)"
-      ]
+      completionNote: "Archived May 2026 — moved from active board (only B2B Sprint 1 + B2C Sprint 2 remain open; former Sprint 34 merged into Sprint 2)."
     },
     {
-      id: 26,
-      title: "Discoverability: What Can Oasis Do?",
+      id: 5026,
+      sprintNumber: 26,
+      title: "Discoverability: What Can Oasis Do? (Archived May 2026)",
       emoji: "💡",
       priority: "MEDIUM",
       storyPoints: 8,
@@ -2276,70 +2163,13 @@ function Sprints() {
         "User can ask for more detail on a specific category and receive explicit commands + example workflows",
         "Response avoids overwhelming users—high-level first, detail on request",
         "Category taxonomy documented and extensible for new commands"
-      ]
-    },
-    {
-      id: 27,
-      title: "Mar W3: Voice-to-Text & AI Command Reliability",
-      emoji: "🎤",
-      priority: "HIGH",
-      storyPoints: 11,
-      effort: "Low-Medium",
-      impact: "High",
-      severity: "10/10",
-      overview: "Directly addresses passives and detractors who cite 'AI doesn't understand my request' and 'prompt needs to be very clear.' Multiple users report this as a 10/10 importance issue. **Source:** proposed sprints for march week 3.md (NPS-driven).",
-      primaryFiles: "voiceInput.ts, proxyClient.ts, useAssistantRuntime.ts, Composer.tsx, intentParser.ts",
-      issues: [
-        {
-          title: "Strip trailing period from voice transcription",
-          count: 2,
-          submissionIds: ["WOPpRjL"],
-          description: "Voice-to-text adds a period at the end; this causes the AI to misinterpret commands (e.g., opens new window instead of organizing). Reported multiple times.",
-          impact: "Command misinterpretation (severity 10/10)",
-          technicalNotes: "One-line fix in useAssistantRuntime.ts or voiceInput.ts before setInput(text). Strip trailing period from transcription.",
-          feedback: [
-            { id: "WOPpRjL", text: "All transcriptions of voice to text end in a period, which I have to manually delete each time so that the command can be interpreted accurately - including the period before hitting enter often causes the AI Assistant to misinterpret the command." }
-          ]
-        },
-        {
-          title: "Improve AI understanding of imperfect/shorter prompts",
-          count: 2,
-          submissionIds: [],
-          description: "Users in a hurry don't explain everything perfectly. Better handling of conversational tone vs. definitive format.",
-          impact: "Reduces friction for non-power users (severity 10/10)",
-          technicalNotes: "intentParser.ts, hiddenInstructions.ts, decisionEngine.ts - prompt tuning, regex expansion",
-          feedback: []
-        },
-        {
-          title: "Fix voice dictation pause latency",
-          count: 1,
-          submissionIds: [],
-          description: "When pausing, it takes a while to stop; users feel it's not working.",
-          impact: "Confusing UX (severity 8/10)",
-          technicalNotes: "voiceInput.ts - MediaRecorder stop timing, chunk flush",
-          feedback: []
-        },
-        {
-          title: "Add visual feedback for voice recording",
-          count: 1,
-          submissionIds: [],
-          description: "Microphone icon should indicate when recording is active; words should display in real-time, not only after pause.",
-          impact: "Improves voice UX clarity (severity 7/10)",
-          technicalNotes: "Composer.tsx - enhance wave + real-time words display",
-          requiresUI: true,
-          feedback: []
-        }
       ],
-      acceptanceCriteria: [
-        "Trailing period stripped from voice transcription before AI processes",
-        "AI handles conversational and imperfect prompts more reliably",
-        "Voice pause responds quickly when user stops",
-        "Microphone shows active state; words display in real-time during recording"
-      ]
+      completionNote: "Archived May 2026 — moved from active board (only B2B Sprint 1 + B2C Sprint 2 remain open; former Sprint 34 merged into Sprint 2)."
     },
     {
-      id: 28,
-      title: "Mar W3: Sign-In, Login & Session Persistence",
+      id: 5028,
+      sprintNumber: 28,
+      title: "Mar W3: Sign-In, Login & Session Persistence (Archived May 2026)",
       emoji: "🔐",
       priority: "HIGH",
       storyPoints: 20,
@@ -2404,11 +2234,13 @@ function Sprints() {
         "AI assistant sign-in flow is intuitive",
         "Invalid login shows clear error message",
         "Google Drive session persists across new tabs"
-      ]
+      ],
+      completionNote: "Archived May 2026 — moved from active board (only B2B Sprint 1 + B2C Sprint 2 remain open; former Sprint 34 merged into Sprint 2)."
     },
     {
-      id: 29,
-      title: "Mar W3: AI Action Accuracy — Tabs, Hubs & Split View",
+      id: 5029,
+      sprintNumber: 29,
+      title: "Mar W3: AI Action Accuracy — Tabs, Hubs & Split View (Archived May 2026)",
       emoji: "📁",
       priority: "HIGH",
       storyPoints: 21,
@@ -2470,18 +2302,20 @@ function Sprints() {
         "Split view places correct tabs, doesn't reset",
         "Close tab closes (doesn't open multiple)",
         "Open first result opens first result correctly"
-      ]
+      ],
+      completionNote: "Archived May 2026 — moved from active board (only B2B Sprint 1 + B2C Sprint 2 remain open; former Sprint 34 merged into Sprint 2)."
     },
     {
-      id: 30,
-      title: "Mar W3: Chat Bar, Minimized Chat & AI Assistant UX",
+      id: 5030,
+      sprintNumber: 30,
+      title: "Mar W3: Chat Bar, Minimized Chat & AI Assistant UX (Archived May 2026)",
       emoji: "💬",
       priority: "MEDIUM-HIGH",
       storyPoints: 15,
       effort: "Medium",
       impact: "High",
       severity: "7-10/10",
-      overview: "Chat bar behavior and minimized chat accessibility are cited by detractors. Promoters want polish. **CONFLICT:** Shares Composer with Sprint 27 (voice). Run after Sprint 27. **Source:** proposed sprints for march week 3.md.",
+      overview: "Chat bar behavior and minimized chat accessibility are cited by detractors. Promoters want polish. **CONFLICT:** Shares Composer with open Sprint 2 / former Sprint 27 (voice). Run after that track. **Source:** proposed sprints for march week 3.md.",
       primaryFiles: "browser-sidebar.js, Composer.tsx, App.tsx, browser-box.inc.xhtml, Header.tsx",
       issues: [
         {
@@ -2538,11 +2372,13 @@ function Sprints() {
         "Chat history persists across sidebar/minimized switch",
         "AI assistant doesn't overlap address bar when dragging",
         "Links open in new tab with Oasis functionality"
-      ]
+      ],
+      completionNote: "Archived May 2026 — moved from active board (only B2B Sprint 1 + B2C Sprint 2 remain open; former Sprint 34 merged into Sprint 2)."
     },
     {
-      id: 31,
-      title: "Mar W3: Autocorrect, Control+F & In-Product Guidance",
+      id: 5031,
+      sprintNumber: 31,
+      title: "Mar W3: Autocorrect, Control+F & In-Product Guidance (Archived May 2026)",
       emoji: "✨",
       priority: "MEDIUM",
       storyPoints: 16,
@@ -2597,11 +2433,13 @@ function Sprints() {
         "Control+F (find in page) works in Oasis",
         "Clearer in-product guidance for features",
         "Onboarding tour for hub creation"
-      ]
+      ],
+      completionNote: "Archived May 2026 — moved from active board (only B2B Sprint 1 + B2C Sprint 2 remain open; former Sprint 34 merged into Sprint 2)."
     },
     {
-      id: 32,
-      title: "Mar W3: Hub & Layout UX",
+      id: 5032,
+      sprintNumber: 32,
+      title: "Mar W3: Hub & Layout UX (Archived May 2026)",
       emoji: "📐",
       priority: "MEDIUM",
       storyPoints: 12,
@@ -2664,11 +2502,13 @@ function Sprints() {
         "Layout can be approved without link (first-time flow)",
         "Search doesn't auto-add http",
         "URL copyable from address bar"
-      ]
+      ],
+      completionNote: "Archived May 2026 — moved from active board (only B2B Sprint 1 + B2C Sprint 2 remain open; former Sprint 34 merged into Sprint 2)."
     },
     {
-      id: 33,
-      title: "Mar W3: Page Context for Chatbot & Summarization",
+      id: 5033,
+      sprintNumber: 33,
+      title: "Mar W3: Page Context for Chatbot & Summarization (Archived May 2026)",
       emoji: "📄",
       priority: "MEDIUM",
       storyPoints: 13,
@@ -2710,81 +2550,13 @@ function Sprints() {
         "Current page content available as chatbot context",
         "Summarization accurate for current tab",
         "Summarize specific section returns section content, not whole page"
-      ]
-    },
-    {
-      id: 34,
-      title: "Mar W3: Polish, Performance & Trust",
-      emoji: "🎨",
-      priority: "MEDIUM",
-      storyPoints: 21,
-      effort: "Medium-High",
-      impact: "High",
-      severity: "6-10/10",
-      overview: "Retains promoters; addresses 'unfinished' feel. Low conflict; can run in parallel with most sprints. **Source:** proposed sprints for march week 3.md.",
-      primaryFiles: "Scattered - branding, CSS, decisionEngine.ts",
-      issues: [
-        {
-          title: "Branding polish",
-          count: 1,
-          submissionIds: [],
-          description: "Remove Firefox aspects; make product feel finished.",
-          impact: "Unfinished feel (severity 10/10)",
-          technicalNotes: "Branding assets, strings - remove Firefox references",
-          requiresUI: true,
-          feedback: []
-        },
-        {
-          title: "Visibility into background processes",
-          count: 1,
-          submissionIds: [],
-          description: "Updates, AI tasks, sync status.",
-          impact: "Transparency (severity 7/10)",
-          technicalNotes: "New UI component - status indicators",
-          requiresUI: true,
-          feedback: []
-        },
-        {
-          title: "AI action transparency",
-          count: 1,
-          submissionIds: [],
-          description: "Preview/confirm how AI interpreted intent before executing.",
-          impact: "Trust (severity 8/10)",
-          technicalNotes: "Confirmation flow, interactionState.ts - preview before execute",
-          requiresUI: true,
-          feedback: []
-        },
-        {
-          title: "Chain of commands / recursion limit",
-          count: 2,
-          submissionIds: [],
-          description: "Fix recursion/limit issues; support multi-step commands.",
-          impact: "Command execution fails (severity 8/10)",
-          technicalNotes: "decisionEngine.ts, command execution - multi-step, limit handling",
-          feedback: []
-        },
-        {
-          title: "Dark mode toggle",
-          count: 1,
-          submissionIds: [],
-          description: "Match user's browser theme.",
-          impact: "Theme consistency (severity 6/10)",
-          technicalNotes: "CSS vars, prefs - match browser theme",
-          requiresUI: true,
-          feedback: []
-        }
       ],
-      acceptanceCriteria: [
-        "Firefox branding removed",
-        "Background process status visible",
-        "AI action preview/confirm before execute",
-        "Recursion limit errors resolved",
-        "Dark mode toggle available"
-      ]
+      completionNote: "Archived May 2026 — moved from active board (only B2B Sprint 1 + B2C Sprint 2 remain open; former Sprint 34 merged into Sprint 2)."
     },
     {
-      id: 35,
-      title: "Apr W1: Multi-Model Router (Local + Commercial)",
+      id: 5035,
+      sprintNumber: 35,
+      title: "Apr W1: Multi-Model Router (Local + Commercial) (Archived May 2026)",
       emoji: "🧠",
       priority: "HIGH",
       storyPoints: 21,
@@ -2841,12 +2613,263 @@ function Sprints() {
         "Optional council mode works for configured high-stakes tasks with ranked/synthesized output",
         "Budget guardrails enforce usage limits and degrade gracefully to lower-cost models",
         "Benchmark report shows measurable improvement on at least one axis (cost, latency, or quality) without regressions on the others"
+      ],
+      completionNote: "Archived May 2026 — moved from active board (only B2B Sprint 1 + B2C Sprint 2 remain open; former Sprint 34 merged into Sprint 2)."
+    }
+  ]
+
+  // Active sprints (in progress)
+  const activeSprints = [
+    {
+      id: 1,
+      title: "B2B Enterprise Browser (Chromium) — Oasis Enterprise Chromium",
+      emoji: "🏢",
+      priority: "HIGH",
+      storyPoints: 55,
+      effort: "High",
+      impact: "High",
+      severity: "9/10",
+      overview: "**B2B — Enterprise browser (Chromium):** Develop a Chromium-based version of Oasis Enterprise Browser to address enterprise customer requirements for secure SaaS access. Culture Amp (Julian) is ready to invest but we didn't have a Chromium enterprise version to demo—this sprint delivers the product. Requirements broadly apply to enterprise prospects like Culture Amp (see readiness checklist below). This sprint is motivated by enterprise demand for managed browsers that can provide secure access to cloud applications for short-term consultants and third-party partners without requiring full device management or shipping hardware. By 2026, analysts project that roughly 25% of enterprises will be using managed browsers or extensions for security and access control. The enterprise browser market is growing rapidly, with most enterprise browsers being Chromium-based due to Chromium's dominant share of global browser usage and compatibility with modern SaaS applications. Organizations now use an average of 100+ SaaS apps, with large enterprises often using well over 150-400, which increases the need for centralized, browser-level security controls. This creates a significant market opportunity for Chromium-based enterprise browsers that can provide secure SaaS access for external users via managed browser sessions, with per-user, per-month licensing aligned to flexible contractor headcount. The goal is to reduce hardware and IT overhead, improve security posture for third-party access, and maintain a familiar user experience while enabling centralized controls for data protection and policy enforcement at the browser/session level.",
+      primaryFiles: "Chromium browser fork (NEW), SSO integration module (NEW), Enterprise policy management (NEW), Browser installation without admin privileges (NEW)",
+      issues: [
+        {
+          title: "SSO (Single Sign-On) Integration",
+          count: 0,
+          submissionIds: [],
+          description: "Implement SSO integration to enable enterprise identity providers (e.g., Okta, Azure AD, Google Workspace) to authenticate users accessing SaaS applications through the managed browser. SSO is a critical requirement for enterprise customers who need to provide secure access to their SaaS apps for short-term consultants and third-party partners without granting broad device trust or network access.",
+          impact: "Enables enterprise authentication and access control (severity 10/10)",
+          technicalNotes: "Implement OAuth 2.0 / SAML 2.0 SSO flows, integrate with common identity providers (Okta, Azure AD, Google Workspace, etc.), handle token management and refresh, implement session management for SSO-authenticated sessions",
+          feedback: []
+        },
+        {
+          title: "Chromium Engine Integration",
+          count: 0,
+          submissionIds: [],
+          description: "Build Oasis Enterprise Browser on Chromium engine for compatibility with modern SaaS applications and to match user expectations from mainstream browsers like Chrome. Chromium-based browsers are preferred by enterprises due to Chromium's dominant market share and web compatibility.",
+          impact: "Ensures compatibility with enterprise SaaS applications (severity 9/10)",
+          technicalNotes: "Fork Chromium or use Chromium Embedded Framework (CEF), integrate Oasis AI Assistant and enterprise features into Chromium, maintain compatibility with existing Chromium extensions and web standards",
+          feedback: []
+        },
+        {
+          title: "Installation Without Admin Privileges",
+          count: 0,
+          submissionIds: [],
+          description: "Enable browser installation and operation without requiring local administrator privileges. This is essential for enterprise deployments where contractors and third-party partners may not have admin access on their devices.",
+          impact: "Enables deployment on contractor devices without admin rights (severity 10/10)",
+          technicalNotes: "Design portable installation that doesn't require system-level changes, use user-level installation paths, implement portable browser architecture, handle permissions and security contexts appropriately",
+          feedback: []
+        },
+        {
+          title: "Enterprise Policy Management",
+          count: 0,
+          submissionIds: [],
+          description: "Implement centralized policy management for data protection and access control. Enable administrators to enforce policies at the browser/session level, such as blocking downloads, uploads, or risky actions, without requiring full device management.",
+          impact: "Provides centralized security controls for enterprise deployments (severity 9/10)",
+          technicalNotes: "Design policy management API and UI, implement policy enforcement engine, support common enterprise policies (download blocking, upload restrictions, URL filtering, etc.), integrate with enterprise management platforms",
+          feedback: []
+        },
+        {
+          title: "Per-User Per-Month Licensing Model",
+          count: 0,
+          submissionIds: [],
+          description: "Implement licensing system that supports per-user, per-month pricing aligned to flexible and fluctuating contractor headcount. This aligns with enterprise requirements for scalable, usage-based licensing.",
+          impact: "Enables flexible enterprise pricing model (severity 8/10)",
+          technicalNotes: "Design licensing system with per-user tracking, implement monthly billing cycles, support user provisioning and deprovisioning, integrate with billing and subscription management",
+          feedback: []
+        }
+      ],
+      acceptanceCriteria: [
+        "SSO integration supports major identity providers (Okta, Azure AD, Google Workspace)",
+        "Browser runs on Chromium engine with full SaaS application compatibility",
+        "Browser installs and operates without requiring local admin privileges",
+        "Enterprise policy management enables centralized security controls",
+        "Per-user, per-month licensing model is implemented and functional",
+        "Browser can be easily deployed and removed for contractor engagements",
+        "All enterprise features work seamlessly with existing Oasis AI Assistant functionality"
+      ],
+      readinessChecklist: {
+        intro: "Below is a checklist that will help us transform Oasis into its secure, deployable, enterprise grade browser platform.",
+        sections: [
+          {
+            title: "1. Identity & Access Management (Critical)",
+            items: ["Support SAML 2.0/SSO", "Support multiple IDPs (Okta, EntraID)", "Support RBAC", "Admin vs User separation"]
+          },
+          {
+            title: "2. Browser Security Controls",
+            items: ["Domain allowlist / denylist", "Disable downloads (configurable)", "Disable uploads (configurable)", "Disable clipboard copy/paste", "Disable printing", "Disable file system access", "Disable extensions", "Disable developer tools (optional policy)"]
+          },
+          {
+            title: "3. Session Security",
+            items: ["Idle timeout enforcement", "Clear cache on logout", "Optional ephemeral sessions", "Block credential storage"]
+          },
+          {
+            title: "4. Network and DLP compatibility",
+            subsections: [
+              { title: "Traffic Enforcement", items: ["Explicit proxy configuration support", "Lock proxy settings (no user override)", "No direct connection bypass", "DNS resolution enforcement"] },
+              { title: "SSL Inspection", items: ["Support enterprise CA injection", "Compatible with SSL inspection", "No breakage under HTTPS inspection"] }
+            ]
+          },
+          {
+            title: "5. Deployment and Endpoint Requirements",
+            subsections: [
+              { title: "Installation", items: ["No local admin required", "User level installation", "Clean uninstall", "Auto-update without admin"] },
+              { title: "Platform Support", items: ["macOS enterprise support", "Windows enterprise support", "Version management capability"] }
+            ]
+          },
+          {
+            title: "6. Commercial Readiness",
+            items: ["Per-user per-month licensing model", "Usage metering", "Contract-based provisioning", "Customer onboarding playbook", "Offboarding automation"]
+          },
+          {
+            title: "7. Enterprise Documentation",
+            items: ["Security whitepaper", "Architecture overview", "DLP integration guide (Netskope/others)", "IdP integration guide (Okta/Entra)", "Deployment guide", "Compliance mapping document"]
+          }
+        ]
+      },
+      sprintLog: {
+        intro: "Review feedback from Sprint 1 review (Feb 2026)",
+        sections: [
+          {
+            title: "Review Summary",
+            content: "Overall this is a strong enterprise foundation. The Chromium base, SSO integration, policy management, admin-free installation, and licensing model cover the core requirements for enterprise readiness. From a review perspective, the sprint captures the essential technical pillars."
+          },
+          {
+            title: "Potential Enhancements to Consider",
+            items: [
+              "Audit logging and admin visibility (enterprises often require detailed activity logs for compliance reviews)",
+              "Real-time policy updates and session revocation capability",
+              "Basic admin dashboard visibility (active sessions, license usage)"
+            ]
+          },
+          {
+            title: "Policy Management — Cinder & Alternatives Evaluation",
+            content: "For policies, include a link to Cinder for review by the engineers. We should evaluate Cinder, other alternatives, and in-house alternatives. Cinder provides businesses everything they need to orchestrate and automate safety at scale with industry leading tools for content moderation, AI safety, and data compliance.",
+            link: { url: "https://www.cinder.co/", text: "Cinder | Responsible AI, Trust & Safety, and Data Labeling At Scale" }
+          },
+          {
+            title: "Pallavi — Governance for Agentic/Autonomous Systems",
+            content: "Key questions for Cinder evaluation: Does their enforcement model support non-human actors acting on behalf of users, with continuous authorization and scoped permissions? As automation increases across enterprise workflows, can their architecture scale safely with high-frequency, machine-driven actions — not just human moderation flows? Cinder's architecture features a centralized policy engine with real-time enforcement and auditability. The strategic question: Can that enforcement layer move upstream closer to runtime execution in agentic environments where actions are triggered autonomously? Governance at the API or browser execution layer requires policy validation before state mutation, not just post-event moderation. If Cinder can operate as a pre-execution decision engine rather than only a workflow orchestrator, that becomes strategically powerful."
+          }
+        ]
+      }
+    },
+    {
+      id: 2,
+      title: "B2C Consumer Browser (Firefox) — Voice, Commands, Polish & Trust",
+      emoji: "🦊",
+      priority: "HIGH",
+      storyPoints: 32,
+      effort: "Medium-High",
+      impact: "High",
+      severity: "6-10/10",
+      overview: "**B2C — Consumer browser (Firefox / Gecko):** Single track combining former **Sprint 27** (Mar W3: voice-to-text & AI command reliability) and **Sprint 34** (Mar W3: polish, performance & trust). Addresses NPS passives/detractors on unclear prompts, voice friction, unfinished feel, branding polish, transparency, and theme consistency—all on the **Firefox-based consumer** product (not the Chromium enterprise line). **Sources:** proposed sprints for march week 3.md (NPS-driven).",
+      primaryFiles: "voiceInput.ts, proxyClient.ts, useAssistantRuntime.ts, Composer.tsx, intentParser.ts; branding/CSS, interactionState.ts, decisionEngine.ts",
+      issues: [
+        {
+          title: "Strip trailing period from voice transcription",
+          count: 2,
+          submissionIds: ["WOPpRjL"],
+          description: "Voice-to-text adds a period at the end; this causes the AI to misinterpret commands (e.g., opens new window instead of organizing). Reported multiple times.",
+          impact: "Command misinterpretation (severity 10/10)",
+          technicalNotes: "One-line fix in useAssistantRuntime.ts or voiceInput.ts before setInput(text). Strip trailing period from transcription.",
+          feedback: [
+            { id: "WOPpRjL", text: "All transcriptions of voice to text end in a period, which I have to manually delete each time so that the command can be interpreted accurately - including the period before hitting enter often causes the AI Assistant to misinterpret the command." }
+          ]
+        },
+        {
+          title: "Improve AI understanding of imperfect/shorter prompts",
+          count: 2,
+          submissionIds: [],
+          description: "Users in a hurry don't explain everything perfectly. Better handling of conversational tone vs. definitive format.",
+          impact: "Reduces friction for non-power users (severity 10/10)",
+          technicalNotes: "intentParser.ts, hiddenInstructions.ts, decisionEngine.ts - prompt tuning, regex expansion",
+          feedback: []
+        },
+        {
+          title: "Fix voice dictation pause latency",
+          count: 1,
+          submissionIds: [],
+          description: "When pausing, it takes a while to stop; users feel it's not working.",
+          impact: "Confusing UX (severity 8/10)",
+          technicalNotes: "voiceInput.ts - MediaRecorder stop timing, chunk flush",
+          feedback: []
+        },
+        {
+          title: "Add visual feedback for voice recording",
+          count: 1,
+          submissionIds: [],
+          description: "Microphone icon should indicate when recording is active; words should display in real-time, not only after pause.",
+          impact: "Improves voice UX clarity (severity 7/10)",
+          technicalNotes: "Composer.tsx - enhance wave + real-time words display",
+          requiresUI: true,
+          feedback: []
+        },
+        {
+          title: "Branding polish (ex–Sprint 34)",
+          count: 1,
+          submissionIds: [],
+          description: "Remove Firefox aspects; make product feel finished.",
+          impact: "Unfinished feel (severity 10/10)",
+          technicalNotes: "Branding assets, strings - remove Firefox references",
+          requiresUI: true,
+          feedback: []
+        },
+        {
+          title: "Visibility into background processes (ex–Sprint 34)",
+          count: 1,
+          submissionIds: [],
+          description: "Updates, AI tasks, sync status.",
+          impact: "Transparency (severity 7/10)",
+          technicalNotes: "New UI component - status indicators",
+          requiresUI: true,
+          feedback: []
+        },
+        {
+          title: "AI action transparency (ex–Sprint 34)",
+          count: 1,
+          submissionIds: [],
+          description: "Preview/confirm how AI interpreted intent before executing.",
+          impact: "Trust (severity 8/10)",
+          technicalNotes: "Confirmation flow, interactionState.ts - preview before execute",
+          requiresUI: true,
+          feedback: []
+        },
+        {
+          title: "Chain of commands / recursion limit (ex–Sprint 34)",
+          count: 2,
+          submissionIds: [],
+          description: "Fix recursion/limit issues; support multi-step commands.",
+          impact: "Command execution fails (severity 8/10)",
+          technicalNotes: "decisionEngine.ts, command execution - multi-step, limit handling",
+          feedback: []
+        },
+        {
+          title: "Dark mode toggle (ex–Sprint 34)",
+          count: 1,
+          submissionIds: [],
+          description: "Match user's browser theme.",
+          impact: "Theme consistency (severity 6/10)",
+          technicalNotes: "CSS vars, prefs - match browser theme",
+          requiresUI: true,
+          feedback: []
+        }
+      ],
+      acceptanceCriteria: [
+        "Trailing period stripped from voice transcription before AI processes",
+        "AI handles conversational and imperfect prompts more reliably",
+        "Voice pause responds quickly when user stops",
+        "Microphone shows active state; words display in real-time during recording",
+        "Firefox branding removed (consumer polish)",
+        "Background process status visible",
+        "AI action preview/confirm before execute",
+        "Recursion limit errors resolved",
+        "Dark mode toggle available"
       ]
     }
   ]
 
-  // Top severity sprints (ranked most critical): 10, 15, 25, 17
-  const topSeveritySprintIds = [10, 15, 25, 17]
+  // Open board: Sprint 1 = B2B Chromium enterprise; Sprint 2 = B2C Firefox consumer (merged former 27+34)
+  const topSeveritySprintIds = [1, 2]
   const topSeveritySprints = activeSprints.filter(s => topSeveritySprintIds.includes(s.id))
   const otherSprints = activeSprints.filter(s => !topSeveritySprintIds.includes(s.id))
   const sortedActiveSprints = [
@@ -2894,8 +2917,8 @@ function Sprints() {
     <div className="page" id="product-roadmap">
       <div className="sprint-update-banner">
         Sprint board refreshed through early April 2026. Any resolved issues and sprints have been archived. Open sprints are prioritized from current product feedback and NPS.
-        <span className="sprint-banner-branch">Build off of <code>OTA/determine-ota-update-feasibility</code> (not <code>uiupdates/dynamic</code>). This branch has the newest updates from Sprint 15 (Automatic Software Updates).</span>
-        <span className="sprint-banner-branch"><strong>NPS alignment:</strong> Sprints 27–34 remain the active NPS-focused track and map to latest themes from <code>NPS-Sheet1.csv</code> (intent understanding, split-view/tab accuracy, onboarding/session flow, voice responsiveness, semantic search/context, and trust/polish). See conflict notes for parallelization.</span>
+        <span className="sprint-banner-branch">Build off of <code>OTA/determine-ota-update-feasibility</code> (not <code>uiupdates/dynamic</code>). Sprint 15 (Automatic Software Updates) is archived; use OTA branch docs for update-related work.</span>
+        <span className="sprint-banner-branch"><strong>Active board (May 2026):</strong> <strong>Sprint 1</strong> — B2B enterprise browser (Chromium). <strong>Sprint 2</strong> — B2C consumer browser (Firefox); combines former Sprints 27 and 34 (voice/commands + polish/trust). All other former active sprints are in the Archive below.</span>
       </div>
       <div className="page-header">
         <h1>Engineering Sprints</h1>
@@ -2914,7 +2937,7 @@ function Sprints() {
           <div className="sprint-summary-card sprint-summary-critical">
             <div className="sprint-summary-value">{topSeverityCount}</div>
             <div className="sprint-summary-label">Top Severity Sprints</div>
-            <div className="sprint-summary-sublabel">Sprints 10, 15, 17 (Most Critical)</div>
+            <div className="sprint-summary-sublabel">Sprint 1 B2B Chromium · Sprint 2 B2C Firefox (27+34)</div>
           </div>
           <div className="sprint-summary-card">
             <div className="sprint-summary-value">{unresolvedIssuesCount}</div>
@@ -2981,7 +3004,7 @@ function Sprints() {
       <section className="page-section">
         <div className="sprints-container">
           {sortedActiveSprints.map((sprint) => (
-            <div key={sprint.id} className="sprint-card">
+            <div key={`active-${sprint.id}`} className="sprint-card">
               <div 
                 className="sprint-header"
                 onClick={() => toggleSprint(sprint.id)}
@@ -3052,21 +3075,6 @@ function Sprints() {
                   <div className="sprint-overview">
                     <h3>Overview</h3>
                     <p>{sprint.overview}</p>
-                    {sprint.id === 7 && (
-                      <p style={{ marginTop: '10px', fontSize: '0.95rem' }}>
-                        <strong>Prototype:</strong> <a href="https://oasis-roadmap.vercel.app/tuning-analytics" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--oasis-green-medium)', textDecoration: 'underline' }}>User Analytics Dashboard</a>
-                      </p>
-                    )}
-                    {sprint.id === 15 && (
-                      <p style={{ marginTop: '10px', fontSize: '0.95rem' }}>
-                        <strong>Developer Guide:</strong> <Link to="/ota-guide" style={{ color: 'var(--oasis-green-medium)', textDecoration: 'underline' }}>OTA & Automatic Software Updates Guide</Link> – Read this to get up to speed on the update system and release workflows.
-                      </p>
-                    )}
-                    {sprint.id === 19 && (
-                      <p style={{ marginTop: '10px', fontSize: '0.95rem' }}>
-                        <strong>Current HITL outputs:</strong> <Link to="/hitl" style={{ color: 'var(--oasis-green-medium)', textDecoration: 'underline' }}>HITL Feedback page</Link> – Shows our current feedback_events export, categories, ratio, and schema gaps. Use this for context when auditing and improving the HITL setup.
-                      </p>
-                    )}
                     {sprint.rewardSystem && (
                       <div style={{ 
                         marginTop: '15px', 
@@ -3256,18 +3264,9 @@ function Sprints() {
             </p>
           </div>
           <ol style={{ lineHeight: '2', fontSize: '1.05rem' }}>
-            <li><strong>Sprint 5</strong> - UI/Bug Fixes - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 6</strong> - HITL Framework Phase 1: MVP/Prototype (basic implementation for product testers) - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 7</strong> - Assistant Engine Reliability (LangGraph, tool-output formatting) - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 8</strong> - Tab Group & Tab/Window Operations - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 9</strong> - Authentication + Subscription UX (login, signup, session restore, limits) - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 10</strong> - Onboarding + Branding polish (first run, visibility, Firefox remnants) - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 11</strong> - Making it Easy to Find Saved Websites - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 12</strong> - AI Command for Native Splitview - <em>✅ Completed</em></li>
-            <li><strong>Sprint 13</strong> - Chat History Access - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 14</strong> - Webpage Summarization - <em>✅ Completed by Rushyanth</em></li>
-            <li><strong>Sprint 15</strong> - Automatic Software Updates - <em>Not yet addressed</em></li>
-            <li><strong>Sprint 16</strong> - Gemini Model Migration (Critical) - <em>Not yet addressed</em></li>
+            <li><strong>Sprint 1</strong> - B2B Enterprise Browser (Chromium) — <em>Open</em></li>
+            <li><strong>Sprint 2</strong> - B2C Consumer Browser (Firefox) — voice, commands, polish &amp; trust (merged former 27+34) — <em>Open</em></li>
+            <li style={{ marginTop: '12px', color: '#64748b' }}><em>All other numbered sprints are archived (see Archive section).</em></li>
           </ol>
         </div>
       </section>
@@ -3290,10 +3289,10 @@ function Sprints() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
               <div>
                 <h2 style={{ margin: 0, color: '#0369a1', fontSize: '1.5rem' }}>
-                  📦 Archive - Completed Sprints (1-4, Sprint 8 Resolved Issues)
+                  📦 Archive - Completed & Archived Sprints (open board: Sprint 1 B2B Chromium, Sprint 2 B2C Firefox merged 27+34; former open sprints 8, 11–16, 18, 22, 24, 26, 28–33, 35 archived May 2026)
                 </h2>
                 <p style={{ margin: '10px 0 0 0', color: '#0369a1', fontSize: '0.95rem' }}>
-                  All sprints fully completed and fixed locally. Sprint 8 resolved issues have been archived. Updates incorporated into new release for Product team testing (Mac & Windows) by end of week January 23rd.
+                  Historical completed work plus sprints moved off the active board. As of May 2026 the open backlog is Sprint 1 (B2B Chromium) and Sprint 2 (B2C Firefox, includes former Sprints 27+34); everything else lives here for reference.
                 </p>
               </div>
               <div className="sprint-toggle" style={{ backgroundColor: 'rgba(14, 165, 233, 0.1)' }}>
@@ -3304,7 +3303,9 @@ function Sprints() {
 
           {expandedArchive && (
             <div className="sprints-container" style={{ marginTop: '20px' }}>
-              {archivedSprints.map((sprint) => (
+              {archivedSprints.map((sprint) => {
+                const displaySprintId = sprint.sprintNumber ?? sprint.id
+                return (
                 <div key={sprint.id} className="sprint-card" style={{ opacity: 0.9, borderColor: '#0ea5e9' }}>
                   <div 
                     className="sprint-header"
@@ -3315,11 +3316,11 @@ function Sprints() {
                       <span className="sprint-emoji">{sprint.emoji}</span>
                       <div>
                         <h2 className="sprint-title">
-                          SPRINT {sprint.id}: {sprint.title} ✅ COMPLETED
+                          SPRINT {displaySprintId}: {sprint.title} ✅ COMPLETED
                         </h2>
                         <div className="sprint-branch-indicator">
                           <span className="sprint-branch-icon" aria-hidden>🔀</span>
-                          Branch: <code>SPRINT_{sprint.id}</code>
+                          Branch: <code>SPRINT_{displaySprintId}</code>
                         </div>
                         {sprint.teamMembers && sprint.teamMembers.length > 0 && (
                           <div style={{ marginTop: '8px', marginBottom: '8px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
@@ -3469,7 +3470,8 @@ function Sprints() {
                     </div>
                   )}
                 </div>
-              ))}
+                )
+              })}
             </div>
           )}
         </div>
