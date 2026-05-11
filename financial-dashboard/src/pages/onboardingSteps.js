@@ -14,7 +14,13 @@ export const ONBOARDING_STEPS = [
   // Day 2
   { id: 'linkedin', label: 'Read LinkedIn Guide, complete the form to choose your participation category & update your profile', category: 'External Presence', day: 2, badge: '1-2 hours' },
   // Day 3
-  { id: 'business-plan', label: 'Read the full Business Plan (all sections)', category: 'Company & Culture', day: 3, badge: '1 business day' },
+  {
+    id: 'knowledge-base-core-business',
+    label: "Understand Kahana's core business (Knowledge base)",
+    category: 'Company & Culture',
+    day: 3,
+    badge: '1 business day',
+  },
   // Day 4
   { id: 'duolingo-article', label: 'Learn the Growth Framework', category: 'Company & Culture', day: 4, badge: '1 business day' },
   // Day 5
