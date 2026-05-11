@@ -247,3 +247,129 @@
   border: 1px solid #e0e0e0;
   font-size: 0.95rem;
 }
+
+.nps-sheet-section {
+  margin-top: 0;
+}
+
+.nps-sheet-callout {
+  background: #f0fdf4;
+  border: 1px solid #22c55e;
+  border-radius: 10px;
+  padding: 18px 22px;
+}
+
+.nps-sheet-heading {
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+  color: #166534;
+}
+
+.nps-sheet-intro {
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #334155;
+}
+
+.nps-sheet-cta {
+  margin: 0 0 10px;
+}
+
+.nps-sheet-link {
+  display: inline-block;
+  font-weight: 600;
+  color: var(--oasis-green-medium, #0d9488);
+  text-decoration: none;
+}
+
+.nps-sheet-link:hover {
+  text-decoration: underline;
+}
+
+.nps-sheet-meta {
+  margin: 0;
+  font-size: 0.8rem;
+  word-break: break-all;
+}
+
+.nps-sheet-link-muted {
+  color: #64748b;
+  text-decoration: none;
+}
+
+.nps-sheet-link-muted:hover {
+  text-decoration: underline;
+  color: var(--oasis-green-medium, #0d9488);
+}
+
+.nps-guidance-section h2 {
+  margin-bottom: 12px;
+}
+
+.nps-guidance-block h3 {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 1.05rem;
+  color: #1e293b;
+}
+
+.nps-guidance-block h3:first-child {
+  margin-top: 0;
+}
+
+.nps-guidance-block p,
+.nps-guidance-block ul,
+.nps-guidance-block ol {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.nps-guidance-block ul,
+.nps-guidance-block ol {
+  margin: 0 0 12px;
+  padding-left: 1.25rem;
+}
+
+.nps-guidance-flow-list li {
+  margin-bottom: 8px;
+}
+
+.nps-guidance-note {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  background: #fffbeb;
+  border: 1px solid #fcd34d;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #78350f;
+}
+
+.nps-guidance-quote {
+  margin: 0 0 16px;
+  padding: 14px 18px;
+  background: #f8fafc;
+  border-left: 4px solid var(--oasis-green-medium, #0d9488);
+  border-radius: 0 8px 8px 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.nps-guidance-quote-options {
+  margin: 12px 0 0;
+  font-weight: 400;
+  color: #334155;
+}
+
+.nps-guidance-ref {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--oasis-green-medium, #0d9488);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nps-guidance-ref:hover {
+  text-decoration: underline;
+}

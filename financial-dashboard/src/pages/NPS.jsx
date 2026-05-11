@@ -51,7 +51,171 @@ function parseNPScsv(text) {
   }).filter(row => row['Submission ID'])
 }
 
+const PMF_NPS_OUTPUT_SHEET_URL =
+  'https://docs.google.com/spreadsheets/d/1v8cJu1f9UXC1JY6XBTtSBlu8rGqVqpEVl6zlB8-pfoA/edit?usp=sharing'
+
 const COHORT_OPTIONS = ['Very disappointed', 'Somewhat disappointed', 'Not disappointed']
+
+function RefLink({ href, children }) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className="nps-guidance-ref">
+      {children}
+    </a>
+  )
+}
+
+function SurveyTimingGuidance() {
+  return (
+    <>
+      <section className="page-section nps-guidance-section">
+        <h2>NPS survey timing</h2>
+        <div className="content-block nps-guidance-block">
+          <h3>Initial NPS: 14–21 days after signup</h3>
+          <p>
+            Wait until users have finished onboarding and used core AI features several times—enough context to recommend
+            (or not) the browser, not just first impressions.{' '}
+            <RefLink href="https://refiner.io/blog/best-time-to-send-nps-survey/">Refiner</RefLink>
+          </p>
+          <ul>
+            <li>Capture experience with the product, not launch-day excitement alone.</li>
+            <li>Users should have used meaningful workflows before the relationship question.</li>
+          </ul>
+
+          <h3>Transactional NPS: after key milestones</h3>
+          <ul>
+            <li>
+              <strong>24–72 hours after hitting a token / usage limit</strong> — measures satisfaction at a friction point.{' '}
+              <RefLink href="https://www.bland.ai/blogs/nps-survey-best-practices">Bland.ai</RefLink>
+            </li>
+            <li>
+              <strong>Shortly after premium upgrade</strong> — validates the conversion and first paid experience.
+            </li>
+            <li>
+              <strong>After resolving a support ticket (0–24 hours)</strong> — while context is fresh.{' '}
+              <RefLink href="https://customergauge.com/blog/when-to-send-your-net-promoter-surveys/">CustomerGauge</RefLink>
+            </li>
+          </ul>
+
+          <h3>Relationship NPS: quarterly cadence</h3>
+          <p>
+            About every 90 days for active users to track loyalty trends. Avoid surveying the same person more than once
+            per 60–90 days to limit fatigue.{' '}
+            <RefLink href="https://www.gainsight.com/blog/best-time-to-send-nps-survey-how-to-maximize-responses/">Gainsight</RefLink>{' '}
+            · <RefLink href="https://www.bland.ai/blogs/nps-survey-best-practices">Bland.ai</RefLink>
+          </p>
+        </div>
+      </section>
+
+      <section className="page-section nps-guidance-section">
+        <h2>PMF survey timing</h2>
+        <div className="content-block nps-guidance-block">
+          <h3>Initial PMF: 2–4 weeks after signup</h3>
+          <p>
+            Survey <strong>active</strong> users only—for example those who have used an AI command at least twice, signed
+            in multiple times in the last 30 days, or completed a core workflow (navigation, content interaction) at least
+            twice. Surveying too early measures &quot;hopes&quot; rather than dependency.{' '}
+            <RefLink href="https://formbricks.com/blog/product-market-fit-survey-questions">Formbricks</RefLink> ·{' '}
+            <RefLink href="https://www.fitsignal.com/blog/pmf-for-saas">Fitsignal</RefLink> ·{' '}
+            <RefLink href="https://delighted.com/blog/when-to-send-your-nps-survey">Delighted</RefLink>
+          </p>
+
+          <h3>Ongoing PMF: monthly or quarterly</h3>
+          <p>
+            Track PMF score as you iterate; segment by user type (free vs. premium, power vs. casual). Aim for at least{' '}
+            <strong>~40 responses</strong> per wave for directional reads.{' '}
+            <RefLink href="https://monolit.sh/blog/how-to-measure-product-market-fit-saas-startup-2026">Monolit</RefLink> ·{' '}
+            <RefLink href="https://postulate.us/@samsonzhang/p/2021-04-15-How-Superhuman-Used-a-Four-Question-oGqEg8zUriGRekTfnBUHwD">Postulate</RefLink>
+          </p>
+
+          <h3>Cadence guardrail</h3>
+          <p>
+            Avoid hitting the same users more often than about every 3–4 months with PMF-style surveys.{' '}
+            <RefLink href="https://learningloop.io/plays/product-market-fit-survey">Learning Loop</RefLink>
+          </p>
+        </div>
+      </section>
+
+      <section className="page-section nps-guidance-section">
+        <h2>Recommended survey flow for Oasis</h2>
+        <div className="content-block nps-guidance-block">
+          <p>Aligned with a Product Hunt launch and behavioral triggers (not time-only blasts):</p>
+          <ol className="nps-guidance-flow-list">
+            <li>
+              <strong>Days 0–13:</strong> no surveys—let people explore and form a real opinion.
+            </li>
+            <li>
+              <strong>Day ~14:</strong> send NPS to users who have submitted <strong>3+ AI commands</strong>.
+            </li>
+            <li>
+              <strong>Days 21–28:</strong> send the PMF (Sean Ellis) question to users with <strong>3+ logins</strong> and{' '}
+              <strong>2+ AI command sessions</strong>.{' '}
+              <RefLink href="https://postulate.us/@samsonzhang/p/2021-04-15-How-Superhuman-Used-a-Four-Question-oGqEg8zUriGRekTfnBUHwD">Postulate / Superhuman framing</RefLink>
+            </li>
+            <li>
+              <strong>After token limit:</strong> transactional NPS within ~48 hours for users who hit their cap.
+            </li>
+            <li>
+              <strong>After upgrade:</strong> transactional NPS within ~24 hours for new premium subscribers.
+            </li>
+            <li>
+              <strong>Ongoing:</strong> quarterly relationship NPS and PMF waves to active cohorts.
+            </li>
+          </ol>
+          <p className="nps-guidance-note">
+            Resist surveying day-1 users immediately—the signal reflects launch buzz more than durable PMF.{' '}
+            <RefLink href="https://formbricks.com/blog/product-market-fit-survey-questions">Formbricks</RefLink>
+          </p>
+        </div>
+      </section>
+
+      <section className="page-section nps-guidance-section">
+        <h2>Key PMF question (Superhuman-style)</h2>
+        <div className="content-block nps-guidance-block">
+          <blockquote className="nps-guidance-quote">
+            &quot;How would you feel if you could no longer use Oasis?&quot;
+            <ul className="nps-guidance-quote-options">
+              <li>Very disappointed</li>
+              <li>Somewhat disappointed</li>
+              <li>Not disappointed</li>
+            </ul>
+          </blockquote>
+          <p>
+            <strong>Directional target:</strong> about <strong>40%+ &quot;very disappointed&quot;</strong> among qualified
+            active users is often treated as a PMF signal—interpret alongside sample size and segments.{' '}
+            <RefLink href="https://postulate.us/@samsonzhang/p/2021-04-15-How-Superhuman-Used-a-Four-Question-oGqEg8zUriGRekTfnBUHwD">Postulate</RefLink> ·{' '}
+            <RefLink href="https://www.fitsignal.com/blog/pmf-for-saas">Fitsignal</RefLink>
+          </p>
+        </div>
+      </section>
+
+      <section className="page-section nps-guidance-section">
+        <h2>Implementation tips</h2>
+        <div className="content-block nps-guidance-block">
+          <ul>
+            <li>
+              <strong>Segment</strong> by acquisition source (e.g. Product Hunt vs. organic), usage depth, and premium
+              status when reading PMF + NPS together.{' '}
+              <RefLink href="https://formbricks.com/blog/product-market-fit-survey-questions">Formbricks</RefLink>
+            </li>
+            <li>
+              <strong>In-app triggers</strong> tied to milestones often outperform email-only time triggers for a browser
+              product.{' '}
+              <RefLink href="https://www.specific.app/blog/best-time-to-send-nps-survey-and-best-questions-for-onboarding-nps-how-to-capture-powerful-net-promoter-score-feedback-from-new-customers/">Specific</RefLink>
+            </li>
+            <li>
+              <strong>Skip churned or inactive users</strong> for PMF reads—focus on people who have experienced core
+              value. <RefLink href="https://monolit.sh/blog/how-to-measure-product-market-fit-saas-startup-2026">Monolit</RefLink>
+            </li>
+            <li>
+              <strong>Dashboard mindset:</strong> track PMF alongside retention and NRR; PMF softness can lead churn by
+              weeks. <RefLink href="https://www.fitsignal.com/blog/pmf-for-saas">Fitsignal</RefLink>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </>
+  )
+}
 
 function NPS() {
   const [data, setData] = useState([])
@@ -61,7 +225,7 @@ function NPS() {
 
   useEffect(() => {
     fetch('/NPS/NPS-Sheet1.csv')
-      .then(res => res.ok ? res.text() : Promise.reject(new Error('Failed to load NPS data')))
+      .then(res => res.ok ? res.text() : Promise.reject(new Error('Failed to load PMF+NPS export')))
       .then(text => {
         setData(parseNPScsv(text))
         setError(null)
@@ -100,12 +264,12 @@ function NPS() {
 
   if (loading) {
     return (
-      <div className="page">
+      <div className="page" id="nps">
         <div className="page-header">
-          <h1>NPS</h1>
+          <h1>PMF+NPS data</h1>
         </div>
         <div className="content-block">
-          <p>Loading NPS data...</p>
+          <p>Loading PMF+NPS data…</p>
         </div>
       </div>
     )
@@ -113,12 +277,12 @@ function NPS() {
 
   if (error) {
     return (
-      <div className="page">
+      <div className="page" id="nps">
         <div className="page-header">
-          <h1>NPS</h1>
+          <h1>PMF+NPS data</h1>
         </div>
         <div className="content-block">
-          <p>Could not load NPS data: {error}</p>
+          <p>Could not load PMF+NPS export: {error}</p>
           <p>Ensure <code>NPS-Sheet1.csv</code> exists in <code>public/NPS/</code>.</p>
         </div>
       </div>
@@ -126,13 +290,41 @@ function NPS() {
   }
 
   return (
-    <div className="page">
+    <div className="page" id="nps">
       <div className="page-header">
-        <h1>NPS</h1>
+        <h1>PMF+NPS data</h1>
         <p className="page-subtitle">
-          Our north star metric. Cohorts are based on &quot;How would you feel if you could no longer use Oasis?&quot;—Very disappointed = promoters; Not disappointed = detractors. Focus on Not and Somewhat Disappointed feedback to convert users to promoters.
+          Product-market fit (Sean Ellis question) and Net Promoter Score. Cohorts use &quot;How would you feel if you could
+          no longer use Oasis?&quot; alongside the 0–10 recommend score. Open the live sheet for full responses; the
+          dashboard below uses a CSV snapshot from this repo for fast load.
         </p>
       </div>
+
+      <section className="page-section nps-sheet-section">
+        <div className="content-block nps-sheet-callout">
+          <h2 className="nps-sheet-heading">Live PMF+NPS output</h2>
+          <p className="nps-sheet-intro">
+            Authoritative responses and exports live in this Google Sheet. Send PMF+NPS surveys to users using the timing
+            and segmentation guidance further down this page.
+          </p>
+          <p className="nps-sheet-cta">
+            <a
+              href={PMF_NPS_OUTPUT_SHEET_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nps-sheet-link"
+            >
+              Open PMF+NPS Google Sheet →
+            </a>
+          </p>
+          <p className="nps-sheet-meta">
+            Sheet:{' '}
+            <a href={PMF_NPS_OUTPUT_SHEET_URL} target="_blank" rel="noopener noreferrer" className="nps-sheet-link-muted">
+              {PMF_NPS_OUTPUT_SHEET_URL}
+            </a>
+          </p>
+        </div>
+      </section>
 
       <section className="page-section">
         <h2>Current NPS Score</h2>
@@ -273,6 +465,8 @@ function NPS() {
           )}
         </div>
       </section>
+
+      <SurveyTimingGuidance />
     </div>
   )
 }

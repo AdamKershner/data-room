@@ -1,0 +1,137 @@
+.kb-filters {
+  margin-bottom: 8px;
+}
+
+.kb-filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: flex-end;
+}
+
+.kb-filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kb-filter-group-label,
+.kb-filter-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.kb-filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.kb-filter-btn {
+  padding: 8px 14px;
+  border: 2px solid var(--oasis-green-medium, #0d9488);
+  background: white;
+  color: var(--oasis-green-dark, #0f766e);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.kb-filter-btn:hover {
+  background: rgba(13, 148, 136, 0.08);
+}
+
+.kb-filter-btn--active {
+  background: var(--oasis-green-medium, #0d9488);
+  color: white;
+  border-color: var(--oasis-green-medium, #0d9488);
+}
+
+.kb-search-group {
+  flex: 1;
+  min-width: 220px;
+}
+
+.kb-search-input {
+  padding: 10px 14px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 400px;
+  transition: border-color 0.2s;
+}
+
+.kb-search-input:focus {
+  outline: none;
+  border-color: var(--oasis-green-medium, #0d9488);
+}
+
+.kb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.kb-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fff;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+
+.kb-card:hover {
+  border-color: var(--oasis-green-medium, #0d9488);
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.12);
+  transform: translateY(-1px);
+}
+
+.kb-card-category {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+}
+
+.kb-card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.kb-card:hover .kb-card-title {
+  color: var(--oasis-green-medium, #0d9488);
+}
+
+.kb-card-desc {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: #475569;
+}
+
+.kb-card-path {
+  margin-top: auto;
+  padding-top: 8px;
+  font-size: 0.75rem;
+  font-family: ui-monospace, monospace;
+  color: #94a3b8;
+}
+
+.kb-empty {
+  text-align: center;
+  padding: 48px 20px;
+  color: #64748b;
+  font-size: 1rem;
+}

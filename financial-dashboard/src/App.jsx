@@ -28,6 +28,8 @@ import LinkedInConnectionsGuide from './pages/LinkedInConnectionsGuide'
 import ProductHuntTasks from './pages/ProductHuntTasks'
 import OTAGuide from './pages/OTAGuide'
 import SOC2GapAnalysis from './pages/SOC2GapAnalysis'
+import Archive from './pages/Archive'
+import KnowledgeBase from './pages/KnowledgeBase'
 import SOC2Type1Checklist from './pages/SOC2Type1Checklist'
 import ProjectCharter from './pages/ProjectCharter'
 import './App.css'
@@ -39,6 +41,8 @@ function App() {
         <Navigation />
         <Routes>
           <Route path="/" element={<ExecutiveSummary />} />
+          <Route path="/archive" element={<Archive />} />
+          <Route path="/knowledge-base" element={<KnowledgeBase />} />
           <Route path="/Q1-executive-report" element={<Q1ExecutiveReport />} />
           <Route path="/q1-midpoint" element={<Q1MidpointUpdate />} />
           <Route path="/problem-market" element={<ProblemMarket />} />

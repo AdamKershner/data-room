@@ -340,52 +340,47 @@ function StepAvengerProfile() {
   )
 }
 
-const BUSINESS_PLAN_SECTIONS = [
-  { path: '/', label: 'Executive Summary' },
-  { path: '/Q1-executive-report', label: 'Q1 Executive Update' },
-  { path: '/weekly-reports', label: 'Weekly Reports' },
-  { path: '/q1-midpoint', label: 'Q1 Midpoint Update' },
-  { path: '/onboarding', label: 'Onboarding' },
-  { path: '/team-execution', label: 'Team, Execution & Milestones' },
-  { path: '/market-size', label: 'Market Size' },
-  { path: '/b2c-strategic-narrative', label: 'B2C Strategic Narrative' },
-  { path: '/b2b-strategic-narrative', label: 'B2B Strategic Narrative' },
-  { path: '/competitors', label: 'Competitors' },
-  { path: '/linkedin-guide', label: 'LinkedIn Guide' },
-  { path: '/linkedin-connections-guide', label: 'LinkedIn Connections Guide' },
-  { path: '/producthunt-tasks', label: 'ProductHunt Tasks' },
-  { path: '/content-pipeline', label: 'Content Pipeline' },
-  { path: '/go-to-market', label: 'Go-to-Market & Growth' },
-  { path: '/financial-plan', label: 'Financial Plan & Sensitivity' },
-  { path: '/business-model', label: 'Business Model & Unit Economics' },
-  { path: '/product-technology', label: 'Product & Technology' },
-  { path: '/problem-market', label: 'Problem, Market & Users' },
-  { path: '/nps', label: 'NPS' },
-  { path: '/hitl', label: 'HITL Feedback' },
-  { path: '/ota-guide', label: 'OTA & Updates Guide' },
-  { path: '/sprints', label: 'Sprints' },
-  { path: '/soc2-gap-analysis', label: 'SOC2 Gap Analysis' },
-  { path: '/soc2-type1-checklist', label: 'SOC2 Type 1 Checklist' },
-]
-
-function StepBusinessPlan() {
+function StepKnowledgeBaseCoreBusiness() {
   return (
     <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You've read all sections listed below (every item in the Table of Contents).</p>
+      <p className="onboarding-step-done onboarding-step-done-top">
+        <strong>✓ Done when:</strong> You&apos;ve gone into depth in the Knowledge base—reading, skimming, and connecting
+        material across functions—so you can explain Kahana&apos;s core business at a credible level for your role.
+      </p>
 
-      <p>Reading the full Business Plan means reading all sections of this entire site. In case you didn't notice, there's a menu in the top left corner that lets you navigate between the various sections — it's more than one page. Work through each section in the order listed below.</p>
+      <p>
+        This step is not a quick tour. The goal is to <strong>understand the core business</strong> by working through the
+        information in the{' '}
+        <Link to="/knowledge-base" className="onboarding-inline-link">
+          Knowledge base
+        </Link>
+        : documents, narratives, and process-oriented pages covering <strong>sales, marketing, finance, product</strong>,
+        and more—all of the key business functions we reference when making decisions. Use category filters and search to
+        find what matters most to you, then branch into linked pages until the story clicks.
+      </p>
 
-      <h3>Sections to read</h3>
-      <ol className="onboarding-steps-list">
-        {BUSINESS_PLAN_SECTIONS.map((section) => (
-          <li key={section.path}>
-            <Link to={section.path}>{section.label}</Link>
-          </li>
-        ))}
-      </ol>
+      <p>
+        After you&apos;ve done that work, you should have a <strong>strong foundation</strong> in how Kahana operates as
+        a business—not only what we build, but how we go to market, model revenue, and prioritize on the product side.
+      </p>
+
+      <p>
+        The table of contents still holds top-level entry points (Executive Summary, PMF+NPS data, Sprints, Project
+        Charter, etc.). The Knowledge base is where most deep-dive reference pages live.
+      </p>
+
+      <div className="onboarding-cta-row">
+        <Link to="/knowledge-base" className="onboarding-cta-link">
+          Open Knowledge base →
+        </Link>
+      </div>
 
       <div className="onboarding-note">
-        <p>After you've gone through the material, share any questions you have — I'm happy to walk through nuances and make sure we're aligned on our strategies and priorities. You can reach Adam by DM on Slack or at <a href="mailto:adam@kahana.co" className="onboarding-inline-link">adam@kahana.co</a>.</p>
+        <p>
+          When you&apos;re ready, share questions or gaps — I&apos;m happy to walk through nuances and align on strategy.
+          Reach Adam by DM on Slack or at{' '}
+          <a href="mailto:adam@kahana.co" className="onboarding-inline-link">adam@kahana.co</a>.
+        </p>
       </div>
     </div>
   )
@@ -759,7 +754,7 @@ const STEP_CONTENT = {
   'install-oasis': StepInstallOasis,
   'use-oasis-5-days': StepUseOasis5Days,
   'avenger-profile': StepAvengerProfile,
-  'business-plan': StepBusinessPlan,
+  'knowledge-base-core-business': StepKnowledgeBaseCoreBusiness,
   'duolingo-article': StepDuolingoArticle,
   'soc2-compliance': StepSoc2Compliance,
   'internal-channels': StepInternalChannels,

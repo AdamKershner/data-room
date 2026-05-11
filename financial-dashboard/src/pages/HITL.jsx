@@ -17,6 +17,12 @@ const BAD_COUNT = 17 + 10 + 4  // Didn't work + Wrong result + Confusing
 const HELPFUL_RATIO = (HELPFUL_COUNT / BAD_COUNT).toFixed(2)
 const HELPFUL_PCT = ((HELPFUL_COUNT / (HELPFUL_COUNT + BAD_COUNT)) * 100).toFixed(1)
 
+const SUPABASE_FEEDBACK_EVENTS_TABLE_URL =
+  'https://supabase.com/dashboard/project/wvclepquxxczgrukfqyr/editor/197014?sort=reported_at%3Adesc'
+
+const FEEDBACK_DATA_COLLECTION_ROADMAP_DOC_URL =
+  'https://docs.google.com/document/d/14ACWHpL_CobwZTKsWNAvtROGQC_gkssbwVIqFoRhawc/edit?tab=t.0'
+
 function HITL() {
   return (
     <div className="page">
@@ -26,6 +32,38 @@ function HITL() {
           Human-in-the-loop feedback from the AI assistant. Data from <code>feedback_events</code> export (Jan–Mar 2026).
         </p>
       </div>
+
+      <section className="page-section hitl-source-section">
+        <div className="content-block hitl-source-callout">
+          <h2 className="hitl-source-heading">Live data &amp; roadmap</h2>
+          <p className="hitl-source-intro">
+            Browse the raw training-data table in Supabase, and the doc where we track richer capture (including JSON-shaped
+            payloads) going forward.
+          </p>
+          <ul className="hitl-source-link-list">
+            <li>
+              <a
+                href={SUPABASE_FEEDBACK_EVENTS_TABLE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hitl-source-link"
+              >
+                Open <code>feedback_events</code> in Supabase (table editor, sorted by <code>reported_at</code>) →
+              </a>
+            </li>
+            <li>
+              <a
+                href={FEEDBACK_DATA_COLLECTION_ROADMAP_DOC_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hitl-source-link"
+              >
+                Roadmap: enhanced data collection &amp; JSON formatting →
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
 
       <section className="page-section">
         <h2>Helpful vs. Bad Ratio</h2>
