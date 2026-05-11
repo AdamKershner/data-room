@@ -5,6 +5,7 @@ import './Q1MidpointUpdate.css'
 import hubspotLeadViewerImage from '../assets/hubspot-lead-viewer-fit-score.png'
 import { FAQ_ITEMS } from '../data/strategicFaqItems.jsx'
 import { OASIS_LOI_LETTER_DOC_URL } from '../constants/oasisCommercialDocs'
+import { NOTION_TEAM_DIRECTORY_URL } from '../constants/notionTeamDirectory'
 
 
 function Q1MidpointUpdate() {
@@ -311,7 +312,12 @@ function Q1MidpointUpdate() {
               <li><Link to="/go-to-market#icp"><strong>Ideal Customer Profiles</strong></Link> (B2C + B2B) — already in data room</li>
               <li><Link to="/competitors"><strong>Competitive Landscape &amp; Differentiation</strong></Link> — competitor database (e.g., <a href="https://strawberrybrowser.com/" target="_blank" rel="noopener noreferrer">Strawberry</a>—recently raised $5M, #1 on Product Hunt), how we stand out</li>
               <li><Link to="/go-to-market#gtm-strategy"><strong>Go-To-Market Strategy</strong></Link> — already in data room</li>
-              <li><Link to="/team-execution#team-overview"><strong>Team Overview</strong></Link> (founders, advisors) — already in data room</li>
+              <li>
+                <a href={NOTION_TEAM_DIRECTORY_URL} target="_blank" rel="noopener noreferrer">
+                  <strong>Team directory (Notion)</strong>
+                </a>{' '}
+                (founders, advisors) — live directory, always up to date
+              </li>
               <li><Link to="/financial-plan#financial-snapshot"><strong>Financial Snapshot</strong></Link> (burn, runway) — already in data room</li>
               <li><Link to="/financial-plan#financial-projections"><strong>18–24 Month Financial Projections</strong></Link> — already in data room</li>
               <li><strong>Pitch Deck</strong> — ON HOLD (not typically aiming to share)</li>

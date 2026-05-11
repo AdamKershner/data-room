@@ -1,0 +1,41 @@
+.team-execution-notion-block p {
+  margin-top: 0;
+}
+
+.team-execution-inline-path {
+  font-size: 0.9em;
+}
+
+.team-execution-actions {
+  margin: 1.25rem 0;
+}
+
+.team-execution-notion-button {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  background: var(--oasis-green-medium, #0d9488);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.team-execution-notion-button:hover {
+  filter: brightness(1.05);
+  text-decoration: none;
+  color: #fff;
+}
+
+.team-execution-url-line {
+  font-size: 0.85rem;
+  word-break: break-all;
+}
+
+.team-execution-url-label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #64748b;
+  margin-bottom: 0.35rem;
+}

@@ -103,11 +103,6 @@ function Onboarding() {
           <span className="onboarding-hint-item">☐ Click the box to mark complete</span>
           <span className="onboarding-hint-item">→ Click the task name to open instructions</span>
         </p>
-        <p className="onboarding-konika-growth-link-wrap">
-          <Link to="/onboarding/growth-content-konika" className="onboarding-konika-growth-link">
-            Growth &amp; content onboarding (Konika): success criteria &amp; checklist →
-          </Link>
-        </p>
       </div>
 
       <section className="onboarding-summary">
@@ -194,6 +189,24 @@ function Onboarding() {
               </ul>
             </>
           )}
+
+          <h3 className="onboarding-coming-soon-title onboarding-optional-title">Optional</h3>
+          <p className="onboarding-optional-intro">
+            Supplementary tracks for specific roles — not part of the core checklist above. Same placement idea as
+            the SOC 2 &amp; compliance step under Coming soon: optional until you need it.
+          </p>
+          <ul className="onboarding-list">
+            <li className="onboarding-item onboarding-item-optional">
+              <Link
+                to="/onboarding/growth-content-konika"
+                className="onboarding-item-link"
+                title="Growth, website, and content — success criteria and checklist"
+              >
+                <span className="onboarding-item-text">Growth &amp; website content onboarding (Konika)</span>
+                <span className="onboarding-item-arrow">Open checklist →</span>
+              </Link>
+            </li>
+          </ul>
         </div>
       </section>
     </div>

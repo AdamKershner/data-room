@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
+import { NOTION_TEAM_DIRECTORY_URL } from '../constants/notionTeamDirectory'
 import './Page.css'
 import './Onboarding.css'
 
@@ -346,7 +347,7 @@ const BUSINESS_PLAN_SECTIONS = [
   { path: '/weekly-reports', label: 'Weekly Reports' },
   { path: '/q1-midpoint', label: 'Q1 Midpoint Update' },
   { path: '/onboarding', label: 'Onboarding' },
-  { path: '/team-execution', label: 'Team, Execution & Milestones' },
+  { href: NOTION_TEAM_DIRECTORY_URL, label: 'Team directory (Notion)' },
   { path: '/market-size', label: 'Market Size' },
   { path: '/b2c-strategic-narrative', label: 'B2C Strategic Narrative' },
   { path: '/b2b-strategic-narrative', label: 'B2B Strategic Narrative' },
@@ -360,7 +361,7 @@ const BUSINESS_PLAN_SECTIONS = [
   { path: '/business-model', label: 'Business Model & Unit Economics' },
   { path: '/product-technology', label: 'Product & Technology' },
   { path: '/problem-market', label: 'Problem, Market & Users' },
-  { path: '/nps', label: 'NPS' },
+  { path: '/nps', label: 'PMF+NPS data' },
   { path: '/hitl', label: 'HITL Feedback' },
   { path: '/ota-guide', label: 'OTA & Updates Guide' },
   { path: '/sprints', label: 'Sprints' },
@@ -378,8 +379,14 @@ function StepBusinessPlan() {
       <h3>Sections to read</h3>
       <ol className="onboarding-steps-list">
         {BUSINESS_PLAN_SECTIONS.map((section) => (
-          <li key={section.path}>
-            <Link to={section.path}>{section.label}</Link>
+          <li key={section.path || section.href}>
+            {section.href ? (
+              <a href={section.href} target="_blank" rel="noopener noreferrer">
+                {section.label}
+              </a>
+            ) : (
+              <Link to={section.path}>{section.label}</Link>
+            )}
           </li>
         ))}
       </ol>

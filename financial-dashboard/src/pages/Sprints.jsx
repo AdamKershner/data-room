@@ -2865,10 +2865,77 @@ function Sprints() {
         "Recursion limit errors resolved",
         "Dark mode toggle available"
       ]
+    },
+    {
+      id: 36,
+      title: "Meta prompting — clarify messy intent before execution",
+      emoji: "🧩",
+      priority: "HIGH",
+      storyPoints: 13,
+      effort: "Medium",
+      impact: "High",
+      severity: "8/10",
+      overview:
+        "Users often send **underspecified or multi-interpretable prompts** (e.g. casual phrasing, missing destination, or several plausible actions). Instead of guessing and executing the wrong thing, the assistant runs a **meta prompt**: it proposes a small set of **clearer, mutually distinct alternatives** and asks the user to pick one—shown as **multiple-choice chips**—before any risky or irreversible tools run. Example: messy prompt *“I wanna watch nba highlights from last night on youtube”* → assistant responds with something like: *“Sounds great! Would you like me to…”* with chips such as **Open YouTube in a new tab and search for “nba highlights from last night”**, **Search Google for NBA highlights**, and **Something else** (free-text follow-up). This sprint covers detection, generation of alternatives, chip UI, and wiring the selection to the execution path.",
+      primaryFiles:
+        "intentParser.ts, decisionEngine.ts, hiddenInstructions.ts, Composer.tsx, useAssistantRuntime.ts / assistant message renderer (chips), interactionState.ts",
+      issues: [
+        {
+          title: "Detect ambiguous or under-specified user prompts",
+          count: 1,
+          submissionIds: [],
+          description:
+            "When a prompt could reasonably map to multiple tools, sites, or search strategies (e.g. “watch X on youtube” vs “find X on the web”), flag it as clarification-needed instead of defaulting to a single interpretation.",
+          impact: "Prevents wrong-tab / wrong-action failures and rebuilds trust (severity 9/10)",
+          technicalNotes:
+            "intentParser.ts + decisionEngine.ts: confidence thresholds, multi-intent branching, or lightweight classifier pass before tool execution.",
+          feedback: []
+        },
+        {
+          title: "Meta-prompt layer: generate 2–4 alternative clarified prompts",
+          count: 1,
+          submissionIds: [],
+          description:
+            "Given the user message and browser context, produce short, actionable alternative phrasings the user can choose from (each maps to a concrete plan: open URL, search query, navigate, defer, etc.).",
+          impact: "Turns vague requests into explicit, executable plans (severity 8/10)",
+          technicalNotes:
+            "hiddenInstructions.ts / system prompt: structured output (JSON) with stable ids for each option; validate against allowlisted tool paths.",
+          feedback: []
+        },
+        {
+          title: "Multiple-choice chips in the assistant UI",
+          count: 1,
+          submissionIds: [],
+          description:
+            "Render options as selectable chips (or equivalent) under the assistant message; one tap selects an interpretation and continues the flow (no retyping).",
+          impact: "Low friction clarification for non-power users (severity 8/10)",
+          technicalNotes:
+            "Composer.tsx + message bubble component: chip component, keyboard focus, a11y labels; optional “Something else” opens text input.",
+          requiresUI: true,
+          feedback: []
+        },
+        {
+          title: "Execute the selected chip and resume the session",
+          count: 1,
+          submissionIds: [],
+          description:
+            "Map chip selection to the chosen plan (tools, URLs, queries); send as clarified user intent or internal continuation; avoid double-charging tokens where possible.",
+          impact: "Completes the loop from clarification to correct action (severity 8/10)",
+          technicalNotes:
+            "useAssistantRuntime.ts, interactionState.ts: pending-clarification state machine; cancel stale clarifications on new user message.",
+          feedback: []
+        }
+      ],
+      acceptanceCriteria: [
+        "Ambiguous prompts do not auto-execute high-impact tools without user confirmation via chip or explicit opt-in",
+        "Assistant can surface at least 2 distinct, valid interpretations plus an escape hatch (“Something else”)",
+        "Chips are keyboard-accessible and work on Mac + Windows consumer build",
+        "Selecting a chip results in the intended navigation/search (manual QA with the NBA highlights example and one additional scenario)"
+      ]
     }
   ]
 
-  // Open board: Sprint 1 = B2B Chromium enterprise; Sprint 2 = B2C Firefox consumer (merged former 27+34)
+  // Open board: Sprint 1 = B2B Chromium enterprise; Sprint 2 = B2C Firefox consumer (merged former 27+34); Sprint 36 = meta prompting
   const topSeveritySprintIds = [1, 2]
   const topSeveritySprints = activeSprints.filter(s => topSeveritySprintIds.includes(s.id))
   const otherSprints = activeSprints.filter(s => !topSeveritySprintIds.includes(s.id))
@@ -2916,14 +2983,14 @@ function Sprints() {
   return (
     <div className="page" id="product-roadmap">
       <div className="sprint-update-banner">
-        Sprint board refreshed through early April 2026. Any resolved issues and sprints have been archived. Open sprints are prioritized from current product feedback and NPS.
+        <strong>Board last updated:</strong> May 11, 2026 at 10:00 AM EST. Any resolved issues and sprints have been archived. Open sprints are prioritized from current product feedback and NPS.
         <span className="sprint-banner-branch">Build off of <code>OTA/determine-ota-update-feasibility</code> (not <code>uiupdates/dynamic</code>). Sprint 15 (Automatic Software Updates) is archived; use OTA branch docs for update-related work.</span>
-        <span className="sprint-banner-branch"><strong>Active board (May 2026):</strong> <strong>Sprint 1</strong> — B2B enterprise browser (Chromium). <strong>Sprint 2</strong> — B2C consumer browser (Firefox); combines former Sprints 27 and 34 (voice/commands + polish/trust). All other former active sprints are in the Archive below.</span>
+        <span className="sprint-banner-branch"><strong>Active board (May 2026):</strong> <strong>Sprint 1</strong> — B2B enterprise browser (Chromium). <strong>Sprint 2</strong> — B2C consumer browser (Firefox); combines former Sprints 27 and 34 (voice/commands + polish/trust). <strong>Sprint 36</strong> — meta prompting (clarify messy intent with choice chips before execute). All other former active sprints are in the Archive below.</span>
       </div>
       <div className="page-header">
         <h1>Engineering Sprints</h1>
         <p style={{ marginTop: '10px', color: '#666', fontSize: '1rem' }}>
-          Feedback-driven sprint backlog (HITL + NPS), updated through April 2026
+          Feedback-driven sprint backlog (HITL + NPS). Board copy last updated May 11, 2026, 10:00 AM EST.
         </p>
       </div>
 
@@ -3266,6 +3333,7 @@ function Sprints() {
           <ol style={{ lineHeight: '2', fontSize: '1.05rem' }}>
             <li><strong>Sprint 1</strong> - B2B Enterprise Browser (Chromium) — <em>Open</em></li>
             <li><strong>Sprint 2</strong> - B2C Consumer Browser (Firefox) — voice, commands, polish &amp; trust (merged former 27+34) — <em>Open</em></li>
+            <li><strong>Sprint 36</strong> - Meta prompting — clarify ambiguous user prompts with multiple-choice chips before execution — <em>Open</em></li>
             <li style={{ marginTop: '12px', color: '#64748b' }}><em>All other numbered sprints are archived (see Archive section).</em></li>
           </ol>
         </div>
@@ -3289,10 +3357,10 @@ function Sprints() {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
               <div>
                 <h2 style={{ margin: 0, color: '#0369a1', fontSize: '1.5rem' }}>
-                  📦 Archive - Completed & Archived Sprints (open board: Sprint 1 B2B Chromium, Sprint 2 B2C Firefox merged 27+34; former open sprints 8, 11–16, 18, 22, 24, 26, 28–33, 35 archived May 2026)
+                  📦 Archive - Completed & Archived Sprints (open board: Sprint 1 B2B Chromium, Sprint 2 B2C Firefox merged 27+34, Sprint 36 meta prompting; former open sprints 8, 11–16, 18, 22, 24, 26, 28–33, 35 archived May 2026)
                 </h2>
                 <p style={{ margin: '10px 0 0 0', color: '#0369a1', fontSize: '0.95rem' }}>
-                  Historical completed work plus sprints moved off the active board. As of May 2026 the open backlog is Sprint 1 (B2B Chromium) and Sprint 2 (B2C Firefox, includes former Sprints 27+34); everything else lives here for reference.
+                  Historical completed work plus sprints moved off the active board. As of May 2026 the open backlog is Sprint 1 (B2B Chromium), Sprint 2 (B2C Firefox, includes former Sprints 27+34), and Sprint 36 (meta prompting); everything else lives here for reference.
                 </p>
               </div>
               <div className="sprint-toggle" style={{ backgroundColor: 'rgba(14, 165, 233, 0.1)' }}>

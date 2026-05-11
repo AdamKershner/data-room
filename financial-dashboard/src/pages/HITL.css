@@ -5,6 +5,61 @@
   font-weight: 400;
 }
 
+.hitl-source-section {
+  margin-top: 0;
+}
+
+.hitl-source-callout {
+  background: #f0f9ff;
+  border: 1px solid #0ea5e9;
+  border-radius: 10px;
+  padding: 18px 22px;
+}
+
+.hitl-source-heading {
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+  color: #0369a1;
+}
+
+.hitl-source-intro {
+  margin: 0 0 14px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #334155;
+}
+
+.hitl-source-link-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  line-height: 1.7;
+}
+
+.hitl-source-link-list li {
+  margin-bottom: 6px;
+}
+
+.hitl-source-link-list li:last-child {
+  margin-bottom: 0;
+}
+
+.hitl-source-link {
+  color: var(--oasis-green-medium, #0d9488);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.hitl-source-link:hover {
+  text-decoration: underline;
+}
+
+.hitl-source-link code {
+  font-size: 0.88em;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
 .hitl-ratio-display {
   padding: 24px;
   background: #e8f5e9;

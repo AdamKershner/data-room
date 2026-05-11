@@ -1,91 +1,52 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { KNOWLEDGE_BASE_PATHS } from '../data/knowledgeBaseEntries'
 import './Navigation.css'
+
+/** Paths that keep "Knowledge base" highlighted; excludes `/sprints` (top-level TOC item). */
+const KNOWLEDGE_BASE_PATHS_FOR_NAV_ACTIVE = KNOWLEDGE_BASE_PATHS.filter((p) => p !== '/sprints')
+
+const archiveContentPaths = ['/Q1-executive-report', '/q1-midpoint', '/events', '/soc2-gap-analysis']
+
+const archiveCategory = {
+  name: 'Archive',
+  items: [
+    { path: '/archive', label: 'Archive', id: 'archive' },
+    { path: '/Q1-executive-report', label: 'Q1 Executive Update', id: 'q1-executive-report' },
+    { path: '/q1-midpoint', label: 'Q1 Midpoint Update', id: 'q1-midpoint' },
+    { path: '/events', label: 'Events', id: 'events' },
+    { path: '/soc2-gap-analysis', label: 'SOC2 Gap Analysis', id: 'soc2-gap-analysis' }
+  ]
+}
+
+const primaryNavItems = [
+  { path: '/', label: 'Executive Summary', id: 'executive-summary' },
+  { path: '/team-execution', label: 'Team Directory', id: 'team-execution' },
+  { path: '/weekly-reports', label: 'Weekly Reports', id: 'weekly-reports' },
+  { path: '/sprints', label: 'Sprints', id: 'sprints' },
+  { path: '/nps', label: 'PMF+NPS data', id: 'nps' },
+  { path: '/hitl', label: 'User Feedback Trends (training data)', id: 'hitl' },
+  { path: '/onboarding', label: 'Onboarding', id: 'onboarding' },
+  { path: '/knowledge-base', label: 'Knowledge base', id: 'knowledge-base' },
+]
 
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const [archiveSectionOpen, setArchiveSectionOpen] = useState(false)
   const location = useLocation()
 
-  const menuCategories = [
-    {
-      name: 'Executive Summary',
-      items: [
-        { path: '/', label: 'Executive Summary', id: 'executive-summary' },
-        { path: '/Q1-executive-report', label: 'Q1 Executive Update', id: 'q1-executive-report' }
-      ]
-    },
-    {
-      name: 'Weekly Updates',
-      items: [
-        { path: '/weekly-reports', label: 'Weekly Reports', id: 'weekly-reports' }
-      ]
-    },
-    {
-      name: 'Q1 Midpoint Update',
-      items: [
-        { path: '/q1-midpoint', label: 'Q1 Midpoint Update', id: 'q1-midpoint' }
-      ]
-    },
-    {
-      name: 'Human Resources',
-      items: [
-        { path: '/onboarding', label: 'Onboarding', id: 'onboarding' },
-        { path: '/onboarding/growth-content-konika', label: 'Website & content onboarding (Konika)', id: 'konika-growth-onboarding' }
-      ]
-    },
-    {
-      name: 'Operations',
-      items: [
-        { path: '/team-execution', label: 'Team, Execution & Milestones', id: 'team-execution' }
-      ]
-    },
-    {
-      name: 'Marketing',
-      items: [
-        { path: '/market-size', label: 'Market Size', id: 'market-size' },
-        { path: '/b2c-strategic-narrative', label: 'B2C Strategic Narrative', id: 'b2c-strategic-narrative' },
-        { path: '/b2b-strategic-narrative', label: 'B2B Strategic Narrative', id: 'b2b-strategic-narrative' },
-        { path: '/competitors', label: 'Competitors', id: 'competitors' },
-        { path: '/linkedin-guide', label: 'LinkedIn Guide', id: 'linkedin-guide' },
-        { path: '/linkedin-connections-guide', label: 'LinkedIn Connections Guide', id: 'linkedin-connections-guide' },
-        { path: '/producthunt-tasks', label: 'ProductHunt Tasks', id: 'producthunt-tasks' },
-        { path: '/content-pipeline', label: 'Content Pipeline', id: 'content-pipeline' },
-        { path: '/events', label: 'Events', id: 'events' }
-      ]
-    },
-    {
-      name: 'Sales',
-      items: [
-        { path: '/go-to-market', label: 'Go-to-Market & Growth', id: 'go-to-market' }
-      ]
-    },
-    {
-      name: 'Finance',
-      items: [
-        { path: '/financial-plan', label: 'Financial Plan & Sensitivity', id: 'financial-plan' },
-        { path: '/business-model', label: 'Business Model & Unit Economics', id: 'business-model' }
-      ]
-    },
-    {
-      name: 'Product',
-      items: [
-        { path: '/product-technology', label: 'Product & Technology', id: 'product-technology' },
-        { path: '/problem-market', label: 'Problem, Market & Users', id: 'problem-market' },
-        { path: '/project-charter', label: 'Project Charter', id: 'project-charter' },
-        { path: '/nps', label: 'NPS', id: 'nps' },
-        { path: '/hitl', label: 'HITL Feedback', id: 'hitl' }
-      ]
-    },
-    {
-      name: 'Technical',
-      items: [
-        { path: '/ota-guide', label: 'OTA & Updates Guide', id: 'ota-guide' },
-        { path: '/sprints', label: 'Sprints', id: 'sprints' },
-        { path: '/soc2-gap-analysis', label: 'SOC2 Gap Analysis', id: 'soc2-gap-analysis' },
-        { path: '/soc2-type1-checklist', label: 'SOC2 Type 1 Checklist', id: 'soc2-type1-checklist' }
-      ]
+  const isOnArchiveRoute =
+    location.pathname === '/archive' || archiveContentPaths.includes(location.pathname)
+
+  useEffect(() => {
+    if (isOnArchiveRoute) {
+      setArchiveSectionOpen(true)
     }
-  ]
+  }, [isOnArchiveRoute])
+
+  const toggleArchiveSection = () => {
+    setArchiveSectionOpen((prev) => !prev)
+  }
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
@@ -96,12 +57,17 @@ function Navigation() {
   }
 
   const isActive = (path) => {
-    if (path === '/onboarding/growth-content-konika') {
-      return location.pathname === '/onboarding/growth-content-konika'
-    }
     if (path === '/onboarding') {
-      if (location.pathname === '/onboarding/growth-content-konika') return false
       return location.pathname === '/onboarding' || location.pathname.startsWith('/onboarding/')
+    }
+    if (path === '/archive') {
+      return location.pathname === '/archive' || archiveContentPaths.includes(location.pathname)
+    }
+    if (path === '/knowledge-base') {
+      return (
+        location.pathname === '/knowledge-base' ||
+        KNOWLEDGE_BASE_PATHS_FOR_NAV_ACTIVE.includes(location.pathname)
+      )
     }
     return location.pathname === path
   }
@@ -128,25 +94,51 @@ function Navigation() {
             ×
           </button>
         </div>
-        <ul className="menu-list">
-          {menuCategories.map((category) => (
-            <li key={category.name} className="menu-category">
-              <div className="menu-category-header">{category.name}</div>
-              <ul className="menu-sublist">
-                {category.items.map((item) => (
-                  <li key={item.id}>
-                    <Link
-                      to={item.path}
-                      className={`menu-link ${isActive(item.path) ? 'active' : ''}`}
-                      onClick={closeMenu}
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+        <ul className="menu-list menu-list--flat">
+          {primaryNavItems.map((item) => (
+            <li key={item.id} className="menu-nav-item">
+              <Link
+                to={item.path}
+                className={`menu-link menu-link--flat ${isActive(item.path) ? 'active' : ''}`}
+                onClick={closeMenu}
+              >
+                {item.label}
+              </Link>
             </li>
           ))}
+          <li className="menu-category menu-category--collapsible">
+            <button
+              type="button"
+              className={`menu-category-toggle ${isOnArchiveRoute ? 'menu-category-toggle--active-child' : ''}`}
+              onClick={toggleArchiveSection}
+              aria-expanded={archiveSectionOpen}
+              aria-controls="nav-archive-links"
+              id="nav-archive-heading"
+            >
+              <span className="menu-category-toggle-label">{archiveCategory.name}</span>
+              <span className="menu-category-toggle-chevron" aria-hidden>
+                {archiveSectionOpen ? '▼' : '▶'}
+              </span>
+            </button>
+            <ul
+              id="nav-archive-links"
+              className="menu-sublist menu-sublist--collapsible"
+              hidden={!archiveSectionOpen}
+              aria-labelledby="nav-archive-heading"
+            >
+              {archiveCategory.items.map((item) => (
+                <li key={item.id}>
+                  <Link
+                    to={item.path}
+                    className={`menu-link ${isActive(item.path) ? 'active' : ''}`}
+                    onClick={closeMenu}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </li>
         </ul>
       </div>
     </nav>
@@ -154,6 +146,3 @@ function Navigation() {
 }
 
 export default Navigation
-
-
-

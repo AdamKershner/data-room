@@ -117,24 +117,22 @@
   gap: 6px;
 }
 
-.onboarding-konika-growth-link-wrap {
-  margin: 18px 0 0;
+.onboarding-optional-title {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
 }
 
-.onboarding-konika-growth-link {
-  display: inline-flex;
-  align-items: center;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--oasis-green-medium, #0d9488);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: color 0.2s, border-color 0.2s;
+.onboarding-optional-intro {
+  margin: 0 0 14px;
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.55;
+  max-width: 42rem;
 }
 
-.onboarding-konika-growth-link:hover {
-  color: #0f766e;
-  border-bottom-color: #0f766e;
+.onboarding-item-optional {
+  padding: 10px 0;
 }
 
 .onboarding-item {
