@@ -76,7 +76,8 @@
   gap: 16px;
 }
 
-.kb-card {
+.kb-card,
+a.kb-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -85,7 +86,7 @@
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   background: #fff;
-  text-decoration: none;
+  text-decoration: none !important;
   color: inherit;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
@@ -108,11 +109,14 @@
 .kb-card-title {
   font-size: 1.05rem;
   font-weight: 600;
-  color: #0f172a;
+  color: var(--oasis-green-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .kb-card:hover .kb-card-title {
-  color: var(--oasis-green-medium, #0d9488);
+  color: var(--oasis-green-medium-dark);
+  text-decoration: underline;
 }
 
 .kb-card-desc {

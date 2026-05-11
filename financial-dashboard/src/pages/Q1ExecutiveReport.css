@@ -22,14 +22,16 @@
 }
 
 .q1-er-toc-link {
-  color: rgba(15, 23, 42, 0.95);
+  color: var(--oasis-green-dark);
   font-weight: 600;
   font-size: 0.95rem;
   line-height: 1.5;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .q1-er-toc-link:hover {
+  color: var(--oasis-green-medium-dark);
   text-decoration: underline;
 }
 
@@ -427,15 +429,20 @@
 
 .q1-er-link-row a {
   font-weight: 600;
-  color: var(--oasis-green-medium, #2d5016);
+  color: var(--oasis-green-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .q1-er-inline-link {
   font-weight: 600;
-  color: var(--oasis-green-medium, #2d5016);
+  color: var(--oasis-green-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .q1-er-inline-link:hover {
+  color: var(--oasis-green-medium-dark);
   text-decoration: underline;
 }
 

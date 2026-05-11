@@ -4,22 +4,10 @@ import {
   KNOWLEDGE_BASE_ENTRIES,
   KNOWLEDGE_BASE_CATEGORIES,
 } from '../data/knowledgeBaseEntries'
+import { dataRoomEntryMatchesQuery } from '../data/dataRoomSearchIndex'
+import { formatCardTitle } from '../utils/formatCardTitle'
 import './Page.css'
 import './KnowledgeBase.css'
-
-function entryMatchesSearch(entry, q) {
-  if (!q.trim()) return true
-  const s = q.toLowerCase()
-  const blob = [
-    entry.title,
-    entry.description,
-    entry.category,
-    ...(entry.keywords || []),
-  ]
-    .join(' ')
-    .toLowerCase()
-  return blob.includes(s)
-}
 
 function KnowledgeBase() {
   const [categoryFilter, setCategoryFilter] = useState('all')
@@ -36,7 +24,7 @@ function KnowledgeBase() {
   const filtered = useMemo(() => {
     return KNOWLEDGE_BASE_ENTRIES.filter((e) => {
       const catOk = categoryFilter === 'all' || e.category === categoryFilter
-      return catOk && entryMatchesSearch(e, search)
+      return catOk && dataRoomEntryMatchesQuery({ ...e, businessFunction: e.category }, search)
     })
   }, [categoryFilter, search])
 
@@ -45,7 +33,7 @@ function KnowledgeBase() {
       <div className="page-header">
         <h1>Knowledge base</h1>
         <p className="page-subtitle">
-          Search and browse GTM, finance, product, and technical reference pages. Top-level shortcuts for NPS and
+          Search and browse GTM, finance, product, HR, and technical reference pages. Top-level shortcuts for NPS and
           HITL stay in the table of contents.
         </p>
       </div>
@@ -95,9 +83,11 @@ function KnowledgeBase() {
         <div className="content-block">
           <div className="kb-grid">
             {filtered.map((entry) => (
-              <Link key={entry.path} to={entry.path} className="kb-card">
+              <Link key={entry.path} to={entry.path} className="kb-card" aria-label={entry.title}>
                 <span className="kb-card-category">{entry.category}</span>
-                <span className="kb-card-title">{entry.title}</span>
+                <span className="kb-card-title" title={entry.title}>
+                  {formatCardTitle(entry.title)}
+                </span>
                 <span className="kb-card-desc">{entry.description}</span>
                 <span className="kb-card-path">{entry.path}</span>
               </Link>

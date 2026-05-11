@@ -27,13 +27,14 @@
 
 #linkedin-guide .onboarding-inline-link,
 #linkedin-connections-guide .onboarding-inline-link {
-  color: var(--oasis-green-medium, #0d9488);
+  color: var(--oasis-green-dark);
   text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 #linkedin-guide .onboarding-inline-link:hover,
 #linkedin-connections-guide .onboarding-inline-link:hover {
-  color: var(--oasis-green-dark, #0f766e);
+  color: var(--oasis-green-medium-dark);
 }
 
 .linkedin-guide-warning {
@@ -463,7 +464,7 @@
   color: white !important;
   font-size: 1.1rem;
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: none !important;
   border-radius: 8px;
   transition: all 0.2s ease;
   box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3);

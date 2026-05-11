@@ -44,12 +44,14 @@
 }
 
 .hitl-source-link {
-  color: var(--oasis-green-medium, #0d9488);
+  color: var(--oasis-green-dark);
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .hitl-source-link:hover {
+  color: var(--oasis-green-medium-dark);
   text-decoration: underline;
 }
 

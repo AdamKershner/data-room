@@ -1,103 +1,185 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import KeyHighlights from '../components/KeyHighlights'
 import FinancialSummary from '../components/FinancialSummary'
-import welcomeImage from '../images/Welcome to Oasis(1).png'
-import commandAnalyticsImage from '../images/Command Analytics.png'
+import { TOC_EXPLORE_ITEMS } from '../data/tocExploreGrid'
+import { formatCardTitle } from '../utils/formatCardTitle'
+import { DataRoomSearchPanel } from '../components/DataRoomSearch'
+import BusinessFunctionExploreGrid from '../components/BusinessFunctionExploreGrid'
+import oasisBrowserAiSplitScreenshot from '../images/oasis-browser-ai-split-screenshot.png'
+import emptyStateBackground from '../images/empty-state-background.png'
 import './Page.css'
+import './ExecutiveSummary.css'
+
+const DOWNLOAD_URL = 'https://kahana.co/installations'
+
+/** Oasis Enterprise: IT & Security / data governance overview (YouTube). */
+const OASIS_ENTERPRISE_IT_VIDEO_ID = 'hn6pcZ53n48'
+const OASIS_ENTERPRISE_IT_VIDEO_URL = `https://www.youtube.com/watch?v=${OASIS_ENTERPRISE_IT_VIDEO_ID}`
+
+/** ~30s animated Short on big-tech data extraction (beside metaphor copy). */
+const EXTRACTION_CONCEPT_SHORT_ID = 'mtqBuQGG3G0'
+const EXTRACTION_CONCEPT_SHORT_URL = 'https://www.youtube.com/shorts/mtqBuQGG3G0?feature=share'
 
 function ExecutiveSummary() {
   return (
     <div className="page" id="executive-summary">
       <div className="page-header">
         <h1>Executive Summary</h1>
-        <p className="page-subtitle">Oasis Browser: Redefining Knowledge Work with AI-Native Browsing</p>
+        <p className="page-subtitle">
+          Oasis: a calmer place to work online—AI-native browsing without surrendering your attention to
+          big-tech extraction.
+        </p>
       </div>
 
-      <section className="page-section mission-statement-section" style={{ textAlign: 'center', padding: '40px 0' }}>
-        <div className="content-block">
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '20px', color: '#00d2ff' }}>Mission Statement</h2>
-          <p style={{ fontSize: '1.8rem', fontWeight: '500', lineHeight: '1.4', fontStyle: 'italic', maxWidth: '800px', margin: '0 auto' }}>
-            "It's called Oasis for a reason. Our mission is to create the most elegant browser ever."
-          </p>
+      <section className="exec-hero page-section" aria-label="Oasis hero">
+        <div className="exec-hero-inner">
+          <div className="exec-hero-image-wrap">
+            <img
+              src={emptyStateBackground}
+              alt="Oasis empty state: sloth resting in a hammock between palm trees"
+              className="exec-hero-image exec-hero-image--empty-state"
+              width={520}
+              height={400}
+            />
+          </div>
+          <div>
+            <p className="exec-hero-kicker">Oasis Browser</p>
+            <h2 className="exec-hero-title">Relax, you found the Oasis</h2>
+            <p className="exec-hero-body">
+              The default web is built to harvest signals: every tab, search, and assistant touchpoint
+              feeds someone else&apos;s model of you. Oasis is different—a refuge where your browsing
+              serves <em>your</em> work, not an ad stack. Natural-language and voice control cut through
+              tab chaos so you can stay in flow. When a command misses, we learn from it: feedback and
+              training data close the loop so the assistant gets sharper over time.
+            </p>
+            <p className="exec-hero-tagline">
+              Welcome to the most elegant way to browse—speak or type what you need; Oasis handles the
+              rest.
+            </p>
+            <div className="exec-hero-ctas">
+              <a className="exec-cta exec-cta--primary" href={DOWNLOAD_URL} target="_blank" rel="noopener noreferrer">
+                Download Oasis
+              </a>
+            </div>
+            <ul className="exec-hero-secondary-links">
+              <li>
+                <Link to="/knowledge-base">Product details</Link>
+              </li>
+              <li>
+                <Link to="/sprints">For IT &amp; teams</Link>
+              </li>
+              <li>
+                <a href="#oasis-enterprise-it-video">IT &amp; Security overview (video)</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      <section className="page-section">
-        <h2>Purpose</h2>
+      <section className="page-section exec-story-section">
         <div className="content-block">
-          <p>
-            This business plan serves as a comprehensive guide for Oasis Browser's strategy, operations, 
-            and goals. The scope of this document is to function as a <strong>business plan</strong> that:
-          </p>
-          <ul className="feature-list">
-            <li>
-              <strong>Onboards new team members</strong> by providing a clear understanding of the business, 
-              its goals, and how their work contributes to our success
-            </li>
-            <li>
-              <strong>Communicates key business information</strong> to existing internal teams, ensuring 
-              everyone has access to the same strategic context and financial projections
-            </li>
-            <li>
-              <strong>Guides collective discussion and alignment</strong> on business goals and key metrics, 
-              creating a shared framework for decision-making
-            </li>
-            <li>
-              <strong>Helps everyone understand what execution is needed</strong> to achieve our goals, 
-              providing clarity on priorities and required actions
-            </li>
-            <li>
-              <strong>Assists with allocating collective time wisely</strong> to achieve goals, ensuring 
-              resources are focused on the highest-impact activities
-            </li>
-          </ul>
-          <p style={{ marginTop: '20px' }}>
-            This document is a living resource that evolves with the business, serving as both a strategic 
-            roadmap and a practical guide for day-to-day execution.
-          </p>
+          <div className="exec-bigtech-metaphor" aria-labelledby="exec-bigtech-metaphor-heading">
+            <div className="exec-bigtech-row">
+              <div className="exec-bigtech-row__text">
+                <h3 id="exec-bigtech-metaphor-heading" className="exec-bigtech-metaphor__title">
+                  When you feel big tech hovering around like mosquitoes trying to suck your blood
+                </h3>
+                <p className="exec-bigtech-metaphor__lead">
+                  A lot of people are quietly scared of how much gets siphoned off while they work: tabs,
+                  searches, and assistants feeding models and ad graphs they never opted into. It can feel
+                  less like &ldquo;using the internet&rdquo; and more like sitting outside at dusk while
+                  pests keep landing—persistent, draining, and hard to swat away for good. The
+                  surveillance-by-default web treats attention and identity like an open buffet—Oasis is
+                  built so your workday isn&apos;t the meal. The Short beside this is the same idea in
+                  motion: a quick animated take on how signal gets skimmed from everyday browsing.
+                </p>
+
+                <div className="exec-refuge exec-refuge--in-metaphor">
+                  <h4 className="exec-story-subheading">Your online refuge from the attention economy</h4>
+                  <p>
+                    Oasis is built for peace of mind: fewer context switches, less manual window wrangling,
+                    and built-in AI that stays on task with you. Our promise is simple—help you focus on
+                    real work in a browser that respects your intent and your time.
+                  </p>
+                </div>
+
+                <div className="exec-privacy exec-privacy--in-metaphor">
+                  <h4 className="exec-story-subheading">Privacy first by design</h4>
+                  <p>
+                    We architect Oasis so sensitive workflows are not treated as free training fodder for
+                    opaque platforms. Commands and context stay oriented around getting your job done; we
+                    minimize unnecessary telemetry, document what we collect, and align product decisions
+                    with clear user expectations—not surprise resale of behavioral surplus.
+                  </p>
+                  <p>
+                    As we grow enterprise and team deployments, that posture extends to admin controls,
+                    audit-friendly practices, and honest disclosure in our policies. Privacy is not a
+                    footnote; it is how we earn the right to sit next to your research, your code, and your
+                    customer data.
+                  </p>
+                </div>
+
+                <figure className="exec-product-screenshot">
+                  <img
+                    src={oasisBrowserAiSplitScreenshot}
+                    alt="Oasis browser: new tab and web content on the left, Oasis AI Beta sidebar on the right showing natural-language tab group commands and responses"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+              </div>
+              <div className="exec-bigtech-row__media">
+                <div className="exec-short-embed">
+                  <iframe
+                    title="YouTube Short: animated concept of tech giants extracting data"
+                    src={`https://www.youtube.com/embed/${EXTRACTION_CONCEPT_SHORT_ID}`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                  />
+                </div>
+                <p className="exec-bigtech-short__footer">
+                  <a href={EXTRACTION_CONCEPT_SHORT_URL} target="_blank" rel="noopener noreferrer">
+                    Open this Short on YouTube
+                  </a>{' '}
+                  if the embed is blocked.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="page-section">
-        <h2>Business Overview</h2>
+      <section
+        className="page-section exec-video-section"
+        id="oasis-enterprise-it-video"
+        aria-labelledby="exec-video-heading"
+      >
+        <h2 id="exec-video-heading">Oasis Enterprise for IT &amp; Security</h2>
         <div className="content-block">
           <p>
-            Oasis Browser is an AI-assisted desktop browser built on Firefox that dramatically 
-            reduces context switching and cognitive load for knowledge workers. Through natural 
-            language commands—both text and voice—users can control their browser environment 
-            with simple instructions like "open new window," "create tab group," "add tab to 
-            tab group," "close all tabs," or "open tabs 3 and 4 in split view."
+            How the Oasis Enterprise browser supports IT and security teams with{' '}
+            <strong>data governance</strong>—visibility, policy, and control without fighting the way
+            people actually work.
           </p>
-          <div style={{ margin: '30px 0', textAlign: 'center' }}>
-            <img 
-              src={welcomeImage} 
-              alt="Oasis Browser welcome screen" 
-              style={{ 
-                maxWidth: '100%', 
-                height: 'auto', 
-                borderRadius: '8px',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
-              }} 
+          <div className="exec-video-embed">
+            <iframe
+              title="Oasis Enterprise browser: IT and Security data governance overview"
+              src={`https://www.youtube.com/embed/${OASIS_ENTERPRISE_IT_VIDEO_ID}`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
             />
           </div>
-          <p>
-            <strong>Problem we solve:</strong> Knowledge workers are drowning in browser tabs, 
-            constant context switches, and manual window management. This fragmentation reduces 
-            productivity, increases cognitive load, and makes it difficult to maintain focus 
-            on complex tasks.
+          <p className="exec-video-caption">
+            <a href={OASIS_ENTERPRISE_IT_VIDEO_URL} target="_blank" rel="noopener noreferrer">
+              Open on YouTube
+            </a>{' '}
+            if the embed is blocked by your network.
           </p>
-          <div style={{ margin: '30px 0', textAlign: 'center' }}>
-            <img 
-              src={commandAnalyticsImage} 
-              alt="Oasis Browser command analytics dashboard" 
-              style={{ 
-                maxWidth: '100%', 
-                height: 'auto', 
-                borderRadius: '8px',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)'
-              }} 
-            />
-          </div>
         </div>
       </section>
 
@@ -105,12 +187,37 @@ function ExecutiveSummary() {
         <h2>Value Proposition</h2>
         <div className="content-block">
           <p>
-            Natural-language commands and voice control translate directly into measurable time 
-            savings, improved focus, and higher productivity for both individuals and teams. 
-            By eliminating the friction of manual browser management, Oasis enables knowledge 
-            workers to maintain flow state and reduce the mental overhead of juggling multiple 
-            projects, research threads, and information sources.
+            Natural-language commands and voice control translate directly into measurable time savings,
+            improved focus, and higher productivity for both individuals and teams. By eliminating the
+            friction of manual browser management, Oasis enables knowledge workers to maintain flow state
+            and reduce the mental overhead of juggling multiple projects, research threads, and
+            information sources.
           </p>
+        </div>
+      </section>
+
+      <section className="page-section exec-toc-section" aria-labelledby="exec-toc-heading">
+        <h2 id="exec-toc-heading">Explore the data room</h2>
+        <div className="content-block">
+          <p className="exec-toc-intro">
+            Same destinations as the table of contents in the nav menu—jump straight into weekly
+            updates, sprints, PMF/NPS, onboarding, the knowledge base, and archived reports.
+          </p>
+          <div className="exec-explore-search">
+            <DataRoomSearchPanel maxResults={14} showKbLink compactResults />
+          </div>
+          <div className="exec-toc-grid">
+            {TOC_EXPLORE_ITEMS.map((item) => (
+              <Link key={item.path} to={item.path} className="exec-toc-card" aria-label={item.title}>
+                <span className="exec-toc-card-title" title={item.title}>
+                  {formatCardTitle(item.title)}
+                </span>
+                <span className="exec-toc-card-desc">{item.description}</span>
+                <span className="exec-toc-card-path">{item.path}</span>
+              </Link>
+            ))}
+          </div>
+          <BusinessFunctionExploreGrid />
         </div>
       </section>
 
@@ -148,19 +255,23 @@ function ExecutiveSummary() {
             </div>
           </div>
           <p className="goal-description">
-            Our plan focuses on grassroots B2C adoption through developer and knowledge worker 
-            communities, complemented by strategic B2B pilot programs that demonstrate ROI for 
-            teams and organizations.
+            Our plan focuses on grassroots B2C adoption through developer and knowledge worker
+            communities, complemented by strategic B2B pilot programs that demonstrate ROI for teams and
+            organizations.
           </p>
         </div>
       </section>
 
-      <section className="page-section">
-        <h2>Operating Costs & Burn Rate</h2>
-        <div className="content-block">
+      <details className="page-section exec-collapsible exec-collapsible--operating">
+        <summary className="exec-collapsible__summary">
+          <span className="exec-collapsible__title">Operating Costs &amp; Burn Rate</span>
+          <span className="exec-collapsible__chevron" aria-hidden="true" />
+        </summary>
+        <div className="content-block exec-collapsible__panel">
           <h3>Average Monthly Burn - Tools & Platform Subscriptions</h3>
           <p>
-            The following monthly costs are included in our average monthly burn for subscriptions to tools and platforms:
+            The following monthly costs are included in our average monthly burn for subscriptions to tools
+            and platforms:
           </p>
           <ul className="feature-list">
             <li><strong>G-Suite:</strong> $35.00/month</li>
@@ -175,14 +286,17 @@ function ExecutiveSummary() {
 
           <h3 style={{ marginTop: '30px' }}>Oasis AI Assistant API Costs</h3>
           <p>
-            Gemini and Deepgram APIs power the Oasis AI assistant. Costs are incurred whenever the assistant processes a command. Based on current usage patterns and API pricing:
+            Gemini and Deepgram APIs power the Oasis AI assistant. Costs are incurred whenever the assistant
+            processes a command. Based on current usage patterns and API pricing:
           </p>
           <ul className="feature-list">
             <li><strong>Text command:</strong> $0.002 per request (all-in cost including AWS, Gemini, and Deepgram)</li>
             <li><strong>Voice command:</strong> $0.02 per request (all-in cost including AWS, Gemini, and Deepgram)</li>
           </ul>
           <p style={{ marginTop: '15px' }}>
-            <strong>Note:</strong> These are example ballpark numbers based on current usage patterns. Actual costs should be calculated from AWS, Gemini, and Deepgram invoices to determine the true average cost per request.
+            <strong>Note:</strong> These are example ballpark numbers based on current usage patterns. Actual
+            costs should be calculated from AWS, Gemini, and Deepgram invoices to determine the true
+            average cost per request.
           </p>
 
           <h3 style={{ marginTop: '30px' }}>Capacity Planning with $3/month Budget</h3>
@@ -195,18 +309,16 @@ function ExecutiveSummary() {
             <li><strong>Mixed usage:</strong> A combination where each voice command uses approximately 10x the budget of a text command</li>
           </ul>
           <p style={{ marginTop: '15px' }}>
-            This capacity structure provides reasonable limits for users while maintaining cost control for the platform.
+            This capacity structure provides reasonable limits for users while maintaining cost control for
+            the platform.
           </p>
         </div>
-      </section>
+      </details>
 
-      <KeyHighlights />
-      <FinancialSummary />
+      <KeyHighlights collapsible />
+      <FinancialSummary collapsible />
     </div>
   )
 }
 
 export default ExecutiveSummary
-
-
-

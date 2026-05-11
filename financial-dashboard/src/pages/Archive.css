@@ -16,22 +16,26 @@
   padding-bottom: 0;
 }
 
-.archive-page-link {
+.archive-page-link,
+a.archive-page-link {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  text-decoration: none;
+  text-decoration: none !important;
   color: inherit;
 }
 
 .archive-page-link:hover .archive-page-link-title {
-  color: var(--oasis-green-medium, #0d9488);
+  color: var(--oasis-green-medium-dark);
   text-decoration: underline;
 }
 
 .archive-page-link-title {
   font-size: 1.15rem;
   font-weight: 600;
+  color: var(--oasis-green-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .archive-page-link-path {

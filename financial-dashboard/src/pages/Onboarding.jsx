@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
+import { formatCardTitle } from '../utils/formatCardTitle'
 import './Page.css'
 import './Onboarding.css'
 
@@ -157,9 +158,10 @@ function Onboarding() {
                         <Link
                           to={`/onboarding/${step.id}`}
                           className="onboarding-item-link"
-                          title="Open instructions"
+                          title={step.label}
+                          aria-label={`${step.label}. Open instructions`}
                         >
-                          <span className="onboarding-item-text">{step.label}</span>
+                          <span className="onboarding-item-text">{formatCardTitle(step.label)}</span>
                           <span className="onboarding-item-arrow">View instructions →</span>
                         </Link>
                         {step.badge && (
@@ -181,8 +183,10 @@ function Onboarding() {
                     <Link
                       to={`/onboarding/${step.id}`}
                       className="onboarding-item-link"
+                      title={step.label}
+                      aria-label={step.label}
                     >
-                      {step.label}
+                      {formatCardTitle(step.label)}
                     </Link>
                   </li>
                 ))}
