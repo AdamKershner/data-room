@@ -16,13 +16,13 @@
   background: var(--oasis-green-medium, #0d9488);
   color: #fff;
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: none !important;
   border-radius: 6px;
 }
 
 .team-execution-notion-button:hover {
   filter: brightness(1.05);
-  text-decoration: none;
+  text-decoration: none !important;
   color: #fff;
 }
 

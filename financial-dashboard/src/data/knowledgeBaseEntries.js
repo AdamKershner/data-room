@@ -3,7 +3,7 @@
  * Used by KnowledgeBase.jsx and Navigation isActive for /knowledge-base.
  */
 
-export const KNOWLEDGE_BASE_CATEGORIES = ['Marketing', 'Sales', 'Finance', 'Product', 'Technical']
+export const KNOWLEDGE_BASE_CATEGORIES = ['Marketing', 'Sales', 'Product', 'HR', 'Technical', 'Finance']
 
 export const KNOWLEDGE_BASE_ENTRIES = [
   {
@@ -63,11 +63,46 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     keywords: ['content', 'blog', 'pipeline'],
   },
   {
+    path: '/oasis-waitlist',
+    title: 'Oasis waitlist',
+    category: 'Marketing',
+    description: 'Google Sheet for Oasis interest signups and waitlist tracking.',
+    keywords: ['waitlist', 'signup', 'leads', 'sheet', 'oasis', 'marketing'],
+  },
+  {
     path: '/go-to-market',
     title: 'Go-to-Market & Growth',
     category: 'Sales',
     description: 'GTM strategy, ICPs, and growth motions.',
     keywords: ['gtm', 'icp', 'sales', 'growth'],
+  },
+  {
+    path: '/letter-of-engagement',
+    title: 'Letter of Engagement template',
+    category: 'Sales',
+    description: 'Google Doc template for client or pilot engagement letters.',
+    keywords: ['letter of engagement', 'loe', 'template', 'contract', 'pilot', 'b2b', 'sales'],
+  },
+  {
+    path: '/oasis-rfp',
+    title: 'Oasis RFP',
+    category: 'Sales',
+    description: 'Kahana Oasis request-for-proposal template (Google Doc) for enterprise deals.',
+    keywords: ['rfp', 'request for proposal', 'enterprise', 'procurement', 'oasis', 'b2b', 'sales'],
+  },
+  {
+    path: '/onboarding',
+    title: 'Onboarding',
+    category: 'HR',
+    description: 'New-hire checklist with day-by-day instructions and links into deeper steps.',
+    keywords: ['onboarding', 'new hire', 'checklist', 'hr', 'people'],
+  },
+  {
+    path: '/team-execution',
+    title: 'Team Directory',
+    category: 'HR',
+    description: 'Who is on the team and how to reach them (links to live directory).',
+    keywords: ['team', 'directory', 'people', 'notion', 'org'],
   },
   {
     path: '/financial-plan',

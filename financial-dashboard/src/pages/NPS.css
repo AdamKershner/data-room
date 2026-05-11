@@ -279,11 +279,13 @@
 .nps-sheet-link {
   display: inline-block;
   font-weight: 600;
-  color: var(--oasis-green-medium, #0d9488);
-  text-decoration: none;
+  color: var(--oasis-green-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .nps-sheet-link:hover {
+  color: var(--oasis-green-medium-dark);
   text-decoration: underline;
 }
 
@@ -294,13 +296,14 @@
 }
 
 .nps-sheet-link-muted {
-  color: #64748b;
-  text-decoration: none;
+  color: var(--oasis-green-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .nps-sheet-link-muted:hover {
   text-decoration: underline;
-  color: var(--oasis-green-medium, #0d9488);
+  color: var(--oasis-green-medium-dark);
 }
 
 .nps-guidance-section h2 {
@@ -365,11 +368,13 @@
 .nps-guidance-ref {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--oasis-green-medium, #0d9488);
-  text-decoration: none;
+  color: var(--oasis-green-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
   white-space: nowrap;
 }
 
 .nps-guidance-ref:hover {
+  color: var(--oasis-green-medium-dark);
   text-decoration: underline;
 }

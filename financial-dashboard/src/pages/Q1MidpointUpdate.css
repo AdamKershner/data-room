@@ -22,9 +22,10 @@
   border-radius: 9999px;
   border: 1px solid rgba(0, 0, 0, 0.12);
   background: rgba(255, 255, 255, 0.85);
-  color: rgba(15, 23, 42, 0.95);
+  color: var(--oasis-green-dark);
   font-weight: 700;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
   transition: transform 120ms ease, box-shadow 120ms ease;
 }
 
@@ -617,12 +618,14 @@
 }
 
 .faq-answer a {
-  color: var(--oasis-green-medium);
+  color: var(--oasis-green-dark);
   text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .faq-answer a:hover {
-  text-decoration: none;
+  color: var(--oasis-green-medium-dark);
+  text-decoration: underline;
 }
 
 .faq-answer-content p {

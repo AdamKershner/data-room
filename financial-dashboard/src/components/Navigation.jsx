@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { KNOWLEDGE_BASE_PATHS } from '../data/knowledgeBaseEntries'
+import { PRIMARY_NAV_LINKS } from '../data/tocExploreGrid'
+import { useDataRoomSearchOptional } from './DataRoomSearchProvider'
 import './Navigation.css'
 
-/** Paths that keep "Knowledge base" highlighted; excludes top-level TOC items. */
+/** Paths that keep "Knowledge base" highlighted; excludes top-level TOC / HR hub duplicates. */
 const KNOWLEDGE_BASE_PATHS_FOR_NAV_ACTIVE = KNOWLEDGE_BASE_PATHS.filter(
-  (p) => p !== '/sprints' && p !== '/project-charter'
+  (p) =>
+    p !== '/sprints' &&
+    p !== '/project-charter' &&
+    p !== '/onboarding' &&
+    p !== '/team-execution'
 )
 
 const archiveContentPaths = ['/Q1-executive-report', '/q1-midpoint', '/events', '/soc2-gap-analysis']
@@ -21,22 +27,11 @@ const archiveCategory = {
   ]
 }
 
-const primaryNavItems = [
-  { path: '/', label: 'Executive Summary', id: 'executive-summary' },
-  { path: '/team-execution', label: 'Team Directory', id: 'team-execution' },
-  { path: '/weekly-reports', label: 'Weekly Reports', id: 'weekly-reports' },
-  { path: '/sprints', label: 'Sprints', id: 'sprints' },
-  { path: '/project-charter', label: 'Project Charter', id: 'project-charter' },
-  { path: '/nps', label: 'PMF+NPS data', id: 'nps' },
-  { path: '/hitl', label: 'User Feedback Trends (training data)', id: 'hitl' },
-  { path: '/onboarding', label: 'Onboarding', id: 'onboarding' },
-  { path: '/knowledge-base', label: 'Knowledge base', id: 'knowledge-base' },
-]
-
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [archiveSectionOpen, setArchiveSectionOpen] = useState(false)
   const location = useLocation()
+  const dataRoomSearch = useDataRoomSearchOptional()
 
   const isOnArchiveRoute =
     location.pathname === '/archive' || archiveContentPaths.includes(location.pathname)
@@ -98,7 +93,21 @@ function Navigation() {
           </button>
         </div>
         <ul className="menu-list menu-list--flat">
-          {primaryNavItems.map((item) => (
+          {dataRoomSearch && (
+            <li className="menu-nav-item">
+              <button
+                type="button"
+                className="menu-search-btn"
+                onClick={() => {
+                  dataRoomSearch.openSearch()
+                  closeMenu()
+                }}
+              >
+                Search data room
+              </button>
+            </li>
+          )}
+          {PRIMARY_NAV_LINKS.map((item) => (
             <li key={item.id} className="menu-nav-item">
               <Link
                 to={item.path}

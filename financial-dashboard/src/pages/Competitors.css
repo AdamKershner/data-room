@@ -293,11 +293,13 @@
 .detail-link {
   font-size: 0.95rem;
   color: var(--oasis-green-dark);
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
   font-weight: 500;
 }
 
 .detail-link:hover {
+  color: var(--oasis-green-medium-dark);
   text-decoration: underline;
 }
 

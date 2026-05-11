@@ -58,3 +58,23 @@ code {
     monospace;
 }
 
+/* Site-wide: link text uses brand dark green and stays underlined */
+a:any-link {
+  color: var(--oasis-green-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:visited {
+  color: var(--oasis-green-dark);
+}
+
+a:hover {
+  color: var(--oasis-green-medium-dark);
+  text-decoration: underline;
+}
+
+a:active {
+  color: var(--oasis-green-darkest);
+}
+

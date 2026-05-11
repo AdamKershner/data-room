@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
+import { formatCardTitle } from '../utils/formatCardTitle'
 import './Page.css'
 import './Onboarding.css'
 
@@ -790,7 +791,9 @@ function OnboardingStep() {
         <Link to="/onboarding">← Back to Onboarding</Link>
       </div>
       <div className="page-header onboarding-step-header">
-        <h1>{step.label}</h1>
+        <h1 title={step.label} aria-label={step.label}>
+          {formatCardTitle(step.label)}
+        </h1>
         <p className="page-subtitle" style={{ marginTop: '8px' }}>{step.category}</p>
       </div>
 

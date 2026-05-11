@@ -1,7 +1,7 @@
 import React from 'react'
 import './KeyHighlights.css'
 
-function KeyHighlights() {
+function KeyHighlights({ collapsible = false }) {
   const highlights = [
     {
       label: '2026 Revenue Goal',
@@ -35,23 +35,36 @@ function KeyHighlights() {
     }
   ]
 
+  const grid = (
+    <div className="highlights-grid">
+      {highlights.map((highlight, index) => (
+        <div key={index} className="highlight-card">
+          <div className="highlight-value">{highlight.value}</div>
+          <div className="highlight-label">{highlight.label}</div>
+          <div className="highlight-description">{highlight.description}</div>
+        </div>
+      ))}
+    </div>
+  )
+
+  if (collapsible) {
+    return (
+      <details className="key-highlights exec-collapsible page-section">
+        <summary className="exec-collapsible__summary">
+          <span className="exec-collapsible__title">Key Highlights</span>
+          <span className="exec-collapsible__chevron" aria-hidden="true" />
+        </summary>
+        <div className="exec-collapsible__panel">{grid}</div>
+      </details>
+    )
+  }
+
   return (
     <section className="key-highlights">
       <h2 className="section-title">Key Highlights</h2>
-      <div className="highlights-grid">
-        {highlights.map((highlight, index) => (
-          <div key={index} className="highlight-card">
-            <div className="highlight-value">{highlight.value}</div>
-            <div className="highlight-label">{highlight.label}</div>
-            <div className="highlight-description">{highlight.description}</div>
-          </div>
-        ))}
-      </div>
+      {grid}
     </section>
   )
 }
 
 export default KeyHighlights
-
-
-

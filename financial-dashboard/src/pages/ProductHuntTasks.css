@@ -356,12 +356,13 @@
 }
 
 .producthunt-link {
-  color: var(--oasis-green-medium, #0d9488);
+  color: var(--oasis-green-dark);
   text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .producthunt-link:hover {
-  color: var(--oasis-green-dark, #0f766e);
+  color: var(--oasis-green-medium-dark);
 }
 
 .producthunt-followup-block {

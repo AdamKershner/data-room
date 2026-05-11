@@ -1,7 +1,7 @@
 import React from 'react'
 import './FinancialSummary.css'
 
-function FinancialSummary() {
+function FinancialSummary({ collapsible = false }) {
   const metrics = [
     {
       metric: 'Total 2026 Revenue Goals',
@@ -50,34 +50,47 @@ function FinancialSummary() {
     }
   ]
 
+  const table = (
+    <div className="table-container">
+      <table className="financial-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>2026 Value</th>
+            <th>Notes / Key Assumption</th>
+          </tr>
+        </thead>
+        <tbody>
+          {metrics.map((row, index) => (
+            <tr key={index}>
+              <td className="metric-name">{row.metric}</td>
+              <td className="metric-value">{row.value}</td>
+              <td className="metric-notes">{row.notes}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+
+  if (collapsible) {
+    return (
+      <details className="financial-summary exec-collapsible page-section">
+        <summary className="exec-collapsible__summary">
+          <span className="exec-collapsible__title">Financial Summary</span>
+          <span className="exec-collapsible__chevron" aria-hidden="true" />
+        </summary>
+        <div className="exec-collapsible__panel">{table}</div>
+      </details>
+    )
+  }
+
   return (
     <section className="financial-summary">
       <h2 className="section-title">Financial Summary</h2>
-      <div className="table-container">
-        <table className="financial-table">
-          <thead>
-            <tr>
-              <th>Metric</th>
-              <th>2026 Value</th>
-              <th>Notes / Key Assumption</th>
-            </tr>
-          </thead>
-          <tbody>
-            {metrics.map((row, index) => (
-              <tr key={index}>
-                <td className="metric-name">{row.metric}</td>
-                <td className="metric-value">{row.value}</td>
-                <td className="metric-notes">{row.notes}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      {table}
     </section>
   )
 }
 
 export default FinancialSummary
-
-
-

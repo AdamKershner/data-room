@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation'
+import { DataRoomSearchProvider } from './components/DataRoomSearchProvider'
 import ExecutiveSummary from './pages/ExecutiveSummary'
 import Q1ExecutiveReport from './pages/Q1ExecutiveReport'
 import ProblemMarket from './pages/ProblemMarket'
@@ -9,6 +10,9 @@ import NPS from './pages/NPS'
 import HITL from './pages/HITL'
 import BusinessModel from './pages/BusinessModel'
 import GoToMarket from './pages/GoToMarket'
+import LetterOfEngagement from './pages/LetterOfEngagement'
+import OasisRfp from './pages/OasisRfp'
+import OasisWaitlist from './pages/OasisWaitlist'
 import FinancialPlan from './pages/FinancialPlan'
 import TeamExecution from './pages/TeamExecution'
 import Sprints from './pages/Sprints'
@@ -37,9 +41,10 @@ import './App.css'
 function App() {
   return (
     <Router>
-      <div className="app">
-        <Navigation />
-        <Routes>
+      <DataRoomSearchProvider>
+        <div className="app">
+          <Navigation />
+          <Routes>
           <Route path="/" element={<ExecutiveSummary />} />
           <Route path="/archive" element={<Archive />} />
           <Route path="/knowledge-base" element={<KnowledgeBase />} />
@@ -51,6 +56,9 @@ function App() {
           <Route path="/hitl" element={<HITL />} />
           <Route path="/business-model" element={<BusinessModel />} />
           <Route path="/go-to-market" element={<GoToMarket />} />
+          <Route path="/letter-of-engagement" element={<LetterOfEngagement />} />
+          <Route path="/oasis-rfp" element={<OasisRfp />} />
+          <Route path="/oasis-waitlist" element={<OasisWaitlist />} />
           <Route path="/financial-plan" element={<FinancialPlan />} />
           <Route path="/team-execution" element={<TeamExecution />} />
           <Route path="/sprints" element={<Sprints />} />
@@ -71,8 +79,9 @@ function App() {
           <Route path="/soc2-gap-analysis" element={<SOC2GapAnalysis />} />
           <Route path="/soc2-type1-checklist" element={<SOC2Type1Checklist />} />
           <Route path="/project-charter" element={<ProjectCharter />} />
-        </Routes>
-      </div>
+          </Routes>
+        </div>
+      </DataRoomSearchProvider>
     </Router>
   )
 }
