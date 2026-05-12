@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import ChromiumForkCapabilityAssessment from '../components/ChromiumForkCapabilityAssessment'
+import PiiImplementationOptions from '../components/PiiImplementationOptions'
+import { chromiumForkCapabilityAssessment } from '../data/chromiumForkCapabilityAssessment.js'
+import { piiImplementationOptions } from '../data/piiImplementationOptions.js'
 import './Page.css'
 import './Sprints.css'
 
@@ -2629,7 +2633,7 @@ function Sprints() {
       effort: "High",
       impact: "High",
       severity: "9/10",
-      overview: "**B2B — Enterprise browser (Chromium):** Develop a Chromium-based version of Oasis Enterprise Browser to address enterprise customer requirements for secure SaaS access. Culture Amp (Julian) is ready to invest but we didn't have a Chromium enterprise version to demo—this sprint delivers the product. Requirements broadly apply to enterprise prospects like Culture Amp (see readiness checklist below). This sprint is motivated by enterprise demand for managed browsers that can provide secure access to cloud applications for short-term consultants and third-party partners without requiring full device management or shipping hardware. By 2026, analysts project that roughly 25% of enterprises will be using managed browsers or extensions for security and access control. The enterprise browser market is growing rapidly, with most enterprise browsers being Chromium-based due to Chromium's dominant share of global browser usage and compatibility with modern SaaS applications. Organizations now use an average of 100+ SaaS apps, with large enterprises often using well over 150-400, which increases the need for centralized, browser-level security controls. This creates a significant market opportunity for Chromium-based enterprise browsers that can provide secure SaaS access for external users via managed browser sessions, with per-user, per-month licensing aligned to flexible contractor headcount. The goal is to reduce hardware and IT overhead, improve security posture for third-party access, and maintain a familiar user experience while enabling centralized controls for data protection and policy enforcement at the browser/session level.",
+      overview: "**B2B — Enterprise browser (Chromium):** Develop a Chromium-based version of Oasis Enterprise Browser to address enterprise customer requirements for secure SaaS access. Culture Amp (Julian) is ready to invest but we didn't have a Chromium enterprise version to demo—this sprint delivers the product. Requirements broadly apply to enterprise prospects like Culture Amp (see readiness checklist below). This sprint is motivated by enterprise demand for managed browsers that can provide secure access to cloud applications for short-term consultants and third-party partners without requiring full device management or shipping hardware. By 2026, analysts project that roughly 25% of enterprises will be using managed browsers or extensions for security and access control. The enterprise browser market is growing rapidly, with most enterprise browsers being Chromium-based due to Chromium's dominant share of global browser usage and compatibility with modern SaaS applications. Organizations now use an average of 100+ SaaS apps, with large enterprises often using well over 150-400, which increases the need for centralized, browser-level security controls. This creates a significant market opportunity for Chromium-based enterprise browsers that can provide secure SaaS access for external users via managed browser sessions, with per-user, per-month licensing aligned to flexible contractor headcount. The goal is to reduce hardware and IT overhead, improve security posture for third-party access, and maintain a familiar user experience while enabling centralized controls for data protection and policy enforcement at the browser/session level. For industry context on what raw Chromium does and does not provide versus consumer browsers—including sync, auto-update, codecs, and API dependencies—see the collapsible \"Chromium fork: capability gaps\" section after Sprint log (in-page anchor #chromium-fork-capability-assessment).",
       primaryFiles: "Chromium browser fork (NEW), SSO integration module (NEW), Enterprise policy management (NEW), Browser installation without admin privileges (NEW)",
       issues: [
         {
@@ -2751,7 +2755,8 @@ function Sprints() {
             content: "Key questions for Cinder evaluation: Does their enforcement model support non-human actors acting on behalf of users, with continuous authorization and scoped permissions? As automation increases across enterprise workflows, can their architecture scale safely with high-frequency, machine-driven actions — not just human moderation flows? Cinder's architecture features a centralized policy engine with real-time enforcement and auditability. The strategic question: Can that enforcement layer move upstream closer to runtime execution in agentic environments where actions are triggered autonomously? Governance at the API or browser execution layer requires policy validation before state mutation, not just post-event moderation. If Cinder can operate as a pre-execution decision engine rather than only a workflow orchestrator, that becomes strategically powerful."
           }
         ]
-      }
+      },
+      chromiumForkCapabilityAssessment
     },
     {
       id: 2,
@@ -2762,7 +2767,7 @@ function Sprints() {
       effort: "Medium-High",
       impact: "High",
       severity: "6-10/10",
-      overview: "**B2C — Consumer browser (Firefox / Gecko):** Single track combining former **Sprint 27** (Mar W3: voice-to-text & AI command reliability) and **Sprint 34** (Mar W3: polish, performance & trust). Addresses NPS passives/detractors on unclear prompts, voice friction, unfinished feel, branding polish, transparency, and theme consistency—all on the **Firefox-based consumer** product (not the Chromium enterprise line). **Sources:** proposed sprints for march week 3.md (NPS-driven).",
+      overview: "**B2C — Consumer browser (Firefox / Gecko):** Single track combining former **Sprint 27** (Mar W3: voice-to-text & AI command reliability) and **Sprint 34** (Mar W3: polish, performance & trust). Addresses NPS passives/detractors on unclear prompts, voice friction, unfinished feel, branding polish, transparency, and theme consistency—all on the **Firefox-based consumer** product (not the Chromium enterprise line). **Sources:** proposed sprints for march week 3.md (NPS-driven). For privacy-filter / PII tradeoffs before prompts hit the LLM (Windows RAM vs server-side Presidio vs managed DLP), see the collapsible section below (in-page anchor #pii-implementation-options).",
       primaryFiles: "voiceInput.ts, proxyClient.ts, useAssistantRuntime.ts, Composer.tsx, intentParser.ts; branding/CSS, interactionState.ts, decisionEngine.ts",
       issues: [
         {
@@ -2864,7 +2869,8 @@ function Sprints() {
         "AI action preview/confirm before execute",
         "Recursion limit errors resolved",
         "Dark mode toggle available"
-      ]
+      ],
+      piiImplementationOptions
     },
     {
       id: 36,
@@ -3231,6 +3237,26 @@ function Sprints() {
                           </div>
                         ))}
                       </div>
+                    )}
+                    {sprint.chromiumForkCapabilityAssessment && (
+                      <>
+                        <p className="sprint-overview-anchor-note">
+                          <a href="#chromium-fork-capability-assessment">Jump to Chromium fork capability reference</a>
+                          {' '}
+                          (below; expand the disclosure to read).
+                        </p>
+                        <ChromiumForkCapabilityAssessment data={sprint.chromiumForkCapabilityAssessment} />
+                      </>
+                    )}
+                    {sprint.piiImplementationOptions && (
+                      <>
+                        <p className="sprint-overview-anchor-note">
+                          <a href="#pii-implementation-options">Jump to PII implementation options</a>
+                          {' '}
+                          (below; expand the disclosure to read).
+                        </p>
+                        <PiiImplementationOptions data={sprint.piiImplementationOptions} />
+                      </>
                     )}
                   </div>
 
