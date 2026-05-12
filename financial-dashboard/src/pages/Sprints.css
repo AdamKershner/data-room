@@ -443,3 +443,180 @@
   }
 }
 
+/* Reference disclosures: Chromium capability assessment (Sprint 1), PII options (Sprint 2) share .chromium-assessment-* */
+
+/* Chromium fork capability assessment (Sprint 1 reference) */
+.sprint-overview-anchor-note {
+  margin-top: 16px;
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+.sprint-overview-anchor-note a {
+  color: var(--oasis-green-medium, #0d9488);
+  font-weight: 600;
+}
+
+.chromium-assessment-wrap {
+  margin-top: 20px;
+}
+
+.chromium-assessment-details {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+  overflow: hidden;
+}
+
+.chromium-assessment-summary {
+  cursor: pointer;
+  padding: 14px 18px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #1e293b;
+  list-style: none;
+}
+
+.chromium-assessment-summary::-webkit-details-marker {
+  display: none;
+}
+
+.chromium-assessment-summary::before {
+  content: '▸ ';
+  color: #64748b;
+}
+
+.chromium-assessment-details[open] .chromium-assessment-summary::before {
+  content: '▾ ';
+}
+
+.chromium-assessment {
+  padding: 0 18px 20px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #334155;
+  border-top: 1px solid #e2e8f0;
+}
+
+.chromium-assessment-title {
+  margin: 16px 0 12px;
+  font-size: 1rem;
+  color: #0f172a;
+  line-height: 1.35;
+}
+
+.chromium-assessment-h5 {
+  margin: 20px 0 8px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #64748b;
+  font-weight: 700;
+}
+
+.chromium-assessment-h6 {
+  margin: 14px 0 6px;
+  font-size: 0.9rem;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.chromium-assessment-option-title {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.chromium-assessment p {
+  margin: 0 0 10px;
+}
+
+.chromium-assessment-list {
+  margin: 0 0 12px;
+  padding-left: 1.25rem;
+}
+
+.chromium-assessment-list li {
+  margin-bottom: 8px;
+}
+
+.chromium-assessment-table-scroll {
+  overflow-x: auto;
+  margin: 10px 0 16px;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.chromium-assessment-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.chromium-assessment-table th,
+.chromium-assessment-table td {
+  border: 1px solid #e2e8f0;
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.chromium-assessment-table th {
+  background: #f1f5f9;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.chromium-assessment-table--tiers {
+  min-width: 520px;
+}
+
+.chromium-assessment-infra-block {
+  margin-bottom: 8px;
+}
+
+.chromium-assessment-stakeholder-callout {
+  margin-top: 24px;
+  padding: 16px 18px;
+  background: #f5f3ff;
+  border: 1px solid #c4b5fd;
+  border-radius: 8px;
+  color: #4c1d95;
+}
+
+.chromium-assessment-stakeholder-heading {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: #5b21b6;
+  margin-bottom: 12px;
+}
+
+.chromium-assessment-stakeholder-item {
+  margin-bottom: 14px;
+}
+
+.chromium-assessment-stakeholder-item:last-child {
+  margin-bottom: 0;
+}
+
+.chromium-assessment-stakeholder-label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+  color: #5b21b6;
+}
+
+.chromium-assessment-stakeholder-item p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #4c1d95;
+  line-height: 1.5;
+}
+
