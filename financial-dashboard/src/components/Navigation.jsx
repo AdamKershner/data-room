@@ -109,13 +109,25 @@ function Navigation() {
           )}
           {PRIMARY_NAV_LINKS.map((item) => (
             <li key={item.id} className="menu-nav-item">
-              <Link
-                to={item.path}
-                className={`menu-link menu-link--flat ${isActive(item.path) ? 'active' : ''}`}
-                onClick={closeMenu}
-              >
-                {item.label}
-              </Link>
+              {item.href ? (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="menu-link menu-link--flat"
+                  onClick={closeMenu}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  to={item.path}
+                  className={`menu-link menu-link--flat ${isActive(item.path) ? 'active' : ''}`}
+                  onClick={closeMenu}
+                >
+                  {item.label}
+                </Link>
+              )}
             </li>
           ))}
           <li className="menu-category menu-category--collapsible">

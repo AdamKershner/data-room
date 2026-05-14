@@ -125,7 +125,9 @@ function buildOnboardingStepEntries() {
 
 function primaryNavExtras() {
   const tocPaths = new Set(TOC_EXPLORE_ITEMS.map((i) => i.path))
-  return PRIMARY_NAV_LINKS.filter((l) => !tocPaths.has(l.path) && l.path !== '/').map((l) => ({
+  return PRIMARY_NAV_LINKS.filter(
+    (l) => l.path && !tocPaths.has(l.path) && l.path !== '/',
+  ).map((l) => ({
     path: l.path,
     title: l.label,
     businessFunction: inferBusinessFunctionFromPath(l.path),

@@ -11,6 +11,11 @@ export const PRIMARY_NAV_LINKS = [
   { path: '/nps', id: 'nps', label: 'PMF+NPS data' },
   { path: '/hitl', id: 'hitl', label: 'User Feedback Trends (training data)' },
   { path: '/onboarding', id: 'onboarding', label: 'Onboarding' },
+  {
+    id: 'time-log-tally',
+    label: 'Time Log (Tally form)',
+    href: 'https://tally.so/r/w2YdzL',
+  },
   { path: '/knowledge-base', id: 'knowledge-base', label: 'Knowledge base' },
 ]
 
