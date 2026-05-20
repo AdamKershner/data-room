@@ -14,7 +14,9 @@ import {
   BRAND_IDEALS_IMAGE,
   AUDIENCE_CONTENT,
   BRAND_AUDIENCE_IMAGE,
+  EXAMPLES_CONTENT,
 } from './founderPersonalBrandSections'
+import FounderExamplesGallery from '../components/FounderExamplesGallery'
 import './Page.css'
 import './FounderPersonalBrand.css'
 
@@ -234,6 +236,20 @@ function AudienceSection() {
   )
 }
 
+function ExamplesSection() {
+  const { intro, galleryHeading } = EXAMPLES_CONTENT
+
+  return (
+    <div className="content-block founder-examples-block">
+      {intro.map((paragraph) => (
+        <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+      ))}
+      <h3 className="founder-examples-gallery-heading">{galleryHeading}</h3>
+      <FounderExamplesGallery />
+    </div>
+  )
+}
+
 function FounderPersonalBrand() {
   return (
     <div className="page" id="founder-personal-brand">
@@ -265,6 +281,8 @@ function FounderPersonalBrand() {
             <IdealsSection />
           ) : section.id === 'audience' ? (
             <AudienceSection />
+          ) : section.id === 'examples' ? (
+            <ExamplesSection />
           ) : (
             <div className="content-block">
               <p>{section.placeholder}</p>

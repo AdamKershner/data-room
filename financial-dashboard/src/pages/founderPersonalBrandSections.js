@@ -237,7 +237,14 @@ export const FOUNDER_PERSONAL_BRAND_SECTIONS = [
   },
   {
     id: 'examples',
-    title: 'Examples',
-    placeholder: 'Reference posts, formats, and patterns to copy.',
+    title: "Adam's Examples",
   },
 ]
+
+export const EXAMPLES_CONTENT = {
+  intro: [
+    'Adam\'s content is meant to be the opposite of clickbait and doom scrolling. It is real content created by him: rough, thought-provoking, and different on purpose so it does not blend into AI slop.',
+    'The images focus on awe-inspiring sights, travel, health, and vitality. While many people feel exhausted by ad nauseam feeds, rage bait, and synthetic polish, this work is meant to trigger mindfulness, deep human connection, and a call to read real writing and learn something new.',
+  ],
+  galleryHeading: 'Gallery: real frames from Adam\'s world',
+}

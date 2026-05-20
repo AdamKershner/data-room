@@ -541,3 +541,132 @@
     padding: 20px 16px;
   }
 }
+
+.founder-examples-block {
+  width: 100%;
+}
+
+.founder-examples-block > p {
+  line-height: 1.75;
+  color: #334155;
+}
+
+.founder-examples-gallery-heading {
+  margin: 32px 0 20px 0;
+  font-size: 1.2rem;
+  color: #1e293b;
+}
+
+.founder-examples-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.founder-examples-gallery-figure {
+  margin: 0;
+}
+
+.founder-examples-gallery-thumb-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f8fafc;
+  cursor: zoom-in;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.founder-examples-gallery-thumb-btn:hover {
+  border-color: #a78bfa;
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.12);
+}
+
+.founder-examples-gallery-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.founder-examples-gallery-caption {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #64748b;
+  text-align: center;
+}
+
+.founder-examples-gallery-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+  background: rgba(15, 23, 42, 0.65);
+}
+
+.founder-examples-gallery-lightbox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: min(960px, calc(100vw - 48px));
+  max-height: calc(100vh - 48px);
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+}
+
+.founder-examples-gallery-lightbox-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-shrink: 0;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.founder-examples-gallery-lightbox-caption {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.4;
+}
+
+.founder-examples-gallery-lightbox-close {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 8px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.founder-examples-gallery-lightbox-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.founder-examples-gallery-lightbox-body {
+  padding: 16px 20px 20px;
+  overflow: auto;
+}
+
+.founder-examples-gallery-lightbox-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
