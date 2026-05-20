@@ -57,8 +57,8 @@ export const PROVEN_MODEL_CONTENT = {
       'John Summit makes high-energy electronic music that blends driving house, melodic techno, and vocal-driven pop. Known for infectious basslines, sleek synths, and emotional toplines, his sound ranges from club-ready dancefloor anthems to melancholic, genre-melding tracks.',
     comparison: [
       'Summit wins on feeling first. The bass and groove get people moving, but the topline is what they remember the next day. He can run peak-time energy and melancholy in the same catalog without it feeling like a contradiction.',
-      'Adam\'s approach to technology follows the same instinct. Kahana and Oasis are not pitched as a feature matrix alone. Branding, product, and vision lean into how browsing and building should feel: refuge instead of extraction, calm focus instead of tab chaos, agency instead of being watched.',
-      'That is the parallel worth copying. Summit\'s music makes you feel something on the dancefloor; Adam\'s work aims to make you feel something about your data, your attention, and your life online. Emotional appeal is the through-line in both worlds.',
+      'Adam\'s work is aimed at making you feel peaceful, safe, and elegant. Kahana and Oasis are not pitched as a feature matrix alone. Branding, product, and vision lean into refuge: calm focus instead of tab chaos, agency instead of being watched, a place online that does not grind you down.',
+      'The music and the tech, from both sides, create a refuge to feel safe in your own skin and the vitality of being truly alive. Summit\'s sound can lift you on the dancefloor; Adam\'s stack is built so you can breathe in the browser. Emotional appeal is the through-line in both worlds.',
     ],
   },
   parallelsIntro:
@@ -95,8 +95,8 @@ export const PROVEN_MODEL_CONTENT = {
     },
     {
       label: 'Emotional appeal',
-      johnSummit: 'Infectious bass, sleek synths, vocal toplines; anthems and melancholy in one catalog',
-      adam: 'Branding, product, and vision lead with feeling (refuge, focus, agency), not specs alone',
+      johnSummit: 'Music as refuge: energy, melancholy, and toplines that make you feel alive in your skin',
+      adam: 'Tech as refuge: peaceful, safe, elegant; vitality and safety in how you live online',
     },
     {
       label: 'Outward-facing brand',
