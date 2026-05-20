@@ -56,6 +56,48 @@
   line-height: 1.7;
 }
 
+.founder-proven-blueprint {
+  margin-bottom: 32px;
+}
+
+.founder-proven-blueprint p {
+  margin: 0 0 20px 0;
+  line-height: 1.7;
+}
+
+.founder-proven-blueprint p:last-child {
+  margin-bottom: 0;
+}
+
+.founder-proven-thumbnail-heading {
+  margin: 0 0 16px 0;
+  font-size: 1.15rem;
+  color: #1e293b;
+}
+
+.founder-proven-thumbnail-wrap {
+  margin: 0 0 36px 0;
+  padding: 24px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  max-width: 720px;
+}
+
+.founder-proven-thumbnail-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.founder-proven-thumbnail-caption {
+  margin: 12px 0 0 0;
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
 .founder-proven-comparison-wrap {
   overflow-x: auto;
   margin-bottom: 32px;

@@ -19,6 +19,13 @@ export const ADAM_HEADSHOT = {
   alt: 'Adam Kershner, CEO and founder of Kahana, professional headshot',
 }
 
+export const ADAM_YOUTUBE_THUMBNAIL_EXAMPLE = {
+  src: '/images/adam-youtube-thumbnail-example.png',
+  alt: 'YouTube thumbnail example featuring Adam Kershner on camera with expressive pose and outline styling',
+  caption:
+    'Example of Adam\'s YouTube thumbnail work: face-forward, high-contrast framing built for scroll-stopping video.',
+}
+
 export const PROVEN_MODEL_CONTENT = {
   intro:
     'Founder-led personal brand is not a Kahana invention. It shows up wherever someone leaves a safe path, commits to a craft, and lets people follow the work in public. John Summit is one reference case for how that arc can look in music; Adam Kershner is building the same kind of arc in tech.',
@@ -27,12 +34,22 @@ export const PROVEN_MODEL_CONTENT = {
     'The joke stuck. It also became a useful frame: building a personal brand in public can feel random until the pattern repeats.',
   ],
   parallelsIntro:
-    'There are real parallels between Adam\'s path and John Summit\'s early rise. Both worked corporate jobs while dreaming of following a passion and building something else (Summit in music, Adam in tech). Both started small, worked hard on the craft, and grew communities of loyal supporters around what they were doing. Summit is 31; Adam is almost 31.',
+    'There are real parallels between Adam\'s path and John Summit\'s early rise. Both worked corporate jobs while dreaming of following a passion and building something else (Summit in music, Adam in tech). Both started making YouTube tutorial videos during COVID. Both started small, worked hard on the craft, and grew communities of loyal supporters around what they were doing. Summit is 31; Adam is almost 31.',
+  blueprint: [
+    'Summit has achieved far greater success at this point, but he has shown a blueprint of what could be possible for Adam. It is obviously not the same path, yet applying many of the same tactics can work because they physically look similar, and that physical look is a major reason the brand works.',
+    'Summit became popular by showing his face often on TikTok and Instagram while making music. The lesson for a founder in tech is the same shape: put your face on the work, not only the product screenshots.',
+  ],
+  youtubeThumbnailHeading: 'Adam\'s face-forward YouTube thumbnails',
   parallels: [
     {
       label: 'Day job vs passion',
       johnSummit: 'Corporate work, then music full time',
       adam: 'Corporate work, then tech and Kahana full time',
+    },
+    {
+      label: 'COVID-era start',
+      johnSummit: 'YouTube tutorial videos, then short-form face content while producing music',
+      adam: 'YouTube tutorial videos, then founder content while building Kahana',
     },
     {
       label: 'How they started',

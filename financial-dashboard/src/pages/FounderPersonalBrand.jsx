@@ -4,6 +4,7 @@ import {
   FOUNDER_PERSONAL_BRAND_SECTIONS,
   PROVEN_MODEL_CONTENT,
   ADAM_HEADSHOT,
+  ADAM_YOUTUBE_THUMBNAIL_EXAMPLE,
   JOHN_SUMMIT_REFERENCE_VIDEO_EMBED_URL,
   JOHN_SUMMIT_REFERENCE_VIDEO_WATCH_URL,
 } from './founderPersonalBrandSections'
@@ -11,7 +12,15 @@ import './Page.css'
 import './FounderPersonalBrand.css'
 
 function ProvenModelSection() {
-  const { intro, story, parallelsIntro, parallels, videoCaption } = PROVEN_MODEL_CONTENT
+  const {
+    intro,
+    story,
+    parallelsIntro,
+    blueprint,
+    youtubeThumbnailHeading,
+    parallels,
+    videoCaption,
+  } = PROVEN_MODEL_CONTENT
 
   return (
     <div className="content-block founder-proven-block">
@@ -54,6 +63,25 @@ function ProvenModelSection() {
           </tbody>
         </table>
       </div>
+
+      <div className="founder-proven-blueprint">
+        {blueprint.map((paragraph) => (
+          <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+        ))}
+      </div>
+
+      <h3 className="founder-proven-thumbnail-heading">{youtubeThumbnailHeading}</h3>
+      <figure className="founder-proven-thumbnail-wrap">
+        <img
+          src={ADAM_YOUTUBE_THUMBNAIL_EXAMPLE.src}
+          alt={ADAM_YOUTUBE_THUMBNAIL_EXAMPLE.alt}
+          className="founder-proven-thumbnail-img"
+          loading="lazy"
+        />
+        <figcaption className="founder-proven-thumbnail-caption">
+          {ADAM_YOUTUBE_THUMBNAIL_EXAMPLE.caption}
+        </figcaption>
+      </figure>
 
       <p className="founder-proven-video-intro">{videoCaption}</p>
       <div className="founder-proven-video-wrapper">
