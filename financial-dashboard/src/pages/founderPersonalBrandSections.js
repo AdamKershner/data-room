@@ -37,7 +37,7 @@ export const PROVEN_MODEL_CONTENT = {
     'Founder-led personal brand is not a Kahana invention. It shows up wherever someone leaves a safe path, commits to a craft, and lets people follow the work in public. John Summit is one reference case for how that arc can look in music; Adam Kershner is building the same kind of arc in tech.',
   story: [
     'At a Dom Dolla show at Fontainebleau in Las Vegas, a stranger walked up and said Adam looked like John Summit. He had no idea who that was. Months later, at another concert in DC, someone pointed and shouted "John Summit!" again.',
-    'The joke stuck because the resemblance is real. Summit did not stumble into fame despite how he looks; he leveraged his appearance deliberately, on camera, again and again, until recognition became momentum. Building a personal brand in public can feel random until you see the same face enough times.',
+    'The joke stuck because the resemblance is real. That likeness is what makes the John Summit comparison possible in the first place. Summit got on social media, made a lot of content showing his face, connected with people, built a community, and stayed outward-facing beyond his music. Many DJs hide behind a mask (Alan Walker is the obvious example). Summit made showing up as himself a major part of his brand.',
   ],
   theoreticalHeadline: {
     outlet: 'TechCrunch (theoretical)',
@@ -48,8 +48,8 @@ export const PROVEN_MODEL_CONTENT = {
   parallelsIntro:
     'There are real parallels between Adam\'s path and John Summit\'s early rise. Both worked corporate jobs while dreaming of following a passion and building something else (Summit in music, Adam in tech). Both started making YouTube tutorial videos during COVID. Both started small, worked hard on the craft, and grew communities of loyal supporters around what they were doing. Summit is 31; Adam is almost 31.',
   blueprint: [
-    'Summit has achieved far greater success at this point, but he has shown a blueprint of what could be possible for Adam. It is obviously not the same path, yet applying many of the same tactics can work because they physically look similar. Summit treated his appearance as a distribution asset: memorable face, consistent look, repeated exposure. That is not a side detail; it is a core reason the brand works.',
-    'Summit gained popularity by putting his appearance front and center on TikTok and Instagram while he made music. Thumbnails, clips, and live moments all sold the same visual identity. The lesson for a founder in tech is the same shape: leverage how you look on camera, not only what the product screenshots show.',
+    'Summit has achieved far greater success at this point, but he has shown a blueprint of what could be possible for Adam. It is not the same path, yet many of the same habits transfer: show up on social, post often, let people see your face, reply and connect, build a community that cares about the person behind the work. The fact that Adam actually looks like John Summit is what makes the comparison credible, not forced.',
+    'In dance music, a lot of artists stay anonymous. Alan Walker built a global brand while hiding his face behind a mask. Summit went the opposite direction: TikTok, Instagram, thumbnails, and live moments where the audience knows the person, not just the drop. For a founder, the parallel is outward-facing storytelling on LinkedIn and YouTube, not only product screenshots in a deck.',
     'The key to Summit\'s meteoric rise, from getting rejected by hundreds of record labels to selling out massive crowds at the largest music festivals in the world, is that he continuously focused on the quality of his music (the product). The same needs to be true of Adam and his products for this strategy to work: face-forward brand and distribution only amplify something people already want to keep using.',
     'Summit\'s music is widely popular and well-regarded, but it is not without skepticism. Many critics say other DJs are more musically gifted than Summit and credit his marketing and branding with much of his success. Both can be true. The same can be true for Adam, Kahana, and Oasis: a great product and a great founder brand are not mutually exclusive, and outside observers will often attribute the wins to one or the other.',
   ],
@@ -76,9 +76,9 @@ export const PROVEN_MODEL_CONTENT = {
       adam: 'Small team, relentless focus on product and story',
     },
     {
-      label: 'Appearance as leverage',
-      johnSummit: 'Built fame by repeating his face across short-form video, thumbnails, and live moments',
-      adam: 'Can apply the same lever: recognizable founder face on LinkedIn, YouTube, and events',
+      label: 'Outward-facing brand',
+      johnSummit: 'Face on camera, constant social content, community beyond the tracks (vs masked DJs like Alan Walker)',
+      adam: 'Credible Summit parallel because of the resemblance; founder-visible on LinkedIn, YouTube, and events',
     },
     {
       label: 'Community',
