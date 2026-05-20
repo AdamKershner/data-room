@@ -1,0 +1,1111 @@
+/* Marketing Narrative Checklist – summary & progress */
+.mn-checklist-summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 12px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.mn-checklist-count {
+  font-weight: 700;
+  color: var(--oasis-green-medium, #0d9488);
+}
+
+.mn-checklist-progress {
+  color: #64748b;
+}
+
+.mn-progress-bar {
+  height: 10px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 12px;
+  max-width: 400px;
+}
+
+.mn-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--oasis-green-medium, #0d9488), #34d399);
+  border-radius: 999px;
+  transition: width 0.4s ease-out;
+}
+
+.mn-category-progress {
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.mn-category {
+  margin-top: 40px;
+  padding: 28px 24px 8px;
+  background: #fafbfc;
+  border: 1px solid #e8ecf0;
+  border-radius: 12px;
+}
+
+.mn-category:first-of-type {
+  margin-top: 8px;
+}
+
+.mn-category > h2 {
+  margin: 0 0 8px;
+  font-size: 1.5rem;
+  color: var(--oasis-green-medium, #2d5016);
+}
+
+.mn-category-tagline {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #475569;
+}
+
+.mn-category-meta {
+  margin: 0 0 24px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+#marketing-narrative-checklist .mn-category .mn-section {
+  margin-top: 8px;
+}
+
+#marketing-narrative-checklist .mn-category .mn-section h3 {
+  margin: 0 0 12px;
+  font-size: 1.25rem;
+  color: #1e293b;
+}
+
+.mn-framework-sources {
+  margin: 12px 0 0;
+  padding-left: 1.25rem;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.mn-framework-sources li {
+  margin-bottom: 6px;
+}
+
+.mn-framework-jump {
+  margin: 14px 0 0 !important;
+  font-size: 0.95rem;
+}
+
+#marketing-narrative-checklist .mn-section {
+  background: rgba(45, 80, 22, 0.03);
+  border-left: 4px solid var(--oasis-green-medium, #2d5016);
+  padding-left: 20px;
+  margin-left: -20px;
+  padding-right: 20px;
+}
+
+.mn-progress-sticky {
+  position: sticky;
+  top: 64px;
+  z-index: 20;
+  background: #ffffff;
+  padding: 8px 0 14px;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
+}
+
+.mn-category-filter {
+  display: inline-flex;
+  gap: 0;
+  margin-bottom: 14px;
+  padding: 4px;
+  background: #f1f5f9;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.mn-category-filter-btn {
+  padding: 8px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #475569;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.mn-category-filter-btn:hover {
+  color: #1e293b;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.mn-category-filter-btn.is-active {
+  color: #fff;
+  background: var(--oasis-green-medium, #0d9488);
+  box-shadow: 0 1px 3px rgba(13, 148, 136, 0.35);
+}
+
+.mn-category-filter-btn:focus-visible {
+  outline: 2px solid var(--oasis-green-medium, #0d9488);
+  outline-offset: 2px;
+}
+
+.mn-section-framework-details {
+  margin: 0 0 16px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-left: 4px solid #64748b;
+  border-radius: 8px;
+}
+
+.mn-section-framework-summary {
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  list-style: none;
+}
+
+.mn-section-framework-summary::-webkit-details-marker {
+  display: none;
+}
+
+.mn-section-framework-summary::before {
+  content: '▸';
+  display: inline-block;
+  margin-right: 8px;
+  color: #64748b;
+  transition: transform 0.15s ease;
+}
+
+.mn-section-framework-details[open] .mn-section-framework-summary::before {
+  transform: rotate(90deg);
+}
+
+.mn-section-framework-summary:hover {
+  color: #334155;
+}
+
+.mn-section-framework-body {
+  padding: 0 14px 14px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #334155;
+  white-space: pre-line;
+}
+
+.mn-section-intro {
+  margin: 0 0 20px;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #475569;
+  white-space: pre-line;
+}
+
+#marketing-narrative-checklist .mn-poem-actions {
+  margin: -8px 0 20px;
+}
+
+#marketing-narrative-checklist .mn-poem-read-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0f766e;
+  background: #ecfdf5;
+  border: 1px solid #99f6e4;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+#marketing-narrative-checklist .mn-poem-read-btn:hover {
+  background: #d1fae5;
+  border-color: #5eead4;
+}
+
+#marketing-narrative-checklist .mn-poem-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+  background: rgba(15, 23, 42, 0.5);
+}
+
+#marketing-narrative-checklist .mn-poem-modal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 560px;
+  max-height: calc(100vh - 48px);
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+}
+
+#marketing-narrative-checklist .mn-poem-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-shrink: 0;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+#marketing-narrative-checklist .mn-poem-modal-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.3;
+}
+
+#marketing-narrative-checklist .mn-poem-modal-close {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 8px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+#marketing-narrative-checklist .mn-poem-modal-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+#marketing-narrative-checklist .mn-poem-modal-body {
+  padding: 20px 24px 24px;
+  overflow-y: auto;
+}
+
+#marketing-narrative-checklist .mn-poem-modal-text {
+  margin: 0;
+  font-family: inherit;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #334155;
+  white-space: pre-line;
+}
+
+#marketing-narrative-checklist .mn-section-suggest-hint {
+  margin: 0 0 1.25rem;
+  font-size: 0.92rem;
+  color: #64748b;
+}
+
+#marketing-narrative-checklist .mn-real-stories-wrap {
+  margin: 0 0 28px;
+  padding: 20px 22px;
+  background: #fff;
+  border: 1px solid #dbe4ee;
+  border-radius: 12px;
+  border-left: 4px solid var(--oasis-green-medium, #0d9488);
+}
+
+#marketing-narrative-checklist .mn-real-stories-title {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+#marketing-narrative-checklist .mn-real-stories-lead {
+  margin: 0 0 16px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #64748b;
+}
+
+#marketing-narrative-checklist .mn-real-stories-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#marketing-narrative-checklist .mn-real-stories-item {
+  margin: 0;
+}
+
+#marketing-narrative-checklist .mn-real-stories-details {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+  overflow: hidden;
+}
+
+#marketing-narrative-checklist .mn-real-stories-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #0f172a;
+  list-style: none;
+}
+
+#marketing-narrative-checklist .mn-real-stories-summary::-webkit-details-marker {
+  display: none;
+}
+
+#marketing-narrative-checklist .mn-real-stories-summary::before {
+  content: '▸';
+  margin-right: 6px;
+  color: var(--oasis-green-medium, #0d9488);
+  transition: transform 0.15s ease;
+}
+
+#marketing-narrative-checklist .mn-real-stories-details[open] .mn-real-stories-summary::before {
+  transform: rotate(90deg);
+}
+
+#marketing-narrative-checklist .mn-real-stories-label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+#marketing-narrative-checklist .mn-real-stories-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+#marketing-narrative-checklist .mn-real-stories-theme {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #ecfdf5;
+  color: #0f766e;
+  border: 1px solid #99f6e4;
+}
+
+#marketing-narrative-checklist .mn-real-stories-quote {
+  margin: 0;
+  padding: 0 14px 12px;
+  border: none;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #334155;
+}
+
+#marketing-narrative-checklist .mn-real-stories-quote p {
+  margin: 0 0 12px;
+}
+
+#marketing-narrative-checklist .mn-real-stories-quote p:last-child {
+  margin-bottom: 0;
+}
+
+#marketing-narrative-checklist .mn-real-stories-details[open] .mn-real-stories-quote {
+  padding-bottom: 14px;
+}
+
+#marketing-narrative-checklist .mn-instruction-link-static {
+  color: inherit;
+}
+
+#marketing-narrative-checklist.mn-page-with-sidebar {
+  max-width: 1280px;
+}
+
+#marketing-narrative-checklist .mn-page-layout {
+  display: grid;
+  grid-template-columns: minmax(168px, 200px) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+#marketing-narrative-checklist .mn-sidebar {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+#marketing-narrative-checklist .mn-sidebar-label {
+  margin: 0 0 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+#marketing-narrative-checklist .mn-sidebar-block {
+  margin: 0;
+}
+
+#marketing-narrative-checklist .mn-category-filter--sidebar {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+#marketing-narrative-checklist .mn-category-filter--sidebar .mn-category-filter-btn {
+  width: 100%;
+  text-align: center;
+}
+
+#marketing-narrative-checklist .mn-suggest-idea-sidebar-btn {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 11px 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--oasis-green-medium, #0d9488);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+#marketing-narrative-checklist .mn-suggest-idea-sidebar-btn:hover {
+  background: #0f766e;
+}
+
+#marketing-narrative-checklist .mn-suggest-idea-sidebar-btn:focus-visible {
+  outline: 2px solid #0f172a;
+  outline-offset: 2px;
+}
+
+#marketing-narrative-checklist .mn-sidebar-hint {
+  margin: 10px 0 0;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: #64748b;
+}
+
+#marketing-narrative-checklist .mn-main {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  #marketing-narrative-checklist .mn-page-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  #marketing-narrative-checklist .mn-sidebar {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 16px;
+  }
+
+  #marketing-narrative-checklist .mn-sidebar-block:first-child {
+    flex: 1 1 200px;
+  }
+
+  #marketing-narrative-checklist .mn-sidebar-block:last-child {
+    flex: 1 1 220px;
+  }
+
+  #marketing-narrative-checklist .mn-category-filter--sidebar {
+    flex-direction: row;
+  }
+
+  #marketing-narrative-checklist .mn-category-filter--sidebar .mn-category-filter-btn {
+    flex: 1;
+  }
+}
+
+#marketing-narrative-checklist .mn-feedback-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+  background: rgba(15, 23, 42, 0.5);
+}
+
+#marketing-narrative-checklist .mn-feedback-modal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 720px;
+  max-height: calc(100vh - 48px);
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+}
+
+#marketing-narrative-checklist .mn-feedback-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-shrink: 0;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+#marketing-narrative-checklist .mn-feedback-modal-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.3;
+}
+
+#marketing-narrative-checklist .mn-feedback-modal-context {
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+#marketing-narrative-checklist .mn-feedback-modal-context code {
+  font-size: 0.8rem;
+}
+
+#marketing-narrative-checklist .mn-feedback-modal-close {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 8px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+#marketing-narrative-checklist .mn-feedback-modal-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+#marketing-narrative-checklist .mn-feedback-modal-body {
+  flex: 1;
+  min-height: 420px;
+  padding: 0;
+  overflow: hidden;
+}
+
+#marketing-narrative-checklist .mn-feedback-modal-iframe {
+  display: block;
+  width: 100%;
+  height: min(70vh, 560px);
+  min-height: 420px;
+  border: none;
+}
+
+#marketing-narrative-checklist .mn-feedback-modal-footer {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 12px 24px 16px;
+  font-size: 0.85rem;
+  color: #64748b;
+  border-top: 1px solid #e2e8f0;
+}
+
+.mn-framework-note {
+  background: #f8faf8;
+  padding: 16px 20px;
+  border-radius: 8px;
+  border: 1px solid #e8f0e8;
+  margin-bottom: 24px;
+}
+
+.mn-framework-note p {
+  margin: 0 0 8px;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.mn-framework-note p:last-child {
+  margin-bottom: 0;
+}
+
+.mn-checklist-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+}
+
+.mn-checklist-table thead th {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 2px solid #e5e7eb;
+  color: #374151;
+  font-weight: 600;
+}
+
+.mn-checklist-table .mn-th-check {
+  width: 56px;
+  text-align: center;
+}
+
+.mn-checklist-table .mn-th-id {
+  width: 120px;
+  text-align: left;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.mn-checklist-table .mn-th-linear {
+  width: 88px;
+  text-align: left;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.mn-linear-cell {
+  padding: 10px 14px;
+  vertical-align: middle;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.mn-linear-link {
+  font-family: ui-monospace, monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #5e6ad2;
+  text-decoration: none;
+}
+
+.mn-linear-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.mn-linear-missing {
+  color: #94a3b8;
+}
+
+.mn-id-cell {
+  padding: 10px 14px;
+  vertical-align: middle;
+  font-size: 0.85rem;
+}
+
+.mn-task-id {
+  font-family: ui-monospace, monospace;
+  font-size: 0.8rem;
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.mn-checklist-table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.mn-checklist-table tbody tr:hover {
+  background: rgba(13, 148, 136, 0.04);
+}
+
+.mn-check-cell {
+  padding: 10px 14px;
+  vertical-align: middle;
+}
+
+.mn-label-cell {
+  padding: 10px 14px;
+  vertical-align: middle;
+  color: #333;
+}
+
+.mn-task-label-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mn-task-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.mn-task-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  line-height: 1.4;
+}
+
+.mn-task-badge-channel {
+  color: #0f766e;
+  background: #ccfbf1;
+  border: 1px solid #99f6e4;
+}
+
+.mn-task-badge-format {
+  color: #1e40af;
+  background: #dbeafe;
+  border: 1px solid #bfdbfe;
+}
+
+.mn-task-essence {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #1f2937;
+}
+
+.mn-task-label-refs {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: #6b7280;
+}
+
+.mn-deliverable-block {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 12px;
+  margin-bottom: 4px;
+}
+
+.mn-deliverable-spec {
+  margin: 8px 0 0;
+}
+
+.mn-deliverable-row {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 8px 12px;
+  margin-bottom: 6px;
+}
+
+.mn-deliverable-row dt {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.mn-deliverable-row dd {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.mn-label-cell .mn-instruction-link {
+  color: var(--oasis-green-medium, #0d9488);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.mn-checkbox-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  padding: 2px;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.mn-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.mn-checkbox-custom {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  transition: all 0.2s;
+}
+
+.mn-checkbox-wrapper:hover .mn-checkbox-custom {
+  border-color: var(--oasis-green-medium, #0d9488);
+}
+
+.mn-checkbox:checked + .mn-checkbox-custom {
+  background: var(--oasis-green-medium, #0d9488);
+  border-color: var(--oasis-green-medium, #0d9488);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mn-checkbox:checked + .mn-checkbox-custom::after {
+  content: "✓";
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.mn-view-instructions-link {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 4px 10px;
+  font-size: 0.85rem;
+  color: var(--oasis-green-medium, #0d9488);
+  background: none;
+  border: 1px solid var(--oasis-green-medium, #0d9488);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+
+.mn-view-instructions-link:hover {
+  background: rgba(13, 148, 136, 0.1);
+  color: #0a7c6f;
+}
+
+.mn-instruction-cell {
+  padding: 0 !important;
+  vertical-align: top;
+  border-bottom: 1px solid #e5e7eb;
+  background: #fafbfc;
+}
+
+.mn-instruction-panel {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mn-instruction-block {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.mn-instruction-block strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--oasis-green-medium, #0d9488);
+  font-size: 0.9rem;
+}
+
+.mn-instruction-block p {
+  margin: 0;
+}
+
+.mn-how-to {
+  white-space: pre-line;
+}
+
+.mn-why-block {
+  background: #f8fafc;
+  border-left: 3px solid #64748b;
+  padding-left: 12px;
+  margin-top: 4px;
+}
+
+.mn-why-block strong {
+  color: #475569;
+}
+
+.mn-instruction-link {
+  color: var(--oasis-green-medium, #0d9488);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.mn-instruction-link:hover {
+  color: #0a7c6f;
+}
+
+/* Confetti (shared pattern with other checklists) */
+.confetti-burst {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.confetti-particle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--size, 8px);
+  height: var(--size, 8px);
+  background: var(--color, #0d9488);
+  border-radius: 2px;
+  animation: confetti-burst-out var(--duration, 1000ms) var(--delay, 0ms) ease-out forwards;
+  transform-origin: center center;
+  opacity: 0;
+}
+
+.confetti-particle:nth-child(odd) {
+  border-radius: 50%;
+}
+
+@keyframes confetti-burst-out {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--tx, 60px), var(--ty, -60px)) rotate(360deg) scale(0.3);
+  }
+}
+
+#marketing-narrative-checklist .mn-evidence-gallery-wrap {
+  margin: 0 0 24px;
+}
+
+#marketing-narrative-checklist .mn-evidence-gallery-title {
+  margin: 0 0 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #334155;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+#marketing-narrative-checklist .mn-evidence-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+#marketing-narrative-checklist .mn-evidence-gallery-figure {
+  margin: 0;
+}
+
+#marketing-narrative-checklist .mn-evidence-gallery-thumb-btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f8fafc;
+  cursor: zoom-in;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#marketing-narrative-checklist .mn-evidence-gallery-thumb-btn:hover {
+  border-color: #99f6e4;
+  box-shadow: 0 4px 12px rgba(15, 118, 110, 0.12);
+}
+
+#marketing-narrative-checklist .mn-evidence-gallery-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+#marketing-narrative-checklist .mn-evidence-gallery-caption {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #64748b;
+  text-align: center;
+}
+
+#marketing-narrative-checklist .mn-evidence-gallery-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+  background: rgba(15, 23, 42, 0.65);
+}
+
+#marketing-narrative-checklist .mn-evidence-gallery-lightbox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: min(960px, calc(100vw - 48px));
+  max-height: calc(100vh - 48px);
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+}
+
+#marketing-narrative-checklist .mn-evidence-gallery-lightbox-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-shrink: 0;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+#marketing-narrative-checklist .mn-evidence-gallery-lightbox-caption {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.4;
+}
+
+#marketing-narrative-checklist .mn-evidence-gallery-lightbox-close {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 8px;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+#marketing-narrative-checklist .mn-evidence-gallery-lightbox-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+#marketing-narrative-checklist .mn-evidence-gallery-lightbox-body {
+  padding: 16px 20px 20px;
+  overflow: auto;
+}
+
+#marketing-narrative-checklist .mn-evidence-gallery-lightbox-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}

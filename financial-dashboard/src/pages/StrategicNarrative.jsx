@@ -89,7 +89,7 @@ function Section1BuyingChampion() {
       </ul>
 
       <h3>Background</h3>
-      <p><strong>Career path / experience:</strong> 10–15 years in IT, security, or infrastructure—early roles in systems/network engineering or IT operations, then architecture or security-focused positions. Has designed and run zero-trust/SASE initiatives, integrated IdP/MFA and DLP tools, and led vendor evaluations (browsers, endpoint, identity). Often owns or heavily influences secure access for contractors and third parties.</p>
+      <p><strong>Career path / experience:</strong> 10–15 years in IT, security, or infrastructure, early roles in systems/network engineering or IT operations, then architecture or security-focused positions. Has designed and run zero-trust/SASE initiatives, integrated IdP/MFA and DLP tools, and led vendor evaluations (browsers, endpoint, identity). Often owns or heavily influences secure access for contractors and third parties.</p>
       <p><strong>Educational credentials:</strong> Bachelor's in Computer Science, Information Systems, Cybersecurity, or related technical/STEM field. Many have a master's (e.g., MS in Cybersecurity, Information Assurance, or MBA with technology focus). Certifications often include CISSP, CISM, CCSP, or vendor-specific (Okta, cloud/SASE).</p>
       <p><strong>Comfort with technology:</strong> Very high. Evaluates enterprise software and security platforms regularly, reads technical docs and APIs, runs or oversees PoCs.</p>
 
@@ -117,15 +117,15 @@ function Section1BuyingChampion() {
       <p><strong>Issues to address:</strong> Netskope integration; Okta integration; no-admin install; Chromium compatibility; licensing model; pilot path.</p>
 
       <h3>Ideal Customer Journey</h3>
-      <p><strong>Awareness:</strong> Chrome Enterprise fails on policy enforcement; shipping laptops is too costly—so they must find a managed browser.</p>
+      <p><strong>Awareness:</strong> Chrome Enterprise fails on policy enforcement; shipping laptops is too costly, so they must find a managed browser.</p>
       <p><strong>Consideration:</strong> Ease of integration with Okta and Netskope; policy enforcement on third-party devices; Chromium compatibility; pricing flexibility; low-risk pilot path.</p>
       <p><strong>Decision:</strong> When everything else is comparable, Oasis delivers a more elegant, ergonomic browsing experience that users actually like using.</p>
 
       <h3>Quotes and Anecdotes</h3>
       <ul>
-        <li>"We were close to rolling out Chrome Enterprise, but pushing policy to devices we don't own just won't work." — Julian, Jan 2026</li>
-        <li>"I need to see, touch, feel the browser with real consultants before I can commit." — Julian, Jan 2026</li>
-        <li>"Shipping $1,500 laptops plus $200 an hour in setup for short-term consultants just doesn't scale." — Julian, Jan 2026</li>
+        <li>"We were close to rolling out Chrome Enterprise, but pushing policy to devices we don't own just won't work.": Julian, Jan 2026</li>
+        <li>"I need to see, touch, feel the browser with real consultants before I can commit.": Julian, Jan 2026</li>
+        <li>"Shipping $1,500 laptops plus $200 an hour in setup for short-term consultants just doesn't scale.": Julian, Jan 2026</li>
       </ul>
     </div>
   )
@@ -141,7 +141,7 @@ function Section2ChangeStakes() {
         <li><strong>Then:</strong> Contractors were given corporate laptops, VPN clients, and full endpoint agents; unmanaged devices were rare.</li>
         <li><strong>Now:</strong> Contractors expect to use their own devices from anywhere, and the browser has become the primary security control plane.</li>
       </ul>
-      <p><strong>Which results are slipping?</strong> Contractor onboarding times and costs are getting worse—weeks and thousands of dollars per seat—while browser-based data risk is rising.</p>
+      <p><strong>Which results are slipping?</strong> Contractor onboarding times and costs are getting worse, weeks and thousands of dollars per seat, while browser-based data risk is rising.</p>
       <p><strong>Which processes are on the verge of becoming irrelevant?</strong> Shipping laptops to every contractor, expanding VDI farms, and relying on network perimeter controls alone.</p>
       <p><strong>How is technology disrupting the norm?</strong> Cloud/SaaS, zero-trust architectures, and AI inside the browser are making the browser itself the new security perimeter.</p>
       <p><strong>How have cultural shifts impacted them?</strong> Hybrid and remote work have normalized contractors using their own devices from anywhere.</p>
@@ -157,8 +157,8 @@ function Section3Villain() {
   return (
     <div className="narrative-content">
       <h3>Root Cause (The Villain)</h3>
-      <p><strong>SaaS sprawl in the browser</strong>—the uncontrolled explosion of web apps, extensions, and shadow AI tools that all live inside the browser with no unified control or context.</p>
-      <p>Refined: SaaS sprawl in the browser—the uncontrolled explosion of web apps, extensions, and shadow AI tools running inside unmanaged browsers, with no unified policy, visibility, or context.</p>
+      <p><strong>SaaS sprawl in the browser</strong>, the uncontrolled explosion of web apps, extensions, and shadow AI tools that all live inside the browser with no unified control or context.</p>
+      <p>Refined: SaaS sprawl in the browser, the uncontrolled explosion of web apps, extensions, and shadow AI tools running inside unmanaged browsers, with no unified policy, visibility, or context.</p>
     </div>
   )
 }
@@ -199,8 +199,8 @@ function Section5Alternatives() {
     { name: 'Shipping laptops + VPN/VDI', type: 'Status quo', strengths: 'Familiar, full device control; security and procurement understand it', limits: 'High cost ($1,500+ per consultant, ~$200/hr setup), slow onboarding (weeks), doesn\'t scale' },
     { name: 'Chrome Enterprise Premium', type: 'Competitor', strengths: 'Known brand, Chromium, low per-user cost (~$6/user/month)', limits: 'Can\'t enforce policy on third-party devices; profile precedence makes consistent security behavior unreliable' },
     { name: 'Island Enterprise Browser', type: 'Competitor', strengths: 'Strong enterprise browser with policy enforcement; established vendor; leadership has approved pricing ($25K min, ~$150/user/year)', limits: 'Heavier, security-first positioning; UX is less of a differentiator; higher minimum commit' },
-    { name: 'Surf Browser', type: 'Competitor', strengths: 'Enterprise browser with policy control; lower minimum than Island ($12K, ~$108/user/year)', limits: 'Same category as Island—strong on security, less known for best-in-class UX and productivity' },
-    { name: 'Netskope + policies only', type: 'Status quo / internal stack', strengths: 'Already mandated by security; provides DLP and cloud security', limits: 'Doesn\'t replace the browser as the control plane—SaaS sprawl, extensions, and shadow AI remain only partly visible and controllable' },
+    { name: 'Surf Browser', type: 'Competitor', strengths: 'Enterprise browser with policy control; lower minimum than Island ($12K, ~$108/user/year)', limits: 'Same category as Island, strong on security, less known for best-in-class UX and productivity' },
+    { name: 'Netskope + policies only', type: 'Status quo / internal stack', strengths: 'Already mandated by security; provides DLP and cloud security', limits: 'Doesn\'t replace the browser as the control plane. SaaS sprawl, extensions, and shadow AI remain only partly visible and controllable' },
   ]
   return (
     <div className="narrative-content">
@@ -234,7 +234,7 @@ function Section6Category() {
   return (
     <div className="narrative-content">
       <p><strong>Category name:</strong> Enterprise browser (or secure enterprise browser)</p>
-      <p><strong>Category definition:</strong> A Chromium-based browser built for organizations to enforce security and data policies, control SaaS and AI usage, and give contractors and employees secure access from any device—without shipping laptops or VDI.</p>
+      <p><strong>Category definition:</strong> A Chromium-based browser built for organizations to enforce security and data policies, control SaaS and AI usage, and give contractors and employees secure access from any device, without shipping laptops or VDI.</p>
       <p><strong>Positioning line:</strong> Oasis is the enterprise browser that brings unified control over SaaS sprawl and shadow AI in the browser, with an elegant, productivity-first experience that users actually want to use.</p>
     </div>
   )
@@ -326,12 +326,12 @@ function Section9Differentiation() {
 
 function Section10Value() {
   const valueRows = [
-    { problem: "We can't keep shipping $1,500 laptops and spending $200/hour to onboard every contractor—it doesn't scale.", feature: 'Policy enforcement on third-party devices', capability: 'Enforce security and DLP policies in a managed browser on contractor-owned devices without laptops or VDI', value: '80%+ reduction in cost per contractor; onboarding in hours instead of weeks; contractor programs scale without more hardware' },
-    { problem: "Chrome Enterprise almost worked, but we can't enforce policy on devices we don't own—so we're stuck.", feature: 'Managed browser with no local admin', capability: 'Contractors install and run the browser on their own devices without admin rights; policies apply regardless of device ownership', value: 'Secure contractor access without laptops or VDI; Chrome Enterprise gap closed; one solution for corporate and third-party devices' },
-    { problem: "Our security team mandated Netskope—any browser we pick has to integrate, or we can't move forward.", feature: 'Okta + Netskope integration', capability: 'SSO, provisioning/deprovisioning, and DLP policies flow from identity and security stack into the browser', value: 'Meets security mandate; single policy layer; no new silos; faster security sign-off' },
-    { problem: "If the browser feels clunky, users will work around it—and then our security controls are useless.", feature: 'Elegant, productivity-first UX', capability: 'Chromium-based browser designed for usability and productivity, not only security', value: 'Higher adoption; fewer workarounds; security controls actually get used; better compliance outcomes' },
-    { problem: "We need to see, touch, feel before we commit—but we're worried integration won't work.", feature: 'Refundable pilot / deposit', capability: 'Deposit funds requirements gathering and integration validation; refund if integration is not feasible', value: 'Lower risk; faster internal approval; easier to start a pilot and validate before full commitment' },
-    { problem: "We need per-user pricing that fits the band leadership already approved—Island and Surf set the range.", feature: 'Per-user-per-month with reasonable minimum', capability: 'Flexible per-user pricing and minimum commit that fits approved budget bands', value: 'Easier procurement; predictable spend; deal fits finance expectations' },
+    { problem: "We can't keep shipping $1,500 laptops and spending $200/hour to onboard every contractor, it doesn't scale.", feature: 'Policy enforcement on third-party devices', capability: 'Enforce security and DLP policies in a managed browser on contractor-owned devices without laptops or VDI', value: '80%+ reduction in cost per contractor; onboarding in hours instead of weeks; contractor programs scale without more hardware' },
+    { problem: "Chrome Enterprise almost worked, but we can't enforce policy on devices we don't own, so we're stuck.", feature: 'Managed browser with no local admin', capability: 'Contractors install and run the browser on their own devices without admin rights; policies apply regardless of device ownership', value: 'Secure contractor access without laptops or VDI; Chrome Enterprise gap closed; one solution for corporate and third-party devices' },
+    { problem: "Our security team mandated Netskope, any browser we pick has to integrate, or we can't move forward.", feature: 'Okta + Netskope integration', capability: 'SSO, provisioning/deprovisioning, and DLP policies flow from identity and security stack into the browser', value: 'Meets security mandate; single policy layer; no new silos; faster security sign-off' },
+    { problem: "If the browser feels clunky, users will work around it, and then our security controls are useless.", feature: 'Elegant, productivity-first UX', capability: 'Chromium-based browser designed for usability and productivity, not only security', value: 'Higher adoption; fewer workarounds; security controls actually get used; better compliance outcomes' },
+    { problem: "We need to see, touch, feel before we commit, but we're worried integration won't work.", feature: 'Refundable pilot / deposit', capability: 'Deposit funds requirements gathering and integration validation; refund if integration is not feasible', value: 'Lower risk; faster internal approval; easier to start a pilot and validate before full commitment' },
+    { problem: "We need per-user pricing that fits the band leadership already approved. Island and Surf set the range.", feature: 'Per-user-per-month with reasonable minimum', capability: 'Flexible per-user pricing and minimum commit that fits approved budget bands', value: 'Easier procurement; predictable spend; deal fits finance expectations' },
   ]
   return (
     <div className="narrative-content">
@@ -367,7 +367,7 @@ function AppendixJulianStory() {
       <p>After demoing Island and Surf, Julian requested a demo with Oasis and requested pricing, mentioning that executives at his company are fine with pricing in the range of Island and Surf.</p>
       <p>Julian leads a project at a global B2B software company to find the right enterprise browser for their consultants and third-party users. His goal: give short-term consultants secure access to the company's SaaS apps without shipping them full laptops.</p>
       <p>Today, they ship $1,500 laptops to each consultant and spend roughly $200/hour of internal time to provision, secure, and support them. Julian wants a managed, Chromium-based browser that runs on the consultant's own device, requires no local admin rights, and can be turned on and off automatically as contracts start and end.</p>
-      <p>Julian's team got very close to rolling out Chrome Enterprise. But Chrome Enterprise couldn't reliably enforce security and DLP policies on third-party devices, and profile precedence made consistent security behavior unreliable. Meanwhile, the security team had already prescribed Netskope—any browser they pick must integrate cleanly with it.</p>
+      <p>Julian's team got very close to rolling out Chrome Enterprise. But Chrome Enterprise couldn't reliably enforce security and DLP policies on third-party devices, and profile precedence made consistent security behavior unreliable. Meanwhile, the security team had already prescribed Netskope, any browser they pick must integrate cleanly with it.</p>
       <p>Oasis proposed a $5,000 refundable deposit to validate Netskope integration and policy enforcement; if it's not feasible, they get it back. Ongoing pricing is $8 per user per month, which fits comfortably inside the Island and Surf ranges leadership has already accepted.</p>
       <p><strong>When talking to similar prospects, sales can:</strong> Lead with the problem (secure SaaS access for contractors without laptops or VDI); emphasize policy enforcement on third-party devices as the core differentiator versus Chrome Enterprise; normalize minimum commitments by referencing Island and Surf; offer a de-risked pilot path (refundable deposit); and position Oasis as the enterprise browser that wins on elegant UX when security and integration are equal.</p>
     </div>

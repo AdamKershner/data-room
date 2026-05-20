@@ -12,6 +12,11 @@ export const PRIMARY_NAV_LINKS = [
   { path: '/hitl', id: 'hitl', label: 'User Feedback Trends (training data)' },
   { path: '/onboarding', id: 'onboarding', label: 'Onboarding' },
   {
+    path: '/marketing-narrative-checklist',
+    id: 'marketing-narrative-checklist',
+    label: 'Marketing Narrative Checklist',
+  },
+  {
     id: 'time-log-tally',
     label: 'Time Log (Tally form)',
     href: 'https://tally.so/r/w2YdzL',
@@ -59,6 +64,12 @@ export const TOC_EXPLORE_ITEMS = [
     path: '/onboarding',
     title: 'Onboarding',
     description: 'New-hire checklist with day-by-day instructions and links into deeper steps.',
+  },
+  {
+    path: '/marketing-narrative-checklist',
+    title: 'Marketing Narrative Checklist',
+    description:
+      'Story-framework checklist: change, winners/losers, Promised Land, magic gifts, and evidence—trackable content ideas.',
   },
   {
     path: '/knowledge-base',
