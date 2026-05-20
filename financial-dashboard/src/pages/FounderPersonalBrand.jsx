@@ -10,6 +10,8 @@ import {
   JOHN_SUMMIT_REFERENCE_VIDEO_WATCH_URL,
   PILLARS_CONTENT,
   BRAND_PERSONALITY_PILLARS_IMAGE,
+  IDEALS_CONTENT,
+  BRAND_IDEALS_IMAGE,
 } from './founderPersonalBrandSections'
 import './Page.css'
 import './FounderPersonalBrand.css'
@@ -171,6 +173,30 @@ function PillarsSection() {
   )
 }
 
+function IdealsSection() {
+  const { intro, ideals } = IDEALS_CONTENT
+
+  return (
+    <div className="content-block founder-ideals-block">
+      <p>{intro}</p>
+      <figure className="founder-ideals-figure">
+        <img
+          src={BRAND_IDEALS_IMAGE.src}
+          alt={BRAND_IDEALS_IMAGE.alt}
+          className="founder-ideals-image"
+          loading="lazy"
+        />
+        <figcaption className="founder-ideals-caption">{BRAND_IDEALS_IMAGE.caption}</figcaption>
+      </figure>
+      <ol className="founder-ideals-list">
+        {ideals.map((ideal) => (
+          <li key={ideal.id}>{ideal.label}</li>
+        ))}
+      </ol>
+    </div>
+  )
+}
+
 function FounderPersonalBrand() {
   return (
     <div className="page" id="founder-personal-brand">
@@ -198,6 +224,8 @@ function FounderPersonalBrand() {
             <ProvenModelSection />
           ) : section.id === 'pillars' ? (
             <PillarsSection />
+          ) : section.id === 'ideals' ? (
+            <IdealsSection />
           ) : (
             <div className="content-block">
               <p>{section.placeholder}</p>

@@ -137,6 +137,33 @@ export const PILLARS_CONTENT = {
   ],
 }
 
+export const BRAND_IDEALS_IMAGE = {
+  src: '/images/founder-brand-ideals.png',
+  alt: 'Ideals board with fourteen values and Open Your Mind graphic featuring The Thinker',
+  caption: 'Ideals: values that should show up in founder content, stories, and visual tone.',
+}
+
+export const IDEALS_CONTENT = {
+  intro:
+    'Ideals are the deeper values behind the personality pillars: what Adam stands for when he posts, ships, travels, and shows up on camera. If pillars are how the brand feels, ideals are what the brand believes.',
+  ideals: [
+    { id: 'thoughtful-engineering', label: 'Thoughtful engineering' },
+    { id: 'digital-nomadery', label: 'Digital nomadery' },
+    { id: 'life-filled-with-horizons', label: 'Life filled with horizons' },
+    { id: 'elegant-sustainability', label: 'Elegant sustainability' },
+    { id: 'inner-strength-vitality', label: 'Inner strength & vitality' },
+    { id: 'foodie-on-a-budget', label: 'Being a foodie on a budget' },
+    { id: 'going-hard', label: 'Going hard 1000% with no compromises' },
+    { id: 'humility-cultural-immersion', label: 'Humility & cultural immersion' },
+    { id: 'strong-heartbeat-bones', label: 'Strong heartbeat & bones' },
+    { id: 'beauty-in-roughness', label: 'Beauty in roughness' },
+    { id: 'comfort-liminal-spaces', label: 'Comfort in liminal spaces' },
+    { id: 'raw-human-contact', label: 'Raw human contact' },
+    { id: 'creative-genius', label: 'Creative genius' },
+    { id: 'strike-no-hesitation', label: 'Strike with no hesitation' },
+  ],
+}
+
 export const FOUNDER_PERSONAL_BRAND_SECTIONS = [
   {
     id: 'proven-model',
@@ -149,7 +176,6 @@ export const FOUNDER_PERSONAL_BRAND_SECTIONS = [
   {
     id: 'ideals',
     title: 'Ideals',
-    placeholder: 'Voice, ethics, and guardrails for public content.',
   },
   {
     id: 'audience',
