@@ -33,8 +33,6 @@ export const ADAM_YOUTUBE_THUMBNAIL_EXAMPLE = {
 }
 
 export const PROVEN_MODEL_CONTENT = {
-  intro:
-    'Founder-led personal brand is not a Kahana invention. It shows up wherever someone leaves a safe path, commits to a craft, and lets people follow the work in public. John Summit is one reference case for how that arc can look in music; Adam Kershner is building the same kind of arc in tech.',
   storyHeading: 'In Adam\'s words',
   story: [
     'I was in the club in Vegas, sitting at a table at a Dom Dolla concert at Fontainebleau. I was minding my own business, and out of nowhere, a woman walks directly up to me, looks me straight in the eye, and says, "You look like John Summit." I turn to her and smile, not knowing what to say. I\'m thinking to myself, "Who the fuck is John Summit?" The rest is history.',
@@ -42,8 +40,6 @@ export const PROVEN_MODEL_CONTENT = {
     'Months later, I was at an Armin van Buuren concert at ECHO Stage in DC, and again another random person walks up to me, points at me, and yells, "JOHN SUMMIT!"',
     'I realized at that point that I really did look like John Summit, at least to people in the EDM community.',
   ],
-  storyBridge:
-    'That likeness is what makes the John Summit comparison possible in the first place. Summit got on social media, made a lot of content showing his face, connected with people, built a community, and stayed outward-facing beyond his music. Many DJs hide behind a mask (Alan Walker is the obvious example). Summit made showing up as himself a major part of his brand.',
   theoreticalHeadline: {
     outlet: 'TechCrunch (theoretical)',
     headline: 'The John Summit of tech? The story behind the founder building Oasis',

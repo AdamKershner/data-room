@@ -14,10 +14,8 @@ import './FounderPersonalBrand.css'
 
 function ProvenModelSection() {
   const {
-    intro,
     story,
     storyHeading,
-    storyBridge,
     theoreticalHeadline,
     parallelsIntro,
     blueprint,
@@ -30,14 +28,12 @@ function ProvenModelSection() {
     <div className="content-block founder-proven-block">
       <div className="founder-proven-columns">
         <div className="founder-proven-text">
-          <p>{intro}</p>
           <h3 className="founder-proven-story-heading">{storyHeading}</h3>
           {story.map((paragraph) => (
             <p key={paragraph.slice(0, 32)} className="founder-proven-story-voice">
               {paragraph}
             </p>
           ))}
-          <p className="founder-proven-story-bridge">{storyBridge}</p>
           <aside className="founder-proven-headline-callout" aria-label="Theoretical press headline">
             <p className="founder-proven-headline-outlet">{theoreticalHeadline.outlet}</p>
             <p className="founder-proven-headline-title">{theoreticalHeadline.headline}</p>
