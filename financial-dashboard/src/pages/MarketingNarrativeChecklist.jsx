@@ -15,6 +15,8 @@ import {
 import './Page.css'
 import OasisEvidenceGallery from '../components/OasisEvidenceGallery'
 import AdNauseamRealStories from '../components/AdNauseamRealStories'
+import B2cCreativeConceptSuggestions from '../components/B2cCreativeConceptSuggestions'
+import B2cFinalPostsSuggestions from '../components/B2cFinalPostsSuggestions'
 import './MarketingNarrativeChecklist.css'
 
 const CATEGORY_FILTER_KEY = 'marketing-narrative-category-filter'
@@ -296,6 +298,12 @@ function MarketingNarrativeChecklist() {
               </p>
               {activeCategory.id === 'b2c' && section.id === 'change' && (
                 <AdNauseamRealStories />
+              )}
+              {activeCategory.id === 'b2c' && (
+                <B2cCreativeConceptSuggestions beatId={section.id} />
+              )}
+              {activeCategory.id === 'b2c' && (
+                <B2cFinalPostsSuggestions beatId={section.id} />
               )}
               <p className="mn-section-suggest-hint">
                 Have your own angle on this beat? Use <strong>Suggest idea</strong> in the sidebar.

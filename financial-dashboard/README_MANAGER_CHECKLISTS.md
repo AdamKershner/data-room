@@ -195,6 +195,10 @@ Route: `/marketing-narrative-checklist`. Task data lives in `marketingNarrativeS
 
 **Checklist UI (story-only):** Section titles, collapsible framework callouts (B2C), and story intros, no task rows. Propose content via **Suggest idea** in the page left sidebar (Tally: `https://tally.so/r/Xx8PWO`), prefilled with the active B2C/B2B category.
 
+**B2C content suggestions (Ideas.docx):** On each B2C beat, **Content suggestions (Ideas.docx)** lists verbatim creative concepts from `Ideas.docx` as collapsible briefs (same `<details>` pattern as End of Privacy real stories on beat 1). Data: `financial-dashboard/src/data/b2cCreativeConceptSuggestions.js`; component: `B2cCreativeConceptSuggestions.jsx`. Beat 1 shows both real stories and content suggestions.
+
+**B2C launch posts (Oasis_Final_Posts.docx):** Below Ideas on each B2C beat, **Launch posts (Oasis_Final_Posts.docx)** lists verbatim LinkedIn PH-week copy. Mapping: beat 1 (change) Posts 1–2; beat 3 (winners-losers) optional Post 3; beat 6 (evidence) publishing sequence + Launch Day post. Data: `b2cFinalPostsSuggestions.js`; component: `B2cFinalPostsSuggestions.jsx`. Evidence beat notes May 21 (docx) vs May 27 (checklist PH date).
+
 **B2C six beats:** Name the change Ad Nauseam (felt villain) → Name the villain Chrome Colossus (structural villain) → Winners and losers Winners/Losers + bridge → Promised Land REFUGE → Magic gifts Magic gifts → Present evidence Oasis evidence.
 
 **Ad Nauseam / Name the change (B2C Name the change):** Name the change intro = villain story (trap, seep-in, mental RAM, bug zapper) + handoff to Name the villain colossus. **no PH in Name the change**. **Real stories:** five anonymous End of Privacy submissions (May 2026) in Checklist · Name the change + `endOfPrivacyTestimonials.js`; copy bank `docs/b2c-ad-nauseam-change-copy.md#real-stories-end-of-privacy`. Six structured beats in `docs/b2c-ad-nauseam-change-copy.md` (source: `can you create a structured section that cleans th.md`). Tasks: `mn-change-chrome-01` … `04`. Token `[[AD_NAUSEAM_BRIEF]]` → `/b2c-strategic-narrative#ad-nauseam-change`.
