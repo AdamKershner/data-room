@@ -78,34 +78,42 @@ function ProvenModelSection() {
         ))}
       </div>
 
-      <h3 className="founder-proven-thumbnail-heading">{youtubeThumbnailHeading}</h3>
-      <figure className="founder-proven-thumbnail-wrap">
-        <img
-          src={ADAM_YOUTUBE_THUMBNAIL_EXAMPLE.src}
-          alt={ADAM_YOUTUBE_THUMBNAIL_EXAMPLE.alt}
-          className="founder-proven-thumbnail-img"
-          loading="lazy"
-        />
-        <figcaption className="founder-proven-thumbnail-caption">
-          {ADAM_YOUTUBE_THUMBNAIL_EXAMPLE.caption}
-        </figcaption>
-      </figure>
+      <div className="founder-proven-media-columns">
+        <figure className="founder-proven-thumbnail-wrap">
+          <h3 className="founder-proven-media-column-heading">{youtubeThumbnailHeading}</h3>
+          <img
+            src={ADAM_YOUTUBE_THUMBNAIL_EXAMPLE.src}
+            alt={ADAM_YOUTUBE_THUMBNAIL_EXAMPLE.alt}
+            className="founder-proven-thumbnail-img"
+            loading="lazy"
+          />
+          <figcaption className="founder-proven-thumbnail-caption">
+            {ADAM_YOUTUBE_THUMBNAIL_EXAMPLE.caption}
+          </figcaption>
+        </figure>
 
-      <p className="founder-proven-video-intro">{videoCaption}</p>
-      <div className="founder-proven-video-wrapper">
-        <iframe
-          src={JOHN_SUMMIT_REFERENCE_VIDEO_EMBED_URL}
-          title="John Summit reference video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="founder-proven-video"
-        />
+        <div className="founder-proven-video-column">
+          <p className="founder-proven-video-intro">{videoCaption}</p>
+          <div className="founder-proven-video-wrapper">
+            <iframe
+              src={JOHN_SUMMIT_REFERENCE_VIDEO_EMBED_URL}
+              title="John Summit reference video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="founder-proven-video"
+            />
+          </div>
+          <p className="founder-proven-video-caption">
+            <a
+              href={JOHN_SUMMIT_REFERENCE_VIDEO_WATCH_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Watch on YouTube
+            </a>
+          </p>
+        </div>
       </div>
-      <p className="founder-proven-video-caption">
-        <a href={JOHN_SUMMIT_REFERENCE_VIDEO_WATCH_URL} target="_blank" rel="noopener noreferrer">
-          Watch on YouTube
-        </a>
-      </p>
     </div>
   )
 }
