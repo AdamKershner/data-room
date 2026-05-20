@@ -70,6 +70,13 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     keywords: ['narrative', 'story', 'framework', 'content', 'pitch', 'promised land'],
   },
   {
+    path: '/founder-personal-brand',
+    title: 'Founder-led Personal Brand',
+    category: 'Marketing',
+    description: 'Proven model, pillars, ideals, audience, and examples for founder-led GTM.',
+    keywords: ['founder', 'personal brand', 'linkedin', 'gtm'],
+  },
+  {
     path: '/oasis-waitlist',
     title: 'Oasis waitlist',
     category: 'Marketing',
