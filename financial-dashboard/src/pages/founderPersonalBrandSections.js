@@ -1,0 +1,81 @@
+/**
+ * Founder-led Personal Brand page — section content.
+ */
+
+export const FOUNDER_PERSONAL_BRAND_PAGE = {
+  title: 'Founder-led Personal Brand',
+  subtitle:
+    'Framework for founder-led distribution: proven model, pillars, ideals, audience, and examples.',
+}
+
+export const JOHN_SUMMIT_REFERENCE_VIDEO_ID = 'uFBOt36tSXg'
+
+export const JOHN_SUMMIT_REFERENCE_VIDEO_WATCH_URL = `https://youtu.be/${JOHN_SUMMIT_REFERENCE_VIDEO_ID}`
+
+export const JOHN_SUMMIT_REFERENCE_VIDEO_EMBED_URL = `https://www.youtube.com/embed/${JOHN_SUMMIT_REFERENCE_VIDEO_ID}`
+
+export const ADAM_HEADSHOT = {
+  src: '/images/adam-kershner-headshot.png',
+  alt: 'Adam Kershner, CEO and founder of Kahana, professional headshot',
+}
+
+export const PROVEN_MODEL_CONTENT = {
+  intro:
+    'Founder-led personal brand is not a Kahana invention. It shows up wherever someone leaves a safe path, commits to a craft, and lets people follow the work in public. John Summit is one reference case for how that arc can look in music; Adam Kershner is building the same kind of arc in tech.',
+  story: [
+    'At a Dom Dolla show at Fontainebleau in Las Vegas, a stranger walked up and said Adam looked like John Summit. He had no idea who that was. Months later, at another concert in DC, someone pointed and shouted "John Summit!" again.',
+    'The joke stuck. It also became a useful frame: building a personal brand in public can feel random until the pattern repeats.',
+  ],
+  parallelsIntro:
+    'There are real parallels between Adam\'s path and John Summit\'s early rise. Both worked corporate jobs while dreaming of following a passion and building something else (Summit in music, Adam in tech). Both started small, worked hard on the craft, and grew communities of loyal supporters around what they were doing. Summit is 31; Adam is almost 31.',
+  parallels: [
+    {
+      label: 'Day job vs passion',
+      johnSummit: 'Corporate work, then music full time',
+      adam: 'Corporate work, then tech and Kahana full time',
+    },
+    {
+      label: 'How they started',
+      johnSummit: 'Small rooms, relentless focus on the craft',
+      adam: 'Small team, relentless focus on product and story',
+    },
+    {
+      label: 'Community',
+      johnSummit: 'Loyal fan base around the music',
+      adam: 'Early users, team, and LinkedIn engagement pod',
+    },
+    {
+      label: 'Age',
+      johnSummit: '31',
+      adam: 'Almost 31',
+    },
+  ],
+  videoCaption: 'Reference: John Summit (watch on YouTube for context on the comparison below).',
+}
+
+export const FOUNDER_PERSONAL_BRAND_SECTIONS = [
+  {
+    id: 'proven-model',
+    title: 'Proven model',
+  },
+  {
+    id: 'pillars',
+    title: 'Pillars',
+    placeholder: 'Repeatable themes every founder post should reinforce.',
+  },
+  {
+    id: 'ideals',
+    title: 'Ideals',
+    placeholder: 'Voice, ethics, and guardrails for public content.',
+  },
+  {
+    id: 'audience',
+    title: 'Audience',
+    placeholder: 'Who founder content is for and what each segment needs.',
+  },
+  {
+    id: 'examples',
+    title: 'Examples',
+    placeholder: 'Reference posts, formats, and patterns to copy.',
+  },
+]

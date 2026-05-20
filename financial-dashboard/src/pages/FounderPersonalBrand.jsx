@@ -1,0 +1,113 @@
+import React from 'react'
+import {
+  FOUNDER_PERSONAL_BRAND_PAGE,
+  FOUNDER_PERSONAL_BRAND_SECTIONS,
+  PROVEN_MODEL_CONTENT,
+  ADAM_HEADSHOT,
+  JOHN_SUMMIT_REFERENCE_VIDEO_EMBED_URL,
+  JOHN_SUMMIT_REFERENCE_VIDEO_WATCH_URL,
+} from './founderPersonalBrandSections'
+import './Page.css'
+import './FounderPersonalBrand.css'
+
+function ProvenModelSection() {
+  const { intro, story, parallelsIntro, parallels, videoCaption } = PROVEN_MODEL_CONTENT
+
+  return (
+    <div className="content-block founder-proven-block">
+      <div className="founder-proven-columns">
+        <div className="founder-proven-text">
+          <p>{intro}</p>
+          {story.map((paragraph) => (
+            <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+          ))}
+        </div>
+        <figure className="founder-proven-headshot-wrap">
+          <img
+            src={ADAM_HEADSHOT.src}
+            alt={ADAM_HEADSHOT.alt}
+            className="founder-proven-headshot"
+          />
+          <figcaption className="founder-proven-headshot-caption">Adam Kershner</figcaption>
+        </figure>
+      </div>
+
+      <p className="founder-proven-parallels-intro">{parallelsIntro}</p>
+
+      <div className="founder-proven-comparison-wrap">
+        <table className="founder-proven-comparison">
+          <thead>
+            <tr>
+              <th scope="col">Parallel</th>
+              <th scope="col">John Summit</th>
+              <th scope="col">Adam Kershner</th>
+            </tr>
+          </thead>
+          <tbody>
+            {parallels.map((row) => (
+              <tr key={row.label}>
+                <th scope="row">{row.label}</th>
+                <td>{row.johnSummit}</td>
+                <td>{row.adam}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p className="founder-proven-video-intro">{videoCaption}</p>
+      <div className="founder-proven-video-wrapper">
+        <iframe
+          src={JOHN_SUMMIT_REFERENCE_VIDEO_EMBED_URL}
+          title="John Summit reference video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="founder-proven-video"
+        />
+      </div>
+      <p className="founder-proven-video-caption">
+        <a href={JOHN_SUMMIT_REFERENCE_VIDEO_WATCH_URL} target="_blank" rel="noopener noreferrer">
+          Watch on YouTube
+        </a>
+      </p>
+    </div>
+  )
+}
+
+function FounderPersonalBrand() {
+  return (
+    <div className="page" id="founder-personal-brand">
+      <div className="page-header">
+        <h1>{FOUNDER_PERSONAL_BRAND_PAGE.title}</h1>
+        <p className="page-subtitle">{FOUNDER_PERSONAL_BRAND_PAGE.subtitle}</p>
+      </div>
+
+      <nav className="content-block" aria-label="On this page">
+        <p>
+          <strong>On this page:</strong>{' '}
+          {FOUNDER_PERSONAL_BRAND_SECTIONS.map((section, index) => (
+            <React.Fragment key={section.id}>
+              {index > 0 && ' · '}
+              <a href={`#${section.id}`}>{section.title}</a>
+            </React.Fragment>
+          ))}
+        </p>
+      </nav>
+
+      {FOUNDER_PERSONAL_BRAND_SECTIONS.map((section) => (
+        <section key={section.id} className="page-section" id={section.id}>
+          <h2>{section.title}</h2>
+          {section.id === 'proven-model' ? (
+            <ProvenModelSection />
+          ) : (
+            <div className="content-block">
+              <p>{section.placeholder}</p>
+            </div>
+          )}
+        </section>
+      ))}
+    </div>
+  )
+}
+
+export default FounderPersonalBrand
