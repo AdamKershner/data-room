@@ -8,6 +8,8 @@ import {
   ADAM_YOUTUBE_THUMBNAIL_EXAMPLE,
   JOHN_SUMMIT_REFERENCE_VIDEO_EMBED_URL,
   JOHN_SUMMIT_REFERENCE_VIDEO_WATCH_URL,
+  PILLARS_CONTENT,
+  BRAND_PERSONALITY_PILLARS_IMAGE,
 } from './founderPersonalBrandSections'
 import './Page.css'
 import './FounderPersonalBrand.css'
@@ -145,6 +147,30 @@ function ProvenModelSection() {
   )
 }
 
+function PillarsSection() {
+  const { intro, pillars } = PILLARS_CONTENT
+
+  return (
+    <div className="content-block founder-pillars-block">
+      <p>{intro}</p>
+      <figure className="founder-pillars-figure">
+        <img
+          src={BRAND_PERSONALITY_PILLARS_IMAGE.src}
+          alt={BRAND_PERSONALITY_PILLARS_IMAGE.alt}
+          className="founder-pillars-image"
+          loading="lazy"
+        />
+        <figcaption className="founder-pillars-caption">{BRAND_PERSONALITY_PILLARS_IMAGE.caption}</figcaption>
+      </figure>
+      <ul className="founder-pillars-list">
+        {pillars.map((pillar) => (
+          <li key={pillar.id}>{pillar.label}</li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
 function FounderPersonalBrand() {
   return (
     <div className="page" id="founder-personal-brand">
@@ -170,6 +196,8 @@ function FounderPersonalBrand() {
           <h2>{section.title}</h2>
           {section.id === 'proven-model' ? (
             <ProvenModelSection />
+          ) : section.id === 'pillars' ? (
+            <PillarsSection />
           ) : (
             <div className="content-block">
               <p>{section.placeholder}</p>

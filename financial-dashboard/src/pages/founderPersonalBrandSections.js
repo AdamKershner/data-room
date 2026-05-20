@@ -118,6 +118,25 @@ export const PROVEN_MODEL_CONTENT = {
   videoCaption: 'Reference: John Summit (watch on YouTube for context on the comparison below).',
 }
 
+export const BRAND_PERSONALITY_PILLARS_IMAGE = {
+  src: '/images/founder-brand-personality-pillars.png',
+  alt: 'Brand personality pillars diagram: Aesthetic Appreciation, Killer Cuteness, Comic Spontaneity, Nighttime Intelligence, Exhilarating Exploration, and Power and Activism around a central hooded figure',
+  caption: '04 Brand personality: six pillars for founder-led content tone and visual world.',
+}
+
+export const PILLARS_CONTENT = {
+  intro:
+    'Founder content should feel like a person, not a press release. These six pillars define the personality Adam shows in public: what to emphasize in posts, thumbnails, and stories so the brand stays recognizable.',
+  pillars: [
+    { id: 'aesthetic-appreciation', label: 'Aesthetic Appreciation' },
+    { id: 'killer-cuteness', label: 'Killer Cuteness' },
+    { id: 'comic-spontaneity', label: 'Comic Spontaneity' },
+    { id: 'nighttime-intelligence', label: 'Nighttime Intelligence' },
+    { id: 'exhilarating-exploration', label: 'Exhilarating Exploration' },
+    { id: 'power-activism', label: 'Power & Activism' },
+  ],
+}
+
 export const FOUNDER_PERSONAL_BRAND_SECTIONS = [
   {
     id: 'proven-model',
@@ -126,7 +145,6 @@ export const FOUNDER_PERSONAL_BRAND_SECTIONS = [
   {
     id: 'pillars',
     title: 'Pillars',
-    placeholder: 'Repeatable themes every founder post should reinforce.',
   },
   {
     id: 'ideals',
