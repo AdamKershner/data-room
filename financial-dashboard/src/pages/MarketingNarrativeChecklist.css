@@ -640,6 +640,110 @@
   padding-bottom: 14px;
 }
 
+#marketing-narrative-checklist .mn-launch-copy-wrap {
+  margin: 0 0 28px;
+  padding: 20px 22px;
+  background: #fff;
+  border: 1px solid #a7f3d0;
+  border-radius: 12px;
+  border-left: 4px solid #059669;
+}
+
+#marketing-narrative-checklist .mn-launch-copy-title {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+#marketing-narrative-checklist .mn-launch-copy-lead {
+  margin: 0 0 16px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #64748b;
+}
+
+#marketing-narrative-checklist .mn-launch-copy-related-note {
+  margin: 0 0 16px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #047857;
+  font-style: italic;
+}
+
+#marketing-narrative-checklist .mn-launch-copy-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#marketing-narrative-checklist .mn-launch-copy-item {
+  margin: 0;
+}
+
+#marketing-narrative-checklist .mn-launch-copy-details {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #ecfdf5;
+  overflow: hidden;
+}
+
+#marketing-narrative-checklist .mn-launch-copy-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #0f172a;
+  list-style: none;
+}
+
+#marketing-narrative-checklist .mn-launch-copy-summary::-webkit-details-marker {
+  display: none;
+}
+
+#marketing-narrative-checklist .mn-launch-copy-summary::before {
+  content: '▸';
+  margin-right: 6px;
+  color: #059669;
+  transition: transform 0.15s ease;
+}
+
+#marketing-narrative-checklist .mn-launch-copy-details[open] .mn-launch-copy-summary::before {
+  transform: rotate(90deg);
+}
+
+#marketing-narrative-checklist .mn-launch-copy-label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+#marketing-narrative-checklist .mn-launch-copy-quote {
+  margin: 0;
+  padding: 0 14px 12px;
+  border: none;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #334155;
+}
+
+#marketing-narrative-checklist .mn-launch-copy-quote p {
+  margin: 0 0 12px;
+}
+
+#marketing-narrative-checklist .mn-launch-copy-quote p:last-child {
+  margin-bottom: 0;
+}
+
+#marketing-narrative-checklist .mn-launch-copy-details[open] .mn-launch-copy-quote {
+  padding-bottom: 14px;
+}
+
 #marketing-narrative-checklist .mn-instruction-link-static {
   color: inherit;
 }
