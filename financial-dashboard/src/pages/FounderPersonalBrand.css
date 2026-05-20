@@ -73,6 +73,22 @@
   margin: 8px 0 0 0;
 }
 
+.founder-proven-summit-profile-heading {
+  margin: 28px 0 16px 0;
+  font-size: 1.15rem;
+  color: #1e293b;
+}
+
+.founder-proven-summit-profile {
+  margin: 0 0 20px 0;
+  line-height: 1.7;
+  color: #334155;
+}
+
+.founder-proven-summit-profile:last-of-type {
+  margin-bottom: 0;
+}
+
 .founder-proven-headline-callout {
   padding: 28px 32px;
   background: #fff;

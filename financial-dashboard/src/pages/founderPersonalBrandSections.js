@@ -46,6 +46,11 @@ export const PROVEN_MODEL_CONTENT = {
     tagline: 'Sometimes a seed becomes a story and a story sells itself.',
     note: 'Not published. A north-star headline shape if the narrative catches with press.',
   },
+  johnSummitProfileHeading: 'Who is John Summit?',
+  johnSummitProfile: [
+    'John Summit (real name John Walter Schuster) is one of the most popular American DJs and electronic dance music producers working today. He is known for high-energy tech-house, massive festival sets, and a backstory that became part of the brand: a former Certified Public Accountant at Ernst & Young who went full time on music when his tracks started blowing up. He was born in Naperville, Illinois, in the Chicago area, and that accountant-to-superstar arc is one reason fans relate to him.',
+    'His breakout catalog includes viral hits like "Deep End" and "Human," plus the RIAA gold-certified "Where You Are" with Hayla, which landed on Barack Obama\'s year-end favorite songs playlist. He released his debut album Comfort in Chaos in 2024 and his sophomore album Ctrl Escape in 2026. He owns the record and events label Experts Only, named SiriusXM\'s Powertools Awards Label of the Year, and runs a huge live business: headlining and closing Coachella and EDC, selling out arenas including Madison Square Garden and BMO Stadium in his home market, and playing the global festival circuit fans recognize from Adam\'s story.',
+  ],
   parallelsIntro:
     'There are real parallels between Adam\'s path and John Summit\'s early rise. Both worked corporate jobs while dreaming of following a passion and building something else (Summit in music, Adam in tech). Both started making YouTube tutorial videos during COVID. Both started small, worked hard on the craft, and grew communities of loyal supporters around what they were doing. Summit is 31; Adam is almost 31.',
   blueprint: [

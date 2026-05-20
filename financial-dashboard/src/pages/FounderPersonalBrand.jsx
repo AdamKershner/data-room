@@ -17,6 +17,8 @@ function ProvenModelSection() {
     story,
     storyHeading,
     theoreticalHeadline,
+    johnSummitProfileHeading,
+    johnSummitProfile,
     parallelsIntro,
     blueprint,
     youtubeThumbnailHeading,
@@ -40,6 +42,12 @@ function ProvenModelSection() {
             <p className="founder-proven-headline-tagline">{theoreticalHeadline.tagline}</p>
             <p className="founder-proven-headline-note">{theoreticalHeadline.note}</p>
           </aside>
+          <h3 className="founder-proven-summit-profile-heading">{johnSummitProfileHeading}</h3>
+          {johnSummitProfile.map((paragraph) => (
+            <p key={paragraph.slice(0, 40)} className="founder-proven-summit-profile">
+              {paragraph}
+            </p>
+          ))}
         </div>
         <div className="founder-proven-portraits">
           <figure className="founder-proven-headshot-wrap">
