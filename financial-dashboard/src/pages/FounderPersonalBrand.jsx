@@ -55,13 +55,6 @@ function ProvenModelSection() {
         </div>
       </div>
 
-      <aside className="founder-proven-headline-callout" aria-label="Theoretical press headline">
-        <p className="founder-proven-headline-outlet">{theoreticalHeadline.outlet}</p>
-        <p className="founder-proven-headline-title">{theoreticalHeadline.headline}</p>
-        <p className="founder-proven-headline-tagline">{theoreticalHeadline.tagline}</p>
-        <p className="founder-proven-headline-note">{theoreticalHeadline.note}</p>
-      </aside>
-
       <p className="founder-proven-parallels-intro">{parallelsIntro}</p>
 
       <div className="founder-proven-comparison-wrap">
