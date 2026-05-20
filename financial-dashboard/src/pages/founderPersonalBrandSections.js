@@ -241,6 +241,39 @@ export const FOUNDER_PERSONAL_BRAND_SECTIONS = [
   },
 ]
 
+export const RWANDA_MEMOIR_CONTENT = {
+  heading: 'Part 1: Building Bridges',
+  subheading: 'A 20-page memoir by Adam',
+  body: [
+    'This is a 20-page memoir written by Adam about his experience with Bridges to Prosperity, building a bridge in Rwanda. That season shaped his worldview and continues to fuel him every day.',
+    'Memories about his volunteering work in Rwanda and Nicaragua still live at the top of his mind every day. He would love the opportunity to share more about those projects with you.',
+    'Building the 45-meter suspended footbridge connecting the communities of Rwamahwa and Cyohaha in Rwanda\'s Northern Province is one of his most cherished memories. He wrote this memoir about those life-altering months in Rwanda.',
+    'If you decide to read it, he hopes you enjoy it. The truth is, he came and left Rwanda in 2015, but his heart is still there in the quiet, mist-cloaked mountains beneath the eucalyptus trees.',
+    'This story is core to everything about Adam: the brand, the vision, and the mission.',
+  ],
+  pdf: {
+    href: '/documents/part-1-building-bridges.pdf',
+    label: 'Open Part 1: Building Bridges (PDF)',
+  },
+}
+
+export const FOUNDER_EXAMPLES_TESTIMONIALS = [
+  {
+    id: 'ceo-alliance-kahana',
+    heading: 'CEO Alliance testimonial',
+    context: 'Fellow CEO, CEO Alliance',
+    quote:
+      'As a long-time surfer, I\'ve developed an interest in the Hawaiian language, and one definition of kahana is "turning point." If that\'s what you had in mind, may Kahana Oasis achieve a turning point in making browsing private and secure enough to prevent the kind of ransomware disaster that impacted you early in your professional life, so much so that you shifted your career focus. Your impressive volunteer work, repairing biomedical devices and literally building bridges to prosperity, shows how strong your commitment is, once the mission has been defined.',
+  },
+  {
+    id: 'narrative-writing',
+    heading: 'On Adam\'s narrative writing',
+    context: '',
+    quote:
+      'I found the narrative to be compelling from start to finish, especially in your descriptions of the characters you encountered. Had I not known otherwise, I would have thought this was written by a professional author or journalist.',
+  },
+]
+
 export const EXAMPLES_CONTENT = {
   intro: [
     'Adam\'s content is meant to be the opposite of clickbait and doom scrolling. It is real content created by him: rough, thought-provoking, and different on purpose so it does not blend into AI slop.',

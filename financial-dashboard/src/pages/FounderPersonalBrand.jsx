@@ -15,6 +15,8 @@ import {
   AUDIENCE_CONTENT,
   BRAND_AUDIENCE_IMAGE,
   EXAMPLES_CONTENT,
+  FOUNDER_EXAMPLES_TESTIMONIALS,
+  RWANDA_MEMOIR_CONTENT,
 } from './founderPersonalBrandSections'
 import FounderExamplesGallery from '../components/FounderExamplesGallery'
 import './Page.css'
@@ -238,12 +240,45 @@ function AudienceSection() {
 
 function ExamplesSection() {
   const { intro, galleryHeading } = EXAMPLES_CONTENT
+  const { heading, subheading, body, pdf } = RWANDA_MEMOIR_CONTENT
 
   return (
     <div className="content-block founder-examples-block">
       {intro.map((paragraph) => (
         <p key={paragraph.slice(0, 40)}>{paragraph}</p>
       ))}
+      <section className="founder-examples-memoir" aria-labelledby="founder-rwanda-memoir-heading">
+        <h3 id="founder-rwanda-memoir-heading" className="founder-examples-memoir-heading">
+          {heading}
+        </h3>
+        <p className="founder-examples-memoir-subheading">{subheading}</p>
+        {body.map((paragraph) => (
+          <p key={paragraph.slice(0, 40)} className="founder-examples-memoir-body">
+            {paragraph}
+          </p>
+        ))}
+        <a
+          href={pdf.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="founder-examples-memoir-btn"
+        >
+          {pdf.label}
+        </a>
+      </section>
+      <div className="founder-examples-testimonials">
+        {FOUNDER_EXAMPLES_TESTIMONIALS.map((item) => (
+          <aside key={item.id} className="founder-examples-testimonial" aria-label={item.heading}>
+            <p className="founder-examples-testimonial-label">{item.heading}</p>
+            <blockquote className="founder-examples-testimonial-quote">
+              <p>{item.quote}</p>
+            </blockquote>
+            {item.context ? (
+              <p className="founder-examples-testimonial-attribution">{item.context}</p>
+            ) : null}
+          </aside>
+        ))}
+      </div>
       <h3 className="founder-examples-gallery-heading">{galleryHeading}</h3>
       <FounderExamplesGallery />
     </div>

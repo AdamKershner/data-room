@@ -26,7 +26,7 @@ export default function FounderExamplesGallery() {
               type="button"
               className="founder-examples-gallery-thumb-btn"
               onClick={() => setLightboxIndex(index)}
-              aria-label={`View larger: ${item.caption}`}
+              aria-label={`View larger: ${item.alt}`}
             >
               <img
                 src={item.src}
@@ -35,7 +35,6 @@ export default function FounderExamplesGallery() {
                 className="founder-examples-gallery-img"
               />
             </button>
-            <figcaption className="founder-examples-gallery-caption">{item.caption}</figcaption>
           </figure>
         ))}
       </div>
@@ -45,16 +44,13 @@ export default function FounderExamplesGallery() {
           className="founder-examples-gallery-lightbox-overlay"
           role="dialog"
           aria-modal="true"
-          aria-labelledby="founder-examples-lightbox-title"
+          aria-label="Expanded image"
           onClick={(e) => {
             if (e.target === e.currentTarget) closeLightbox()
           }}
         >
           <div className="founder-examples-gallery-lightbox">
             <div className="founder-examples-gallery-lightbox-header">
-              <p id="founder-examples-lightbox-title" className="founder-examples-gallery-lightbox-caption">
-                {active.caption}
-              </p>
               <button
                 type="button"
                 className="founder-examples-gallery-lightbox-close"
