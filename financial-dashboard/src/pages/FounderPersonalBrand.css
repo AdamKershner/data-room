@@ -22,6 +22,22 @@
   line-height: 1.7;
 }
 
+.founder-proven-story-heading {
+  margin: 28px 0 16px 0;
+  font-size: 1.15rem;
+  color: #1e293b;
+}
+
+.founder-proven-story-voice {
+  padding-left: 20px;
+  border-left: 3px solid #cbd5e1;
+  color: #1e293b;
+}
+
+.founder-proven-story-bridge {
+  margin-top: 24px;
+}
+
 .founder-proven-text p:last-child {
   margin-bottom: 0;
 }
