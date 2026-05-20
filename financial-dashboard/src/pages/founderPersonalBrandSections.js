@@ -225,15 +225,15 @@ export const FOUNDER_PERSONAL_BRAND_SECTIONS = [
   },
   {
     id: 'pillars',
-    title: 'Pillars',
+    title: "Adam's Pillars",
   },
   {
     id: 'ideals',
-    title: 'Ideals',
+    title: "Adam's Ideals",
   },
   {
     id: 'audience',
-    title: 'Audience',
+    title: "Adam's Audience",
   },
   {
     id: 'examples',
