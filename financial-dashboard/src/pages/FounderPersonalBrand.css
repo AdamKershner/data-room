@@ -69,24 +69,66 @@
   color: #475569;
 }
 
-.founder-proven-text .founder-proven-headline-callout {
-  margin: 8px 0 0 0;
+.founder-proven-full-width {
+  width: 100%;
+  margin: 36px 0 40px 0;
+}
+
+.founder-proven-full-width .founder-proven-headline-callout {
+  margin: 0 0 32px 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.founder-proven-summit-profile-block {
+  width: 100%;
+  padding: 32px 40px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-sizing: border-box;
 }
 
 .founder-proven-summit-profile-heading {
-  margin: 28px 0 16px 0;
-  font-size: 1.15rem;
+  margin: 0 0 20px 0;
+  font-size: 1.35rem;
   color: #1e293b;
 }
 
 .founder-proven-summit-profile {
   margin: 0 0 20px 0;
-  line-height: 1.7;
+  line-height: 1.75;
   color: #334155;
+  font-size: 1.08rem;
+  max-width: none;
 }
 
 .founder-proven-summit-profile:last-of-type {
   margin-bottom: 0;
+}
+
+@media (min-width: 901px) {
+  .founder-proven-summit-profile-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 48px;
+    align-items: start;
+  }
+
+  .founder-proven-summit-profile-heading {
+    grid-column: 1 / -1;
+    margin-bottom: 4px;
+  }
+
+  .founder-proven-full-width .founder-proven-headline-title {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .founder-proven-summit-profile-block {
+    padding: 24px 20px;
+  }
 }
 
 .founder-proven-headline-callout {
@@ -113,12 +155,6 @@
   font-weight: 700;
   line-height: 1.25;
   color: #0f172a;
-}
-
-@media (min-width: 901px) {
-  .founder-proven-text .founder-proven-headline-title {
-    font-size: 1.5rem;
-  }
 }
 
 .founder-proven-headline-tagline {

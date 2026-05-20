@@ -36,18 +36,6 @@ function ProvenModelSection() {
               {paragraph}
             </p>
           ))}
-          <aside className="founder-proven-headline-callout" aria-label="Theoretical press headline">
-            <p className="founder-proven-headline-outlet">{theoreticalHeadline.outlet}</p>
-            <p className="founder-proven-headline-title">{theoreticalHeadline.headline}</p>
-            <p className="founder-proven-headline-tagline">{theoreticalHeadline.tagline}</p>
-            <p className="founder-proven-headline-note">{theoreticalHeadline.note}</p>
-          </aside>
-          <h3 className="founder-proven-summit-profile-heading">{johnSummitProfileHeading}</h3>
-          {johnSummitProfile.map((paragraph) => (
-            <p key={paragraph.slice(0, 40)} className="founder-proven-summit-profile">
-              {paragraph}
-            </p>
-          ))}
         </div>
         <div className="founder-proven-portraits">
           <figure className="founder-proven-headshot-wrap">
@@ -68,6 +56,23 @@ function ProvenModelSection() {
               {JOHN_SUMMIT_CORPORATE_IMAGE.caption}
             </figcaption>
           </figure>
+        </div>
+      </div>
+
+      <div className="founder-proven-full-width">
+        <aside className="founder-proven-headline-callout" aria-label="Theoretical press headline">
+          <p className="founder-proven-headline-outlet">{theoreticalHeadline.outlet}</p>
+          <p className="founder-proven-headline-title">{theoreticalHeadline.headline}</p>
+          <p className="founder-proven-headline-tagline">{theoreticalHeadline.tagline}</p>
+          <p className="founder-proven-headline-note">{theoreticalHeadline.note}</p>
+        </aside>
+        <div className="founder-proven-summit-profile-block">
+          <h3 className="founder-proven-summit-profile-heading">{johnSummitProfileHeading}</h3>
+          {johnSummitProfile.map((paragraph) => (
+            <p key={paragraph.slice(0, 40)} className="founder-proven-summit-profile">
+              {paragraph}
+            </p>
+          ))}
         </div>
       </div>
 
