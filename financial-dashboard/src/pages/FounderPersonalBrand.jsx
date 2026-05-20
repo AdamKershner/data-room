@@ -4,6 +4,7 @@ import {
   FOUNDER_PERSONAL_BRAND_SECTIONS,
   PROVEN_MODEL_CONTENT,
   ADAM_HEADSHOT,
+  JOHN_SUMMIT_CORPORATE_IMAGE,
   ADAM_YOUTUBE_THUMBNAIL_EXAMPLE,
   JOHN_SUMMIT_REFERENCE_VIDEO_EMBED_URL,
   JOHN_SUMMIT_REFERENCE_VIDEO_WATCH_URL,
@@ -32,14 +33,26 @@ function ProvenModelSection() {
             <p key={paragraph.slice(0, 32)}>{paragraph}</p>
           ))}
         </div>
-        <figure className="founder-proven-headshot-wrap">
-          <img
-            src={ADAM_HEADSHOT.src}
-            alt={ADAM_HEADSHOT.alt}
-            className="founder-proven-headshot"
-          />
-          <figcaption className="founder-proven-headshot-caption">Adam Kershner</figcaption>
-        </figure>
+        <div className="founder-proven-portraits">
+          <figure className="founder-proven-headshot-wrap">
+            <img
+              src={ADAM_HEADSHOT.src}
+              alt={ADAM_HEADSHOT.alt}
+              className="founder-proven-headshot"
+            />
+            <figcaption className="founder-proven-headshot-caption">Adam Kershner</figcaption>
+          </figure>
+          <figure className="founder-proven-headshot-wrap founder-proven-summit-wrap">
+            <img
+              src={JOHN_SUMMIT_CORPORATE_IMAGE.src}
+              alt={JOHN_SUMMIT_CORPORATE_IMAGE.alt}
+              className="founder-proven-headshot"
+            />
+            <figcaption className="founder-proven-headshot-caption">
+              {JOHN_SUMMIT_CORPORATE_IMAGE.caption}
+            </figcaption>
+          </figure>
+        </div>
       </div>
 
       <aside className="founder-proven-headline-callout" aria-label="Theoretical press headline">

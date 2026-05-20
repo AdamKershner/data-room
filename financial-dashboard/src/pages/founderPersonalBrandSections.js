@@ -19,6 +19,12 @@ export const ADAM_HEADSHOT = {
   alt: 'Adam Kershner, CEO and founder of Kahana, professional headshot',
 }
 
+export const JOHN_SUMMIT_CORPORATE_IMAGE = {
+  src: '/images/john-summit-corporate-comparison.png',
+  alt: 'John Summit in corporate attire with Summit CPAs badge, papers flying in an office cubicle',
+  caption: 'John Summit (corporate-era branding; Summit CPAs ID visible)',
+}
+
 export const ADAM_YOUTUBE_THUMBNAIL_EXAMPLE = {
   src: '/images/adam-youtube-thumbnail-example.png',
   alt: 'YouTube thumbnail example featuring Adam Kershner on camera with expressive pose and outline styling',

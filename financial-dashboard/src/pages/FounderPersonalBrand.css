@@ -26,13 +26,19 @@
   margin-bottom: 0;
 }
 
+.founder-proven-portraits {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
 .founder-proven-headshot-wrap {
   margin: 0;
   padding: 24px;
   background: #f8fafc;
   border-radius: 8px;
   border: 1px solid #e2e8f0;
-  flex-shrink: 0;
   text-align: center;
 }
 
