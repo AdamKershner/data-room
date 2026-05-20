@@ -63,6 +63,13 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     keywords: ['content', 'blog', 'pipeline'],
   },
   {
+    path: '/marketing-narrative-checklist',
+    title: 'Marketing Narrative Checklist',
+    category: 'Marketing',
+    description: 'Story-framework checklist for blogs, decks, and sales narrative content ideas.',
+    keywords: ['narrative', 'story', 'framework', 'content', 'pitch', 'promised land'],
+  },
+  {
     path: '/oasis-waitlist',
     title: 'Oasis waitlist',
     category: 'Marketing',
