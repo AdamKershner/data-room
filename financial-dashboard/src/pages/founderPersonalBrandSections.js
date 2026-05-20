@@ -39,6 +39,7 @@ export const PROVEN_MODEL_CONTENT = {
     'Summit has achieved far greater success at this point, but he has shown a blueprint of what could be possible for Adam. It is obviously not the same path, yet applying many of the same tactics can work because they physically look similar, and that physical look is a major reason the brand works.',
     'Summit became popular by showing his face often on TikTok and Instagram while making music. The lesson for a founder in tech is the same shape: put your face on the work, not only the product screenshots.',
     'The key to Summit\'s meteoric rise, from getting rejected by hundreds of record labels to selling out massive crowds at the largest music festivals in the world, is that he continuously focused on the quality of his music (the product). The same needs to be true of Adam and his products for this strategy to work: face-forward brand and distribution only amplify something people already want to keep using.',
+    'Summit\'s music is widely popular and well-regarded, but it is not without skepticism. Many critics say other DJs are more musically gifted than Summit and credit his marketing and branding with much of his success. Both can be true. The same can be true for Adam, Kahana, and Oasis: a great product and a great founder brand are not mutually exclusive, and outside observers will often attribute the wins to one or the other.',
   ],
   youtubeThumbnailHeading: 'Adam\'s face-forward YouTube thumbnails',
   parallels: [
