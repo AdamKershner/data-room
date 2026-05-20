@@ -62,11 +62,11 @@ export const PROVEN_MODEL_CONTENT = {
     ],
   },
   parallelsIntro:
-    'There are real parallels between Adam\'s path and John Summit\'s early rise. Both worked corporate jobs while dreaming of following a passion and building something else (Summit in music, Adam in tech). Both started making YouTube tutorial videos during COVID. Both started small, worked hard on the craft, and grew communities of loyal supporters around what they were doing. Summit is 31; Adam is almost 31.',
+    'There are real parallels between Adam\'s path and John Summit\'s early rise. Both worked corporate jobs while dreaming of following a passion and building something else (Summit in music, Adam in tech). Both started making YouTube tutorial videos during COVID. Both heard plenty of nos along the way (labels for Summit, investors for Adam) and kept grinding. Both started small, worked hard on the craft, and grew communities of loyal supporters around what they were doing. Summit is 31; Adam is almost 31.',
   blueprint: [
     'Summit has achieved far greater success at this point, but he has shown a blueprint of what could be possible for Adam. It is not the same path, yet many of the same habits transfer: show up on social, post often, let people see your face, reply and connect, build a community that cares about the person behind the work. The fact that Adam actually looks like John Summit is what makes the comparison credible, not forced.',
     'In dance music, a lot of artists stay anonymous. Alan Walker built a global brand while hiding his face behind a mask. Summit went the opposite direction: TikTok, Instagram, thumbnails, and live moments where the audience knows the person, not just the drop. For a founder, the parallel is outward-facing storytelling on LinkedIn and YouTube, not only product screenshots in a deck.',
-    'The interesting part of this branding approach, and what parallels John Summit most directly, is the benefit of being linked to his meteoric rise. Summit compressed years of struggle into a short window: hundreds of label rejections, then arenas and the largest festivals in the world. That velocity of success makes the playbook especially appealing for Adam and Kahana. If the story catches, growth does not have to feel slow or linear.',
+    'The interesting part of this branding approach, and what parallels John Summit most directly, is the benefit of being linked to his meteoric rise. Summit compressed years of struggle into a short window: hundreds of label rejections, then arenas and the largest festivals in the world. Adam has heard rejections and nos from plenty of investors and kept grinding anyway. Same shape, different gatekeepers. That velocity of success makes the playbook especially appealing for Adam and Kahana. If the story catches, growth does not have to feel slow or linear.',
     'Where Summit stands now sharpens the appeal of the comparison. He owns his own record label and signs other DJs to it. Brand partnerships include Bose and Fontainebleau Las Vegas. He is ranked among the top 50 DJs in the world, closes festivals like Ultra, and has played Tomorrowland main stage. More than 10 million people listen on Spotify each month. He is originally from Chicago. Adam is originally from New Jersey but moved to Chicago and lived there for a time, another thread that makes the parallel feel lived-in, not manufactured.',
     'The key to Summit\'s meteoric rise, from getting rejected by hundreds of record labels to selling out massive crowds at the largest music festivals in the world, is that he continuously focused on the quality of his music (the product). The same needs to be true of Adam and his products for this strategy to work: face-forward brand and distribution only amplify something people already want to keep using.',
     'Summit\'s music is widely popular and well-regarded, but it is not without skepticism. Many critics say other DJs are more musically gifted than Summit and credit his marketing and branding with much of his success. Both can be true. The same can be true for Adam, Kahana, and Oasis: a great product and a great founder brand are not mutually exclusive, and outside observers will often attribute the wins to one or the other.',
@@ -102,6 +102,11 @@ export const PROVEN_MODEL_CONTENT = {
       label: 'Outward-facing brand',
       johnSummit: 'Face on camera, constant social content, community beyond the tracks (vs masked DJs like Alan Walker)',
       adam: 'Credible Summit parallel because of the resemblance; founder-visible on LinkedIn, YouTube, and events',
+    },
+    {
+      label: 'Rejections, then grind',
+      johnSummit: 'Hundreds of label nos before festivals and arenas',
+      adam: 'Plenty of investor rejections and nos; kept building product and brand',
     },
     {
       label: 'Rise velocity',
