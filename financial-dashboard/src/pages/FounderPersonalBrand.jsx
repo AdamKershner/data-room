@@ -32,6 +32,12 @@ function ProvenModelSection() {
           {story.map((paragraph) => (
             <p key={paragraph.slice(0, 32)}>{paragraph}</p>
           ))}
+          <aside className="founder-proven-headline-callout" aria-label="Theoretical press headline">
+            <p className="founder-proven-headline-outlet">{theoreticalHeadline.outlet}</p>
+            <p className="founder-proven-headline-title">{theoreticalHeadline.headline}</p>
+            <p className="founder-proven-headline-tagline">{theoreticalHeadline.tagline}</p>
+            <p className="founder-proven-headline-note">{theoreticalHeadline.note}</p>
+          </aside>
         </div>
         <div className="founder-proven-portraits">
           <figure className="founder-proven-headshot-wrap">
