@@ -107,6 +107,45 @@
   margin-bottom: 0;
 }
 
+.founder-proven-music-parallel-block {
+  width: 100%;
+  margin-top: 32px;
+  padding: 32px 40px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #7c3aed;
+  box-sizing: border-box;
+}
+
+.founder-proven-music-parallel-heading {
+  margin: 0 0 16px 0;
+  font-size: 1.35rem;
+  color: #1e293b;
+}
+
+.founder-proven-summit-music {
+  margin: 0 0 24px 0;
+  padding: 20px 24px;
+  background: #f5f3ff;
+  border-radius: 8px;
+  border: 1px solid #ddd6fe;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: #3730a3;
+  font-style: italic;
+}
+
+.founder-proven-music-comparison {
+  margin: 0 0 18px 0;
+  line-height: 1.75;
+  color: #334155;
+}
+
+.founder-proven-music-comparison:last-child {
+  margin-bottom: 0;
+}
+
 @media (min-width: 901px) {
   .founder-proven-summit-profile-block {
     display: grid;

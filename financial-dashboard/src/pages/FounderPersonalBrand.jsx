@@ -25,6 +25,7 @@ function ProvenModelSection() {
     theoreticalHeadline,
     johnSummitProfileHeading,
     johnSummitProfile,
+    summitMusicParallel,
     parallelsIntro,
     blueprint,
     youtubeThumbnailHeading,
@@ -76,6 +77,15 @@ function ProvenModelSection() {
           <h3 className="founder-proven-summit-profile-heading">{johnSummitProfileHeading}</h3>
           {johnSummitProfile.map((paragraph) => (
             <p key={paragraph.slice(0, 40)} className="founder-proven-summit-profile">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+        <div className="founder-proven-music-parallel-block">
+          <h3 className="founder-proven-music-parallel-heading">{summitMusicParallel.heading}</h3>
+          <p className="founder-proven-summit-music">{summitMusicParallel.summitMusic}</p>
+          {summitMusicParallel.comparison.map((paragraph) => (
+            <p key={paragraph.slice(0, 40)} className="founder-proven-music-comparison">
               {paragraph}
             </p>
           ))}

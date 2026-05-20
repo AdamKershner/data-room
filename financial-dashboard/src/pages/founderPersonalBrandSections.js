@@ -51,6 +51,16 @@ export const PROVEN_MODEL_CONTENT = {
     'John Summit (real name John Walter Schuster) is one of the most popular American DJs and electronic dance music producers working today. He is known for high-energy tech-house, massive festival sets, and a backstory that became part of the brand: a former Certified Public Accountant at Ernst & Young who went full time on music when his tracks started blowing up. He was born in Naperville, Illinois, in the Chicago area, and that accountant-to-superstar arc is one reason fans relate to him.',
     'His breakout catalog includes viral hits like "Deep End" and "Human," plus the RIAA gold-certified "Where You Are" with Hayla, which landed on Barack Obama\'s year-end favorite songs playlist. He released his debut album Comfort in Chaos in 2024 and his sophomore album Ctrl Escape in 2026. He owns the record and events label Experts Only, named SiriusXM\'s Powertools Awards Label of the Year, and runs a huge live business: headlining and closing Coachella and EDC, selling out arenas including Madison Square Garden and BMO Stadium in his home market, and playing the global festival circuit fans recognize from Adam\'s story.',
   ],
+  summitMusicParallel: {
+    heading: 'The sound vs. the stack: emotional appeal',
+    summitMusic:
+      'John Summit makes high-energy electronic music that blends driving house, melodic techno, and vocal-driven pop. Known for infectious basslines, sleek synths, and emotional toplines, his sound ranges from club-ready dancefloor anthems to melancholic, genre-melding tracks.',
+    comparison: [
+      'Summit wins on feeling first. The bass and groove get people moving, but the topline is what they remember the next day. He can run peak-time energy and melancholy in the same catalog without it feeling like a contradiction.',
+      'Adam\'s approach to technology follows the same instinct. Kahana and Oasis are not pitched as a feature matrix alone. Branding, product, and vision lean into how browsing and building should feel: refuge instead of extraction, calm focus instead of tab chaos, agency instead of being watched.',
+      'That is the parallel worth copying. Summit\'s music makes you feel something on the dancefloor; Adam\'s work aims to make you feel something about your data, your attention, and your life online. Emotional appeal is the through-line in both worlds.',
+    ],
+  },
   parallelsIntro:
     'There are real parallels between Adam\'s path and John Summit\'s early rise. Both worked corporate jobs while dreaming of following a passion and building something else (Summit in music, Adam in tech). Both started making YouTube tutorial videos during COVID. Both started small, worked hard on the craft, and grew communities of loyal supporters around what they were doing. Summit is 31; Adam is almost 31.',
   blueprint: [
@@ -82,6 +92,11 @@ export const PROVEN_MODEL_CONTENT = {
       label: 'How they started',
       johnSummit: 'Small rooms, relentless focus on the craft',
       adam: 'Small team, relentless focus on product and story',
+    },
+    {
+      label: 'Emotional appeal',
+      johnSummit: 'Infectious bass, sleek synths, vocal toplines; anthems and melancholy in one catalog',
+      adam: 'Branding, product, and vision lead with feeling (refuge, focus, agency), not specs alone',
     },
     {
       label: 'Outward-facing brand',
