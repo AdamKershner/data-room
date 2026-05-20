@@ -164,6 +164,40 @@ export const IDEALS_CONTENT = {
   ],
 }
 
+export const BRAND_AUDIENCE_IMAGE = {
+  src: '/images/founder-brand-audience.png',
+  alt: 'What I dream for you, my beloved audience: heart graphic and twenty aspirations for the audience',
+  caption: 'What I dream for you, my beloved audience.',
+}
+
+export const AUDIENCE_CONTENT = {
+  heading: 'What I dream for you, my beloved audience',
+  intro:
+    'Audience is not a demographic slide. It is who Adam is speaking to and what he wants for them. Founder content should make the reader feel seen in these dreams, not sold to.',
+  dreams: [
+    { id: 'legacy', label: 'That you leave a legacy that echoes through time' },
+    { id: 'travel-wind', label: 'That you travel and always feel the wind at your back' },
+    { id: 'horizons', label: 'That you see countless horizons that blend together' },
+    { id: 'earth-fuller', label: 'That you leave the earth fuller than you found it' },
+    { id: 'bones-titanium', label: 'That your bones become stronger than titanium' },
+    { id: 'palate', label: 'That you taste deliciousness and your palate is never satisfied' },
+    { id: 'go-hard', label: 'That you go hard with reckless abandon time and time again' },
+    { id: 'love-beyond', label: 'That you fall in love with people beyond your imagination' },
+    { id: 'melt-arms', label: 'That you melt in the arms of the one you love' },
+    { id: 'own-skin', label: 'That you adore the feeling of your own skin' },
+    { id: 'passion-paints', label: 'That the passion in your soul paints the world' },
+    { id: 'wonder-joy', label: 'That your life is filled with wonder and joy' },
+    { id: 'soulmate', label: 'That you find your soulmate' },
+    { id: 'money', label: 'That you never worry about money' },
+    { id: 'grow-potential', label: 'That you grow beyond what you see as your potential' },
+    { id: 'silence', label: 'That you savor moments of pure silence' },
+    { id: 'stop-caring', label: 'That you stop caring about what other people think' },
+    { id: 'laugh', label: 'That you laugh uncontrollably very often' },
+    { id: 'never-stop-playing', label: 'That you never stop playing' },
+    { id: 'live-like-child', label: 'That you live like a child' },
+  ],
+}
+
 export const FOUNDER_PERSONAL_BRAND_SECTIONS = [
   {
     id: 'proven-model',
@@ -180,7 +214,6 @@ export const FOUNDER_PERSONAL_BRAND_SECTIONS = [
   {
     id: 'audience',
     title: 'Audience',
-    placeholder: 'Who founder content is for and what each segment needs.',
   },
   {
     id: 'examples',

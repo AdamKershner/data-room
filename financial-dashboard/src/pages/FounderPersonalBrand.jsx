@@ -12,6 +12,8 @@ import {
   BRAND_PERSONALITY_PILLARS_IMAGE,
   IDEALS_CONTENT,
   BRAND_IDEALS_IMAGE,
+  AUDIENCE_CONTENT,
+  BRAND_AUDIENCE_IMAGE,
 } from './founderPersonalBrandSections'
 import './Page.css'
 import './FounderPersonalBrand.css'
@@ -197,6 +199,31 @@ function IdealsSection() {
   )
 }
 
+function AudienceSection() {
+  const { heading, intro, dreams } = AUDIENCE_CONTENT
+
+  return (
+    <div className="content-block founder-audience-block">
+      <p>{intro}</p>
+      <figure className="founder-audience-figure">
+        <img
+          src={BRAND_AUDIENCE_IMAGE.src}
+          alt={BRAND_AUDIENCE_IMAGE.alt}
+          className="founder-audience-image"
+          loading="lazy"
+        />
+        <figcaption className="founder-audience-caption">{BRAND_AUDIENCE_IMAGE.caption}</figcaption>
+      </figure>
+      <h3 className="founder-audience-dreams-heading">{heading}</h3>
+      <ol className="founder-audience-dreams-list">
+        {dreams.map((dream) => (
+          <li key={dream.id}>{dream.label}</li>
+        ))}
+      </ol>
+    </div>
+  )
+}
+
 function FounderPersonalBrand() {
   return (
     <div className="page" id="founder-personal-brand">
@@ -226,6 +253,8 @@ function FounderPersonalBrand() {
             <PillarsSection />
           ) : section.id === 'ideals' ? (
             <IdealsSection />
+          ) : section.id === 'audience' ? (
+            <AudienceSection />
           ) : (
             <div className="content-block">
               <p>{section.placeholder}</p>
