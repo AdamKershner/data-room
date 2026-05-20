@@ -51,6 +51,48 @@
   color: #475569;
 }
 
+.founder-proven-headline-callout {
+  margin: 0 0 32px 0;
+  padding: 28px 32px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #0f9d58;
+  box-shadow: 0 2px 8px rgba(15, 157, 88, 0.08);
+  max-width: 720px;
+}
+
+.founder-proven-headline-outlet {
+  margin: 0 0 12px 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0f9d58;
+}
+
+.founder-proven-headline-title {
+  margin: 0 0 16px 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #0f172a;
+}
+
+.founder-proven-headline-tagline {
+  margin: 0 0 12px 0;
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: #334155;
+}
+
+.founder-proven-headline-note {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #64748b;
+}
+
 .founder-proven-parallels-intro {
   margin: 0 0 20px 0;
   line-height: 1.7;

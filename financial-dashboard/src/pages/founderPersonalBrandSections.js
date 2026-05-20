@@ -33,6 +33,12 @@ export const PROVEN_MODEL_CONTENT = {
     'At a Dom Dolla show at Fontainebleau in Las Vegas, a stranger walked up and said Adam looked like John Summit. He had no idea who that was. Months later, at another concert in DC, someone pointed and shouted "John Summit!" again.',
     'The joke stuck. It also became a useful frame: building a personal brand in public can feel random until the pattern repeats.',
   ],
+  theoreticalHeadline: {
+    outlet: 'TechCrunch (theoretical)',
+    headline: 'The John Summit of tech? The story behind the founder building Oasis',
+    tagline: 'Sometimes a seed becomes a story and a story sells itself.',
+    note: 'Not published. A north-star headline shape if the narrative catches with press.',
+  },
   parallelsIntro:
     'There are real parallels between Adam\'s path and John Summit\'s early rise. Both worked corporate jobs while dreaming of following a passion and building something else (Summit in music, Adam in tech). Both started making YouTube tutorial videos during COVID. Both started small, worked hard on the craft, and grew communities of loyal supporters around what they were doing. Summit is 31; Adam is almost 31.',
   blueprint: [
