@@ -182,7 +182,7 @@ function Q1MidpointUpdate() {
               Why does NPS matter? A strong score signals that Oasis is a good-quality product—ready to be shared beyond our internal team. When people use it for their work every day, that repeated daily usage becomes the engine of growth. Duolingo&apos;s research backs this: daily usage is a predecessor of growth.
             </p>
             <p>
-              <strong>What we need from you:</strong> Install the latest version and fill out the <a href="https://kahana.co/oasis-feedback-survey" target="_blank" rel="noopener noreferrer">NPS survey</a>. Your feedback directly shapes whether we&apos;re ready to launch.
+              <strong>What we need from you:</strong> Install the latest version and fill out the <a href="https://kahana.io/oasis-feedback-survey" target="_blank" rel="noopener noreferrer">NPS survey</a>. Your feedback directly shapes whether we&apos;re ready to launch.
             </p>
             <p style={{ marginBottom: 0 }}>
               To go deeper on this growth framework, read <a href="https://www.lennysnewsletter.com/p/how-duolingo-reignited-user-growth" target="_blank" rel="noopener noreferrer">How Duolingo reignited user growth</a> (Lenny&apos;s Newsletter).
@@ -199,7 +199,7 @@ function Q1MidpointUpdate() {
           <div className="overview-subsection">
             <h3>Product Marketing</h3>
             <p>
-              Create blogs and YouTube videos from the <Link to="/content-pipeline">Content Pipeline</Link> and work with Srishti and Archana to grow contributions to <a href="https://kahana.co/blog" target="_blank" rel="noopener noreferrer">kahana.co/blog</a>. We landed our first paying customer ($20, Feb 12) and first enterprise demo (Culture Amp, Jan 27). The next step: quadruple down on blogs and YouTube.
+              Create blogs and YouTube videos from the <Link to="/content-pipeline">Content Pipeline</Link> and work with Srishti and Archana to grow contributions to <a href="https://kahana.io/blog" target="_blank" rel="noopener noreferrer">kahana.io/blog</a>. We landed our first paying customer ($20, Feb 12) and first enterprise demo (Culture Amp, Jan 27). The next step: quadruple down on blogs and YouTube.
             </p>
             <p>
               Releasing a free version, sharing it with our waitlist of 150 users, and publishing YouTube videos will drive reach and can yield more users, paid users, and prospects scheduling demos.
@@ -338,7 +338,7 @@ function Q1MidpointUpdate() {
           <div className="section-detail-block">
             <h3>Product Marketing</h3>
             <p>
-              Create new blog posts and YouTube videos based on the <Link to="/content-pipeline">Content Pipeline</Link>. Work with Project Managers (Srishti, Archana) to recruit and encourage more team members to contribute to the blog <a href="https://kahana.co/blog" target="_blank" rel="noopener noreferrer">kahana.co/blog</a>. This will drive more organic traffic and help us attract customers.
+              Create new blog posts and YouTube videos based on the <Link to="/content-pipeline">Content Pipeline</Link>. Work with Project Managers (Srishti, Archana) to recruit and encourage more team members to contribute to the blog <a href="https://kahana.io/blog" target="_blank" rel="noopener noreferrer">kahana.io/blog</a>. This will drive more organic traffic and help us attract customers.
             </p>
             <p>
               We&apos;ve already attracted our first paying customer who paid $20 for Oasis on February 12th, 2026. We also attracted our first enterprise demo request from Culture Amp on January 27th, 2026. These are excellent initial results, and now the clear next steps would be to quadruple down on the strategies that yielded these results in the first place—that being creating blogs and YouTube videos.
@@ -664,7 +664,7 @@ function Q1MidpointUpdate() {
           </div>
 
           <p style={{ marginBottom: '16px' }}>
-            <strong>Scaled testing phase:</strong> team-wide <a href="https://kahana.co/oasis-auth?mode=login&plan=free&redirect=/installations" target="_blank" rel="noopener noreferrer">install</a> + 1 week usage + <a href="https://kahana.co/oasis-feedback-survey" target="_blank" rel="noopener noreferrer">NPS survey</a> to establish baseline.
+            <strong>Scaled testing phase:</strong> team-wide <a href="https://kahana.io/oasis-auth?mode=login&plan=free&redirect=/installations" target="_blank" rel="noopener noreferrer">install</a> + 1 week usage + <a href="https://kahana.io/oasis-feedback-survey" target="_blank" rel="noopener noreferrer">NPS survey</a> to establish baseline.
             The newest version includes the completed features below (archived in <Link to="/sprints">Sprints</Link>).
           </p>
 
@@ -829,7 +829,7 @@ function Q1MidpointUpdate() {
         <h2>Goals for March 31st</h2>
         <div className="content-block">
           <ul className="feature-list">
-            <li><strong>Scaled testing + NPS baseline:</strong> complete the week-long usage period and collect NPS data (<a href="https://kahana.co/oasis-feedback-survey" target="_blank" rel="noopener noreferrer">survey</a>).</li>
+            <li><strong>Scaled testing + NPS baseline:</strong> complete the week-long usage period and collect NPS data (<a href="https://kahana.io/oasis-feedback-survey" target="_blank" rel="noopener noreferrer">survey</a>).</li>
             <li><strong>Ship a stable “newest build”:</strong> incorporate the highest-impact findings from internal testing.</li>
             <li><strong>Enterprise motion:</strong> advance the Culture Amp thread and define the repeatable pilot playbook.</li>
             <li><strong>Inbound growth:</strong> meaningful YouTube + blog output (see <Link to="/content-pipeline">Content Pipeline</Link>).</li>
@@ -879,13 +879,13 @@ function Q1MidpointUpdate() {
         <h2>Feb 16–23: scaled testing phase (team-wide)</h2>
         <div className="content-block">
           <p style={{ marginBottom: '14px' }}>
-            During the week of <strong>Feb 16–23</strong>, we’re prioritizing a scaled internal testing phase to establish our first meaningful <a href="https://kahana.co/oasis-feedback-survey" target="_blank" rel="noopener noreferrer">NPS baseline</a>.
+            During the week of <strong>Feb 16–23</strong>, we’re prioritizing a scaled internal testing phase to establish our first meaningful <a href="https://kahana.io/oasis-feedback-survey" target="_blank" rel="noopener noreferrer">NPS baseline</a>.
             <strong> Archana Ramalingam</strong> is leading this project and has already communicated the plan to everyone via Slack.
           </p>
           <ul className="feature-list">
-            <li><strong><a href="https://kahana.co/oasis-auth?mode=login&plan=free&redirect=/installations" target="_blank" rel="noopener noreferrer">Download + install</a> the newest Oasis build</strong> (including the AI summarization features).</li>
+            <li><strong><a href="https://kahana.io/oasis-auth?mode=login&plan=free&redirect=/installations" target="_blank" rel="noopener noreferrer">Download + install</a> the newest Oasis build</strong> (including the AI summarization features).</li>
             <li><strong>Use Oasis for one full week</strong> in real workflows (aim for real signal, not “toy testing”).</li>
-            <li><strong>Complete the <a href="https://kahana.co/oasis-feedback-survey" target="_blank" rel="noopener noreferrer">NPS survey</a> after 1 week of usage</strong> so we can measure baseline satisfaction and identify the biggest gaps.</li>
+            <li><strong>Complete the <a href="https://kahana.io/oasis-feedback-survey" target="_blank" rel="noopener noreferrer">NPS survey</a> after 1 week of usage</strong> so we can measure baseline satisfaction and identify the biggest gaps.</li>
           </ul>
         </div>
       </section>

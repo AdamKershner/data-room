@@ -372,8 +372,8 @@ function NPS() {
           <div className="nps-callout nps-callout-form">
             <p>
               <strong>NPS + PMF Form:</strong>{' '}
-              <a href="https://kahana.co/oasis-feedback-survey" target="_blank" rel="noopener noreferrer">
-                https://kahana.co/oasis-feedback-survey
+              <a href="https://kahana.io/oasis-feedback-survey" target="_blank" rel="noopener noreferrer">
+                https://kahana.io/oasis-feedback-survey
               </a>
             </p>
           </div>

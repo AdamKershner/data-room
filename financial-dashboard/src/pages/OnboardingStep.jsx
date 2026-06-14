@@ -156,17 +156,17 @@ function StepInstallOasis() {
             <h3>Mac</h3>
           </div>
           <ol className="onboarding-steps-list onboarding-install-steps">
-            <li>Go to <a href="https://kahana.co/installations" target="_blank" rel="noopener noreferrer">kahana.co/installations</a></li>
+            <li>Go to <a href="https://kahana.io/installations" target="_blank" rel="noopener noreferrer">kahana.io/installations</a></li>
             <li>Create an account</li>
             <li>Verify your email to successfully finish creating an account</li>
-            <li>After creating an account, go to <a href="https://kahana.co/installations" target="_blank" rel="noopener noreferrer">kahana.co/installations</a> and login</li>
+            <li>After creating an account, go to <a href="https://kahana.io/installations" target="_blank" rel="noopener noreferrer">kahana.io/installations</a> and login</li>
             <li>Choose your Mac version (Apple Silicon or Intel), download, and install it</li>
             <li>Once the browser installs and you open it, click the yellow "chat" button in the top right corner to open the AI Assistant</li>
             <li>Click the 3 dots in the AI assistant interface to navigate to the sign in area</li>
             <li>Sign in using the same email as the account you created</li>
           </ol>
-          <a href="https://kahana.co/installations" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
-            Go to kahana.co/installations →
+          <a href="https://kahana.io/installations" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
+            Go to kahana.io/installations →
           </a>
         </div>
         <div className="onboarding-install-column">
@@ -250,7 +250,7 @@ function StepUseOasis5Days() {
         <strong>Step 4: Complete the NPS Survey</strong>
         <p>Complete the internal NPS survey after your 7-day usage period.</p>
         <p>
-          <a href="https://kahana.co/oasis-feedback-survey" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
+          <a href="https://kahana.io/oasis-feedback-survey" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
             Complete the NPS Survey →
           </a>
         </p>
@@ -455,7 +455,7 @@ function StepInternalChannels() {
         <div className="onboarding-nps-step">
           <strong>Discord</strong>
           <p>Community hub for support, feedback, feature updates, and connecting with the team and other Oasis users.</p>
-          <a href="https://kahana.co/community" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
+          <a href="https://kahana.io/community" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
             Join Kahana Discord →
           </a>
         </div>
@@ -606,7 +606,7 @@ function StepLinkedin() {
       <p>We encourage you to post regularly about your work at Kahana. We also encourage you to block off 15 minutes per day to go on LinkedIn and engage on your network's posts by liking and commenting — this helps keep your network warm. Examples of what to post:</p>
       <ul className="onboarding-rules-list">
         <li>Post about what you're working on and share insights with your network</li>
-        <li>Reshare blog posts and YouTube videos we create — <a href="https://kahana.co/blog" target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">Kahana Blog</a>, <a href="https://www.youtube.com/@kahanaHQ" target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">YouTube @kahanaHQ</a></li>
+        <li>Reshare blog posts and YouTube videos we create — <a href="https://kahana.io/blog" target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">Kahana Blog</a>, <a href="https://www.youtube.com/@kahanaHQ" target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">YouTube @kahanaHQ</a></li>
         <li>Share polls and surveys geared toward generating insights that help our product</li>
       </ul>
 

@@ -408,7 +408,7 @@ Aggregated reference model, not a universal truth. Use it to pressure-test assum
 
 - [IBM Cost of a Data Breach Report 2025 (download)](https://www.ibm.com/downloads/documents/us-en/131cf87b20b31c91)
 - [IBM Cost of a Data Breach: report hub](https://www.ibm.com/reports/data-breach)
-- [Data Leakage Consortium page](https://kahana.co/data-leakage-consortium) (live site)
+- [Data Leakage Consortium page](https://kahana.io/data-leakage-consortium) (live site)
 
 ---
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { EmbeddedCompetitorsTable } from './Competitors'
 import { FAQ_ITEMS } from '../data/strategicFaqItems.jsx'
 import { OASIS_LOI_LETTER_DOC_URL } from '../constants/oasisCommercialDocs'
+import { kahanaUrl } from '../constants/kahanaSite'
 import './Page.css'
 import './Q1MidpointUpdate.css'
 import './Q1ExecutiveReport.css'
@@ -11,7 +12,7 @@ import './Q1ExecutiveReport.css'
 const WAITLIST_COUNT_LATEST = 169
 const WAITLIST_PRIOR_WEEK = 162
 const WAITLIST_WEEK_LABEL = 'Week of March 30–April 3, 2026'
-const WAITLIST_PUBLIC_URL = 'https://kahana.co/oasis-waitlist'
+const WAITLIST_PUBLIC_URL = kahanaUrl('/oasis-waitlist')
 
 /**
  * Last quarter monthly operating figures (approximate, rounded).
@@ -1356,7 +1357,7 @@ function Q1ExecutiveReport() {
                   <p className="q1-er-mf-step-body">
                     Per <Link to="/weekly-reports">Weekly Reports</Link> ({WAITLIST_WEEK_LABEL}), up from <strong>{WAITLIST_PRIOR_WEEK}</strong> the prior week. Join at{' '}
                     <a href={WAITLIST_PUBLIC_URL} target="_blank" rel="noopener noreferrer">
-                      kahana.co/oasis-waitlist
+                      kahana.io/oasis-waitlist
                     </a>
                     . Signups include <strong>work email domains</strong> from recognizable brands—not only personal Gmail.
                   </p>
@@ -1838,8 +1839,8 @@ function Q1ExecutiveReport() {
                 </p>
                 <p className="q1-er-meta q1-er-team-subsection-copy" style={{ marginBottom: 0 }}>
                   Learn more or apply here:{' '}
-                  <a href="https://kahana.co/learning-internship" target="_blank" rel="noopener noreferrer">
-                    https://kahana.co/learning-internship
+                  <a href="https://kahana.io/learning-internship" target="_blank" rel="noopener noreferrer">
+                    https://kahana.io/learning-internship
                   </a>
                 </p>
               </div>

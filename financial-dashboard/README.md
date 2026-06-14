@@ -2,6 +2,8 @@
 
 A React-based dashboard for displaying Oasis Browser's 2026 financial projections and key metrics.
 
+**Public site:** Canonical Kahana URLs in this app use [kahana.io](https://kahana.io).
+
 **Managers:** To clone the repo, run the app locally, and add your own checklist page (e.g. `/firstname-lastname-projects` by copying the Onboarding or SOC2 checklist components), see **[README_MANAGER_CHECKLISTS.md](./README_MANAGER_CHECKLISTS.md)**.
 
 ## Features

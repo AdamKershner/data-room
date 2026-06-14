@@ -11,7 +11,7 @@ export const INSTRUCTIONS = {
     howTo:
       'Category: B2B data leakage narrative.\n1. Link or create [[LINEAR|Linear]] issue; set linearId on this row.\n2. Open with the shift: IBM’s 2025 frame is the **AI Oversight Gap**. AI adoption and AI-related incidents outpace formal governance, access discipline, and resilience.\n3. Cite carefully: [[IBM_BREACH|IBM Cost of a Data Breach Report 2025]] (Ponemon partnership); do not reproduce the full report.\n4. Tie to [[CONSORTIUM|AI-in-Browser Data Protection Consortium]] as the operator-led response space.\n5. Close without product pitch, invite reaction (“does this match what you’re seeing?”).',
     alreadyDone:
-      'Full problem/change/evidence breakdown in data-room `data-leakage-consortium-summary.md`. Live page: [[CONSORTIUM|kahana.co/data-leakage-consortium]].',
+      'Full problem/change/evidence breakdown in data-room `data-leakage-consortium-summary.md`. Live page: [[CONSORTIUM|kahana.io/data-leakage-consortium]].',
     successCriteria:
       'Reader names the oversight gap without being told they are “bad at security.” Includes one IBM-sourced stat and consortium CTA.',
     why: 'Story Framework · Name the change: change, not accusation.',

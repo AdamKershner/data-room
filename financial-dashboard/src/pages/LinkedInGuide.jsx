@@ -198,7 +198,7 @@ function LinkedInGuide() {
               <h4>What to Post</h4>
               <ul className="linkedin-category-checklist">
                 <li>Insights and learnings from your work</li>
-                <li>Reshares of Kahana <a href="https://kahana.co/blog" target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">blog</a> and <a href="https://www.youtube.com/@kahanaHQ" target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">YouTube</a> videos</li>
+                <li>Reshares of Kahana <a href="https://kahana.io/blog" target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">blog</a> and <a href="https://www.youtube.com/@kahanaHQ" target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">YouTube</a> videos</li>
                 <li>Polls and surveys that generate insights for our product</li>
               </ul>
             </div>

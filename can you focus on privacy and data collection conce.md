@@ -27,7 +27,7 @@ A 2025 deep‑dive on Chrome’s data collection and advertising practices (desk
 - Usage data: feature usage, product interactions, how you use Chrome.[^1]
 - Diagnostics: crash reports, performance metrics, technical logs.[^1]
 
-Full URL: https://kahana.co/blog/google-chrome-data-collection-advertising-practices-2025[^1]
+Full URL: https://kahana.io/blog/google-chrome-data-collection-advertising-practices-2025[^1]
 
 That write‑up also notes that Chrome stores your browsing history for 90 days by default and links much of this data directly to you when you’re signed in, rather than keeping it anonymous.[^1]
 
@@ -36,7 +36,7 @@ That write‑up also notes that Chrome stores your browsing history for 90 days 
 - A 2026 review of big‑tech data practices finds that Google collects “the most data” of any major tech company, including location, browsing history, interactions after you click a Google link, and all data stored across Google services, and that Chrome‑synced browsing history feeds directly into your Google profile.[^3]
 Full URL: https://www.security.org/resources/data-tech-companies-have/[^3]
 - A 2025 Chrome analysis ties this browser‑level collection to Google’s roughly 230–240 billion‑dollar annual advertising business, arguing that Chrome’s default telemetry and account sync are designed to maximize how much behavioral data can be used for targeting and model training.[^1]
-Full URL: https://kahana.co/blog/google-chrome-data-collection-advertising-practices-2025[^1]
+Full URL: https://kahana.io/blog/google-chrome-data-collection-advertising-practices-2025[^1]
 - Earlier reporting comparing Chrome to Safari, Edge, and Firefox notes that, unlike those browsers, Chrome explicitly links nearly all harvested categories (browsing history, usage stats, location) to individuals and devices, rather than keeping at least some data unlinked.[^5]
 Full URL: https://www.forbes.com/sites/zakdoffman/2021/03/20/stop-using-google-chrome-on-apple-iphone-12-pro-max-ipad-and-macbook-pro/[^5]
 
@@ -65,7 +65,7 @@ If you share where this will live (landing page, deck, investor memo), I can tur
 
 <div align="center">⁂</div>
 
-[^1]: https://kahana.co/blog/google-chrome-data-collection-advertising-practices-2025
+[^1]: https://kahana.io/blog/google-chrome-data-collection-advertising-practices-2025
 
 [^2]: https://surfshark.com/research/chart/data-collection-mobile-browsers
 

@@ -63,7 +63,7 @@ Losers are not stupid; they stay on **default**:
 
 **Metaphor (story):** Big-tech mosquitoes drain attention and identity while the user scrolls, visible ads are fatigue; data collection is the sip under the skin.
 
-**Evidence (facts):** Use on loser / “Working for Google” side (`mn-winners-chrome-04`, `mn-ph-chrome-02`). Attribute Surfshark, Forbes, Security.org, [Kahana Chrome 2025 post](https://kahana.co/blog/google-chrome-data-collection-advertising-practices-2025).
+**Evidence (facts):** Use on loser / “Working for Google” side (`mn-winners-chrome-04`, `mn-ph-chrome-02`). Attribute Surfshark, Forbes, Security.org, [Kahana Chrome 2025 post](https://kahana.io/blog/google-chrome-data-collection-advertising-practices-2025).
 
 - “Chrome is the most data-hungry popular browser, collecting 20–24 different types of personal data, far more than competitors that average just 6.”
 - “Chrome is the only major browser that pulls in your phone’s contacts and your payment details, then links that information to your identity and devices.”
