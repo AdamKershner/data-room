@@ -180,7 +180,7 @@ export default function KonikaGrowthOnboarding() {
           </p>
           <p>
             <strong>Challenge:</strong> prioritize content and CTAs that <strong>drive more traffic to pricing</strong>{' '}
-            (<a href="https://kahana.co/pricing" target="_blank" rel="noopener noreferrer">kahana.co/pricing</a>).
+            (<a href="https://kahana.io/pricing" target="_blank" rel="noopener noreferrer">kahana.io/pricing</a>).
           </p>
         </div>
 
@@ -229,8 +229,8 @@ export default function KonikaGrowthOnboarding() {
               Spend real time on our site, then sync with Konika on your honest take and where you can help.
             </p>
             <p>
-              <a href="https://kahana.co" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link">
-                Open kahana.co →
+              <a href="https://kahana.io" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link">
+                Open kahana.io →
               </a>
             </p>
             <ul className="onboarding-list">

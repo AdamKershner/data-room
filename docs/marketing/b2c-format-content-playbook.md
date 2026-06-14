@@ -467,7 +467,7 @@ Table mapping obstacle → gift → product truth → partial vs shipped:
 
 | Piece | Action |
 |-------|--------|
-| **Chrome privacy hub** | Refresh [Kahana Chrome 2025 post](https://kahana.co/blog/google-chrome-data-collection-advertising-practices-2025) as evidence anchor, every stat footnoted |
+| **Chrome privacy hub** | Refresh [Kahana Chrome 2025 post](https://kahana.io/blog/google-chrome-data-collection-advertising-practices-2025) as evidence anchor, every stat footnoted |
 | **Lena story** | Long-form “An Organized Way to Browse” (`mn-evidence-chrome-04`) |
 | **Internal bibliography** | Stays in `mn-evidence-chrome-02` PDF, not duplicated in public blog |
 

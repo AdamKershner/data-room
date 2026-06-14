@@ -83,7 +83,7 @@ export const INSTRUCTION_DELIVERABLES = {
   'mn-change-chrome-09': {
     channel: 'Blog',
     format: 'writing',
-    dimensions: '800–1,500 words on kahana.co',
+    dimensions: '800–1,500 words on kahana.io',
     fileTypes: ['CMS post'],
     talent: 'none',
     specsRef: 'Format playbook · Name the change blog',
@@ -546,7 +546,7 @@ export const INSTRUCTION_DELIVERABLES = {
   'mn-evidence-chrome-01': {
     channel: 'Blog',
     format: 'writing',
-    dimensions: 'Long-form HTML/Markdown on kahana.co',
+    dimensions: 'Long-form HTML/Markdown on kahana.io',
     fileTypes: ['CMS post'],
     talent: 'none',
   },

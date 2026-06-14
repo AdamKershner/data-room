@@ -126,7 +126,7 @@ function ProblemMarket() {
             </li>
             <li>
               <strong>Warmly Integration:</strong> We are installing Warmly, a platform that 
-              deanonymizes website traffic to identify which companies are visiting our <a href="https://kahana.co" target="_blank" rel="noopener noreferrer">website</a>. 
+              deanonymizes website traffic to identify which companies are visiting our <a href="https://kahana.io" target="_blank" rel="noopener noreferrer">website</a>. 
               This provides visibility into enterprise interest and helps prioritize B2B outreach 
               efforts.
             </li>

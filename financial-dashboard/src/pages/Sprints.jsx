@@ -1357,7 +1357,7 @@ function Sprints() {
           impact: "Confusing branding, poor first impression (severity 10/10)",
           technicalNotes: "Browser initialization - replace Firefox default page with Oasis/Kahana page",
           feedback: [
-            { id: "Bzy7Bj5", text: "As a first-time Oasis user, when I install and open the browser for the first time, I see a Firefox privacy policy tab open https://www.mozilla.org/en-US/privacy/firefox/. This is confusing because I would expect to see the 'new tab' page for Oasis or the Kahana privacy policy instead https://kahana.co/privacy-policy", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.13.15-PM.png?id=GqQAoj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxUUFvaiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTY4Mn0.5OzFjPRZVDMaKYkJGtwKEcTz4K9we1U2ZSlWDKWHSXk&signature=cfc9ccdfca6548993adc659512d9557b285cb2b23d91ea3268f8f27a351ce009" }
+            { id: "Bzy7Bj5", text: "As a first-time Oasis user, when I install and open the browser for the first time, I see a Firefox privacy policy tab open https://www.mozilla.org/en-US/privacy/firefox/. This is confusing because I would expect to see the 'new tab' page for Oasis or the Kahana privacy policy instead https://kahana.io/privacy-policy", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.13.15-PM.png?id=GqQAoj&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkdxUUFvaiIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTY4Mn0.5OzFjPRZVDMaKYkJGtwKEcTz4K9we1U2ZSlWDKWHSXk&signature=cfc9ccdfca6548993adc659512d9557b285cb2b23d91ea3268f8f27a351ce009" }
           ]
         },
         {
@@ -1541,7 +1541,7 @@ function Sprints() {
           technicalNotes: "Implement update checking, notification system, and update UI in settings or dedicated update component",
           requiresUI: true,
           feedback: [
-            { id: "5B7xd7d", text: "As an Oasis user, rather than receive new software updates by manually installing a new version through a file on the kahana.co/installations page, I would prefer to receive notifications within Oasis itself where I can follow the notification to a 'software update' page similar to the UI of Apple System settings, where I can check if new software updates are available and actually click an Update button to update my software, and/or turn on Automatic software updates.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.05.22-PM.png?id=rJkMyp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKa015cCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTIxOH0.NTmCc8VtMpUIj7E6umxXQMqtydAJAD5BTXecUOoo2-k&signature=34299a9179a06127cc230c092e18d21875a00a9e325e67c33f6d3eb17db2f6d8" }
+            { id: "5B7xd7d", text: "As an Oasis user, rather than receive new software updates by manually installing a new version through a file on the kahana.io/installations page, I would prefer to receive notifications within Oasis itself where I can follow the notification to a 'software update' page similar to the UI of Apple System settings, where I can check if new software updates are available and actually click an Update button to update my software, and/or turn on Automatic software updates.", screenshot: "https://storage.tally.so/private/Screenshot-2026-01-22-at-12.05.22-PM.png?id=rJkMyp&accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InJKa015cCIsImZvcm1JZCI6IjNqa05ONiIsImlhdCI6MTc2OTEwNTIxOH0.NTmCc8VtMpUIj7E6umxXQMqtydAJAD5BTXecUOoo2-k&signature=34299a9179a06127cc230c092e18d21875a00a9e325e67c33f6d3eb17db2f6d8" }
           ]
         }
       ],
@@ -1657,7 +1657,7 @@ function Sprints() {
           title: "Pricing Page & Plan Configuration",
           count: 1,
           submissionIds: ["PRICING-MIGRATION"],
-          description: "Update kahana.co/oasis-pricing and any in-app pricing surfaces to reflect daily limits. Define and document new daily limits per plan (e.g., Beta: X/day, Zen: Y/day). Update Stripe/product metadata if needed.",
+          description: "Update kahana.io/oasis-pricing and any in-app pricing surfaces to reflect daily limits. Define and document new daily limits per plan (e.g., Beta: X/day, Zen: Y/day). Update Stripe/product metadata if needed.",
           impact: "Accurate marketing and sales (severity 7/10)",
           technicalNotes: "Pricing page copy, plan config in DB or env. Ensure consistency between marketing and enforcement.",
           feedback: [

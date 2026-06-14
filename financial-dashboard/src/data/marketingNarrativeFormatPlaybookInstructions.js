@@ -30,7 +30,7 @@ export const FORMAT_PLAYBOOK_INSTRUCTIONS = {
     why: 'Format playbook: change stage audience research.',
   },
   'mn-change-chrome-09': {
-    howTo: `Category: B2C: **Name the change: blog.**\n1. Set linearId.\n2. Title idea: **The Rise of Ad Nauseam**: \`${PLAYBOOK}\` Section 1 blog outline.\n3. Walk copy bank Name the change and Present evidence; footnote [[FORBES_TARGET|Target 2012]]; 800–1,500 words.\n4. Close with handoff to villain stage (no Chrome stat dump).\n5. Publish on kahana.co.`,
+    howTo: `Category: B2C: **Name the change: blog.**\n1. Set linearId.\n2. Title idea: **The Rise of Ad Nauseam**: \`${PLAYBOOK}\` Section 1 blog outline.\n3. Walk copy bank Name the change and Present evidence; footnote [[FORBES_TARGET|Target 2012]]; 800–1,500 words.\n4. Close with handoff to villain stage (no Chrome stat dump).\n5. Publish on kahana.io.`,
     alreadyDone: '[[AD_NAUSEAM_BRIEF|copy bank]] + playbook.',
     successCriteria: 'Blog live with footnotes; SEO H2s; no product pitch.',
     why: 'Format playbook: owned anchor for change stage.',

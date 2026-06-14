@@ -10,7 +10,7 @@ Track tasks on `/marketing-narrative-checklist` (B2C filter), section **5. Prese
 
 ## Comms ops framing (not in Checklist · Magic gifts intro)
 
-Third-party receipts (Surfshark, Forbes, Security.org), owned [Kahana Chrome 2025 post](https://kahana.co/blog/google-chrome-data-collection-advertising-practices-2025), plus a launch-ready PH asset matrix ([Product Hunt Brief 01](product-hunt-brief-01-privacy-angle.md)). Optional: Content Pipeline, do not duplicate pipeline rows on the checklist.
+Third-party receipts (Surfshark, Forbes, Security.org), owned [Kahana Chrome 2025 post](https://kahana.io/blog/google-chrome-data-collection-advertising-practices-2025), plus a launch-ready PH asset matrix ([Product Hunt Brief 01](product-hunt-brief-01-privacy-angle.md)). Optional: Content Pipeline, do not duplicate pipeline rows on the checklist.
 
 If Name the change named the sickness, the Magic gifts story below is the other side of the narrative.
 

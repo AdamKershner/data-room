@@ -98,8 +98,8 @@ function ProductTechnology() {
           <ul className="feature-list">
             <li>
               <strong>Installation Link:</strong>{' '}
-              <a href="https://kahana.co/installations" target="_blank" rel="noopener noreferrer">
-                https://kahana.co/installations
+              <a href="https://kahana.io/installations" target="_blank" rel="noopener noreferrer">
+                https://kahana.io/installations
               </a>
             </li>
             <li>
@@ -122,8 +122,8 @@ function ProductTechnology() {
             </li>
             <li>
               <strong>NPS + PMF Form:</strong>{' '}
-              <a href="https://kahana.co/oasis-feedback-survey" target="_blank" rel="noopener noreferrer">
-                https://kahana.co/oasis-feedback-survey
+              <a href="https://kahana.io/oasis-feedback-survey" target="_blank" rel="noopener noreferrer">
+                https://kahana.io/oasis-feedback-survey
               </a>
             </li>
           </ul>
@@ -164,7 +164,7 @@ function ProductTechnology() {
           </p>
           <p style={{ marginTop: '15px' }}>
             Baseline NPS scores will be established by the product team who will test the Mac Silicon version 
-            available at <a href="https://kahana.co/installations" target="_blank" rel="noopener noreferrer">kahana.co/installations</a>, 
+            available at <a href="https://kahana.io/installations" target="_blank" rel="noopener noreferrer">kahana.io/installations</a>, 
             starting January 2026. Windows release is being worked on as a top priority.
           </p>
           <p style={{ marginTop: '15px' }}>

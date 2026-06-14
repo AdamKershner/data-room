@@ -16,7 +16,7 @@ function GoToMarket() {
             We are not starting from scratch on marketing. Last quarter, we achieved <strong>818K impressions 
             in Google Search Console</strong>, representing an <strong>87% increase</strong> and demonstrating 
             strong organic traction. Our marketing team is implementing Google tags and attribution mechanisms 
-            on the <a href="https://kahana.co" target="_blank" rel="noopener noreferrer">website</a> to measure and optimize conversion rates, enabling data-driven growth decisions.
+            on the <a href="https://kahana.io" target="_blank" rel="noopener noreferrer">website</a> to measure and optimize conversion rates, enabling data-driven growth decisions.
           </p>
 
           <h3 style={{ marginTop: '30px' }}>Marketing Strategy Evolution</h3>

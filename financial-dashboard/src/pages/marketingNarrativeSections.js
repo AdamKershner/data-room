@@ -14,6 +14,8 @@
  */
 
 
+import { kahanaUrl } from '../constants/kahanaSite'
+
 /** Kahana workspace on Linear */
 export const LINEAR_WORKSPACE = 'kahana'
 export const LINEAR_TEAM_KEY = 'KAH'
@@ -27,14 +29,14 @@ export const TALLY_SUGGEST_IDEAS_URL = 'https://tally.so/r/Xx8PWO'
 export const TALLY_SUGGEST_IDEAS_EMBED_BASE = 'https://tally.so/embed/Xx8PWO'
 
 /** B2B: AI-in-Browser Data Protection Consortium / data leakage */
-export const CONSORTIUM_PAGE_URL = 'https://kahana.co/data-leakage-consortium'
+export const CONSORTIUM_PAGE_URL = kahanaUrl('/data-leakage-consortium')
 export const IBM_BREACH_REPORT_HUB_URL = 'https://www.ibm.com/reports/data-breach'
 export const IBM_BREACH_REPORT_2025_DOWNLOAD_URL =
   'https://www.ibm.com/downloads/documents/us-en/131cf87b20b31c91'
 
 /** B2C: Chrome privacy / data collection */
 export const CHROME_PRIVACY_BLOG_URL =
-  'https://kahana.co/blog/google-chrome-data-collection-advertising-practices-2025'
+  kahanaUrl('/blog/google-chrome-data-collection-advertising-practices-2025')
 export const SURFSHARK_MOBILE_BROWSERS_URL =
   'https://surfshark.com/research/chart/data-collection-mobile-browsers'
 export const SURFSHARK_GEMINI_CHROME_URL =

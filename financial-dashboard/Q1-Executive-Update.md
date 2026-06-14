@@ -66,7 +66,7 @@ The fastest way to see how we pitch companies and the problem the Oasis enterpri
 
 Per **Weekly Reports** (week of **March 30–April 3, 2026**), there are **169** people on the Oasis waitlist (up from **162** the prior week).
 
-- **Join the waitlist:** [kahana.co/oasis-waitlist](https://kahana.co/oasis-waitlist)
+- **Join the waitlist:** [kahana.io/oasis-waitlist](https://kahana.io/oasis-waitlist)
 
 Signups include **work email domains** from recognizable business brands (not only personal Gmail). When those users stay engaged with Oasis, we can explore **enterprise pilots** at their companies when they meet our criteria.
 
@@ -139,7 +139,7 @@ Short demos of the consumer browser: tab control with AI commands and a fuller p
 ### What is working
 
 - **Learning internship:** Evolved from an informal program (inbound from universities such as Duke, Cornell, Johns Hopkins) to a **repeatable onboarding system**: new interns ramp in about **one week**, gain business context, and access tools to contribute across **product and marketing**.
-- **Program page:** [kahana.co/learning-internship](https://kahana.co/learning-internship) — intent to support **hundreds to thousands** of participants over time without losing structure.
+- **Program page:** [kahana.io/learning-internship](https://kahana.io/learning-internship) — intent to support **hundreds to thousands** of participants over time without losing structure.
 
 ---
 
@@ -163,7 +163,7 @@ Short demos of the consumer browser: tab control with AI commands and a fuller p
 Questions or a live conversation with the CEO:
 
 - **Calendar:** [go.oncehub.com/AdamKershner](https://go.oncehub.com/AdamKershner)
-- **Learning internship:** [kahana.co/learning-internship](https://kahana.co/learning-internship)
+- **Learning internship:** [kahana.io/learning-internship](https://kahana.io/learning-internship)
 - **Event topics survey:** [tally.so/r/NpYZqB](https://tally.so/r/NpYZqB)
 
 ---

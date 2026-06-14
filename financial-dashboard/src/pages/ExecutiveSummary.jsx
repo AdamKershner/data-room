@@ -8,10 +8,11 @@ import { DataRoomSearchPanel } from '../components/DataRoomSearch'
 import BusinessFunctionExploreGrid from '../components/BusinessFunctionExploreGrid'
 import oasisBrowserAiSplitScreenshot from '../images/oasis-browser-ai-split-screenshot.png'
 import emptyStateBackground from '../images/empty-state-background.png'
+import { kahanaUrl } from '../constants/kahanaSite'
 import './Page.css'
 import './ExecutiveSummary.css'
 
-const DOWNLOAD_URL = 'https://kahana.co/installations'
+const DOWNLOAD_URL = kahanaUrl('/installations')
 
 /** Oasis Enterprise: IT & Security / data governance overview (YouTube). */
 const OASIS_ENTERPRISE_IT_VIDEO_ID = 'hn6pcZ53n48'
