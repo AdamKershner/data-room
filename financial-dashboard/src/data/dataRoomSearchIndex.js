@@ -60,6 +60,15 @@ const EXTRA_SEARCH_ENTRIES = [
     keywords: ['onboarding', 'growth', 'konika', 'contractor'],
     nlHints: ['new contractor', 'content onboarding'],
   },
+  {
+    path: '/curio-store',
+    title: 'Curio Store',
+    businessFunction: 'Finance',
+    description:
+      'Business plan and executive summary for Curio — marketplace and storefront for curated digital products at curio.store.',
+    keywords: ['curio', 'marketplace', 'creator', 'gmv', 'curio.store', 'business plan', 'digital products'],
+    nlHints: ['curio business plan', 'creator marketplace', 'curio store executive summary'],
+  },
 ]
 
 function uniqKeywords(arr) {

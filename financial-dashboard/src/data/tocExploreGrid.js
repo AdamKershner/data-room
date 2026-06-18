@@ -78,6 +78,12 @@ export const TOC_EXPLORE_ITEMS = [
       'Searchable hub for GTM, finance, product depth, OTA, SOC2 checklist, and other reference pages.',
   },
   {
+    path: '/curio-store',
+    title: 'Curio Store',
+    description:
+      'Business plan for Curio — creator marketplace, Explore discovery, Stripe monetization, and growth roadmap.',
+  },
+  {
     path: '/archive',
     title: 'Archive',
     description: 'Point-in-time pages: Q1 updates, events, SOC2 gap analysis, and the archive index.',
