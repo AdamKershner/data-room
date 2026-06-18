@@ -126,6 +126,14 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     keywords: ['runway', 'burn', 'finance', 'projections'],
   },
   {
+    path: '/curio-store',
+    title: 'Curio Store',
+    category: 'Finance',
+    description:
+      'Business plan and executive summary for Curio — marketplace and storefront for curated digital products.',
+    keywords: ['curio', 'marketplace', 'creator', 'gmv', 'curio.store', 'business plan'],
+  },
+  {
     path: '/business-model',
     title: 'Business Model & Unit Economics',
     category: 'Finance',

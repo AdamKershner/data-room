@@ -38,6 +38,7 @@ import SOC2Type1Checklist from './pages/SOC2Type1Checklist'
 import MarketingNarrativeChecklist from './pages/MarketingNarrativeChecklist'
 import FounderPersonalBrand from './pages/FounderPersonalBrand'
 import ProjectCharter from './pages/ProjectCharter'
+import CurioStore from './pages/CurioStore'
 import './App.css'
 
 function App() {
@@ -83,6 +84,7 @@ function App() {
           <Route path="/marketing-narrative-checklist" element={<MarketingNarrativeChecklist />} />
           <Route path="/founder-personal-brand" element={<FounderPersonalBrand />} />
           <Route path="/project-charter" element={<ProjectCharter />} />
+          <Route path="/curio-store" element={<CurioStore />} />
           </Routes>
         </div>
       </DataRoomSearchProvider>
