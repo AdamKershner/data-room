@@ -3,7 +3,7 @@ export const ONBOARDING_STEPS = [
   { id: 'schedule-1on1', label: 'Biweekly 1-on-1 check in with Adam', category: 'Admin & Setup', day: 1, badge: 'minutes' },
   { id: 'company-rules', label: 'Read Company Rules, Values, & Guidelines', category: 'Company & Culture', day: 1, badge: 'minutes' },
   { id: 'social-media', label: 'Follow all Kahana social media channels', category: 'External Presence', day: 1, badge: 'minutes' },
-  { id: 'internal-channels', label: 'Join Internal Communication Channels (Slack/Discord/WhatsApp)', category: 'Communication', day: 1, badge: 'minutes' },
+  { id: 'internal-channels', label: 'Join Kahana Slack', category: 'Communication', day: 1, badge: 'minutes' },
   { id: 'slack-phone', label: 'Install Slack on your Phone and configure notifications', category: 'Communication', day: 1, badge: 'minutes' },
   { id: 'avenger-profile', label: 'Create your Avenger profile', category: 'Product', day: 1, badge: 'minutes' },
   { id: 'tools-access', label: 'Get Access to Tools relevant to your function', category: 'Admin & Setup', day: 1, badge: 'minutes' },
@@ -20,6 +20,13 @@ export const ONBOARDING_STEPS = [
     category: 'Company & Culture',
     day: 3,
     badge: '1 business day',
+  },
+  {
+    id: 'learn-curio',
+    label: 'Learn about Curio Store',
+    category: 'Company & Culture',
+    day: 3,
+    badge: '30–60 minutes',
   },
   // Day 4
   { id: 'duolingo-article', label: 'Learn the Growth Framework', category: 'Company & Culture', day: 4, badge: '1 business day' },

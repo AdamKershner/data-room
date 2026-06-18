@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
+import { CURIO_STORE_URL } from '../data/curioStoreSections'
 import { formatCardTitle } from '../utils/formatCardTitle'
 import './Page.css'
 import './Onboarding.css'
@@ -10,7 +11,7 @@ function StepSchedule1on1() {
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You've scheduled the biweekly 1-on-1 meeting with Adam.</p>
 
-      <p>It's mandatory to schedule the meeting. This creates a 15-minute block on your and Adam's calendars, serving as a reminder to check in every 2 weeks. At that time, you can either join the meeting or text over Slack or WhatsApp — it's just about connecting at least once every 2 weeks.</p>
+      <p>It's mandatory to schedule the meeting. This creates a 15-minute block on your and Adam's calendars, serving as a reminder to check in every 2 weeks. At that time, you can either join the meeting or message over Slack — it's just about connecting at least once every 2 weeks.</p>
 
       <p>
         <a href="https://go.oncehub.com/AdamKershner" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link">
@@ -21,7 +22,7 @@ function StepSchedule1on1() {
       <h3>FAQs</h3>
       <dl className="onboarding-faq">
         <dt>Frequency</dt>
-        <dd>Every 2 weeks. The scheduled 15-minute block is a reminder — you can join the meeting or check in over Slack or WhatsApp at that time.</dd>
+        <dd>Every 2 weeks. The scheduled 15-minute block is a reminder — you can join the meeting or check in over Slack at that time.</dd>
 
         <dt>Agenda</dt>
         <dd>Share updates about what you're focusing on and learning about.</dd>
@@ -35,7 +36,7 @@ function StepSchedule1on1() {
       </div>
 
       <div className="onboarding-note onboarding-note-important">
-        <p><strong>If you cannot attend a scheduled meeting:</strong> Please let Adam know in advance on Slack or WhatsApp.</p>
+        <p><strong>If you cannot attend a scheduled meeting:</strong> Please let Adam know in advance on Slack.</p>
       </div>
     </div>
   )
@@ -376,12 +377,100 @@ function StepKnowledgeBaseCoreBusiness() {
         </Link>
       </div>
 
+      <p>
+        Curio Store (our creator marketplace) has its own onboarding step — see{' '}
+        <Link to="/onboarding/learn-curio" className="onboarding-inline-link">
+          Learn about Curio Store
+        </Link>{' '}
+        on Day 3.
+      </p>
+
       <div className="onboarding-note">
         <p>
           When you&apos;re ready, share questions or gaps — I&apos;m happy to walk through nuances and align on strategy.
           Reach Adam by DM on Slack or at{' '}
           <a href="mailto:adam@kahana.co" className="onboarding-inline-link">adam@kahana.co</a>.
         </p>
+      </div>
+    </div>
+  )
+}
+
+function StepLearnCurio() {
+  return (
+    <div className="onboarding-step-content">
+      <p className="onboarding-step-done onboarding-step-done-top">
+        <strong>✓ Done when:</strong> You can explain what Curio is, who it serves (creators and buyers), and how
+        Kahana earns from it (Growth SaaS subscriptions plus a 5% marketplace take rate on hub sales).
+      </p>
+
+      <p>
+        <strong>Curio Store</strong> is Kahana Group Inc.&apos;s creator marketplace at{' '}
+        <a href={CURIO_STORE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
+          curio.store
+        </a>
+        . It is a separate product line from Oasis Browser — same company, different market: curated digital products,
+        discovery, and creator monetization.
+      </p>
+
+      <p>
+        <strong>North star:</strong> Make Curio the default place to discover, buy, and host curated digital products.
+      </p>
+
+      <div className="onboarding-avenger-tasks">
+        <div className="onboarding-nps-step">
+          <strong>Core surfaces</strong>
+          <ul>
+            <li>
+              <strong>Explore</strong> — public marketplace to discover hubs and creators
+            </li>
+            <li>
+              <strong>Hub</strong> — curated digital product container (files, notes, collaboration)
+            </li>
+            <li>
+              <strong>Profile</strong> — Linktree-style creator storefront
+            </li>
+            <li>
+              <strong>Billing</strong> — Free, Growth ($9.99/mo), and Enterprise plans
+            </li>
+          </ul>
+        </div>
+
+        <div className="onboarding-nps-step">
+          <strong>How Kahana earns</strong>
+          <ul>
+            <li>Growth SaaS subscriptions ($9.99/mo or $99.99/yr)</li>
+            <li>5% platform fee on monetized hub sales via Stripe Connect</li>
+            <li>Enterprise custom contracts (white-label, analytics)</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>
+        Read the business plan in this data room — focus on <strong>Executive summary</strong>,{' '}
+        <strong>Product today</strong>, and <strong>Revenue model</strong>.
+      </p>
+
+      <div className="onboarding-cta-row">
+        <Link to="/curio-store" className="onboarding-cta-link">
+          Read Curio Store business plan →
+        </Link>
+      </div>
+
+      <p>
+        Then browse the live product:{' '}
+        <a href={`${CURIO_STORE_URL}/explore`} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
+          curio.store/explore
+        </a>
+        . If your role touches product, marketing, or growth, create a free account and click through a public hub.
+      </p>
+
+      <a href={CURIO_STORE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
+        Open curio.store →
+      </a>
+
+      <div className="onboarding-note">
+        <p>Questions about Curio? DM Adam on Slack.</p>
       </div>
     </div>
   )
@@ -439,32 +528,16 @@ function StepDuolingoArticle() {
 function StepInternalChannels() {
   return (
     <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You've joined Slack, Discord, and WhatsApp.</p>
+      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You've joined Kahana Slack.</p>
 
-      <p>We use Slack for day-to-day team communication, Discord for community and support, and WhatsApp for updates. Join all three to stay connected.</p>
+      <p>We use Slack for day-to-day team communication — DMs, channels, and team coordination.</p>
 
       <div className="onboarding-avenger-tasks">
         <div className="onboarding-nps-step">
           <strong>Slack</strong>
-          <p>Our primary workspace for internal communication — DMs, channels, and team coordination.</p>
+          <p>Our primary workspace for internal communication.</p>
           <a href="https://join.slack.com/t/kahanaworkspace/shared_invite/zt-1pdah6gwn-W6HaRPH2iy~juLOlafO2HA" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
             Join Kahana Slack →
-          </a>
-        </div>
-
-        <div className="onboarding-nps-step">
-          <strong>Discord</strong>
-          <p>Community hub for support, feedback, feature updates, and connecting with the team and other Oasis users.</p>
-          <a href="https://kahana.io/community" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
-            Join Kahana Discord →
-          </a>
-        </div>
-
-        <div className="onboarding-nps-step">
-          <strong>WhatsApp</strong>
-          <p>Channel for announcements and updates from the team.</p>
-          <a href="https://whatsapp.com/channel/0029Vb85N8HAO7RG1I8P5v1Z" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
-            Join Kahana WhatsApp →
           </a>
         </div>
       </div>
@@ -756,6 +829,7 @@ const STEP_CONTENT = {
   'use-oasis-5-days': StepUseOasis5Days,
   'avenger-profile': StepAvengerProfile,
   'knowledge-base-core-business': StepKnowledgeBaseCoreBusiness,
+  'learn-curio': StepLearnCurio,
   'duolingo-article': StepDuolingoArticle,
   'soc2-compliance': StepSoc2Compliance,
   'internal-channels': StepInternalChannels,
