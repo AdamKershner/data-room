@@ -1,4 +1,5 @@
 export const KAHANA_SITE_URL = 'https://kahana.io'
+export const KAHANA_CONTACT_EMAIL = 'adam@kahana.io'
 
 /** @param {string} [path] */
 export function kahanaUrl(path = '') {

@@ -35,7 +35,7 @@ const SEND_CONFIG = {
 
   /** From address. Must be a verified “Send mail as” alias for the account that runs this script.
    * Use '' (empty string) to send from that account’s primary Gmail address instead (good for debugging). */
-  from: 'adam@kahana.co',
+  from: 'adam@kahana.io',
 
   /** Reply-To address (optional). Leave empty to use your account default. */
   replyTo: '',

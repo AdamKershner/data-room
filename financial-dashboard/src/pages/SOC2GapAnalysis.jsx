@@ -209,7 +209,7 @@ function SOC2GapAnalysis() {
                 <td><strong>Internal IdP</strong></td>
                 <td>Current state</td>
                 <td>N</td>
-                <td><strong>No designated IdP for all employees yet.</strong> Google Workspace for 1 person only (Adam, adam@kahana.co). Okta and Azure have been trialed but not adopted due to cost.</td>
+                <td><strong>No designated IdP for all employees yet.</strong> Google Workspace for 1 person only (Adam, adam@kahana.io). Okta and Azure have been trialed but not adopted due to cost.</td>
                 <td></td>
               </tr>
               <tr>

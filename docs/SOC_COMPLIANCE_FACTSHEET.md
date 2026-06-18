@@ -109,7 +109,7 @@ Information gathered from the codebase, documentation, and internal input for SO
 | **End-user auth** | Current state | N | Provided by Supabase Auth, with options for Google, Microsoft (Azure), Apple sign-in, and more. | |
 | **Enterprise auth** | Current state | N | Okta plugin for enterprise browser (pre-installed, non-removable) | |
 | **Backend auth** | Current state | N | Supabase for auth and API usage | |
-| **Internal IdP** | Current state | N | **No designated IdP for all employees yet.** Google Workspace for 1 person only (Adam, adam@kahana.co). Okta and Azure have been trialed but not adopted due to cost. | |
+| **Internal IdP** | Current state | N | **No designated IdP for all employees yet.** Google Workspace for 1 person only (Adam, adam@kahana.io). Okta and Azure have been trialed but not adopted due to cost. | |
 | **Secrets / key management** | Current state | N | Secrets stored in AWS Secrets Manager. Keys are accessed securely via Lambda functions. | |
 
 ---

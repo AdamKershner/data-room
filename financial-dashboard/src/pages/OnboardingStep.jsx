@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
 import { CURIO_STORE_URL } from '../data/curioStoreSections'
+import { KAHANA_CONTACT_EMAIL } from '../constants/kahanaSite'
 import { formatCardTitle } from '../utils/formatCardTitle'
 import './Page.css'
 import './Onboarding.css'
@@ -196,7 +197,7 @@ function StepInstallOasis() {
       </div>
 
       <div className="onboarding-note onboarding-note-help">
-        <p><strong>Having trouble?</strong> DM Adam Kershner on Slack or email <a href="mailto:adam@kahana.co">adam@kahana.co</a>.</p>
+        <p><strong>Having trouble?</strong> DM Adam Kershner on Slack or email <a href={`mailto:${KAHANA_CONTACT_EMAIL}`}>{KAHANA_CONTACT_EMAIL}</a>.</p>
       </div>
     </div>
   )
@@ -389,7 +390,7 @@ function StepKnowledgeBaseCoreBusiness() {
         <p>
           When you&apos;re ready, share questions or gaps — I&apos;m happy to walk through nuances and align on strategy.
           Reach Adam by DM on Slack or at{' '}
-          <a href="mailto:adam@kahana.co" className="onboarding-inline-link">adam@kahana.co</a>.
+          <a href={`mailto:${KAHANA_CONTACT_EMAIL}`} className="onboarding-inline-link">{KAHANA_CONTACT_EMAIL}</a>.
         </p>
       </div>
     </div>
