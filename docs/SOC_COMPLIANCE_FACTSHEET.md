@@ -141,7 +141,7 @@ Information gathered from the codebase, documentation, and internal input for SO
 | Item | Status | Documented | Details | Auditor Notes |
 |------|--------|------------|---------|---------------|
 | **Code control** | Current state | N | GitHub – PRs, reviews, merge history, CI. See [OTA & Updates Guide](/ota-guide) and [Tester Distribution & OTA Update Flow](https://docs.google.com/document/d/122UjwnfNoHebaF4_aww3P87HSjk7Rb_fsLxn3gZJf64/edit?tab=t.0#heading=h.a1q9qvq0777v) (onboarding auth changes, automatic updates pipeline). | |
-| **Ticketing** | Current state | N | **Tally.so feedback forms** → Slack and Google Sheets. Sprints are created from feedback using Cursor and GitHub. Releases are generated and managed via **GitHub workflows** in a CI pipeline. No Jira/Linear. | |
+| **Ticketing** | Current state | N | **Tally.so feedback forms** → Slack and Google Sheets. Product backlog (features, bugs, sprint work) tracked in **Linear** (linear.app/kahana). Code changes and releases via **GitHub** PRs and CI/CD workflows. | |
 
 ---
 

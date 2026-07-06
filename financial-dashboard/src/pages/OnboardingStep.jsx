@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
-import { CURIO_STORE_URL } from '../data/curioStoreSections'
-import { KAHANA_CONTACT_EMAIL } from '../constants/kahanaSite'
+import { KAHANA_PLATFORM_URL, KAHANA_EXPLORE_URL } from '../data/kahanaPlatformSections'
+import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, SLACK_INVITE_URL } from '../constants/kahanaSite'
 import { formatCardTitle } from '../utils/formatCardTitle'
 import './Page.css'
 import './Onboarding.css'
@@ -379,9 +379,9 @@ function StepKnowledgeBaseCoreBusiness() {
       </div>
 
       <p>
-        Curio Store (our creator marketplace) has its own onboarding step — see{' '}
-        <Link to="/onboarding/learn-curio" className="onboarding-inline-link">
-          Learn about Curio Store
+        The Kahana platform has its own onboarding step — see{' '}
+        <Link to="/onboarding/learn-kahana" className="onboarding-inline-link">
+          Learn about the Kahana platform
         </Link>{' '}
         on Day 3.
       </p>
@@ -397,82 +397,151 @@ function StepKnowledgeBaseCoreBusiness() {
   )
 }
 
-function StepLearnCurio() {
+function StepLearnKahana() {
   return (
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You can explain what Curio is, who it serves (creators and buyers), and how
-        Kahana earns from it (Growth SaaS subscriptions plus a 5% marketplace take rate on hub sales).
+        <strong>✓ Done when:</strong> You can explain Kahana&apos;s library vision, who it serves, how we earn
+        (Growth SaaS + 5% GMV), and our women-first GTM motion.
       </p>
 
       <p>
-        <strong>Curio Store</strong> is Kahana Group Inc.&apos;s creator marketplace at{' '}
-        <a href={CURIO_STORE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
-          curio.store
+        <strong>Kahana</strong> aspires to be like Wan Shi Tong&apos;s Library — a mesmerizing place to discover
+        curated digital knowledge from experts worldwide. The platform lives at{' '}
+        <a href={KAHANA_PLATFORM_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
+          app.kahana.io
         </a>
-        . It is a separate product line from Oasis Browser — same company, different market: curated digital products,
-        discovery, and creator monetization.
+        . Formerly Curio. Oasis Browser is archived.
       </p>
 
       <p>
-        <strong>North star:</strong> Make Curio the default place to discover, buy, and host curated digital products.
+        <strong>North star:</strong> Make Kahana a beloved place to discover curated human knowledge — where
+        anyone could spend an eternity exploring.
       </p>
 
       <div className="onboarding-avenger-tasks">
         <div className="onboarding-nps-step">
+          <strong>Traction</strong>
+          <ul>
+            <li>6,500+ registered users</li>
+            <li>~$300/mo Growth MRR ($9.99/mo tier)</li>
+            <li>5% take rate on hub sales (spiky when creators monetize)</li>
+          </ul>
+        </div>
+        <div className="onboarding-nps-step">
+          <strong>GTM priority</strong>
+          <ul>
+            <li>Discover, filter, invite women experts and creators first</li>
+            <li>Showcase their hubs on Explore and profiles</li>
+          </ul>
+        </div>
+        <div className="onboarding-nps-step">
           <strong>Core surfaces</strong>
           <ul>
             <li>
-              <strong>Explore</strong> — public marketplace to discover hubs and creators
+              <strong>Explore</strong> — public marketplace at app.kahana.io/explore
             </li>
             <li>
-              <strong>Hub</strong> — curated digital product container (files, notes, collaboration)
+              <strong>Hub</strong> — curated digital product container
             </li>
             <li>
-              <strong>Profile</strong> — Linktree-style creator storefront
+              <strong>Profile</strong> — creator storefront
             </li>
-            <li>
-              <strong>Billing</strong> — Free, Growth ($9.99/mo), and Enterprise plans
-            </li>
-          </ul>
-        </div>
-
-        <div className="onboarding-nps-step">
-          <strong>How Kahana earns</strong>
-          <ul>
-            <li>Growth SaaS subscriptions ($9.99/mo or $99.99/yr)</li>
-            <li>5% platform fee on monetized hub sales via Stripe Connect</li>
-            <li>Enterprise custom contracts (white-label, analytics)</li>
           </ul>
         </div>
       </div>
 
       <p>
-        Read the business plan in this data room — focus on <strong>Executive summary</strong>,{' '}
-        <strong>Product today</strong>, and <strong>Revenue model</strong>.
+        Read the platform overview in this data room:{' '}
+        <Link to="/kahana" className="onboarding-inline-link">
+          Kahana Platform Overview
+        </Link>
+        . For the high-level strategic story (why Kahana, why now), see{' '}
+        <Link to="/kahana-narrative" className="onboarding-inline-link">
+          Kahana Story
+        </Link>
+        . For what engineering is focused on technically, see{' '}
+        <Link to="/technical-roadmap" className="onboarding-inline-link">
+          Technical Roadmap
+        </Link>{' '}
+        (Security, Trust, Algorithm). For who Kahana competes with in the creator economy, see{' '}
+        <Link to="/kahana-competitors" className="onboarding-inline-link">
+          Competitive Landscape
+        </Link>
+        .
       </p>
 
       <div className="onboarding-cta-row">
-        <Link to="/curio-store" className="onboarding-cta-link">
-          Read Curio Store business plan →
+        <Link to="/kahana" className="onboarding-cta-link">
+          Read Kahana platform overview →
         </Link>
       </div>
 
       <p>
         Then browse the live product:{' '}
-        <a href={`${CURIO_STORE_URL}/explore`} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
-          curio.store/explore
+        <a href={KAHANA_EXPLORE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
+          app.kahana.io/explore
         </a>
-        . If your role touches product, marketing, or growth, create a free account and click through a public hub.
+        .
       </p>
 
-      <a href={CURIO_STORE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
-        Open curio.store →
+      <a href={KAHANA_PLATFORM_URL} target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
+        Open app.kahana.io →
       </a>
 
       <div className="onboarding-note">
-        <p>Questions about Curio? DM Adam on Slack.</p>
+        <p>Questions about Kahana? DM Adam on Slack.</p>
       </div>
+    </div>
+  )
+}
+
+function StepTechnicalRoadmap() {
+  return (
+    <div className="onboarding-step-content">
+      <p className="onboarding-step-done onboarding-step-done-top">
+        <strong>✓ Done when:</strong> You can name Kahana&apos;s three technical pillars (Security, Trust,
+        Algorithm) and where active work is tracked.
+      </p>
+
+      <p>
+        The <strong>Technical Roadmap</strong> is an internal page for new and existing team members. It
+        explains what we are focusing on technically in the next wave — not the full business horizon roadmap,
+        but the engineering priorities that support the Wan Shi Tong library vision.
+      </p>
+
+      <div className="onboarding-avenger-tasks">
+        <div className="onboarding-nps-step">
+          <strong>Security</strong>
+          <p>Protect data, payments, and access — remediation themes from the July 2026 security audit.</p>
+        </div>
+        <div className="onboarding-nps-step">
+          <strong>Trust</strong>
+          <p>Creator credibility, marketplace quality, product integrity, and accurate information.</p>
+        </div>
+        <div className="onboarding-nps-step">
+          <strong>Algorithm</strong>
+          <p>Help users find the knowledge they have in mind — search, intent, recommendations.</p>
+        </div>
+      </div>
+
+      <div className="onboarding-cta-row">
+        <Link to="/technical-roadmap" className="onboarding-cta-link">
+          Read Technical Roadmap →
+        </Link>
+      </div>
+
+      <p>
+        Active issues are tracked in{' '}
+        <a href={LINEAR_WORKSPACE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
+          Linear
+        </a>
+        . See also{' '}
+        <Link to="/operating-system" className="onboarding-inline-link">
+          Operating System
+        </Link>{' '}
+        for how work enters the backlog.
+      </p>
     </div>
   )
 }
@@ -533,15 +602,60 @@ function StepInternalChannels() {
 
       <p>We use Slack for day-to-day team communication — DMs, channels, and team coordination.</p>
 
+      <div className="onboarding-note onboarding-note-help">
+        <p>
+          <strong>Slack vs Linear:</strong> Use Slack for conversation and quick questions. When work needs an owner,
+          priority, or deadline, create a{' '}
+          <a href={LINEAR_WORKSPACE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
+            Linear issue
+          </a>{' '}
+          — see <Link to="/operating-system" className="onboarding-inline-link">Operating System</Link> for norms.
+        </p>
+      </div>
+
       <div className="onboarding-avenger-tasks">
         <div className="onboarding-nps-step">
           <strong>Slack</strong>
           <p>Our primary workspace for internal communication.</p>
-          <a href="https://join.slack.com/t/kahanaworkspace/shared_invite/zt-1pdah6gwn-W6HaRPH2iy~juLOlafO2HA" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
+          <a href={SLACK_INVITE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
             Join Kahana Slack →
           </a>
         </div>
       </div>
+    </div>
+  )
+}
+
+function StepLinearAccess() {
+  return (
+    <div className="onboarding-step-content">
+      <p className="onboarding-step-done onboarding-step-done-top">
+        <strong>✓ Done when:</strong> You can sign in to the Kahana Linear workspace (required for Product and
+        Engineering roles).
+      </p>
+
+      <p>
+        <strong>Linear</strong> is our system of record for feature requests, bugs, and sprint work. PMs prioritize the
+        backlog daily/weekly; engineers pull assigned issues and update status in Linear.
+      </p>
+
+      <div className="onboarding-avenger-tasks">
+        <div className="onboarding-nps-step">
+          <strong>Linear workspace</strong>
+          <p>
+            Request access from Adam if you do not have an invite yet. Product and engineering must have access before
+            your first sprint planning session.
+          </p>
+          <a href={LINEAR_WORKSPACE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
+            Open linear.app/kahana →
+          </a>
+        </div>
+      </div>
+
+      <p>
+        Read <Link to="/operating-system" className="onboarding-inline-link">Operating System</Link> for how Linear and
+        Slack work together, and how NPS/feedback flows into the backlog.
+      </p>
     </div>
   )
 }
@@ -770,6 +884,12 @@ function StepToolsAccess() {
         <div className="onboarding-nps-step">
           <strong>Technical</strong>
           <ul>
+            <li>
+              <a href={LINEAR_WORKSPACE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
+                Linear
+              </a>{' '}
+              — bugs, tech debt, assigned sprint work (required before first sprint planning)
+            </li>
             <li>Supabase</li>
             <li>AWS</li>
             <li>GitHub</li>
@@ -781,6 +901,12 @@ function StepToolsAccess() {
         <div className="onboarding-nps-step">
           <strong>Product</strong>
           <ul>
+            <li>
+              <a href={LINEAR_WORKSPACE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
+                Linear
+              </a>{' '}
+              — feature requests, backlog prioritization (required before first sprint planning)
+            </li>
             <li>Figma</li>
             <li>Mixpanel</li>
             <li>Product Specific Google Docs & Sheets</li>
@@ -830,10 +956,12 @@ const STEP_CONTENT = {
   'use-oasis-5-days': StepUseOasis5Days,
   'avenger-profile': StepAvengerProfile,
   'knowledge-base-core-business': StepKnowledgeBaseCoreBusiness,
-  'learn-curio': StepLearnCurio,
+  'learn-kahana': StepLearnKahana,
+  'technical-roadmap': StepTechnicalRoadmap,
   'duolingo-article': StepDuolingoArticle,
   'soc2-compliance': StepSoc2Compliance,
   'internal-channels': StepInternalChannels,
+  'linear-access': StepLinearAccess,
   'slack-phone': StepSlackPhone,
   'producthunt': StepProductHunt,
   'linkedin': StepLinkedin,

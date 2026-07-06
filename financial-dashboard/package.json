@@ -1,7 +1,7 @@
 {
-  "name": "oasis-financial-dashboard",
+  "name": "kahana-data-room",
   "version": "1.0.0",
-  "description": "Oasis Browser 2026 Financial Dashboard",
+  "description": "Kahana Group Inc. internal data room — business plan, ops, and product documentation",
   "type": "module",
   "scripts": {
     "dev": "vite",

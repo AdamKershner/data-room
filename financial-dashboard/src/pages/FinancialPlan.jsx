@@ -1,4 +1,5 @@
 import React from 'react'
+import ArchiveBanner from '../components/ArchiveBanner'
 import KeyHighlights from '../components/KeyHighlights'
 import FinancialSummary from '../components/FinancialSummary'
 import ScenarioComparison from '../components/ScenarioComparison'
@@ -10,6 +11,7 @@ import './Page.css'
 function FinancialPlan() {
   return (
     <div className="page">
+      <ArchiveBanner />
       <div className="page-header">
         <h1>Financial Plan & Sensitivity Analysis</h1>
       </div>

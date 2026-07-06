@@ -15,6 +15,7 @@ const DAY_LABELS = {
   3: 'Day 3',
   4: 'Day 4',
   5: 'Day 5: Complete',
+  optional: 'Optional — Oasis Browser (archived)',
 }
 
 function ConfettiBurst({ x, y, onComplete }) {
@@ -79,7 +80,8 @@ function Onboarding() {
 
   const clearConfetti = useCallback(() => setConfetti(null), [])
 
-  const activeSteps = ONBOARDING_STEPS.filter((s) => !s.comingSoon)
+  const activeSteps = ONBOARDING_STEPS.filter((s) => !s.comingSoon && s.day !== 'optional')
+  const optionalSteps = ONBOARDING_STEPS.filter((s) => s.day === 'optional')
   const comingSoonSteps = ONBOARDING_STEPS.filter((s) => s.comingSoon)
   const completedCount = activeSteps.filter((s) => checked[s.id]).length
   const totalCount = activeSteps.length
@@ -194,11 +196,50 @@ function Onboarding() {
             </>
           )}
 
-          <h3 className="onboarding-coming-soon-title onboarding-optional-title">Optional</h3>
-          <p className="onboarding-optional-intro">
-            Supplementary tracks for specific roles — not part of the core checklist above. Same placement idea as
-            the SOC 2 &amp; compliance step under Coming soon: optional until you need it.
-          </p>
+          {optionalSteps.length > 0 && (
+            <div className="onboarding-day-section">
+              <h3 className="onboarding-day-title">{DAY_LABELS.optional}</h3>
+              <p className="onboarding-optional-intro">
+                Oasis Browser is an archived product line. These steps are optional reference material.
+              </p>
+              <ul className="onboarding-list">
+                {optionalSteps.map((step) => (
+                  <li key={step.id} className="onboarding-item onboarding-item-optional">
+                    <div className="onboarding-item-row">
+                      <label
+                        className="onboarding-checkbox-wrapper"
+                        onClick={(e) => { lastClickRef.current = { x: e.clientX, y: e.clientY } }}
+                        title="Mark complete"
+                      >
+                        <input
+                          type="checkbox"
+                          checked={!!checked[step.id]}
+                          onChange={() => toggleChecked(step.id, lastClickRef.current)}
+                          className="onboarding-checkbox"
+                        />
+                        <span className="onboarding-checkbox-custom" />
+                        <span className="onboarding-checkbox-label">Mark complete</span>
+                      </label>
+                      <Link
+                        to={`/onboarding/${step.id}`}
+                        className="onboarding-item-link"
+                        title={step.label}
+                        aria-label={`${step.label}. Open instructions`}
+                      >
+                        <span className="onboarding-item-text">{formatCardTitle(step.label)}</span>
+                        <span className="onboarding-item-arrow">View instructions →</span>
+                      </Link>
+                      {step.badge && (
+                        <span className="onboarding-badge">{step.badge}</span>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <h3 className="onboarding-coming-soon-title onboarding-optional-title">Other optional tracks</h3>
           <ul className="onboarding-list">
             <li className="onboarding-item onboarding-item-optional">
               <Link

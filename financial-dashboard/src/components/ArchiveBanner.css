@@ -1,0 +1,15 @@
+.archive-banner {
+  margin: 0 0 24px;
+  padding: 14px 18px;
+  background: #fff8e6;
+  border: 1px solid #e8c96a;
+  border-radius: 8px;
+  color: #5c4a1a;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.archive-banner a {
+  color: var(--oasis-green-medium-dark, #495800);
+  font-weight: 600;
+}
