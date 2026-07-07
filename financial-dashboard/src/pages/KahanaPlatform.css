@@ -1,11 +1,11 @@
-.curio-hero {
+.kahana-platform-hero {
   background: linear-gradient(135deg, #f0f7f4 0%, #e8f5ef 100%);
   border-radius: 12px;
   padding: 32px;
   border: 1px solid #d4e8dc;
 }
 
-.curio-hero-inner {
+.kahana-platform-hero-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
@@ -13,12 +13,12 @@
 }
 
 @media (max-width: 900px) {
-  .curio-hero-inner {
+  .kahana-platform-hero-inner {
     grid-template-columns: 1fr;
   }
 }
 
-.curio-hero-kicker {
+.kahana-platform-hero-kicker {
   margin: 0 0 8px 0;
   font-size: 0.9rem;
   font-weight: 600;
@@ -27,20 +27,26 @@
   color: var(--oasis-green-medium, #2d6a4f);
 }
 
-.curio-hero-title {
+.kahana-platform-hero-title {
   margin: 0 0 16px 0;
   font-size: 1.75rem;
   color: #1e293b;
   font-weight: 700;
 }
 
-.curio-hero-body {
+.kahana-platform-hero-body {
   margin: 0 0 20px 0;
   line-height: 1.7;
   color: #475569;
 }
 
-.curio-hero-cta {
+.kahana-platform-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.kahana-platform-hero-cta {
   display: inline-block;
   padding: 10px 20px;
   background: var(--oasis-green-medium, #2d6a4f);
@@ -51,11 +57,17 @@
   font-size: 0.95rem;
 }
 
-.curio-hero-cta:hover {
+.kahana-platform-hero-cta--secondary {
+  background: #fff;
+  color: var(--oasis-green-medium, #2d6a4f);
+  border: 1px solid #d4e8dc;
+}
+
+.kahana-platform-hero-cta:hover {
   opacity: 0.92;
 }
 
-.curio-highlight-grid {
+.kahana-highlight-grid {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -63,27 +75,27 @@
   gap: 12px;
 }
 
-.curio-highlight-chip {
+.kahana-highlight-chip {
   background: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   padding: 14px 16px;
 }
 
-.curio-highlight-label {
+.kahana-highlight-label {
   display: block;
   font-weight: 600;
   color: #1e293b;
   margin-bottom: 4px;
 }
 
-.curio-highlight-detail {
+.kahana-highlight-detail {
   display: block;
   font-size: 0.9rem;
   color: #64748b;
 }
 
-.curio-on-page-nav {
+.kahana-on-page-nav {
   margin-bottom: 24px;
   padding: 16px 20px;
   background: #f8fafc;
@@ -91,11 +103,11 @@
   border: 1px solid #e2e8f0;
 }
 
-.curio-on-page-nav a {
+.kahana-on-page-nav a {
   color: var(--oasis-green-medium, #2d6a4f);
 }
 
-.curio-north-star {
+.kahana-north-star {
   margin: 0 0 24px 0;
   padding: 16px 20px;
   border-left: 4px solid var(--oasis-green-medium, #2d6a4f);
@@ -105,43 +117,90 @@
   color: #334155;
 }
 
-.curio-table-wrap {
+.kahana-placeholder {
+  padding: 16px 20px;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+  color: #64748b;
+}
+
+#kahana-platform .page-subtitle {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+
+.archive-section-heading {
+  font-size: 1.35rem;
+  color: var(--oasis-green-medium);
+  margin: 32px 0 16px;
+  font-weight: 600;
+}
+
+.archive-section-heading:first-of-type {
+  margin-top: 0;
+}
+
+.archive-section-note {
+  margin: 0 0 16px;
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.kahana-ze-quote {
+  margin: 0 0 24px 0;
+  padding: 20px 24px;
+  border-left: 4px solid var(--oasis-green-medium, #2d6a4f);
+  background: linear-gradient(135deg, #f8fafc 0%, #f0f7f4 100%);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #334155;
+}
+
+.kahana-ze-quote footer {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-style: normal;
+  color: #64748b;
+}
+
+.kahana-table-wrap {
   overflow-x: auto;
   margin: 16px 0 24px 0;
 }
 
-.curio-table {
+.kahana-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.95rem;
 }
 
-.curio-table th,
-.curio-table td {
+.kahana-table th,
+.kahana-table td {
   padding: 10px 14px;
   text-align: left;
   border-bottom: 1px solid #e2e8f0;
   vertical-align: top;
 }
 
-.curio-table th {
+.kahana-table th {
   background: #f8fafc;
   font-weight: 600;
   color: #334155;
 }
 
-.curio-table tbody tr:hover {
-  background: #fafbfc;
-}
-
-.curio-category-grid {
+.kahana-category-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin: 16px 0 24px 0;
 }
 
-.curio-category-chip {
+.kahana-category-chip {
   display: inline-block;
   padding: 6px 12px;
   background: #f0f7f4;
@@ -151,15 +210,13 @@
   color: #334155;
 }
 
-.curio-numbered-list {
+.kahana-numbered-list {
   margin: 16px 0 24px 0;
   padding-left: 24px;
   line-height: 1.8;
 }
 
-.curio-icp-card,
-.curio-quarter-card,
-.curio-roadmap-horizon {
+.kahana-roadmap-horizon {
   margin: 20px 0;
   padding: 20px;
   background: #f8fafc;
@@ -167,48 +224,13 @@
   border-radius: 8px;
 }
 
-.curio-icp-card h4,
-.curio-quarter-card h4,
-.curio-roadmap-horizon h3 {
+.kahana-roadmap-horizon h3 {
   margin: 0 0 12px 0;
   color: #1e293b;
 }
 
-.curio-icp-card p {
-  margin: 0 0 10px 0;
-}
-
-.curio-icp-card p:last-child {
-  margin-bottom: 0;
-}
-
-.curio-roadmap-meta {
+.kahana-roadmap-meta {
   margin: 0 0 12px 0;
   color: #64748b;
   font-size: 0.95rem;
-}
-
-.curio-tbd {
-  display: inline-block;
-  padding: 2px 8px;
-  background: #fef3c7;
-  color: #92400e;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.curio-note {
-  font-size: 0.9rem;
-  color: #64748b;
-  font-style: italic;
-}
-
-#curio-store .page-subtitle {
-  color: #64748b;
-  font-size: 1.1rem;
-  margin-top: 12px;
-  line-height: 1.6;
 }

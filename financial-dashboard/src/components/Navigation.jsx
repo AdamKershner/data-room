@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { KNOWLEDGE_BASE_PATHS } from '../data/knowledgeBaseEntries'
+import { HISTORICAL_ARCHIVE_PATHS, OASIS_ARCHIVE_PATHS } from '../data/archivePages'
 import { PRIMARY_NAV_LINKS } from '../data/tocExploreGrid'
 import { useDataRoomSearchOptional } from './DataRoomSearchProvider'
 import './Navigation.css'
@@ -14,17 +15,27 @@ const KNOWLEDGE_BASE_PATHS_FOR_NAV_ACTIVE = KNOWLEDGE_BASE_PATHS.filter(
     p !== '/team-execution'
 )
 
-const archiveContentPaths = ['/Q1-executive-report', '/q1-midpoint', '/events', '/soc2-gap-analysis']
+const archiveContentPaths = [...OASIS_ARCHIVE_PATHS, ...HISTORICAL_ARCHIVE_PATHS]
 
 const archiveCategory = {
   name: 'Archive',
   items: [
-    { path: '/archive', label: 'Archive', id: 'archive' },
-    { path: '/Q1-executive-report', label: 'Q1 Executive Update', id: 'q1-executive-report' },
-    { path: '/q1-midpoint', label: 'Q1 Midpoint Update', id: 'q1-midpoint' },
-    { path: '/events', label: 'Events', id: 'events' },
-    { path: '/soc2-gap-analysis', label: 'SOC2 Gap Analysis', id: 'soc2-gap-analysis' }
-  ]
+    { path: '/archive', label: 'Archive index', id: 'archive' },
+    { path: '/oasis-browser', label: 'Oasis Browser', id: 'oasis-browser' },
+    ...HISTORICAL_ARCHIVE_PATHS.map((path) => {
+      const labels = {
+        '/Q1-executive-report': 'Q1 Executive Update',
+        '/q1-midpoint': 'Q1 Midpoint Update',
+        '/events': 'Events',
+        '/soc2-gap-analysis': 'SOC2 Gap Analysis',
+      }
+      return {
+        path,
+        label: labels[path] || path,
+        id: path.slice(1),
+      }
+    }),
+  ],
 }
 
 function Navigation() {

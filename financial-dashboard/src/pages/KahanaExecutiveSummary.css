@@ -1,0 +1,266 @@
+.kahana-hero.page-section {
+  margin-bottom: clamp(40px, 5vw, 56px);
+}
+
+.kahana-hero {
+  margin: 0 -40px;
+  padding: clamp(28px, 5vw, 48px) clamp(20px, 4vw, 40px);
+  background: linear-gradient(145deg, #f8faf2 0%, #edf5f8 42%, #fffbf4 100%);
+  color: #495800;
+  border-radius: 0 0 16px 16px;
+  border: 1px solid #cad399;
+  box-shadow: 0 6px 24px rgba(49, 58, 0, 0.08);
+}
+
+.kahana-hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(280px, 1.2fr) minmax(220px, 0.8fr);
+  gap: clamp(24px, 4vw, 40px);
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .kahana-hero {
+    margin: 0 -20px;
+  }
+
+  .kahana-hero-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kahana-hero-kicker {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #617500;
+  margin: 0 0 10px;
+}
+
+.kahana-hero-title {
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 16px;
+  color: #313a00;
+}
+
+.kahana-hero-body {
+  margin: 0 0 12px;
+  line-height: 1.65;
+  color: #3d4a00;
+}
+
+.kahana-hero-note {
+  margin: 0 0 20px;
+  color: #617500;
+}
+
+.kahana-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.kahana-cta {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.kahana-cta--primary {
+  background: var(--oasis-green-medium, #617500);
+  color: #fff;
+}
+
+.kahana-cta--secondary {
+  background: #fff;
+  color: var(--oasis-green-dark, #313a00);
+  border: 1px solid #cad399;
+}
+
+.kahana-hero-secondary-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+.kahana-hero-secondary-links a {
+  color: var(--oasis-green-medium-dark, #495800);
+  font-weight: 600;
+}
+
+.kahana-status-card {
+  background: #fff;
+  border: 1px solid #daebf0;
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 4px 16px rgba(29, 62, 72, 0.08);
+}
+
+.kahana-status-card h3 {
+  margin: 0 0 16px;
+  font-size: 1rem;
+  color: #313a00;
+}
+
+.kahana-status-card dl {
+  margin: 0;
+}
+
+.kahana-status-card dl > div {
+  margin-bottom: 12px;
+}
+
+.kahana-status-card dt {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  margin-bottom: 2px;
+}
+
+.kahana-status-card dd {
+  margin: 0;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.kahana-toc-intro {
+  margin-bottom: 20px;
+}
+
+.kahana-explore-search {
+  margin-bottom: 24px;
+}
+
+.kahana-toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.kahana-toc-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  background: #fafafa;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.kahana-toc-card:hover {
+  border-color: #cad399;
+  box-shadow: 0 4px 12px rgba(49, 58, 0, 0.08);
+}
+
+.kahana-toc-card-title {
+  font-weight: 700;
+  color: var(--oasis-green-dark, #313a00);
+}
+
+.kahana-toc-card-desc {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.45;
+}
+
+.kahana-toc-card-path {
+  font-size: 0.8rem;
+  font-family: ui-monospace, monospace;
+  color: #94a3b8;
+}
+
+.kahana-hero-quote {
+  margin: 0 0 16px;
+  padding: 12px 16px;
+  border-left: 3px solid #cad399;
+  font-style: italic;
+  color: #3d4a00;
+  font-size: 1.05rem;
+}
+
+.kahana-hero-quote span {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  font-style: normal;
+  color: #617500;
+}
+
+.kahana-hero-gtm {
+  margin: 0 0 20px;
+  font-size: 0.95rem;
+  color: #3d4a00;
+}
+
+.kahana-metrics-card {
+  background: #fff;
+  border: 1px solid #daebf0;
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 4px 16px rgba(29, 62, 72, 0.08);
+}
+
+.kahana-metrics-card h3 {
+  margin: 0 0 16px;
+  font-size: 1rem;
+  color: #313a00;
+}
+
+.kahana-metrics-list {
+  margin: 0;
+}
+
+.kahana-metrics-list > div {
+  margin-bottom: 14px;
+}
+
+.kahana-metrics-list dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  margin-bottom: 2px;
+}
+
+.kahana-metrics-list dd {
+  margin: 0;
+}
+
+.kahana-metric-value {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #313a00;
+}
+
+.kahana-metric-detail {
+  display: block;
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.kahana-north-star-inline {
+  margin: 0 0 16px;
+  padding: 14px 18px;
+  border-left: 4px solid var(--oasis-green-medium, #617500);
+  background: #f8fafc;
+  font-style: italic;
+  color: #334155;
+}

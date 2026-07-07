@@ -6,6 +6,7 @@
 import { KNOWLEDGE_BASE_ENTRIES } from './knowledgeBaseEntries'
 import { TOC_EXPLORE_ITEMS, PRIMARY_NAV_LINKS } from './tocExploreGrid'
 import { ONBOARDING_STEPS } from '../pages/onboardingSteps'
+import { OASIS_ARCHIVE_PATHS } from './archivePages'
 
 /** Display order for Executive Summary business-function grid */
 export const BUSINESS_FUNCTIONS = ['Marketing', 'Sales', 'Product', 'HR', 'Technical', 'Finance']
@@ -16,9 +17,47 @@ const EXTRA_SEARCH_ENTRIES = [
     title: 'Executive Summary',
     businessFunction: 'Product',
     description:
-      'Company overview, value proposition, goals, and entry point to the data room.',
-    keywords: ['overview', 'home', 'investor', 'summary', 'oasis'],
-    nlHints: ['what is the company', 'high level', 'pitch', 'executive overview'],
+      'Kahana Group Inc. overview — Wan Shi Tong library vision, 6,500+ users, women-first GTM.',
+    keywords: ['overview', 'home', 'kahana', 'summary', 'wan shi tong', 'library', '6500 users', 'app.kahana.io'],
+    nlHints: ['what is kahana', 'library vision', 'executive overview', 'wan shi tong'],
+  },
+  {
+    path: '/kahana',
+    title: 'Kahana Platform Overview',
+    businessFunction: 'Product',
+    description:
+      'Business plan hub — Wan Shi Tong vision, platform architecture, women-first GTM, revenue, roadmap.',
+    keywords: [
+      'kahana',
+      'wan shi tong',
+      'library',
+      'women experts',
+      '6500 users',
+      'marketplace',
+      'creator',
+      'gmv',
+      'app.kahana.io',
+      'business plan',
+      'explore',
+      'hubs',
+      'stripe',
+      'formerly curio',
+    ],
+    nlHints: [
+      'kahana business plan',
+      'wan shi tong library',
+      'women first gtm',
+      'creator marketplace',
+      'what is kahana',
+    ],
+  },
+  {
+    path: '/oasis-browser',
+    title: 'Oasis Browser Executive Summary',
+    businessFunction: 'Product',
+    description: 'Archived Oasis Browser pitch — consumer and enterprise browser product.',
+    keywords: ['oasis', 'browser', 'archive', 'enterprise', 'consumer'],
+    nlHints: ['oasis browser archive', 'old executive summary'],
   },
   {
     path: '/Q1-executive-report',
@@ -53,6 +92,46 @@ const EXTRA_SEARCH_ENTRIES = [
     nlHints: ['audit readiness', 'security gaps'],
   },
   {
+    path: '/kahana-narrative',
+    title: 'Kahana Story',
+    businessFunction: 'Marketing',
+    description: 'Strategic narrative — why Kahana, hub model, magical gifts, promised land.',
+    keywords: ['narrative', 'story', 'positioning', 'ai slop', 'wan shi tong', 'strategic narrative'],
+    nlHints: ['why kahana', 'high level story', 'what is our pitch', 'promised land'],
+  },
+  {
+    path: '/kahana-competitors',
+    title: 'Kahana Competitive Landscape',
+    businessFunction: 'Marketing',
+    description: 'Market map — Gumroad, Patreon, Kajabi, Substack, Udemy vs Kahana thesis dimensions.',
+    keywords: ['gumroad', 'patreon', 'kajabi', 'substack', 'competitors', 'positioning', 'marketplace', 'creator economy'],
+    nlHints: ['who are kahana competitors', 'how is kahana different from gumroad', 'competitive landscape'],
+  },
+  {
+    path: '/technical-roadmap',
+    title: 'Technical Roadmap',
+    businessFunction: 'Technical',
+    description: 'Security, Trust, Algorithm — internal technical focus from security audit and product gaps.',
+    keywords: ['security', 'trust', 'algorithm', 'search', 'audit', 'roadmap', 'technical', 'linear'],
+    nlHints: ['what are we building', 'security audit', 'discovery algorithm', 'technical focus'],
+  },
+  {
+    path: '/operating-system',
+    title: 'Operating System',
+    businessFunction: 'Technical',
+    description: 'Linear + Slack — backlog intake, triage, prioritization, and team norms.',
+    keywords: ['linear', 'slack', 'backlog', 'bugs', 'feature requests', 'sprints', 'operating system'],
+    nlHints: ['how do we track work', 'where are bugs filed', 'linear workspace'],
+  },
+  {
+    path: '/archive/oasis-sprints',
+    title: 'Oasis Engineering Sprints (archived)',
+    businessFunction: 'Technical',
+    description: 'Historical Oasis Browser sprint boards from the data room era.',
+    keywords: ['oasis', 'sprints', 'archive', 'engineering', 'browser'],
+    nlHints: ['old sprint board', 'oasis sprints archive'],
+  },
+  {
     path: '/onboarding/growth-content-konika',
     title: 'Growth content onboarding (Konika)',
     businessFunction: 'HR',
@@ -60,16 +139,17 @@ const EXTRA_SEARCH_ENTRIES = [
     keywords: ['onboarding', 'growth', 'konika', 'contractor'],
     nlHints: ['new contractor', 'content onboarding'],
   },
-  {
-    path: '/curio-store',
-    title: 'Curio Store',
-    businessFunction: 'Finance',
-    description:
-      'Business plan and executive summary for Curio — marketplace and storefront for curated digital products at curio.store.',
-    keywords: ['curio', 'marketplace', 'creator', 'gmv', 'curio.store', 'business plan', 'digital products'],
-    nlHints: ['curio business plan', 'creator marketplace', 'curio store executive summary'],
-  },
 ]
+
+const OASIS_ARCHIVE_SEARCH_ENTRIES = OASIS_ARCHIVE_PATHS.filter((p) => p !== '/oasis-browser').map((path) => ({
+  path,
+  title: path.replace(/^\//, '').replace(/-/g, ' '),
+  businessFunction: 'Product',
+  description: 'Archived Oasis Browser page — preserved for future return.',
+  keywords: ['oasis', 'browser', 'archive'],
+  nlHints: ['oasis archive'],
+  source: 'archive',
+}))
 
 function uniqKeywords(arr) {
   const seen = new Set()
@@ -149,7 +229,7 @@ function primaryNavExtras() {
 
 function inferBusinessFunctionFromPath(path) {
   if (path === '/archive') return 'Finance'
-  if (path === '/sprints' || path === '/project-charter') return 'Technical'
+  if (path === '/sprints' || path === '/project-charter' || path === '/operating-system' || path === '/technical-roadmap') return 'Technical'
   if (path === '/nps' || path === '/hitl') return 'Product'
   if (path === '/onboarding') return 'HR'
   if (path === '/knowledge-base') return 'Product'
@@ -195,6 +275,10 @@ function buildRawList() {
 
   for (const e of EXTRA_SEARCH_ENTRIES) {
     raw.push({ ...e, source: 'extra' })
+  }
+
+  for (const e of OASIS_ARCHIVE_SEARCH_ENTRIES) {
+    raw.push(e)
   }
 
   for (const e of buildOnboardingStepEntries()) {

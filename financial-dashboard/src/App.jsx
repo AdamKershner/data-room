@@ -1,7 +1,8 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import { DataRoomSearchProvider } from './components/DataRoomSearchProvider'
+import KahanaExecutiveSummary from './pages/KahanaExecutiveSummary'
 import ExecutiveSummary from './pages/ExecutiveSummary'
 import Q1ExecutiveReport from './pages/Q1ExecutiveReport'
 import ProblemMarket from './pages/ProblemMarket'
@@ -16,6 +17,11 @@ import OasisWaitlist from './pages/OasisWaitlist'
 import FinancialPlan from './pages/FinancialPlan'
 import TeamExecution from './pages/TeamExecution'
 import Sprints from './pages/Sprints'
+import OasisSprintsArchive from './pages/OasisSprintsArchive'
+import OperatingSystem from './pages/OperatingSystem'
+import KahanaTechnicalRoadmap from './pages/KahanaTechnicalRoadmap'
+import KahanaCompetitors from './pages/KahanaCompetitors'
+import KahanaNarrative from './pages/KahanaNarrative'
 import MarketSize from './pages/MarketSize'
 import WeeklyReports from './pages/WeeklyReports'
 import ContentPipeline from './pages/ContentPipeline'
@@ -38,7 +44,7 @@ import SOC2Type1Checklist from './pages/SOC2Type1Checklist'
 import MarketingNarrativeChecklist from './pages/MarketingNarrativeChecklist'
 import FounderPersonalBrand from './pages/FounderPersonalBrand'
 import ProjectCharter from './pages/ProjectCharter'
-import CurioStore from './pages/CurioStore'
+import KahanaPlatform from './pages/KahanaPlatform'
 import './App.css'
 
 function App() {
@@ -48,9 +54,14 @@ function App() {
         <div className="app">
           <Navigation />
           <Routes>
-          <Route path="/" element={<ExecutiveSummary />} />
+          <Route path="/" element={<KahanaExecutiveSummary />} />
+          <Route path="/oasis-browser" element={<ExecutiveSummary />} />
           <Route path="/archive" element={<Archive />} />
+          <Route path="/archive/oasis-sprints" element={<OasisSprintsArchive />} />
           <Route path="/knowledge-base" element={<KnowledgeBase />} />
+          <Route path="/kahana" element={<KahanaPlatform />} />
+          <Route path="/curio-store" element={<Navigate to="/kahana" replace />} />
+          <Route path="/onboarding/learn-curio" element={<Navigate to="/onboarding/learn-kahana" replace />} />
           <Route path="/Q1-executive-report" element={<Q1ExecutiveReport />} />
           <Route path="/q1-midpoint" element={<Q1MidpointUpdate />} />
           <Route path="/problem-market" element={<ProblemMarket />} />
@@ -65,6 +76,10 @@ function App() {
           <Route path="/financial-plan" element={<FinancialPlan />} />
           <Route path="/team-execution" element={<TeamExecution />} />
           <Route path="/sprints" element={<Sprints />} />
+          <Route path="/operating-system" element={<OperatingSystem />} />
+          <Route path="/technical-roadmap" element={<KahanaTechnicalRoadmap />} />
+          <Route path="/kahana-competitors" element={<KahanaCompetitors />} />
+          <Route path="/kahana-narrative" element={<KahanaNarrative />} />
           <Route path="/market-size" element={<MarketSize />} />
           <Route path="/weekly-reports" element={<WeeklyReports />} />
           <Route path="/content-pipeline" element={<ContentPipeline />} />
@@ -84,7 +99,6 @@ function App() {
           <Route path="/marketing-narrative-checklist" element={<MarketingNarrativeChecklist />} />
           <Route path="/founder-personal-brand" element={<FounderPersonalBrand />} />
           <Route path="/project-charter" element={<ProjectCharter />} />
-          <Route path="/curio-store" element={<CurioStore />} />
           </Routes>
         </div>
       </DataRoomSearchProvider>
@@ -93,4 +107,3 @@ function App() {
 }
 
 export default App
-

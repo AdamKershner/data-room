@@ -40,9 +40,9 @@ May use a streamlined approval path but must be documented and reviewed after im
 4. Change Request and Tracking
 All non‑trivial changes must be tracked in an approved system. Kahana's change tracking and planning flow is:
 
-Tally.so -> Slack -> Google Sheets -> Cursor/GitHub sprint planning -> GitHub issues/PRs -> GitHub workflows and CI/CD deployment.
+Tally.so -> Slack -> Google Sheets -> Linear (product backlog) -> GitHub issues/PRs -> GitHub workflows and CI/CD deployment.
 
-Kahana does not use Jira or Linear for change tracking. GitHub (PRs, issues, merge history, workflow runs) is the system of record for code and deployment changes.
+Kahana uses Linear (https://linear.app/kahana) for product backlog tracking: feature requests, bugs, and sprint prioritization. GitHub (PRs, issues, merge history, workflow runs) remains the system of record for code and deployment changes.
 
 Each change request should include:
 

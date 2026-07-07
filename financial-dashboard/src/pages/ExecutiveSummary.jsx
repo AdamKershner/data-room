@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ArchiveBanner from '../components/ArchiveBanner'
 import KeyHighlights from '../components/KeyHighlights'
 import FinancialSummary from '../components/FinancialSummary'
 import { TOC_EXPLORE_ITEMS } from '../data/tocExploreGrid'
@@ -25,6 +26,7 @@ const EXTRACTION_CONCEPT_SHORT_URL = 'https://www.youtube.com/shorts/mtqBuQGG3G0
 function ExecutiveSummary() {
   return (
     <div className="page" id="executive-summary">
+      <ArchiveBanner />
       <div className="page-header">
         <h1>Executive Summary</h1>
         <p className="page-subtitle">
