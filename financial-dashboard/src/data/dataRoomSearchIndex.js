@@ -55,7 +55,7 @@ const EXTRA_SEARCH_ENTRIES = [
     path: '/oasis-browser',
     title: 'Oasis Browser Executive Summary',
     businessFunction: 'Product',
-    description: 'Archived Oasis Browser pitch — consumer and enterprise browser product.',
+    description: 'Privacy-first AI browser — optional for internal work. No paid users yet; not part of onboarding.',
     keywords: ['oasis', 'browser', 'archive', 'enterprise', 'consumer'],
     nlHints: ['oasis browser archive', 'old executive summary'],
   },
@@ -229,7 +229,8 @@ function primaryNavExtras() {
 
 function inferBusinessFunctionFromPath(path) {
   if (path === '/archive') return 'Finance'
-  if (path === '/sprints' || path === '/project-charter' || path === '/operating-system' || path === '/technical-roadmap') return 'Technical'
+  if (path === '/sprints' || path === '/operating-system' || path === '/technical-roadmap') return 'Technical'
+  if (path === '/project-charter') return 'Marketing'
   if (path === '/nps' || path === '/hitl') return 'Product'
   if (path === '/onboarding') return 'HR'
   if (path === '/knowledge-base') return 'Product'

@@ -10,7 +10,7 @@ export const PRIMARY_NAV_LINKS = [
   { path: '/operating-system', id: 'operating-system', label: 'Operating System' },
   { path: '/technical-roadmap', id: 'technical-roadmap', label: 'Technical Roadmap' },
   { path: '/sprints', id: 'sprints', label: 'Product Lifecycle' },
-  { path: '/project-charter', id: 'project-charter', label: 'Project Charter' },
+  { path: '/project-charter', id: 'project-charter', label: 'Scaling Kahana Charter' },
   { path: '/onboarding', id: 'onboarding', label: 'Onboarding' },
   {
     path: '/knowledge-base',

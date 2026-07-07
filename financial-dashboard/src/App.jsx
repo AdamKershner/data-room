@@ -89,6 +89,8 @@ function App() {
           <Route path="/b2c-strategic-narrative" element={<B2CStrategicNarrative />} />
           <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/onboarding/growth-content-konika" element={<KonikaGrowthOnboarding />} />
+          <Route path="/onboarding/install-oasis" element={<Navigate to="/oasis-browser" replace />} />
+          <Route path="/onboarding/use-oasis-5-days" element={<Navigate to="/oasis-browser" replace />} />
           <Route path="/onboarding/:stepId" element={<OnboardingStep />} />
           <Route path="/linkedin-guide" element={<LinkedInGuide />} />
           <Route path="/linkedin-connections-guide" element={<LinkedInConnectionsGuide />} />

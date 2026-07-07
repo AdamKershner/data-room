@@ -411,7 +411,8 @@ function StepLearnKahana() {
         <a href={KAHANA_PLATFORM_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
           app.kahana.io
         </a>
-        . Formerly Curio. Oasis Browser is archived.
+        . Formerly Curio. Oasis Browser is optional for work — see{' '}
+        <Link to="/knowledge-base">Knowledge base → Oasis (Archive)</Link>.
       </p>
 
       <p>

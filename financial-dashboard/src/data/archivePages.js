@@ -97,11 +97,6 @@ export const OASIS_ARCHIVE_PAGES = [
     description: 'Human-in-the-loop themes from Oasis assistant ratings.',
   },
   {
-    path: '/project-charter',
-    title: 'Project Charter',
-    description: 'Oasis customer journey analytics charter.',
-  },
-  {
     path: '/financial-plan',
     title: 'Financial Plan & Sensitivity',
     description: 'Oasis 2026 projections, scenarios, and sensitivity analysis.',

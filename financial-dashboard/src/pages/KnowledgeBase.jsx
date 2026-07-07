@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import {
   KNOWLEDGE_BASE_ENTRIES,
   KNOWLEDGE_BASE_CATEGORIES,
+  KNOWLEDGE_BASE_ACTIVE_ENTRIES,
+  KNOWLEDGE_BASE_ARCHIVE_ENTRIES,
 } from '../data/knowledgeBaseEntries'
 import { dataRoomEntryMatchesQuery } from '../data/dataRoomSearchIndex'
 import { formatCardTitle } from '../utils/formatCardTitle'
@@ -14,18 +16,28 @@ function KnowledgeBase() {
   const [search, setSearch] = useState('')
 
   const countsByCategory = useMemo(() => {
-    const m = { all: KNOWLEDGE_BASE_ENTRIES.length }
+    const m = { all: KNOWLEDGE_BASE_ACTIVE_ENTRIES.length }
     KNOWLEDGE_BASE_CATEGORIES.forEach((c) => {
-      m[c] = KNOWLEDGE_BASE_ENTRIES.filter((e) => e.category === c).length
+      if (c === 'Oasis (Archive)') {
+        m[c] = KNOWLEDGE_BASE_ARCHIVE_ENTRIES.length
+      } else {
+        m[c] = KNOWLEDGE_BASE_ACTIVE_ENTRIES.filter((e) => e.category === c).length
+      }
     })
     return m
   }, [])
 
   const filtered = useMemo(() => {
-    return KNOWLEDGE_BASE_ENTRIES.filter((e) => {
-      const catOk = categoryFilter === 'all' || e.category === categoryFilter
-      return catOk && dataRoomEntryMatchesQuery({ ...e, businessFunction: e.category }, search)
-    })
+    const pool =
+      categoryFilter === 'Oasis (Archive)'
+        ? KNOWLEDGE_BASE_ARCHIVE_ENTRIES
+        : categoryFilter === 'all'
+          ? KNOWLEDGE_BASE_ACTIVE_ENTRIES
+          : KNOWLEDGE_BASE_ACTIVE_ENTRIES.filter((e) => e.category === categoryFilter)
+
+    return pool.filter((e) =>
+      dataRoomEntryMatchesQuery({ ...e, businessFunction: e.category }, search)
+    )
   }, [categoryFilter, search])
 
   return (
@@ -33,8 +45,8 @@ function KnowledgeBase() {
       <div className="page-header">
         <h1>Knowledge base</h1>
         <p className="page-subtitle">
-          Search and browse GTM, finance, product, HR, and technical reference pages. Top-level shortcuts for NPS and
-          HITL stay in the table of contents.
+          Kahana platform, GTM, finance, product, HR, and technical reference. Oasis Browser materials live
+          under <strong>Oasis (Archive)</strong> — optional for work, not part of onboarding.
         </p>
       </div>
 
@@ -49,13 +61,13 @@ function KnowledgeBase() {
                   className={`kb-filter-btn ${categoryFilter === 'all' ? 'kb-filter-btn--active' : ''}`}
                   onClick={() => setCategoryFilter('all')}
                 >
-                  All ({countsByCategory.all})
+                  All Kahana ({countsByCategory.all})
                 </button>
                 {KNOWLEDGE_BASE_CATEGORIES.map((cat) => (
                   <button
                     key={cat}
                     type="button"
-                    className={`kb-filter-btn ${categoryFilter === cat ? 'kb-filter-btn--active' : ''}`}
+                    className={`kb-filter-btn ${categoryFilter === cat ? 'kb-filter-btn--active' : ''} ${cat === 'Oasis (Archive)' ? 'kb-filter-btn--archive' : ''}`}
                     onClick={() => setCategoryFilter(cat)}
                   >
                     {cat} ({countsByCategory[cat]})
@@ -79,12 +91,29 @@ function KnowledgeBase() {
         </div>
       </section>
 
+      {categoryFilter === 'Oasis (Archive)' && (
+        <section className="page-section">
+          <div className="content-block kb-archive-callout">
+            <p>
+              <strong>Oasis Browser</strong> is a privacy-first AI browser we still use internally for work.
+              It is not Kahana&apos;s scaling focus and has no paid users yet — install from{' '}
+              <a href="https://kahana.io/installations" target="_blank" rel="noopener noreferrer">
+                kahana.io/installations
+              </a>{' '}
+              if you want it. See also the <Link to="/archive">archive index</Link>.
+            </p>
+          </div>
+        </section>
+      )}
+
       <section className="page-section">
         <div className="content-block">
           <div className="kb-grid">
             {filtered.map((entry) => (
               <Link key={entry.path} to={entry.path} className="kb-card" aria-label={entry.title}>
-                <span className="kb-card-category">{entry.category}</span>
+                <span className="kb-card-category">
+                  {entry.archive ? 'Oasis (Archive)' : entry.category}
+                </span>
                 <span className="kb-card-title" title={entry.title}>
                   {formatCardTitle(entry.title)}
                 </span>

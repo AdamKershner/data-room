@@ -38,23 +38,6 @@ export const ONBOARDING_STEPS = [
   // Day 5
   { id: 'time-log', label: 'Fill out the weekly Time Log and add a calendar reminder', category: 'Admin & Setup', day: 5, badge: 'minutes' },
   { id: 'onboarding-survey', label: 'Complete the Onboarding Experience Survey', category: 'Wrap-up', day: 5, badge: null },
-  // Optional — Oasis Browser (archived product)
-  {
-    id: 'install-oasis',
-    label: 'Install Oasis Browser (optional — archived product)',
-    category: 'Product',
-    day: 'optional',
-    badge: 'optional',
-    archived: true,
-  },
-  {
-    id: 'use-oasis-5-days',
-    label: 'Use Oasis for 5 business days and complete NPS survey (optional)',
-    category: 'Product',
-    day: 'optional',
-    badge: 'optional',
-    archived: true,
-  },
   // Coming soon
   { id: 'soc2-compliance', label: 'Review SOC 2 & Compliance Policies (Coming soon)', category: 'Company & Culture', comingSoon: true },
 ]

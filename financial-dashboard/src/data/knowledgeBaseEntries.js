@@ -3,9 +3,25 @@
  * Used by KnowledgeBase.jsx and Navigation isActive for /knowledge-base.
  */
 
-export const KNOWLEDGE_BASE_CATEGORIES = ['Marketing', 'Sales', 'Product', 'HR', 'Technical', 'Finance']
+export const KNOWLEDGE_BASE_CATEGORIES = [
+  'Marketing',
+  'Sales',
+  'Product',
+  'HR',
+  'Technical',
+  'Finance',
+  'Oasis (Archive)',
+]
 
 export const KNOWLEDGE_BASE_ENTRIES = [
+  {
+    path: '/project-charter',
+    title: 'Project Charter — Scaling Kahana',
+    category: 'Marketing',
+    description:
+      'Creator & influencer outreach — featured spots and complimentary Growth tier in exchange for quality hubs.',
+    keywords: ['charter', 'creators', 'influencers', 'outreach', 'featured', 'scaling', 'pipeline'],
+  },
   {
     path: '/kahana-narrative',
     title: 'Kahana Story',
@@ -106,19 +122,20 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     description: 'Proven model, pillars, ideals, audience, and examples for founder-led GTM.',
     keywords: ['founder', 'personal brand', 'linkedin', 'gtm'],
   },
-  // Oasis Browser — archived product (still searchable via knowledge base)
+  // Oasis Browser — archived product line (optional for internal work)
   {
     path: '/oasis-browser',
-    title: 'Oasis Browser Executive Summary',
-    category: 'Product',
-    description: 'Archived Oasis Browser pitch — consumer and enterprise browser product.',
-    keywords: ['oasis', 'browser', 'archive', 'enterprise'],
+    title: 'Oasis Browser',
+    category: 'Oasis (Archive)',
+    description:
+      'Privacy-first AI browser — optional for internal work. We love the product; no paid users yet. Not part of onboarding.',
+    keywords: ['oasis', 'browser', 'archive', 'enterprise', 'privacy', 'ai', 'optional'],
     archive: true,
   },
   {
     path: '/market-size',
     title: 'Market Size',
-    category: 'Marketing',
+    category: 'Oasis (Archive)',
     description: 'TAM, SAM, SOM and market sizing assumptions (Oasis Browser).',
     keywords: ['tam', 'sam', 'som', 'market', 'oasis', 'archive'],
     archive: true,
@@ -126,7 +143,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
   {
     path: '/b2c-strategic-narrative',
     title: 'B2C Strategic Narrative',
-    category: 'Marketing',
+    category: 'Oasis (Archive)',
     description: 'Oasis consumer positioning and story (archived).',
     keywords: ['b2c', 'consumer', 'narrative', 'oasis', 'archive'],
     archive: true,
@@ -134,7 +151,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
   {
     path: '/b2b-strategic-narrative',
     title: 'B2B Strategic Narrative',
-    category: 'Marketing',
+    category: 'Oasis (Archive)',
     description: 'Oasis enterprise positioning and story (archived).',
     keywords: ['b2b', 'enterprise', 'narrative', 'oasis', 'archive'],
     archive: true,
@@ -142,7 +159,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
   {
     path: '/competitors',
     title: 'Competitors',
-    category: 'Marketing',
+    category: 'Oasis (Archive)',
     description: 'Oasis browser competitor database and comparison (archived).',
     keywords: ['competition', 'browsers', 'island', 'surf', 'oasis', 'archive'],
     archive: true,
@@ -150,7 +167,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
   {
     path: '/content-pipeline',
     title: 'Content Pipeline',
-    category: 'Marketing',
+    category: 'Oasis (Archive)',
     description: 'Oasis blog and content planning pipeline (archived).',
     keywords: ['content', 'blog', 'pipeline', 'oasis', 'archive'],
     archive: true,
@@ -158,7 +175,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
   {
     path: '/marketing-narrative-checklist',
     title: 'Marketing Narrative Checklist',
-    category: 'Marketing',
+    category: 'Oasis (Archive)',
     description: 'Oasis story-framework checklist for blogs, decks, and sales narrative (archived).',
     keywords: ['narrative', 'story', 'framework', 'content', 'pitch', 'oasis', 'archive'],
     archive: true,
@@ -166,7 +183,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
   {
     path: '/producthunt-tasks',
     title: 'ProductHunt Tasks',
-    category: 'Marketing',
+    category: 'Oasis (Archive)',
     description: 'Oasis Product Hunt prep and team tasks (archived).',
     keywords: ['product hunt', 'launch', 'oasis', 'archive'],
     archive: true,
@@ -174,7 +191,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
   {
     path: '/oasis-waitlist',
     title: 'Oasis waitlist',
-    category: 'Marketing',
+    category: 'Oasis (Archive)',
     description: 'Google Sheet for Oasis interest signups and waitlist tracking (archived).',
     keywords: ['waitlist', 'signup', 'leads', 'sheet', 'oasis', 'archive'],
     archive: true,
@@ -182,7 +199,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
   {
     path: '/go-to-market',
     title: 'Go-to-Market & Growth',
-    category: 'Sales',
+    category: 'Oasis (Archive)',
     description: 'Oasis GTM strategy, ICPs, and growth motions (archived).',
     keywords: ['gtm', 'icp', 'sales', 'growth', 'oasis', 'archive'],
     archive: true,
@@ -190,7 +207,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
   {
     path: '/letter-of-engagement',
     title: 'Letter of Engagement template',
-    category: 'Sales',
+    category: 'Oasis (Archive)',
     description: 'Google Doc template for Oasis client or pilot engagement letters (archived).',
     keywords: ['letter of engagement', 'loe', 'template', 'contract', 'pilot', 'oasis', 'archive'],
     archive: true,
@@ -198,7 +215,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
   {
     path: '/oasis-rfp',
     title: 'Oasis RFP',
-    category: 'Sales',
+    category: 'Oasis (Archive)',
     description: 'Kahana Oasis request-for-proposal template for enterprise deals (archived).',
     keywords: ['rfp', 'request for proposal', 'enterprise', 'procurement', 'oasis', 'archive'],
     archive: true,
@@ -206,7 +223,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
   {
     path: '/financial-plan',
     title: 'Financial Plan & Sensitivity',
-    category: 'Finance',
+    category: 'Oasis (Archive)',
     description: 'Oasis 2026 burn, runway, projections, and scenarios (archived).',
     keywords: ['runway', 'burn', 'finance', 'projections', 'oasis', 'archive'],
     archive: true,
@@ -214,7 +231,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
   {
     path: '/business-model',
     title: 'Business Model & Unit Economics',
-    category: 'Finance',
+    category: 'Oasis (Archive)',
     description: 'Oasis unit economics and business model detail (archived).',
     keywords: ['unit economics', 'pricing', 'revenue', 'oasis', 'archive'],
     archive: true,
@@ -222,7 +239,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
   {
     path: '/product-technology',
     title: 'Product & Technology',
-    category: 'Product',
+    category: 'Oasis (Archive)',
     description: 'Oasis product vision, architecture, and tech stack (archived).',
     keywords: ['product', 'technology', 'architecture', 'oasis', 'archive'],
     archive: true,
@@ -230,23 +247,15 @@ export const KNOWLEDGE_BASE_ENTRIES = [
   {
     path: '/problem-market',
     title: 'Problem, Market & Users',
-    category: 'Product',
+    category: 'Oasis (Archive)',
     description: 'Oasis problem statement, users, and market context (archived).',
     keywords: ['users', 'problem', 'market', 'journey', 'oasis', 'archive'],
     archive: true,
   },
   {
-    path: '/project-charter',
-    title: 'Project Charter',
-    category: 'Product',
-    description: 'Oasis project charter and analytics scope (archived).',
-    keywords: ['charter', 'mixpanel', 'analytics', 'oasis', 'archive'],
-    archive: true,
-  },
-  {
     path: '/ota-guide',
     title: 'OTA & Updates Guide',
-    category: 'Technical',
+    category: 'Oasis (Archive)',
     description: 'Oasis over-the-air updates and release mechanics (archived).',
     keywords: ['ota', 'updates', 'releases', 'oasis', 'archive'],
     archive: true,
@@ -254,3 +263,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
 ]
 
 export const KNOWLEDGE_BASE_PATHS = KNOWLEDGE_BASE_ENTRIES.map((e) => e.path)
+
+export const KNOWLEDGE_BASE_ACTIVE_ENTRIES = KNOWLEDGE_BASE_ENTRIES.filter((e) => !e.archive)
+
+export const KNOWLEDGE_BASE_ARCHIVE_ENTRIES = KNOWLEDGE_BASE_ENTRIES.filter((e) => e.archive)
