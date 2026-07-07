@@ -1,4 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { TIME_LOG_TALLY_URL } from '../constants/kahanaSite'
+import { CHARTER_KPIS } from '../data/charterKpis'
 import './Page.css'
 import './WeeklyReports.css'
 import { OASIS_LOI_LETTER_DOC_URL } from '../constants/oasisCommercialDocs'
@@ -846,9 +849,33 @@ function WeeklyReports() {
       <div className="page-header">
         <h1>Weekly Reports</h1>
         <p className="page-subtitle">
-          Weekly updates on key progress, team time allocation, and areas for improvement
+          Weekly updates on key progress, team time allocation, and areas for improvement — synthesized from
+          teammate Time Log submissions.
         </p>
       </div>
+
+      <section className="page-section">
+        <div className="content-block weekly-reports-timelog-callout">
+          <p>
+            <strong>Source:</strong> Reports are built from the{' '}
+            <a href={TIME_LOG_TALLY_URL} target="_blank" rel="noopener noreferrer">
+              weekly Time Log
+            </a>{' '}
+            (every teammate, Friday EOD). New hires set up the habit in{' '}
+            <Link to="/onboarding/time-log">onboarding</Link>. Progress is read against the{' '}
+            <Link to="/project-charter">Scaling Kahana charter</Link>.
+          </p>
+          <p>
+            <strong>Org KPIs:</strong>{' '}
+            {CHARTER_KPIS.map((kpi, i) => (
+              <React.Fragment key={kpi.id}>
+                {i > 0 && ' · '}
+                {kpi.metric}
+              </React.Fragment>
+            ))}
+          </p>
+        </div>
+      </section>
 
       <section className="page-section">
         <div className="reports-filter">

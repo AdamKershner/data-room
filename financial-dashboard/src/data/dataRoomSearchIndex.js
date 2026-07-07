@@ -124,6 +124,25 @@ const EXTRA_SEARCH_ENTRIES = [
     nlHints: ['how do we track work', 'where are bugs filed', 'linear workspace'],
   },
   {
+    path: '/weekly-reports',
+    title: 'Weekly Reports',
+    businessFunction: 'Product',
+    description:
+      'Cross-team progress synthesized from weekly Time Log submissions — read against Scaling Kahana charter KPIs.',
+    keywords: [
+      'weekly reports',
+      'time log',
+      'progress',
+      'team updates',
+      'charter',
+      'compliance',
+      'curr',
+      'daus',
+      'retention',
+    ],
+    nlHints: ['what did the team ship this week', 'weekly update', 'time log reports'],
+  },
+  {
     path: '/archive/oasis-sprints',
     title: 'Oasis Engineering Sprints (archived)',
     businessFunction: 'Technical',
@@ -194,19 +213,31 @@ function stepToBusinessFunction(step) {
 function buildOnboardingStepEntries() {
   return ONBOARDING_STEPS.filter((s) => !s.comingSoon).map((step) => {
     const bf = stepToBusinessFunction(step)
+    const extraKeywords =
+      step.id === 'time-log'
+        ? ['time log', 'weekly', 'compliance', 'friday', 'tally', 'reports', 'charter', 'curr', 'kpis']
+        : []
+    const extraDescription =
+      step.id === 'time-log'
+        ? 'Establish weekly Time Log habit — Friday EOD, compliance, Weekly Reports, charter KPIs.'
+        : `Onboarding step (day ${step.day}) — ${step.category}.`
     return {
       path: `/onboarding/${step.id}`,
       title: step.label,
       businessFunction: bf,
-      description: `Onboarding step (day ${step.day}) — ${step.category}.`,
+      description: extraDescription,
       keywords: [
         'onboarding',
         'new hire',
         step.category,
         String(step.day),
         step.id.replace(/-/g, ' '),
+        ...extraKeywords,
       ],
-      nlHints: ['getting started', 'first week', 'new employee'],
+      nlHints:
+        step.id === 'time-log'
+          ? ['weekly time log', 'friday time log', 'compliance time tracking']
+          : ['getting started', 'first week', 'new employee'],
       source: 'onboarding',
     }
   })

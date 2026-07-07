@@ -67,6 +67,14 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     keywords: ['onboarding', 'new hire', 'checklist', 'hr', 'people'],
   },
   {
+    path: '/onboarding/time-log',
+    title: 'Weekly Time Log',
+    category: 'HR',
+    description:
+      'Friday EOD ritual — compliance, Weekly Reports, and charter KPI tracking. Submit via Tally + calendar reminder.',
+    keywords: ['time log', 'weekly', 'compliance', 'friday', 'tally', 'reports', 'charter', 'curr', 'kpis'],
+  },
+  {
     path: '/team-execution',
     title: 'Team Directory',
     category: 'HR',

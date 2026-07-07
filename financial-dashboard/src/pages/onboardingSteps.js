@@ -36,7 +36,7 @@ export const ONBOARDING_STEPS = [
   // Day 4
   { id: 'duolingo-article', label: 'Learn the Growth Framework', category: 'Company & Culture', day: 4, badge: '1 business day' },
   // Day 5
-  { id: 'time-log', label: 'Fill out the weekly Time Log and add a calendar reminder', category: 'Admin & Setup', day: 5, badge: 'minutes' },
+  { id: 'time-log', label: 'Establish weekly Time Log habit (every Friday + calendar reminder)', category: 'Admin & Setup', day: 5, badge: 'weekly' },
   { id: 'onboarding-survey', label: 'Complete the Onboarding Experience Survey', category: 'Wrap-up', day: 5, badge: null },
   // Coming soon
   { id: 'soc2-compliance', label: 'Review SOC 2 & Compliance Policies (Coming soon)', category: 'Company & Culture', comingSoon: true },

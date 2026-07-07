@@ -6,6 +6,7 @@ import {
   FUNCTION_TOOLS,
   LINEAR_WORKFLOW_STEPS,
   SLACK_NORMS,
+  TEAM_RHYTHMS,
   LIFECYCLE_LINKS,
   LINEAR_WORKSPACE_URL,
   SLACK_INVITE_URL,
@@ -123,6 +124,22 @@ function OperatingSystem() {
             New hires: complete{' '}
             <Link to="/onboarding/internal-channels">Join Kahana Slack</Link> and{' '}
             <Link to="/onboarding/linear-access">Get access to Linear</Link> during onboarding.
+          </p>
+        </div>
+      </section>
+
+      <section className="page-section" id="team-rhythms">
+        <h2>Team rhythms</h2>
+        <div className="content-block">
+          <ul className="feature-list">
+            {TEAM_RHYTHMS.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <p>
+            Details: <Link to="/onboarding/time-log">Time Log onboarding</Link> ·{' '}
+            <Link to="/weekly-reports">Weekly Reports</Link> ·{' '}
+            <Link to="/project-charter">Scaling Kahana charter</Link>
           </p>
         </div>
       </section>

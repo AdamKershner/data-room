@@ -85,6 +85,10 @@ export const SLACK_NORMS = [
   'Product managers and engineers must have Linear access from onboarding (Day 1).',
 ]
 
+export const TEAM_RHYTHMS = [
+  'Friday EOD — every teammate submits the Time Log (feeds Weekly Reports and charter KPI tracking). See /onboarding/time-log.',
+]
+
 export const LIFECYCLE_LINKS = [
   {
     path: '/nps',

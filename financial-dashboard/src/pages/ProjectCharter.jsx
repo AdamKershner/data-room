@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom'
 import {
   CREATOR_OUTREACH_SHEET_URL,
   LINEAR_WORKSPACE_URL,
+  TIME_LOG_TALLY_URL,
 } from '../constants/kahanaSite'
 import { KAHANA_PLATFORM_URL } from '../data/kahanaPlatformSections'
+import { CHARTER_KPIS, TIME_LOG_RITUAL } from '../data/charterKpis'
 import './Page.css'
 import './ProjectCharter.css'
 
@@ -226,7 +228,71 @@ function ProjectCharter() {
       </section>
 
       <section className="page-section">
-        <h2>5. Success metrics</h2>
+        <h2>5. Organization KPIs</h2>
+        <p className="charter-section-intro">
+          Cross-team metrics that define whether Kahana is scaling. Reference these in your weekly Time Log
+          when your work touches them.
+        </p>
+        <div className="charter-table-wrap">
+          <table className="charter-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Definition</th>
+                <th>Why it matters</th>
+              </tr>
+            </thead>
+            <tbody>
+              {CHARTER_KPIS.map((row) => (
+                <tr key={row.id}>
+                  <td className="charter-td-bold">{row.metric}</td>
+                  <td>{row.definition}</td>
+                  <td className="charter-td-examples">{row.whyItMatters}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section className="page-section">
+        <h2>6. Weekly operating rhythm</h2>
+        <div className="content-block">
+          <p>
+            Every teammate submits the{' '}
+            <a href={TIME_LOG_TALLY_URL} target="_blank" rel="noopener noreferrer">
+              weekly Time Log
+            </a>{' '}
+            by {TIME_LOG_RITUAL.when.toLowerCase()}. {TIME_LOG_RITUAL.duration}.{' '}
+            {TIME_LOG_RITUAL.whatToWrite}
+          </p>
+          <div className="charter-definition-box">
+            <h4 className="charter-definition-title">What happens with time logs</h4>
+            <ul className="charter-definition-list">
+              <li>
+                Entries are synthesized into{' '}
+                <Link to="/weekly-reports">Weekly Reports</Link> — accurate cross-team progress updates.
+              </li>
+              <li>
+                Reports are read against organization KPIs above and pipeline success metrics below — charter
+                adherence, not vanity activity.
+              </li>
+              <li>
+                Time logs support compliance (SOC 2 / operational policies) — audit trail of who worked on
+                what.
+              </li>
+            </ul>
+          </div>
+          <p>
+            New hires: complete the{' '}
+            <Link to="/onboarding/time-log">Time Log onboarding step</Link> on Day 5 — first entry plus
+            recurring Friday calendar reminder.
+          </p>
+        </div>
+      </section>
+
+      <section className="page-section">
+        <h2>7. Pipeline success metrics</h2>
         <div className="charter-table-wrap">
           <table className="charter-table">
             <thead>
@@ -252,7 +318,7 @@ function ProjectCharter() {
       </section>
 
       <section className="page-section">
-        <h2>6. Workstreams</h2>
+        <h2>8. Workstreams</h2>
         <div className="charter-scenarios">
           {WORKSTREAMS.map((ws) => (
             <div key={ws.name} className="charter-scenario-card">
@@ -264,7 +330,7 @@ function ProjectCharter() {
       </section>
 
       <section className="page-section">
-        <h2>7. Related pages</h2>
+        <h2>9. Related pages</h2>
         <div className="content-block">
           <ul className="charter-definition-list">
             <li>
@@ -282,6 +348,12 @@ function ProjectCharter() {
             </li>
             <li>
               <Link to="/operating-system">Operating system</Link> — Linear + Slack for day-to-day execution
+            </li>
+            <li>
+              <Link to="/onboarding/time-log">Weekly Time Log</Link> — Friday ritual for all teammates
+            </li>
+            <li>
+              <Link to="/weekly-reports">Weekly Reports</Link> — progress synthesized from time logs
             </li>
           </ul>
           <div className="charter-footer-note">

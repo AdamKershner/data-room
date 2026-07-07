@@ -12,6 +12,9 @@ export const LINEAR_WORKSPACE_URL = 'https://linear.app/kahana'
 export const CREATOR_OUTREACH_SHEET_URL =
   'https://docs.google.com/spreadsheets/d/1_QF9SAQR-P0VU78MmVg1XjVpGhltqfWqRlANc4W8sXE/edit?gid=0#gid=0'
 
+/** Weekly time log — Tally form submitted every Friday EOD by all teammates. */
+export const TIME_LOG_TALLY_URL = 'https://tally.so/r/w2YdzL'
+
 /** @param {string} [path] */
 export function kahanaUrl(path = '') {
   if (!path) return KAHANA_SITE_URL

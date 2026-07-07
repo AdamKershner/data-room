@@ -2,6 +2,8 @@
  * Primary nav order and labels (single source for Navigation + Executive Summary explore grid).
  * Keep in sync when adding/removing TOC entries.
  */
+import { TIME_LOG_TALLY_URL } from '../constants/kahanaSite'
+
 export const PRIMARY_NAV_LINKS = [
   { path: '/', id: 'executive-summary', label: 'Executive Summary' },
   { path: '/kahana', id: 'kahana-platform', label: 'Kahana Platform' },
@@ -20,7 +22,7 @@ export const PRIMARY_NAV_LINKS = [
   {
     id: 'time-log-tally',
     label: 'Time Log (Tally form)',
-    href: 'https://tally.so/r/w2YdzL',
+    href: TIME_LOG_TALLY_URL,
   },
 ]
 

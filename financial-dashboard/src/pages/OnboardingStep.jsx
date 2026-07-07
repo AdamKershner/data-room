@@ -2,7 +2,8 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
 import { KAHANA_PLATFORM_URL, KAHANA_EXPLORE_URL } from '../data/kahanaPlatformSections'
-import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, SLACK_INVITE_URL } from '../constants/kahanaSite'
+import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL } from '../constants/kahanaSite'
+import { CHARTER_KPIS, TIME_LOG_RITUAL } from '../data/charterKpis'
 import { formatCardTitle } from '../utils/formatCardTitle'
 import './Page.css'
 import './Onboarding.css'
@@ -73,7 +74,7 @@ function downloadTimeLogICS() {
     `DTEND:${formatICSDate(end)}`,
     'RRULE:FREQ=WEEKLY;BYDAY=FR',
     'SUMMARY:Time Log - Weekly',
-    'DESCRIPTION:Block 10 min to fill out the weekly time log. https://tally.so/r/w2YdzL',
+    `DESCRIPTION:Block 10 min to fill out the weekly time log. ${TIME_LOG_TALLY_URL}`,
     'END:VEVENT',
     'END:VCALENDAR'
   ].join('\r\n')
@@ -120,7 +121,12 @@ function StepCompanyRules() {
         <li>If a teammate DMs you on Slack, check the message and react to it (give a thumbs up) or acknowledge that you've seen it.</li>
         <li>Respond to teammates within 24 hours.</li>
         <li>If you cannot meet the minimum availability (check Slack at least once per day during 9–5 PM in your time zone), DM Adam on Slack or email him with a reason (e.g., sick, emergency). If you need personal leave, contact him the same way.</li>
-        <li>Fill out the time log each Friday. <Link to="/onboarding/time-log">See the Time Log onboarding step for more details →</Link></li>
+        <li>
+          Fill out the <strong>weekly Time Log every Friday by EOD</strong> — supports compliance, accurate{' '}
+          <Link to="/weekly-reports">Weekly Reports</Link>, and progress against the{' '}
+          <Link to="/project-charter">Scaling Kahana charter</Link>.{' '}
+          <Link to="/onboarding/time-log">See the Time Log onboarding step →</Link>
+        </li>
       </ul>
     </div>
   )
@@ -129,18 +135,56 @@ function StepCompanyRules() {
 function StepTimeLog() {
   return (
     <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You've filled out the Time Log and added the recurring Friday reminder to your calendar.</p>
+      <p className="onboarding-step-done onboarding-step-done-top">
+        <strong>✓ Done when:</strong> You&apos;ve submitted your <strong>first</strong> Time Log entry{' '}
+        <em>and</em> added a recurring Friday calendar reminder. This repeats <strong>every week</strong> — not
+        a one-time onboarding task.
+      </p>
 
-      <p>Fill out the weekly Time Log at the end of each week on Friday by EOD. Write a detailed description of what you focused on. We don't track this because we micromanage—filling out the time log helps us with operational efficiency. Block off 5–10 minutes each Friday to do this.</p>
+      <h3>Why we do this</h3>
+      <ul className="onboarding-rules-list">
+        {TIME_LOG_RITUAL.why.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+
+      <h3>When &amp; how long</h3>
+      <p>
+        <strong>{TIME_LOG_RITUAL.when}.</strong> {TIME_LOG_RITUAL.duration}.
+      </p>
+
+      <h3>What to write</h3>
+      <p>{TIME_LOG_RITUAL.whatToWrite}</p>
+      <p>Charter KPIs to reference when relevant:</p>
+      <ul className="onboarding-rules-list">
+        {CHARTER_KPIS.map((kpi) => (
+          <li key={kpi.id}>
+            <strong>{kpi.metric}</strong> — {kpi.definition}
+          </li>
+        ))}
+      </ul>
 
       <div className="onboarding-cta-row">
-        <a href="https://tally.so/r/w2YdzL" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link">
+        <a href={TIME_LOG_TALLY_URL} target="_blank" rel="noopener noreferrer" className="onboarding-cta-link">
           📋 Fill out the Time Log →
         </a>
         <button type="button" onClick={downloadTimeLogICS} className="onboarding-cta-button">
-          📅 Add to Calendar
+          📅 Add recurring Friday reminder
         </button>
       </div>
+
+      <h3>See also</h3>
+      <ul className="onboarding-rules-list">
+        <li>
+          <Link to="/weekly-reports">Weekly Reports</Link> — synthesized from time log submissions each week
+        </li>
+        <li>
+          <Link to="/project-charter">Project Charter — Scaling Kahana</Link> — org KPIs and creator pipeline
+        </li>
+        <li>
+          <Link to="/operating-system">Operating System</Link> — Linear + Slack rhythms
+        </li>
+      </ul>
     </div>
   )
 }
@@ -590,7 +634,12 @@ function StepDuolingoArticle() {
           </div>
         </div>
 
-        <p><strong>The takeaway:</strong> As X gets more specific and more value-creating, the chance of coming back goes up. That's how we identify which behaviors are real retention drivers — and where to focus onboarding, nudges, and product polish.</p>
+        <p><strong>The takeaway:</strong> As X gets more specific and more value-creating, the chance of coming back goes up. That&apos;s how we identify which behaviors are real retention drivers — and where to focus onboarding, nudges, and product polish.</p>
+        <p>
+          On Kahana, CURR, DAUs, and retention are the same KPI family we track org-wide via the{' '}
+          <Link to="/project-charter">Scaling Kahana charter</Link> and your weekly{' '}
+          <Link to="/onboarding/time-log">Time Log</Link> (Day 5).
+        </p>
       </div>
     </div>
   )
