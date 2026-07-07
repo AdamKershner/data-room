@@ -89,6 +89,82 @@ export const TEAM_RHYTHMS = [
   'Friday EOD — every teammate submits the Time Log (feeds Weekly Reports and charter KPI tracking). See /onboarding/time-log.',
 ]
 
+/** PM & product lifecycle resources — linked from Linear onboarding step. */
+export const PM_LIFECYCLE_RESOURCES = {
+  methodology: [
+    {
+      path: '/sprints',
+      title: 'Product Lifecycle',
+      description: 'Listen → Log → Prioritize → Ship. How customer signals become Linear work.',
+    },
+    {
+      path: '/operating-system',
+      title: 'Operating System',
+      description: 'Linear + Slack norms, triage, and team rhythms (including Friday Time Log).',
+    },
+    {
+      path: '/project-charter',
+      title: 'Scaling Kahana Charter',
+      description: 'Org KPIs (CURR, DAUs, MRR, ARR, experts, hubs) and creator pipeline.',
+    },
+    {
+      path: '/',
+      title: 'Executive Summary',
+      description: 'Kahana traction, GTM, and strategic context — what we are scaling toward.',
+    },
+    {
+      path: '/weekly-reports',
+      title: 'Weekly Reports',
+      description: 'Cross-team progress synthesized from time logs — read against charter KPIs.',
+    },
+  ],
+  customerData: [
+    {
+      path: '/nps',
+      title: 'PMF + NPS Data',
+      description: 'Survey scores and methodology — primary voice-of-customer signal for prioritization.',
+    },
+    {
+      path: '/hitl',
+      title: 'User Feedback Trends',
+      description: 'In-product feedback themes — bugs and improvements to log in Linear.',
+    },
+    {
+      path: '/kahana',
+      title: 'Kahana Platform Overview',
+      description: 'Product surfaces, monetization, roadmap — context for backlog decisions.',
+    },
+    {
+      path: '/kahana-competitors',
+      title: 'Competitive Landscape',
+      description: 'Positioning vs. creator platforms — informs GTM and product bets.',
+    },
+  ],
+}
+
+export const PM_LIFECYCLE_STEPS = [
+  {
+    step: '1. Know the scoreboard',
+    detail: 'Read Executive Summary and Project Charter KPIs. Every backlog item should connect to CURR, DAUs, retention, MRR, ARR, experts onboarded, hubs created, or customer delight.',
+  },
+  {
+    step: '2. Listen to customers',
+    detail: 'Review NPS/PMF data and user feedback trends weekly. Capture themes before sprint planning.',
+  },
+  {
+    step: '3. Log in Linear',
+    detail: 'Create issues for bugs, features, and improvements — with links to feedback sources. No Slack-only work.',
+  },
+  {
+    step: '4. Prioritize against KPIs',
+    detail: 'Order backlog by impact on charter metrics. PM assigns top items to engineering.',
+  },
+  {
+    step: '5. Ship & report',
+    detail: 'Track status in Linear through release. Reference KPI impact in your weekly Time Log.',
+  },
+]
+
 export const LIFECYCLE_LINKS = [
   {
     path: '/nps',

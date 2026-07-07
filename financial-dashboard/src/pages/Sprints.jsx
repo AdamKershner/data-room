@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { LINEAR_WORKSPACE_URL } from '../constants/kahanaSite'
+import { PM_LIFECYCLE_RESOURCES, PM_LIFECYCLE_STEPS } from '../data/operatingSystemSections'
 import './Page.css'
 import './OperatingSystem.css'
 
@@ -15,16 +16,30 @@ function Sprints() {
           </a>.</strong>{' '}
           Feature requests, bugs, and sprint work are logged, prioritized, and assigned there —
           daily/weekly. See{' '}
-          <Link to="/operating-system">Operating System</Link> for the full workflow.
+          <Link to="/operating-system">Operating System</Link> and{' '}
+          <Link to="/onboarding/linear-access">Linear onboarding</Link> for the full workflow.
         </p>
       </div>
 
       <div className="page-header">
         <h1>Product Lifecycle</h1>
         <p className="page-subtitle">
-          How user signals become prioritized work — primarily managed in Linear.
+          How customer signals become prioritized work — managed in Linear against charter KPIs.
         </p>
       </div>
+
+      <section className="page-section">
+        <h2>PM methodology</h2>
+        <div className="content-block">
+          <ol className="feature-list">
+            {PM_LIFECYCLE_STEPS.map((item) => (
+              <li key={item.step}>
+                <strong>{item.step}</strong> — {item.detail}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
 
       <section className="page-section">
         <h2>Feedback → backlog</h2>
@@ -44,7 +59,8 @@ function Sprints() {
               with context and links.
             </li>
             <li>
-              <strong>Prioritize</strong> — Backlog ordered against roadmap and impact; top items
+              <strong>Prioritize</strong> — Backlog ordered against{' '}
+              <Link to="/project-charter">charter KPIs</Link> and roadmap impact; top items
               assigned to engineers.
             </li>
             <li>
@@ -55,23 +71,27 @@ function Sprints() {
       </section>
 
       <section className="page-section">
-        <h2>Reference data in this data room</h2>
+        <h2>Strategy &amp; scoreboard</h2>
         <div className="content-block">
           <ul className="feature-list">
-            <li>
-              <Link to="/nps">PMF + NPS data</Link> — survey program, scores, and methodology
-            </li>
-            <li>
-              <Link to="/hitl">User feedback trends</Link> — human-in-the-loop themes from ratings
-            </li>
-            <li>
-              <Link to="/project-charter">Project charter</Link> — analytics scope (historical Oasis
-              context; principles apply to Kahana metrics)
-            </li>
-            <li>
-              <Link to="/kahana#roadmap-snapshot">Kahana roadmap</Link> — horizon themes; execution
-              in Linear
-            </li>
+            {PM_LIFECYCLE_RESOURCES.methodology.map((link) => (
+              <li key={link.path}>
+                <Link to={link.path}>{link.title}</Link> — {link.description}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="page-section">
+        <h2>Customer &amp; product data</h2>
+        <div className="content-block">
+          <ul className="feature-list">
+            {PM_LIFECYCLE_RESOURCES.customerData.map((link) => (
+              <li key={link.path}>
+                <Link to={link.path}>{link.title}</Link> — {link.description}
+              </li>
+            ))}
           </ul>
         </div>
       </section>
@@ -87,10 +107,6 @@ function Sprints() {
           </p>
           <p>
             <Link to="/operating-system">Operating System</Link> — Linear + Slack norms by function
-          </p>
-          <p>
-            <Link to="/archive/oasis-sprints">Oasis engineering sprints (archived)</Link> — historical
-            Oasis Browser sprint boards from when backlog lived in this data room
           </p>
         </div>
       </section>

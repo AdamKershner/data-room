@@ -47,13 +47,28 @@ export const CHARTER_KPIS = [
     whyItMatters:
       'Demand-side proof that the library delivers — the Professor Zei bar for “spend an eternity exploring.”',
   },
+  {
+    id: 'mrr',
+    metric: 'MRR',
+    definition:
+      'Monthly recurring revenue — Growth tier subscriptions (~$9.99/mo) plus recurring hub revenue where applicable.',
+    whyItMatters:
+      'Near-term revenue pulse; tracks whether creator monetization and SaaS tiers are compounding.',
+  },
+  {
+    id: 'arr',
+    metric: 'ARR',
+    definition: 'Annual recurring revenue — MRR × 12 plus any annual contracts or committed creator revenue.',
+    whyItMatters:
+      'Investor and planning metric; the north-star financial scale alongside user and retention KPIs.',
+  },
 ]
 
 export const TIME_LOG_RITUAL = {
   when: 'Every Friday by end of day',
   duration: 'Block 5–10 minutes on your calendar',
   whatToWrite:
-    'A detailed description of what you focused on this week. Where your work touched charter KPIs (CURR, DAUs, retention, experts onboarded, hubs created, customer delight), say so explicitly.',
+    'A detailed description of what you focused on this week. Where your work touched charter KPIs (CURR, DAUs, retention, MRR, ARR, experts onboarded, hubs created, customer delight), say so explicitly.',
   why: [
     'Compliance — audit trail of who worked on what, supporting SOC 2 and operational policies.',
     'Weekly Reports — Adam synthesizes time log entries into accurate cross-team progress updates.',

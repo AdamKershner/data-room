@@ -4,6 +4,7 @@ import { ONBOARDING_STEPS } from './onboardingSteps'
 import { KAHANA_PLATFORM_URL, KAHANA_EXPLORE_URL } from '../data/kahanaPlatformSections'
 import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL } from '../constants/kahanaSite'
 import { CHARTER_KPIS, TIME_LOG_RITUAL } from '../data/charterKpis'
+import { PM_LIFECYCLE_RESOURCES, PM_LIFECYCLE_STEPS } from '../data/operatingSystemSections'
 import { formatCardTitle } from '../utils/formatCardTitle'
 import './Page.css'
 import './Onboarding.css'
@@ -355,7 +356,13 @@ function StepAvengerProfile() {
       </div>
 
       <div className="onboarding-note">
-        <p>Depending on the functions you select (which functions/roles you're interested in), you will receive invitations to get access to the tools listed in the <Link to="/onboarding/tools-access" className="onboarding-inline-link">Get Access to Tools</Link> section.</p>
+        <p>
+          After you complete onboarding (Day 5), you&apos;ll request tool access by DMing Adam on Slack — see{' '}
+          <Link to="/onboarding/tools-access" className="onboarding-inline-link">
+            Get access to tools for your role
+          </Link>
+          . Select your functions here so Adam knows which platforms to provision.
+        </p>
       </div>
 
       <div className="onboarding-install-default-section">
@@ -680,31 +687,68 @@ function StepLinearAccess() {
   return (
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You can sign in to the Kahana Linear workspace (required for Product and
-        Engineering roles).
+        <strong>✓ Done when:</strong> You can sign in to Linear, and you know where customer data, product
+        lifecycle docs, and charter KPIs live — so you can execute PM methodology in one place.
       </p>
 
       <p>
-        <strong>Linear</strong> is our system of record for feature requests, bugs, and sprint work. PMs prioritize the
-        backlog daily/weekly; engineers pull assigned issues and update status in Linear.
+        <strong>Linear</strong> is our system of record for feature requests, bugs, and sprint work. PMs
+        prioritize the backlog against{' '}
+        <Link to="/project-charter" className="onboarding-inline-link">
+          charter KPIs
+        </Link>{' '}
+        (CURR, DAUs, retention, MRR, ARR, experts onboarded, hubs created, customer delight); engineers pull
+        assigned issues and update status in Linear.
       </p>
+
+      <div className="onboarding-note onboarding-note-important">
+        <p>
+          <strong>Need access?</strong> DM <strong>Adam Kershner</strong> on Slack after you&apos;ve scheduled
+          your biweekly 1-on-1. Product and engineering must have Linear before first sprint planning.
+        </p>
+      </div>
 
       <div className="onboarding-avenger-tasks">
         <div className="onboarding-nps-step">
           <strong>Linear workspace</strong>
-          <p>
-            Request access from Adam if you do not have an invite yet. Product and engineering must have access before
-            your first sprint planning session.
-          </p>
           <a href={LINEAR_WORKSPACE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
             Open linear.app/kahana →
           </a>
         </div>
       </div>
 
+      <h3>Product management methodology (5 steps)</h3>
+      <p>Use this loop every week — all reference pages linked below:</p>
+      <ol className="onboarding-steps-list">
+        {PM_LIFECYCLE_STEPS.map((item) => (
+          <li key={item.step}>
+            <strong>{item.step}</strong> — {item.detail}
+          </li>
+        ))}
+      </ol>
+
+      <h3>Strategy &amp; scoreboard</h3>
+      <ul className="onboarding-rules-list">
+        {PM_LIFECYCLE_RESOURCES.methodology.map((link) => (
+          <li key={link.path}>
+            <Link to={link.path}>{link.title}</Link> — {link.description}
+          </li>
+        ))}
+      </ul>
+
+      <h3>Customer &amp; product data</h3>
+      <ul className="onboarding-rules-list">
+        {PM_LIFECYCLE_RESOURCES.customerData.map((link) => (
+          <li key={link.path}>
+            <Link to={link.path}>{link.title}</Link> — {link.description}
+          </li>
+        ))}
+      </ul>
+
       <p>
-        Read <Link to="/operating-system" className="onboarding-inline-link">Operating System</Link> for how Linear and
-        Slack work together, and how NPS/feedback flows into the backlog.
+        Deep dive: <Link to="/onboarding/learn-kahana" className="onboarding-inline-link">Learn about Kahana</Link>{' '}
+        (Day 3) · <Link to="/onboarding/technical-roadmap" className="onboarding-inline-link">Technical roadmap</Link>{' '}
+        · <Link to="/onboarding/time-log" className="onboarding-inline-link">Weekly Time Log</Link> (Day 5)
       </p>
     </div>
   )
@@ -895,13 +939,41 @@ function StepSocialMedia() {
 function StepToolsAccess() {
   return (
     <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You have access to all tools relevant to your function.</p>
+      <p className="onboarding-step-done onboarding-step-done-top">
+        <strong>✓ Done when:</strong> You&apos;ve DM&apos;d Adam Kershner on Slack to request access, and you
+        have invites or credentials for every tool your role needs.
+      </p>
 
-      <p>Request access to the tools you need for your role. You should receive access to all relevant tools within 24 hours of completing your <Link to="/onboarding/avenger-profile" className="onboarding-inline-link">Avenger profile</Link>, where you select the functions you're interested in. If you don't see your function listed or need additional tools, ask Adam or your manager.</p>
-
-      <div className="onboarding-note">
-        <p><strong>Stay on the lookout:</strong> Based on the functions you select in the Avenger profile step, watch for email invitations to join the platforms listed below. Check your inbox (including spam) for invites within 24 hours.</p>
+      <div className="onboarding-note onboarding-note-important">
+        <h3>How to get access (read this first)</h3>
+        <ol className="onboarding-steps-list">
+          <li>
+            <strong>Schedule your biweekly 1-on-1</strong> with Adam —{' '}
+            <Link to="/onboarding/schedule-1on1" className="onboarding-inline-link">
+              Day 1 step
+            </Link>
+          </li>
+          <li>
+            <strong>Complete the rest of onboarding</strong> (Days 1–4): Slack, Avenger profile, knowledge base,
+            Kahana platform, growth framework, etc.
+          </li>
+          <li>
+            <strong>DM Adam Kershner on Slack</strong> with: your name, role/functions from your{' '}
+            <Link to="/onboarding/avenger-profile" className="onboarding-inline-link">
+              Avenger profile
+            </Link>
+            , and the tools you need from the list below.
+          </li>
+          <li>
+            Adam will provision access (usually within 24 hours). Watch your email for invites — check spam.
+          </li>
+        </ol>
       </div>
+
+      <p>
+        Do not wait for automatic invites — <strong>you must DM Adam on Slack</strong> to get set up. This is
+        the step people miss; following the sequence above is how every teammate gets their tools.
+      </p>
 
       <div className="onboarding-avenger-tasks">
         <div className="onboarding-nps-step">
@@ -913,7 +985,7 @@ function StepToolsAccess() {
             <li>Figma (design system and brand guidelines)</li>
             <li>Screen Studio (for video creation)</li>
             <li>Mixpanel</li>
-            <li>Marketing Specific Google Docs & Sheets</li>
+            <li>Marketing Specific Google Docs &amp; Sheets</li>
             <li>Social media accounts — request access for email and password from Adam if you will be posting on social media on behalf of Kahana</li>
           </ul>
         </div>
@@ -927,7 +999,7 @@ function StepToolsAccess() {
             <li>Apollo</li>
             <li>Wellfound</li>
             <li>Mixpanel</li>
-            <li>Sales Specific Google Docs & Sheets</li>
+            <li>Sales Specific Google Docs &amp; Sheets</li>
           </ul>
         </div>
 
@@ -935,16 +1007,16 @@ function StepToolsAccess() {
           <strong>Technical</strong>
           <ul>
             <li>
-              <a href={LINEAR_WORKSPACE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
+              <Link to="/onboarding/linear-access" className="onboarding-inline-link">
                 Linear
-              </a>{' '}
-              — bugs, tech debt, assigned sprint work (required before first sprint planning)
+              </Link>{' '}
+              — bugs, tech debt, assigned sprint work (see Linear onboarding step for PM methodology)
             </li>
             <li>Supabase</li>
             <li>AWS</li>
             <li>GitHub</li>
             <li>Mixpanel</li>
-            <li>Technical Specific Google Docs & Sheets</li>
+            <li>Technical Specific Google Docs &amp; Sheets</li>
           </ul>
         </div>
 
@@ -952,14 +1024,14 @@ function StepToolsAccess() {
           <strong>Product</strong>
           <ul>
             <li>
-              <a href={LINEAR_WORKSPACE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
+              <Link to="/onboarding/linear-access" className="onboarding-inline-link">
                 Linear
-              </a>{' '}
-              — feature requests, backlog prioritization (required before first sprint planning)
+              </Link>{' '}
+              — feature requests, backlog prioritization (see Linear step for customer data + lifecycle links)
             </li>
             <li>Figma</li>
             <li>Mixpanel</li>
-            <li>Product Specific Google Docs & Sheets</li>
+            <li>Product Specific Google Docs &amp; Sheets</li>
           </ul>
         </div>
 
@@ -967,9 +1039,19 @@ function StepToolsAccess() {
           <strong>Finance</strong>
           <ul>
             <li>Stripe</li>
-            <li>Finance Specific Google Docs & Sheets</li>
+            <li>Finance Specific Google Docs &amp; Sheets</li>
           </ul>
         </div>
+      </div>
+
+      <div className="onboarding-note onboarding-note-help">
+        <p>
+          <strong>Questions?</strong> DM Adam on Slack or email{' '}
+          <a href={`mailto:${KAHANA_CONTACT_EMAIL}`} className="onboarding-inline-link">
+            {KAHANA_CONTACT_EMAIL}
+          </a>
+          .
+        </p>
       </div>
     </div>
   )

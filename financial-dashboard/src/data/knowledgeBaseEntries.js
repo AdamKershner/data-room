@@ -10,7 +10,6 @@ export const KNOWLEDGE_BASE_CATEGORIES = [
   'HR',
   'Technical',
   'Finance',
-  'Oasis (Archive)',
 ]
 
 export const KNOWLEDGE_BASE_ENTRIES = [

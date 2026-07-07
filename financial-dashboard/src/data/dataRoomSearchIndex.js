@@ -6,7 +6,6 @@
 import { KNOWLEDGE_BASE_ENTRIES } from './knowledgeBaseEntries'
 import { TOC_EXPLORE_ITEMS, PRIMARY_NAV_LINKS } from './tocExploreGrid'
 import { ONBOARDING_STEPS } from '../pages/onboardingSteps'
-import { OASIS_ARCHIVE_PATHS } from './archivePages'
 
 /** Display order for Executive Summary business-function grid */
 export const BUSINESS_FUNCTIONS = ['Marketing', 'Sales', 'Product', 'HR', 'Technical', 'Finance']
@@ -58,6 +57,7 @@ const EXTRA_SEARCH_ENTRIES = [
     description: 'Privacy-first AI browser — optional for internal work. No paid users yet; not part of onboarding.',
     keywords: ['oasis', 'browser', 'archive', 'enterprise', 'consumer'],
     nlHints: ['oasis browser archive', 'old executive summary'],
+    hidden: true,
   },
   {
     path: '/Q1-executive-report',
@@ -149,6 +149,7 @@ const EXTRA_SEARCH_ENTRIES = [
     description: 'Historical Oasis Browser sprint boards from the data room era.',
     keywords: ['oasis', 'sprints', 'archive', 'engineering', 'browser'],
     nlHints: ['old sprint board', 'oasis sprints archive'],
+    hidden: true,
   },
   {
     path: '/onboarding/growth-content-konika',
@@ -159,16 +160,6 @@ const EXTRA_SEARCH_ENTRIES = [
     nlHints: ['new contractor', 'content onboarding'],
   },
 ]
-
-const OASIS_ARCHIVE_SEARCH_ENTRIES = OASIS_ARCHIVE_PATHS.filter((p) => p !== '/oasis-browser').map((path) => ({
-  path,
-  title: path.replace(/^\//, '').replace(/-/g, ' '),
-  businessFunction: 'Product',
-  description: 'Archived Oasis Browser page — preserved for future return.',
-  keywords: ['oasis', 'browser', 'archive'],
-  nlHints: ['oasis archive'],
-  source: 'archive',
-}))
 
 function uniqKeywords(arr) {
   const seen = new Set()
@@ -216,11 +207,15 @@ function buildOnboardingStepEntries() {
     const extraKeywords =
       step.id === 'time-log'
         ? ['time log', 'weekly', 'compliance', 'friday', 'tally', 'reports', 'charter', 'curr', 'kpis']
-        : []
+        : step.id === 'tools-access'
+          ? ['tools', 'access', 'slack', 'dm adam', 'mixpanel', 'linear', 'hubspot', 'stripe']
+          : []
     const extraDescription =
       step.id === 'time-log'
         ? 'Establish weekly Time Log habit — Friday EOD, compliance, Weekly Reports, charter KPIs.'
-        : `Onboarding step (day ${step.day}) — ${step.category}.`
+        : step.id === 'tools-access'
+          ? 'DM Adam Kershner on Slack after onboarding to get tool access for your role.'
+          : `Onboarding step (day ${step.day}) — ${step.category}.`
     return {
       path: `/onboarding/${step.id}`,
       title: step.label,
@@ -286,6 +281,7 @@ function buildRawList() {
   const raw = []
 
   for (const e of KNOWLEDGE_BASE_ENTRIES) {
+    if (e.archive) continue
     raw.push({
       path: e.path,
       title: e.title,
@@ -306,11 +302,8 @@ function buildRawList() {
   }
 
   for (const e of EXTRA_SEARCH_ENTRIES) {
+    if (e.hidden) continue
     raw.push({ ...e, source: 'extra' })
-  }
-
-  for (const e of OASIS_ARCHIVE_SEARCH_ENTRIES) {
-    raw.push(e)
   }
 
   for (const e of buildOnboardingStepEntries()) {
@@ -363,6 +356,7 @@ export function dataRoomEntryMatchesQuery(entry, q) {
 export function searchDataRoomEntries(query, opts = {}) {
   const { businessFunction } = opts
   return DATA_ROOM_SEARCH_ENTRIES.filter((e) => {
+    if (e.hidden) return false
     if (businessFunction && e.businessFunction !== businessFunction) return false
     return dataRoomEntryMatchesQuery(e, query)
   })
