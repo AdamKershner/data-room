@@ -193,20 +193,6 @@ function Onboarding() {
               </ul>
             </>
           )}
-
-          <h3 className="onboarding-coming-soon-title onboarding-optional-title">Other optional tracks</h3>
-          <ul className="onboarding-list">
-            <li className="onboarding-item onboarding-item-optional">
-              <Link
-                to="/onboarding/growth-content-konika"
-                className="onboarding-item-link"
-                title="Growth, website, and content — success criteria and checklist"
-              >
-                <span className="onboarding-item-text">Growth &amp; website content onboarding (Konika)</span>
-                <span className="onboarding-item-arrow">Open checklist →</span>
-              </Link>
-            </li>
-          </ul>
         </div>
       </section>
     </div>

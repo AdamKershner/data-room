@@ -32,7 +32,6 @@ import StrategicNarrative from './pages/StrategicNarrative'
 import B2CStrategicNarrative from './pages/B2CStrategicNarrative'
 import Onboarding from './pages/Onboarding'
 import OnboardingStep from './pages/OnboardingStep'
-import KonikaGrowthOnboarding from './pages/KonikaGrowthOnboarding'
 import LinkedInGuide from './pages/LinkedInGuide'
 import LinkedInConnectionsGuide from './pages/LinkedInConnectionsGuide'
 import ProductHuntTasks from './pages/ProductHuntTasks'
@@ -88,7 +87,6 @@ function App() {
           <Route path="/b2b-strategic-narrative" element={<StrategicNarrative />} />
           <Route path="/b2c-strategic-narrative" element={<B2CStrategicNarrative />} />
           <Route path="/onboarding" element={<Onboarding />} />
-          <Route path="/onboarding/growth-content-konika" element={<KonikaGrowthOnboarding />} />
           <Route path="/onboarding/install-oasis" element={<Navigate to="/oasis-browser" replace />} />
           <Route path="/onboarding/use-oasis-5-days" element={<Navigate to="/oasis-browser" replace />} />
           <Route path="/onboarding/:stepId" element={<OnboardingStep />} />

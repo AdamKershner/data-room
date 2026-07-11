@@ -151,14 +151,6 @@ const EXTRA_SEARCH_ENTRIES = [
     nlHints: ['old sprint board', 'oasis sprints archive'],
     hidden: true,
   },
-  {
-    path: '/onboarding/growth-content-konika',
-    title: 'Growth content onboarding (Konika)',
-    businessFunction: 'HR',
-    description: 'Specialized onboarding track for growth content contributors.',
-    keywords: ['onboarding', 'growth', 'konika', 'contractor'],
-    nlHints: ['new contractor', 'content onboarding'],
-  },
 ]
 
 function uniqKeywords(arr) {
