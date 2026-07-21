@@ -70,9 +70,9 @@ export const TIME_LOG_RITUAL = {
   whatToWrite:
     'Write a short description of what you did that week — enough detail that someone else can understand your focus and progress (about 1–2 paragraphs).',
   why: [
-    'Compliance — audit trail of who worked on what, supporting SOC 2 and operational policies.',
-    'Weekly Reports — Adam synthesizes time log entries into accurate cross-team progress updates.',
-    'Project Charter — logs show how daily work maps to scaling Kahana and org KPIs.',
+    'Compliance — an audit trail of who worked on what.',
+    'Weekly Reports — entries feed accurate cross-team progress updates.',
+    'Transparency — so our remote team can see what others are focused on and understand what’s going on across Kahana.',
   ],
   examples: [
     {
