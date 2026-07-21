@@ -837,6 +837,12 @@ function StepToolsAccess() {
       >
         Open Mixpanel →
       </a>
+      <div className="onboarding-note">
+        <p>
+          If you can&apos;t see the content, you haven&apos;t accepted the Mixpanel invitation or gotten proper
+          access yet — DM Adam on Slack.
+        </p>
+      </div>
 
       <h3>Code access (only if you contribute to the codebase)</h3>
       <p>
