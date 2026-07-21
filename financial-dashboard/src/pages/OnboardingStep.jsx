@@ -601,7 +601,20 @@ function StepTechnicalRoadmap() {
 function StepDuolingoArticle() {
   return (
     <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You can explain what CURR (Current User Retention Rate) is.</p>
+      <p className="onboarding-step-done onboarding-step-done-top">
+        <strong>✓ Done when (optional):</strong> You can explain what CURR (Current User Retention Rate) is.
+      </p>
+
+      <div className="onboarding-note">
+        <p>
+          <strong>Optional step.</strong> Not required to complete onboarding. Strongly recommended for product,
+          growth, and marketing — CURR, DAUs, and retention are the same KPI family we track in the{' '}
+          <Link to="/project-charter" className="onboarding-inline-link">
+            Scaling Kahana charter
+          </Link>
+          .
+        </p>
+      </div>
 
       <p>Read this Lenny's Newsletter article by Jorge Mazal (former CPO of Duolingo) on how Duolingo reignited user growth. The article covers leaderboards, push notifications, streaks, and the growth model that helped Duolingo achieve 4.5x DAU growth.</p>
 

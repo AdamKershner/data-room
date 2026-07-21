@@ -30,8 +30,14 @@ export const ONBOARDING_STEPS = [
     day: 3,
     badge: '20–30 minutes',
   },
-  // Day 4
-  { id: 'duolingo-article', label: 'Learn the Growth Framework', category: 'Company & Culture', day: 4, badge: '1 business day' },
+  // Optional
+  {
+    id: 'duolingo-article',
+    label: 'Learn the Growth Framework (optional)',
+    category: 'Company & Culture',
+    day: 'optional',
+    badge: 'optional',
+  },
   // Day 5
   {
     id: 'tools-access',
