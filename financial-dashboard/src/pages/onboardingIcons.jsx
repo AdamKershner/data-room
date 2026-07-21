@@ -86,6 +86,14 @@ export const ONBOARDING_ICONS = {
       <path d="M16 3v4" />
     </Icon>
   ),
+  meeting: (
+    <Icon>
+      <circle cx="9" cy="8" r="3" />
+      <circle cx="16" cy="9" r="2.5" />
+      <path d="M3 19c0-3 2.7-5 6-5s6 2 6 5" />
+      <path d="M15 19c0-2 1.5-3.5 3.5-3.5S22 17 22 19" />
+    </Icon>
+  ),
   clipboard: (
     <Icon>
       <rect x="6" y="4" width="12" height="18" rx="2" />

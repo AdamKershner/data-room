@@ -285,7 +285,7 @@ function ProjectCharter() {
           </div>
           <p>
             New hires: complete the{' '}
-            <Link to="/onboarding/time-log">Time Log onboarding step</Link> on Day 5 — first entry plus
+            <Link to="/onboarding/time-log">Time Log onboarding step</Link> — first entry plus
             recurring Friday calendar reminder.
           </p>
         </div>

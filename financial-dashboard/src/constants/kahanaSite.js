@@ -18,6 +18,9 @@ export const CREATOR_OUTREACH_SHEET_URL =
 /** Weekly time log — Tally form submitted every Friday EOD by all teammates. */
 export const TIME_LOG_TALLY_URL = 'https://tally.so/r/w2YdzL'
 
+/** Adam Kershner OnceHub — schedule weekly 1-on-1. */
+export const ADAM_ONCEHUB_URL = 'https://go.oncehub.com/AdamKershner'
+
 /** Adam Kershner — personal socials hub (founder-led brand). */
 export const ADAM_SOCIALS_URL = 'https://about.kahana.io/adam-kershner'
 

@@ -200,14 +200,18 @@ function buildOnboardingStepEntries() {
       step.id === 'time-log'
         ? ['time log', 'weekly', 'compliance', 'friday', 'tally', 'reports', 'charter', 'curr', 'kpis']
         : step.id === 'tools-access'
-          ? ['tools', 'access', 'slack', 'dm adam', 'mixpanel', 'linear', 'hubspot', 'stripe']
-          : []
+          ? ['tools', 'access', 'slack', 'dm adam', 'mixpanel', 'linear', 'github', 'firebase']
+          : step.id === 'weekly-1on1'
+            ? ['1-on-1', 'oncehub', 'weekly', 'adam', 'meeting']
+            : []
     const extraDescription =
       step.id === 'time-log'
         ? 'Establish weekly Time Log habit — Friday EOD, compliance, Weekly Reports, charter KPIs.'
         : step.id === 'tools-access'
-          ? 'DM Adam Kershner on Slack after onboarding to get tool access for your role.'
-          : `Onboarding step (day ${step.day}) — ${step.category}.`
+          ? 'DM Adam for Linear, Mixpanel, and (if coding) GitHub + Firebase with preferred emails.'
+          : step.id === 'weekly-1on1'
+            ? 'Schedule a recurring weekly 1-on-1 with Adam via OnceHub.'
+            : `Onboarding step (Day 1) — ${step.category}.`
     return {
       path: `/onboarding/${step.id}`,
       title: step.label,

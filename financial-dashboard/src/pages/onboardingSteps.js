@@ -1,11 +1,19 @@
 export const ONBOARDING_STEPS = [
   {
     id: 'schedule-1on1',
-    label: 'Join Slack & schedule your 1-on-1',
+    label: 'Join Slack',
     icon: 'message',
     category: 'Admin & Setup',
     day: 1,
     badge: '10 min',
+  },
+  {
+    id: 'weekly-1on1',
+    label: 'Schedule weekly 1-on-1 with Adam',
+    icon: 'meeting',
+    category: 'Admin & Setup',
+    day: 1,
+    badge: '5 min',
   },
   {
     id: 'social-media',
@@ -16,12 +24,12 @@ export const ONBOARDING_STEPS = [
     badge: '5 min',
   },
   {
-    id: 'linear-access',
-    label: 'Get Linear & Mixpanel access',
-    icon: 'chart',
+    id: 'tools-access',
+    label: 'Request tools access',
+    icon: 'key',
     category: 'Admin & Setup',
     day: 1,
-    badge: '5 min',
+    badge: '10 min',
   },
   {
     id: 'create-profiles',
@@ -52,14 +60,6 @@ export const ONBOARDING_STEPS = [
     label: 'Read Company Rules',
     icon: 'book',
     category: 'Company & Culture',
-    day: 1,
-    badge: '5 min',
-  },
-  {
-    id: 'tools-access',
-    label: 'Request role tools',
-    icon: 'key',
-    category: 'Admin & Setup',
     day: 1,
     badge: '5 min',
   },

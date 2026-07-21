@@ -122,8 +122,9 @@ function OperatingSystem() {
           </ul>
           <p>
             New hires: complete{' '}
-            <Link to="/onboarding/schedule-1on1">Join Slack</Link> and{' '}
-            <Link to="/onboarding/linear-access">Linear and Mixpanel</Link> during onboarding.
+            <Link to="/onboarding/schedule-1on1">Join Slack</Link>,{' '}
+            <Link to="/onboarding/weekly-1on1">schedule a weekly 1-on-1</Link>, and{' '}
+            <Link to="/onboarding/tools-access">request tools access</Link> during onboarding.
           </p>
         </div>
       </section>

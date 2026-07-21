@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
 import { OnboardingIcon } from './onboardingIcons'
-import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, MIXPANEL_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL, ADAM_SOCIALS_URL, KAHANA_ABOUT_URL, KAHANA_SITE_URL, KAHANA_SUPPORT_URL, KAHANA_FEEDBACK_URL, KAHANA_PROFILE_EXAMPLE_URL } from '../constants/kahanaSite'
+import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, MIXPANEL_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL, ADAM_SOCIALS_URL, ADAM_ONCEHUB_URL, KAHANA_ABOUT_URL, KAHANA_SITE_URL, KAHANA_SUPPORT_URL, KAHANA_FEEDBACK_URL, KAHANA_PROFILE_EXAMPLE_URL } from '../constants/kahanaSite'
 import { CHARTER_KPIS, TIME_LOG_RITUAL } from '../data/charterKpis'
 import linearKahanaBoard from '../images/linear-kahana-board.png'
 import mixpanelCheckoutJourneys from '../images/mixpanel-checkout-journeys.png'
@@ -14,7 +14,7 @@ function StepSchedule1on1() {
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
         <strong>✓ Done when:</strong> You&apos;ve joined Kahana Slack, installed Slack on your phone with
-        notifications on, DM&apos;d Adam Kershner, and scheduled your biweekly 1-on-1.
+        notifications on, and DM&apos;d Adam Kershner to introduce yourself.
       </p>
 
       <h3>1. Join Slack</h3>
@@ -60,64 +60,56 @@ function StepSchedule1on1() {
       <div className="onboarding-note onboarding-note-important">
         <p>
           As soon as you join Slack, <strong>DM Adam Kershner</strong>. Introduce yourself (name, role /
-          functions you&apos;re joining for). That opens the channel for onboarding questions, tool access later,
-          and your biweekly check-ins.
-        </p>
-      </div>
-
-      <h3>4. Schedule your biweekly 1-on-1</h3>
-      <p>
-        It&apos;s mandatory to schedule the meeting. This creates a 15-minute block on your and Adam&apos;s
-        calendars — a reminder to check in every 2 weeks. At that time you can join the meeting or message over
-        Slack; the point is connecting at least once every 2 weeks.
-      </p>
-      <a
-        href="https://go.oncehub.com/AdamKershner"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="onboarding-cta-link onboarding-cta-link-block"
-      >
-        Schedule your biweekly 1-on-1 with Adam →
-      </a>
-
-      <h3>FAQs</h3>
-      <dl className="onboarding-faq">
-        <dt>Frequency</dt>
-        <dd>
-          Every 2 weeks. The scheduled 15-minute block is a reminder — you can join the meeting or check in
-          over Slack at that time.
-        </dd>
-        <dt>Agenda</dt>
-        <dd>Share updates about what you&apos;re focusing on and learning about.</dd>
-        <dt>Ask questions</dt>
-        <dd>Ask questions and get context from Adam. If there&apos;s anything you want to know, ask.</dd>
-      </dl>
-
-      <div className="onboarding-note">
-        <p>
-          <strong>Recurring meeting:</strong> When you schedule via the calendar link, Adam will update it to
-          make it a recurring biweekly meeting.
+          functions you&apos;re joining for). That opens the channel for onboarding questions and tool access.
         </p>
       </div>
 
       <div className="onboarding-note onboarding-note-help">
         <p>
-          <strong>Slack vs Linear:</strong> Use Slack for conversation and quick questions. When work needs an
-          owner, priority, or deadline, create a{' '}
-          <a href={LINEAR_WORKSPACE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
-            Linear issue
-          </a>{' '}
-          — see{' '}
-          <Link to="/operating-system" className="onboarding-inline-link">
-            Operating System
-          </Link>
-          .
+          Next: <Link to="/onboarding/weekly-1on1" className="onboarding-inline-link">Schedule your weekly 1-on-1</Link>
+          {' '}and{' '}
+          <Link to="/onboarding/tools-access" className="onboarding-inline-link">request tools access</Link>.
         </p>
       </div>
+    </div>
+  )
+}
 
-      <div className="onboarding-note onboarding-note-important">
+function StepWeekly1on1() {
+  return (
+    <div className="onboarding-step-content">
+      <p className="onboarding-step-done onboarding-step-done-top">
+        <strong>✓ Done when:</strong> You&apos;ve booked a recurring weekly 1-on-1 with Adam via OnceHub.
+      </p>
+
+      <p>
+        Everyone schedules a <strong>weekly 1-on-1</strong> with Adam. Use the OnceHub link below — it puts a
+        meeting on both calendars so you check in every week (join the call or sync over Slack at that time).
+      </p>
+
+      <a
+        href={ADAM_ONCEHUB_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="onboarding-cta-link onboarding-cta-link-block"
+      >
+        Schedule weekly 1-on-1 with Adam → OnceHub
+      </a>
+
+      <h3>FAQs</h3>
+      <dl className="onboarding-faq">
+        <dt>Frequency</dt>
+        <dd>Weekly — not biweekly. Book the slot; Adam will make it a recurring weekly meeting.</dd>
+        <dt>Agenda</dt>
+        <dd>Share what you&apos;re focusing on, blockers, and what you&apos;re learning.</dd>
+        <dt>Can&apos;t make it?</dt>
+        <dd>Tell Adam in advance on Slack.</dd>
+      </dl>
+
+      <div className="onboarding-note onboarding-note-help">
         <p>
-          <strong>If you cannot attend a scheduled meeting:</strong> Let Adam know in advance on Slack.
+          Prefer to message at the scheduled time instead of joining video? That&apos;s fine — the calendar block
+          is the commitment to connect weekly.
         </p>
       </div>
     </div>
@@ -603,7 +595,7 @@ function StepCreateProfiles() {
         <p>
           After you finish onboarding, request tool access by DMing Adam — see{' '}
           <Link to="/onboarding/tools-access" className="onboarding-inline-link">
-            Role tools
+            Request tools access
           </Link>
           . Select your functions on your Avenger profile so Adam knows what to provision.
         </p>
@@ -759,34 +751,48 @@ function StepDuolingoArticle() {
   )
 }
 
-function StepLinearAccess() {
+function StepToolsAccess() {
   return (
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You can sign in to Linear and Mixpanel.
-      </p>
-
-      <p>
-        Product and engineering use two shared systems day to day: <strong>Linear</strong> for shipping work,
-        and <strong>Mixpanel</strong> for userbase analytics. DM Adam for access to both after you&apos;ve joined
-        Slack (step 1).
+        <strong>✓ Done when:</strong> You&apos;ve DM&apos;d Adam on Slack about codebase contribution plans,
+        confirmed Linear + Mixpanel access, and (if you need code) requested GitHub + Firebase with your
+        preferred emails.
       </p>
 
       <div className="onboarding-note onboarding-note-important">
+        <h3>DM Adam on Slack (required)</h3>
         <p>
-          <strong>Need access?</strong> DM <strong>Adam Kershner</strong> on Slack and ask for Linear + Mixpanel.
-          Product and engineering should have both before first sprint planning.
+          Do not wait for automatic invites. <strong>DM Adam Kershner</strong> and include:
         </p>
+        <ol className="onboarding-steps-list">
+          <li>Your name and role / functions from your{' '}
+            <Link to="/onboarding/create-profiles" className="onboarding-inline-link">
+              Avenger profile
+            </Link>
+          </li>
+          <li>
+            Whether you <strong>plan to contribute to the codebase</strong> or not (yes / no)
+          </li>
+          <li>
+            If yes (developers and anyone who needs code access): your preferred emails for{' '}
+            <strong>GitHub</strong> and <strong>Firebase</strong>
+          </li>
+        </ol>
+        <p>Adam provisions access (usually within 24 hours). Watch your email — check spam.</p>
       </div>
 
-      <h3>1. Linear — backlog &amp; sprint work</h3>
+      <h3>Everyone gets: Linear + Mixpanel</h3>
       <p>
-        Linear is our system of record for feature requests, bugs, and sprint work. Issues live on a board
-        (Backlog → Todo → In Progress → In Review) with IDs like <strong>KAH-55</strong>. PMs prioritize against{' '}
-        <Link to="/project-charter" className="onboarding-inline-link">
-          charter KPIs
-        </Link>
-        ; engineers pull assigned issues and update status there.
+        All teammates get <strong>Linear</strong> (project management / task assignment) and{' '}
+        <strong>Mixpanel</strong> (userbase analytics dashboards). Ask for both in your DM if you don&apos;t
+        have invites yet.
+      </p>
+
+      <h4>Linear — backlog &amp; sprint work</h4>
+      <p>
+        System of record for features, bugs, and sprint work. Board columns: Backlog → Todo → In Progress →
+        In Review (IDs like <strong>KAH-55</strong>).
       </p>
       <figure className="onboarding-screenshot">
         <img
@@ -806,11 +812,10 @@ function StepLinearAccess() {
         Open linear.app/kahana →
       </a>
 
-      <h3>2. Mixpanel — userbase analytics</h3>
+      <h4>Mixpanel — userbase analytics</h4>
       <p>
-        Mixpanel is where we track product usage and conversion — funnels (e.g. billing / checkout journeys),
-        retention, and other live user metrics. Filter reports to <strong>environment = production</strong> unless
-        you&apos;re debugging.
+        Product usage and conversion funnels (e.g. billing / checkout). Filter reports to{' '}
+        <strong>environment = production</strong> unless you&apos;re debugging.
       </p>
       <figure className="onboarding-screenshot">
         <img
@@ -829,6 +834,32 @@ function StepLinearAccess() {
       >
         Open Mixpanel →
       </a>
+
+      <h3>Code access (only if you contribute to the codebase)</h3>
+      <p>
+        Developers and anyone who needs the code must <strong>request GitHub and Firebase access directly
+        from Adam</strong> in Slack and provide the preferred email for each. Do not assume you are on the
+        repos until Adam confirms.
+      </p>
+      <ul className="onboarding-rules-list">
+        <li>
+          <strong>GitHub</strong> — source code, PRs, reviews
+        </li>
+        <li>
+          <strong>Firebase</strong> — project / app access tied to your preferred email
+        </li>
+      </ul>
+
+      <div className="onboarding-note onboarding-note-help">
+        <p>
+          <strong>Questions?</strong> DM Adam on Slack or email{' '}
+          <a href={`mailto:${KAHANA_CONTACT_EMAIL}`} className="onboarding-inline-link">
+            {KAHANA_CONTACT_EMAIL}
+          </a>
+          . Role-specific tools beyond Linear/Mixpanel/GitHub/Firebase (HubSpot, Figma, Stripe, etc.) can be
+          requested in the same DM once your profiles are done.
+        </p>
+      </div>
     </div>
   )
 }
@@ -936,127 +967,6 @@ function StepSocialMedia() {
   )
 }
 
-function StepToolsAccess() {
-  return (
-    <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You&apos;ve DM&apos;d Adam Kershner on Slack to request access, and you
-        have invites or credentials for every tool your role needs.
-      </p>
-
-      <div className="onboarding-note onboarding-note-important">
-        <h3>How to get access (read this first)</h3>
-        <ol className="onboarding-steps-list">
-          <li>
-            <strong>Schedule your biweekly 1-on-1</strong> with Adam —{' '}
-            <Link to="/onboarding/schedule-1on1" className="onboarding-inline-link">
-              Day 1 step
-            </Link>
-          </li>
-          <li>
-            <strong>Complete the rest of onboarding</strong>: Slack, profiles, Kahana site, Aura
-            Library, growth framework, etc.
-          </li>
-          <li>
-            <strong>DM Adam Kershner on Slack</strong> with: your name, role/functions from your{' '}
-            <Link to="/onboarding/create-profiles" className="onboarding-inline-link">
-              Avenger profile
-            </Link>
-            , and the tools you need from the list below.
-          </li>
-          <li>
-            Adam will provision access (usually within 24 hours). Watch your email for invites — check spam.
-          </li>
-        </ol>
-      </div>
-
-      <p>
-        Do not wait for automatic invites — <strong>you must DM Adam on Slack</strong> to get set up. This is
-        the step people miss; following the sequence above is how every teammate gets their tools.
-      </p>
-
-      <div className="onboarding-avenger-tasks">
-        <div className="onboarding-nps-step">
-          <strong>Marketing</strong>
-          <ul>
-            <li>Looker Reports</li>
-            <li>Google Trends</li>
-            <li>Google Tag Manager</li>
-            <li>Figma (design system and brand guidelines)</li>
-            <li>Screen Studio (for video creation)</li>
-            <li>Mixpanel</li>
-            <li>Marketing Specific Google Docs &amp; Sheets</li>
-            <li>Social media accounts — request access for email and password from Adam if you will be posting on social media on behalf of Kahana</li>
-          </ul>
-        </div>
-
-        <div className="onboarding-nps-step">
-          <strong>Sales</strong>
-          <ul>
-            <li>HubSpot</li>
-            <li>Clay</li>
-            <li>Warmly</li>
-            <li>Apollo</li>
-            <li>Wellfound</li>
-            <li>Mixpanel</li>
-            <li>Sales Specific Google Docs &amp; Sheets</li>
-          </ul>
-        </div>
-
-        <div className="onboarding-nps-step">
-          <strong>Technical</strong>
-          <ul>
-            <li>
-              <Link to="/onboarding/linear-access" className="onboarding-inline-link">
-                Linear
-              </Link>{' '}
-              — bugs, tech debt, assigned sprint work (see Linear + Mixpanel onboarding step)
-            </li>
-            <li>Supabase</li>
-            <li>AWS</li>
-            <li>GitHub</li>
-            <li>Mixpanel</li>
-            <li>Technical Specific Google Docs &amp; Sheets</li>
-          </ul>
-        </div>
-
-        <div className="onboarding-nps-step">
-          <strong>Product</strong>
-          <ul>
-            <li>
-              <Link to="/onboarding/linear-access" className="onboarding-inline-link">
-                Linear
-              </Link>{' '}
-              — feature requests, backlog prioritization (see Linear + Mixpanel onboarding step)
-            </li>
-            <li>Figma</li>
-            <li>Mixpanel</li>
-            <li>Product Specific Google Docs &amp; Sheets</li>
-          </ul>
-        </div>
-
-        <div className="onboarding-nps-step">
-          <strong>Finance</strong>
-          <ul>
-            <li>Stripe</li>
-            <li>Finance Specific Google Docs &amp; Sheets</li>
-          </ul>
-        </div>
-      </div>
-
-      <div className="onboarding-note onboarding-note-help">
-        <p>
-          <strong>Questions?</strong> DM Adam on Slack or email{' '}
-          <a href={`mailto:${KAHANA_CONTACT_EMAIL}`} className="onboarding-inline-link">
-            {KAHANA_CONTACT_EMAIL}
-          </a>
-          .
-        </p>
-      </div>
-    </div>
-  )
-}
-
 function StepOnboardingSurvey() {
   return (
     <div className="onboarding-step-content">
@@ -1082,6 +992,7 @@ function StepOnboardingSurvey() {
 
 const STEP_CONTENT = {
   'schedule-1on1': StepSchedule1on1,
+  'weekly-1on1': StepWeekly1on1,
   'company-rules': StepCompanyRules,
   'explore-aura-library': StepExploreAuraLibrary,
   'time-log': StepTimeLog,
@@ -1091,7 +1002,6 @@ const STEP_CONTENT = {
   'review-landing-page': StepReviewLandingPage,
   'duolingo-article': StepDuolingoArticle,
   'soc2-compliance': StepSoc2Compliance,
-  'linear-access': StepLinearAccess,
   'social-media': StepSocialMedia,
   'tools-access': StepToolsAccess,
   'onboarding-survey': StepOnboardingSurvey,
