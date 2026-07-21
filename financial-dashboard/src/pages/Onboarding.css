@@ -296,6 +296,7 @@
 }
 
 .onboarding-item-text {
+  font-size: 1.05rem;
   font-weight: 600;
   color: #1e293b;
   text-decoration: underline;
@@ -308,6 +309,7 @@
 
 .onboarding-item-arrow {
   flex-shrink: 0;
+  font-size: 0.95rem;
   color: #94a3b8;
   font-weight: 600;
   text-decoration: none;
@@ -319,21 +321,10 @@
 
 .onboarding-item-link:hover {
   color: var(--oasis-green-medium-dark);
-  text-decoration: underline;
 }
 
 .onboarding-item-link:hover .onboarding-item-arrow {
-  text-decoration: underline;
-}
-
-.onboarding-item-text {
-  font-size: 1.05rem;
-}
-
-.onboarding-item-arrow {
-  font-size: 0.85rem;
   color: var(--oasis-green-medium, #0d9488);
-  font-weight: 500;
 }
 
 /* Onboarding Step (subpage) - fixed back banner */
