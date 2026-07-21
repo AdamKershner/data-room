@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
-import { KAHANA_PLATFORM_URL, KAHANA_EXPLORE_URL } from '../data/kahanaPlatformSections'
 import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL, ADAM_SOCIALS_URL, KAHANA_ABOUT_URL, KAHANA_SITE_URL, KAHANA_SUPPORT_URL, KAHANA_FEEDBACK_URL } from '../constants/kahanaSite'
 import { CHARTER_KPIS, TIME_LOG_RITUAL } from '../data/charterKpis'
 import { PM_LIFECYCLE_RESOURCES, PM_LIFECYCLE_STEPS } from '../data/operatingSystemSections'
@@ -481,60 +480,6 @@ function StepAvengerProfile() {
   )
 }
 
-function StepKnowledgeBaseCoreBusiness() {
-  return (
-    <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You&apos;ve gone into depth in the Knowledge base—reading, skimming, and connecting
-        material across functions—so you can explain Kahana&apos;s core business at a credible level for your role.
-      </p>
-
-      <p>
-        This step is not a quick tour. The goal is to <strong>understand the core business</strong> by working through the
-        information in the{' '}
-        <Link to="/knowledge-base" className="onboarding-inline-link">
-          Knowledge base
-        </Link>
-        : documents, narratives, and process-oriented pages covering <strong>sales, marketing, finance, product</strong>,
-        and more—all of the key business functions we reference when making decisions. Use category filters and search to
-        find what matters most to you, then branch into linked pages until the story clicks.
-      </p>
-
-      <p>
-        After you&apos;ve done that work, you should have a <strong>strong foundation</strong> in how Kahana operates as
-        a business—not only what we build, but how we go to market, model revenue, and prioritize on the product side.
-      </p>
-
-      <p>
-        The table of contents still holds top-level entry points (Executive Summary, PMF+NPS data, Sprints, Project
-        Charter, etc.). The Knowledge base is where most deep-dive reference pages live.
-      </p>
-
-      <div className="onboarding-cta-row">
-        <Link to="/knowledge-base" className="onboarding-cta-link">
-          Open Knowledge base →
-        </Link>
-      </div>
-
-      <p>
-        The Kahana platform has its own onboarding step — see{' '}
-        <Link to="/onboarding/learn-kahana" className="onboarding-inline-link">
-          Learn about the Kahana platform
-        </Link>{' '}
-        on Day 3.
-      </p>
-
-      <div className="onboarding-note">
-        <p>
-          When you&apos;re ready, share questions or gaps — I&apos;m happy to walk through nuances and align on strategy.
-          Reach Adam by DM on Slack or at{' '}
-          <a href={`mailto:${KAHANA_CONTACT_EMAIL}`} className="onboarding-inline-link">{KAHANA_CONTACT_EMAIL}</a>.
-        </p>
-      </div>
-    </div>
-  )
-}
-
 function StepReviewLandingPage() {
   return (
     <div className="onboarding-step-content">
@@ -586,124 +531,16 @@ function StepReviewLandingPage() {
 
       <div className="onboarding-note">
         <p>
-          After this, go deeper in{' '}
-          <Link to="/onboarding/learn-kahana" className="onboarding-inline-link">
-            Learn about the Kahana platform
+          Go deeper anytime in the{' '}
+          <Link to="/kahana" className="onboarding-inline-link">
+            Kahana Platform Overview
           </Link>{' '}
-          (internal overview) and the{' '}
+          and{' '}
           <Link to="/knowledge-base" className="onboarding-inline-link">
             Knowledge base
           </Link>
           .
         </p>
-      </div>
-    </div>
-  )
-}
-
-function StepLearnKahana() {
-  return (
-    <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You can explain Kahana&apos;s library vision, who it serves, how we earn
-        (Growth SaaS + 5% GMV), and our women-first GTM motion.
-      </p>
-
-      <p>
-        <strong>Kahana</strong> aspires to be like Wan Shi Tong&apos;s Library — a mesmerizing place to discover
-        curated digital knowledge from experts worldwide. Start with the public story on{' '}
-        <a href={KAHANA_ABOUT_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
-          about.kahana.io
-        </a>{' '}
-        if you haven&apos;t yet (
-        <Link to="/onboarding/review-landing-page" className="onboarding-inline-link">
-          landing page step
-        </Link>
-        ). The product lives at{' '}
-        <a href={KAHANA_PLATFORM_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
-          app.kahana.io
-        </a>
-        . Formerly Curio. Oasis Browser is optional for work — see{' '}
-        <Link to="/knowledge-base">Knowledge base</Link>.
-      </p>
-
-      <p>
-        <strong>North star:</strong> Make Kahana a beloved place to discover curated human knowledge — where
-        anyone could spend an eternity exploring.
-      </p>
-
-      <div className="onboarding-avenger-tasks">
-        <div className="onboarding-nps-step">
-          <strong>Traction</strong>
-          <ul>
-            <li>6,500+ registered users</li>
-            <li>~$300/mo Growth MRR ($9.99/mo tier)</li>
-            <li>5% take rate on hub sales (spiky when creators monetize)</li>
-          </ul>
-        </div>
-        <div className="onboarding-nps-step">
-          <strong>GTM priority</strong>
-          <ul>
-            <li>Discover, filter, invite women experts and creators first</li>
-            <li>Showcase their hubs on Explore and profiles</li>
-          </ul>
-        </div>
-        <div className="onboarding-nps-step">
-          <strong>Core surfaces</strong>
-          <ul>
-            <li>
-              <strong>Explore</strong> — public marketplace at app.kahana.io/explore
-            </li>
-            <li>
-              <strong>Hub</strong> — curated digital product container
-            </li>
-            <li>
-              <strong>Profile</strong> — creator storefront
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <p>
-        Read the platform overview in this data room:{' '}
-        <Link to="/kahana" className="onboarding-inline-link">
-          Kahana Platform Overview
-        </Link>
-        . For the high-level strategic story (why Kahana, why now), see{' '}
-        <Link to="/kahana-narrative" className="onboarding-inline-link">
-          Kahana Story
-        </Link>
-        . For what engineering is focused on technically, see{' '}
-        <Link to="/technical-roadmap" className="onboarding-inline-link">
-          Technical Roadmap
-        </Link>{' '}
-        (Security, Trust, Algorithm). For who Kahana competes with in the creator economy, see{' '}
-        <Link to="/kahana-competitors" className="onboarding-inline-link">
-          Competitive Landscape
-        </Link>
-        .
-      </p>
-
-      <div className="onboarding-cta-row">
-        <Link to="/kahana" className="onboarding-cta-link">
-          Read Kahana platform overview →
-        </Link>
-      </div>
-
-      <p>
-        Then browse the live product:{' '}
-        <a href={KAHANA_EXPLORE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
-          app.kahana.io/explore
-        </a>
-        .
-      </p>
-
-      <a href={KAHANA_PLATFORM_URL} target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
-        Open app.kahana.io →
-      </a>
-
-      <div className="onboarding-note">
-        <p>Questions about Kahana? DM Adam on Slack.</p>
       </div>
     </div>
   )
@@ -870,9 +707,11 @@ function StepLinearAccess() {
       </ul>
 
       <p>
-        Deep dive: <Link to="/onboarding/learn-kahana" className="onboarding-inline-link">Learn about Kahana</Link>{' '}
-        (Day 3) · <Link to="/technical-roadmap" className="onboarding-inline-link">Technical roadmap</Link>{' '}
-        · <Link to="/onboarding/time-log" className="onboarding-inline-link">Weekly Time Log</Link> (Day 5)
+        Deep dive: <Link to="/kahana" className="onboarding-inline-link">Kahana Platform Overview</Link>
+        {' · '}
+        <Link to="/technical-roadmap" className="onboarding-inline-link">Technical roadmap</Link>
+        {' · '}
+        <Link to="/onboarding/time-log" className="onboarding-inline-link">Weekly Time Log</Link> (Day 5)
       </p>
     </div>
   )
@@ -1192,9 +1031,7 @@ const STEP_CONTENT = {
   'install-oasis': StepInstallOasis,
   'use-oasis-5-days': StepUseOasis5Days,
   'avenger-profile': StepAvengerProfile,
-  'knowledge-base-core-business': StepKnowledgeBaseCoreBusiness,
   'review-landing-page': StepReviewLandingPage,
-  'learn-kahana': StepLearnKahana,
   'duolingo-article': StepDuolingoArticle,
   'soc2-compliance': StepSoc2Compliance,
   'internal-channels': StepInternalChannels,

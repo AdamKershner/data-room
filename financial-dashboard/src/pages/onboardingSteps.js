@@ -23,20 +23,6 @@ export const ONBOARDING_STEPS = [
     day: 3,
     badge: '15–20 minutes',
   },
-  {
-    id: 'knowledge-base-core-business',
-    label: "Understand Kahana's core business (Knowledge base)",
-    category: 'Company & Culture',
-    day: 3,
-    badge: '1 business day',
-  },
-  {
-    id: 'learn-kahana',
-    label: 'Learn about the Kahana platform',
-    category: 'Company & Culture',
-    day: 3,
-    badge: '30–60 minutes',
-  },
   // Optional
   {
     id: 'duolingo-article',

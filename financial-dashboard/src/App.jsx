@@ -60,7 +60,9 @@ function App() {
           <Route path="/knowledge-base" element={<KnowledgeBase />} />
           <Route path="/kahana" element={<KahanaPlatform />} />
           <Route path="/curio-store" element={<Navigate to="/kahana" replace />} />
-          <Route path="/onboarding/learn-curio" element={<Navigate to="/onboarding/learn-kahana" replace />} />
+          <Route path="/onboarding/learn-curio" element={<Navigate to="/kahana" replace />} />
+          <Route path="/onboarding/learn-kahana" element={<Navigate to="/kahana" replace />} />
+          <Route path="/onboarding/knowledge-base-core-business" element={<Navigate to="/knowledge-base" replace />} />
           <Route path="/Q1-executive-report" element={<Q1ExecutiveReport />} />
           <Route path="/q1-midpoint" element={<Q1MidpointUpdate />} />
           <Route path="/problem-market" element={<ProblemMarket />} />
