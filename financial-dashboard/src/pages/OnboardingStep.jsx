@@ -758,38 +758,50 @@ function StepToolsAccess() {
   return (
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You&apos;ve DM&apos;d Adam on Slack about codebase contribution plans,
-        confirmed Linear + Mixpanel access, and (if you need code) requested GitHub + Firebase with your
-        preferred emails.
+        <strong>✓ Done when:</strong> You&apos;ve submitted the Get Access to Tools &amp; Data form with your
+        preferred email, answered whether you plan to contribute to the code, and (if yes) provided your
+        preferred GitHub email.
+      </p>
+
+      <p>
+        Fill out this form to get access — it replaces DMing Adam for tools. You&apos;ll enter a preferred
+        email for project management and analytics (Linear + Mixpanel). If you plan to contribute to technical
+        development (the code), you can also give a preferred email for GitHub.
       </p>
 
       <div className="onboarding-note onboarding-note-important">
-        <h3>DM Adam on Slack (required)</h3>
         <p>
-          Do not wait for automatic invites. <strong>DM Adam Kershner</strong> and include:
+          <strong>Submit the form below</strong> (or open it in a new tab). Watch your email for invites —
+          check spam. Access usually arrives within 24 hours after you submit.
         </p>
-        <ol className="onboarding-steps-list">
-          <li>Your name and role / functions from your{' '}
-            <Link to="/onboarding/create-profiles" className="onboarding-inline-link">
-              Avenger profile
-            </Link>
-          </li>
-          <li>
-            Whether you <strong>plan to contribute to the codebase</strong> or not (yes / no)
-          </li>
-          <li>
-            If yes (developers and anyone who needs code access): your preferred emails for{' '}
-            <strong>GitHub</strong> and <strong>Firebase</strong>
-          </li>
-        </ol>
-        <p>Adam provisions access (usually within 24 hours). Watch your email — check spam.</p>
+      </div>
+
+      <a
+        href={TOOLS_ACCESS_TALLY_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="onboarding-cta-link onboarding-cta-link-block"
+      >
+        Open Get Access to Tools &amp; Data form →
+      </a>
+
+      <div className="onboarding-survey-embed" style={{ marginTop: 16 }}>
+        <iframe
+          data-tally-embed
+          src={TOOLS_ACCESS_TALLY_EMBED_URL}
+          width="100%"
+          height="700"
+          frameBorder="0"
+          marginHeight="0"
+          marginWidth="0"
+          title="Get Access to Tools & Data"
+        />
       </div>
 
       <h3>Everyone gets: Linear + Mixpanel</h3>
       <p>
-        All teammates get <strong>Linear</strong> (project management / task assignment) and{' '}
-        <strong>Mixpanel</strong> (userbase analytics dashboards). Ask for both in your DM if you don&apos;t
-        have invites yet.
+        After you submit the form, you&apos;ll receive invites for <strong>Linear</strong> (project management /
+        task assignment) and <strong>Mixpanel</strong> (userbase analytics dashboards).
       </p>
 
       <h4>Linear — backlog &amp; sprint work</h4>
@@ -840,24 +852,16 @@ function StepToolsAccess() {
       <div className="onboarding-note">
         <p>
           If you can&apos;t see the content, you haven&apos;t accepted the Mixpanel invitation or gotten proper
-          access yet — DM Adam on Slack.
+          access yet — resubmit the form if needed or DM Adam on Slack.
         </p>
       </div>
 
-      <h3>Code access (only if you contribute to the codebase)</h3>
+      <h3>Code access (if you selected yes on the form)</h3>
       <p>
-        Developers and anyone who needs the code must <strong>request GitHub and Firebase access directly
-        from Adam</strong> in Slack and provide the preferred email for each. Do not assume you are on the
-        repos until Adam confirms.
+        If you plan to contribute to technical development, use the form to share your preferred{' '}
+        <strong>GitHub</strong> email. You&apos;ll get invited to the repos once your request is processed —
+        don&apos;t assume you have access until the invite arrives.
       </p>
-      <ul className="onboarding-rules-list">
-        <li>
-          <strong>GitHub</strong> — source code, PRs, reviews
-        </li>
-        <li>
-          <strong>Firebase</strong> — project / app access tied to your preferred email
-        </li>
-      </ul>
 
       <div className="onboarding-note onboarding-note-help">
         <p>
@@ -865,13 +869,13 @@ function StepToolsAccess() {
           <a href={`mailto:${KAHANA_CONTACT_EMAIL}`} className="onboarding-inline-link">
             {KAHANA_CONTACT_EMAIL}
           </a>
-          . Role-specific tools beyond Linear/Mixpanel/GitHub/Firebase (HubSpot, Figma, Stripe, etc.) can be
-          requested in the same DM once your profiles are done.
+          .
         </p>
       </div>
     </div>
   )
 }
+
 
 const SOC2_POLICIES = [
   { name: 'Information Security Policy', description: 'Overall security framework and how we protect systems and data.' },
