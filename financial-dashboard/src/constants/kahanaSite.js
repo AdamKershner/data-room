@@ -8,6 +8,9 @@ export const SLACK_INVITE_URL =
 /** Linear workspace — product backlog, bugs, feature requests, sprint prioritization. */
 export const LINEAR_WORKSPACE_URL = 'https://linear.app/kahana'
 
+/** Mixpanel — userbase analytics (funnels, retention, product usage). */
+export const MIXPANEL_URL = 'https://mixpanel.com/'
+
 /** Creator & influencer outreach pipeline — profiles, links, and outreach notes. */
 export const CREATOR_OUTREACH_SHEET_URL =
   'https://docs.google.com/spreadsheets/d/1_QF9SAQR-P0VU78MmVg1XjVpGhltqfWqRlANc4W8sXE/edit?gid=0#gid=0'

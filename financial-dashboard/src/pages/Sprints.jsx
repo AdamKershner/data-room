@@ -17,7 +17,7 @@ function Sprints() {
           Feature requests, bugs, and sprint work are logged, prioritized, and assigned there —
           daily/weekly. See{' '}
           <Link to="/operating-system">Operating System</Link> and{' '}
-          <Link to="/onboarding/linear-access">Linear onboarding</Link> for the full workflow.
+          <Link to="/onboarding/linear-access">Linear + Mixpanel onboarding</Link> for access and what each tool looks like.
         </p>
       </div>
 

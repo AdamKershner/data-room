@@ -123,7 +123,7 @@ function OperatingSystem() {
           <p>
             New hires: complete{' '}
             <Link to="/onboarding/schedule-1on1">Join Slack, DM Adam, and schedule your 1-on-1</Link> and{' '}
-            <Link to="/onboarding/linear-access">Get access to Linear</Link> during onboarding.
+            <Link to="/onboarding/linear-access">Get access to Linear and Mixpanel</Link> during onboarding.
           </p>
         </div>
       </section>

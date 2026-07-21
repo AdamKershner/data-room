@@ -16,7 +16,7 @@ export const ONBOARDING_STEPS = [
     badge: 'ongoing',
   },
   { id: 'social-media', label: 'Follow Kahana channels and Adam on socials', category: 'External Presence', day: 1, badge: 'minutes' },
-  { id: 'linear-access', label: 'Get access to Linear (PM & Engineering)', category: 'Admin & Setup', day: 1, badge: 'minutes' },
+  { id: 'linear-access', label: 'Get access to Linear and Mixpanel (PM & Engineering)', category: 'Admin & Setup', day: 1, badge: 'minutes' },
   { id: 'slack-phone', label: 'Install Slack on your Phone and configure notifications', category: 'Communication', day: 1, badge: 'minutes' },
   { id: 'avenger-profile', label: 'Create your Avenger profile', category: 'Product', day: 1, badge: 'minutes' },
   { id: 'producthunt', label: 'Create ProductHunt account and follow all other accounts on here', category: 'External Presence', day: 1, badge: 'minutes' },

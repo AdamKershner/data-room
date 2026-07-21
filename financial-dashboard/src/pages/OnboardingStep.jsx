@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
-import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL, ADAM_SOCIALS_URL, KAHANA_ABOUT_URL, KAHANA_SITE_URL, KAHANA_SUPPORT_URL, KAHANA_FEEDBACK_URL } from '../constants/kahanaSite'
+import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, MIXPANEL_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL, ADAM_SOCIALS_URL, KAHANA_ABOUT_URL, KAHANA_SITE_URL, KAHANA_SUPPORT_URL, KAHANA_FEEDBACK_URL } from '../constants/kahanaSite'
 import { CHARTER_KPIS, TIME_LOG_RITUAL } from '../data/charterKpis'
 import { formatCardTitle } from '../utils/formatCardTitle'
+import linearKahanaBoard from '../images/linear-kahana-board.png'
+import mixpanelCheckoutJourneys from '../images/mixpanel-checkout-journeys.png'
 import './Page.css'
 import './Onboarding.css'
 
@@ -670,35 +672,72 @@ function StepLinearAccess() {
   return (
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You can sign in to Linear.
+        <strong>✓ Done when:</strong> You can sign in to Linear and Mixpanel.
       </p>
 
       <p>
-        <strong>Linear</strong> is our system of record for feature requests, bugs, and sprint work. PMs
-        prioritize the backlog against{' '}
-        <Link to="/project-charter" className="onboarding-inline-link">
-          charter KPIs
-        </Link>{' '}
-        (CURR, DAUs, retention, MRR, ARR, experts onboarded, hubs created, customer delight); engineers pull
-        assigned issues and update status in Linear.
+        Product and engineering use two shared systems day to day: <strong>Linear</strong> for shipping work,
+        and <strong>Mixpanel</strong> for userbase analytics. DM Adam for access to both after you&apos;ve joined
+        Slack (step 1).
       </p>
 
       <div className="onboarding-note onboarding-note-important">
         <p>
-          <strong>Need access?</strong> DM <strong>Adam Kershner</strong> on Slack after you&apos;ve joined
-          Slack and scheduled your biweekly 1-on-1 (step 1). Product and engineering must have Linear before
-          first sprint planning.
+          <strong>Need access?</strong> DM <strong>Adam Kershner</strong> on Slack and ask for Linear + Mixpanel.
+          Product and engineering should have both before first sprint planning.
         </p>
       </div>
 
-      <div className="onboarding-avenger-tasks">
-        <div className="onboarding-nps-step">
-          <strong>Linear workspace</strong>
-          <a href={LINEAR_WORKSPACE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
-            Open linear.app/kahana →
-          </a>
-        </div>
-      </div>
+      <h3>1. Linear — backlog &amp; sprint work</h3>
+      <p>
+        Linear is our system of record for feature requests, bugs, and sprint work. Issues live on a board
+        (Backlog → Todo → In Progress → In Review) with IDs like <strong>KAH-55</strong>. PMs prioritize against{' '}
+        <Link to="/project-charter" className="onboarding-inline-link">
+          charter KPIs
+        </Link>
+        ; engineers pull assigned issues and update status there.
+      </p>
+      <figure className="onboarding-screenshot">
+        <img
+          src={linearKahanaBoard}
+          alt="Linear Kahana board showing Backlog, Todo, and In Progress columns with KAH issues"
+        />
+        <figcaption>
+          What you&apos;ll see in Linear: Kahana workspace, issue board, and KAH-* tickets by status.
+        </figcaption>
+      </figure>
+      <a
+        href={LINEAR_WORKSPACE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="onboarding-cta-link onboarding-cta-link-block"
+      >
+        Open linear.app/kahana →
+      </a>
+
+      <h3>2. Mixpanel — userbase analytics</h3>
+      <p>
+        Mixpanel is where we track product usage and conversion — funnels (e.g. billing / checkout journeys),
+        retention, and other live user metrics. Filter reports to <strong>environment = production</strong> unless
+        you&apos;re debugging.
+      </p>
+      <figure className="onboarding-screenshot">
+        <img
+          src={mixpanelCheckoutJourneys}
+          alt="Mixpanel Kahana Checkout Journeys dashboard with Growth upgrade and downgrade funnels"
+        />
+        <figcaption>
+          What you&apos;ll see in Mixpanel: boards like Checkout Journeys with funnel steps and conversion rates.
+        </figcaption>
+      </figure>
+      <a
+        href={MIXPANEL_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="onboarding-cta-link onboarding-cta-link-block"
+      >
+        Open Mixpanel →
+      </a>
     </div>
   )
 }
@@ -939,7 +978,7 @@ function StepToolsAccess() {
               <Link to="/onboarding/linear-access" className="onboarding-inline-link">
                 Linear
               </Link>{' '}
-              — bugs, tech debt, assigned sprint work (see Linear onboarding step for PM methodology)
+              — bugs, tech debt, assigned sprint work (see Linear + Mixpanel onboarding step)
             </li>
             <li>Supabase</li>
             <li>AWS</li>
@@ -956,7 +995,7 @@ function StepToolsAccess() {
               <Link to="/onboarding/linear-access" className="onboarding-inline-link">
                 Linear
               </Link>{' '}
-              — feature requests, backlog prioritization (see Linear step for customer data + lifecycle links)
+              — feature requests, backlog prioritization (see Linear + Mixpanel onboarding step)
             </li>
             <li>Figma</li>
             <li>Mixpanel</li>

@@ -541,6 +541,16 @@
   height: auto;
 }
 
+.onboarding-screenshot figcaption {
+  margin: 0;
+  padding: 10px 14px;
+  font-size: 0.875rem;
+  color: #64748b;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  line-height: 1.45;
+}
+
 .onboarding-video-embed {
   position: relative;
   width: 100%;
