@@ -1,20 +1,12 @@
 import React, { useState, useCallback, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
+import { OnboardingIcon } from './onboardingIcons'
 import './Page.css'
 import './Onboarding.css'
 
 const CONFETTI_COLORS = ['#0d9488', '#10b981', '#34d399', '#f59e0b', '#f97316', '#ec4899', '#8b5cf6', '#3b82f6']
 const CONFETTI_COUNT = 16
-
-const DAY_LABELS = {
-  1: 'Day 1',
-  across: 'Across 5 business days',
-  3: 'Day 3',
-  4: 'Day 4',
-  5: 'Day 5: Complete',
-  optional: 'Optional',
-}
 
 function ConfettiBurst({ x, y, onComplete }) {
   const [particles] = useState(() =>
@@ -84,7 +76,7 @@ function OnboardingChecklistItem({ step, checked, onToggle, lastClickRef, option
         >
           {step.icon && (
             <span className="onboarding-item-icon" aria-hidden="true">
-              {step.icon}
+              <OnboardingIcon name={step.icon} />
             </span>
           )}
           <span className="onboarding-item-text">{step.label}</span>
@@ -138,7 +130,7 @@ function Onboarding() {
       <div className="page-header">
         <h1>Onboarding</h1>
         <p className="page-subtitle">
-          New team member checklist. Complete each step and click through for detailed instructions.
+          New team member checklist. Everything below can be completed on Day 1 — open a task for instructions.
         </p>
         <p className="onboarding-hint">
           <span className="onboarding-hint-item">☐ Check Done</span>
@@ -165,39 +157,32 @@ function Onboarding() {
           />
         </div>
         <div className="onboarding-progress-label">
-          {progressPercent === 100 ? "🎉 All done! Great job!" : `${progressPercent}% complete`}
+          {progressPercent === 100 ? 'All done — great job!' : `${progressPercent}% complete`}
         </div>
       </section>
 
       <section className="page-section">
         <div className="onboarding-checklist">
-          {[1, 'across', 3, 5].map((day) => {
-            const daySteps = activeSteps.filter((s) => s.day === day)
-            if (daySteps.length === 0) return null
-            return (
-              <div key={day} className="onboarding-day-section">
-                <h3 className="onboarding-day-title">{DAY_LABELS[day]}</h3>
-                <ul className="onboarding-list">
-                  {daySteps.map((step) => (
-                    <OnboardingChecklistItem
-                      key={step.id}
-                      step={step}
-                      checked={checked}
-                      onToggle={toggleChecked}
-                      lastClickRef={lastClickRef}
-                    />
-                  ))}
-                </ul>
-              </div>
-            )
-          })}
+          <div className="onboarding-day-section">
+            <h3 className="onboarding-day-title">Day 1</h3>
+            <ul className="onboarding-list">
+              {activeSteps.map((step) => (
+                <OnboardingChecklistItem
+                  key={step.id}
+                  step={step}
+                  checked={checked}
+                  onToggle={toggleChecked}
+                  lastClickRef={lastClickRef}
+                />
+              ))}
+            </ul>
+          </div>
 
           {optionalSteps.length > 0 && (
             <div className="onboarding-day-section">
-              <h3 className="onboarding-day-title">{DAY_LABELS.optional}</h3>
+              <h3 className="onboarding-day-title">Optional</h3>
               <p className="onboarding-optional-intro">
-                Recommended but not required to finish onboarding. Worth doing when you have time —
-                especially for product, growth, and marketing roles.
+                Recommended but not required — especially useful for product, growth, and marketing roles.
               </p>
               <ul className="onboarding-list">
                 {optionalSteps.map((step) => (
@@ -228,7 +213,7 @@ function Onboarding() {
                     >
                       {step.icon && (
                         <span className="onboarding-item-icon" aria-hidden="true">
-                          {step.icon}
+                          <OnboardingIcon name={step.icon} />
                         </span>
                       )}
                       <span className="onboarding-item-text">{step.label}</span>

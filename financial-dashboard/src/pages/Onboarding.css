@@ -289,10 +289,18 @@
 
 .onboarding-item-icon {
   flex-shrink: 0;
-  width: 1.75rem;
-  text-align: center;
-  font-size: 1.2rem;
-  line-height: 1;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--oasis-green-medium, #0d9488);
+}
+
+.onboarding-icon-svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: block;
 }
 
 .onboarding-item-text {
@@ -315,10 +323,6 @@
   text-decoration: none;
 }
 
-.onboarding-step-title-icon {
-  font-weight: 400;
-}
-
 .onboarding-item-link:hover {
   color: var(--oasis-green-medium-dark);
 }
@@ -327,7 +331,25 @@
   color: var(--oasis-green-medium, #0d9488);
 }
 
-/* Onboarding Step (subpage) - fixed back banner */
+.onboarding-step-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.onboarding-step-title-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--oasis-green-medium, #0d9488);
+  flex-shrink: 0;
+}
+
+.onboarding-step-title-icon .onboarding-icon-svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .onboarding-back-banner {
   position: fixed;
   top: 0;

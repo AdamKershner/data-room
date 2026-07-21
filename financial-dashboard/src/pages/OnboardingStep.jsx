@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
+import { OnboardingIcon } from './onboardingIcons'
 import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, MIXPANEL_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL, ADAM_SOCIALS_URL, KAHANA_ABOUT_URL, KAHANA_SITE_URL, KAHANA_SUPPORT_URL, KAHANA_FEEDBACK_URL, KAHANA_PROFILE_EXAMPLE_URL } from '../constants/kahanaSite'
 import { CHARTER_KPIS, TIME_LOG_RITUAL } from '../data/charterKpis'
 import linearKahanaBoard from '../images/linear-kahana-board.png'
@@ -600,7 +601,7 @@ function StepCreateProfiles() {
 
       <div className="onboarding-note">
         <p>
-          After Day 5, you&apos;ll request tool access by DMing Adam — see{' '}
+          After you finish onboarding, request tool access by DMing Adam — see{' '}
           <Link to="/onboarding/tools-access" className="onboarding-inline-link">
             Role tools
           </Link>
@@ -751,7 +752,7 @@ function StepDuolingoArticle() {
         <p>
           On Kahana, CURR, DAUs, and retention are the same KPI family we track org-wide via the{' '}
           <Link to="/project-charter">Scaling Kahana charter</Link> and your weekly{' '}
-          <Link to="/onboarding/time-log">Time Log</Link> (Day 5).
+          <Link to="/onboarding/time-log">Time Log</Link>.
         </p>
       </div>
     </div>
@@ -953,7 +954,7 @@ function StepToolsAccess() {
             </Link>
           </li>
           <li>
-            <strong>Complete the rest of onboarding</strong> (Days 1–5): Slack, profiles, Kahana site, Aura
+            <strong>Complete the rest of onboarding</strong>: Slack, profiles, Kahana site, Aura
             Library, growth framework, etc.
           </li>
           <li>
@@ -1120,10 +1121,10 @@ function OnboardingStep() {
         <Link to="/onboarding">← Back to Onboarding</Link>
       </div>
       <div className="page-header onboarding-step-header">
-        <h1 title={step.label} aria-label={step.label}>
+        <h1 title={step.label} aria-label={step.label} className="onboarding-step-title">
           {step.icon && (
             <span className="onboarding-step-title-icon" aria-hidden="true">
-              {step.icon}{' '}
+              <OnboardingIcon name={step.icon} />
             </span>
           )}
           {step.label}
