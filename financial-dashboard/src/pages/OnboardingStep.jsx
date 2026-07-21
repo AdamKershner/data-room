@@ -3,7 +3,6 @@ import { Link, useParams } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
 import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL, ADAM_SOCIALS_URL, KAHANA_ABOUT_URL, KAHANA_SITE_URL, KAHANA_SUPPORT_URL, KAHANA_FEEDBACK_URL } from '../constants/kahanaSite'
 import { CHARTER_KPIS, TIME_LOG_RITUAL } from '../data/charterKpis'
-import { PM_LIFECYCLE_RESOURCES, PM_LIFECYCLE_STEPS } from '../data/operatingSystemSections'
 import { formatCardTitle } from '../utils/formatCardTitle'
 import './Page.css'
 import './Onboarding.css'
@@ -671,8 +670,7 @@ function StepLinearAccess() {
   return (
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You can sign in to Linear, and you know where customer data, product
-        lifecycle docs, and charter KPIs live — so you can execute PM methodology in one place.
+        <strong>✓ Done when:</strong> You can sign in to Linear.
       </p>
 
       <p>
@@ -701,42 +699,6 @@ function StepLinearAccess() {
           </a>
         </div>
       </div>
-
-      <h3>Product management methodology (5 steps)</h3>
-      <p>Use this loop every week — all reference pages linked below:</p>
-      <ol className="onboarding-steps-list">
-        {PM_LIFECYCLE_STEPS.map((item) => (
-          <li key={item.step}>
-            <strong>{item.step}</strong> — {item.detail}
-          </li>
-        ))}
-      </ol>
-
-      <h3>Strategy &amp; scoreboard</h3>
-      <ul className="onboarding-rules-list">
-        {PM_LIFECYCLE_RESOURCES.methodology.map((link) => (
-          <li key={link.path}>
-            <Link to={link.path}>{link.title}</Link> — {link.description}
-          </li>
-        ))}
-      </ul>
-
-      <h3>Customer &amp; product data</h3>
-      <ul className="onboarding-rules-list">
-        {PM_LIFECYCLE_RESOURCES.customerData.map((link) => (
-          <li key={link.path}>
-            <Link to={link.path}>{link.title}</Link> — {link.description}
-          </li>
-        ))}
-      </ul>
-
-      <p>
-        Deep dive: <Link to="/kahana" className="onboarding-inline-link">Kahana Platform Overview</Link>
-        {' · '}
-        <Link to="/technical-roadmap" className="onboarding-inline-link">Technical roadmap</Link>
-        {' · '}
-        <Link to="/onboarding/time-log" className="onboarding-inline-link">Weekly Time Log</Link> (Day 5)
-      </p>
     </div>
   )
 }
