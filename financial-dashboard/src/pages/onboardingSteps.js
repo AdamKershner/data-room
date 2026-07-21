@@ -65,11 +65,11 @@ export const ONBOARDING_STEPS = [
   },
   {
     id: 'time-log',
-    label: 'Set up Weekly Time Log',
+    label: 'Complete Time Log every Friday',
     icon: 'calendar',
     category: 'Admin & Setup',
     day: 1,
-    badge: 'weekly',
+    badge: 'every Friday',
   },
   {
     id: 'onboarding-survey',

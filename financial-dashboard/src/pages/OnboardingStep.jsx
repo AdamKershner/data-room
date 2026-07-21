@@ -305,9 +305,9 @@ function StepTimeLog() {
   return (
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You&apos;ve submitted your <strong>first</strong> Time Log entry{' '}
-        <em>and</em> added a recurring Friday calendar reminder. This repeats <strong>every week</strong> — not
-        a one-time onboarding task.
+        <strong>✓ Done when:</strong> You&apos;ve submitted a Time Log this Friday <em>and</em> added a
+        recurring Friday calendar reminder so you fill it out <strong>every Friday</strong> going forward.
+        This is a weekly habit — not a one-time onboarding task.
       </p>
 
       <h3>Why we do this</h3>
