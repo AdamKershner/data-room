@@ -278,14 +278,43 @@
 
 .onboarding-item-link {
   color: var(--oasis-green-dark);
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  text-decoration: none;
   flex: 1;
   min-width: 0;
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.onboarding-item-icon {
+  flex-shrink: 0;
+  width: 1.75rem;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.onboarding-item-text {
+  font-weight: 600;
+  color: #1e293b;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.onboarding-item-link:hover .onboarding-item-text {
+  color: var(--oasis-green-medium, #0d9488);
+}
+
+.onboarding-item-arrow {
+  flex-shrink: 0;
+  color: #94a3b8;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.onboarding-step-title-icon {
+  font-weight: 400;
 }
 
 .onboarding-item-link:hover {

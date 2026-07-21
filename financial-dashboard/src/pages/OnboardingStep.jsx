@@ -3,7 +3,6 @@ import { Link, useParams } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
 import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, MIXPANEL_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL, ADAM_SOCIALS_URL, KAHANA_ABOUT_URL, KAHANA_SITE_URL, KAHANA_SUPPORT_URL, KAHANA_FEEDBACK_URL } from '../constants/kahanaSite'
 import { CHARTER_KPIS, TIME_LOG_RITUAL } from '../data/charterKpis'
-import { formatCardTitle } from '../utils/formatCardTitle'
 import linearKahanaBoard from '../images/linear-kahana-board.png'
 import mixpanelCheckoutJourneys from '../images/mixpanel-checkout-journeys.png'
 import './Page.css'
@@ -1145,7 +1144,12 @@ function OnboardingStep() {
       </div>
       <div className="page-header onboarding-step-header">
         <h1 title={step.label} aria-label={step.label}>
-          {formatCardTitle(step.label)}
+          {step.icon && (
+            <span className="onboarding-step-title-icon" aria-hidden="true">
+              {step.icon}{' '}
+            </span>
+          )}
+          {step.label}
         </h1>
         <p className="page-subtitle" style={{ marginTop: '8px' }}>{step.category}</p>
       </div>

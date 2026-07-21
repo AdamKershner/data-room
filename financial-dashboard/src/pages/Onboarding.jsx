@@ -1,7 +1,6 @@
 import React, { useState, useCallback, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
-import { formatCardTitle } from '../utils/formatCardTitle'
 import './Page.css'
 import './Onboarding.css'
 
@@ -59,6 +58,46 @@ function ConfettiBurst({ x, y, onComplete }) {
   )
 }
 
+function OnboardingChecklistItem({ step, checked, onToggle, lastClickRef, optional = false }) {
+  return (
+    <li className={`onboarding-item${optional ? ' onboarding-item-optional' : ''}`}>
+      <div className="onboarding-item-row">
+        <label
+          className="onboarding-checkbox-wrapper"
+          onClick={(e) => { lastClickRef.current = { x: e.clientX, y: e.clientY } }}
+          title="Mark complete"
+        >
+          <input
+            type="checkbox"
+            checked={!!checked[step.id]}
+            onChange={() => onToggle(step.id, lastClickRef.current)}
+            className="onboarding-checkbox"
+          />
+          <span className="onboarding-checkbox-custom" />
+          <span className="onboarding-checkbox-label">Done</span>
+        </label>
+        <Link
+          to={`/onboarding/${step.id}`}
+          className="onboarding-item-link"
+          title={step.label}
+          aria-label={`${step.label}. Open instructions`}
+        >
+          {step.icon && (
+            <span className="onboarding-item-icon" aria-hidden="true">
+              {step.icon}
+            </span>
+          )}
+          <span className="onboarding-item-text">{step.label}</span>
+          <span className="onboarding-item-arrow">→</span>
+        </Link>
+        {step.badge && (
+          <span className="onboarding-badge">{step.badge}</span>
+        )}
+      </div>
+    </li>
+  )
+}
+
 function Onboarding() {
   const [checked, setChecked] = useState(() => {
     const stored = localStorage.getItem('onboarding-checklist')
@@ -102,8 +141,8 @@ function Onboarding() {
           New team member checklist. Complete each step and click through for detailed instructions.
         </p>
         <p className="onboarding-hint">
-          <span className="onboarding-hint-item">☐ Click the box to mark complete</span>
-          <span className="onboarding-hint-item">→ Click the task name to open instructions</span>
+          <span className="onboarding-hint-item">☐ Check Done</span>
+          <span className="onboarding-hint-item">→ Open a task for instructions</span>
         </p>
       </div>
 
@@ -140,36 +179,13 @@ function Onboarding() {
                 <h3 className="onboarding-day-title">{DAY_LABELS[day]}</h3>
                 <ul className="onboarding-list">
                   {daySteps.map((step) => (
-                    <li key={step.id} className="onboarding-item">
-                      <div className="onboarding-item-row">
-                        <label
-                          className="onboarding-checkbox-wrapper"
-                          onClick={(e) => { lastClickRef.current = { x: e.clientX, y: e.clientY } }}
-                          title="Mark complete"
-                        >
-                          <input
-                            type="checkbox"
-                            checked={!!checked[step.id]}
-                            onChange={() => toggleChecked(step.id, lastClickRef.current)}
-                            className="onboarding-checkbox"
-                          />
-                          <span className="onboarding-checkbox-custom" />
-                          <span className="onboarding-checkbox-label">Mark complete</span>
-                        </label>
-                        <Link
-                          to={`/onboarding/${step.id}`}
-                          className="onboarding-item-link"
-                          title={step.label}
-                          aria-label={`${step.label}. Open instructions`}
-                        >
-                          <span className="onboarding-item-text">{formatCardTitle(step.label)}</span>
-                          <span className="onboarding-item-arrow">View instructions →</span>
-                        </Link>
-                        {step.badge && (
-                          <span className="onboarding-badge">{step.badge}</span>
-                        )}
-                      </div>
-                    </li>
+                    <OnboardingChecklistItem
+                      key={step.id}
+                      step={step}
+                      checked={checked}
+                      onToggle={toggleChecked}
+                      lastClickRef={lastClickRef}
+                    />
                   ))}
                 </ul>
               </div>
@@ -185,36 +201,14 @@ function Onboarding() {
               </p>
               <ul className="onboarding-list">
                 {optionalSteps.map((step) => (
-                  <li key={step.id} className="onboarding-item onboarding-item-optional">
-                    <div className="onboarding-item-row">
-                      <label
-                        className="onboarding-checkbox-wrapper"
-                        onClick={(e) => { lastClickRef.current = { x: e.clientX, y: e.clientY } }}
-                        title="Mark complete"
-                      >
-                        <input
-                          type="checkbox"
-                          checked={!!checked[step.id]}
-                          onChange={() => toggleChecked(step.id, lastClickRef.current)}
-                          className="onboarding-checkbox"
-                        />
-                        <span className="onboarding-checkbox-custom" />
-                        <span className="onboarding-checkbox-label">Mark complete</span>
-                      </label>
-                      <Link
-                        to={`/onboarding/${step.id}`}
-                        className="onboarding-item-link"
-                        title={step.label}
-                        aria-label={`${step.label}. Open instructions`}
-                      >
-                        <span className="onboarding-item-text">{formatCardTitle(step.label)}</span>
-                        <span className="onboarding-item-arrow">View instructions →</span>
-                      </Link>
-                      {step.badge && (
-                        <span className="onboarding-badge">{step.badge}</span>
-                      )}
-                    </div>
-                  </li>
+                  <OnboardingChecklistItem
+                    key={step.id}
+                    step={step}
+                    checked={checked}
+                    onToggle={toggleChecked}
+                    lastClickRef={lastClickRef}
+                    optional
+                  />
                 ))}
               </ul>
             </div>
@@ -232,7 +226,12 @@ function Onboarding() {
                       title={step.label}
                       aria-label={step.label}
                     >
-                      {formatCardTitle(step.label)}
+                      {step.icon && (
+                        <span className="onboarding-item-icon" aria-hidden="true">
+                          {step.icon}
+                        </span>
+                      )}
+                      <span className="onboarding-item-text">{step.label}</span>
                     </Link>
                   </li>
                 ))}
