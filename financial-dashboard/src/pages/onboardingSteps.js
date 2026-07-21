@@ -23,13 +23,6 @@ export const ONBOARDING_STEPS = [
     day: 3,
     badge: '30–60 minutes',
   },
-  {
-    id: 'technical-roadmap',
-    label: 'Review Kahana technical focus (Security, Trust, Algorithm)',
-    category: 'Product',
-    day: 3,
-    badge: '20–30 minutes',
-  },
   // Optional
   {
     id: 'duolingo-article',

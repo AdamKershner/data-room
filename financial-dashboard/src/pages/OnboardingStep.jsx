@@ -548,56 +548,6 @@ function StepLearnKahana() {
   )
 }
 
-function StepTechnicalRoadmap() {
-  return (
-    <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You can name Kahana&apos;s three technical pillars (Security, Trust,
-        Algorithm) and where active work is tracked.
-      </p>
-
-      <p>
-        The <strong>Technical Roadmap</strong> is an internal page for new and existing team members. It
-        explains what we are focusing on technically in the next wave — not the full business horizon roadmap,
-        but the engineering priorities that support the Wan Shi Tong library vision.
-      </p>
-
-      <div className="onboarding-avenger-tasks">
-        <div className="onboarding-nps-step">
-          <strong>Security</strong>
-          <p>Protect data, payments, and access — remediation themes from the July 2026 security audit.</p>
-        </div>
-        <div className="onboarding-nps-step">
-          <strong>Trust</strong>
-          <p>Creator credibility, marketplace quality, product integrity, and accurate information.</p>
-        </div>
-        <div className="onboarding-nps-step">
-          <strong>Algorithm</strong>
-          <p>Help users find the knowledge they have in mind — search, intent, recommendations.</p>
-        </div>
-      </div>
-
-      <div className="onboarding-cta-row">
-        <Link to="/technical-roadmap" className="onboarding-cta-link">
-          Read Technical Roadmap →
-        </Link>
-      </div>
-
-      <p>
-        Active issues are tracked in{' '}
-        <a href={LINEAR_WORKSPACE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
-          Linear
-        </a>
-        . See also{' '}
-        <Link to="/operating-system" className="onboarding-inline-link">
-          Operating System
-        </Link>{' '}
-        for how work enters the backlog.
-      </p>
-    </div>
-  )
-}
-
 function StepDuolingoArticle() {
   return (
     <div className="onboarding-step-content">
@@ -760,7 +710,7 @@ function StepLinearAccess() {
 
       <p>
         Deep dive: <Link to="/onboarding/learn-kahana" className="onboarding-inline-link">Learn about Kahana</Link>{' '}
-        (Day 3) · <Link to="/onboarding/technical-roadmap" className="onboarding-inline-link">Technical roadmap</Link>{' '}
+        (Day 3) · <Link to="/technical-roadmap" className="onboarding-inline-link">Technical roadmap</Link>{' '}
         · <Link to="/onboarding/time-log" className="onboarding-inline-link">Weekly Time Log</Link> (Day 5)
       </p>
     </div>
@@ -1082,7 +1032,6 @@ const STEP_CONTENT = {
   'avenger-profile': StepAvengerProfile,
   'knowledge-base-core-business': StepKnowledgeBaseCoreBusiness,
   'learn-kahana': StepLearnKahana,
-  'technical-roadmap': StepTechnicalRoadmap,
   'duolingo-article': StepDuolingoArticle,
   'soc2-compliance': StepSoc2Compliance,
   'internal-channels': StepInternalChannels,
