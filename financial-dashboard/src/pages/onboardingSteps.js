@@ -10,6 +10,13 @@ export const ONBOARDING_STEPS = [
   { id: 'producthunt', label: 'Create ProductHunt account and follow all other accounts on here', category: 'External Presence', day: 1, badge: 'minutes' },
   // Day 3
   {
+    id: 'review-landing-page',
+    label: 'Review the Kahana landing page (about.kahana.io)',
+    category: 'Company & Culture',
+    day: 3,
+    badge: '15–20 minutes',
+  },
+  {
     id: 'knowledge-base-core-business',
     label: "Understand Kahana's core business (Knowledge base)",
     category: 'Company & Culture',

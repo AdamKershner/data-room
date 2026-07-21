@@ -18,6 +18,9 @@ export const TIME_LOG_TALLY_URL = 'https://tally.so/r/w2YdzL'
 /** Adam Kershner — personal socials hub (founder-led brand). */
 export const ADAM_SOCIALS_URL = 'https://about.kahana.io/adam-kershner'
 
+/** Public marketing site / landing page — what Kahana is and how people benefit. */
+export const KAHANA_ABOUT_URL = 'https://about.kahana.io/'
+
 /** @param {string} [path] */
 export function kahanaUrl(path = '') {
   if (!path) return KAHANA_SITE_URL

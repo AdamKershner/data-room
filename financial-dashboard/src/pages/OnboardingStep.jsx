@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
 import { KAHANA_PLATFORM_URL, KAHANA_EXPLORE_URL } from '../data/kahanaPlatformSections'
-import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL, ADAM_SOCIALS_URL } from '../constants/kahanaSite'
+import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL, ADAM_SOCIALS_URL, KAHANA_ABOUT_URL } from '../constants/kahanaSite'
 import { CHARTER_KPIS, TIME_LOG_RITUAL } from '../data/charterKpis'
 import { PM_LIFECYCLE_RESOURCES, PM_LIFECYCLE_STEPS } from '../data/operatingSystemSections'
 import { formatCardTitle } from '../utils/formatCardTitle'
@@ -448,6 +448,72 @@ function StepKnowledgeBaseCoreBusiness() {
   )
 }
 
+function StepReviewLandingPage() {
+  return (
+    <div className="onboarding-step-content">
+      <p className="onboarding-step-done onboarding-step-done-top">
+        <strong>✓ Done when:</strong> You&apos;ve read the full landing page and can explain what Kahana is,
+        what Aura is, and how learners and creators benefit.
+      </p>
+
+      <p>
+        <a href={KAHANA_ABOUT_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
+          about.kahana.io
+        </a>{' '}
+        is the <strong>central place</strong> where everyone — new hires, creators, and customers — learns what
+        Kahana is and how people benefit. Read it carefully; this is the public story of the product.
+      </p>
+
+      <a
+        href={KAHANA_ABOUT_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="onboarding-cta-link onboarding-cta-link-block"
+      >
+        Open about.kahana.io →
+      </a>
+
+      <h3>What to absorb while you read</h3>
+      <ul className="onboarding-rules-list">
+        <li>
+          <strong>Positioning:</strong> &ldquo;The Digital Library With Aura&rdquo; — learn, create, and give
+          Aura to recognize quality contributions.
+        </li>
+        <li>
+          <strong>Aura:</strong> Daily budget of positive energy (not money, not crypto, not star ratings) to
+          promote quality across hubs and files.
+        </li>
+        <li>
+          <strong>How to use Kahana:</strong> Learn (Explore) → Create (hubs + digital artifacts) → Grow
+          (exposure, followers, Aura, optional monetization).
+        </li>
+        <li>
+          <strong>Benefits:</strong> For learners (access, credibility, flexible hubs) and for creators
+          (exposure, teaching, earning).
+        </li>
+        <li>
+          <strong>Optimize loop:</strong> Create hub → add context → list on Explore → check analytics →
+          optionally monetize.
+        </li>
+      </ul>
+
+      <div className="onboarding-note">
+        <p>
+          After this, go deeper in{' '}
+          <Link to="/onboarding/learn-kahana" className="onboarding-inline-link">
+            Learn about the Kahana platform
+          </Link>{' '}
+          (internal overview) and the{' '}
+          <Link to="/knowledge-base" className="onboarding-inline-link">
+            Knowledge base
+          </Link>
+          .
+        </p>
+      </div>
+    </div>
+  )
+}
+
 function StepLearnKahana() {
   return (
     <div className="onboarding-step-content">
@@ -458,12 +524,20 @@ function StepLearnKahana() {
 
       <p>
         <strong>Kahana</strong> aspires to be like Wan Shi Tong&apos;s Library — a mesmerizing place to discover
-        curated digital knowledge from experts worldwide. The platform lives at{' '}
+        curated digital knowledge from experts worldwide. Start with the public story on{' '}
+        <a href={KAHANA_ABOUT_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
+          about.kahana.io
+        </a>{' '}
+        if you haven&apos;t yet (
+        <Link to="/onboarding/review-landing-page" className="onboarding-inline-link">
+          landing page step
+        </Link>
+        ). The product lives at{' '}
         <a href={KAHANA_PLATFORM_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
           app.kahana.io
         </a>
         . Formerly Curio. Oasis Browser is optional for work — see{' '}
-        <Link to="/knowledge-base">Knowledge base → Oasis (Archive)</Link>.
+        <Link to="/knowledge-base">Knowledge base</Link>.
       </p>
 
       <p>
@@ -1031,6 +1105,7 @@ const STEP_CONTENT = {
   'use-oasis-5-days': StepUseOasis5Days,
   'avenger-profile': StepAvengerProfile,
   'knowledge-base-core-business': StepKnowledgeBaseCoreBusiness,
+  'review-landing-page': StepReviewLandingPage,
   'learn-kahana': StepLearnKahana,
   'duolingo-article': StepDuolingoArticle,
   'soc2-compliance': StepSoc2Compliance,
