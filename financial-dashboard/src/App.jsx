@@ -91,6 +91,9 @@ function App() {
           <Route path="/onboarding" element={<Onboarding />} />
           <Route path="/onboarding/linkedin" element={<Navigate to="/linkedin-guide" replace />} />
           <Route path="/onboarding/internal-channels" element={<Navigate to="/onboarding/schedule-1on1" replace />} />
+          <Route path="/onboarding/slack-phone" element={<Navigate to="/onboarding/schedule-1on1" replace />} />
+          <Route path="/onboarding/avenger-profile" element={<Navigate to="/onboarding/create-profiles" replace />} />
+          <Route path="/onboarding/producthunt" element={<Navigate to="/onboarding/create-profiles" replace />} />
           <Route path="/onboarding/technical-roadmap" element={<Navigate to="/technical-roadmap" replace />} />
           <Route path="/onboarding/install-oasis" element={<Navigate to="/oasis-browser" replace />} />
           <Route path="/onboarding/use-oasis-5-days" element={<Navigate to="/oasis-browser" replace />} />

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
-import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, MIXPANEL_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL, ADAM_SOCIALS_URL, KAHANA_ABOUT_URL, KAHANA_SITE_URL, KAHANA_SUPPORT_URL, KAHANA_FEEDBACK_URL } from '../constants/kahanaSite'
+import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, MIXPANEL_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL, ADAM_SOCIALS_URL, KAHANA_ABOUT_URL, KAHANA_SITE_URL, KAHANA_SUPPORT_URL, KAHANA_FEEDBACK_URL, KAHANA_PROFILE_EXAMPLE_URL } from '../constants/kahanaSite'
 import { CHARTER_KPIS, TIME_LOG_RITUAL } from '../data/charterKpis'
 import linearKahanaBoard from '../images/linear-kahana-board.png'
 import mixpanelCheckoutJourneys from '../images/mixpanel-checkout-journeys.png'
@@ -12,8 +12,8 @@ function StepSchedule1on1() {
   return (
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You&apos;ve joined Kahana Slack, sent Adam Kershner a DM introducing
-        yourself, and scheduled your biweekly 1-on-1.
+        <strong>✓ Done when:</strong> You&apos;ve joined Kahana Slack, installed Slack on your phone with
+        notifications on, DM&apos;d Adam Kershner, and scheduled your biweekly 1-on-1.
       </p>
 
       <h3>1. Join Slack</h3>
@@ -30,7 +30,32 @@ function StepSchedule1on1() {
         Join Kahana Slack →
       </a>
 
-      <h3>2. DM Adam Kershner once you&apos;re in</h3>
+      <h3>2. Install Slack on your phone</h3>
+      <p>
+        Install the Slack app on your phone and configure notifications so you don&apos;t miss DMs or key
+        channel messages.
+      </p>
+      <div className="onboarding-note onboarding-note-important">
+        <p>
+          <strong>Expectation:</strong> Check Slack and be available for online discussion at least once per
+          day during 9–5 in your time zone.
+        </p>
+      </div>
+      <ul className="onboarding-rules-list">
+        <li>Enable mobile notifications for DMs and mentions</li>
+        <li>Set key channels to notify you about new messages (or at least mentions)</li>
+        <li>Use a notification schedule so evenings/weekends stay quiet</li>
+      </ul>
+      <a
+        href="https://slack.com/help/articles/201355156-Configure-your-Slack-notifications"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="onboarding-cta-link onboarding-cta-link-block"
+      >
+        Slack: Configure your notifications →
+      </a>
+
+      <h3>3. DM Adam Kershner once you&apos;re in</h3>
       <div className="onboarding-note onboarding-note-important">
         <p>
           As soon as you join Slack, <strong>DM Adam Kershner</strong>. Introduce yourself (name, role /
@@ -39,7 +64,7 @@ function StepSchedule1on1() {
         </p>
       </div>
 
-      <h3>3. Schedule your biweekly 1-on-1</h3>
+      <h3>4. Schedule your biweekly 1-on-1</h3>
       <p>
         It&apos;s mandatory to schedule the meeting. This creates a 15-minute block on your and Adam&apos;s
         calendars — a reminder to check in every 2 weeks. At that time you can join the meeting or message over
@@ -190,9 +215,13 @@ function StepExploreAuraLibrary() {
   return (
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You have a Kahana profile, have explored the library and authors, given
-        Aura to work you love, started a free hub, bookmarked/pinned Kahana, and committed to an Aura streak
-        (give Aura at least once every 24 hours).
+        <strong>✓ Done when:</strong> You&apos;ve explored the library and authors, given Aura to work you love,
+        started a free hub, bookmarked/pinned Kahana, and committed to an Aura streak (give Aura at least once
+        every 24 hours). Create your Kahana profile in{' '}
+        <Link to="/onboarding/create-profiles" className="onboarding-inline-link">
+          Create profiles
+        </Link>{' '}
+        if you haven&apos;t already.
       </p>
 
       <p>
@@ -212,7 +241,13 @@ function StepExploreAuraLibrary() {
 
       <h3>1. Set up and explore</h3>
       <ol className="onboarding-steps-list">
-        <li>Create your profile and optimize it (photo, bio, links).</li>
+        <li>
+          Optimize your{' '}
+          <Link to="/onboarding/create-profiles" className="onboarding-inline-link">
+            Kahana profile
+          </Link>{' '}
+          (photo, bio, links) if you haven&apos;t already.
+        </li>
         <li>Peruse the Library and authors — open hubs, files, and creator profiles.</li>
         <li>Give Aura to hubs or files you love (your daily Aura budget replenishes at midnight UTC).</li>
         <li>Explore the whole platform: Explore, profiles, hub creation, collections.</li>
@@ -470,65 +505,121 @@ function StepUseOasis5Days() {
   )
 }
 
-function StepAvengerProfile() {
+function StepCreateProfiles() {
   return (
     <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> Your profile appears on the Avengers page after you create it, and you've browsed your teammates' profiles.</p>
+      <p className="onboarding-step-done onboarding-step-done-top">
+        <strong>✓ Done when:</strong> You have a Kahana profile, an Avenger (team) profile, and a Product Hunt
+        profile on the team sheet — and you&apos;ve followed everyone on that sheet.
+      </p>
 
-      <p className="onboarding-avenger-intro">Creating a profile helps your new teammates know who you are, how you like to work and communicate. Likewise, you can learn about who others are and how they prefer to work and communicate.</p>
+      <p>
+        Set up your presence on the product, the internal team roster, and Product Hunt. These profiles help
+        teammates know you and prepare us for Kahana&apos;s upcoming Product Hunt launch.
+      </p>
 
       <div className="onboarding-avenger-tasks">
         <div className="onboarding-nps-step">
-          <strong>1. Build your profile</strong>
-          <p>Add your photo, role, working style, and communication preferences so the team can get to know you.</p>
-          <a href="https://kahanagroup.notion.site/Kahana-HQ-c03d4242e7464e71ad8d4ec856f274e8?p=111798d5ce824a398e2102fe2328560d&pm=c" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
-            Build your Avenger profile →
+          <strong>1. Kahana profile</strong>
+          <p>
+            Create your profile on{' '}
+            <a href={KAHANA_SITE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
+              kahana.io
+            </a>{' '}
+            — photo, bio, and links. Example of what a finished profile looks like:
+          </p>
+          <a
+            href={KAHANA_PROFILE_EXAMPLE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="onboarding-cta-link onboarding-cta-link-block"
+          >
+            View example Kahana profile →
+          </a>
+          <a
+            href={KAHANA_SITE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="onboarding-cta-button onboarding-cta-button-outline"
+          >
+            Open Kahana → create yours
           </a>
         </div>
 
         <div className="onboarding-nps-step">
-          <strong>2. Familiarize with the team</strong>
-          <p>Click through your teammates' profiles to learn who they are and how they prefer to work and communicate.</p>
-          <a href="https://kahanagroup.notion.site/Kahana-HQ-c03d4242e7464e71ad8d4ec856f274e8" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
+          <strong>2. Avenger profile (internal team)</strong>
+          <p>
+            Add your photo, role, working style, and communication preferences so teammates know how you like
+            to work. Then browse others&apos; profiles.
+          </p>
+          <a
+            href="https://kahanagroup.notion.site/Kahana-HQ-c03d4242e7464e71ad8d4ec856f274e8?p=111798d5ce824a398e2102fe2328560d&pm=c"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="onboarding-cta-link onboarding-cta-link-block"
+          >
+            Build your Avenger profile →
+          </a>
+          <a
+            href="https://kahanagroup.notion.site/Kahana-HQ-c03d4242e7464e71ad8d4ec856f274e8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="onboarding-cta-button onboarding-cta-button-outline"
+          >
             View team profiles on Kahana HQ →
+          </a>
+        </div>
+
+        <div className="onboarding-nps-step">
+          <strong>3. Product Hunt profile</strong>
+          <p>
+            Create a Product Hunt account for our upcoming{' '}
+            <a href={KAHANA_ABOUT_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
+              Kahana
+            </a>{' '}
+            launch. Add your profile to the team sheet and follow everyone on it. Example profile:
+          </p>
+          <a
+            href="https://www.producthunt.com/@adamthecreator"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="onboarding-cta-link onboarding-cta-link-block"
+          >
+            View Adam&apos;s Product Hunt profile →
+          </a>
+          <a
+            href="https://docs.google.com/spreadsheets/d/1gSMDizFLvRliMZgYNyQND4lipZ3Dde6FPn2EWDRZolM/edit?gid=0#gid=0"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="onboarding-cta-button onboarding-cta-button-outline"
+          >
+            Open team Product Hunt sheet →
           </a>
         </div>
       </div>
 
       <div className="onboarding-note">
         <p>
-          After you complete onboarding (Day 5), you&apos;ll request tool access by DMing Adam on Slack — see{' '}
+          After Day 5, you&apos;ll request tool access by DMing Adam — see{' '}
           <Link to="/onboarding/tools-access" className="onboarding-inline-link">
-            Get access to tools for your role
+            Role tools
           </Link>
-          . Select your functions here so Adam knows which platforms to provision.
+          . Select your functions on your Avenger profile so Adam knows what to provision.
         </p>
       </div>
 
       <div className="onboarding-install-default-section">
-        <h3>Where your profile appears</h3>
-        <p>After you create your profile, it will show up on the Avengers page alongside your teammates. This is the page to reference:</p>
+        <h3>Where your Avenger profile appears</h3>
+        <p>After you create it, it shows up on the Avengers page alongside teammates:</p>
         <div className="onboarding-screenshot">
-          <a href="https://kahanagroup.notion.site/Kahana-HQ-c03d4242e7464e71ad8d4ec856f274e8" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://kahanagroup.notion.site/Kahana-HQ-c03d4242e7464e71ad8d4ec856f274e8"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img src="/images/avengers-page.png" alt="Avengers page showing team member profiles in a grid" />
           </a>
         </div>
-        <a href="https://kahanagroup.notion.site/Kahana-HQ-c03d4242e7464e71ad8d4ec856f274e8" target="_blank" rel="noopener noreferrer" className="onboarding-cta-button onboarding-cta-button-outline">
-          Open Avengers page →
-        </a>
-      </div>
-
-      <div className="onboarding-install-default-section">
-        <h3>What a profile looks like</h3>
-        <p>Here's Adam's Avenger profile with functions, contact info, communication preferences, feedback style, and work environment.</p>
-        <div className="onboarding-screenshot">
-          <a href="https://www.notion.so/kahanagroup/Kahana-HQ-c03d4242e7464e71ad8d4ec856f274e8?p=26bda10abdc640fb8f34eabde298dc78&pm=c" target="_blank" rel="noopener noreferrer">
-            <img src="/images/avenger-profile-example.png" alt="Adam Kershner's Avenger profile in Notion showing functions, contact info, and preferences" />
-          </a>
-        </div>
-        <a href="https://www.notion.so/kahanagroup/Kahana-HQ-c03d4242e7464e71ad8d4ec856f274e8?p=26bda10abdc640fb8f34eabde298dc78&pm=c" target="_blank" rel="noopener noreferrer" className="onboarding-cta-button onboarding-cta-button-outline">
-          View Adam's profile →
-        </a>
       </div>
     </div>
   )
@@ -741,35 +832,6 @@ function StepLinearAccess() {
   )
 }
 
-function StepSlackPhone() {
-  return (
-    <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> Slack is installed on your phone and notifications are configured so you don't miss DMs or key channel messages.</p>
-
-      <p>Install the Slack app on your phone and configure notifications to ensure you stay responsive to teammates. You should never miss a DM from a teammate or important messages in key Slack channels.</p>
-
-      <div className="onboarding-note onboarding-note-important">
-        <p><strong>Expectation:</strong> Minimum availability: check Slack and be available for online discussion (messaging on Slack, not in-person meetings) at least once per day during 9–5 PM in your time zone.</p>
-      </div>
-
-      <h3>Configure your notifications</h3>
-      <ul className="onboarding-rules-list">
-        <li>Enable mobile notifications for DMs and mentions</li>
-        <li>Set key channels to notify you about all new messages (or at least mentions)</li>
-        <li>Choose notification timing that works for you</li>
-      </ul>
-
-      <div className="onboarding-note onboarding-note-help">
-        <p><strong>Pro tip:</strong> Use a notification schedule to turn off notifications during certain times (e.g., evenings, weekends). This helps you stay responsive during work hours without being interrupted when you're off.</p>
-      </div>
-
-      <a href="https://slack.com/help/articles/201355156-Configure-your-Slack-notifications" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
-        Slack: Configure your notifications →
-      </a>
-    </div>
-  )
-}
-
 const SOC2_POLICIES = [
   { name: 'Information Security Policy', description: 'Overall security framework and how we protect systems and data.' },
   { name: 'Access Control Policy', description: 'Who can access what, least privilege, onboarding/offboarding access.' },
@@ -801,89 +863,6 @@ function StepSoc2Compliance() {
 
       <div className="onboarding-note">
         <p><strong>Where to find them:</strong> Policy documents are maintained in our compliance repository. Ask Adam or your manager for the current links if you don't have access yet.</p>
-      </div>
-    </div>
-  )
-}
-
-function StepProductHunt() {
-  return (
-    <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You&apos;ve created a Product Hunt profile, added it to the team sheet, and
-        followed everyone on the sheet.
-      </p>
-
-      <p>
-        Product Hunt is where people discover and share new products. It&apos;s a key channel for tech and
-        startup audiences — launches are driven by upvotes and comments. Strong PH days bring users, customers,
-        and investors.
-      </p>
-
-      <p>
-        We&apos;re preparing an upcoming Product Hunt launch of <strong>Kahana</strong> — our product. Learn
-        what we&apos;re launching at{' '}
-        <a href={KAHANA_ABOUT_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
-          about.kahana.io
-        </a>
-        . When the team has Product Hunt accounts, follows each other, and keeps an active streak, we perform
-        better on launch day and are more likely to hit #1. See our{' '}
-        <a
-          href="https://docs.google.com/document/d/1fbnq13Uj8n3qaCCg1BOdiQD-awjl5c2sswxWaX6oyU8/edit?pli=1&tab=t.0#heading=h.ctmy5c17lr0g"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="onboarding-inline-link"
-        >
-          Product Hunt Launch campaign charter
-        </a>{' '}
-        for full context.
-      </p>
-
-      <div className="onboarding-avenger-tasks">
-        <div className="onboarding-nps-step">
-          <strong>0. Know the product</strong>
-          <p>
-            Skim the Kahana site so you can explain what we&apos;re launching when you engage on Product Hunt.
-          </p>
-          <a
-            href={KAHANA_ABOUT_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="onboarding-cta-link onboarding-cta-link-block"
-          >
-            Review Kahana → about.kahana.io
-          </a>
-        </div>
-
-        <div className="onboarding-nps-step">
-          <strong>1. Create a Product Hunt profile</strong>
-          <p>Create a profile on Product Hunt. Here&apos;s an example of what a profile looks like:</p>
-          <a
-            href="https://www.producthunt.com/@adamthecreator"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="onboarding-cta-link onboarding-cta-link-block"
-          >
-            View Adam&apos;s Product Hunt profile →
-          </a>
-        </div>
-
-        <div className="onboarding-nps-step">
-          <strong>2. Add your profile to the sheet and follow everyone</strong>
-          <p>
-            Add your Product Hunt profile to the team sheet, then follow everyone already on the sheet.
-            Maintaining an active streak on Product Hunt (visiting and engaging regularly) helps our Kahana
-            launch perform better.
-          </p>
-          <a
-            href="https://docs.google.com/spreadsheets/d/1gSMDizFLvRliMZgYNyQND4lipZ3Dde6FPn2EWDRZolM/edit?gid=0#gid=0"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="onboarding-cta-link onboarding-cta-link-block"
-          >
-            Open team Product Hunt sheet →
-          </a>
-        </div>
       </div>
     </div>
   )
@@ -974,12 +953,12 @@ function StepToolsAccess() {
             </Link>
           </li>
           <li>
-            <strong>Complete the rest of onboarding</strong> (Days 1–4): Slack, Avenger profile, knowledge base,
-            Kahana platform, growth framework, etc.
+            <strong>Complete the rest of onboarding</strong> (Days 1–5): Slack, profiles, Kahana site, Aura
+            Library, growth framework, etc.
           </li>
           <li>
             <strong>DM Adam Kershner on Slack</strong> with: your name, role/functions from your{' '}
-            <Link to="/onboarding/avenger-profile" className="onboarding-inline-link">
+            <Link to="/onboarding/create-profiles" className="onboarding-inline-link">
               Avenger profile
             </Link>
             , and the tools you need from the list below.
@@ -1107,13 +1086,11 @@ const STEP_CONTENT = {
   'time-log': StepTimeLog,
   'install-oasis': StepInstallOasis,
   'use-oasis-5-days': StepUseOasis5Days,
-  'avenger-profile': StepAvengerProfile,
+  'create-profiles': StepCreateProfiles,
   'review-landing-page': StepReviewLandingPage,
   'duolingo-article': StepDuolingoArticle,
   'soc2-compliance': StepSoc2Compliance,
   'linear-access': StepLinearAccess,
-  'slack-phone': StepSlackPhone,
-  'producthunt': StepProductHunt,
   'social-media': StepSocialMedia,
   'tools-access': StepToolsAccess,
   'onboarding-survey': StepOnboardingSurvey,

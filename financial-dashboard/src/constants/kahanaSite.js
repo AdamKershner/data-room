@@ -24,6 +24,10 @@ export const ADAM_SOCIALS_URL = 'https://about.kahana.io/adam-kershner'
 /** Public marketing site / landing page — what Kahana is and how people benefit. */
 export const KAHANA_ABOUT_URL = 'https://about.kahana.io/'
 
+/** Example Kahana product profile (for onboarding recognition). */
+export const KAHANA_PROFILE_EXAMPLE_URL =
+  'https://kahana.io/profile/lxZb9mrcMROsWZhigOBfTwbUGfB3'
+
 /** In-product support and feedback. */
 export const KAHANA_SUPPORT_URL = 'https://kahana.io/support'
 export const KAHANA_FEEDBACK_URL = 'https://kahana.io/survey/improve?source=support_panel'
