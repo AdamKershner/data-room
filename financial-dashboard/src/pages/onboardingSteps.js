@@ -17,22 +17,6 @@ export const ONBOARDING_STEPS = [
     badge: '5 min',
   },
   {
-    id: 'company-rules',
-    label: 'Company rules',
-    icon: '📜',
-    category: 'Company & Culture',
-    day: 1,
-    badge: '5 min',
-  },
-  {
-    id: 'explore-aura-library',
-    label: 'Aura Library',
-    icon: '✨',
-    category: 'Product',
-    day: 1,
-    badge: 'Monday–Friday',
-  },
-  {
     id: 'social-media',
     label: 'Follow socials',
     icon: '📣',
@@ -64,14 +48,29 @@ export const ONBOARDING_STEPS = [
     day: 1,
     badge: '5 min',
   },
-  // Day 3
   {
     id: 'review-landing-page',
     label: 'Kahana site',
     icon: '🌐',
     category: 'Company & Culture',
-    day: 3,
+    day: 1,
     badge: '15 min',
+  },
+  {
+    id: 'explore-aura-library',
+    label: 'Aura Library',
+    icon: '✨',
+    category: 'Product',
+    day: 1,
+    badge: 'Monday–Friday',
+  },
+  {
+    id: 'company-rules',
+    label: 'Company rules',
+    icon: '📜',
+    category: 'Company & Culture',
+    day: 1,
+    badge: '5 min',
   },
   // Optional
   {
