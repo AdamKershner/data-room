@@ -1,5 +1,13 @@
 export const ONBOARDING_STEPS = [
   {
+    id: 'company-rules',
+    label: 'Read Company Rules',
+    icon: 'book',
+    category: 'Company & Culture',
+    day: 1,
+    badge: '5 min',
+  },
+  {
     id: 'schedule-1on1',
     label: 'Join Slack',
     icon: 'message',
@@ -54,14 +62,6 @@ export const ONBOARDING_STEPS = [
     category: 'Product',
     day: 1,
     badge: 'Monday–Friday',
-  },
-  {
-    id: 'company-rules',
-    label: 'Read Company Rules',
-    icon: 'book',
-    category: 'Company & Culture',
-    day: 1,
-    badge: '5 min',
   },
   {
     id: 'time-log',
