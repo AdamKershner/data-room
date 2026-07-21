@@ -21,6 +21,10 @@ export const ADAM_SOCIALS_URL = 'https://about.kahana.io/adam-kershner'
 /** Public marketing site / landing page — what Kahana is and how people benefit. */
 export const KAHANA_ABOUT_URL = 'https://about.kahana.io/'
 
+/** In-product support and feedback. */
+export const KAHANA_SUPPORT_URL = 'https://kahana.io/support'
+export const KAHANA_FEEDBACK_URL = 'https://kahana.io/survey/improve?source=support_panel'
+
 /** @param {string} [path] */
 export function kahanaUrl(path = '') {
   if (!path) return KAHANA_SITE_URL

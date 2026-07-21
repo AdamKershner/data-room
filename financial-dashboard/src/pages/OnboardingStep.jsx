@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
 import { KAHANA_PLATFORM_URL, KAHANA_EXPLORE_URL } from '../data/kahanaPlatformSections'
-import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL, ADAM_SOCIALS_URL, KAHANA_ABOUT_URL } from '../constants/kahanaSite'
+import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL, ADAM_SOCIALS_URL, KAHANA_ABOUT_URL, KAHANA_SITE_URL, KAHANA_SUPPORT_URL, KAHANA_FEEDBACK_URL } from '../constants/kahanaSite'
 import { CHARTER_KPIS, TIME_LOG_RITUAL } from '../data/charterKpis'
 import { PM_LIFECYCLE_RESOURCES, PM_LIFECYCLE_STEPS } from '../data/operatingSystemSections'
 import { formatCardTitle } from '../utils/formatCardTitle'
@@ -129,6 +129,93 @@ function StepCompanyRules() {
           <Link to="/onboarding/time-log">See the Time Log onboarding step →</Link>
         </li>
       </ul>
+    </div>
+  )
+}
+
+function StepExploreAuraLibrary() {
+  return (
+    <div className="onboarding-step-content">
+      <p className="onboarding-step-done onboarding-step-done-top">
+        <strong>✓ Done when:</strong> You have a Kahana profile, have explored the library and authors, given
+        Aura to work you love, started a free hub, bookmarked/pinned Kahana, and committed to an Aura streak
+        (give Aura at least once every 24 hours).
+      </p>
+
+      <p>
+        <strong>Kahana&apos;s Aura Library</strong> is the product we are scaling. Live in it from day one —
+        create your profile, browse hubs and authors, give Aura, and start contributing. This is how you build
+        product intuition for every role.
+      </p>
+
+      <a
+        href={KAHANA_SITE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="onboarding-cta-link onboarding-cta-link-block"
+      >
+        Open Kahana → kahana.io
+      </a>
+
+      <h3>1. Set up and explore</h3>
+      <ol className="onboarding-steps-list">
+        <li>Create your profile and optimize it (photo, bio, links).</li>
+        <li>Peruse the Library and authors — open hubs, files, and creator profiles.</li>
+        <li>Give Aura to hubs or files you love (your daily Aura budget replenishes at midnight UTC).</li>
+        <li>Explore the whole platform: Explore, profiles, hub creation, collections.</li>
+      </ol>
+
+      <h3>2. Contribute</h3>
+      <ol className="onboarding-steps-list">
+        <li>Start creating a free hub and add digital artifacts (guides, links, files, etc.).</li>
+        <li>When ready, list it on Explore so you are contributing to the public library.</li>
+      </ol>
+
+      <h3>3. Make Kahana a daily habit (Aura streak)</h3>
+      <ul className="onboarding-rules-list">
+        <li>
+          <strong>Pin</strong> the library as one of your browser tabs and <strong>bookmark</strong>{' '}
+          <a href={KAHANA_SITE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
+            kahana.io
+          </a>
+          .
+        </li>
+        <li>
+          Go on Kahana <strong>every day</strong> and maintain an <strong>Aura streak</strong> — give Aura at
+          least once every 24 hours.
+        </li>
+      </ul>
+
+      <h3>4. Issues and suggestions</h3>
+      <p>If you notice bugs or have ideas, use these links — do not stay silent:</p>
+      <div className="onboarding-cta-row">
+        <a
+          href={KAHANA_SUPPORT_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="onboarding-cta-link"
+        >
+          Support →
+        </a>
+        <a
+          href={KAHANA_FEEDBACK_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="onboarding-cta-link"
+        >
+          Feedback survey →
+        </a>
+      </div>
+
+      <div className="onboarding-note">
+        <p>
+          Context: read the public story on{' '}
+          <Link to="/onboarding/review-landing-page" className="onboarding-inline-link">
+            about.kahana.io
+          </Link>{' '}
+          (Day 3) when you get there — Aura, Learn / Create / Grow, and benefits for learners and creators.
+        </p>
+      </div>
     </div>
   )
 }
@@ -1100,6 +1187,7 @@ function StepOnboardingSurvey() {
 const STEP_CONTENT = {
   'schedule-1on1': StepSchedule1on1,
   'company-rules': StepCompanyRules,
+  'explore-aura-library': StepExploreAuraLibrary,
   'time-log': StepTimeLog,
   'install-oasis': StepInstallOasis,
   'use-oasis-5-days': StepUseOasis5Days,

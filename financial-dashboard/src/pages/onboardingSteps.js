@@ -2,6 +2,13 @@ export const ONBOARDING_STEPS = [
   // Day 1
   { id: 'schedule-1on1', label: 'Biweekly 1-on-1 check in with Adam', category: 'Admin & Setup', day: 1, badge: 'minutes' },
   { id: 'company-rules', label: 'Read Company Rules, Values, & Guidelines', category: 'Company & Culture', day: 1, badge: 'minutes' },
+  {
+    id: 'explore-aura-library',
+    label: "Explore Kahana's Aura Library",
+    category: 'Product',
+    day: 1,
+    badge: 'ongoing',
+  },
   { id: 'social-media', label: 'Follow Kahana channels and Adam on socials', category: 'External Presence', day: 1, badge: 'minutes' },
   { id: 'internal-channels', label: 'Join Kahana Slack', category: 'Communication', day: 1, badge: 'minutes' },
   { id: 'linear-access', label: 'Get access to Linear (PM & Engineering)', category: 'Admin & Setup', day: 1, badge: 'minutes' },
