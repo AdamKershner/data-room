@@ -30,7 +30,7 @@ export const ONBOARDING_STEPS = [
     icon: '✨',
     category: 'Product',
     day: 1,
-    badge: 'ongoing',
+    badge: 'Monday–Friday',
   },
   {
     id: 'social-media',
