@@ -810,25 +810,78 @@ function StepSoc2Compliance() {
 function StepProductHunt() {
   return (
     <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You've created a Product Hunt profile, added it to the team sheet, and followed everyone on the sheet.</p>
+      <p className="onboarding-step-done onboarding-step-done-top">
+        <strong>✓ Done when:</strong> You&apos;ve created a Product Hunt profile, added it to the team sheet, and
+        followed everyone on the sheet.
+      </p>
 
-      <p>Product Hunt is a platform where people discover and share new products. It's a key channel for tech and startup audiences. Similar to Reddit, Product Hunt launches are driven by upvotes and comments from users on the platform. When we do well on Product Hunt, we gain more users, customers, and investors.</p>
+      <p>
+        Product Hunt is where people discover and share new products. It&apos;s a key channel for tech and
+        startup audiences — launches are driven by upvotes and comments. Strong PH days bring users, customers,
+        and investors.
+      </p>
 
-      <p>We're preparing to launch Oasis on Product Hunt, targeting a launch in March 2026, followed by subsequent launches as we continue to add more features and enhancements. When our team has Product Hunt accounts, follows each other, and maintains a streak on Product Hunt, it boosts our ability to perform well and increases the likelihood our launches end up #1 each day. See our <a href="https://docs.google.com/document/d/1fbnq13Uj8n3qaCCg1BOdiQD-awjl5c2sswxWaX6oyU8/edit?pli=1&tab=t.0#heading=h.ctmy5c17lr0g" target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">Product Hunt Launch campaign charter</a> for full context.</p>
+      <p>
+        We&apos;re preparing an upcoming Product Hunt launch of <strong>Kahana</strong> — our product. Learn
+        what we&apos;re launching at{' '}
+        <a href={KAHANA_ABOUT_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
+          about.kahana.io
+        </a>
+        . When the team has Product Hunt accounts, follows each other, and keeps an active streak, we perform
+        better on launch day and are more likely to hit #1. See our{' '}
+        <a
+          href="https://docs.google.com/document/d/1fbnq13Uj8n3qaCCg1BOdiQD-awjl5c2sswxWaX6oyU8/edit?pli=1&tab=t.0#heading=h.ctmy5c17lr0g"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="onboarding-inline-link"
+        >
+          Product Hunt Launch campaign charter
+        </a>{' '}
+        for full context.
+      </p>
 
       <div className="onboarding-avenger-tasks">
         <div className="onboarding-nps-step">
+          <strong>0. Know the product</strong>
+          <p>
+            Skim the Kahana site so you can explain what we&apos;re launching when you engage on Product Hunt.
+          </p>
+          <a
+            href={KAHANA_ABOUT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="onboarding-cta-link onboarding-cta-link-block"
+          >
+            Review Kahana → about.kahana.io
+          </a>
+        </div>
+
+        <div className="onboarding-nps-step">
           <strong>1. Create a Product Hunt profile</strong>
-          <p>Create a profile on Product Hunt. Here's an example of what a profile looks like:</p>
-          <a href="https://www.producthunt.com/@adamthecreator" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
-            View Adam's Product Hunt profile →
+          <p>Create a profile on Product Hunt. Here&apos;s an example of what a profile looks like:</p>
+          <a
+            href="https://www.producthunt.com/@adamthecreator"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="onboarding-cta-link onboarding-cta-link-block"
+          >
+            View Adam&apos;s Product Hunt profile →
           </a>
         </div>
 
         <div className="onboarding-nps-step">
           <strong>2. Add your profile to the sheet and follow everyone</strong>
-          <p>Add your Product Hunt profile to the team sheet, then follow everyone already on the sheet. Maintaining an active streak on Product Hunt (visiting and engaging regularly) helps our launches perform better.</p>
-          <a href="https://docs.google.com/spreadsheets/d/1gSMDizFLvRliMZgYNyQND4lipZ3Dde6FPn2EWDRZolM/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
+          <p>
+            Add your Product Hunt profile to the team sheet, then follow everyone already on the sheet.
+            Maintaining an active streak on Product Hunt (visiting and engaging regularly) helps our Kahana
+            launch perform better.
+          </p>
+          <a
+            href="https://docs.google.com/spreadsheets/d/1gSMDizFLvRliMZgYNyQND4lipZ3Dde6FPn2EWDRZolM/edit?gid=0#gid=0"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="onboarding-cta-link onboarding-cta-link-block"
+          >
             Open team Product Hunt sheet →
           </a>
         </div>
