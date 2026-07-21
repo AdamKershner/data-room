@@ -11,34 +11,88 @@ import './Onboarding.css'
 function StepSchedule1on1() {
   return (
     <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You've scheduled the biweekly 1-on-1 meeting with Adam.</p>
-
-      <p>It's mandatory to schedule the meeting. This creates a 15-minute block on your and Adam's calendars, serving as a reminder to check in every 2 weeks. At that time, you can either join the meeting or message over Slack — it's just about connecting at least once every 2 weeks.</p>
-
-      <p>
-        <a href="https://go.oncehub.com/AdamKershner" target="_blank" rel="noopener noreferrer" className="onboarding-cta-link">
-          📅 Schedule your biweekly 1-on-1 with Adam →
-        </a>
+      <p className="onboarding-step-done onboarding-step-done-top">
+        <strong>✓ Done when:</strong> You&apos;ve joined Kahana Slack, sent Adam Kershner a DM introducing
+        yourself, and scheduled your biweekly 1-on-1.
       </p>
+
+      <h3>1. Join Slack</h3>
+      <p>
+        Slack is our primary workspace for day-to-day communication — DMs, channels, and team coordination.
+        Join first so you can reach Adam and the rest of the team.
+      </p>
+      <a
+        href={SLACK_INVITE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="onboarding-cta-link onboarding-cta-link-block"
+      >
+        Join Kahana Slack →
+      </a>
+
+      <h3>2. DM Adam Kershner once you&apos;re in</h3>
+      <div className="onboarding-note onboarding-note-important">
+        <p>
+          As soon as you join Slack, <strong>DM Adam Kershner</strong>. Introduce yourself (name, role /
+          functions you&apos;re joining for). That opens the channel for onboarding questions, tool access later,
+          and your biweekly check-ins.
+        </p>
+      </div>
+
+      <h3>3. Schedule your biweekly 1-on-1</h3>
+      <p>
+        It&apos;s mandatory to schedule the meeting. This creates a 15-minute block on your and Adam&apos;s
+        calendars — a reminder to check in every 2 weeks. At that time you can join the meeting or message over
+        Slack; the point is connecting at least once every 2 weeks.
+      </p>
+      <a
+        href="https://go.oncehub.com/AdamKershner"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="onboarding-cta-link onboarding-cta-link-block"
+      >
+        Schedule your biweekly 1-on-1 with Adam →
+      </a>
 
       <h3>FAQs</h3>
       <dl className="onboarding-faq">
         <dt>Frequency</dt>
-        <dd>Every 2 weeks. The scheduled 15-minute block is a reminder — you can join the meeting or check in over Slack at that time.</dd>
-
+        <dd>
+          Every 2 weeks. The scheduled 15-minute block is a reminder — you can join the meeting or check in
+          over Slack at that time.
+        </dd>
         <dt>Agenda</dt>
-        <dd>Share updates about what you're focusing on and learning about.</dd>
-
+        <dd>Share updates about what you&apos;re focusing on and learning about.</dd>
         <dt>Ask questions</dt>
-        <dd>Ask questions and get reports from Adam. If there's anything you want to know, you can ask.</dd>
+        <dd>Ask questions and get context from Adam. If there&apos;s anything you want to know, ask.</dd>
       </dl>
 
       <div className="onboarding-note">
-        <p><strong>Recurring meeting:</strong> When you schedule via the calendar link, Adam will update it to make it a recurring biweekly meeting.</p>
+        <p>
+          <strong>Recurring meeting:</strong> When you schedule via the calendar link, Adam will update it to
+          make it a recurring biweekly meeting.
+        </p>
+      </div>
+
+      <div className="onboarding-note onboarding-note-help">
+        <p>
+          <strong>Slack vs Linear:</strong> Use Slack for conversation and quick questions. When work needs an
+          owner, priority, or deadline, create a{' '}
+          <a href={LINEAR_WORKSPACE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
+            Linear issue
+          </a>{' '}
+          — see{' '}
+          <Link to="/operating-system" className="onboarding-inline-link">
+            Operating System
+          </Link>
+          .
+        </p>
       </div>
 
       <div className="onboarding-note onboarding-note-important">
-        <p><strong>If you cannot attend a scheduled meeting:</strong> Please let Adam know in advance on Slack.</p>
+        <p>
+          <strong>If you cannot attend a scheduled meeting:</strong> Let Adam know in advance on Slack.
+        </p>
       </div>
     </div>
   )
@@ -613,37 +667,6 @@ function StepDuolingoArticle() {
   )
 }
 
-function StepInternalChannels() {
-  return (
-    <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You've joined Kahana Slack.</p>
-
-      <p>We use Slack for day-to-day team communication — DMs, channels, and team coordination.</p>
-
-      <div className="onboarding-note onboarding-note-help">
-        <p>
-          <strong>Slack vs Linear:</strong> Use Slack for conversation and quick questions. When work needs an owner,
-          priority, or deadline, create a{' '}
-          <a href={LINEAR_WORKSPACE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
-            Linear issue
-          </a>{' '}
-          — see <Link to="/operating-system" className="onboarding-inline-link">Operating System</Link> for norms.
-        </p>
-      </div>
-
-      <div className="onboarding-avenger-tasks">
-        <div className="onboarding-nps-step">
-          <strong>Slack</strong>
-          <p>Our primary workspace for internal communication.</p>
-          <a href={SLACK_INVITE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-cta-link onboarding-cta-link-block">
-            Join Kahana Slack →
-          </a>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 function StepLinearAccess() {
   return (
     <div className="onboarding-step-content">
@@ -664,8 +687,9 @@ function StepLinearAccess() {
 
       <div className="onboarding-note onboarding-note-important">
         <p>
-          <strong>Need access?</strong> DM <strong>Adam Kershner</strong> on Slack after you&apos;ve scheduled
-          your biweekly 1-on-1. Product and engineering must have Linear before first sprint planning.
+          <strong>Need access?</strong> DM <strong>Adam Kershner</strong> on Slack after you&apos;ve joined
+          Slack and scheduled your biweekly 1-on-1 (step 1). Product and engineering must have Linear before
+          first sprint planning.
         </p>
       </div>
 
@@ -1034,7 +1058,6 @@ const STEP_CONTENT = {
   'review-landing-page': StepReviewLandingPage,
   'duolingo-article': StepDuolingoArticle,
   'soc2-compliance': StepSoc2Compliance,
-  'internal-channels': StepInternalChannels,
   'linear-access': StepLinearAccess,
   'slack-phone': StepSlackPhone,
   'producthunt': StepProductHunt,
