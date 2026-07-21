@@ -8,8 +8,6 @@ export const ONBOARDING_STEPS = [
   { id: 'slack-phone', label: 'Install Slack on your Phone and configure notifications', category: 'Communication', day: 1, badge: 'minutes' },
   { id: 'avenger-profile', label: 'Create your Avenger profile', category: 'Product', day: 1, badge: 'minutes' },
   { id: 'producthunt', label: 'Create ProductHunt account and follow all other accounts on here', category: 'External Presence', day: 1, badge: 'minutes' },
-  // Day 2
-  { id: 'linkedin', label: 'LinkedIn guide, form & profile', category: 'External Presence', day: 2, badge: '1-2 hours' },
   // Day 3
   {
     id: 'knowledge-base-core-business',

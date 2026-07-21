@@ -11,7 +11,6 @@ const CONFETTI_COUNT = 16
 const DAY_LABELS = {
   1: 'Day 1',
   across: 'Across 5 business days',
-  2: 'Day 2',
   3: 'Day 3',
   4: 'Day 4',
   5: 'Day 5: Complete',
@@ -131,7 +130,7 @@ function Onboarding() {
 
       <section className="page-section">
         <div className="onboarding-checklist">
-          {[1, 'across', 2, 3, 4, 5].map((day) => {
+          {[1, 'across', 3, 4, 5].map((day) => {
             const daySteps = activeSteps.filter((s) => s.day === day)
             if (daySteps.length === 0) return null
             return (

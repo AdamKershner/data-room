@@ -18,7 +18,7 @@ function LinkedInGuide() {
       </p>
 
       <div className="linkedin-mandatory-callout">
-        <p><strong>Mandatory participation.</strong> You will choose Category 1 or Category 2, and based on that category, you will be expected to handle the responsibilities for it. Everyone at Kahana participates. New team members should complete the <Link to="/onboarding/linkedin" className="onboarding-inline-link">LinkedIn onboarding step</Link> as part of their first week.</p>
+        <p><strong>Mandatory participation.</strong> You will choose Category 1 or Category 2, and based on that category, you will be expected to handle the responsibilities for it. Everyone at Kahana participates.</p>
       </div>
 
       <div className="linkedin-guide-warning">

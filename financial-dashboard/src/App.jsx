@@ -87,6 +87,7 @@ function App() {
           <Route path="/b2b-strategic-narrative" element={<StrategicNarrative />} />
           <Route path="/b2c-strategic-narrative" element={<B2CStrategicNarrative />} />
           <Route path="/onboarding" element={<Onboarding />} />
+          <Route path="/onboarding/linkedin" element={<Navigate to="/linkedin-guide" replace />} />
           <Route path="/onboarding/install-oasis" element={<Navigate to="/oasis-browser" replace />} />
           <Route path="/onboarding/use-oasis-5-days" element={<Navigate to="/oasis-browser" replace />} />
           <Route path="/onboarding/:stepId" element={<OnboardingStep />} />

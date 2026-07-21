@@ -849,60 +849,6 @@ function StepProductHunt() {
   )
 }
 
-function StepLinkedin() {
-  return (
-    <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You've read the LinkedIn Guide, chosen your participation category (Category 1 or 2), your LinkedIn profile lists Kahana as your current experience, you've joined #linkedin-focus-group on Slack, followed the Kahana company page, connected with Adam and turned on notifications for his posts, and you're prepared to post regularly as part of your role.</p>
-
-      <div className="onboarding-note onboarding-note-important onboarding-linkedin-callout">
-        <p><strong>Start here:</strong> Read the <Link to="/linkedin-guide" className="onboarding-inline-link">LinkedIn Guide & Best Practices</Link> and choose your participation category (Category 1 or Category 2). The guide explains expectations, time commitments, and includes the form to select your category. Everyone at Kahana participates—this step is required.</p>
-      </div>
-
-      <div className="onboarding-cta-row">
-        <Link to="/linkedin-guide" className="onboarding-cta-link">
-          📖 Read LinkedIn Guide & Choose Category →
-        </Link>
-      </div>
-
-      <p>Update your LinkedIn profile to reflect your role at Kahana. We also recommend preparing to post on LinkedIn frequently as part of your responsibilities — it's a key channel for reach, credibility, and growth.</p>
-
-      <h3>Follow and connect</h3>
-      <ul className="onboarding-rules-list">
-        <li>Follow the <a href="https://www.linkedin.com/company/kahana-co" target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">Kahana company page</a> on LinkedIn</li>
-        <li>Connect with Adam, follow him, and turn on notifications for when he posts — <a href="https://www.linkedin.com/in/adam-kershner/" target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">Adam Kershner</a></li>
-        <li>Connect with all other team members — find their LinkedIn profile links on their <a href="https://www.notion.so/kahanagroup/Kahana-HQ-c03d4242e7464e71ad8d4ec856f274e8" target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">Avenger profiles on Kahana HQ</a></li>
-      </ul>
-      <p>LinkedIn prioritizes reach from founders, and engaging on Adam's posts helps improve visibility for the company. Also, every now and then he may actually post something on LinkedIn that is valuable ;)</p>
-      <div className="onboarding-note onboarding-note-help">
-        <p><strong>How to turn on notifications:</strong> Navigate to their profile, click the bell icon (🔔) near their profile picture, and select which updates to receive. This works for both connections and companies — you'll get alerted to new posts so you never miss updates from key people in your network.</p>
-      </div>
-
-      <h3>Profile updates</h3>
-      <ul className="onboarding-rules-list">
-        <li>Add Kahana to your experience section</li>
-        <li>Update your bio to list Kahana as your current role</li>
-        <li>If you create a blog post and publish it on Kahana, add it to your Featured posts or Featured articles section</li>
-      </ul>
-
-      <h3>Posting as part of your role</h3>
-      <p>We encourage you to post regularly about your work at Kahana. We also encourage you to block off 15 minutes per day to go on LinkedIn and engage on your network's posts by liking and commenting — this helps keep your network warm. Examples of what to post:</p>
-      <ul className="onboarding-rules-list">
-        <li>Post about what you're working on and share insights with your network</li>
-        <li>Reshare blog posts and YouTube videos we create — <a href="https://kahana.io/blog" target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">Kahana Blog</a>, <a href="https://www.youtube.com/@kahanaHQ" target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">YouTube @kahanaHQ</a></li>
-        <li>Share polls and surveys geared toward generating insights that help our product</li>
-      </ul>
-
-      <div className="onboarding-note">
-        <p><strong>Recommendations:</strong> As you continue to progress at Kahana, you'll gain opportunities to receive LinkedIn recommendations from your fellow teammates.</p>
-      </div>
-
-      <div className="onboarding-note onboarding-note-help">
-        <p><strong>Join the LinkedIn Focus Group:</strong> Join <strong>#linkedin-focus-group</strong> on Slack — a subgroup at Kahana dedicated to helping you improve your LinkedIn presence. If you're unsure about LinkedIn responsibilities or how to complete this onboarding step, join the channel and you'll get support and guidance to make sure you're using LinkedIn correctly.</p>
-      </div>
-    </div>
-  )
-}
-
 const SOCIAL_MEDIA_CHANNELS = [
   { name: 'LinkedIn', url: 'https://www.linkedin.com/company/kahana-co' },
   { name: 'X (Twitter)', url: 'https://x.com/KahanaHQ' },
@@ -1130,7 +1076,6 @@ const STEP_CONTENT = {
   'linear-access': StepLinearAccess,
   'slack-phone': StepSlackPhone,
   'producthunt': StepProductHunt,
-  'linkedin': StepLinkedin,
   'social-media': StepSocialMedia,
   'tools-access': StepToolsAccess,
   'onboarding-survey': StepOnboardingSurvey,
