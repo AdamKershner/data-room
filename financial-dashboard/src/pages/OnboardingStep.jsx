@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
 import { KAHANA_PLATFORM_URL, KAHANA_EXPLORE_URL } from '../data/kahanaPlatformSections'
-import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL } from '../constants/kahanaSite'
+import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL, ADAM_SOCIALS_URL } from '../constants/kahanaSite'
 import { CHARTER_KPIS, TIME_LOG_RITUAL } from '../data/charterKpis'
 import { PM_LIFECYCLE_RESOURCES, PM_LIFECYCLE_STEPS } from '../data/operatingSystemSections'
 import { formatCardTitle } from '../utils/formatCardTitle'
@@ -914,23 +914,57 @@ const SOCIAL_MEDIA_CHANNELS = [
 function StepSocialMedia() {
   return (
     <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You've followed all Kahana social media channels and turned on notifications for each.</p>
+      <p className="onboarding-step-done onboarding-step-done-top">
+        <strong>✓ Done when:</strong> You&apos;ve followed all Kahana channels, followed Adam on his socials
+        (via his about page), and turned on notifications for each.
+      </p>
 
-      <p>Follow all Kahana social media accounts and turn on notifications so you stay up to date on company updates, product news, and content. More content coming soon — stay tuned!</p>
+      <p>
+        Follow Kahana social accounts and Adam&apos;s personal channels so you stay up to date on company
+        updates, product news, and founder-led content. More content coming soon — stay tuned!
+      </p>
 
-      <p>When we post new content, like and comment on it — engagement helps us improve in the algorithms and increases our reach.</p>
+      <p>
+        When we post new content, like and comment on it — engagement helps us improve in the algorithms and
+        increases our reach.
+      </p>
 
-      <h3>Channels to follow</h3>
+      <h3>1. Follow Adam on socials</h3>
+      <p>
+        Open Adam&apos;s page and follow him on the platforms listed there (LinkedIn, X, Instagram, etc.).
+        Founder-led content is a core GTM channel — see also the{' '}
+        <Link to="/founder-personal-brand" className="onboarding-inline-link">
+          Founder-led Personal Brand
+        </Link>{' '}
+        guide.
+      </p>
+      <a
+        href={ADAM_SOCIALS_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="onboarding-cta-link onboarding-cta-link-block"
+      >
+        Follow Adam Kershner → about.kahana.io/adam-kershner
+      </a>
+
+      <h3>2. Follow Kahana company channels</h3>
       <ul className="onboarding-steps-list">
         {SOCIAL_MEDIA_CHANNELS.map((channel) => (
           <li key={channel.name}>
-            <a href={channel.url} target="_blank" rel="noopener noreferrer">{channel.name}</a>
+            <a href={channel.url} target="_blank" rel="noopener noreferrer">
+              {channel.name}
+            </a>
           </li>
         ))}
       </ul>
 
       <div className="onboarding-note onboarding-note-help">
-        <p><strong>Turn on notifications:</strong> For each platform, enable notifications so you're alerted when we post new content. On LinkedIn, use the bell icon (🔔) on our company page. On other platforms, check your account or app settings for notification preferences.</p>
+        <p>
+          <strong>Turn on notifications:</strong> For each platform, enable notifications so you&apos;re
+          alerted when we post new content. On LinkedIn, use the bell icon on our company page and on
+          Adam&apos;s profile. On other platforms, check your account or app settings for notification
+          preferences.
+        </p>
       </div>
     </div>
   )
