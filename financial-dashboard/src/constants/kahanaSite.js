@@ -19,6 +19,10 @@ export const CREATOR_OUTREACH_SHEET_URL =
 /** Weekly time log — Tally form submitted every Friday EOD by all teammates. */
 export const TIME_LOG_TALLY_URL = 'https://tally.so/r/w2YdzL'
 
+/** Get access to tools & data — preferred emails + whether you contribute to code. */
+export const TOOLS_ACCESS_TALLY_URL = 'https://tally.so/r/2EgxRV'
+export const TOOLS_ACCESS_TALLY_EMBED_URL = 'https://tally.so/embed/2EgxRV'
+
 /** Adam Kershner OnceHub — schedule weekly 1-on-1. */
 export const ADAM_ONCEHUB_URL = 'https://go.oncehub.com/AdamKershner'
 

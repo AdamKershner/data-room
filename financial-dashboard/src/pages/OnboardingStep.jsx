@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
 import { OnboardingIcon } from './onboardingIcons'
-import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, MIXPANEL_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL, ADAM_SOCIALS_URL, ADAM_ONCEHUB_URL, KAHANA_ABOUT_URL, KAHANA_SITE_URL, KAHANA_SUPPORT_URL, KAHANA_FEEDBACK_URL, KAHANA_PROFILE_EXAMPLE_URL } from '../constants/kahanaSite'
+import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, MIXPANEL_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL, TOOLS_ACCESS_TALLY_URL, TOOLS_ACCESS_TALLY_EMBED_URL, ADAM_SOCIALS_URL, ADAM_ONCEHUB_URL, KAHANA_ABOUT_URL, KAHANA_SITE_URL, KAHANA_SUPPORT_URL, KAHANA_FEEDBACK_URL, KAHANA_PROFILE_EXAMPLE_URL } from '../constants/kahanaSite'
 import { TIME_LOG_RITUAL } from '../data/charterKpis'
 import linearKahanaBoard from '../images/linear-kahana-board.png'
 import mixpanelCheckoutJourneys from '../images/mixpanel-checkout-journeys.png'
@@ -596,11 +596,11 @@ function StepCreateProfiles() {
 
       <div className="onboarding-note">
         <p>
-          After you finish onboarding, request tool access by DMing Adam — see{' '}
+          After you create profiles, get tools via the{' '}
           <Link to="/onboarding/tools-access" className="onboarding-inline-link">
             Request tools access
-          </Link>
-          . Select your functions on your Avenger profile so Adam knows what to provision.
+          </Link>{' '}
+          form (preferred email + whether you contribute to the code).
         </p>
       </div>
 

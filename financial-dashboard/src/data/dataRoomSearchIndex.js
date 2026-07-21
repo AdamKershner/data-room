@@ -200,7 +200,7 @@ function buildOnboardingStepEntries() {
       step.id === 'time-log'
         ? ['time log', 'weekly', 'compliance', 'friday', 'tally', 'reports', 'charter', 'curr', 'kpis']
         : step.id === 'tools-access'
-          ? ['tools', 'access', 'slack', 'dm adam', 'mixpanel', 'linear', 'github', 'firebase']
+          ? ['tools', 'access', 'tally', 'mixpanel', 'linear', 'github', 'developer', 'email']
           : step.id === 'weekly-1on1'
             ? ['1-on-1', 'oncehub', 'weekly', 'adam', 'meeting']
             : []
@@ -208,7 +208,7 @@ function buildOnboardingStepEntries() {
       step.id === 'time-log'
         ? 'Establish weekly Time Log habit — Friday EOD, compliance, Weekly Reports, charter KPIs.'
         : step.id === 'tools-access'
-          ? 'DM Adam for Linear, Mixpanel, and (if coding) GitHub + Firebase with preferred emails.'
+          ? 'Submit the Get Access to Tools & Data form for Linear, Mixpanel, and (if coding) GitHub email.'
           : step.id === 'weekly-1on1'
             ? 'Schedule a recurring weekly 1-on-1 with Adam via OnceHub.'
             : `Onboarding step (Day 1) — ${step.category}.`
