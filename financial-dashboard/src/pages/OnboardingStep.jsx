@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
 import { OnboardingIcon } from './onboardingIcons'
 import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, MIXPANEL_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL, ADAM_SOCIALS_URL, ADAM_ONCEHUB_URL, KAHANA_ABOUT_URL, KAHANA_SITE_URL, KAHANA_SUPPORT_URL, KAHANA_FEEDBACK_URL, KAHANA_PROFILE_EXAMPLE_URL } from '../constants/kahanaSite'
-import { CHARTER_KPIS, TIME_LOG_RITUAL } from '../data/charterKpis'
+import { TIME_LOG_RITUAL } from '../data/charterKpis'
 import linearKahanaBoard from '../images/linear-kahana-board.png'
 import mixpanelCheckoutJourneys from '../images/mixpanel-checkout-journeys.png'
 import './Page.css'
@@ -324,21 +324,24 @@ function StepTimeLog() {
 
       <h3>What to write</h3>
       <p>{TIME_LOG_RITUAL.whatToWrite}</p>
-      <p>Charter KPIs to reference when relevant:</p>
-      <ul className="onboarding-rules-list">
-        {CHARTER_KPIS.map((kpi) => (
-          <li key={kpi.id}>
-            <strong>{kpi.metric}</strong> — {kpi.definition}
-          </li>
+
+      <h3>Template examples</h3>
+      <p>Use these as a starting point — adapt to your role and week:</p>
+      <div className="onboarding-avenger-tasks">
+        {TIME_LOG_RITUAL.examples.map((ex) => (
+          <div key={ex.title} className="onboarding-nps-step">
+            <strong>{ex.title}</strong>
+            <p>{ex.body}</p>
+          </div>
         ))}
-      </ul>
+      </div>
 
       <div className="onboarding-cta-row">
         <a href={TIME_LOG_TALLY_URL} target="_blank" rel="noopener noreferrer" className="onboarding-cta-link">
-          📋 Fill out the Time Log →
+          Fill out the Time Log →
         </a>
         <button type="button" onClick={downloadTimeLogICS} className="onboarding-cta-button">
-          📅 Add recurring Friday reminder
+          Add recurring Friday reminder
         </button>
       </div>
 

@@ -68,10 +68,24 @@ export const TIME_LOG_RITUAL = {
   when: 'Every Friday by end of day',
   duration: 'Block 5–10 minutes on your calendar',
   whatToWrite:
-    'A detailed description of what you focused on this week. Where your work touched charter KPIs (CURR, DAUs, retention, MRR, ARR, experts onboarded, hubs created, customer delight), say so explicitly.',
+    'Write a short description of what you did that week — enough detail that someone else can understand your focus and progress (about 1–2 paragraphs).',
   why: [
     'Compliance — audit trail of who worked on what, supporting SOC 2 and operational policies.',
     'Weekly Reports — Adam synthesizes time log entries into accurate cross-team progress updates.',
     'Project Charter — logs show how daily work maps to scaling Kahana and org KPIs.',
+  ],
+  examples: [
+    {
+      title: 'Product / engineering',
+      body: 'This week I focused on search performance on the Explore page. I profiled slow hub loads, shipped a caching fix for author metadata, and opened a Linear ticket for a follow-up on image lazy-loading. I also reviewed two teammate PRs and tested the mobile usability checklist on Android.',
+    },
+    {
+      title: 'Growth / marketing',
+      body: 'I drafted and scheduled three LinkedIn posts for the Kahana launch narrative, updated the creator outreach sheet with 12 new influencer profiles, and sent first-touch emails to five creators. I also reviewed Mixpanel checkout funnels for the last 30 days and noted drop-off between billing page view and plan click for Adam.',
+    },
+    {
+      title: 'General / ops',
+      body: 'Most of my week was onboarding and tooling: finished Day 1 checklist items, set up Linear and Mixpanel, and wrote my Avenger profile. I joined Slack channels, scheduled my weekly 1-on-1 with Adam, and spent Friday afternoon documenting how I spent time so next week’s report is easier to write.',
+    },
   ],
 }
