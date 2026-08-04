@@ -41,7 +41,7 @@ function KahanaNarrative() {
             )}
             {beat.linkToCompetitors && (
               <p className="kn-competitors-link">
-                <Link to={COMPETITORS_PAGE_PATH}>Full competitor landscape →</Link>
+                <Link to={COMPETITORS_PAGE_PATH}>Full Company Landscape →</Link>
               </p>
             )}
           </div>

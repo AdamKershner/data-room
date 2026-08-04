@@ -90,6 +90,19 @@ export const PLAYER_LOGO_DOMAIN = {
   memberful: 'memberful.com',
   pensight: 'pensight.com',
   circle: 'circle.so',
+  whatsapp: 'whatsapp.com',
+  telegram: 'telegram.org',
+  groupme: 'groupme.com',
+  slack: 'slack.com',
+  signal: 'signal.org',
+  'facebook-groups': 'facebook.com',
+  guild: 'guild.so',
+  hivebrite: 'hivebrite.com',
+  disciple: 'disciplemedia.com',
+  bettermode: 'bettermode.com',
+  hypage: 'hypage.com',
+  shopify: 'shopify.com',
+  etsy: 'etsy.com',
 }
 
 export function getPlayerLogoUrl(playerId, size = 64) {
@@ -137,7 +150,22 @@ export const FRAGMENT_ICON_PATHS = {
   },
   'creator-monetization': {
     viewBox: '0 0 24 24',
+    // heart / patronage
+    d: 'M12 21s-7-4.35-9.5-8.5C.5 9 2.5 5 6.2 5c2 0 3.3 1.2 3.8 2 0.5-0.8 1.8-2 3.8-2C17.5 5 19.5 9 21.5 12.5 19 16.65 12 21 12 21z',
+  },
+  'messaging-community': {
+    viewBox: '0 0 24 24',
+    // chat bubbles
+    d: 'M4 4h12a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm14 5h2a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1v3l-3.5-2.5H12',
+  },
+  'online-storefront': {
+    viewBox: '0 0 24 24',
     // link (link-in-bio) mark
     d: 'M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71',
+  },
+  'digital-marketplaces': {
+    viewBox: '0 0 24 24',
+    // storefront / market stall
+    d: 'M3 7 5 3h14l2 4v2a2 2 0 0 1-2 2v8a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-8a2 2 0 0 1-2-2V7zm4 4v8h4v-8H7zm6 0v8h4v-8h-4zM5 7h14l-1-2H6L5 7z',
   },
 }

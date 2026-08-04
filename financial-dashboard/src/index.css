@@ -78,3 +78,84 @@ a:active {
   color: var(--oasis-green-darkest);
 }
 
+/*
+ * Filled / pill CTAs: white label on green fill.
+ * Must beat a:any-link above — otherwise text stays oasis-green-dark on oasis-green-medium (unreadable).
+ * Prefer adding class "btn-filled" on new CTAs; known legacy classes are listed for coverage.
+ */
+a.btn-filled:any-link,
+a.btn-filled:visited,
+a.btn-filled:hover,
+a.btn-filled:active,
+a.os-cta--primary:any-link,
+a.os-cta--primary:visited,
+a.os-cta--primary:hover,
+a.os-cta--primary:active,
+a.kahana-cta--primary:any-link,
+a.kahana-cta--primary:visited,
+a.kahana-cta--primary:hover,
+a.kahana-cta--primary:active,
+a.kahana-platform-hero-cta:not(.kahana-platform-hero-cta--secondary):any-link,
+a.kahana-platform-hero-cta:not(.kahana-platform-hero-cta--secondary):visited,
+a.kahana-platform-hero-cta:not(.kahana-platform-hero-cta--secondary):hover,
+a.kahana-platform-hero-cta:not(.kahana-platform-hero-cta--secondary):active,
+a.exec-cta--primary:any-link,
+a.exec-cta--primary:visited,
+a.exec-cta--primary:hover,
+a.exec-cta--primary:active,
+a.onboarding-cta-link:any-link,
+a.onboarding-cta-link:visited,
+a.onboarding-cta-link:hover,
+a.onboarding-cta-link:active,
+a.events-top-btn--primary:any-link,
+a.events-top-btn--primary:visited,
+a.events-top-btn--primary:hover,
+a.events-top-btn--primary:active,
+a.team-execution-notion-button:any-link,
+a.team-execution-notion-button:visited,
+a.team-execution-notion-button:hover,
+a.team-execution-notion-button:active,
+a.linkedin-connections-tracker-button:any-link,
+a.linkedin-connections-tracker-button:visited,
+a.linkedin-connections-tracker-button:hover,
+a.linkedin-connections-tracker-button:active,
+a.producthunt-accounts-button:any-link,
+a.producthunt-accounts-button:visited,
+a.producthunt-accounts-button:hover,
+a.producthunt-accounts-button:active,
+a.founder-examples-memoir-btn:any-link,
+a.founder-examples-memoir-btn:visited,
+a.founder-examples-memoir-btn:hover,
+a.founder-examples-memoir-btn:active {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Outline / secondary CTAs: keep brand text, drop underline so they read as buttons */
+a.btn-outline:any-link,
+a.btn-outline:visited,
+a.btn-outline:hover,
+a.btn-outline:active,
+a.os-cta--secondary:any-link,
+a.os-cta--secondary:visited,
+a.os-cta--secondary:hover,
+a.os-cta--secondary:active,
+a.kahana-cta--secondary:any-link,
+a.kahana-cta--secondary:visited,
+a.kahana-cta--secondary:hover,
+a.kahana-cta--secondary:active,
+a.kahana-platform-hero-cta--secondary:any-link,
+a.kahana-platform-hero-cta--secondary:visited,
+a.kahana-platform-hero-cta--secondary:hover,
+a.kahana-platform-hero-cta--secondary:active,
+a.events-top-btn--secondary:any-link,
+a.events-top-btn--secondary:visited,
+a.events-top-btn--secondary:hover,
+a.events-top-btn--secondary:active,
+a.onboarding-cta-button-outline:any-link,
+a.onboarding-cta-button-outline:visited,
+a.onboarding-cta-button-outline:hover,
+a.onboarding-cta-button-outline:active {
+  text-decoration: none;
+}
+

@@ -6,6 +6,47 @@
   max-width: 52rem;
 }
 
+.fragment-capture-stack-position {
+  margin: 12px 0 0;
+  max-width: 52rem;
+  padding: 10px 14px;
+  border-left: 3px solid var(--oasis-green-medium, #2d6a4f);
+  background: #f5f7f4;
+  color: #445;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.fragment-capture-stack-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+  max-width: 64rem;
+}
+
+.fragment-capture-stack-pill {
+  flex: 1 1 180px;
+  min-width: 160px;
+  border: 1px solid #dfe5e1;
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #fafcfb;
+}
+
+.fragment-capture-stack-pill strong {
+  display: block;
+  font-size: 0.85rem;
+  color: #1f4d38;
+  margin-bottom: 4px;
+}
+
+.fragment-capture-stack-pill span {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: #556;
+}
+
 .fragment-capture-header {
   margin-bottom: 8px;
 }
@@ -183,6 +224,37 @@
 .fragment-map-board--province {
   background:
     linear-gradient(160deg, #e6dfd0 0%, #d8d0be 50%, #cfc6b4 100%);
+}
+
+.fragment-map-board--world {
+  min-height: 520px;
+}
+
+.fragment-battlecard-dock {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.fragment-battlecard {
+  position: relative;
+}
+
+.fragment-battlecard-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  border: none;
+  background: transparent;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #666;
+  padding: 2px 6px;
+}
+
+.fragment-battlecard-close:hover {
+  color: #1f2a24;
 }
 
 .fragment-map-legend {

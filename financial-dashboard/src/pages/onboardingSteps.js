@@ -1,4 +1,5 @@
 export const ONBOARDING_STEPS = [
+  // Day 1 — get set up
   {
     id: 'company-rules',
     label: 'Read Company Rules',
@@ -6,14 +7,6 @@ export const ONBOARDING_STEPS = [
     category: 'Company & Culture',
     day: 1,
     badge: '5 min',
-  },
-  {
-    id: 'kahana-strategy',
-    label: 'Learn Kahana strategy (GTM + fragments)',
-    icon: 'map',
-    category: 'Company & Culture',
-    day: 1,
-    badge: '20 min',
   },
   {
     id: 'schedule-1on1',
@@ -86,6 +79,39 @@ export const ONBOARDING_STEPS = [
     category: 'Wrap-up',
     day: 1,
     badge: '5 min',
+  },
+  // Day 2 — lay of the land
+  {
+    id: 'market-map',
+    label: 'Explore the Market Map',
+    icon: 'map',
+    category: 'Company & Culture',
+    day: 2,
+    badge: '15 min',
+  },
+  {
+    id: 'company-landscape',
+    label: 'Browse Company Landscape',
+    icon: 'book',
+    category: 'Company & Culture',
+    day: 2,
+    badge: '20 min',
+  },
+  {
+    id: 'how-we-work',
+    label: 'Read How We Work (Linear, Slack, Mixpanel)',
+    icon: 'key',
+    category: 'Admin & Setup',
+    day: 2,
+    badge: '15 min',
+  },
+  {
+    id: 'project-charter',
+    label: 'Read the Project Charter',
+    icon: 'clipboard',
+    category: 'Company & Culture',
+    day: 2,
+    badge: '30–45 min',
   },
   // Optional
   {

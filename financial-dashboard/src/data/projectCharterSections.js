@@ -1,0 +1,202 @@
+/** Project Charter checklist metadata — Library Supply and Search Satisfaction v4.0 */
+export const PROJECT_CHARTER_META = {
+  title: "Project Charter",
+  projectTitle: "Library Supply and Search Satisfaction",
+  subtitle: "Seeding, creator acquisition, reader demand, and platform support",
+  metaRows: [["Sponsor", "Adam Kershner, Co-Founder"], ["Project Manager", "Nithila"], ["Prepared", "23 July 2026"], ["Version", "v4.0  (Revised on sponsor feedback, for team review)"], ["Informed by", "Sponsor feedback 23 July, Women Creators New Market Research, Scaling Kahana charter v2.0, about.kahana.io"]],
+}
+
+export const PROJECT_CHARTER_GROUPS = [
+  { id: "why", title: "Why we’re doing this", intro: "Vision, purpose, and how success is measured." },
+  { id: "what", title: "What to fill", intro: "Demand research, topics, and scope boundaries." },
+  { id: "how", title: "How we deliver", intro: "Seeding, creator acquisition, and platform support." },
+  { id: "plan", title: "Plan and people", intro: "Deliverables, milestones, and who owns what." },
+  { id: "guardrails", title: "Guardrails", intro: "Assumptions, risks, communication, decisions, and approvals." },
+]
+
+export const PROJECT_CHARTER_SECTIONS = [
+  {
+    id: "vision",
+    number: 1,
+    label: "Vision",
+    group: "why",
+    badge: "3 min",
+    icon: "sparkles",
+    readWhen: "You understand the library feeling this project exists to protect.",
+  },
+  {
+    id: "purpose",
+    number: 2,
+    label: "Purpose",
+    group: "why",
+    badge: "3 min",
+    icon: "book",
+    readWhen: "You can explain why search success—not supply counts—is the standard.",
+  },
+  {
+    id: "success-criteria",
+    number: 3,
+    label: "Success Criteria and KPIs",
+    group: "why",
+    badge: "5 min",
+    icon: "chart",
+    readWhen: "You know the primary KPIs, new project-owned metrics, and what is only operational tracking.",
+  },
+  {
+    id: "reader-demand",
+    number: 4,
+    label: "Reader Demand: How We Know What to Fill",
+    group: "what",
+    badge: "5 min",
+    icon: "trend",
+    readWhen: "You know how search panels and the standing search set drive sourcing priorities.",
+  },
+  {
+    id: "topics",
+    number: 5,
+    label: "Topics",
+    group: "what",
+    badge: "3 min",
+    icon: "map",
+    readWhen: "You know the 39-topic taxonomy and how tiers sequence effort.",
+  },
+  {
+    id: "scope",
+    number: 6,
+    label: "Scope",
+    group: "what",
+    badge: "4 min",
+    icon: "clipboard",
+    readWhen: "You know what is in scope and explicitly out of scope for this run.",
+  },
+  {
+    id: "workstream-seeding",
+    number: 7,
+    label: "Workstream A: Seeding",
+    group: "how",
+    badge: "5 min",
+    icon: "key",
+    readWhen: "You know the seeding rules: licenses, pacing, attribution, and legal clearance.",
+  },
+  {
+    id: "workstream-creators",
+    number: 8,
+    label: "Workstream B: Creator Acquisition",
+    group: "how",
+    badge: "8 min",
+    icon: "megaphone",
+    readWhen: "You know sourcing vs outreach stages, rights qualification, and the 200-prospect gate.",
+  },
+  {
+    id: "workstream-technical",
+    number: 9,
+    label: "Workstream C: Platform and Technical",
+    group: "how",
+    badge: "4 min",
+    icon: "key",
+    readWhen: "You know Divya owns tech intake and what kinds of requests are anticipated.",
+  },
+  {
+    id: "deliverables",
+    number: 10,
+    label: "Deliverables",
+    group: "plan",
+    badge: "4 min",
+    icon: "clipboard",
+    readWhen: "You can list the concrete deliverables this project owes.",
+  },
+  {
+    id: "milestones",
+    number: 11,
+    label: "Milestones and Timeline",
+    group: "plan",
+    badge: "3 min",
+    icon: "calendar",
+    readWhen: "You know the phase windows from setup through review.",
+  },
+  {
+    id: "team",
+    number: 12,
+    label: "Team and Responsibilities",
+    group: "plan",
+    badge: "5 min",
+    icon: "user",
+    readWhen: "You know pods, technical owners, and how work is run and escalated.",
+  },
+  {
+    id: "assumptions",
+    number: 13,
+    label: "Assumptions, Constraints and Dependencies",
+    group: "guardrails",
+    badge: "4 min",
+    icon: "book",
+    readWhen: "You know what we assume, what constrains us, and what we depend on.",
+  },
+  {
+    id: "high-level-risks",
+    number: 14,
+    label: "High-Level Risks",
+    group: "guardrails",
+    badge: "4 min",
+    icon: "lock",
+    readWhen: "You know the six high-level risks, mitigations, and owners.",
+  },
+  {
+    id: "risk-register",
+    number: 15,
+    label: "Risk Register",
+    group: "guardrails",
+    badge: "3 min",
+    icon: "lock",
+    readWhen: "You have scanned the risk register impacts and responses.",
+  },
+  {
+    id: "communication",
+    number: 16,
+    label: "Communication Protocol",
+    group: "guardrails",
+    badge: "4 min",
+    icon: "message",
+    readWhen: "You know the meeting cadence, written updates, and reporting-by-exception rule.",
+  },
+  {
+    id: "open-decisions",
+    number: 17,
+    label: "Open Decisions",
+    group: "guardrails",
+    badge: "3 min",
+    icon: "clipboard",
+    readWhen: "You know which decisions are still open and what they block.",
+  },
+  {
+    id: "governance",
+    number: 18,
+    label: "Change Control and Governance",
+    group: "guardrails",
+    badge: "3 min",
+    icon: "key",
+    readWhen: "You know cadence, escalation, reporting, and change process.",
+  },
+  {
+    id: "approvals",
+    number: 19,
+    label: "Approvals",
+    group: "guardrails",
+    badge: "2 min",
+    icon: "meeting",
+    readWhen: "You know who must sign off on this charter.",
+  },
+]
+
+export function getCharterSection(id) {
+  return PROJECT_CHARTER_SECTIONS.find((s) => s.id === id)
+}
+
+export function getAdjacentCharterSections(id) {
+  const i = PROJECT_CHARTER_SECTIONS.findIndex((s) => s.id === id)
+  if (i < 0) return { prev: null, next: null }
+  return {
+    prev: i > 0 ? PROJECT_CHARTER_SECTIONS[i - 1] : null,
+    next: i < PROJECT_CHARTER_SECTIONS.length - 1 ? PROJECT_CHARTER_SECTIONS[i + 1] : null,
+  }
+}

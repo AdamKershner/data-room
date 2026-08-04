@@ -70,7 +70,7 @@ function ExecutiveSummary() {
                 <Link to="/knowledge-base">Product details</Link>
               </li>
               <li>
-                <Link to="/sprints">For IT &amp; teams</Link>
+                <Link to="/archive/oasis-sprints">For IT &amp; teams</Link>
               </li>
               <li>
                 <a href="#oasis-enterprise-it-video">IT &amp; Security overview (video)</a>

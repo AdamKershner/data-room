@@ -1608,7 +1608,7 @@ function Q1ExecutiveReport() {
               </div>
               <p className="q1-er-meta q1-er-product-shipped-intro">
                 High-level themes from <strong>completed (archived) sprints</strong> on our{' '}
-                <Link className="q1-er-inline-link" to="/sprints">
+                <Link className="q1-er-inline-link" to="/archive/oasis-sprints">
                   sprint board
                 </Link>
                 :

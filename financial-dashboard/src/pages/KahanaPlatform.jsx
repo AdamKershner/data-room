@@ -2,17 +2,18 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import {
   KAHANA_PLATFORM_URL,
-  KAHANA_EXPLORE_URL,
+  KAHANA_LIBRARY_URL,
   KAHANA_PLATFORM_PAGE,
   KAHANA_HIGHLIGHTS,
   KAHANA_PLATFORM_SECTIONS,
   CORE_IDEA,
   HOW_WE_GROW,
   CLUB_PLAYBOOKS,
-  SYNERGY_CARDS,
   GO_DEEPER_LINKS,
   VISION_LIBRARY,
+  COMPETITORS_PAGE_PATH,
 } from '../data/kahanaPlatformSections'
+import { getFeaturedCompanies } from '../data/kahanaCompanyDatabase'
 import './Page.css'
 import './KahanaPlatform.css'
 
@@ -84,41 +85,26 @@ function ClubPlaybooksSection() {
   )
 }
 
-function SynergyCardsSection() {
+function CompanyLandscapeTeaser() {
+  const featured = getFeaturedCompanies(4)
   return (
     <div className="content-block">
       <p>
-        Kahana works alongside peers — complementary, not extractive. Each card shows how someone can use
-        both: keep the other platform for what it does well, and use Kahana for library, Clubs, and Aura (often
-        dual-list or cross-link). More cards can be added as we go.
+        Kahana works alongside peers — complementary, not extractive. Keep the other platform for what it
+        does well; use Kahana for library, Clubs, and Aura. Browse the full Company Landscape.
       </p>
-      <div className="kahana-synergy-grid">
-        {SYNERGY_CARDS.map((card) => (
-          <article key={card.id} className="kahana-synergy-card" id={`synergy-${card.id}`}>
-            <p className="kahana-synergy-kicker">Synergy</p>
-            <h3>Kahana + {card.partner}</h3>
-            <dl className="kahana-synergy-dl">
-              <div>
-                <dt>They do well</dt>
-                <dd>{card.theyDo}</dd>
-              </div>
-              <div>
-                <dt>We do well</dt>
-                <dd>{card.weDo}</dd>
-              </div>
-              <div>
-                <dt>Together</dt>
-                <dd>{card.together}</dd>
-              </div>
-              <div>
-                <dt>Example flow</dt>
-                <dd>{card.exampleFlow}</dd>
-              </div>
-            </dl>
-            <p className="kahana-synergy-stance">{card.stance}</p>
+      <div className="kahana-landscape-teaser-grid">
+        {featured.map((company) => (
+          <article key={company.id} className="kahana-landscape-teaser-card">
+            <p className="kahana-synergy-kicker">{company.category || 'Peer'}</p>
+            <h3>Kahana + {company.name}</h3>
+            <p>{company.kahanaOneLiner || company.together || company.useWithReason}</p>
           </article>
         ))}
       </div>
+      <p className="kahana-landscape-teaser-cta">
+        <Link to={COMPETITORS_PAGE_PATH}>Browse all companies on Company Landscape →</Link>
+      </p>
     </div>
   )
 }
@@ -142,7 +128,7 @@ const SECTION_RENDERERS = {
   'core-idea': CoreIdeaSection,
   'how-we-grow': HowWeGrowSection,
   'club-playbooks': ClubPlaybooksSection,
-  'synergy-cards': SynergyCardsSection,
+  'company-landscape': CompanyLandscapeTeaser,
   'go-deeper': GoDeeperSection,
 }
 
@@ -157,7 +143,7 @@ function KahanaPlatform() {
       <section className="kahana-platform-hero page-section" aria-label="Kahana platform overview">
         <div className="kahana-platform-hero-inner">
           <div>
-            <p className="kahana-platform-hero-kicker">app.kahana.io</p>
+            <p className="kahana-platform-hero-kicker">kahana.io</p>
             <h2 className="kahana-platform-hero-title">A digital library with Aura</h2>
             <p className="kahana-platform-hero-body">
               Kahana is a trusted digital library — ebooks, courses, and long-form video first — built for Clubs
@@ -175,11 +161,11 @@ function KahanaPlatform() {
               </a>
               <a
                 className="kahana-platform-hero-cta kahana-platform-hero-cta--secondary"
-                href={KAHANA_EXPLORE_URL}
+                href={KAHANA_LIBRARY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Explore the catalog →
+                Browse the library →
               </a>
             </div>
           </div>

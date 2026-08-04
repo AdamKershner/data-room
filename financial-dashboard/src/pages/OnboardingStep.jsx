@@ -195,11 +195,10 @@ function StepCompanyRules() {
         <li>If you cannot meet the minimum availability (check Slack at least once per day during 9–5 PM in your time zone), DM Adam on Slack or email him with a reason (e.g., sick, emergency). If you need personal leave, contact him the same way.</li>
         <li>
           Fill out the <strong>weekly Time Log every Friday by EOD</strong> — supports compliance, accurate{' '}
-          <Link to="/weekly-reports">Weekly Reports</Link>, and progress against the{' '}
-          <Link to="/project-charter">Scaling Kahana charter</Link>. Align work with the current GTM phase
-          (see{' '}
-          <Link to="/onboarding/kahana-strategy">Kahana strategy</Link>
-          ).{' '}
+          <Link to="/weekly-reports">Weekly Reports</Link>. Day 2 covers the{' '}
+          <Link to="/onboarding/market-map">Market Map</Link>,{' '}
+          <Link to="/onboarding/company-landscape">Company Landscape</Link>, and{' '}
+          <Link to="/onboarding/how-we-work">How We Work</Link>.{' '}
           <Link to="/onboarding/time-log">See the Time Log onboarding step →</Link>
         </li>
       </ul>
@@ -207,129 +206,215 @@ function StepCompanyRules() {
   )
 }
 
-function StepKahanaStrategy() {
+function StepMarketMap() {
   return (
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You can explain Kahana&apos;s thesis in one sentence, name Phase 1 of
-        GTM (reading &amp; learning clubs), and know that Add YouTube embeds videos (creators keep YouTube
-        views/ads) rather than rehosting files. You&apos;ve opened the{' '}
+        <strong>✓ Done when:</strong> You&apos;ve opened the{' '}
         <Link to="/fragment-capture" className="onboarding-inline-link">
-          Fragment Map
+          Market Map
         </Link>
-        .
+        , scanned the pie (categories and companies), and spent a few minutes on the board below it so you
+        know the major content categories and who the big players are.
       </p>
 
       <p>
-        This is the strategic brief every new teammate should internalize. Product, marketing, sales, design,
-        and eng all ship against this picture — not “biggest market first.”
+        This is Day 2 orientation. Kahana sits in a landscape of content markets plus how creators
+        operate — Content & Audience (ebooks, video, courses, newsletters, audio…), Community &
+        Messaging, Memberships, Storefronts, and Marketplaces. Dollar sizes are directional midpoints for
+        orientation, not a forecast.
       </p>
 
-      <h3>1. What Kahana is</h3>
-      <ul className="onboarding-rules-list">
-        <li>
-          <strong>Digital library + clubs + Aura.</strong> People learn and create in hubs; Aura is
-          human-given recognition of quality (not an engagement algorithm).
-        </li>
-        <li>
-          <strong>Club-centric product.</strong> Book clubs, course clubs, and video groups share the same
-          pattern: curated content → schedule → discuss → Aura.
-        </li>
-        <li>
-          <strong>Not a social feed.</strong> We are the focus room behind fragmented apps (YouTube,
-          Substack, Netflix, TikTok, etc.) — the library card after the “virtual party.”
-        </li>
-      </ul>
-
-      <h3>2. Content fragments (market map)</h3>
-      <p>
-        The market is split into fragments (ebooks, courses, long-form video, newsletters, audio, short-form,
-        series/films, Creator Business). Dollar sizes on the{' '}
-        <Link to="/fragment-capture" className="onboarding-inline-link">
-          Fragment Map
-        </Link>{' '}
-        are directional. Courses (~$8B) and Creator Business (~$7B) are <em>narrow platform slices</em>, not
-        full e-learning / creator-economy TAMs.
-      </p>
-      <div className="onboarding-note">
-        <p>
-          <strong>Open the map:</strong>{' '}
-          <Link to="/fragment-capture" className="onboarding-inline-link">
-            Fragment Map →
-          </Link>{' '}
-          — pie by category/company, GTM phase cards, competitors, capture modeling.
-        </p>
-      </div>
-
-      <h3>3. GTM order (what&apos;s important now)</h3>
-      <p>
-        Sequence by <strong>where clubs are natural + product readiness + tractable acquisition</strong> —
-        not by largest TAM.
-      </p>
+      <h3>What to do</h3>
       <ol className="onboarding-steps-list">
         <li>
-          <strong>Phase 1 — Reading &amp; learning clubs (NOW):</strong> Ebooks (book clubs) + Courses
-          (course clubs) + Long-form video via <strong>YouTube video groups</strong>.
+          Open the{' '}
+          <Link to="/fragment-capture" className="onboarding-inline-link">
+            Market Map
+          </Link>
+          .
+        </li>
+        <li>Toggle the pie between <strong>By category</strong> and <strong>By company</strong>.</li>
+        <li>
+          Scroll to the <strong>Categories &amp; companies</strong> board — one map of the whole landscape.
+          Click a company tile if you want a quick card.
         </li>
         <li>
-          <strong>Phase 2 — Newsletters / essays:</strong> Same reading stack for writer clubs.
-        </li>
-        <li>
-          <strong>Phase 3 — Audio:</strong> Listening clubs (link-first).
-        </li>
-        <li>
-          <strong>Phase 4 — Short-form:</strong> Channel + prompts into hubs — not a feed to replace.
-        </li>
-        <li>
-          <strong>Phase 5 — Series / films:</strong> Link-out film/show clubs later, after communities exist.
+          When you have the lay of the land, continue to{' '}
+          <Link to="/onboarding/company-landscape" className="onboarding-inline-link">
+            Company Landscape
+          </Link>
+          , then{' '}
+          <Link to="/onboarding/how-we-work" className="onboarding-inline-link">
+            How We Work
+          </Link>
+          .
         </li>
       </ol>
-      <p>
-        <strong>Creator Business</strong> (Patreon, Gumroad, Linktree, etc.) is a{' '}
-        <em>creator outreach / monetization channel</em>, not a content phase to invade first.
-      </p>
-
-      <h3>4. YouTube video groups (Phase 1 must-know)</h3>
-      <ul className="onboarding-rules-list">
-        <li>
-          Massive free inventory of essays, lectures, and playlists already on YouTube — we curate them into
-          hubs as video groups (analogous to book clubs).
-        </li>
-        <li>
-          <strong>Add YouTube</strong> stores a <code>youtube.com/embed/…</code> URL and plays in an{' '}
-          <strong>iframe</strong>. Kahana does <strong>not</strong> download or rehost the file.
-        </li>
-        <li>
-          The original channel generally still gets YouTube <strong>views, watch time, and ads</strong> (per
-          YouTube&apos;s rules).
-        </li>
-        <li>
-          <strong>Caveat:</strong> Uploading a raw mp4 that happens to be a YouTube rip is a{' '}
-          <em>different</em> path (Kahana-hosted) — that does <strong>not</strong> credit the YouTuber. Prefer
-          Add YouTube.
-        </li>
-        <li>
-          Pitch to creators: keep videos on YouTube; host the club, discussion, and library context on Kahana.
-        </li>
-      </ul>
-
-      <h3>5. What “good work” looks like against this strategy</h3>
-      <ul className="onboarding-rules-list">
-        <li>Prioritize features and content that make <strong>clubs</strong> succeed (schedule, prompts, Aura, multi-modal hubs).</li>
-        <li>Default GTM experiments to Phase 1: book clubs, course clubs, YouTube video groups.</li>
-        <li>Don&apos;t pitch Kahana as “replacing TikTok/Netflix” in early messaging — we&apos;re the deep layer.</li>
-        <li>When in doubt, re-open the Fragment Map GTM sequence and align your sprint to the active phase.</li>
-      </ul>
 
       <div className="onboarding-cta-row">
         <Link to="/fragment-capture" className="onboarding-cta-link">
-          Open Fragment Map →
+          Open Market Map →
         </Link>
-        <Link to="/pro-forma" className="onboarding-cta-link">
-          Pro Forma narrative →
+        <Link to="/onboarding/company-landscape" className="onboarding-cta-link">
+          Next: Company Landscape →
         </Link>
-        <Link to="/kahana" className="onboarding-cta-link">
-          Platform overview →
+      </div>
+    </div>
+  )
+}
+
+function StepCompanyLandscapeOnboarding() {
+  return (
+    <div className="onboarding-step-content">
+      <p className="onboarding-step-done onboarding-step-done-top">
+        <strong>✓ Done when:</strong> You&apos;ve opened{' '}
+        <Link to="/company-landscape" className="onboarding-inline-link">
+          Company Landscape
+        </Link>
+        , browsed at least a few companies, and can explain how Kahana fits beside one peer (e.g. YouTube,
+        Patreon, or Substack) — complementary, not “kill the competitor.”
+      </p>
+
+      <p>
+        After the Market Map, Company Landscape is the searchable company database — same categories as the
+        map (primary + secondary), how Kahana fits, they-do / we-do / use-both, thesis scores, and conversation
+        tips.
+      </p>
+
+      <h3>What to do</h3>
+      <ol className="onboarding-steps-list">
+        <li>
+          Open{' '}
+          <Link to="/company-landscape" className="onboarding-inline-link">
+            Company Landscape
+          </Link>
+          .
+        </li>
+        <li>
+          Use the search bar and Market Map category chips (same labels as the map). Try filtering a category
+          you just saw on the map.
+        </li>
+        <li>Skim the Kahana reference card (our thesis scores).</li>
+        <li>
+          Expand 3–4 peers. Note <strong>primary vs secondary</strong> categories,{' '}
+          <strong>how Kahana fits</strong>, and <strong>use both</strong> — we usually sit alongside, not
+          replace.
+        </li>
+        <li>Optional: open the comparison matrix for a quick thesis scan.</li>
+      </ol>
+
+      <div className="onboarding-note">
+        <p>
+          If you skipped it, start with the{' '}
+          <Link to="/onboarding/market-map" className="onboarding-inline-link">
+            Market Map
+          </Link>{' '}
+          first for the big picture.
+        </p>
+      </div>
+
+      <div className="onboarding-cta-row">
+        <Link to="/company-landscape" className="onboarding-cta-link">
+          Open Company Landscape →
+        </Link>
+        <Link to="/onboarding/how-we-work" className="onboarding-cta-link">
+          Next: How We Work →
+        </Link>
+      </div>
+    </div>
+  )
+}
+
+function StepHowWeWork() {
+  return (
+    <div className="onboarding-step-content">
+      <p className="onboarding-step-done onboarding-step-done-top">
+        <strong>✓ Done when:</strong> You&apos;ve opened{' '}
+        <Link to="/how-we-work" className="onboarding-inline-link">
+          How We Work
+        </Link>
+        , know what Linear / Slack / Mixpanel are for, and can find the Mixpanel project link when you need
+        product numbers.
+      </p>
+
+      <p>
+        Day 2 wraps with how the team actually operates. Linear holds tasks and bugs, Slack is for chat, and
+        Mixpanel is the live product scoreboard (~20 Kahana PROD dashboards).
+      </p>
+
+      <h3>What to do</h3>
+      <ol className="onboarding-steps-list">
+        <li>
+          Open{' '}
+          <Link to="/how-we-work" className="onboarding-inline-link">
+            How We Work
+          </Link>
+          .
+        </li>
+        <li>Skim who uses what (by function) and the Linear workflow steps.</li>
+        <li>
+          Read the <strong>Mixpanel — Kahana PROD</strong> section — pick one board cluster relevant to your
+          role (e.g. retention if PM, acquisition if marketing).
+        </li>
+        <li>
+          If you do not have Linear/Mixpanel access yet, finish{' '}
+          <Link to="/onboarding/tools-access" className="onboarding-inline-link">
+            Request tools access
+          </Link>{' '}
+          (Day 1).
+        </li>
+      </ol>
+
+      <div className="onboarding-cta-row">
+        <Link to="/how-we-work" className="onboarding-cta-link">
+          Open How We Work →
+        </Link>
+        <Link to="/onboarding/company-landscape" className="onboarding-cta-link">
+          Back to Company Landscape →
+        </Link>
+      </div>
+    </div>
+  )
+}
+
+function StepProjectCharter() {
+  return (
+    <div className="onboarding-step-content">
+      <p className="onboarding-step-done onboarding-step-done-top">
+        <strong>✓ Done when:</strong> You&apos;ve opened the{' '}
+        <Link to="/project-charter" className="onboarding-inline-link">
+          Project Charter
+        </Link>{' '}
+        checklist and marked the sections you&apos;ve read (aim for all 19 over your first week).
+      </p>
+
+      <p>
+        The active project charter is <strong>Library Supply and Search Satisfaction</strong> — seeding,
+        creator acquisition, reader demand research, and platform support. It is split into digestible
+        sections so you can read it the same way you work this onboarding list.
+      </p>
+
+      <h3>What to do</h3>
+      <ol className="onboarding-steps-list">
+        <li>
+          Open{' '}
+          <Link to="/project-charter" className="onboarding-inline-link">
+            Project Charter
+          </Link>
+          .
+        </li>
+        <li>Start with <strong>Why we&apos;re doing this</strong> (Vision, Purpose, Success Criteria).</li>
+        <li>Continue through the groups at your own pace; mark each section Done when you&apos;ve read it.</li>
+        <li>Come back later for Guardrails (risks, communication, open decisions) once you know your pod.</li>
+      </ol>
+
+      <div className="onboarding-cta-row">
+        <Link to="/project-charter" className="onboarding-cta-link">
+          Open Project Charter →
+        </Link>
+        <Link to="/onboarding/how-we-work" className="onboarding-cta-link">
+          Back to How We Work →
         </Link>
       </div>
     </div>
@@ -352,9 +437,17 @@ function StepExploreAuraLibrary() {
       <p>
         <strong>Kahana&apos;s Aura Library</strong> is the product we are scaling. Live in it from day one —
         create your profile, browse hubs and authors, give Aura, and start contributing. This is how you build
-        product intuition for every role. Strategy context (clubs, GTM phases, YouTube embeds) is in{' '}
-        <Link to="/onboarding/kahana-strategy" className="onboarding-inline-link">
-          Learn Kahana strategy
+        product intuition for every role. On Day 2, orient with the{' '}
+        <Link to="/onboarding/market-map" className="onboarding-inline-link">
+          Market Map
+        </Link>
+        ,{' '}
+        <Link to="/onboarding/company-landscape" className="onboarding-inline-link">
+          Company Landscape
+        </Link>
+        , and{' '}
+        <Link to="/onboarding/how-we-work" className="onboarding-inline-link">
+          How We Work
         </Link>
         .
       </p>
@@ -494,10 +587,10 @@ function StepTimeLog() {
           <Link to="/weekly-reports">Weekly Reports</Link> — synthesized from time log submissions each week
         </li>
         <li>
-          <Link to="/project-charter">Project Charter — Scaling Kahana</Link> — org KPIs and creator pipeline
+          <Link to="/glossary">Glossary</Link> — how Kahana relates to the creator stack
         </li>
         <li>
-          <Link to="/operating-system">Operating System</Link> — Linear + Slack rhythms
+          <Link to="/how-we-work">How We Work</Link> — Linear + Slack + Mixpanel rhythms
         </li>
       </ul>
     </div>
@@ -804,14 +897,13 @@ function StepReviewLandingPage() {
           Grow (exposure, followers, Aura, optional monetization).
         </li>
         <li>
-          <strong>Strategy behind the site:</strong> Club-centric GTM — Phase 1 is reading &amp; learning
-          clubs (ebooks, courses, YouTube video groups via embed). Details in{' '}
-          <Link to="/onboarding/kahana-strategy" className="onboarding-inline-link">
-            Learn Kahana strategy
+          <strong>Strategy behind the site:</strong> Orient with the{' '}
+          <Link to="/onboarding/market-map" className="onboarding-inline-link">
+            Market Map
           </Link>{' '}
-          and the{' '}
-          <Link to="/fragment-capture" className="onboarding-inline-link">
-            Fragment Map
+          and company fit on{' '}
+          <Link to="/onboarding/company-landscape" className="onboarding-inline-link">
+            Company Landscape
           </Link>
           .
         </li>
@@ -828,12 +920,16 @@ function StepReviewLandingPage() {
       <div className="onboarding-note">
         <p>
           Go deeper anytime in the{' '}
-          <Link to="/kahana" className="onboarding-inline-link">
-            Kahana Platform Overview
+          <Link to="/glossary" className="onboarding-inline-link">
+            Glossary
           </Link>
           ,{' '}
           <Link to="/fragment-capture" className="onboarding-inline-link">
-            Fragment Map
+            Market Map
+          </Link>
+          ,{' '}
+          <Link to="/company-landscape" className="onboarding-inline-link">
+            Company Landscape
           </Link>
           , and{' '}
           <Link to="/knowledge-base" className="onboarding-inline-link">
@@ -856,11 +952,11 @@ function StepDuolingoArticle() {
       <div className="onboarding-note">
         <p>
           <strong>Optional step.</strong> Not required to complete onboarding. Strongly recommended for product,
-          growth, and marketing — CURR, DAUs, and retention are the same KPI family we track in the{' '}
-          <Link to="/project-charter" className="onboarding-inline-link">
-            Scaling Kahana charter
-          </Link>
-          .
+          growth, and marketing — CURR, DAUs, and retention are core product metrics we track in{' '}
+          <Link to="/how-we-work" className="onboarding-inline-link">
+            How We Work
+          </Link>{' '}
+          (Mixpanel) and weekly reports.
         </p>
       </div>
 
@@ -904,8 +1000,8 @@ function StepDuolingoArticle() {
 
         <p><strong>The takeaway:</strong> As X gets more specific and more value-creating, the chance of coming back goes up. That&apos;s how we identify which behaviors are real retention drivers — and where to focus onboarding, nudges, and product polish.</p>
         <p>
-          On Kahana, CURR, DAUs, and retention are the same KPI family we track org-wide via the{' '}
-          <Link to="/project-charter">Scaling Kahana charter</Link> and your weekly{' '}
+          On Kahana, CURR, DAUs, and retention are core product metrics we track in{' '}
+          <Link to="/how-we-work">How We Work</Link> (Mixpanel) and your weekly{' '}
           <Link to="/onboarding/time-log">Time Log</Link>.
         </p>
       </div>
@@ -1166,7 +1262,11 @@ const STEP_CONTENT = {
   'schedule-1on1': StepSchedule1on1,
   'weekly-1on1': StepWeekly1on1,
   'company-rules': StepCompanyRules,
-  'kahana-strategy': StepKahanaStrategy,
+  'market-map': StepMarketMap,
+  'company-landscape': StepCompanyLandscapeOnboarding,
+  'battlecards': StepCompanyLandscapeOnboarding,
+  'how-we-work': StepHowWeWork,
+  'project-charter': StepProjectCharter,
   'explore-aura-library': StepExploreAuraLibrary,
   'time-log': StepTimeLog,
   'install-oasis': StepInstallOasis,

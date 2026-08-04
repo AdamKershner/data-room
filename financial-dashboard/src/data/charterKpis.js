@@ -5,14 +5,14 @@ export const CHARTER_KPIS = [
     id: 'curr',
     metric: 'CURR',
     definition:
-      'Current User Retention Rate — the chance a user returns this week if they were active on app.kahana.io each of the past two weeks (Explore sessions, hub views, or purchases).',
+      'Current User Retention Rate — the chance a user returns this week if they were active on kahana.io each of the past two weeks (library sessions, hub views, or purchases).',
     whyItMatters:
       'North-star retention signal (Duolingo-style). Rising CURR means the library is becoming a habit, not a one-time visit.',
   },
   {
     id: 'daus',
     metric: 'DAUs',
-    definition: 'Daily active users on app.kahana.io — unique users with meaningful activity per day.',
+    definition: 'Daily active users on kahana.io — unique users with meaningful activity per day.',
     whyItMatters:
       'Volume indicator for Explore and hub engagement; complements CURR by showing reach vs. stickiness.',
   },

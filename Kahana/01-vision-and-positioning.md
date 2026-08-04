@@ -1,12 +1,12 @@
 # 01 — Vision and Positioning
 
-> **Kahana** is our original platform (formerly Curio) at [app.kahana.io](https://app.kahana.io). Canonical doc: [KAHANA_PLATFORM.md](../KAHANA_PLATFORM.md).
+> **Kahana** is our original platform (formerly Curio) at [kahana.io](https://kahana.io). Canonical doc: [KAHANA_PLATFORM.md](../KAHANA_PLATFORM.md).
 
 [← Back to index](./README.md) · Next: [02 — Product today](./02-product-today.md)
 
 ## Executive summary
 
-Kahana combines a public marketplace (Explore), creator storefronts (profiles + hubs), Stripe monetization, and collaboration tooling at **app.kahana.io**. Operationally we are the **Amazon of digital products**; visionally we aspire to be **Wan Shi Tong's Library** for humanity.
+Kahana combines a public marketplace (Library), creator storefronts (profiles + hubs), Stripe monetization, and collaboration tooling at **kahana.io**. Operationally we are the **Amazon of digital products**; visionally we aspire to be **Wan Shi Tong's Library** for humanity.
 
 **Full strategic story:** data room [`/kahana-narrative`](/kahana-narrative) · [12 — Strategic narrative](./12-strategic-narrative.md)
 
@@ -61,7 +61,7 @@ Wan Shi Tong's Library is a vast, ancient repository — books, scrolls, artifac
 - A **collaboration layer** (hubs with files, notes, unlimited collaborators on Free)
 - A **SaaS platform** (Free / Growth / Enterprise)
 
-**Product fact:** Brand is Kahana; legal entity is Kahana Group Inc. Site: https://app.kahana.io
+**Product fact:** Brand is Kahana; legal entity is Kahana Group Inc. Site: https://kahana.io
 
 ---
 

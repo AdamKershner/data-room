@@ -1,82 +1,104 @@
-import React from 'react'
+import React, { useEffect, useId, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { TOC_EXPLORE_ITEMS } from '../data/tocExploreGrid'
 import { formatCardTitle } from '../utils/formatCardTitle'
 import { DataRoomSearchPanel } from '../components/DataRoomSearch'
 import BusinessFunctionExploreGrid from '../components/BusinessFunctionExploreGrid'
 import {
-  KAHANA_PLATFORM_URL,
-  KAHANA_EXPLORE_URL,
   KAHANA_PLATFORM_PAGE,
   VISION_LIBRARY,
+  VISION_FEELING,
   TRACTION_METRICS,
-  GTM_STRATEGY,
-  HOME_SECTION_LINKS,
 } from '../data/kahanaPlatformSections'
 import './Page.css'
 import './KahanaExecutiveSummary.css'
 
+function VisionFeelingModal({ open, onClose, titleId }) {
+  useEffect(() => {
+    if (!open) return undefined
+    const onKey = (e) => {
+      if (e.key === 'Escape') onClose()
+    }
+    document.addEventListener('keydown', onKey)
+    const prev = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.body.style.overflow = prev
+    }
+  }, [open, onClose])
+
+  if (!open) return null
+
+  return (
+    <div
+      className="kahana-vision-modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={titleId}
+      onClick={onClose}
+    >
+      <div className="kahana-vision-modal" onClick={(e) => e.stopPropagation()}>
+        <div className="kahana-vision-modal-header">
+          <div>
+            <p className="kahana-vision-eyebrow">{VISION_FEELING.eyebrow}</p>
+            <h2 id={titleId}>{VISION_FEELING.title}</h2>
+          </div>
+          <button
+            type="button"
+            className="kahana-vision-modal-close"
+            onClick={onClose}
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </div>
+        <div className="kahana-vision-modal-body kahana-vision-prose">
+          {VISION_FEELING.scene.map((paragraph) => (
+            <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+          ))}
+          <p>{VISION_FEELING.contrast}</p>
+          <p className="kahana-vision-product">{VISION_FEELING.product}</p>
+          <p className="kahana-vision-stakes">{VISION_FEELING.stakes}</p>
+          <blockquote className="kahana-hero-quote kahana-vision-quote">
+            &ldquo;{VISION_LIBRARY.zeQuote}&rdquo;
+            <span> — {VISION_LIBRARY.zeAttribution}</span>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function KahanaExecutiveSummary() {
+  const [visionOpen, setVisionOpen] = useState(false)
+  const visionTitleId = useId()
+
   return (
     <div className="page" id="kahana-executive-summary">
       <div className="page-header">
         <h1>Executive Summary</h1>
         <p className="page-subtitle">
-          Kahana Group Inc. — a digital library with Aura. Scaling Kahana (formerly Curio). Oasis Browser
-          preserved in archive.
+          Kahana Group Inc. — a digital library with Aura. The room people deserve for thinking,
+          learning, and becoming better.
         </p>
       </div>
 
-      <section className="kahana-hero page-section" aria-label="Kahana hero">
+      <section className="kahana-hero page-section" aria-label="Kahana at a glance">
         <div className="kahana-hero-inner">
           <div>
-            <p className="kahana-hero-kicker">Kahana Group Inc.</p>
-            <h2 className="kahana-hero-title">A library you could spend an eternity in</h2>
-            <p className="kahana-hero-body">
-              Kahana is a digital library with Aura — ebooks, courses, and long-form video first — used inside
-              Clubs so friends and colleagues can learn with empathy. Up to 5 Aura per day surfaces what the
-              community believes deserves to rise.
-            </p>
-            <blockquote className="kahana-hero-quote">
-              &ldquo;{VISION_LIBRARY.zeQuote}&rdquo;
-              <span> — {VISION_LIBRARY.zeAttribution}</span>
-            </blockquote>
-            <p className="kahana-hero-gtm">
-              <strong>GTM:</strong> {GTM_STRATEGY.headline} — Clubs, wishlist-driven library boarding, and
-              Aura-led discovery.
-            </p>
-            <div className="kahana-hero-ctas">
-              <a
-                className="kahana-cta kahana-cta--primary"
-                href={KAHANA_PLATFORM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Enter the library
-              </a>
-              <a
-                className="kahana-cta kahana-cta--secondary"
-                href={KAHANA_EXPLORE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Explore the catalog
-              </a>
-            </div>
-            <ul className="kahana-hero-secondary-links">
-              <li>
-                <Link to="/kahana-narrative">Read the Kahana story</Link>
-              </li>
-              <li>
-                <Link to="/kahana">Kahana platform overview</Link>
-              </li>
-              <li>
-                <Link to="/knowledge-base">Knowledge base</Link>
-              </li>
-              <li>
-                <Link to="/archive">Oasis Browser archive</Link>
-              </li>
-            </ul>
+            <p className="kahana-hero-kicker">{VISION_FEELING.eyebrow}</p>
+            <h2 className="kahana-hero-title" id="vision-product-heading">
+              {VISION_FEELING.title}
+            </h2>
+            <p className="kahana-vision-product-lead">{VISION_FEELING.product}</p>
+            <button
+              type="button"
+              className="kahana-vision-expand-btn"
+              onClick={() => setVisionOpen(true)}
+            >
+              Read the full vision →
+            </button>
           </div>
           <div className="kahana-metrics-card">
             <h3>Traction</h3>
@@ -95,22 +117,20 @@ function KahanaExecutiveSummary() {
         </div>
       </section>
 
+      <VisionFeelingModal
+        open={visionOpen}
+        onClose={() => setVisionOpen(false)}
+        titleId={visionTitleId}
+      />
+
       <section className="page-section">
         <h2>North star</h2>
         <div className="content-block">
           <blockquote className="kahana-north-star-inline">{KAHANA_PLATFORM_PAGE.northStar}</blockquote>
           <p>
-            Grow through Clubs, hubs of the right content, and creator outreach. Aura (up to 5/day) surfaces
-            what the community believes deserves to rise — a library for learning, not a feed for dopamine.
-          </p>
-          <p>
-            On the Kahana platform page:{' '}
-            {HOME_SECTION_LINKS.map((link, i) => (
-              <React.Fragment key={link.id}>
-                {i > 0 && ' · '}
-                <Link to={`/kahana#${link.id}`}>{link.label}</Link>
-              </React.Fragment>
-            ))}
+            Grow through Clubs, hubs of the right content, and creator outreach — so a reader who searches
+            always finds something worth falling into. Aura (up to 5/day) surfaces what the community
+            believes deserves to rise: a library for learning, not a feed for dopamine.
           </p>
         </div>
       </section>
@@ -119,8 +139,8 @@ function KahanaExecutiveSummary() {
         <h2 id="kahana-toc-heading">Explore the data room</h2>
         <div className="content-block">
           <p className="kahana-toc-intro">
-            Business plan, team directory, sprints, onboarding, knowledge base, and archived Oasis Browser
-            materials.
+            Market map, company landscape, team directory, onboarding, knowledge base, and archived Oasis
+            Browser materials — everything here serves the library experience above.
           </p>
           <div className="kahana-explore-search">
             <DataRoomSearchPanel maxResults={14} showKbLink compactResults />

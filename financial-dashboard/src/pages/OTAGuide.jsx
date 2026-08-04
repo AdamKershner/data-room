@@ -185,7 +185,7 @@ function OTAGuide() {
 
       <div className="ota-questions-note">
         <p><strong>Questions?</strong> Reach out to Ashwin John or Adam Kershner. Or check the full technical doc in the Logos repo: <code>OTA_AND_RELEASE_WORKFLOWS.md</code></p>
-        <p style={{ marginTop: '12px' }}>Related: <Link to="/sprints" className="ota-inline-link">Sprint 15 – Automatic Software Updates</Link></p>
+        <p style={{ marginTop: '12px' }}>Related: <Link to="/archive/oasis-sprints" className="ota-inline-link">Sprint 15 – Automatic Software Updates</Link></p>
       </div>
     </div>
   )

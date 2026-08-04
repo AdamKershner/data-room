@@ -33,6 +33,7 @@ import {
   getPlatformsByRevenue,
   getPlatformsBySide,
 } from '../data/kahanaCompetitivePools'
+import { BATTLECARD_OVERRIDES } from '../data/kahanaBattlecardOverrides'
 import {
   ARGUMENT_SKELETON,
   AURA_MECHANICS,
@@ -79,7 +80,7 @@ function ProForma() {
   })
   const saturationRows = getSaturationCapRows()
   const activeLens = getLensById(marketLensId)
-  const nestedSquares = getNestedCompetitiveSquares(marketLensId)
+  const nestedSquares = getNestedCompetitiveSquares(marketLensId, BATTLECARD_OVERRIDES)
   const platformCount = nestedSquares.reduce((n, c) => n + c.platforms.length, 0)
   const revenueRank = getPlatformsByRevenue()
   const sideRank = getPlatformsBySide()
@@ -344,9 +345,9 @@ function ProForma() {
           </ul>
           <p className="pro-forma-deck-copy">{UNIFY_FRAGMENTS_THESIS}</p>
           <p>
-            <Link to="/fragment-capture">Open fragment map →</Link> Risk/Diplomacy-style board to
-            see true fragment scale, then model 10% / wipe-out scenarios per competitor (e.g. Substack
-            vs Beehiiv vs Medium, then TikTok).
+            <Link to="/fragment-capture">Open Market Map →</Link> Categories and companies sized by
+            directional market $. Then use <Link to="/company-landscape">Company Landscape</Link> for how Kahana
+            fits beside each peer.
           </p>
         </div>
 

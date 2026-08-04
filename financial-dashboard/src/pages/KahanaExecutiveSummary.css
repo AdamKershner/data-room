@@ -1,3 +1,123 @@
+.kahana-vision-eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #617500;
+}
+
+.kahana-vision-product-lead {
+  margin: 0 0 14px;
+  font-size: 1.12rem;
+  line-height: 1.65;
+  font-weight: 600;
+  color: #313a00;
+}
+
+.kahana-vision-expand-btn {
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--oasis-green-medium, #617500);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.kahana-vision-expand-btn:hover {
+  color: var(--oasis-green-darkest, #313a00);
+}
+
+.kahana-vision-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: rgba(15, 20, 10, 0.48);
+}
+
+.kahana-vision-modal {
+  width: min(560px, 100%);
+  max-height: min(86vh, 720px);
+  overflow: auto;
+  background: #fafcf7;
+  border-radius: 14px;
+  border: 1px solid #cad399;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.22);
+}
+
+.kahana-vision-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 22px 8px;
+  position: sticky;
+  top: 0;
+  background: #fafcf7;
+}
+
+.kahana-vision-modal-header h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  color: #313a00;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.kahana-vision-modal-close {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #d5ddd0;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #445;
+  cursor: pointer;
+}
+
+.kahana-vision-modal-close:hover {
+  border-color: #cad399;
+  color: #313a00;
+}
+
+.kahana-vision-modal-body {
+  padding: 8px 22px 24px;
+}
+
+.kahana-vision-prose p {
+  margin: 0 0 1.05em;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #3d4a00;
+}
+
+.kahana-vision-product {
+  font-weight: 600;
+  color: #313a00 !important;
+}
+
+.kahana-vision-stakes {
+  margin-bottom: 0 !important;
+  padding: 14px 16px;
+  border-left: 3px solid var(--oasis-green-medium, #617500);
+  background: #f5f7f0;
+  color: #334 !important;
+}
+
+.kahana-vision-quote {
+  margin-top: 18px;
+  margin-bottom: 0;
+}
+
 .kahana-hero.page-section {
   margin-bottom: clamp(40px, 5vw, 56px);
 }

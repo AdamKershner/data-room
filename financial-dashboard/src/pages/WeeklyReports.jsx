@@ -862,8 +862,8 @@ function WeeklyReports() {
               weekly Time Log
             </a>{' '}
             (every teammate, Friday EOD). New hires set up the habit in{' '}
-            <Link to="/onboarding/time-log">onboarding</Link>. Progress is read against the{' '}
-            <Link to="/project-charter">Scaling Kahana charter</Link>.
+            <Link to="/onboarding/time-log">onboarding</Link>. Progress is read against north-star
+            metrics in Mixpanel (<Link to="/how-we-work">How We Work</Link>).
           </p>
           <p>
             <strong>Org KPIs:</strong>{' '}

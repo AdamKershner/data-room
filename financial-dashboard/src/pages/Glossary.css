@@ -1,0 +1,71 @@
+.glossary-subtitle {
+  margin: 12px 0 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #555;
+  max-width: 52rem;
+}
+
+.glossary-lead {
+  margin: 0;
+  max-width: 52rem;
+  padding: 14px 16px;
+  border-left: 3px solid var(--oasis-green-medium, #2d6a4f);
+  background: #f5f7f4;
+  color: #334;
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+
+.glossary-intro {
+  margin: 0 0 16px;
+  color: #556;
+  max-width: 52rem;
+  font-size: 0.95rem;
+}
+
+.glossary-stack-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 52rem;
+}
+
+.glossary-stack-item {
+  border: 1px solid #dfe5e1;
+  border-radius: 10px;
+  padding: 16px 18px;
+  background: #fafcfb;
+}
+
+.glossary-stack-item h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: #1f4d38;
+}
+
+.glossary-purpose,
+.glossary-examples,
+.glossary-kahana,
+.glossary-note {
+  margin: 0 0 10px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #445;
+}
+
+.glossary-note {
+  margin-bottom: 0;
+  color: #778;
+  font-style: italic;
+}
+
+.glossary-k {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #667;
+  margin-bottom: 2px;
+}

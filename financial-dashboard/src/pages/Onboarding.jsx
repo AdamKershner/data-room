@@ -111,6 +111,8 @@ function Onboarding() {
   const clearConfetti = useCallback(() => setConfetti(null), [])
 
   const activeSteps = ONBOARDING_STEPS.filter((s) => !s.comingSoon && s.day !== 'optional')
+  const day1Steps = activeSteps.filter((s) => s.day === 1)
+  const day2Steps = activeSteps.filter((s) => s.day === 2)
   const optionalSteps = ONBOARDING_STEPS.filter((s) => s.day === 'optional')
   const comingSoonSteps = ONBOARDING_STEPS.filter((s) => s.comingSoon)
   const completedCount = activeSteps.filter((s) => checked[s.id]).length
@@ -130,9 +132,12 @@ function Onboarding() {
       <div className="page-header">
         <h1>Onboarding</h1>
         <p className="page-subtitle">
-          New team member checklist. Start with company rules and{' '}
-          <Link to="/onboarding/kahana-strategy">Kahana strategy</Link> so you know Phase 1 (reading &amp;
-          learning clubs + YouTube embeds), then finish Day 1 setup.
+          New team member checklist. <strong>Day 1</strong> gets you set up (Slack, tools, profiles).{' '}
+          <strong>Day 2</strong> is orientation —{' '}
+          <Link to="/onboarding/market-map">Market Map</Link>,{' '}
+          <Link to="/onboarding/company-landscape">Company Landscape</Link>,{' '}
+          <Link to="/onboarding/how-we-work">How We Work</Link>, and the{' '}
+          <Link to="/onboarding/project-charter">Project Charter</Link>.
         </p>
         <p className="onboarding-hint">
           <span className="onboarding-hint-item">☐ Check Done</span>
@@ -166,9 +171,12 @@ function Onboarding() {
       <section className="page-section">
         <div className="onboarding-checklist">
           <div className="onboarding-day-section">
-            <h3 className="onboarding-day-title">Day 1</h3>
+            <h3 className="onboarding-day-title">Day 1 — Get set up</h3>
+            <p className="onboarding-day-intro">
+              Accounts, Slack, tools, and product basics so you can work with the team.
+            </p>
             <ul className="onboarding-list">
-              {activeSteps.map((step) => (
+              {day1Steps.map((step) => (
                 <OnboardingChecklistItem
                   key={step.id}
                   step={step}
@@ -179,6 +187,27 @@ function Onboarding() {
               ))}
             </ul>
           </div>
+
+          {day2Steps.length > 0 && (
+            <div className="onboarding-day-section">
+              <h3 className="onboarding-day-title">Day 2 — Lay of the land</h3>
+              <p className="onboarding-day-intro">
+                Orient to the market, how Kahana fits beside peers, how we work day to day
+                (Linear, Slack, Mixpanel), and the Project Charter.
+              </p>
+              <ul className="onboarding-list">
+                {day2Steps.map((step) => (
+                  <OnboardingChecklistItem
+                    key={step.id}
+                    step={step}
+                    checked={checked}
+                    onToggle={toggleChecked}
+                    lastClickRef={lastClickRef}
+                  />
+                ))}
+              </ul>
+            </div>
+          )}
 
           {optionalSteps.length > 0 && (
             <div className="onboarding-day-section">

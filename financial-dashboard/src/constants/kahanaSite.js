@@ -1,4 +1,5 @@
 export const KAHANA_SITE_URL = 'https://kahana.io'
+export const KAHANA_LIBRARY_URL = 'https://kahana.io/library'
 export const KAHANA_CONTACT_EMAIL = 'adam@kahana.io'
 
 /** Kahana Slack workspace invite (shared onboarding link). */

@@ -302,6 +302,51 @@
   font-size: 0.95rem;
 }
 
+.kahana-synergy-kicker {
+  margin: 0 0 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--oasis-green-medium, #2d6a4f);
+}
+
+.kahana-landscape-teaser-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.kahana-landscape-teaser-card {
+  background: #fff;
+  border: 1px solid #d4e8dc;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.kahana-landscape-teaser-card h3 {
+  margin: 0 0 10px;
+  color: #1e293b;
+  font-size: 1.05rem;
+}
+
+.kahana-landscape-teaser-card p:last-child {
+  margin: 0;
+  color: #475569;
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+.kahana-landscape-teaser-cta {
+  margin-top: 20px;
+}
+
+.kahana-landscape-teaser-cta a {
+  font-weight: 600;
+  color: var(--oasis-green-dark, #14532d);
+}
+
 .kahana-synergy-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -314,15 +359,6 @@
   border: 1px solid #d4e8dc;
   border-radius: 12px;
   padding: 24px;
-}
-
-.kahana-synergy-kicker {
-  margin: 0 0 6px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--oasis-green-medium, #2d6a4f);
 }
 
 .kahana-synergy-card h3 {

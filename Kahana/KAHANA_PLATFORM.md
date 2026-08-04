@@ -2,7 +2,7 @@
 title: Kahana Platform Overview
 product: Kahana
 legal_entity: Kahana Group Inc.
-primary_url: https://app.kahana.io
+primary_url: https://kahana.io
 api_base: Firebase Cloud Functions (kahana-15c2a prod / kahana-dev staging)
 doc_version: 1.0.0
 last_verified: 2026-07-06
@@ -17,7 +17,7 @@ conventions:
 
 **Canonical platform document** for internal team onboarding, business plan generation, data-room knowledge bases, and marketing website content extraction.
 
-> **Legacy note:** Earlier internal docs and some data-room files refer to **Curio** and `curio.store`. The product is officially **Kahana** (trademarked for software platform). Primary URL is **https://app.kahana.io**. This document supersedes legacy Curio naming for product and GTM purposes.
+> **Legacy note:** Earlier internal docs and some data-room files refer to **Curio** and `curio.store`. The product is officially **Kahana** (trademarked for software platform). Primary URL is **https://kahana.io**. This document supersedes legacy Curio naming for product and GTM purposes.
 
 ---
 
@@ -40,7 +40,7 @@ conventions:
 
 ## {#executive-summary} Executive summary
 
-Kahana is building the **Amazon of digital products**: one trusted marketplace where buyers discover curated digital goods and creators host, sell, and grow their catalogs. Kahana combines a public marketplace (**Explore**), creator storefronts (**profiles + hubs**), built-in commerce (**Stripe Connect paywalls**), and collaboration tooling under a single brand at **https://app.kahana.io**.
+Kahana is building the **Amazon of digital products**: one trusted marketplace where buyers discover curated digital goods and creators host, sell, and grow their catalogs. Kahana combines a public marketplace (**Library**), creator storefronts (**profiles + hubs**), built-in commerce (**Stripe Connect paywalls**), and collaboration tooling under a single brand at **https://kahana.io**.
 
 **North star:** Make Kahana a beloved place to discover curated human knowledge — where anyone could spend an eternity exploring.
 
@@ -110,9 +110,9 @@ Kahana aspires to be like **Wan Shi Tong's Library** — a vast, mesmerizing rep
 |------|-------|
 | **Product name** | Kahana |
 | **Legal entity** | Kahana Group Inc. |
-| **Primary app URL** | https://app.kahana.io |
+| **Primary app URL** | https://kahana.io |
 | **Legacy product name** | Curio (deprecated in GTM; may appear in old docs or redirects) |
-| **Legacy URL** | curio.store / kahana-alpha.herokuapp.com (may redirect or alias; app.kahana.io is canonical) |
+| **Legacy URL** | curio.store / kahana-alpha.herokuapp.com (may redirect or alias; kahana.io is canonical) |
 
 **Product fact:** Production frontend deploys to Heroku (`kahana-alpha`); backend API on Firebase project `kahana-15c2a`. Staging uses Firebase `kahana-dev` and Heroku `curio-beta`.
 
@@ -762,7 +762,7 @@ Full register: [09 — Risks and mitigations](./Kahana/09-risks-and-mitigations.
 |------|----------|------------------|---------|
 | **Local** | localhost:3000 | emulators or kahana-dev | Development |
 | **Staging** | curio-beta (Heroku) | kahana-dev | QA, pre-prod |
-| **Production** | app.kahana.io (Heroku kahana-alpha) | kahana-15c2a | Live product |
+| **Production** | kahana.io (Heroku kahana-alpha) | kahana-15c2a | Live product |
 
 **Deploy commands (from repo):**
 
@@ -805,7 +805,7 @@ Use this table to derive marketing website pages and components from section IDs
 
 | Section ID | Suggested page / component | Hero angle | Component ideas |
 |------------|---------------------------|------------|-----------------|
-| `#executive-summary` | Homepage hero | "The marketplace for curated digital products" | Hero headline, subhead, primary CTA to app.kahana.io/signup |
+| `#executive-summary` | Homepage hero | "The marketplace for curated digital products" | Hero headline, subhead, primary CTA to kahana.io/signup |
 | `#positioning` | Homepage "Why Kahana" | Replace your creator tool stack | Two-column: For creators / For buyers |
 | `#explore-marketplace` | /discover or /explore | Browse digital products by category | Category grid, filter chips, screenshot carousel |
 | `#hubs` | /features/hubs | Your product, organized | Feature grid: files, notes, collaborators, branding |
@@ -854,7 +854,7 @@ A: Yes for most public hubs on Explore. Adult content and some monetized flows r
 ### General
 
 **Q: Is Kahana the same as Curio?**  
-A: Curio was a prior product name. The platform is now **Kahana**, available at **app.kahana.io**.
+A: Curio was a prior product name. The platform is now **Kahana**, available at **kahana.io**.
 
 **Q: Who operates Kahana?**  
 A: Kahana Group Inc.

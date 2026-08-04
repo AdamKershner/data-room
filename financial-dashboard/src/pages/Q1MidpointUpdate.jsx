@@ -223,7 +223,7 @@ function Q1MidpointUpdate() {
           <div className="overview-subsection">
             <h3>Engineering</h3>
             <p>
-              Shipped 9 main features—tab groups, auth UI, voice dictation, in-app feedback, split view, summarization, UI fixes, Gemini migration, and AI command for native splitview. Shoutout to Pournami and the engineering team. Full archive: <Link to="/sprints">Sprints</Link>.
+              Shipped 9 main features—tab groups, auth UI, voice dictation, in-app feedback, split view, summarization, UI fixes, Gemini migration, and AI command for native splitview. Shoutout to Pournami and the engineering team. Full archive: <Link to="/archive/oasis-sprints">Sprints</Link>.
             </p>
           </div>
         </div>
@@ -307,7 +307,7 @@ function Q1MidpointUpdate() {
               <li><Link to="/problem-market#problem-why-now"><strong>Problem &amp; &quot;Why Now&quot; Narrative</strong></Link> — already in data room</li>
               <li><Link to="/q1-midpoint#product"><strong>Product Demo</strong></Link> (video or live link) — we have a demo</li>
               <li><Link to="/problem-market#user-journey"><strong>End-to-End User Journey</strong></Link> (B2C + B2B) — already in data room; <a href="https://docs.google.com/document/d/1xTYWL9chXtI7ep8BBTz1Z_z50kdRcFVfFr8uPGWnblM/edit?tab=t.0" target="_blank" rel="noopener noreferrer">GTM Mixpanel Boards &amp; Reports</a> (project charter for customer journey analytics)</li>
-              <li><Link to="/sprints#product-roadmap"><strong>Product Roadmap</strong></Link> (next 6–12 months) — mention what we&apos;re planning to build next</li>
+              <li><Link to="/archive/oasis-sprints#product-roadmap"><strong>Product Roadmap</strong></Link> (next 6–12 months) — mention what we&apos;re planning to build next</li>
               <li><Link to="/problem-market#market-opportunity"><strong>Market Opportunity</strong></Link> (TAM / SAM / SOM) — already in data room (aggressive/base/conservative)</li>
               <li><Link to="/go-to-market#icp"><strong>Ideal Customer Profiles</strong></Link> (B2C + B2B) — already in data room</li>
               <li><Link to="/competitors"><strong>Competitive Landscape &amp; Differentiation</strong></Link> — competitor database (e.g., <a href="https://strawberrybrowser.com/" target="_blank" rel="noopener noreferrer">Strawberry</a>—recently raised $5M, #1 on Product Hunt), how we stand out</li>
@@ -665,7 +665,7 @@ function Q1MidpointUpdate() {
 
           <p style={{ marginBottom: '16px' }}>
             <strong>Scaled testing phase:</strong> team-wide <a href="https://kahana.io/oasis-auth?mode=login&plan=free&redirect=/installations" target="_blank" rel="noopener noreferrer">install</a> + 1 week usage + <a href="https://kahana.io/oasis-feedback-survey" target="_blank" rel="noopener noreferrer">NPS survey</a> to establish baseline.
-            The newest version includes the completed features below (archived in <Link to="/sprints">Sprints</Link>).
+            The newest version includes the completed features below (archived in <Link to="/archive/oasis-sprints">Sprints</Link>).
           </p>
 
           <div className="product-video-wrap">
@@ -724,7 +724,7 @@ function Q1MidpointUpdate() {
               Big shoutout to <strong>Pournami</strong> and the engineering team—<strong>Ashwin John</strong>, <strong>Afshaan Khan</strong>, <strong>Rushyanth Nerellakunta</strong>, <strong>Agrima Gupta</strong>, <strong>Likhitha Guggilla</strong>, <strong>Mohammed Muneebuddin</strong>, <strong>Atharva Joshi</strong>, <strong>Naveen Prashanna Gurumurthy</strong>, <strong>Durgesh Tiwari</strong>, <strong>Kaushik Shridhar</strong>, <strong>Revanth Ganga</strong>, <strong>Saideep Pajjuri</strong>, and <strong>Ruturaj</strong>—for driving these updates, from tab groups and split view to summarization, voice dictation, and the Gemini migration. This is the foundation the team is testing in the scaled NPS phase.
             </p>
             <p style={{ marginBottom: 0 }}>
-              Full archive and acceptance criteria: <Link to="/sprints">Sprints</Link>.
+              Full archive and acceptance criteria: <Link to="/archive/oasis-sprints">Sprints</Link>.
             </p>
           </div>
 
@@ -763,7 +763,7 @@ function Q1MidpointUpdate() {
             Big shoutout to <strong>Pournami</strong> and the engineering team—<strong>Ashwin John</strong>, <strong>Afshaan Khan</strong>, <strong>Rushyanth Nerellakunta</strong>, <strong>Agrima Gupta</strong>, <strong>Likhitha Guggilla</strong>, <strong>Mohammed Muneebuddin</strong>, <strong>Atharva Joshi</strong>, <strong>Naveen Prashanna Gurumurthy</strong>, <strong>Durgesh Tiwari</strong>, <strong>Kaushik Shridhar</strong>, <strong>Revanth Ganga</strong>, <strong>Saideep Pajjuri</strong>, and <strong>Ruturaj</strong>—for driving these updates, from tab groups and split view to summarization, voice dictation, and the Gemini migration. This is the foundation the team is testing in the scaled NPS phase.
           </p>
           <p>
-            Full archive and acceptance criteria: <Link to="/sprints">Sprints</Link>.
+            Full archive and acceptance criteria: <Link to="/archive/oasis-sprints">Sprints</Link>.
           </p>
           <ul className="feature-list">
             <li><strong>AI summarization:</strong> newest version includes summarization features for broader usage signal.</li>
@@ -771,7 +771,7 @@ function Q1MidpointUpdate() {
           <div className="section-detail-block" style={{ marginTop: '24px' }}>
             <h3>🏢 Sprint 17: Oasis Enterprise Browser Chromium version</h3>
             <p>
-              <Link to="/sprints">Sprint 17</Link> will create an Oasis Enterprise Browser Chromium version, enabling us to serve enterprise clients like Culture Amp and other companies interested in an enterprise browser. Timeline for a prototype is TBD, but work is underway to set up Okta integration and SSO. Another blocker to enterprise revenue is becoming <strong>SOC 2 compliant</strong>—solutions like <a href="https://www.delve.co/" target="_blank" rel="noopener noreferrer">Delve</a> or <a href="https://www.vanta.com/" target="_blank" rel="noopener noreferrer">Vanta</a> can help us hit compliance standards. The annual contract value for this type of deal would be <strong>$12K–$25K</strong> minimum annual commitment and <strong>$108–$150 per user per seat</strong>, in line with competitors (Island, Surf).
+              <Link to="/archive/oasis-sprints">Sprint 17</Link> will create an Oasis Enterprise Browser Chromium version, enabling us to serve enterprise clients like Culture Amp and other companies interested in an enterprise browser. Timeline for a prototype is TBD, but work is underway to set up Okta integration and SSO. Another blocker to enterprise revenue is becoming <strong>SOC 2 compliant</strong>—solutions like <a href="https://www.delve.co/" target="_blank" rel="noopener noreferrer">Delve</a> or <a href="https://www.vanta.com/" target="_blank" rel="noopener noreferrer">Vanta</a> can help us hit compliance standards. The annual contract value for this type of deal would be <strong>$12K–$25K</strong> minimum annual commitment and <strong>$108–$150 per user per seat</strong>, in line with competitors (Island, Surf).
             </p>
           </div>
         </div>
@@ -835,7 +835,7 @@ function Q1MidpointUpdate() {
             <li><strong>Inbound growth:</strong> meaningful YouTube + blog output (see <Link to="/content-pipeline">Content Pipeline</Link>).</li>
           </ul>
           <p style={{ marginTop: '18px' }}>
-            <strong>Product Hunt launch:</strong> We plan to roll out a Product Hunt campaign to attract more users and paid subscribers like Mark. The team has created Product Hunt accounts in preparation (<a href="https://docs.google.com/spreadsheets/d/1gSMDizFLvRliMZgYNyQND4lipZ3Dde6FPn2EWDRZolM/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer">Product Hunt Accounts</a>), and we ask new team members to create an account during onboarding so we&apos;re ready to engage on launch day. Per the <a href="https://docs.google.com/document/d/1fbnq13Uj8n3qaCCg1BOdiQD-awjl5c2sswxWaX6oyU8/edit?tab=t.0#heading=h.ctmy5c17lr0g" target="_blank" rel="noopener noreferrer">Product Hunt Launch Charter</a>, we would meet the conditions to launch once we: (1) improve NPS to an industry-standard good level (e.g., 30+), and (2) address critical technical roadblocks—<Link to="/sprints">Sprint 15</Link> (Automatic Software Updates) and <Link to="/sprints">Sprint 10</Link> (Onboarding + Branding polish).
+            <strong>Product Hunt launch:</strong> We plan to roll out a Product Hunt campaign to attract more users and paid subscribers like Mark. The team has created Product Hunt accounts in preparation (<a href="https://docs.google.com/spreadsheets/d/1gSMDizFLvRliMZgYNyQND4lipZ3Dde6FPn2EWDRZolM/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer">Product Hunt Accounts</a>), and we ask new team members to create an account during onboarding so we&apos;re ready to engage on launch day. Per the <a href="https://docs.google.com/document/d/1fbnq13Uj8n3qaCCg1BOdiQD-awjl5c2sswxWaX6oyU8/edit?tab=t.0#heading=h.ctmy5c17lr0g" target="_blank" rel="noopener noreferrer">Product Hunt Launch Charter</a>, we would meet the conditions to launch once we: (1) improve NPS to an industry-standard good level (e.g., 30+), and (2) address critical technical roadblocks—<Link to="/archive/oasis-sprints">Sprint 15</Link> (Automatic Software Updates) and <Link to="/archive/oasis-sprints">Sprint 10</Link> (Onboarding + Branding polish).
           </p>
         </div>
       </section>

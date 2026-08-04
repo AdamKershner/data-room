@@ -13,16 +13,16 @@
 .team-execution-notion-button {
   display: inline-block;
   padding: 0.65rem 1.25rem;
-  background: var(--oasis-green-medium, #0d9488);
+  background: var(--oasis-green-medium, #7a9200);
   color: #fff;
   font-weight: 600;
-  text-decoration: none !important;
+  text-decoration: none;
   border-radius: 6px;
 }
 
 .team-execution-notion-button:hover {
   filter: brightness(1.05);
-  text-decoration: none !important;
+  text-decoration: none;
   color: #fff;
 }
 

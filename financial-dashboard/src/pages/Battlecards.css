@@ -33,6 +33,163 @@
   margin-bottom: 8px;
 }
 
+.battlecards-find-section {
+  margin-top: 8px;
+}
+
+.battlecards-search-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 18px 20px;
+  border: 1px solid #d5ddd8;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #f7faf8 0%, #f0f4f1 100%);
+}
+
+.battlecards-search-hero-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #456;
+}
+
+.battlecards-search-hero-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #b8c8bc;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 1.1rem;
+  line-height: 1.3;
+  background: #fff;
+  color: #222;
+}
+
+.battlecards-search-hero-input:focus {
+  outline: none;
+  border-color: var(--oasis-green-medium, #2d6a4f);
+  box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.15);
+}
+
+.battlecards-filter-block {
+  margin-bottom: 14px;
+}
+
+.battlecards-filter-heading {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #667;
+}
+
+.battlecards-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.battlecards-chip {
+  border: 1px solid #d0d5d2;
+  background: #fff;
+  color: #333;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.battlecards-chip:hover {
+  border-color: var(--oasis-green-medium, #2d6a4f);
+}
+
+.battlecards-chip.is-active {
+  background: var(--oasis-green-medium, #2d6a4f);
+  border-color: var(--oasis-green-medium, #2d6a4f);
+  color: #fff;
+  font-weight: 600;
+}
+
+.battlecards-chip.is-subtle {
+  border-radius: 6px;
+}
+
+.battlecards-chip-count {
+  font-size: 0.75rem;
+  opacity: 0.75;
+  font-weight: 500;
+}
+
+.battlecards-chip.is-active .battlecards-chip-count {
+  opacity: 0.9;
+}
+
+.battlecard-market-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0 4px;
+}
+
+.battlecard-market-chip {
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid #d0d5d2;
+  background: #f3f5f4;
+  color: #445;
+}
+
+.battlecard-market-chip.is-primary {
+  background: #e8f0eb;
+  border-color: #9bb5a5;
+  color: #1f4d38;
+  font-weight: 600;
+}
+
+.battlecard-market-chip.is-secondary {
+  background: #fff;
+  color: #556;
+}
+
+.battlecard-market-chip.is-size {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #334155;
+  font-weight: 650;
+}
+
+.battlecard-market-chip.is-size-incumbent {
+  background: #ecfdf5;
+  border-color: #6ee7b7;
+  color: #065f46;
+}
+
+.battlecard-market-chip.is-size-challenger {
+  background: #eff6ff;
+  border-color: #93c5fd;
+  color: #1e40af;
+}
+
+.battlecard-market-chip.is-size-niche {
+  background: #fffbeb;
+  border-color: #fcd34d;
+  color: #92400e;
+}
+
+.battlecard-market-chip.is-role {
+  background: #f5f3ff;
+  border-color: #c4b5fd;
+  color: #5b21b6;
+}
+
 .battlecards-group-bar {
   display: flex;
   flex-wrap: wrap;
@@ -101,6 +258,70 @@
 .battlecard.is-open {
   border-color: var(--oasis-green-medium);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.battlecard.has-research {
+  border-color: #c5d4c9;
+}
+
+.battlecard.has-research.is-open {
+  border-color: var(--oasis-green-medium, #2d6a4f);
+}
+
+.battlecards-result-meta {
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+  color: #667;
+}
+
+.battlecard-bullet-list {
+  margin: 0 0 1rem;
+  padding-left: 1.2rem;
+  color: #334;
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+.battlecard-bullet-list li {
+  margin-bottom: 0.4rem;
+}
+
+.battlecard-point-list {
+  margin: 0 0 1rem;
+  padding-left: 1.2rem;
+  color: #334;
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+.battlecard-point-list li {
+  margin-bottom: 0.55rem;
+}
+
+.battlecard-point-list.is-benefits {
+  border-left: 3px solid #86efac;
+  padding-left: 1rem;
+  margin-left: 0.15rem;
+  list-style: disc;
+}
+
+.battlecard-point-list.is-weaknesses {
+  border-left: 3px solid #fca5a5;
+  padding-left: 1rem;
+  margin-left: 0.15rem;
+  list-style: disc;
+}
+
+.battlecard-sources-list {
+  margin: 0 0 0.5rem;
+  padding-left: 1.1rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.battlecard-sources-list a {
+  color: #2d6a4f;
+  word-break: break-all;
 }
 
 .battlecard-header {
@@ -200,4 +421,227 @@
     min-width: 0;
     width: 100%;
   }
+}
+
+.battlecards-section-title {
+  margin: 0 0 12px;
+  font-size: 1.15rem;
+  color: var(--oasis-green-medium, #0d9488);
+}
+
+.battlecards-stack-heading-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-bottom: 10px;
+}
+
+.battlecards-stack-heading-row .battlecards-section-title {
+  margin: 0;
+}
+
+.battlecards-glossary-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--oasis-green-medium, #2d6a4f);
+  text-decoration: none;
+}
+
+.battlecards-glossary-link:hover {
+  text-decoration: underline;
+}
+
+.battlecards-stack-intro {
+  margin: 0 0 14px;
+  color: #556;
+  font-size: 0.95rem;
+  max-width: 52rem;
+}
+
+.battlecards-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.battlecards-stack-card {
+  border: 1px solid #dfe5e1;
+  border-radius: 10px;
+  padding: 14px 16px;
+  background: #fafcfb;
+}
+
+.battlecards-stack-card.is-off-map {
+  background: #f6f5f3;
+  border-style: dashed;
+}
+
+.battlecards-stack-name {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+  color: #1f4d38;
+}
+
+.battlecards-stack-purpose,
+.battlecards-stack-examples,
+.battlecards-stack-kahana,
+.battlecards-stack-note {
+  margin: 0 0 8px;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #445;
+}
+
+.battlecards-stack-note {
+  margin-bottom: 0;
+  color: #778;
+  font-style: italic;
+}
+
+.battlecards-stack-k {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #667;
+  margin-bottom: 2px;
+}
+
+.battlecard-kahana-ref {
+  border-color: var(--oasis-green-medium, #0d9488);
+  background: #f3faf7;
+}
+
+.battlecard-header-static {
+  cursor: default;
+}
+
+.battlecard-stack-note {
+  margin: 0;
+  padding: 0 18px 16px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #555;
+}
+
+.battlecard-thesis-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.battlecard-thesis-chip {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #eef2f0;
+  color: #445;
+  text-transform: capitalize;
+}
+
+.battlecard-thesis-chip.thesis-strong {
+  background: #d8f3e4;
+  color: #166534;
+}
+
+.battlecard-thesis-chip.thesis-partial {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.battlecard-thesis-chip.thesis-weak {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.battlecard-thesis-chip.thesis-n\/a,
+.battlecard-thesis-chip.thesis-na {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.battlecards-category-select {
+  border: 1px solid #d0d5d2;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  background: #fff;
+}
+
+.battlecard-website {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.battlecard-website a {
+  color: var(--oasis-green-dark, #14532d);
+}
+
+.battlecard-body-heading {
+  margin: 16px 0 8px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.battlecards-matrix-toggle {
+  border: 1px solid #d0d5d2;
+  background: #fff;
+  color: #333;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.battlecards-matrix-toggle:hover {
+  border-color: var(--oasis-green-medium);
+}
+
+.battlecards-matrix-wrap {
+  margin-top: 16px;
+}
+
+.battlecards-matrix-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+.battlecards-matrix-scroll {
+  overflow-x: auto;
+  border: 1px solid #e0e5e2;
+  border-radius: 8px;
+}
+
+.battlecards-matrix {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.battlecards-matrix th,
+.battlecards-matrix td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eef0ee;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.battlecards-matrix thead th {
+  background: #f5f7f4;
+  font-weight: 700;
+}
+
+.battlecards-matrix tr.is-kahana {
+  background: #f3faf7;
 }

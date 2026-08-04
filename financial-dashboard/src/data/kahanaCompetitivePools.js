@@ -1,7 +1,8 @@
 /**
- * Adjacent platforms for Kahana Clubs + library GTM.
+ * Adjacent platforms for Kahana Clubs + library GTM (market-sizing lenses).
  * Nested by category; filterable by market lens; ranked by revenue and by
  * creators (supply) vs viewers (demand). Excludes Canva / Figma.
+ * Staff conversation copy lives in kahanaCompanyDatabase / battlecard overrides.
  */
 
 /**
@@ -20,8 +21,7 @@
  * @property {number|null} supplyScale - rough creator scale for sorting
  * @property {'viewer-heavy'|'creator-heavy'|'balanced'} sideBias
  * @property {string} kahanaAngle - short growth angle
- * @property {string} switchReason
- * @property {string} useWithReason
+ * Conversation tips (switch / use-with) live in kahanaBattlecardOverrides + company DB — not duplicated here.
  */
 
 export const COMPETITIVE_CATEGORIES = [
@@ -32,13 +32,23 @@ export const COMPETITIVE_CATEGORIES = [
   },
   {
     id: 'creator-monetization',
-    name: 'Creator Business',
-    blurb: 'Paid memberships, tips, and digital product storefronts.',
+    name: 'Memberships & fan support',
+    blurb: 'Paid memberships, tips, and patronage.',
+  },
+  {
+    id: 'online-storefront',
+    name: 'Storefronts & link-in-bio',
+    blurb: 'Creator-owned link-in-bio hubs and personal digital storefronts.',
+  },
+  {
+    id: 'digital-marketplaces',
+    name: 'Marketplaces',
+    blurb: 'Multi-seller marketplaces where buyers browse and find products.',
   },
   {
     id: 'link-in-bio',
     name: 'Link-in-bio + commerce',
-    blurb: 'Bio link hubs and lightweight creator commerce.',
+    blurb: 'Legacy alias — prefer Storefronts.',
   },
   {
     id: 'course-knowledge',
@@ -47,8 +57,8 @@ export const COMPETITIVE_CATEGORIES = [
   },
   {
     id: 'community',
-    name: 'Community / communication',
-    blurb: 'Group chat and branded community homes.',
+    name: 'Community & Messaging',
+    blurb: 'Group chat, servers, and branded community homes.',
   },
   {
     id: 'newsletter',
@@ -119,10 +129,6 @@ export const PLATFORM_POOLS = [
     sideBias: 'viewer-heavy',
     kahanaAngle:
       'Huge pool of fiction creators + young readers for structured Book Clubs around Wattpad-origin titles.',
-    switchReason:
-      'Move from serial scroll discovery to intentional Book Clubs with shared lists and monthly discussion.',
-    useWithReason:
-      'Keep Wattpad for serial discovery; use Kahana when a title becomes a group read.',
   },
   {
     id: 'substack',
@@ -138,10 +144,6 @@ export const PLATFORM_POOLS = [
     supplyScale: 2e6,
     sideBias: 'balanced',
     kahanaAngle: 'Newsletter clubs — subscribers as viewers, writers as hosts.',
-    switchReason:
-      'Writers who want audiences to read/watch together host Clubs on Kahana as the engagement layer.',
-    useWithReason:
-      'Keep Substack for delivery/monetization; deep-link Clubs for each issue’s group discussion.',
   },
   {
     id: 'goodreads',
@@ -157,10 +159,6 @@ export const PLATFORM_POOLS = [
     supplyScale: null,
     sideBias: 'viewer-heavy',
     kahanaAngle: 'Reader graph for book clubs; Kahana as action layer for real clubs around shelves.',
-    switchReason:
-      'Replace shelf-only tracking with live Book Clubs, then demand-source titles onto Kahana.',
-    useWithReason:
-      'Keep Goodreads for ratings/shelves; run the club loop and paid access on Kahana.',
   },
   {
     id: 'medium',
@@ -176,10 +174,6 @@ export const PLATFORM_POOLS = [
     supplyScale: 1e6,
     sideBias: 'viewer-heavy',
     kahanaAngle: 'Essay/article clubs and deep-dive reading groups.',
-    switchReason:
-      'Essay audiences that want structured group reading use Kahana Clubs instead of one-off comments.',
-    useWithReason:
-      'Publish on Medium; host recurring reading Clubs and hubs on Kahana.',
   },
   {
     id: 'patreon',
@@ -196,10 +190,6 @@ export const PLATFORM_POOLS = [
     sideBias: 'creator-heavy',
     kahanaAngle:
       'Creators already monetize; Kahana adds structured reading/video clubs as new offerings.',
-    switchReason:
-      'Creators who want patrons in a shared Book/Video Club ritual center Kahana as club + library.',
-    useWithReason:
-      'Keep Patreon for billing; grant patrons Kahana Clubs/hubs as the benefit.',
   },
   {
     id: 'onlyfans',
@@ -216,15 +206,11 @@ export const PLATFORM_POOLS = [
     sideBias: 'viewer-heavy',
     kahanaAngle:
       'Highly monetized creator↔fan relationships; Kahana for club-style / non-adult knowledge communities.',
-    switchReason:
-      'Creators seeking discussion-first communities use Kahana’s library + Clubs as a cleaner social home.',
-    useWithReason:
-      'Keep OF for one channel; host curated Clubs/libraries on Kahana for branded group experiences.',
   },
   {
     id: 'gumroad',
     name: 'Gumroad',
-    categoryId: 'creator-monetization',
+    categoryId: 'digital-marketplaces',
     lenses: ['link-in-bio', 'video-course', 'membership'],
     usersLabel: '~27k storefronts; 46k creators earned (2020); GMV $142M (2020)',
     revenueLabel: '~$23.8M ARR (2024); ~10% of GMV',
@@ -234,16 +220,12 @@ export const PLATFORM_POOLS = [
     demandScale: 1e6,
     supplyScale: 27e3,
     sideBias: 'creator-heavy',
-    kahanaAngle: 'Digital product / ebook creators host clubs around Gumroad content on Kahana.',
-    switchReason:
-      'Move from one-off file delivery to Clubs that read/watch together and drive repeat demand.',
-    useWithReason:
-      'Keep Gumroad checkout if needed; fulfill into Kahana hubs/Clubs.',
+    kahanaAngle: 'Digital product marketplace — clubs + library on Kahana after purchase.',
   },
   {
     id: 'linktree',
     name: 'Linktree',
-    categoryId: 'link-in-bio',
+    categoryId: 'online-storefront',
     lenses: ['link-in-bio'],
     usersLabel: '50M+ users (largely creators/influencers/brands)',
     revenueLabel: '~$37M revenue (2023)',
@@ -254,15 +236,11 @@ export const PLATFORM_POOLS = [
     supplyScale: 50e6,
     sideBias: 'creator-heavy',
     kahanaAngle: 'Supply-side heavy — Kahana as destination in the link-in-bio stack.',
-    switchReason:
-      'Make Clubs + Public Library the primary bio destination instead of a menu of links.',
-    useWithReason:
-      'Keep Linktree as router; feature Kahana Clubs/library as #1 engagement link.',
   },
   {
     id: 'beacons',
     name: 'Beacons',
-    categoryId: 'link-in-bio',
+    categoryId: 'online-storefront',
     lenses: ['link-in-bio', 'membership'],
     usersLabel: 'Likely hundreds of thousands of creators (sparse public stats)',
     revenueLabel: 'Low single-digit millions ARR (est.)',
@@ -273,15 +251,11 @@ export const PLATFORM_POOLS = [
     supplyScale: 200e3,
     sideBias: 'creator-heavy',
     kahanaAngle: 'Supply-side tool; Kahana = club engagement/demand layer.',
-    switchReason:
-      'Creators who outgrow link menus need a durable club + library product.',
-    useWithReason:
-      'Use Beacons for bio/commerce; deep-link Clubs for recurring community.',
   },
   {
     id: 'stan-store',
     name: 'Stan.store',
-    categoryId: 'link-in-bio',
+    categoryId: 'online-storefront',
     lenses: ['link-in-bio', 'membership', 'video-course'],
     usersLabel: 'Solo creators with offers (sparse public stats)',
     revenueLabel: 'Low single-digit millions ARR (est.)',
@@ -292,15 +266,11 @@ export const PLATFORM_POOLS = [
     supplyScale: 100e3,
     sideBias: 'creator-heavy',
     kahanaAngle: 'Storefront creators add Clubs so purchases become group consumption.',
-    switchReason:
-      'Add Video/Book Clubs so purchases become cohort experiences, not file drops.',
-    useWithReason:
-      'Sell via Stan; deliver access into Kahana Clubs/hubs.',
   },
   {
     id: 'pensight',
     name: 'Pensight',
-    categoryId: 'link-in-bio',
+    categoryId: 'online-storefront',
     lenses: ['link-in-bio', 'membership'],
     usersLabel: 'Solo creators (sparse public stats)',
     revenueLabel: 'Low single-digit millions ARR (est.)',
@@ -311,15 +281,11 @@ export const PLATFORM_POOLS = [
     supplyScale: 100e3,
     sideBias: 'creator-heavy',
     kahanaAngle: 'Kahana as club/library destination behind the bio.',
-    switchReason:
-      'Same wedge as other link-in-bio stacks: Kahana as engagement OS.',
-    useWithReason:
-      'Keep Pensight for storefront; Clubs for retention and DDA sourcing.',
   },
   {
     id: 'podia',
     name: 'Podia',
-    categoryId: 'link-in-bio',
+    categoryId: 'online-storefront',
     lenses: ['link-in-bio', 'video-course', 'membership'],
     usersLabel: '~50k customers (course/membership creators)',
     revenueLabel: '~$0.81M ARR (2024)',
@@ -330,10 +296,6 @@ export const PLATFORM_POOLS = [
     supplyScale: 50e3,
     sideBias: 'creator-heavy',
     kahanaAngle: 'Club layer on top of courses and memberships.',
-    switchReason:
-      'Use Kahana Video Clubs for cohort watch/discuss and demand-signaled content.',
-    useWithReason:
-      'Host courses on Podia; run club cohorts on Kahana.',
   },
   {
     id: 'kajabi',
@@ -349,10 +311,6 @@ export const PLATFORM_POOLS = [
     supplyScale: 19e3,
     sideBias: 'creator-heavy',
     kahanaAngle: 'High-ARPU creators; Clubs inside knowledge businesses.',
-    switchReason:
-      'Run Video Clubs on Kahana as the learning ritual, not only LMS modules.',
-    useWithReason:
-      'Keep Kajabi for course ops/billing; Kahana for club discussion + DDA titles.',
   },
   {
     id: 'teachable',
@@ -368,10 +326,6 @@ export const PLATFORM_POOLS = [
     supplyScale: 50e3,
     sideBias: 'creator-heavy',
     kahanaAngle: 'Same as Kajabi — club layer for course retention.',
-    switchReason:
-      'Structured Video Clubs beat solitary course completion for retention.',
-    useWithReason:
-      'Teachable for delivery; Kahana Clubs for cohort accountability.',
   },
   {
     id: 'udemy',
@@ -387,10 +341,6 @@ export const PLATFORM_POOLS = [
     supplyScale: 75e3,
     sideBias: 'viewer-heavy',
     kahanaAngle: 'Massive learning marketplace — fit for course + club.',
-    switchReason:
-      'Private friend/team clubs around a course topic instead of marketplace-only browsing.',
-    useWithReason:
-      'Discover/buy on Udemy; form a Video Club on Kahana to watch and discuss.',
   },
   {
     id: 'coursera',
@@ -406,10 +356,6 @@ export const PLATFORM_POOLS = [
     supplyScale: 2e3,
     sideBias: 'viewer-heavy',
     kahanaAngle: 'Institutional supply; demand for cohort clubs around courses.',
-    switchReason:
-      'Learning cohorts that want club cadence + shared library use Kahana as social layer.',
-    useWithReason:
-      'Complete Coursera credentials; parallel Kahana Clubs for peer discussion.',
   },
   {
     id: 'discord',
@@ -425,10 +371,96 @@ export const PLATFORM_POOLS = [
     supplyScale: 5e6,
     sideBias: 'viewer-heavy',
     kahanaAngle: 'Huge pool of club-ready communities; admins/streamers as hosts.',
-    switchReason:
-      'Book/film club servers move reading/watching loop into Kahana (lists, titles, library).',
-    useWithReason:
-      'Keep Discord for chat; Kahana for titles, DDA uploads, Public Library.',
+  },
+  {
+    id: 'whatsapp',
+    name: 'WhatsApp',
+    categoryId: 'community',
+    lenses: ['community-host'],
+    usersLabel: '~2B+ MAU (Meta)',
+    revenueLabel: 'Business API / ads (Meta slice; not cleanly disclosed)',
+    revenueUsdMid: null,
+    demandLabel: '~2B+ monthly active users',
+    supplyLabel: 'Group admins / Business accounts (hundreds of millions of groups)',
+    demandScale: 2e9,
+    supplyScale: 50e6,
+    sideBias: 'viewer-heavy',
+    kahanaAngle: 'Groups already chat here — Kahana is the library + Clubs layer beside the chat.',
+  },
+  {
+    id: 'telegram',
+    name: 'Telegram',
+    categoryId: 'community',
+    lenses: ['community-host'],
+    usersLabel: '~900M+ MAU (dir.)',
+    revenueLabel: 'Premium + ads (dir.; sparse public ARR)',
+    revenueUsdMid: null,
+    demandLabel: '~900M+ monthly active users',
+    supplyLabel: 'Channel / group admins (millions)',
+    demandScale: 900e6,
+    supplyScale: 5e6,
+    sideBias: 'viewer-heavy',
+    kahanaAngle: 'Channels and groups discuss content — link to a Kahana hub for the library shelf.',
+  },
+  {
+    id: 'groupme',
+    name: 'GroupMe',
+    categoryId: 'community',
+    lenses: ['community-host', 'book-social'],
+    usersLabel: 'Tens of millions (campus / friend groups, dir.)',
+    revenueLabel: 'Microsoft-owned; not a primary commercial peer',
+    revenueUsdMid: null,
+    demandLabel: 'Group members (campus, friends, clubs)',
+    supplyLabel: 'Group creators / admins',
+    demandScale: 30e6,
+    supplyScale: 5e6,
+    sideBias: 'viewer-heavy',
+    kahanaAngle: 'Natural friend-group chat — Kahana hosts the book/watch club those groups spin up.',
+  },
+  {
+    id: 'slack',
+    name: 'Slack',
+    categoryId: 'community',
+    lenses: ['community-host'],
+    usersLabel: 'Tens of millions of paid users (workspace)',
+    revenueLabel: 'Salesforce Slack seats (multi-billion company slice)',
+    revenueUsdMid: null,
+    demandLabel: 'Workspace members',
+    supplyLabel: 'Workspace owners / community managers',
+    demandScale: 40e6,
+    supplyScale: 1e6,
+    sideBias: 'balanced',
+    kahanaAngle: 'Workplace communities keep Slack; Kahana for learning clubs and library.',
+  },
+  {
+    id: 'signal',
+    name: 'Signal',
+    categoryId: 'community',
+    lenses: ['community-host'],
+    usersLabel: 'Tens of millions (privacy-focused, dir.)',
+    revenueLabel: 'Nonprofit; not a commercial peer',
+    revenueUsdMid: null,
+    demandLabel: 'Privacy-focused group members',
+    supplyLabel: 'Group admins',
+    demandScale: 40e6,
+    supplyScale: 1e6,
+    sideBias: 'viewer-heavy',
+    kahanaAngle: 'Small trusted groups — Kahana for the library shelf those groups discuss.',
+  },
+  {
+    id: 'facebook-groups',
+    name: 'Facebook Groups',
+    categoryId: 'community',
+    lenses: ['community-host', 'book-social'],
+    usersLabel: 'Hundreds of millions of group members (Meta)',
+    revenueLabel: 'Meta ads ecosystem (groups not broken out)',
+    revenueUsdMid: null,
+    demandLabel: 'Broad consumer community members',
+    supplyLabel: 'Group admins / creators',
+    demandScale: 500e6,
+    supplyScale: 20e6,
+    sideBias: 'viewer-heavy',
+    kahanaAngle: 'Mass-market groups stay on Facebook; Kahana for deeper clubs and libraries.',
   },
   {
     id: 'circle',
@@ -444,10 +476,96 @@ export const PLATFORM_POOLS = [
     supplyScale: 5e3,
     sideBias: 'creator-heavy',
     kahanaAngle: 'Ready-made communities; Kahana as reading/video club plugin.',
-    switchReason:
-      'Hosts who need library + club consumption (not only posts) prefer Kahana hubs + Clubs.',
-    useWithReason:
-      'Circle for feed/events; Kahana for Book/Video Clubs and monetized content.',
+  },
+  {
+    id: 'guild',
+    name: 'Guild',
+    categoryId: 'community',
+    lenses: ['community-host', 'membership'],
+    usersLabel: 'Brand / membership communities (dir.)',
+    revenueLabel: 'Sparse public ARR',
+    revenueUsdMid: null,
+    demandLabel: 'Community members',
+    supplyLabel: 'Brand / org community managers',
+    demandScale: null,
+    supplyScale: 2e3,
+    sideBias: 'creator-heavy',
+    kahanaAngle: 'Branded community home — Kahana for learning clubs inside or beside.',
+  },
+  {
+    id: 'hivebrite',
+    name: 'Hivebrite',
+    categoryId: 'community',
+    lenses: ['community-host'],
+    usersLabel: 'Brand / alumni communities (dir.)',
+    revenueLabel: 'Enterprise community SaaS (sparse public)',
+    revenueUsdMid: null,
+    demandLabel: 'Org / alumni members',
+    supplyLabel: 'Community managers',
+    demandScale: null,
+    supplyScale: 1e3,
+    sideBias: 'creator-heavy',
+    kahanaAngle: 'Org communities keep Hivebrite; Kahana for learning hubs.',
+  },
+  {
+    id: 'disciple',
+    name: 'Disciple',
+    categoryId: 'community',
+    lenses: ['community-host', 'membership'],
+    usersLabel: 'Branded community apps (dir.)',
+    revenueLabel: 'Sparse public ARR',
+    revenueUsdMid: null,
+    demandLabel: 'App community members',
+    supplyLabel: 'Creator / brand community owners',
+    demandScale: null,
+    supplyScale: 2e3,
+    sideBias: 'creator-heavy',
+    kahanaAngle: 'Branded app communities — Kahana for multi-format clubs and libraries.',
+  },
+  {
+    id: 'bettermode',
+    name: 'Bettermode',
+    categoryId: 'community',
+    lenses: ['community-host'],
+    usersLabel: 'Community creators (dir.)',
+    revenueLabel: 'Sparse public ARR',
+    revenueUsdMid: null,
+    demandLabel: 'Community members',
+    supplyLabel: 'Community builders',
+    demandScale: null,
+    supplyScale: 2e3,
+    sideBias: 'creator-heavy',
+    kahanaAngle: 'General community platform — Kahana for learning-focused clubs.',
+  },
+  {
+    id: 'hypage',
+    name: 'HYpage',
+    categoryId: 'online-storefront',
+    lenses: ['link-in-bio', 'membership'],
+    usersLabel: 'Creator storefronts (dir.)',
+    revenueLabel: 'Sparse public ARR',
+    revenueUsdMid: null,
+    demandLabel: 'Creator audiences',
+    supplyLabel: 'Solo creators',
+    demandScale: null,
+    supplyScale: 50e3,
+    sideBias: 'creator-heavy',
+    kahanaAngle: 'Bio / storefront destination — put Kahana club behind the link.',
+  },
+  {
+    id: 'shopify',
+    name: 'Shopify',
+    categoryId: 'digital-marketplaces',
+    lenses: ['link-in-bio', 'membership'],
+    usersLabel: 'Millions of merchants (digital / creator slice)',
+    revenueLabel: 'Multi-billion platform; creator/digital slice only',
+    revenueUsdMid: null,
+    demandLabel: 'Buyers browsing merchant storefronts / products',
+    supplyLabel: 'Merchants selling digital and physical products',
+    demandScale: null,
+    supplyScale: 500e3,
+    sideBias: 'creator-heavy',
+    kahanaAngle: 'Buyers find products on Shopify; Kahana for clubs + library after purchase.',
   },
   {
     id: 'skool',
@@ -463,8 +581,21 @@ export const PLATFORM_POOLS = [
     supplyScale: 10e3,
     sideBias: 'creator-heavy',
     kahanaAngle: 'Cohort classroom on Skool; library shelf + Aura + Clubs on Kahana — use both.',
-    switchReason: 'Optional if the host wants a public library-first home.',
-    useWithReason: 'Host cohort on Skool; put materials on Kahana; link classroom ↔ Club.',
+  },
+  {
+    id: 'mighty-networks',
+    name: 'Mighty Networks',
+    categoryId: 'community',
+    lenses: ['community-host', 'video-course', 'membership'],
+    usersLabel: 'Branded communities with courses/events (dir.)',
+    revenueLabel: 'Community SaaS; sparse public ARR',
+    revenueUsdMid: null,
+    demandLabel: 'Community members',
+    supplyLabel: 'Network hosts / course creators',
+    demandScale: null,
+    supplyScale: 10e3,
+    sideBias: 'creator-heavy',
+    kahanaAngle: 'All-in-one community + courses — Kahana for multi-format clubs and Aura.',
   },
   {
     id: 'fable',
@@ -481,8 +612,6 @@ export const PLATFORM_POOLS = [
     sideBias: 'viewer-heavy',
     kahanaAngle:
       'If you like Fable, you might also love Kahana for book clubs — library shelf + Aura + multi-format.',
-    switchReason: 'N/A — tandem; they rhyme.',
-    useWithReason: 'Keep Fable for bookish social energy; run Kahana Book Clubs with library materials.',
   },
   {
     id: 'thinkific',
@@ -498,8 +627,6 @@ export const PLATFORM_POOLS = [
     supplyScale: 50e3,
     sideBias: 'creator-heavy',
     kahanaAngle: 'Course ops on Thinkific; discovery + Clubs on Kahana — dual-list.',
-    switchReason: 'Optional library-first teachers.',
-    useWithReason: 'Build on Thinkific; list course + Club on Kahana for exposure and discussion.',
   },
   {
     id: 'spotify',
@@ -515,8 +642,6 @@ export const PLATFORM_POOLS = [
     supplyScale: 5e6,
     sideBias: 'viewer-heavy',
     kahanaAngle: 'Listen on Spotify; organize listen-along Clubs and companion materials on Kahana.',
-    switchReason: 'N/A — tandem listening + Clubs.',
-    useWithReason: 'Pin episodes in Kahana Clubs; cross-link profiles and show notes.',
   },
   {
     id: 'audible',
@@ -532,8 +657,6 @@ export const PLATFORM_POOLS = [
     supplyScale: null,
     sideBias: 'viewer-heavy',
     kahanaAngle: 'Listen on Audible; meet the Book Club on Kahana; ebook when boarded.',
-    switchReason: 'N/A — dual-format tandem.',
-    useWithReason: 'Some members Audible, some Kahana ebook; discuss on Kahana; wishlist boarding.',
   },
   {
     id: 'beehiiv',
@@ -549,15 +672,11 @@ export const PLATFORM_POOLS = [
     supplyScale: 47e3,
     sideBias: 'creator-heavy',
     kahanaAngle: 'Newsletter creators host clubs around issues and ebooks.',
-    switchReason:
-      'Newsletters that want readers in Clubs center Kahana for retention.',
-    useWithReason:
-      'Send via Beehiiv; deep-link each edition into a Kahana Club + hub.',
   },
   {
     id: 'etsy-ebooks',
     name: 'Etsy (ebooks niche)',
-    categoryId: 'creator-monetization',
+    categoryId: 'digital-marketplaces',
     lenses: ['link-in-bio', 'membership'],
     usersLabel: '90–96M active buyers overall; ebooks = subset of sellers',
     revenueLabel: 'Multi-billion company; ebook niche not broken out (digital +22% last reported year)',
@@ -567,16 +686,12 @@ export const PLATFORM_POOLS = [
     demandScale: 93e6,
     supplyScale: 200e3,
     sideBias: 'viewer-heavy',
-    kahanaAngle: 'Ebook sellers bring catalog into structured clubs on Kahana.',
-    switchReason:
-      'Move flagship titles to Kahana for club-driven demand and recurring group reads.',
-    useWithReason:
-      'Keep Etsy for craft/impulse; fulfill flagship titles into Kahana Clubs.',
+    kahanaAngle: 'Marketplace discovery stays on Etsy; Kahana for clubs + library after purchase.',
   },
   {
     id: 'curios',
     name: 'Curios',
-    categoryId: 'link-in-bio',
+    categoryId: 'online-storefront',
     lenses: ['link-in-bio', 'book-social', 'membership'],
     usersLabel: 'Niche author-focused; creator counts likely in thousands',
     revenueLabel: 'Not reliably disclosed (likely small vs peers)',
@@ -587,10 +702,6 @@ export const PLATFORM_POOLS = [
     supplyScale: 5e3,
     sideBias: 'creator-heavy',
     kahanaAngle: 'Author-focused supply; Kahana for club engagement + library.',
-    switchReason:
-      'Authors who want live Book Clubs and demand-driven uploads use Kahana as the engagement home.',
-    useWithReason:
-      'Keep Curios for author tooling if needed; run clubs and sales on Kahana.',
   },
 ]
 
@@ -604,9 +715,22 @@ export function getPlatformsForLens(lensId) {
 
 /**
  * @param {string} lensId
+ * @param {Map<string, { switchReason?: string, useWithReason?: string }> | Record<string, { switchReason?: string, useWithReason?: string }>} [conversationById]
+ * Optional conversation map (usually from company DB / overrides) so Pro Forma stays sizing-focused.
  */
-export function getNestedCompetitiveSquares(lensId) {
-  const platforms = getPlatformsForLens(lensId)
+export function getNestedCompetitiveSquares(lensId, conversationById = {}) {
+  const lookup =
+    conversationById instanceof Map
+      ? (id) => conversationById.get(id)
+      : (id) => conversationById[id]
+  const platforms = getPlatformsForLens(lensId).map((p) => {
+    const tip = lookup(p.id) ?? {}
+    return {
+      ...p,
+      switchReason: tip.switchReason ?? 'See Company Landscape',
+      useWithReason: tip.useWithReason ?? tip.together ?? 'See Company Landscape',
+    }
+  })
   return COMPETITIVE_CATEGORIES.map((cat) => ({
     ...cat,
     platforms: platforms.filter((p) => p.categoryId === cat.id),

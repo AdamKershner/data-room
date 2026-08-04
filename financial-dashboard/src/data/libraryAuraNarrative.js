@@ -64,8 +64,23 @@ export const FRAGMENTATION_BUCKETS = [
   },
   {
     id: 'creator-monetization',
-    label: 'Creator Business',
-    examples: 'Patreon, OnlyFans, Gumroad, Linktree, Beacons, Stan.store, Ko-fi, Circle',
+    label: 'Memberships',
+    examples: 'Patreon, OnlyFans, Ko-fi, Buy Me a Coffee, Memberful',
+  },
+  {
+    id: 'messaging-community',
+    label: 'Community & Messaging',
+    examples: 'Discord, Telegram, WhatsApp, Signal, Slack, Facebook Groups, Circle, Mighty Networks',
+  },
+  {
+    id: 'online-storefront',
+    label: 'Storefronts',
+    examples: 'Linktree, Stan.store, Beacons, Pensight, HYpage, Podia',
+  },
+  {
+    id: 'digital-marketplaces',
+    label: 'Marketplaces',
+    examples: 'Gumroad, Etsy, Shopify',
   },
 ]
 
@@ -476,41 +491,96 @@ export const CONTENT_FRAGMENTS = [
   },
   {
     id: 'creator-monetization',
-    name: 'Creator Business',
+    name: 'Memberships & fan support',
     covers:
-      'Memberships, tips, fan subscriptions, digital storefronts, and link-in-bio / micro-commerce tools that sit between social reach and a durable home for content.',
+      'Memberships, tips, and fan subscriptions — the paywall / ongoing-support layer creators use to monetize access.',
     marketSizeLabel:
-      'USD ~4–10B directional (platform rev across memberships, tips, storefronts, link-in-bio; creator GMV much larger)',
-    marketSizeLowUsd: 4e9,
-    marketSizeHighUsd: 10e9,
+      'USD ~2–6B directional (platform rev across memberships / tips; creator GMV much larger)',
+    marketSizeLowUsd: 2e9,
+    marketSizeHighUsd: 6e9,
     marketSizeExpandedUsd: null,
     marketNote:
-      'Platform take is far smaller than creator GMV (e.g. Patreon creator payouts ~$2B/yr vs platform tens of $M; OnlyFans platform >$1B with multi-billion user spend). Fragment mid is platform-oriented for map sizing; Kahana pathway is often “keep billing, move clubs/library home.”',
+      'Platform take is far smaller than creator GMV (e.g. Patreon creator payouts ~$2B/yr vs platform tens of $M; OnlyFans platform >$1B). Storefronts / link-in-bio live under Storefronts; chat & community homes live under Community & Messaging.',
     players: [
       {
         tier: 'Memberships / tips',
         names: 'Patreon, OnlyFans, Ko-fi, Buy Me a Coffee, Memberful',
       },
+    ],
+    kahanaAngle:
+      'Membership destination for clubs / hubs / libraries — or unlock Kahana via Patreon / OnlyFans tiers while billing stays elsewhere.',
+  },
+  {
+    id: 'messaging-community',
+    name: 'Community & Messaging',
+    covers:
+      'Chat-first tools and structured community platforms creators use to host groups — Discord, Telegram, WhatsApp, Circle, Mighty Networks, and peers.',
+    marketSizeLabel:
+      'USD ~8–20B directional (messaging / community platform commercial slice; MAU far larger)',
+    marketSizeLowUsd: 8e9,
+    marketSizeHighUsd: 20e9,
+    marketSizeExpandedUsd: null,
+    marketNote:
+      'Discord ~$561M (2025 dir.); WhatsApp/Telegram/Slack monetize differently (ads, Business API, seats). Fragment mid is a directional commercial slice for map visibility — not full consumer-messaging TAM.',
+    players: [
       {
-        tier: 'Digital storefronts',
-        names: 'Gumroad, Stan.store',
+        tier: 'Chat-first / communities',
+        names: 'Discord, Telegram, WhatsApp, Signal, Slack, Facebook Groups, GroupMe',
       },
       {
-        tier: 'Link-in-bio / micro-commerce',
-        names: 'Linktree, Beacons, Pensight',
-      },
-      {
-        tier: 'Community + monetization',
-        names: 'Circle, Mighty Networks (also in courses), Skool (also in courses)',
+        tier: 'Structured / all-in-one community',
+        names: 'Circle, Mighty Networks, Guild, Hivebrite, Disciple, Bettermode',
       },
     ],
     kahanaAngle:
-      'Creators already monetize elsewhere — Kahana becomes the club + library destination behind the link and the benefit patrons unlock, instead of another scattered tool.',
+      'Where the group hangs out — Kahana is clubs + libraries, not general chat. Integrate with Discord / Telegram / Slack for notifications; keep deep learning on Kahana.',
+  },
+  {
+    id: 'online-storefront',
+    name: 'Storefronts & link-in-bio',
+    covers:
+      'Creator-owned link-in-bio hubs and personal digital storefronts — Stan, Beacons, Linktree, Pensight, HYpage, Podia. Not multi-seller marketplaces.',
+    marketSizeLabel:
+      'USD ~0.5–2B directional (platform rev across link-in-bio + personal storefronts; GMV larger)',
+    marketSizeLowUsd: 0.5e9,
+    marketSizeHighUsd: 2e9,
+    marketSizeExpandedUsd: null,
+    marketNote:
+      'Platform ARR is often tens of $M (Linktree ~$37M). Multi-seller marketplaces (Gumroad, Etsy, Shopify) live under Marketplaces. Course LMS checkout primarily sits in Courses.',
+    players: [
+      {
+        tier: 'Link-in-bio / personal storefront',
+        names: 'Linktree, Beacons, Pensight, Stan.store, HYpage, Podia',
+      },
+    ],
+    kahanaAngle:
+      'Put Kahana behind the bio — “Join my Kahana club” as the destination, not another checkout page.',
+  },
+  {
+    id: 'digital-marketplaces',
+    name: 'Marketplaces',
+    covers:
+      'Multi-seller marketplaces and commerce platforms where buyers browse and find products — Gumroad, Etsy, Shopify (and peers).',
+    marketSizeLabel:
+      'USD ~5–20B directional (creator / digital-product commerce slice; full Etsy/Shopify GMV far larger)',
+    marketSizeLowUsd: 5e9,
+    marketSizeHighUsd: 20e9,
+    marketSizeExpandedUsd: null,
+    marketNote:
+      'Etsy and Shopify are multi-billion platforms; map mid is a directional creator/digital slice so the category is visible — not full retail GMV. Gumroad ~$24M ARR is smaller but sits in the same “browse & buy from many sellers” pattern.',
+    players: [
+      {
+        tier: 'Digital / creator marketplaces',
+        names: 'Gumroad, Etsy (digital), Shopify (digital / creator commerce)',
+      },
+    ],
+    kahanaAngle:
+      'Discovery and checkout stay on the marketplace — Kahana is the club + library layer after purchase (or a linked destination), not a replacement browse feed.',
   },
 ]
 
 export const UNIFY_FRAGMENTS_THESIS =
-  'Kahana’s thesis is to unify these fragments—ebooks, short-form video, long-form video, series/films, courses, newsletters, audio, and Creator Business—into a single digital library with clubs, governed by Aura, a community-driven discovery signal. Books, videos (short & long), courses, newsletters, and audio live in one place; creators host multi-modal hubs instead of scattering content across monetization and bio tools; consumers get one “library card” instead of stacking subscriptions; discovery is driven by scarce, human-given Aura rather than black-box engagement algorithms.'
+  'Kahana’s thesis is to unify content modalities—ebooks, short-form video, long-form video, series/films, courses, newsletters, audio—into a single digital library with clubs, governed by Aura. Creators publish on content & audience platforms, host groups on community & messaging tools, and monetize via memberships and storefronts; Kahana sits between content and community as the club + library home, with Aura as the discovery signal.'
 
 export const UNIFY_FRAGMENTS_DECK_LINES = [
   'The ebook fragment is a USD 15–25B consumer market dominated by Amazon, Goodreads, Wattpad, and Fable.',
@@ -519,7 +589,10 @@ export const UNIFY_FRAGMENTS_DECK_LINES = [
   'The series/films streaming fragment is a USD 130–160B market dominated by Netflix, Hulu, Max, Disney+, and Prime Video.',
   'The courses/learning and newsletters/written fragments add tens of billions more across Coursera, Udemy, Substack, Medium, Kajabi, Teachable, etc.',
   'The audio fragment—streaming music plus podcasts (plus audiobooks)—is a USD 50–60B market today, growing toward USD 200B+ by the early 2030s (Spotify, Apple, Amazon, YouTube, Audible).',
-  'The Creator Business fragment (Patreon, OnlyFans, Gumroad, Linktree, etc.) is a multi-billion platform layer sitting between social reach and a durable content home — often complementary to Kahana rather than a pure substitute.',
+  'Memberships & fan support (Patreon, OnlyFans, Ko-fi, etc.) is the paywall / ongoing-support layer — often complementary to Kahana.',
+  'Community & Messaging (Discord, Telegram, WhatsApp, Circle, Mighty Networks, etc.) is where groups hang out — Kahana is clubs + libraries beside chat.',
+  'Storefronts (Linktree, Stan, Beacons, Pensight, HYpage, etc.) are the creator-owned bio / personal checkout layer — Kahana is the destination behind the link.',
+  'Marketplaces (Gumroad, Etsy, Shopify, etc.) are where buyers browse and find products from many sellers — Kahana sits after purchase as clubs + library, not a browse replacement.',
 ]
 
 /**

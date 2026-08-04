@@ -9,7 +9,7 @@ Single master document for Kahana (formerly Curio) covering product, business mo
 - Marketing website page/component briefs
 - Internal team onboarding
 
-**Product URL:** https://app.kahana.io  
+**Product URL:** https://kahana.io  
 **Legal entity:** Kahana Group Inc.
 
 Legacy split docs live in [`../Curio/`](../Curio/) (Curio naming). Prefer `KAHANA_PLATFORM.md` for current branding.

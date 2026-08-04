@@ -2997,8 +2997,8 @@ function OasisSprintsArchive() {
           <a href="https://linear.app/kahana" target="_blank" rel="noopener noreferrer">
             Linear
           </a>
-          . See <Link to="/sprints">Product Lifecycle</Link> and{' '}
-          <Link to="/operating-system">Operating System</Link> for current workflow.
+          . See <Link to="/archive/oasis-sprints">Product Lifecycle</Link> and{' '}
+          <Link to="/how-we-work">How We Work</Link> for current workflow.
         </p>
       </div>
       <div className="sprint-update-banner">

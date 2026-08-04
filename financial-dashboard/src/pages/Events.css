@@ -636,14 +636,14 @@
 }
 
 .events-top-btn--primary {
-  background: var(--oasis-green-medium, #0d9488);
+  background: var(--oasis-green-medium, #7a9200);
   color: #fff;
-  border: 2px solid var(--oasis-green-medium, #0d9488);
+  border: 2px solid var(--oasis-green-medium, #7a9200);
 }
 
 .events-top-btn--primary:hover {
-  background: #0f766e;
-  border-color: #0f766e;
+  background: var(--oasis-green-dark, #495800);
+  border-color: var(--oasis-green-dark, #495800);
   color: #fff;
 }
 

@@ -27,7 +27,7 @@ Kahana competes in the **creator economy** (sell digital products, memberships, 
 
 | Dimension | Kahana |
 |-----------|--------|
-| Discovery | **Strong** — Explore marketplace at app.kahana.io/explore |
+| Discovery | **Strong** — Library marketplace at kahana.io/library |
 | Storefront | **Strong** — Profiles + monetized hubs + Stripe Connect |
 | Knowledge depth | **Strong** — Multi-format resource libraries in hubs |
 | Trust | **Strong** — Verified creators, commerce signals, curated catalog |

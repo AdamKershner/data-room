@@ -1,6 +1,6 @@
 /** Kahana competitive landscape — creator economy and discovery market map. */
 
-export const COMPETITORS_PAGE_PATH = '/kahana-competitors'
+export const COMPETITORS_PAGE_PATH = '/company-landscape'
 
 export const COMPETITORS_PAGE = {
   title: 'Kahana Competitive Landscape',
@@ -42,10 +42,10 @@ export const COMPETITOR_CATEGORIES = [
   { id: 'membership', label: 'Membership / patronage' },
   { id: 'courses', label: 'Course and knowledge platforms' },
   { id: 'publishing', label: 'Publishing and newsletters' },
-  { id: 'link-in-bio', label: 'Creator storefront / link-in-bio' },
+  { id: 'link-in-bio', label: 'Online Storefront / link-in-bio' },
   { id: 'social-native', label: 'Social platform monetization' },
   { id: 'all-in-one', label: 'All-in-one creator platforms' },
-  { id: 'community', label: 'Community hybrids' },
+  { id: 'community', label: 'Messaging / community' },
   { id: 'inspiration', label: 'Discovery inspiration' },
 ]
 
@@ -54,8 +54,9 @@ export const KAHANA_REFERENCE = {
   name: 'Kahana',
   category: 'kahana',
   description:
-    'Marketplace and storefront for curated digital knowledge — Explore discovery, monetized hubs, Stripe Connect, multi-format resource libraries at app.kahana.io.',
-  website: 'https://app.kahana.io',
+    'Marketplace and storefront for curated digital knowledge — library discovery, monetized hubs, Stripe Connect, multi-format resource libraries at kahana.io.',
+  website: 'https://kahana.io',
+  websiteLabel: 'kahana.io/library',
   thesis: {
     discovery: 'strong',
     storefront: 'strong',
@@ -278,15 +279,48 @@ export const KAHANA_COMPETITORS = [
     stackRole: 'audience + outbound links',
   },
   {
-    id: 'discord-paywall',
-    name: 'Discord / Slack + paywall',
+    id: 'whatsapp',
+    name: 'WhatsApp',
     category: 'community',
     description:
-      'Not marketplaces — gated knowledge communities behind Patreon, Gumroad, or Stripe paywalls for access and content drops.',
-    website: 'https://discord.com',
+      'Global group messaging — family, friend, and interest groups; Business API for brands. Chat-first, not a content library.',
+    website: 'https://www.whatsapp.com',
+    thesis: { discovery: 'weak', storefront: 'n/a', knowledgeDepth: 'weak', trust: 'partial' },
+    kahanaAngle: 'Groups keep chatting on WhatsApp; Kahana hosts the library + Clubs those groups discuss',
+    stackRole: 'group chat',
+  },
+  {
+    id: 'telegram',
+    name: 'Telegram',
+    category: 'community',
+    description:
+      'Channels and large groups for broadcasting and discussion — strong for announcements, weak as a curated multi-format library.',
+    website: 'https://telegram.org',
+    thesis: { discovery: 'partial', storefront: 'weak', knowledgeDepth: 'weak', trust: 'weak' },
+    kahanaAngle: 'Channels stay on Telegram; Kahana is the club room and shelf for deeper reading/watching',
+    stackRole: 'channels + groups',
+  },
+  {
+    id: 'groupme',
+    name: 'GroupMe',
+    category: 'community',
+    description:
+      'Lightweight group messaging popular with campuses and friend circles — chat threads, not storefronts or libraries.',
+    website: 'https://groupme.com',
+    thesis: { discovery: 'weak', storefront: 'n/a', knowledgeDepth: 'n/a', trust: 'partial' },
+    kahanaAngle: 'Friend groups spin up clubs on Kahana while keeping GroupMe for day-to-day chat',
+    stackRole: 'friend / campus groups',
+  },
+  {
+    id: 'slack',
+    name: 'Slack',
+    category: 'community',
+    description:
+      'Workplace and community workspaces — channels for ops and discussion, not a public knowledge marketplace.',
+    website: 'https://slack.com',
     thesis: { discovery: 'weak', storefront: 'n/a', knowledgeDepth: 'partial', trust: 'partial' },
-    kahanaAngle: 'Community layer Kahana can complement; Kahana owns catalog + commerce + discovery',
-    stackRole: 'community access',
+    kahanaAngle: 'Teams keep Slack; Kahana for learning clubs and shared library materials',
+    stackRole: 'workspace chat',
   },
   {
     id: 'wikipedia',

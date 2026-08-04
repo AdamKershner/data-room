@@ -188,7 +188,7 @@ function HITL() {
           </ul>
           <p>
             <strong>Recommendation:</strong> Enrich exports with <code>user_prompt</code>, <code>ai_response</code>, or <code>tool_output</code> 
-            so engineers can reproduce and triage issues. See <Link to="/sprints">Sprint 19 (Feedback Modal &amp; HITL)</Link> for the HITL audit.
+            so engineers can reproduce and triage issues. See <Link to="/archive/oasis-sprints">Sprint 19 (Feedback Modal &amp; HITL)</Link> for the HITL audit.
           </p>
         </div>
       </section>

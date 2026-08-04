@@ -6,16 +6,13 @@ import { TIME_LOG_TALLY_URL } from '../constants/kahanaSite'
 
 export const PRIMARY_NAV_LINKS = [
   { path: '/', id: 'executive-summary', label: 'Executive Summary' },
-  { path: '/kahana', id: 'kahana-platform', label: 'Kahana Platform' },
-  { path: '/pro-forma', id: 'pro-forma', label: 'Pro Forma' },
-  { path: '/battlecards', id: 'battlecards', label: 'Battlecards' },
-  { path: '/fragment-capture', id: 'fragment-capture', label: 'Fragment Map' },
+  { path: '/company-landscape', id: 'company-landscape', label: 'Company Landscape' },
+  { path: '/glossary', id: 'glossary', label: 'Glossary' },
+  { path: '/fragment-capture', id: 'fragment-capture', label: 'Market Map' },
   { path: '/team-execution', id: 'team-execution', label: 'Team Directory' },
   { path: '/weekly-reports', id: 'weekly-reports', label: 'Weekly Reports' },
-  { path: '/operating-system', id: 'operating-system', label: 'Operating System' },
-  { path: '/technical-roadmap', id: 'technical-roadmap', label: 'Technical Roadmap' },
-  { path: '/sprints', id: 'sprints', label: 'Product Lifecycle' },
-  { path: '/project-charter', id: 'project-charter', label: 'Scaling Kahana Charter' },
+  { path: '/how-we-work', id: 'how-we-work', label: 'How We Work' },
+  { path: '/project-charter', id: 'project-charter', label: 'Project Charter' },
   { path: '/onboarding', id: 'onboarding', label: 'Onboarding' },
   {
     path: '/knowledge-base',
@@ -32,28 +29,22 @@ export const PRIMARY_NAV_LINKS = [
 /** Cards for the Executive Summary “explore” grid (excludes this page; includes Archive hub). */
 export const TOC_EXPLORE_ITEMS = [
   {
-    path: '/kahana',
-    title: 'Kahana Platform Overview',
+    path: '/company-landscape',
+    title: 'Company Landscape',
     description:
-      'Wan Shi Tong library vision, women-first GTM, platform architecture, revenue, and roadmap at app.kahana.io.',
+      'Searchable peer platforms aligned with Market Map categories — facts on what each company is and does.',
   },
   {
-    path: '/pro-forma',
-    title: 'Kahana Pro Forma',
+    path: '/glossary',
+    title: 'Glossary',
     description:
-      'Named revenue cases for Growth SaaS, marketplace take rate, and Enterprise — compare segment and feature focus.',
-  },
-  {
-    path: '/battlecards',
-    title: 'Kahana Battlecards',
-    description:
-      'Conversation guides: compare/contrast Kahana with peer platforms and show how to use both — for prospects and new team members.',
+      'How Kahana relates to the creator stack — Content & Audience, Community & Messaging, Memberships, Storefronts, Marketplaces.',
   },
   {
     path: '/fragment-capture',
-    title: 'Fragment Map',
+    title: 'Market Map',
     description:
-      'Risk/Diplomacy-style board: fragments sized by true market scale, lens by category/company/creator-viewer, then occupy provinces to model capture %.',
+      'Lay of the land — content categories and companies sized by directional market $, then Company Landscape for company facts.',
   },
   {
     path: '/team-execution',
@@ -67,22 +58,16 @@ export const TOC_EXPLORE_ITEMS = [
     description: 'Rolling written updates on what the company shipped, learned, and decided each week.',
   },
   {
-    path: '/technical-roadmap',
-    title: 'Technical Roadmap',
+    path: '/how-we-work',
+    title: 'How We Work',
     description:
-      'Internal focus — Security, Trust, and Algorithm pillars for the next wave of Kahana improvements.',
+      'Linear, Slack, and Mixpanel — how new teammates get work done day to day.',
   },
   {
-    path: '/operating-system',
-    title: 'Operating System',
+    path: '/project-charter',
+    title: 'Project Charter',
     description:
-      'Linear + Slack workflows — backlog intake, triage, prioritization, and who uses what.',
-  },
-  {
-    path: '/sprints',
-    title: 'Product Lifecycle',
-    description:
-      'How NPS, PMF, and user feedback become prioritized work in Linear (active backlog).',
+      'Library Supply and Search Satisfaction — read the charter section by section like a checklist.',
   },
   {
     path: '/onboarding',

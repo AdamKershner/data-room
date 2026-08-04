@@ -67,6 +67,9 @@ export const FRAGMENT_MAP_COLORS = {
   'newsletters-written': '#5a4a6e',
   'audio-listening': '#2f5f5a',
   'creator-monetization': '#7a4e3d',
+  'messaging-community': '#4a5d6e',
+  'online-storefront': '#6b5a3d',
+  'digital-marketplaces': '#5a4e3d',
 }
 
 /** Short on-map titles (full name stays in tooltip / chips). */
@@ -78,7 +81,10 @@ export const FRAGMENT_SHORT_NAMES = {
   'courses-learning': 'Courses',
   'newsletters-written': 'Newsletters',
   'audio-listening': 'Audio',
-  'creator-monetization': 'Creator Business',
+  'creator-monetization': 'Memberships',
+  'messaging-community': 'Community & Messaging',
+  'online-storefront': 'Storefronts',
+  'digital-marketplaces': 'Marketplaces',
 }
 
 export const FRAGMENT_ABBREV = {
@@ -89,7 +95,10 @@ export const FRAGMENT_ABBREV = {
   'courses-learning': 'Co',
   'newsletters-written': 'Nw',
   'audio-listening': 'Au',
-  'creator-monetization': 'CB',
+  'creator-monetization': 'Mb',
+  'messaging-community': 'CM',
+  'online-storefront': 'St',
+  'digital-marketplaces': 'Mp',
 }
 
 export const SIDE_BIAS_COLORS = {
@@ -164,22 +173,64 @@ export const GTM_PHASES = [
   },
 ]
 
-/** Always-on creator monetization / bio tools — outreach channel, not a content GTM phase. */
+/** Always-on creator monetization — memberships / tips channel. */
 export const GTM_CREATOR_LAYER = {
   id: 'creator-layer',
-  name: 'Creator Business (channel)',
+  name: 'Memberships (channel)',
   fragmentIds: ['creator-monetization'],
   summary:
-    'Patreon, Gumroad, Linktree, etc. — integrate as CTA / bundling layer for club creators, not a content fragment to invade first.',
+    'Patreon, OnlyFans, Ko-fi, etc. — paywall / fan-support layer; unlock Kahana clubs via tiers.',
   pathway:
-    '“Join my Kahana club” on Linktree; Patreon creators host reading/video clubs; Gumroad authors bundle Kahana access.',
+    'Patreon creators host reading/video clubs on Kahana; memberships unlock library access — keep billing, move clubs home.',
+}
+
+/** Link-in-bio / personal storefront tools — destination behind the link. */
+export const GTM_STOREFRONT_LAYER = {
+  id: 'storefront-layer',
+  name: 'Storefronts (channel)',
+  fragmentIds: ['online-storefront'],
+  summary:
+    'Linktree, Stan, Beacons, Pensight, HYpage — “Join my Kahana club” as the destination behind the bio.',
+  pathway:
+    'Put Kahana on the link-in-bio; personal storefront creators bundle club access with offers.',
+}
+
+/** Multi-seller marketplaces — browse & buy, then deepen on Kahana. */
+export const GTM_MARKETPLACE_LAYER = {
+  id: 'marketplace-layer',
+  name: 'Marketplaces (channel)',
+  fragmentIds: ['digital-marketplaces'],
+  summary:
+    'Gumroad, Etsy, Shopify — buyers find products on the marketplace; Kahana hosts clubs + library after purchase.',
+  pathway:
+    'Keep discovery/checkout on the marketplace; link purchased ebooks/courses into Kahana clubs.',
+}
+
+/** Group chat / community homes — sit beside, don’t replace chat. */
+export const GTM_MESSAGING_LAYER = {
+  id: 'messaging-layer',
+  name: 'Community & Messaging (channel)',
+  fragmentIds: ['messaging-community'],
+  summary:
+    'Discord, Telegram, WhatsApp, Circle, Mighty Networks — link the group to a Kahana hub (library + Clubs).',
+  pathway:
+    'Discord/WhatsApp admins keep chat; Kahana hosts the reading/watch club and library shelf the group is discussing.',
 }
 
 export function getGtmPhaseForFragment(fragmentId) {
   const phase = GTM_PHASES.find((p) => p.fragmentIds.includes(fragmentId))
   if (phase) return { ...phase, kind: 'phase' }
   if (GTM_CREATOR_LAYER.fragmentIds.includes(fragmentId)) {
-    return { ...GTM_CREATOR_LAYER, phase: null, shortName: 'CB', kind: 'layer' }
+    return { ...GTM_CREATOR_LAYER, phase: null, shortName: 'Mb', kind: 'layer' }
+  }
+  if (GTM_STOREFRONT_LAYER.fragmentIds.includes(fragmentId)) {
+    return { ...GTM_STOREFRONT_LAYER, phase: null, shortName: 'St', kind: 'layer' }
+  }
+  if (GTM_MARKETPLACE_LAYER.fragmentIds.includes(fragmentId)) {
+    return { ...GTM_MARKETPLACE_LAYER, phase: null, shortName: 'Mp', kind: 'layer' }
+  }
+  if (GTM_MESSAGING_LAYER.fragmentIds.includes(fragmentId)) {
+    return { ...GTM_MESSAGING_LAYER, phase: null, shortName: 'CM', kind: 'layer' }
   }
   return null
 }
@@ -829,38 +880,6 @@ export const FRAGMENT_CAPTURE_PLAYERS = {
         'Platform ~$50–75M (2026 est.); creator payouts ~$2B/yr — wipe-out uses platform cut unless modeling GMV.',
     },
     {
-      id: 'linktree',
-      name: 'Linktree',
-      revenueUsd: 37e6,
-      isEstimate: true,
-      sideBias: 'creator-heavy',
-      revenueNote: '~$37M revenue (2023 dir.); supply-side heavy link-in-bio.',
-    },
-    {
-      id: 'gumroad',
-      name: 'Gumroad',
-      revenueUsd: 23.8e6,
-      isEstimate: true,
-      sideBias: 'creator-heavy',
-      revenueNote: '~$23.8M ARR (2024 dir.); ~10% of GMV.',
-    },
-    {
-      id: 'beacons',
-      name: 'Beacons',
-      revenueUsd: null,
-      isEstimate: true,
-      sideBias: 'creator-heavy',
-      revenueNote: 'Scout — link-in-bio + creator commerce.',
-    },
-    {
-      id: 'stan-store',
-      name: 'Stan.store',
-      revenueUsd: null,
-      isEstimate: true,
-      sideBias: 'creator-heavy',
-      revenueNote: 'Scout — link-in-bio / storefront for solo creators.',
-    },
-    {
       id: 'ko-fi',
       name: 'Ko-fi',
       revenueUsd: null,
@@ -884,13 +903,64 @@ export const FRAGMENT_CAPTURE_PLAYERS = {
       sideBias: 'creator-heavy',
       revenueNote: 'Scout — memberships for independent creators/publishers.',
     },
+  ],
+  'messaging-community': [
     {
-      id: 'pensight',
-      name: 'Pensight',
+      id: 'discord',
+      name: 'Discord',
+      revenueUsd: 561e6,
+      isEstimate: true,
+      sideBias: 'viewer-heavy',
+      revenueNote: '~$561M (2025 dir.); Nitro + ads/partnerships — dominant creator/gaming/paid groups.',
+    },
+    {
+      id: 'telegram',
+      name: 'Telegram',
       revenueUsd: null,
       isEstimate: true,
-      sideBias: 'creator-heavy',
-      revenueNote: 'Scout — link-in-bio / creator storefront.',
+      sideBias: 'viewer-heavy',
+      revenueNote: 'Premium + ads (dir.); large groups/channels — trading, crypto, B2B, international.',
+    },
+    {
+      id: 'whatsapp',
+      name: 'WhatsApp',
+      revenueUsd: null,
+      isEstimate: true,
+      sideBias: 'viewer-heavy',
+      revenueNote:
+        'Meta-owned; Communities + Business API — dominant consumer messaging in LATAM, MENA, India, etc.',
+    },
+    {
+      id: 'signal',
+      name: 'Signal',
+      revenueUsd: null,
+      isEstimate: true,
+      sideBias: 'viewer-heavy',
+      revenueNote: 'Secure messaging — smaller privacy-focused groups; pathway scout.',
+    },
+    {
+      id: 'slack',
+      name: 'Slack',
+      revenueUsd: null,
+      isEstimate: true,
+      sideBias: 'balanced',
+      revenueNote: 'Workplace seats; professional communities, masterminds, membership programs.',
+    },
+    {
+      id: 'facebook-groups',
+      name: 'Facebook Groups',
+      revenueUsd: null,
+      isEstimate: true,
+      sideBias: 'viewer-heavy',
+      revenueNote: 'Mass-market community layer on Meta — broad consumer communities.',
+    },
+    {
+      id: 'groupme',
+      name: 'GroupMe',
+      revenueUsd: null,
+      isEstimate: true,
+      sideBias: 'viewer-heavy',
+      revenueNote: 'Microsoft-owned group messaging — campus/friend-group pathway scout.',
     },
     {
       id: 'circle',
@@ -898,7 +968,124 @@ export const FRAGMENT_CAPTURE_PLAYERS = {
       revenueUsd: null,
       isEstimate: true,
       sideBias: 'creator-heavy',
-      revenueNote: 'Scout — community + monetization (overlaps courses/community).',
+      revenueNote: 'Modern all-in-one community (spaces, events, memberships).',
+    },
+    {
+      id: 'mighty-networks',
+      name: 'Mighty Networks',
+      revenueUsd: null,
+      isEstimate: true,
+      sideBias: 'creator-heavy',
+      revenueNote: 'Branded community + courses/events — overlaps Courses.',
+    },
+    {
+      id: 'guild',
+      name: 'Guild',
+      revenueUsd: null,
+      isEstimate: true,
+      sideBias: 'creator-heavy',
+      revenueNote: 'Scout — dedicated community platform for brands/memberships.',
+    },
+    {
+      id: 'hivebrite',
+      name: 'Hivebrite',
+      revenueUsd: null,
+      isEstimate: true,
+      sideBias: 'creator-heavy',
+      revenueNote: 'Scout — community platform for brands / membership orgs.',
+    },
+    {
+      id: 'disciple',
+      name: 'Disciple',
+      revenueUsd: null,
+      isEstimate: true,
+      sideBias: 'creator-heavy',
+      revenueNote: 'Scout — branded community apps for creators/orgs.',
+    },
+    {
+      id: 'bettermode',
+      name: 'Bettermode',
+      revenueUsd: null,
+      isEstimate: true,
+      sideBias: 'creator-heavy',
+      revenueNote: 'Scout — community platform (ex-Tribe).',
+    },
+  ],
+  'online-storefront': [
+    {
+      id: 'linktree',
+      name: 'Linktree',
+      revenueUsd: 37e6,
+      isEstimate: true,
+      sideBias: 'creator-heavy',
+      revenueNote: '~$37M revenue (2023 dir.); supply-side heavy link-in-bio.',
+    },
+    {
+      id: 'beacons',
+      name: 'Beacons',
+      revenueUsd: null,
+      isEstimate: true,
+      sideBias: 'creator-heavy',
+      revenueNote: 'Scout — link-in-bio + creator commerce.',
+    },
+    {
+      id: 'stan-store',
+      name: 'Stan.store',
+      revenueUsd: null,
+      isEstimate: true,
+      sideBias: 'creator-heavy',
+      revenueNote: 'Scout — personal storefront / link-in-bio for solo creators.',
+    },
+    {
+      id: 'pensight',
+      name: 'Pensight',
+      revenueUsd: null,
+      isEstimate: true,
+      sideBias: 'creator-heavy',
+      revenueNote: 'Scout — link-in-bio / personal creator storefront.',
+    },
+    {
+      id: 'hypage',
+      name: 'HYpage',
+      revenueUsd: null,
+      isEstimate: true,
+      sideBias: 'creator-heavy',
+      revenueNote: 'Scout — link-in-bio / personal creator storefront.',
+    },
+    {
+      id: 'podia',
+      name: 'Podia',
+      revenueUsd: null,
+      isEstimate: true,
+      sideBias: 'creator-heavy',
+      revenueNote: 'Scout — personal storefront + courses overlap.',
+    },
+  ],
+  'digital-marketplaces': [
+    {
+      id: 'gumroad',
+      name: 'Gumroad',
+      revenueUsd: 23.8e6,
+      isEstimate: true,
+      sideBias: 'creator-heavy',
+      revenueNote: '~$23.8M ARR (2024 dir.); ~10% of GMV — multi-seller digital marketplace.',
+    },
+    {
+      id: 'etsy',
+      name: 'Etsy (digital)',
+      revenueUsd: null,
+      isEstimate: true,
+      sideBias: 'viewer-heavy',
+      revenueNote: 'Multi-seller marketplace; digital downloads / ebooks niche — not full Etsy GMV.',
+    },
+    {
+      id: 'shopify',
+      name: 'Shopify',
+      revenueUsd: null,
+      isEstimate: true,
+      sideBias: 'creator-heavy',
+      revenueNote:
+        'Commerce platform / merchant marketplace pattern for buyers finding products — digital/creator slice only.',
     },
   ],
 }
@@ -991,6 +1178,20 @@ export const PLAYER_USERS_LABEL = {
   memberful: 'Publisher/creator members (dir.)',
   pensight: 'Creator storefronts (dir.)',
   circle: 'Community creators (dir.)',
+  whatsapp: '~2B+ MAU (Meta, dir.)',
+  telegram: '~900M+ MAU (dir.)',
+  groupme: 'Tens of millions (campus/friend groups, dir.)',
+  slack: 'Tens of millions of paid users (workspace, dir.)',
+  signal: 'Tens of millions (privacy-focused, dir.)',
+  'facebook-groups': 'Hundreds of millions of group members (Meta, dir.)',
+  guild: 'Brand / membership communities (dir.)',
+  hivebrite: 'Brand / alumni communities (dir.)',
+  disciple: 'Branded community apps (dir.)',
+  bettermode: 'Community creators (dir.)',
+  hypage: 'Creator storefronts (dir.)',
+  shopify: 'Millions of merchants (digital slice, dir.)',
+  etsy: 'Digital downloads niche (dir.)',
+  podia: 'Small creator base',
 }
 
 /**
@@ -1394,29 +1595,21 @@ export function getSilhouettePlayers(fragmentId) {
 }
 
 /**
- * Recharts Treemap data for the world map.
- * @param {'categories'|'companies'|'creator-viewer'} lens
- * @param {{ drillFragmentId?: string|null }} [options]
+ * Recharts Treemap data for the singular market map (categories → companies).
+ * Always nests modeled companies under each content category so one board shows the full landscape.
+ * @param {'categories'|'companies'|'creator-viewer'} [_lens] - reserved; board is always nested
+ * @param {{ drillFragmentId?: string|null }} [options] - if set, only that category (companies as tiles)
  */
-export function getWorldMapNodes(lens = 'categories', options = {}) {
+export function getWorldMapNodes(_lens = 'categories', options = {}) {
   const { drillFragmentId = null } = options
   const fragments = getCapturableFragments()
 
-  if (drillFragmentId) {
-    const f =
-      fragments.find((x) => x.id === drillFragmentId) || getFragmentMeta(drillFragmentId)
-    if (!f) return { name: 'World', children: [] }
-    const size = getFragmentMapSize(f.id)
-    const sideBias = getFragmentSideBias(f.id)
-    const baseFill =
-      lens === 'creator-viewer'
-        ? SIDE_BIAS_COLORS[sideBias]
-        : FRAGMENT_MAP_COLORS[f.id] || '#3d6b4f'
-    const keyPlayers = getKeyPlayersForFragment(f.id, 8)
-    const emphasize = lens === 'companies'
-    const children = getSilhouettePlayers(f.id).map((p, i) => {
-      const shade = emphasize ? 0 : Math.min(0.22, 0.04 + i * 0.03)
+  const companyChildren = (f, baseFill) => {
+    const emphasize = _lens === 'companies'
+    return getSilhouettePlayers(f.id).map((p, i) => {
+      const shade = emphasize ? Math.min(0.18, 0.02 + i * 0.025) : Math.min(0.22, 0.04 + i * 0.03)
       const realPlayer = p.kind === 'company'
+      const size = getFragmentMapSize(f.id)
       return {
         name: p.name,
         shortName: p.name,
@@ -1428,17 +1621,31 @@ export function getWorldMapNodes(lens = 'categories', options = {}) {
         isEstimate: true,
         note: realPlayer
           ? getPlayersForFragment(f.id).find((x) => x.id === p.id)?.revenueNote
-          : 'Unmodeled share of fragment TAM (directional).',
+          : 'Unmodeled share of category TAM (directional).',
         sizeLabel: size.sizeLabel,
         usersLabel: realPlayer ? PLAYER_USERS_LABEL[p.id] || null : null,
         shareOfFragment: size.midUsd > 0 ? p.size / size.midUsd : null,
         fill: shade > 0 ? lighten(baseFill, shade) : baseFill,
-        subtle: false,
+        subtle: p.kind === 'remainder',
         categoryFill: baseFill,
-        keyPlayers,
       }
     })
-    return { name: f.name || 'Fragment', children }
+  }
+
+  if (drillFragmentId) {
+    const f =
+      fragments.find((x) => x.id === drillFragmentId) || getFragmentMeta(drillFragmentId)
+    if (!f) return { name: 'World', children: [] }
+    const size = getFragmentMapSize(f.id)
+    const sideBias = getFragmentSideBias(f.id)
+    const baseFill =
+      _lens === 'creator-viewer'
+        ? SIDE_BIAS_COLORS[sideBias]
+        : FRAGMENT_MAP_COLORS[f.id] || '#3d6b4f'
+    return {
+      name: f.name || 'Category',
+      children: companyChildren(f, baseFill),
+    }
   }
 
   return {
@@ -1447,11 +1654,12 @@ export function getWorldMapNodes(lens = 'categories', options = {}) {
       const size = getFragmentMapSize(f.id)
       const sideBias = getFragmentSideBias(f.id)
       const fill =
-        lens === 'creator-viewer'
+        _lens === 'creator-viewer'
           ? SIDE_BIAS_COLORS[sideBias]
           : FRAGMENT_MAP_COLORS[f.id] || '#3d6b4f'
+      const children = companyChildren(f, fill)
       return {
-        name: f.name,
+        name: getFragmentShortName(f.id),
         shortName: getFragmentShortName(f.id),
         abbrev: getFragmentAbbrev(f.id),
         size: size.midUsd,
@@ -1464,9 +1672,9 @@ export function getWorldMapNodes(lens = 'categories', options = {}) {
         kahanaAngle: f.kahanaAngle,
         playerCount: getPlayersForFragment(f.id).length,
         keyPlayers: getKeyPlayersForFragment(f.id),
-        silhouettePlayers: getSilhouettePlayers(f.id),
         fill,
         categoryFill: fill,
+        children: children.length > 0 ? children : undefined,
       }
     }),
   }

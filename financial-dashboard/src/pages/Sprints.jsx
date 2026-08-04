@@ -16,7 +16,7 @@ function Sprints() {
           </a>.</strong>{' '}
           Feature requests, bugs, and sprint work are logged, prioritized, and assigned there —
           daily/weekly. See{' '}
-          <Link to="/operating-system">Operating System</Link> and{' '}
+          <Link to="/how-we-work">How We Work</Link> and{' '}
           <Link to="/onboarding/tools-access">Request tools access</Link> for Linear, Mixpanel, and code access.
         </p>
       </div>
@@ -106,7 +106,7 @@ function Sprints() {
             — backlog, bugs, feature requests, sprint prioritization
           </p>
           <p>
-            <Link to="/operating-system">Operating System</Link> — Linear + Slack norms by function
+            <Link to="/how-we-work">How We Work</Link> — Linear + Slack + Mixpanel norms by function
           </p>
         </div>
       </section>

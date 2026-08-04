@@ -32,7 +32,7 @@ Cross-dependencies: better search indexing requires trustworthy hub metadata; mo
 
 ## Security
 
-Source: [Kahana LLC - Security Audit Report](../Kahana%20LLC%20-%20Security%20Audit%20Report.pdf) (2026-07-01). Scope: `kahana-web` (frontend) · `firebase-functions` (backend) · production `app.kahana.io`.
+Source: [Kahana LLC - Security Audit Report](../Kahana%20LLC%20-%20Security%20Audit%20Report.pdf) (2026-07-01). Scope: `kahana-web` (frontend) · `firebase-functions` (backend) · production `kahana.io`.
 
 **For engineers:** full finding detail and reproduction context are in the PDF. This section lists remediation themes and priority bands only.
 

@@ -131,10 +131,10 @@ export const REFINE_NOTE =
   'Draft for internal alignment. Elevator versions and website hero copy live in Kahana/12-strategic-narrative.md — refine from here.'
 
 export const RELATED_LINKS = [
-  { path: '/kahana', title: 'Kahana Platform Overview', description: 'Core idea, Clubs GTM, playbooks, synergy cards' },
-  { path: '/kahana#core-idea', title: 'Core idea', description: 'Digital library with Aura and Clubs' },
-  { path: '/kahana#synergy-cards', title: 'Synergy cards', description: 'How Kahana works alongside peer platforms' },
-  { path: COMPETITORS_PAGE_PATH, title: 'Competitive landscape', description: 'Gumroad, Patreon, Substack, and full market map' },
+  { path: '/', title: 'Executive Summary', description: 'Kahana overview, traction, and GTM' },
+  { path: '/glossary', title: 'Glossary', description: 'How Kahana relates to the creator stack' },
+  { path: COMPETITORS_PAGE_PATH, title: 'Company Landscape', description: 'Searchable peers aligned with Market Map' },
+  { path: '/fragment-capture', title: 'Market Map', description: 'Content categories and companies sized by directional market $' },
   { path: '/b2c-strategic-narrative', title: 'Oasis Browser narrative (archived)', description: 'Separate product — browser privacy story' },
 ]
 
