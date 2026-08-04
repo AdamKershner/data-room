@@ -42,7 +42,11 @@ export const LANDSCAPE_CATEGORY_OVERRIDES = {
     secondaryFragmentIds: ['online-storefront'],
   },
   wikipedia: { primaryFragmentId: null, secondaryFragmentIds: [] }, // knowledge / reference (no Market Map fragment)
-  curios: { primaryFragmentId: null, secondaryFragmentIds: [] },
+  curios: {
+    primaryFragmentId: 'online-storefront',
+    secondaryFragmentIds: ['ebook-reading'],
+  },
+  'guild-education': { primaryFragmentId: 'courses-learning' },
 
   // Dual-role clarity
   skool: {
@@ -108,6 +112,7 @@ export const LANDSCAPE_INCLUDE_IDS = [
   'learnworlds',
   'kartra',
   'zenler',
+  'guild-education',
   // Ebook
   'amazon-kindle',
   'apple-books',
@@ -275,6 +280,14 @@ export const LANDSCAPE_EXTRA_COMPANIES = [
       'Nonprofit digital library with Open Library ebook lending — public-domain downloads and controlled digital lending of scanned books.',
     primaryFragmentId: 'ebook-reading',
   },
+  {
+    id: 'guild-education',
+    name: 'Guild Education',
+    website: 'https://guild.com',
+    description:
+      'Employer education-benefits platform connecting companies, workers, and learning providers for tuition-funded upskilling and career pathways.',
+    primaryFragmentId: 'courses-learning',
+  },
 ]
 
 /** @type {Record<string, SizeTier>} */
@@ -317,6 +330,7 @@ export const COMPANY_SIZE_TIER = {
   learnworlds: 'niche',
   kartra: 'niche',
   zenler: 'niche',
+  'guild-education': 'incumbent',
 
   // Ebook
   'amazon-kindle': 'incumbent',
@@ -430,6 +444,7 @@ export const COMPANY_ROLE_TAG = {
   learnworlds: 'course-learning',
   kartra: 'course-learning',
   zenler: 'course-learning',
+  'guild-education': 'course-learning',
 
   'amazon-kindle': 'ebook',
   amazon: 'ebook',
@@ -494,7 +509,7 @@ export const COMPANY_ROLE_TAG = {
   hypage: 'storefront-commerce',
 
   wikipedia: 'knowledge-reference',
-  curios: 'content-platform',
+  curios: 'storefront-commerce',
 }
 
 export function getSizeTier(companyId) {

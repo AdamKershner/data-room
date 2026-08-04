@@ -21,12 +21,102 @@ function Field({ label, value, emphasize }) {
   )
 }
 
-function BulletList({ items, className = '' }) {
+function CardIcon({ name, className = '' }) {
+  const paths = {
+    info: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 10v6" />
+        <path d="M12 7.5h.01" />
+      </>
+    ),
+    chart: (
+      <>
+        <path d="M4 19V5" />
+        <path d="M4 19h16" />
+        <path d="M8 17V10" />
+        <path d="M12 17V7" />
+        <path d="M16 17v-4" />
+      </>
+    ),
+    check: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M8 12.5l2.5 2.5L16 9.5" />
+      </>
+    ),
+    alert: (
+      <>
+        <path d="M12 3l9 16H3L12 3z" />
+        <path d="M12 10v4" />
+        <path d="M12 16.5h.01" />
+      </>
+    ),
+    link: (
+      <>
+        <path d="M10 13a5 5 0 0 0 7.07 0l1.41-1.41a5 5 0 0 0-7.07-7.07L10 5.93" />
+        <path d="M14 11a5 5 0 0 0-7.07 0L5.52 12.4a5 5 0 0 0 7.07 7.07L14 18.07" />
+      </>
+    ),
+    external: (
+      <>
+        <path d="M14 4h6v6" />
+        <path d="M10 14L20 4" />
+        <path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
+      </>
+    ),
+    chevron: (
+      <path d="M6 9l6 6 6-6" />
+    ),
+    tag: (
+      <>
+        <path d="M20.5 13.5L12 22l-8.5-8.5a2 2 0 0 1 0-2.8L11.2 3H20v8.8a2 2 0 0 1-.5 1.7z" />
+        <circle cx="15.5" cy="7.5" r="1.2" />
+      </>
+    ),
+    dot: <circle cx="12" cy="12" r="3.5" fill="currentColor" stroke="none" />,
+  }
+
+  return (
+    <svg
+      className={`battlecard-icon ${className}`.trim()}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {paths[name] ?? null}
+    </svg>
+  )
+}
+
+function ResearchCallout({ variant, title, icon, children }) {
+  if (!children) return null
+  return (
+    <section className={`battlecard-callout is-${variant}`}>
+      {title && (
+        <div className="battlecard-callout-head">
+          {icon && <CardIcon name={icon} className="battlecard-callout-icon" />}
+          <h3 className="battlecard-callout-title">{title}</h3>
+        </div>
+      )}
+      <div className="battlecard-callout-body">{children}</div>
+    </section>
+  )
+}
+
+function FactList({ items }) {
   if (!items?.length) return null
   return (
-    <ul className={`battlecard-bullet-list ${className}`.trim()}>
+    <ul className="battlecard-fact-list">
       {items.map((item) => (
-        <li key={item}>{item}</li>
+        <li key={item} className="battlecard-fact-item">
+          <CardIcon name="dot" className="battlecard-fact-icon" />
+          <span>{item}</span>
+        </li>
       ))}
     </ul>
   )
@@ -34,14 +124,64 @@ function BulletList({ items, className = '' }) {
 
 function PointList({ points, variant }) {
   if (!points?.length) return null
+  const icon = variant === 'benefits' ? 'check' : 'alert'
   return (
-    <ul className={`battlecard-point-list is-${variant}`}>
+    <ul className={`battlecard-point-stack is-${variant}`}>
       {points.map((p) => (
-        <li key={p.title}>
-          <strong>{p.title}.</strong> {p.detail}
+        <li key={p.title} className="battlecard-point-item">
+          <div className="battlecard-point-item-head">
+            <CardIcon name={icon} className="battlecard-point-item-icon" />
+            <strong className="battlecard-point-item-title">{p.title}</strong>
+          </div>
+          {p.detail && <p className="battlecard-point-item-detail">{p.detail}</p>}
         </li>
       ))}
     </ul>
+  )
+}
+
+function SourcePills({ sources }) {
+  if (!sources?.length) return null
+  return (
+    <ul className="battlecard-source-pills">
+      {sources.map((href) => {
+        const domain = href.replace(/^https?:\/\//, '').split('/')[0]
+        return (
+          <li key={href}>
+            <a
+              className="battlecard-source-pill"
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <CardIcon name="link" className="battlecard-source-pill-icon" />
+              {domain}
+            </a>
+          </li>
+        )
+      })}
+    </ul>
+  )
+}
+
+function AboutCallout({ card }) {
+  const text = card.description || card.theyDo
+  if (!text && !card.website) return null
+  return (
+    <ResearchCallout variant="about" title="About" icon="info">
+      {text && <p className="battlecard-about-text">{text}</p>}
+      {card.website && (
+        <a
+          className="battlecard-website-row"
+          href={card.website}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <CardIcon name="external" className="battlecard-website-icon" />
+          <span>{card.website.replace(/^https?:\/\//, '')}</span>
+        </a>
+      )}
+    </ResearchCallout>
   )
 }
 
@@ -115,8 +255,8 @@ function CompanyLandscape() {
         {researchedCount > 0 && (
           <p className="battlecards-wip-note">
             {researchedCount} companies have enhanced research (description, scale, benefits,
-            weaknesses). Core fragments complete through Series/Films; Ebook also covers public /
-            library sources (Google Books, Project Gutenberg, Internet Archive).
+            weaknesses). Landscape research coverage is effectively complete, including Curios
+            (author storefront) and Guild Education (separate from guild.so).
           </p>
         )}
       </div>
@@ -205,21 +345,13 @@ function CompanyLandscape() {
                     <h2 className="battlecard-title">{card.name}</h2>
                     <MarketCategoryBadges card={card} />
                   </div>
-                  <span className="battlecard-toggle">{isOpen ? '−' : '+'}</span>
+                  <span className={`battlecard-toggle${isOpen ? ' is-open' : ''}`}>
+                    <CardIcon name="chevron" />
+                  </span>
                 </button>
 
                 <div className="battlecard-summary">
-                  {card.description && <Field label="About" value={card.description} emphasize />}
-                  {!card.description && card.theyDo && (
-                    <Field label="What they do" value={card.theyDo} emphasize />
-                  )}
-                  {card.website && (
-                    <p className="battlecard-website">
-                      <a href={card.website} target="_blank" rel="noopener noreferrer">
-                        {card.website.replace(/^https?:\/\//, '')}
-                      </a>
-                    </p>
-                  )}
+                  <AboutCallout card={card} />
                 </div>
 
                 {isOpen && (
@@ -227,91 +359,82 @@ function CompanyLandscape() {
                     {hasResearch ? (
                       <>
                         {card.scaleFacts?.length > 0 && (
-                          <>
-                            <h3 className="battlecard-body-heading">Recent scale / facts</h3>
-                            <BulletList items={card.scaleFacts} />
-                          </>
+                          <ResearchCallout
+                            variant="scale"
+                            title="Recent scale / facts"
+                            icon="chart"
+                          >
+                            <FactList items={card.scaleFacts} />
+                          </ResearchCallout>
                         )}
                         {card.benefits?.length > 0 && (
-                          <>
-                            <h3 className="battlecard-body-heading">Key benefits</h3>
+                          <ResearchCallout
+                            variant="benefits"
+                            title="Key benefits"
+                            icon="check"
+                          >
                             <PointList points={card.benefits} variant="benefits" />
-                          </>
+                          </ResearchCallout>
                         )}
                         {card.weaknesses?.length > 0 && (
-                          <>
-                            <h3 className="battlecard-body-heading">Common weaknesses</h3>
+                          <ResearchCallout
+                            variant="weaknesses"
+                            title="Common weaknesses"
+                            icon="alert"
+                          >
                             <PointList points={card.weaknesses} variant="weaknesses" />
-                          </>
+                          </ResearchCallout>
                         )}
-                        {(card.sizeTierLabel || card.roleTagLabel) && (
-                          <>
-                            <h3 className="battlecard-body-heading">Classification</h3>
-                            <Field label="Size tier" value={card.sizeTierLabel} emphasize />
-                            <Field label="Role" value={card.roleTagLabel} />
-                            {card.primaryMarketLabel && (
-                              <Field label="Primary category" value={card.primaryMarketLabel} />
-                            )}
-                            {card.secondaryMarketLabels?.length > 0 && (
-                              <Field
-                                label="Secondary"
-                                value={card.secondaryMarketLabels.join(', ')}
-                              />
-                            )}
-                          </>
+                        {(card.sizeTierLabel ||
+                          card.roleTagLabel ||
+                          card.primaryMarketLabel ||
+                          card.secondaryMarketLabels?.length > 0) && (
+                          <ResearchCallout variant="meta" title="Classification" icon="tag">
+                            <div className="battlecard-classify-chips">
+                              <MarketCategoryBadges card={card} />
+                            </div>
+                          </ResearchCallout>
                         )}
                         {card.researchSources?.length > 0 && (
-                          <>
-                            <h3 className="battlecard-body-heading">Sources</h3>
-                            <ul className="battlecard-sources-list">
-                              {card.researchSources.map((href) => (
-                                <li key={href}>
-                                  <a href={href} target="_blank" rel="noopener noreferrer">
-                                    {href.replace(/^https?:\/\//, '').split('/')[0]}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          </>
+                          <ResearchCallout variant="sources" title="Sources" icon="link">
+                            <SourcePills sources={card.researchSources} />
+                          </ResearchCallout>
                         )}
                       </>
                     ) : (
                       <>
-                        {(card.primaryMarketLabel || card.secondaryMarketLabels?.length > 0) && (
-                          <>
-                            <h3 className="battlecard-body-heading">Market Map categories</h3>
-                            <Field label="Primary" value={card.primaryMarketLabel} emphasize />
-                            {card.secondaryMarketLabels?.length > 0 && (
-                              <Field
-                                label="Secondary"
-                                value={card.secondaryMarketLabels.join(', ')}
-                              />
-                            )}
-                          </>
-                        )}
-
-                        {(card.sizeTierLabel || card.roleTagLabel) && (
-                          <>
-                            <h3 className="battlecard-body-heading">Classification</h3>
-                            <Field label="Size tier" value={card.sizeTierLabel} emphasize />
-                            <Field label="Role" value={card.roleTagLabel} />
-                          </>
+                        {(card.primaryMarketLabel ||
+                          card.secondaryMarketLabels?.length > 0 ||
+                          card.sizeTierLabel ||
+                          card.roleTagLabel) && (
+                          <ResearchCallout variant="meta" title="Classification" icon="tag">
+                            <div className="battlecard-classify-chips">
+                              <MarketCategoryBadges card={card} />
+                            </div>
+                          </ResearchCallout>
                         )}
 
                         {card.description && card.theyDo && (
-                          <Field label="What they do" value={card.theyDo} />
+                          <ResearchCallout variant="about" title="What they do" icon="info">
+                            <p className="battlecard-about-text">{card.theyDo}</p>
+                          </ResearchCallout>
                         )}
-                        {card.stackRole && <Field label="Role in the stack" value={card.stackRole} />}
+                        {card.stackRole && (
+                          <ResearchCallout variant="meta" title="Role in the stack" icon="tag">
+                            <p className="battlecard-about-text">{card.stackRole}</p>
+                          </ResearchCallout>
+                        )}
 
-                        <h3 className="battlecard-body-heading">Scale</h3>
-                        <div className="battlecard-columns">
-                          <Field label="Users / audience" value={card.usersLabel} />
-                          <Field label="Revenue / business" value={card.revenueLabel} />
-                        </div>
-                        <div className="battlecard-columns">
-                          <Field label="Demand side" value={card.demandLabel} />
-                          <Field label="Supply side" value={card.supplyLabel} />
-                        </div>
+                        <ResearchCallout variant="scale" title="Scale" icon="chart">
+                          <div className="battlecard-columns">
+                            <Field label="Users / audience" value={card.usersLabel} />
+                            <Field label="Revenue / business" value={card.revenueLabel} />
+                          </div>
+                          <div className="battlecard-columns">
+                            <Field label="Demand side" value={card.demandLabel} />
+                            <Field label="Supply side" value={card.supplyLabel} />
+                          </div>
+                        </ResearchCallout>
                       </>
                     )}
                   </div>
