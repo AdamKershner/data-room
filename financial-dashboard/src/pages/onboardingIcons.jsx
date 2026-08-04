@@ -65,6 +65,13 @@ export const ONBOARDING_ICONS = {
       <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
     </Icon>
   ),
+  map: (
+    <Icon>
+      <path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3V6z" />
+      <path d="M9 3v15" />
+      <path d="M15 6v15" />
+    </Icon>
+  ),
   trend: (
     <Icon>
       <path d="M3 17l6-6 4 4 7-7" />

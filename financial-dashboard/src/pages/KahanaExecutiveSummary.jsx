@@ -22,7 +22,7 @@ function KahanaExecutiveSummary() {
       <div className="page-header">
         <h1>Executive Summary</h1>
         <p className="page-subtitle">
-          Kahana Group Inc. — a trusted library for humanity. Scaling Kahana (formerly Curio). Oasis Browser
+          Kahana Group Inc. — a digital library with Aura. Scaling Kahana (formerly Curio). Oasis Browser
           preserved in archive.
         </p>
       </div>
@@ -33,18 +33,17 @@ function KahanaExecutiveSummary() {
             <p className="kahana-hero-kicker">Kahana Group Inc.</p>
             <h2 className="kahana-hero-title">A library you could spend an eternity in</h2>
             <p className="kahana-hero-body">
-              Kahana aspires to be like Wan Shi Tong&apos;s Library — a mesmerizing place to discover curated
-              digital knowledge from top experts, creators, and influencers worldwide. Guides, playbooks,
-              templates, and resource libraries: a healthy free layer for humanity, plus paid hubs that reward
-              creators.
+              Kahana is a digital library with Aura — ebooks, courses, and long-form video first — used inside
+              Clubs so friends and colleagues can learn with empathy. Up to 5 Aura per day surfaces what the
+              community believes deserves to rise.
             </p>
             <blockquote className="kahana-hero-quote">
               &ldquo;{VISION_LIBRARY.zeQuote}&rdquo;
               <span> — {VISION_LIBRARY.zeAttribution}</span>
             </blockquote>
             <p className="kahana-hero-gtm">
-              <strong>GTM:</strong> {GTM_STRATEGY.headline} — discover, filter, invite, and amplify women
-              experts first.
+              <strong>GTM:</strong> {GTM_STRATEGY.headline} — Clubs, wishlist-driven library boarding, and
+              Aura-led discovery.
             </p>
             <div className="kahana-hero-ctas">
               <a
@@ -53,7 +52,7 @@ function KahanaExecutiveSummary() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Open app.kahana.io
+                Enter the library
               </a>
               <a
                 className="kahana-cta kahana-cta--secondary"
@@ -61,7 +60,7 @@ function KahanaExecutiveSummary() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Browse Explore
+                Explore the catalog
               </a>
             </div>
             <ul className="kahana-hero-secondary-links">
@@ -101,12 +100,11 @@ function KahanaExecutiveSummary() {
         <div className="content-block">
           <blockquote className="kahana-north-star-inline">{KAHANA_PLATFORM_PAGE.northStar}</blockquote>
           <p>
-            Operationally: the <strong>Amazon of digital products</strong> — marketplace mechanics for
-            selection, trust, and scale. Visionally: something more — a beloved library, not purely
-            transactional.
+            Grow through Clubs, hubs of the right content, and creator outreach. Aura (up to 5/day) surfaces
+            what the community believes deserves to rise — a library for learning, not a feed for dopamine.
           </p>
           <p>
-            Explore the full business plan:{' '}
+            On the Kahana platform page:{' '}
             {HOME_SECTION_LINKS.map((link, i) => (
               <React.Fragment key={link.id}>
                 {i > 0 && ' · '}

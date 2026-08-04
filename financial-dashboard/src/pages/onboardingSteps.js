@@ -8,6 +8,14 @@ export const ONBOARDING_STEPS = [
     badge: '5 min',
   },
   {
+    id: 'kahana-strategy',
+    label: 'Learn Kahana strategy (GTM + fragments)',
+    icon: 'map',
+    category: 'Company & Culture',
+    day: 1,
+    badge: '20 min',
+  },
+  {
     id: 'schedule-1on1',
     label: 'Join Slack',
     icon: 'message',

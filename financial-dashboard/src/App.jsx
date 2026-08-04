@@ -44,6 +44,9 @@ import MarketingNarrativeChecklist from './pages/MarketingNarrativeChecklist'
 import FounderPersonalBrand from './pages/FounderPersonalBrand'
 import ProjectCharter from './pages/ProjectCharter'
 import KahanaPlatform from './pages/KahanaPlatform'
+import ProForma from './pages/ProForma'
+import Battlecards from './pages/Battlecards'
+import FragmentCapture from './pages/FragmentCapture'
 import './App.css'
 
 function App() {
@@ -59,6 +62,9 @@ function App() {
           <Route path="/archive/oasis-sprints" element={<OasisSprintsArchive />} />
           <Route path="/knowledge-base" element={<KnowledgeBase />} />
           <Route path="/kahana" element={<KahanaPlatform />} />
+          <Route path="/pro-forma" element={<ProForma />} />
+          <Route path="/battlecards" element={<Battlecards />} />
+          <Route path="/fragment-capture" element={<FragmentCapture />} />
           <Route path="/curio-store" element={<Navigate to="/kahana" replace />} />
           <Route path="/onboarding/learn-curio" element={<Navigate to="/kahana" replace />} />
           <Route path="/onboarding/learn-kahana" element={<Navigate to="/kahana" replace />} />

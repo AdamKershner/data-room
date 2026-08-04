@@ -182,5 +182,5 @@ export const EXECUTION_LINKS = [
   { path: 'https://linear.app/kahana', title: 'Linear', external: true, description: 'Active backlog — features, bugs, security remediation' },
   { path: '/operating-system', title: 'Operating System', description: 'How work enters Linear; Slack norms' },
   { path: '/sprints', title: 'Product Lifecycle', description: 'Feedback → backlog flow' },
-  { path: '/kahana#roadmap-snapshot', title: 'Kahana business roadmap', description: 'H1–H3 horizons on the platform page' },
+  { path: '/kahana#how-we-grow', title: 'Kahana growth', description: 'Clubs, hubs, creator outreach on the platform page' },
 ]

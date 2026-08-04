@@ -7,6 +7,9 @@ import { TIME_LOG_TALLY_URL } from '../constants/kahanaSite'
 export const PRIMARY_NAV_LINKS = [
   { path: '/', id: 'executive-summary', label: 'Executive Summary' },
   { path: '/kahana', id: 'kahana-platform', label: 'Kahana Platform' },
+  { path: '/pro-forma', id: 'pro-forma', label: 'Pro Forma' },
+  { path: '/battlecards', id: 'battlecards', label: 'Battlecards' },
+  { path: '/fragment-capture', id: 'fragment-capture', label: 'Fragment Map' },
   { path: '/team-execution', id: 'team-execution', label: 'Team Directory' },
   { path: '/weekly-reports', id: 'weekly-reports', label: 'Weekly Reports' },
   { path: '/operating-system', id: 'operating-system', label: 'Operating System' },
@@ -33,6 +36,24 @@ export const TOC_EXPLORE_ITEMS = [
     title: 'Kahana Platform Overview',
     description:
       'Wan Shi Tong library vision, women-first GTM, platform architecture, revenue, and roadmap at app.kahana.io.',
+  },
+  {
+    path: '/pro-forma',
+    title: 'Kahana Pro Forma',
+    description:
+      'Named revenue cases for Growth SaaS, marketplace take rate, and Enterprise — compare segment and feature focus.',
+  },
+  {
+    path: '/battlecards',
+    title: 'Kahana Battlecards',
+    description:
+      'Conversation guides: compare/contrast Kahana with peer platforms and show how to use both — for prospects and new team members.',
+  },
+  {
+    path: '/fragment-capture',
+    title: 'Fragment Map',
+    description:
+      'Risk/Diplomacy-style board: fragments sized by true market scale, lens by category/company/creator-viewer, then occupy provinces to model capture %.',
   },
   {
     path: '/team-execution',

@@ -49,22 +49,35 @@
 .kahana-platform-hero-cta {
   display: inline-block;
   padding: 10px 20px;
-  background: var(--oasis-green-medium, #2d6a4f);
-  color: #fff;
-  text-decoration: none;
+  background: var(--oasis-green-darkest, #1b4332);
+  color: #ffffff !important;
+  text-decoration: none !important;
   border-radius: 8px;
   font-weight: 600;
   font-size: 0.95rem;
+  border: 1px solid transparent;
 }
 
 .kahana-platform-hero-cta--secondary {
-  background: #fff;
-  color: var(--oasis-green-medium, #2d6a4f);
-  border: 1px solid #d4e8dc;
+  background: #ffffff;
+  color: var(--oasis-green-darkest, #1b4332) !important;
+  border: 1px solid var(--oasis-green-darkest, #1b4332);
 }
 
-.kahana-platform-hero-cta:hover {
+.kahana-platform-hero-cta:hover,
+.kahana-platform-hero-cta:visited,
+.kahana-platform-hero-cta:active {
+  color: #ffffff !important;
+  text-decoration: none !important;
   opacity: 0.92;
+}
+
+.kahana-platform-hero-cta--secondary:hover,
+.kahana-platform-hero-cta--secondary:visited,
+.kahana-platform-hero-cta--secondary:active {
+  color: var(--oasis-green-darkest, #1b4332) !important;
+  background: #f0f7f4;
+  opacity: 1;
 }
 
 .kahana-highlight-grid {
@@ -216,21 +229,131 @@
   line-height: 1.8;
 }
 
-.kahana-roadmap-horizon {
-  margin: 20px 0;
-  padding: 20px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+.kahana-grow-verbs {
+  margin: 16px 0 0;
+  padding-left: 24px;
+  line-height: 1.6;
 }
 
-.kahana-roadmap-horizon h3 {
-  margin: 0 0 12px 0;
+.kahana-grow-verbs li {
+  margin-bottom: 14px;
+}
+
+.kahana-grow-verbs strong {
+  display: block;
+  color: #1e293b;
+  margin-bottom: 4px;
+}
+
+.kahana-grow-verbs span {
+  color: #475569;
+}
+
+.kahana-playbook-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+@media (max-width: 900px) {
+  .kahana-playbook-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kahana-playbook {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 20px 22px;
+}
+
+.kahana-playbook h3 {
+  margin: 0 0 8px;
   color: #1e293b;
 }
 
-.kahana-roadmap-meta {
-  margin: 0 0 12px 0;
+.kahana-playbook-focus {
+  margin: 0 0 16px;
   color: #64748b;
   font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.kahana-playbook-steps {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.55;
+}
+
+.kahana-playbook-steps li {
+  margin-bottom: 12px;
+}
+
+.kahana-playbook-steps strong {
+  display: block;
+  color: #1e293b;
+  margin-bottom: 2px;
+}
+
+.kahana-playbook-steps span {
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.kahana-synergy-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.kahana-synergy-card {
+  background: #fff;
+  border: 1px solid #d4e8dc;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.kahana-synergy-kicker {
+  margin: 0 0 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--oasis-green-medium, #2d6a4f);
+}
+
+.kahana-synergy-card h3 {
+  margin: 0 0 16px;
+  color: #1e293b;
+}
+
+.kahana-synergy-dl {
+  margin: 0;
+}
+
+.kahana-synergy-dl > div {
+  margin-bottom: 14px;
+}
+
+.kahana-synergy-dl dt {
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 4px;
+}
+
+.kahana-synergy-dl dd {
+  margin: 0;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.kahana-synergy-stance {
+  margin: 16px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid #e2e8f0;
+  font-style: italic;
+  color: #64748b;
 }

@@ -1,21 +1,32 @@
-/** Kahana platform page — synthesized from KAHANA_PLATFORM.md + Phase 2 vision/GTM */
+/** Kahana platform page — core idea, growth, club playbooks, synergy cards */
 
 export const KAHANA_PLATFORM_URL = 'https://app.kahana.io'
 export const KAHANA_EXPLORE_URL = 'https://app.kahana.io/explore'
-export const KAHANA_PLATFORM_MD_PATH = 'KAHANA_PLATFORM.md'
+export const KAHANA_CLUBS_FEEDBACK_URL = 'https://kahana.io/survey/improve?source=support_panel'
 export const COMPETITORS_PAGE_PATH = '/kahana-competitors'
 export const NARRATIVE_PAGE_PATH = '/kahana-narrative'
-
-export const STRATEGIC_NARRATIVE_INTRO =
-  'Why Kahana exists: AI slop and engagement-bait bury real expertise; creator platforms force knowledge into rigid formats. Kahana hubs are flexible, outcome-oriented libraries — Wan Shi Tong for humans.'
+export const FRAGMENT_MAP_PATH = '/fragment-capture'
 
 export const KAHANA_PLATFORM_PAGE = {
   title: 'Kahana Platform Overview',
   subtitle:
-    'A trusted library for humanity — curated digital knowledge from experts worldwide. Marketplace at app.kahana.io.',
+    'A digital library with Aura — Clubs, curated content, and community-governed discovery at app.kahana.io.',
   northStar:
     'Make Kahana a beloved place to discover curated human knowledge — where anyone could spend an eternity exploring.',
   legalEntity: 'Kahana Group Inc.',
+}
+
+export const KAHANA_HIGHLIGHTS = [
+  { label: 'Aura discovery', detail: 'Up to 5 Aura/day — wisdom of the crowds' },
+  { label: 'Clubs first', detail: 'Book & video clubs for empathy and discussion' },
+  { label: 'Library boarding', detail: 'Ebooks, courses, long-form YouTube first' },
+  { label: '6,500+ users', detail: 'Registered and growing' },
+]
+
+/** Kept for executive summary quote + GTM one-liner */
+export const VISION_LIBRARY = {
+  zeQuote: 'I could spend an eternity in here.',
+  zeAttribution: "Professor Zei, on Wan Shi Tong's Library (Avatar: The Last Airbender)",
 }
 
 export const TRACTION_METRICS = [
@@ -25,267 +36,378 @@ export const TRACTION_METRICS = [
   { label: 'Platform', value: 'app.kahana.io', detail: 'Explore at /explore' },
 ]
 
-export const KAHANA_HIGHLIGHTS = [
-  { label: '6,500+ users', detail: 'Registered and growing' },
-  { label: 'Explore marketplace', detail: 'Public discovery at /explore' },
-  { label: 'Stripe Connect', detail: 'Built-in creator monetization' },
-  { label: '5% take rate', detail: 'Platform fee on hub sales' },
-]
+export const GTM_STRATEGY = {
+  headline: 'Organic Clubs + library boarding',
+}
 
-export const VISION_LIBRARY = {
-  title: 'Vision: The Library',
-  zeQuote: 'I could spend an eternity in here.',
-  zeAttribution: 'Professor Zei, on Wan Shi Tong\'s Library (Avatar: The Last Airbender)',
+export const CORE_IDEA = {
+  title: 'Core idea',
   paragraphs: [
-    'Kahana aspires to be like Wan Shi Tong\'s Library — a vast, mesmerizing repository where seekers lose themselves in curated knowledge. Not a cold transaction machine, but a beloved place to discover digital artifacts from the world\'s best experts, creators, and influencers.',
-    'We package expertise into hubs — guides, playbooks, templates, and resource libraries — and make them accessible to anyone on Earth. A healthy layer stays free: quality, useful knowledge for humanity. Paid hubs fund the mission and reward creators who contribute their best work.',
-    'Operationally, Kahana is the Amazon of digital products — selection, trust, convenience, and scale. Visionally, we strive to become something more: a trusted library for humanity, especially for women experts and the audiences they serve.',
-  ],
-  parallels: [
-    { wst: 'Vast repository of books, scrolls, artifacts', kahana: 'Explore marketplace + curated hubs across 16 categories' },
-    { wst: 'Knowledge Seekers collect and guide visitors', kahana: 'Creator partners + platform discovery and filters' },
-    { wst: 'Exchange: contribute knowledge to earn access', kahana: 'Creators publish hubs; buyers discover free and paid content' },
-    { wst: 'Mesmerizing depth — spend an eternity exploring', kahana: 'Professor Zei bar: Explore UX that rewards curiosity' },
-  ],
-  commitments: [
-    'Substantial free, quality content — not paywall-everything',
-    'Curate for learning and empowerment, not weaponized knowledge',
-    'Women experts and women audiences as our first GTM priority',
+    'Kahana is a digital library with Aura. Clubs are how friends, family, colleagues, and teammates discuss what they read and watch — fostering empathy and understanding.',
+    'We start with Clubs around ebooks, long-form YouTube, and courses — primarily educational or interesting content that drives real discussion. As Clubs grow, the community grows naturally, and we expand to more content types.',
+    'Aura is simple: each person can give up to 5 Aura per day to things they feel deserve to rise. That is the algorithm — wisdom of the crowds. We hope Kahana becomes a wonderful place to discover high-quality, important things to learn.',
   ],
 }
+
+export const HOW_WE_GROW = {
+  title: 'How we grow',
+  intro: 'Three things. Do them well and Kahana compounds.',
+  verbs: [
+    {
+      name: 'Make Clubs',
+      detail:
+        'Start book and video clubs with the team, friends, family, and people in your life. Clubs are the growth engine.',
+    },
+    {
+      name: 'Create hubs of the right content',
+      detail:
+        'Stock the library with ebooks, courses, and YouTube long-form that Clubs actually need — driven by club wishlists.',
+    },
+    {
+      name: 'Ask creators to add content',
+      detail:
+        'Outreach to authors and creators so their books, videos, and courses live on Kahana and can fuel Clubs.',
+    },
+  ],
+}
+
+const SHARED_CLUB_STEPS = [
+  {
+    title: 'Create a club',
+    detail: 'Go to app.kahana.io → Clubs → create a club → add all necessary info.',
+  },
+  {
+    title: 'Manage the club over time',
+    detail:
+      'Keep the schedule, discussion prompts, and materials current. Rotate titles; keep the conversation alive.',
+  },
+  {
+    title: 'Invite people',
+    detail: 'Invite friends, family, teammates, colleagues — anyone who wants to learn and discuss together.',
+  },
+  {
+    title: 'Log feedback',
+    detail:
+      'Bugs, feature ideas, and enhancements for Clubs go to the improve survey (support panel source).',
+    href: KAHANA_CLUBS_FEEDBACK_URL,
+    linkLabel: 'kahana.io/survey/improve',
+  },
+  {
+    title: 'Build wishlist lists',
+    detail:
+      'List books/videos not on Kahana yet — titles, authors, videos, creators — so we know what to board for the club.',
+  },
+  {
+    title: 'Outreach to creators / authors',
+    detail:
+      'Request that they put their books or videos on Kahana so the club can use them. Complementary ask, not a rip-and-replace.',
+  },
+]
+
+export const CLUB_PLAYBOOKS = [
+  {
+    id: 'book-club',
+    title: 'Book club playbook',
+    focus: 'Ebooks and long-form reading — educational or discussion-worthy titles.',
+    steps: SHARED_CLUB_STEPS,
+  },
+  {
+    id: 'video-club',
+    title: 'Video club playbook',
+    focus: 'Long-form YouTube and courses — educational or interesting content that sparks discussion.',
+    steps: SHARED_CLUB_STEPS,
+  },
+]
+
+export const SYNERGY_CARDS = [
+  {
+    id: 'discord',
+    partner: 'Discord',
+    theyDo: 'Real-time chat, voice, servers, and community velocity.',
+    weDo:
+      'Shared library (ebooks, courses, video hubs), Clubs as curriculum + discussion container, Aura surfacing what deserves attention.',
+    together:
+      'Discord is the living-room conversation; Kahana is the shelf and reading list. Pin Club / hub links in a Discord channel; discuss live on Discord; assign the next ebook, video, or course from Kahana; members grant Aura on Kahana so the best material rises for others.',
+    exampleFlow:
+      'Create Kahana Club → add Phase 1 materials (or wishlist) → invite Discord members with a Kahana link → weekly: watch/read on Kahana, talk on Discord → log Club UX feedback via survey → outreach for missing titles.',
+    stance: 'We do not try to replace Discord chat — we complement it.',
+  },
+  {
+    id: 'youtube',
+    partner: 'YouTube',
+    theyDo: 'Long-form video reach, search, subscriptions, ads, and comments at scale.',
+    weDo:
+      'Clubs around specific videos, shared library context, Aura surfacing what deserves attention, and discussion with friends and colleagues — not a public comment feed.',
+    together:
+      'Creators keep videos on YouTube (views and ads intact). Kahana Clubs use those videos as curriculum — ideally via embed so watch happens in the library context. Discuss in Clubs; grant Aura on Kahana so educational long-form rises for other clubs.',
+    exampleFlow:
+      'Pick educational or interesting long-form videos → create a Video Club on Kahana → add/embed videos (or wishlist creators not on Kahana yet) → invite friends or team → watch and discuss in Club → Aura the best ones → outreach to creators to list their channels or videos on Kahana for clubs.',
+    stance: 'We do not replace YouTube hosting or monetization — we complement it as the club layer and discovery signal for learning.',
+  },
+  {
+    id: 'teachable',
+    partner: 'Teachable',
+    theyDo:
+      'Course hosting, student enrollment, drip content, and course checkout — a strong home for running and selling a full course.',
+    weDo:
+      'Library discovery via Aura, Clubs for cohort discussion, and a place to surface courses next to ebooks and long-form video — so great teaching gets found beyond a single storefront.',
+    together:
+      'Teachers keep Teachable as the course engine and can also put those courses on Kahana so a larger audience can discover them through Explore, Clubs, and Aura. Students get a focused Club room to discuss lessons with classmates, friends, or colleagues — empathy and understanding around the material, not only a progress bar. Kahana does not replace Teachable checkout or hosting; it widens reach and deepens discussion.',
+    exampleFlow:
+      'Teacher lists or links their Teachable course on Kahana (hub + Club) → students enroll on Teachable as usual → Club discusses weekly lessons on Kahana → members grant Aura so strong courses rise for other learners → wishlist related ebooks/videos → invite friends/family into the Club for shared learning.',
+    stance:
+      'Complementary for teachers and students — Teachable runs the course; Kahana helps teachers get discovered and helps students learn together.',
+  },
+  {
+    id: 'beacons',
+    partner: 'Beacons',
+    theyDo:
+      'Creator link-in-bio, landing pages, media kits, and quick paths from social profiles to everything a creator offers.',
+    weDo:
+      'Deep library home for ebooks, courses, and video hubs; Clubs for discussion; Aura so the best work rises beyond a single link click.',
+    together:
+      'Beacons is the front door from Instagram, TikTok, and other socials. Kahana is the room behind the door — where fans become Club members around a book, course, or video. Creators keep Beacons for reach and conversion links; they add a Kahana Club or hub link on Beacons so serious learners land in the library. Complementary: Beacons packs the links; Kahana hosts the learning.',
+    exampleFlow:
+      'Creator builds Beacons page → adds “Join my Kahana Club / library hub” link → followers land on Kahana → join Club, read/watch, grant Aura → wishlist more titles → creator boards content on Kahana while still using Beacons as the social landing page.',
+    stance: 'We do not replace Beacons link-in-bio — we deepen what happens after the click.',
+  },
+  {
+    id: 'linktree',
+    partner: 'Linktree',
+    theyDo:
+      'Simple multi-link bio pages — one URL for socials that fans already know how to use.',
+    weDo:
+      'Curated hubs, Clubs, and Aura-driven discovery so link traffic can become shared learning, not just another outbound click.',
+    together:
+      'Linktree stays the lightweight bio link. Kahana is where creators put the library experience worth joining a Club for. Add the Kahana Club or hub as a featured Linktree link; fans who want depth go to Kahana; casual clicks can still go to YouTube, merch, or Teachable. Same complementary pattern as Beacons: Linktree for distribution; Kahana for library + Clubs.',
+    exampleFlow:
+      'Creator adds Kahana Club/hub to Linktree → social bio drives traffic → fans join Club on Kahana → discuss ebooks/courses/videos → Aura surfaces strong work → creator outreach and wishlist keep the library stocked without leaving Linktree behind.',
+    stance: 'Complementary to Linktree — we are not another link list; we are the library and Clubs behind a link.',
+  },
+  {
+    id: 'patreon',
+    partner: 'Patreon',
+    theyDo:
+      'Recurring membership, creator funding, exclusive posts, and a fan community built around supporting the person — often via tiered subscriptions.',
+    weDo:
+      'Creators can charge for access on Kahana too: one-time payment or monthly subscription on hubs (5% fee to Kahana). Monetized content appears in the library, discoverable via Explore, Clubs, and Aura — without requiring tiered memberships.',
+    together:
+      'Kahana and Patreon overlap on monetization; many creators will want both. Keep Patreon for fans who already live there and prefer that membership experience. List the same (or related) work on Kahana so it gets library exposure, Club use, and Aura — one-time or monthly access, not only tiers. People who prefer Patreon stay on Patreon; people who prefer Kahana find and pay on Kahana. Dual listing is the practical play: more surfaces, more discovery.',
+    exampleFlow:
+      'Creator monetizes on Patreon → also creates a Kahana hub with one-time or monthly access (5% platform fee) → content appears in the library → Clubs use it for discussion → Aura surfaces strong work → fans choose Patreon or Kahana based on preference; creator captures both audiences.',
+    stance:
+      'Not either/or — similar benefits on monetization; dual listing for exposure. Patreon for patronage-native fans; Kahana for library discovery, Clubs, and flexible hub pricing.',
+  },
+  {
+    id: 'substack',
+    partner: 'Substack',
+    theyDo:
+      'Newsletter publishing, email delivery, paid subscriptions, and a writing-first community around posts and notes.',
+    weDo:
+      'A multi-format library (ebooks, courses, long-form video alongside writing), Clubs for shared reading, Aura discovery, hub monetization (one-time or monthly, 5% fee), and public profiles where creators can link out to Substack.',
+    together:
+      'Writers build audience on both. List your Substack as a link on your Kahana profile so library visitors find your newsletter. Repurpose content across Substack and Kahana — essays, series, or book-length work can live in both places without forcing fans to pick one home. Dual listing and cross-linking: Substack-native readers stay in inbox; Kahana-native learners find you through Explore, Clubs, and Aura; each surface sends people to the other.',
+    exampleFlow:
+      'Publish on Substack → add Substack link on Kahana profile → repurpose or list related hubs/ebooks on Kahana → start a Club around a series or book → Aura the best pieces → grow email on Substack and library audience on Kahana in parallel.',
+    stance:
+      'Build on both — profile link + content repurposing + dual audience. Substack owns email; Kahana owns library, Clubs, and Aura.',
+  },
+  {
+    id: 'gumroad',
+    partner: 'Gumroad',
+    theyDo:
+      'Simple digital product sales — checkout, file delivery, creator trust for one-off guides, templates, and downloads.',
+    weDo:
+      'Same core idea of selling digital access, plus library discovery: hubs with one-time or monthly paywalls (5% fee), Clubs, and Aura so products are browsable — not only reached via a direct link.',
+    together:
+      'Creators can sell on Gumroad and on Kahana. Gumroad stays great for fast, link-based checkout. Kahana adds Explore, Clubs, and Aura so the work sits in a library others can find. Dual listing for exposure: fans who prefer Gumroad checkout stay there; others discover and buy on Kahana. Overlap on monetization is real — the differentiator is library + Clubs, not “we don’t sell.”',
+    exampleFlow:
+      'Sell a guide on Gumroad → also create a Kahana hub (one-time or monthly) → it appears in the library → Clubs use it → Aura surfaces strong products → creator captures both link traffic and library discovery.',
+    stance:
+      'Overlapping sales tools — dual list for reach. Gumroad for simple link checkout; Kahana for library presence, Clubs, and Aura.',
+  },
+  {
+    id: 'kajabi',
+    partner: 'Kajabi',
+    theyDo:
+      'All-in-one creator business: courses, memberships, email, and landing pages for running a teaching brand end-to-end.',
+    weDo:
+      'Library discovery, Clubs for cohort discussion, Aura ranking, and flexible hub monetization (one-time or monthly, 5% fee) so courses and related materials get found beyond a single Kajabi funnel.',
+    together:
+      'Teachers keep Kajabi as the course and membership engine. They can also list courses or companion hubs on Kahana for broader library exposure — same dual-list idea as Teachable. Students who prefer Kajabi enroll there; others discover via Explore, Clubs, and Aura. Kahana Clubs give cohorts a place to discuss with empathy while Kajabi runs drip, hosting, and brand site.',
+    exampleFlow:
+      'Run the course on Kajabi → list it (or a companion hub) on Kahana → Club discusses weekly lessons → Aura surfaces strong teaching → wishlist related ebooks/videos → students choose Kajabi, Kahana, or both.',
+    stance:
+      'Complementary dual listing — Kajabi runs the teaching business; Kahana widens discovery and Clubs. Not a rip-and-replace LMS.',
+  },
+  {
+    id: 'udemy',
+    partner: 'Udemy',
+    theyDo:
+      'Large course marketplace — search, ratings, and enrollment at scale for instructors who want marketplace distribution.',
+    weDo:
+      'Library + Clubs + Aura: courses (and related ebooks/video) as part of a broader catalog, flexible hub pricing (one-time or monthly, 5% fee), and discussion rooms — not only marketplace SEO.',
+    together:
+      'Instructors can teach on Udemy and list the same or companion material on Kahana for library exposure and Clubs. Udemy reaches shoppers browsing that marketplace; Kahana reaches learners in Clubs and via Aura. Dual listing is practical: keep Udemy for marketplace volume; use Kahana so courses live next to books and long-form video and get discussed with friends and colleagues.',
+    exampleFlow:
+      'Publish or keep a course on Udemy → create a Kahana hub/Club around it (or a companion pack) → students discuss on Kahana → Aura surfaces strong teaching → wishlist related books/videos → learners find you on Udemy, Kahana, or both.',
+    stance:
+      'Dual-list friendly — Udemy for marketplace reach; Kahana for library presence, Clubs, and Aura. Not a replacement for Udemy’s catalog.',
+  },
+  {
+    id: 'stan-store',
+    partner: 'Stan Store',
+    theyDo:
+      'Mobile-first creator storefront and link-in-bio — fast checkout, tips, and product links tuned for Instagram and TikTok traffic.',
+    weDo:
+      'Library depth beyond a storefront: hubs, Clubs, Aura discovery, and one-time or monthly access (5% fee) so work is browsable in Explore — not only reached from a bio link.',
+    together:
+      'Same front-door pattern as Beacons and Linktree: Stan catches social traffic and closes simple sales. Add a Kahana Club or hub link on Stan so serious learners land in the library. Creators can sell on Stan and dual-list on Kahana for exposure — fans who prefer Stan checkout stay there; others discover via Explore, Clubs, and Aura.',
+    exampleFlow:
+      'Creator runs Stan for bio + checkout → adds Kahana Club/hub link → followers join Club → read/watch and discuss on Kahana → Aura surfaces strong work → same digital products can live on both for reach.',
+    stance:
+      'Complementary storefront + library — Stan for mobile social commerce; Kahana for Clubs, Aura, and catalog discovery.',
+  },
+  {
+    id: 'circle',
+    partner: 'Circle',
+    theyDo:
+      'Branded community spaces — courses, posts, events, and member chat for creators running a paid or free community.',
+    weDo:
+      'A public digital library with Aura, Clubs tied to specific ebooks/courses/videos, and hub monetization that surfaces in Explore — discovery beyond a single community wall.',
+    together:
+      'Circle is a strong home for ongoing community. Kahana is the shared shelf and Club curriculum: pin Kahana hubs/Clubs inside Circle, or dual-list materials so members discuss in Circle while reading/watching in the library. Creators keep Circle for belonging and programming; use Kahana so content gets Aura, library exposure, and Clubs with friends outside the Circle membership.',
+    exampleFlow:
+      'Run community on Circle → link Kahana Club/hub in a space or post → members consume on Kahana, talk in Circle (or both) → Aura elevates strong work → wishlist titles → outreach to board missing content on Kahana.',
+    stance:
+      'Complementary communities — Circle for branded member spaces; Kahana for library + Aura + Clubs. Dual-link, not rip-and-replace.',
+  },
+  {
+    id: 'skool',
+    partner: 'Skool',
+    theyDo:
+      'Simple community + classroom: group feed, courses, and gamification for cohort-style creator communities.',
+    weDo:
+      'Library catalog, Aura-ranked discovery, Clubs around books/videos/courses, and flexible hub pricing (one-time or monthly, 5% fee) visible on Explore.',
+    together:
+      'Skool keeps the tight group and classroom vibe. Kahana holds the library materials and Club reading/watching lists those groups use — and exposes the same work to a wider audience via Aura. Dual listing and cross-links: Skool for the cohort; Kahana for the shelf, discovery, and Clubs with people who are not in that Skool group.',
+    exampleFlow:
+      'Host cohort on Skool → put course/ebook/video hubs on Kahana → link from Skool classroom → Club discusses on Kahana → Aura surfaces strong material → grow both the Skool group and Kahana library audience.',
+    stance:
+      'Complementary — Skool for cohort community; Kahana for library presence, Clubs, and Aura. Use both.',
+  },
+  {
+    id: 'medium',
+    partner: 'Medium',
+    theyDo:
+      'Publishing and discovery for essays and articles — Partner Program, publications, and a large reading audience.',
+    weDo:
+      'Multi-format library, Clubs for shared reading, Aura, hub monetization, and profiles where writers can link Medium (and list longer work as hubs).',
+    together:
+      'Writers publish on Medium for reach and can repurpose or expand pieces into Kahana hubs (essays, series, ebooks). List Medium on your Kahana profile; link Kahana Clubs from Medium posts for reading groups. Build audience on both: Medium for essay discovery; Kahana for library depth, Clubs, and Aura across formats — same dual-audience pattern as Substack.',
+    exampleFlow:
+      'Write on Medium → add Medium link on Kahana profile → repurpose into a hub or Club reading list → discuss on Kahana → Aura the best work → grow readers on Medium and members on Kahana in parallel.',
+    stance:
+      'Build on both — profile links, content repurposing, dual audience. Medium for essays at scale; Kahana for library, Clubs, and Aura.',
+  },
+  {
+    id: 'beehiiv',
+    partner: 'Beehiiv',
+    theyDo:
+      'Newsletter growth, email delivery, referrals, and monetization for publishers who live in the inbox.',
+    weDo:
+      'Library hubs, Clubs, Aura discovery, profile links, and multi-format content (ebooks, courses, video) beyond email.',
+    together:
+      'Use both: grow and send on Beehiiv; host deeper packs and Clubs on Kahana. Put your Beehiiv on your Kahana profile; put your Kahana Club or hub in the Beehiiv CTA. Repurpose issues into hubs; run a Club around a series. Fans who love email stay on Beehiiv; learners who want a library and discussion join Kahana — same creator, two surfaces.',
+    exampleFlow:
+      'Write/grow on Beehiiv → link Beehiiv on Kahana profile → link Kahana Club in newsletter → discuss on Kahana → Aura strong work → build email list and library audience in tandem.',
+    stance: 'Tandem by design — Beehiiv for inbox; Kahana for library + Clubs. Cross-link and repurpose.',
+  },
+  {
+    id: 'thinkific',
+    partner: 'Thinkific',
+    theyDo:
+      'Course hosting, student accounts, and checkout for teachers running their own course brand.',
+    weDo:
+      'Library discovery, Clubs for cohort discussion, Aura, and optional hub monetization (one-time or monthly, 5% fee) so courses sit next to books and video.',
+    together:
+      'Use both like Teachable/Kajabi: Thinkific runs the course; Kahana gets the class discovered and discussed. List the course or a companion hub on Kahana; run a Club for students and friends; keep enrollment on Thinkific for people who prefer that checkout. Teachers widen reach without leaving Thinkific.',
+    exampleFlow:
+      'Build course on Thinkific → list on Kahana + start Club → students enroll on Thinkific, discuss on Kahana → Aura surfaces teaching → wishlist related ebooks/videos on Kahana.',
+    stance: 'Use both — Thinkific for course ops; Kahana for library exposure and Clubs.',
+  },
+  {
+    id: 'goodreads',
+    partner: 'Goodreads',
+    theyDo:
+      'Book tracking, ratings, reviews, and social reading lists — where many readers already log what they read.',
+    weDo:
+      'Book Clubs with shared discussion, ebook hubs in the library, Aura, and wishlist → acquire so the Club’s titles can live on Kahana.',
+    together:
+      'Use both: keep Goodreads for personal shelves and reviews; run the live Club on Kahana. Share the Kahana Club link on Goodreads; note Goodreads shelves in Club intros. When a title is not on Kahana yet, wishlist it and outreach to the author — Goodreads demand signal, Kahana Club fulfillment. Readers do not abandon Goodreads; they add Kahana for the group.',
+    exampleFlow:
+      'Track books on Goodreads → create Kahana Book Club → invite friends → wishlist missing titles → discuss on Kahana → Aura great reads → optional hub access if the ebook is on Kahana.',
+    stance: 'Tandem reading stack — Goodreads for tracking/reviews; Kahana for Clubs and library access.',
+  },
+  {
+    id: 'fable',
+    partner: 'Fable',
+    theyDo:
+      'Social reading clubs and bookish community — lightweight groups around titles people already love.',
+    weDo:
+      'Book Clubs with a real library shelf (ebooks and more), Aura, and room to add courses or video when the group wants more than one book.',
+    together:
+      'If you like Fable, you might also love Kahana for book clubs. Keep Fable for the social, bookish energy; add Kahana when you want the Club tied to library materials, Aura, and the option to mix in a related course or video. Cross-invite friends; use both. Same love of reading together — Kahana is another home for that habit, with a deeper shelf.',
+    exampleFlow:
+      'Enjoy clubs on Fable → try a Kahana Book Club with the ebook (or wishlist) → invite the same friends → discuss on Kahana → Aura great reads → optionally add related YouTube or a short course to the Club.',
+    stance:
+      'If you like Fable, you might also love Kahana for book clubs — use both; they rhyme.',
+  },
+  {
+    id: 'spotify',
+    partner: 'Spotify',
+    theyDo:
+      'Music and podcast listening at massive scale — playlists, shows, and daily listen habits.',
+    weDo:
+      'Clubs and hubs that can wrap listening into discussion (and eventually fuller audio in the library), Aura, and pairing podcasts with ebooks/courses/video in one Club.',
+    together:
+      'Use both today: listen on Spotify; discuss and organize in a Kahana Club. Pin episode links in the Club; grant Aura on related hubs; wishlist creators whose shows or companion books should live on Kahana. Podcasters link Kahana from show notes and Kahana profiles link Spotify — build listeners and Club members in tandem. As Kahana boards more audio, the same dual pattern holds.',
+    exampleFlow:
+      'Listen on Spotify → Kahana Club picks episodes or a season → discuss on Kahana → Aura companion materials → creator links Spotify ↔ Kahana profile → wishlist full audio or related books for the library.',
+    stance: 'Tandem — Spotify for listening; Kahana for Clubs, context, and Aura. Cross-link profiles and show notes.',
+  },
+  {
+    id: 'audible',
+    partner: 'Audible',
+    theyDo:
+      'Audiobook catalog, credits, and narration — how many people “read” long-form audio.',
+    weDo:
+      'Book Clubs that can include listeners, ebook hubs when available, wishlist → acquire, and Aura so great titles rise for other Clubs.',
+    together:
+      'Use both: members listen on Audible if that is how they consume the book; the Club still meets on Kahana for schedule, discussion, and empathy. Dual-path the same title — ebook on Kahana when boarded, audio on Audible — so nobody is blocked by format. Authors and Clubs benefit when the title is findable in the Kahana library and discussable in Clubs while Audible remains the audio storefront many already pay for.',
+    exampleFlow:
+      'Pick a Club title → some members use Audible, others Kahana ebook when available → discuss on Kahana → wishlist/outreach for library boarding → Aura titles that spark great Clubs.',
+    stance: 'Use both formats — Audible for listening; Kahana for Clubs, ebooks when available, and Aura.',
+  },
+]
 
 export const KAHANA_PLATFORM_SECTIONS = [
-  { id: 'vision-library', title: 'Vision: The Library' },
-  { id: 'strategic-narrative', title: 'Strategic narrative' },
-  { id: 'executive-summary', title: 'Executive summary' },
-  { id: 'positioning', title: 'Positioning' },
-  { id: 'platform-architecture', title: 'Platform architecture' },
-  { id: 'explore-marketplace', title: 'Explore marketplace' },
-  { id: 'hubs', title: 'Hubs' },
-  { id: 'monetization-and-payments', title: 'Monetization and payments' },
-  { id: 'plans-and-limits', title: 'Plans and limits' },
-  { id: 'trust-and-safety', title: 'Trust and safety' },
-  { id: 'revenue-model', title: 'Revenue model' },
-  { id: 'growth-strategy', title: 'Growth strategy' },
-  { id: 'roadmap-snapshot', title: 'Roadmap snapshot' },
-  { id: 'risks', title: 'Risks and mitigations' },
+  { id: 'core-idea', title: 'Core idea' },
+  { id: 'how-we-grow', title: 'How we grow' },
+  { id: 'club-playbooks', title: 'Club playbooks' },
+  { id: 'synergy-cards', title: 'Synergy cards' },
+  { id: 'go-deeper', title: 'Go deeper' },
 ]
-
-export const EXECUTIVE_SUMMARY = {
-  paragraphs: [
-    'Kahana combines a public marketplace (Explore), creator storefronts (profiles + hubs), built-in commerce (Stripe Connect paywalls), and collaboration tooling under a single brand at app.kahana.io.',
-    'Legal entity: Kahana Group Inc. Formerly known as Curio. Oasis Browser is a separate archived product line within the Kahana family.',
-  ],
-  pillars: [
-    { name: 'Catalog density', detail: 'More quality public hubs across marketplace categories' },
-    { name: 'Conversion', detail: 'Explore → hub view → purchase with minimal friction' },
-    { name: 'Creator earnings', detail: 'Help creators make money so they stay and refer others' },
-    { name: 'Platform revenue', detail: 'Scale GMV (5% take rate) and Growth MRR in parallel' },
-  ],
-  isNot: [
-    'Not a generic cloud drive or Dropbox alternative',
-    'Not only an internal team wiki (though hubs support collaboration)',
-    'Not a full LMS or course platform (though creators can sell course-like content)',
-    'Not a social network — discovery is catalog- and creator-led, not feed-led',
-    'Not purely transactional — the library vision comes first',
-  ],
-}
-
-export const AMAZON_PARALLEL = [
-  { dimension: 'Selection', amazon: 'Huge catalog, every category', kahana: 'Explore with 16 categories, hub + creator discovery' },
-  { dimension: 'Trust', amazon: 'Reviews, returns, known sellers', kahana: 'Creator profiles, clear pricing, moderation, Stripe checkout' },
-  { dimension: 'Convenience', amazon: 'One account, fast checkout', kahana: 'Single platform for browse → buy → access; Linktree-style profiles' },
-  { dimension: 'Scale', amazon: 'Marketplace economics improve with volume', kahana: 'Stripe Connect take rate + SaaS subscriptions' },
-]
-
-export const POSITIONING = {
-  creators:
-    'For creators who package expertise into digital products, Kahana is a marketplace and storefront that lets them publish curated hubs, get discovered on Explore, and monetize with Stripe — unlike generic file hosts or link-in-bio tools.',
-  buyers:
-    'For buyers, Kahana is a curated digital marketplace where they find high-signal products in public hubs — unlike scattered PDFs, Notion pages, or one-off Gumroad links with no browse experience.',
-}
-
-export const COMPETITIVE_FRAME = [
-  { competitor: 'Gumroad', strength: 'Simple digital sales, creator trust', differentiation: 'Kahana adds discovery (Explore), hub as product container, and collaboration' },
-  { competitor: 'Stan Store / link-in-bio', strength: 'Mobile-first creator links', differentiation: 'Marketplace browse, richer hub content, category taxonomy' },
-  { competitor: 'Patreon', strength: 'Recurring membership and community', differentiation: 'Curated product libraries and marketplace discovery, not feed-only membership' },
-  { competitor: 'Substack', strength: 'Newsletter publishing and subscriber community', differentiation: 'Multi-format hubs and Explore browse beyond email-first writing' },
-  { competitor: 'Udemy', strength: 'Course marketplace discovery', differentiation: 'Multi-format hubs, creator-owned storefronts, not video-only courses' },
-  { competitor: 'Kajabi / Teachable', strength: 'Courses and memberships', differentiation: 'Lighter-weight and hub-centric; better for curated resource bundles' },
-  { competitor: 'Notion / Coda', strength: 'Flexible docs and workspaces', differentiation: 'Commerce- and discovery-first; monetization and public marketplace are core' },
-]
-
-export const PRODUCT_SURFACES = [
-  { surface: 'Home / My hubs', route: '/', purpose: 'Creator dashboard; hub library, recents, create' },
-  { surface: 'Explore', route: '/explore', purpose: 'Discover public hubs and creators; search and filters' },
-  { surface: 'Hub', route: '/hub/:id', purpose: 'Curated digital product — files, notes, collaboration, paywall' },
-  { surface: 'Profile', route: '/profile/:userId', purpose: 'Public creator page — avatar, bio, social links, hub links' },
-  { surface: 'Billing', route: '/billing', purpose: 'Free / Growth / Enterprise plan selection' },
-  { surface: 'Monetization', route: '/monetization/:workspaceId', purpose: 'Connect Stripe, set hub pricing' },
-  { surface: 'Messages', route: '/messages', purpose: 'Direct messages between users' },
-  { surface: 'Saved', route: '/saved', purpose: 'Saved hub collections' },
-]
-
-export const EXPLORE_FILTERS = [
-  'Text search',
-  'Category (16 standard categories)',
-  'Monetization (free vs monetized)',
-  'Price range',
-  'Adult content (include / exclude / only)',
-  'Custom tags',
-  'Sort (including relevance when searching)',
-]
-
-export const MARKETPLACE_CATEGORIES = [
-  'Beauty & Skincare',
-  'Fashion & Style',
-  'Health & Wellness',
-  'Sports & Fitness',
-  'Finance',
-  'Business',
-  'Lifestyle',
-  'Education',
-  'Technology',
-  'Creative & Design',
-  'Marketing',
-  'Productivity',
-  'Entertainment',
-  'Spirituality',
-  'Writing & Publishing',
-  'Other',
-]
-
-export const HUB_CAPABILITIES = [
-  'Files — upload and organize digital assets (size limits vary by plan)',
-  'Notes — structured text content alongside files',
-  'Collaborators — invite others with role-based access; unlimited on Free tier',
-  'Monetization — Stripe Connect paywall (one-time or monthly subscription)',
-  'Hub settings — title, description, cover, categories/tags, Explore listing',
-  'View counts — displayed on marketplace cards and profiles',
-]
-
-export const SAAS_PLANS = [
-  { feature: 'Price', free: '$0', growth: '$9.99/mo or $99.99/yr', enterprise: 'Custom' },
-  { feature: 'Hubs', free: '3', growth: 'Unlimited', enterprise: 'Unlimited' },
-  { feature: 'Uploads per hub', free: 'Up to 10', growth: 'Unlimited', enterprise: 'Unlimited' },
-  { feature: 'Max file size', free: '5 MB', growth: '5 GB', enterprise: 'Flexible' },
-  { feature: 'Storage', free: '—', growth: '100 GB', enterprise: 'Flexible' },
-  { feature: 'Stripe monetization', free: 'Yes', growth: 'Yes', enterprise: 'Yes' },
-  { feature: 'Support', free: '—', growth: 'Live chat', enterprise: '24/7 white-glove' },
-]
-
-export const REVENUE_STREAMS = [
-  { stream: 'Growth SaaS', mechanism: 'Monthly or annual subscription', fact: '$9.99/mo · $99.99/yr · ~$300/mo MRR today' },
-  { stream: 'Marketplace take rate', mechanism: 'Application fee on hub sales', fact: '5% — revenue spikes when creators monetize' },
-  { stream: 'Enterprise', mechanism: 'Custom contracts', fact: 'White-label, analytics beta, dedicated support' },
-]
-
-export const REVENUE_METRICS = [
-  { metric: 'Registered users', current: '6,500+', target12: 'TBD', target36: 'TBD' },
-  { metric: 'MRR (Growth)', current: '~$300/mo', target12: 'TBD', target36: 'TBD' },
-  { metric: 'Monthly GMV', current: 'Spiky (creator-driven)', target12: 'TBD', target36: 'TBD' },
-  { metric: 'Take-rate revenue', current: '5% of hub sales', target12: 'TBD', target36: 'TBD' },
-]
-
-export const GTM_STRATEGY = {
-  headline: 'Women-first expert curation',
-  intro:
-    'The key to go-to-market is simple: discover, filter, and select high-quality women experts, creators, and influencers — then invite them to partner and showcase their work on Kahana.',
-  steps: [
-    { step: 'Discover', detail: 'Find women experts, coaches, educators, and influencers packaging digital knowledge' },
-    { step: 'Filter', detail: 'Assess catalog quality, audience fit, and expertise depth' },
-    { step: 'Invite', detail: 'Partner and onboard; showcase their hubs on Explore and profiles' },
-    { step: 'Amplify', detail: 'Featured creators, category campaigns (beauty, fashion, health-wellness, lifestyle)' },
-  ],
-  icp: {
-    supply: 'Women experts, coaches, educators, influencers packaging guides, templates, and resource libraries',
-    demand: 'Women audiences seeking trusted, curated expertise — not scattered links',
-  },
-  flywheel: [
-    'More quality creators → richer catalog',
-    'Richer catalog → more buyers',
-    'More buyers → higher GMV + creator earnings',
-    'Creator earnings → referrals → more creators',
-  ],
-  notYet: ['Paid ads at scale', 'Enterprise outbound — creator-led + curated partnerships first'],
-}
-
-export const GROWTH_FUNNEL = [
-  { stage: 'Awareness', definition: 'Visit Explore or profile', metric: 'Unique visitors' },
-  { stage: 'Interest', definition: 'Open hub page', metric: 'Hub views / visitor' },
-  { stage: 'Intent', definition: 'Open paywall / checkout', metric: 'Checkout starts' },
-  { stage: 'Purchase', definition: 'Complete Stripe payment', metric: 'GMV, conversion rate' },
-  { stage: 'Retention', definition: 'Second purchase or creator publish', metric: 'Repeat rate' },
-]
-
-export const ROADMAP_HORIZONS = [
-  {
-    id: 'h1',
-    horizon: 'H1 — Trust + conversion',
-    timeframe: 'Now – 6 mo',
-    theme: 'More purchases per Explore visit',
-    initiatives: [
-      'Hub UX: share + monetize discoverability (P0)',
-      'Category landing pages for SEO (P1)',
-      'Reviews/ratings MVP (P1)',
-      'Clearer Free → Growth upgrade paths (P1)',
-    ],
-  },
-  {
-    id: 'h2',
-    horizon: 'H2 — Catalog scale',
-    timeframe: '6 – 18 mo',
-    theme: 'Buyers find the right hub fast; creators see ROI',
-    initiatives: [
-      'Search improvements and recommendations',
-      'Creator payout dashboard and hub analytics',
-      'Featured/curated collections on Explore',
-      'Women-expert category campaigns at scale',
-    ],
-  },
-  {
-    id: 'h3',
-    horizon: 'H3 — Platform moat',
-    timeframe: '18+ mo',
-    theme: 'Network effects, enterprise, hard to replicate',
-    initiatives: [
-      'Bundles and cross-sell',
-      'Affiliate/referral marketplace',
-      'Enterprise marketplace catalogs',
-    ],
-  },
-]
-
-export const RISK_REGISTER = [
-  { id: 'R1', risk: 'Stripe dependency / account issues', likelihood: 'Medium', impact: 'High', mitigation: 'Monitor Stripe Connect compliance; clear creator onboarding docs' },
-  { id: 'R2', risk: 'Infrastructure outage (Heroku, Firebase)', likelihood: 'Low', impact: 'High', mitigation: 'Uptime monitoring; incident comms; post-incident reviews' },
-  { id: 'R3', risk: 'Adult content / moderation failure', likelihood: 'Medium', impact: 'High', mitigation: 'Adult flags, DOB age verification, Explore filters, legal terms' },
-  { id: 'R4', risk: 'Creator fraud or chargebacks', likelihood: 'Medium', impact: 'Medium', mitigation: 'Hub preview standards; chargeback tracking; refund policy' },
-  { id: 'R5', risk: 'Competitor copies marketplace', likelihood: 'High', impact: 'Medium', mitigation: 'Ship faster on conversion, trust, and curated catalog quality' },
-  { id: 'R6', risk: 'GMV concentration in few creators', likelihood: 'TBD', impact: 'High', mitigation: 'Diversify supply via women-first curation program' },
-  { id: 'R7', risk: 'Low Free → Growth conversion', likelihood: 'TBD', impact: 'Medium', mitigation: 'Upgrade prompts at hub/upload limits; live chat on Growth' },
-  { id: 'R8', risk: 'SEO / discovery underperforms', likelihood: 'Medium', impact: 'High', mitigation: 'Category landing pages; creator-led distribution; OG previews' },
-]
-
-export const TECH_STACK = [
-  { layer: 'Frontend', stack: 'React (CRA), Mantine UI, Redux — Heroku (app.kahana.io)' },
-  { layer: 'Backend API', stack: 'Firebase Cloud Functions (kahana-15c2a prod)' },
-  { layer: 'Database', stack: 'Cloud Firestore' },
-  { layer: 'Auth', stack: 'Firebase Authentication' },
-  { layer: 'Payments', stack: 'Stripe + Stripe Connect (5% application fee)' },
-  { layer: 'Analytics', stack: 'Mixpanel' },
-]
-
-export const TRUST_SAFETY = {
-  adult: 'Creators flag adult hubs; buyers must log in and verify age ≥ 18 via date of birth before access.',
-  verification: 'Stripe Identity verification displays a verified creator badge on profiles and paywall surfaces.',
-  policies: 'Legal pages: hub access, privacy, monetization, adult content, public listing policies at /legal/*',
-}
 
 export const HOME_SECTION_LINKS = [
-  { id: 'vision-library', label: 'Vision: The Library' },
-  { id: 'growth-strategy', label: 'Women-first GTM' },
-  { id: 'revenue-model', label: 'Revenue model' },
-  { id: 'platform-architecture', label: 'Platform architecture' },
-  { id: 'roadmap-snapshot', label: 'Roadmap' },
+  { id: 'core-idea', label: 'Core idea' },
+  { id: 'how-we-grow', label: 'How we grow' },
+  { id: 'club-playbooks', label: 'Club playbooks' },
+  { id: 'synergy-cards', label: 'Synergy cards' },
+]
+
+export const GO_DEEPER_LINKS = [
+  { to: NARRATIVE_PAGE_PATH, label: 'Kahana story / narrative' },
+  { to: FRAGMENT_MAP_PATH, label: 'Fragment Map (GTM sequence)' },
+  { to: COMPETITORS_PAGE_PATH, label: 'Competitor landscape' },
 ]

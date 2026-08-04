@@ -196,10 +196,142 @@ function StepCompanyRules() {
         <li>
           Fill out the <strong>weekly Time Log every Friday by EOD</strong> — supports compliance, accurate{' '}
           <Link to="/weekly-reports">Weekly Reports</Link>, and progress against the{' '}
-          <Link to="/project-charter">Scaling Kahana charter</Link>.{' '}
+          <Link to="/project-charter">Scaling Kahana charter</Link>. Align work with the current GTM phase
+          (see{' '}
+          <Link to="/onboarding/kahana-strategy">Kahana strategy</Link>
+          ).{' '}
           <Link to="/onboarding/time-log">See the Time Log onboarding step →</Link>
         </li>
       </ul>
+    </div>
+  )
+}
+
+function StepKahanaStrategy() {
+  return (
+    <div className="onboarding-step-content">
+      <p className="onboarding-step-done onboarding-step-done-top">
+        <strong>✓ Done when:</strong> You can explain Kahana&apos;s thesis in one sentence, name Phase 1 of
+        GTM (reading &amp; learning clubs), and know that Add YouTube embeds videos (creators keep YouTube
+        views/ads) rather than rehosting files. You&apos;ve opened the{' '}
+        <Link to="/fragment-capture" className="onboarding-inline-link">
+          Fragment Map
+        </Link>
+        .
+      </p>
+
+      <p>
+        This is the strategic brief every new teammate should internalize. Product, marketing, sales, design,
+        and eng all ship against this picture — not “biggest market first.”
+      </p>
+
+      <h3>1. What Kahana is</h3>
+      <ul className="onboarding-rules-list">
+        <li>
+          <strong>Digital library + clubs + Aura.</strong> People learn and create in hubs; Aura is
+          human-given recognition of quality (not an engagement algorithm).
+        </li>
+        <li>
+          <strong>Club-centric product.</strong> Book clubs, course clubs, and video groups share the same
+          pattern: curated content → schedule → discuss → Aura.
+        </li>
+        <li>
+          <strong>Not a social feed.</strong> We are the focus room behind fragmented apps (YouTube,
+          Substack, Netflix, TikTok, etc.) — the library card after the “virtual party.”
+        </li>
+      </ul>
+
+      <h3>2. Content fragments (market map)</h3>
+      <p>
+        The market is split into fragments (ebooks, courses, long-form video, newsletters, audio, short-form,
+        series/films, Creator Business). Dollar sizes on the{' '}
+        <Link to="/fragment-capture" className="onboarding-inline-link">
+          Fragment Map
+        </Link>{' '}
+        are directional. Courses (~$8B) and Creator Business (~$7B) are <em>narrow platform slices</em>, not
+        full e-learning / creator-economy TAMs.
+      </p>
+      <div className="onboarding-note">
+        <p>
+          <strong>Open the map:</strong>{' '}
+          <Link to="/fragment-capture" className="onboarding-inline-link">
+            Fragment Map →
+          </Link>{' '}
+          — pie by category/company, GTM phase cards, competitors, capture modeling.
+        </p>
+      </div>
+
+      <h3>3. GTM order (what&apos;s important now)</h3>
+      <p>
+        Sequence by <strong>where clubs are natural + product readiness + tractable acquisition</strong> —
+        not by largest TAM.
+      </p>
+      <ol className="onboarding-steps-list">
+        <li>
+          <strong>Phase 1 — Reading &amp; learning clubs (NOW):</strong> Ebooks (book clubs) + Courses
+          (course clubs) + Long-form video via <strong>YouTube video groups</strong>.
+        </li>
+        <li>
+          <strong>Phase 2 — Newsletters / essays:</strong> Same reading stack for writer clubs.
+        </li>
+        <li>
+          <strong>Phase 3 — Audio:</strong> Listening clubs (link-first).
+        </li>
+        <li>
+          <strong>Phase 4 — Short-form:</strong> Channel + prompts into hubs — not a feed to replace.
+        </li>
+        <li>
+          <strong>Phase 5 — Series / films:</strong> Link-out film/show clubs later, after communities exist.
+        </li>
+      </ol>
+      <p>
+        <strong>Creator Business</strong> (Patreon, Gumroad, Linktree, etc.) is a{' '}
+        <em>creator outreach / monetization channel</em>, not a content phase to invade first.
+      </p>
+
+      <h3>4. YouTube video groups (Phase 1 must-know)</h3>
+      <ul className="onboarding-rules-list">
+        <li>
+          Massive free inventory of essays, lectures, and playlists already on YouTube — we curate them into
+          hubs as video groups (analogous to book clubs).
+        </li>
+        <li>
+          <strong>Add YouTube</strong> stores a <code>youtube.com/embed/…</code> URL and plays in an{' '}
+          <strong>iframe</strong>. Kahana does <strong>not</strong> download or rehost the file.
+        </li>
+        <li>
+          The original channel generally still gets YouTube <strong>views, watch time, and ads</strong> (per
+          YouTube&apos;s rules).
+        </li>
+        <li>
+          <strong>Caveat:</strong> Uploading a raw mp4 that happens to be a YouTube rip is a{' '}
+          <em>different</em> path (Kahana-hosted) — that does <strong>not</strong> credit the YouTuber. Prefer
+          Add YouTube.
+        </li>
+        <li>
+          Pitch to creators: keep videos on YouTube; host the club, discussion, and library context on Kahana.
+        </li>
+      </ul>
+
+      <h3>5. What “good work” looks like against this strategy</h3>
+      <ul className="onboarding-rules-list">
+        <li>Prioritize features and content that make <strong>clubs</strong> succeed (schedule, prompts, Aura, multi-modal hubs).</li>
+        <li>Default GTM experiments to Phase 1: book clubs, course clubs, YouTube video groups.</li>
+        <li>Don&apos;t pitch Kahana as “replacing TikTok/Netflix” in early messaging — we&apos;re the deep layer.</li>
+        <li>When in doubt, re-open the Fragment Map GTM sequence and align your sprint to the active phase.</li>
+      </ul>
+
+      <div className="onboarding-cta-row">
+        <Link to="/fragment-capture" className="onboarding-cta-link">
+          Open Fragment Map →
+        </Link>
+        <Link to="/pro-forma" className="onboarding-cta-link">
+          Pro Forma narrative →
+        </Link>
+        <Link to="/kahana" className="onboarding-cta-link">
+          Platform overview →
+        </Link>
+      </div>
     </div>
   )
 }
@@ -220,7 +352,11 @@ function StepExploreAuraLibrary() {
       <p>
         <strong>Kahana&apos;s Aura Library</strong> is the product we are scaling. Live in it from day one —
         create your profile, browse hubs and authors, give Aura, and start contributing. This is how you build
-        product intuition for every role.
+        product intuition for every role. Strategy context (clubs, GTM phases, YouTube embeds) is in{' '}
+        <Link to="/onboarding/kahana-strategy" className="onboarding-inline-link">
+          Learn Kahana strategy
+        </Link>
+        .
       </p>
 
       <a
@@ -246,9 +382,16 @@ function StepExploreAuraLibrary() {
         <li>Explore the whole platform: Explore, profiles, hub creation, collections.</li>
       </ol>
 
-      <h3>2. Contribute</h3>
+      <h3>2. Contribute (think in clubs)</h3>
       <ol className="onboarding-steps-list">
-        <li>Start creating a free hub and add digital artifacts (guides, links, files, etc.).</li>
+        <li>
+          Start a free hub as a <strong>mini club</strong>: a book, a short course path, or a YouTube video
+          group (use <strong>Add YouTube</strong> / embed — do not upload ripped mp4s).
+        </li>
+        <li>
+          Add schedule-style context if you can (what to finish by when + a discussion prompt) — that matches
+          how real Kahana clubs should feel.
+        </li>
         <li>When ready, list it on Explore so you are contributing to the public library.</li>
       </ol>
 
@@ -657,12 +800,24 @@ function StepReviewLandingPage() {
           promote quality across hubs and files.
         </li>
         <li>
-          <strong>How to use Kahana:</strong> Learn (Explore) → Create (hubs + digital artifacts) → Grow
-          (exposure, followers, Aura, optional monetization).
+          <strong>How to use Kahana:</strong> Learn (Explore) → Create (hubs + digital artifacts / clubs) →
+          Grow (exposure, followers, Aura, optional monetization).
+        </li>
+        <li>
+          <strong>Strategy behind the site:</strong> Club-centric GTM — Phase 1 is reading &amp; learning
+          clubs (ebooks, courses, YouTube video groups via embed). Details in{' '}
+          <Link to="/onboarding/kahana-strategy" className="onboarding-inline-link">
+            Learn Kahana strategy
+          </Link>{' '}
+          and the{' '}
+          <Link to="/fragment-capture" className="onboarding-inline-link">
+            Fragment Map
+          </Link>
+          .
         </li>
         <li>
           <strong>Benefits:</strong> For learners (access, credibility, flexible hubs) and for creators
-          (exposure, teaching, earning).
+          (exposure, teaching, earning — including keeping YouTube monetization when using Add YouTube).
         </li>
         <li>
           <strong>Optimize loop:</strong> Create hub → add context → list on Explore → check analytics →
@@ -675,8 +830,12 @@ function StepReviewLandingPage() {
           Go deeper anytime in the{' '}
           <Link to="/kahana" className="onboarding-inline-link">
             Kahana Platform Overview
-          </Link>{' '}
-          and{' '}
+          </Link>
+          ,{' '}
+          <Link to="/fragment-capture" className="onboarding-inline-link">
+            Fragment Map
+          </Link>
+          , and{' '}
           <Link to="/knowledge-base" className="onboarding-inline-link">
             Knowledge base
           </Link>
@@ -1007,6 +1166,7 @@ const STEP_CONTENT = {
   'schedule-1on1': StepSchedule1on1,
   'weekly-1on1': StepWeekly1on1,
   'company-rules': StepCompanyRules,
+  'kahana-strategy': StepKahanaStrategy,
   'explore-aura-library': StepExploreAuraLibrary,
   'time-log': StepTimeLog,
   'install-oasis': StepInstallOasis,

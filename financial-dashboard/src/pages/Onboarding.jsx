@@ -130,7 +130,9 @@ function Onboarding() {
       <div className="page-header">
         <h1>Onboarding</h1>
         <p className="page-subtitle">
-          New team member checklist. Everything below can be completed on Day 1 — open a task for instructions.
+          New team member checklist. Start with company rules and{' '}
+          <Link to="/onboarding/kahana-strategy">Kahana strategy</Link> so you know Phase 1 (reading &amp;
+          learning clubs + YouTube embeds), then finish Day 1 setup.
         </p>
         <p className="onboarding-hint">
           <span className="onboarding-hint-item">☐ Check Done</span>

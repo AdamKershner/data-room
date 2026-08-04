@@ -177,9 +177,9 @@ export const LIFECYCLE_LINKS = [
     description: 'Human-in-the-loop themes from in-app ratings — feed into bug and improvement backlog.',
   },
   {
-    path: '/kahana#roadmap-snapshot',
-    title: 'Kahana roadmap',
-    description: 'Horizon themes; execution tracked in Linear.',
+    path: '/kahana#how-we-grow',
+    title: 'Kahana growth',
+    description: 'Clubs, hubs, creator outreach — how we grow Kahana.',
   },
   {
     path: '/technical-roadmap',

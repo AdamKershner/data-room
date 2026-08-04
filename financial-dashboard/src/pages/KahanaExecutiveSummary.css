@@ -71,18 +71,35 @@
   padding: 10px 20px;
   border-radius: 8px;
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .kahana-cta--primary {
-  background: var(--oasis-green-medium, #617500);
-  color: #fff;
+  background: var(--oasis-green-darkest, #1b4332);
+  color: #ffffff !important;
+  border: 1px solid transparent;
 }
 
 .kahana-cta--secondary {
   background: #fff;
-  color: var(--oasis-green-dark, #313a00);
-  border: 1px solid #cad399;
+  color: var(--oasis-green-darkest, #1b4332) !important;
+  border: 1px solid var(--oasis-green-darkest, #1b4332);
+}
+
+.kahana-cta--primary:hover,
+.kahana-cta--primary:visited,
+.kahana-cta--primary:active {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  opacity: 0.92;
+}
+
+.kahana-cta--secondary:hover,
+.kahana-cta--secondary:visited,
+.kahana-cta--secondary:active {
+  color: var(--oasis-green-darkest, #1b4332) !important;
+  background: #f0f7f4;
+  text-decoration: none !important;
 }
 
 .kahana-hero-secondary-links {
