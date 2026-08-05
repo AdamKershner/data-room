@@ -6,40 +6,24 @@
   max-width: 52rem;
 }
 
-.sop-index-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.sop-card-meta {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #64748b;
 }
 
-.sop-index-list a {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 10px;
-  padding: 12px 16px;
-  border-radius: 8px;
-  border: 1px solid #d4e8dc;
-  background: #f7faf3;
-  color: #1e293b;
-  text-decoration: none;
-  font-weight: 500;
+.sop-back-banner {
+  margin: 0 0 20px;
 }
 
-.sop-index-list a:hover {
-  border-color: var(--oasis-green-medium, #7a9200);
-  background: #eef5e6;
-}
-
-.sop-index-num {
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+.sop-back-banner a {
+  font-weight: 600;
   color: var(--oasis-green-dark, #495800);
+  text-decoration: none;
+}
+
+.sop-back-banner a:hover {
+  text-decoration: underline;
 }
 
 .sop-doc {
@@ -56,6 +40,14 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--oasis-green-dark, #495800);
+}
+
+.sop-detail-title {
+  margin: 0 0 16px;
+  font-size: 1.75rem;
+  color: #1e293b;
+  border: none;
+  padding: 0;
 }
 
 .sop-doc-header h2 {
@@ -92,10 +84,12 @@
   margin-top: 28px;
 }
 
-.sop-section h3 {
+.sop-section h2 {
   margin: 0 0 12px;
   font-size: 1.15rem;
   color: var(--oasis-green-dark, #495800);
+  border: none;
+  padding: 0;
 }
 
 .sop-section-intro {
@@ -136,10 +130,12 @@
   border: 1px solid #d4e8dc;
 }
 
-.sop-done-when h3 {
+.sop-done-when h2 {
   margin: 0 0 12px;
   font-size: 1.1rem;
   color: #1e293b;
+  border: none;
+  padding: 0;
 }
 
 .sop-done-list {

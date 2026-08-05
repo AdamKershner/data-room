@@ -1,54 +1,29 @@
-import React from 'react'
-import { SOP_PAGE, SOPS } from '../data/sopContent'
+import React, { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { SOP_PAGE, SOP_CATEGORIES, SOPS, sopMatchesQuery } from '../data/sopContent'
+import { formatCardTitle } from '../utils/formatCardTitle'
 import './Page.css'
+import './KnowledgeBase.css'
 import './Sops.css'
 
-function SopDoc({ sop }) {
-  return (
-    <article className="sop-doc" id={sop.id}>
-      <header className="sop-doc-header">
-        <p className="sop-doc-eyebrow">SOP {sop.number}</p>
-        <h2>{sop.title}</h2>
-        <dl className="sop-meta">
-          <div>
-            <dt>Who</dt>
-            <dd>{sop.who}</dd>
-          </div>
-          <div>
-            <dt>When</dt>
-            <dd>{sop.when}</dd>
-          </div>
-        </dl>
-      </header>
-
-      {sop.sections.map((section) => (
-        <section key={section.id} className="sop-section" id={`${sop.id}-${section.id}`}>
-          <h3>{section.title}</h3>
-          {section.intro && <p className="sop-section-intro">{section.intro}</p>}
-          <ol className="sop-steps">
-            {section.steps.map((step, i) => (
-              <li key={`${section.id}-${i}`}>
-                <p>{step.text}</p>
-                {step.note && <p className="sop-step-note">{step.note}</p>}
-              </li>
-            ))}
-          </ol>
-        </section>
-      ))}
-
-      <section className="sop-done-when" id={`${sop.id}-done-when`}>
-        <h3>Done when</h3>
-        <ul className="sop-done-list">
-          {sop.doneWhen.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </section>
-    </article>
-  )
-}
-
 function Sops() {
+  const [categoryFilter, setCategoryFilter] = useState('all')
+  const [search, setSearch] = useState('')
+
+  const countsByCategory = useMemo(() => {
+    const m = { all: SOPS.length }
+    SOP_CATEGORIES.forEach((c) => {
+      m[c] = SOPS.filter((s) => s.category === c).length
+    })
+    return m
+  }, [])
+
+  const filtered = useMemo(() => {
+    const pool =
+      categoryFilter === 'all' ? SOPS : SOPS.filter((s) => s.category === categoryFilter)
+    return pool.filter((s) => sopMatchesQuery(s, search))
+  }, [categoryFilter, search])
+
   return (
     <div className="page sops-page" id="sops">
       <div className="page-header">
@@ -56,25 +31,74 @@ function Sops() {
         <p className="page-subtitle">{SOP_PAGE.subtitle}</p>
       </div>
 
-      <section className="page-section sop-index">
-        <h2>SOP index</h2>
-        <ul className="sop-index-list">
-          {SOPS.map((sop) => (
-            <li key={sop.id}>
-              <a href={`#${sop.id}`}>
-                <span className="sop-index-num">SOP {sop.number}</span>
-                {sop.title}
-              </a>
-            </li>
-          ))}
-        </ul>
+      <section className="page-section kb-filters">
+        <div className="content-block">
+          <div className="kb-filter-row">
+            <div className="kb-filter-group">
+              <span className="kb-filter-group-label">Category</span>
+              <div className="kb-filter-buttons" role="group" aria-label="Filter by SOP category">
+                <button
+                  type="button"
+                  className={`kb-filter-btn ${categoryFilter === 'all' ? 'kb-filter-btn--active' : ''}`}
+                  onClick={() => setCategoryFilter('all')}
+                >
+                  All ({countsByCategory.all})
+                </button>
+                {SOP_CATEGORIES.map((cat) => (
+                  <button
+                    key={cat}
+                    type="button"
+                    className={`kb-filter-btn ${categoryFilter === cat ? 'kb-filter-btn--active' : ''}`}
+                    onClick={() => setCategoryFilter(cat)}
+                  >
+                    {cat} ({countsByCategory[cat]})
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="kb-filter-group kb-search-group">
+              <label htmlFor="sops-search">Search</label>
+              <input
+                id="sops-search"
+                type="search"
+                className="kb-search-input"
+                placeholder="Search SOPs by title, topic, or keyword…"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                autoComplete="off"
+              />
+            </div>
+          </div>
+        </div>
       </section>
 
-      {SOPS.map((sop) => (
-        <section key={sop.id} className="page-section">
-          <SopDoc sop={sop} />
-        </section>
-      ))}
+      <section className="page-section">
+        <div className="content-block">
+          <div className="kb-grid">
+            {filtered.map((sop) => (
+              <Link
+                key={sop.id}
+                to={`/sops/${sop.id}`}
+                className="kb-card"
+                aria-label={`SOP ${sop.number}: ${sop.title}`}
+              >
+                <span className="kb-card-category">{sop.category}</span>
+                <span className="kb-card-title" title={sop.title}>
+                  {formatCardTitle(`SOP ${sop.number}: ${sop.title}`)}
+                </span>
+                <span className="kb-card-desc">{sop.description}</span>
+                <span className="sop-card-meta">
+                  Who: {sop.who}
+                </span>
+                <span className="kb-card-path">/sops/{sop.id}</span>
+              </Link>
+            ))}
+          </div>
+          {filtered.length === 0 && (
+            <p className="kb-empty">No SOPs match your search. Try another keyword or set category to All.</p>
+          )}
+        </div>
+      </section>
     </div>
   )
 }

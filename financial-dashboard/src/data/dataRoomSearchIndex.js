@@ -182,7 +182,7 @@ const EXTRA_SEARCH_ENTRIES = [
     title: 'SOPs',
     businessFunction: 'SOPs',
     description:
-      'Standard operating procedures for hosting book and video clubs — setup, reading lists, cycles, and done-when checks.',
+      'Standard operating procedures for hosting book and video clubs — searchable gallery with full procedure pages.',
     keywords: [
       'sop',
       'sops',

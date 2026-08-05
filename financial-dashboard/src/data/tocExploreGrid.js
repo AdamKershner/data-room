@@ -68,7 +68,7 @@ export const TOC_EXPLORE_ITEMS = [
     path: '/sops',
     title: 'SOPs',
     description:
-      'Standard operating procedures for hosting book and video clubs and other recurring product work.',
+      'Searchable gallery of standard operating procedures for hosting book and video clubs and other product ops.',
   },
   {
     path: '/project-charter',

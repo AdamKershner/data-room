@@ -391,8 +391,9 @@ function StepSops() {
       </p>
 
       <p>
-        Clubs are how we grow on Kahana. SOP 1 walks through creating a club, writing a clear description,
-        choosing join mode and visibility, building a reading list, and running cycles.
+        Clubs are how we grow on Kahana. The SOPs gallery lists procedures as searchable cards — open SOP 1
+        for creating a club, writing a clear description, choosing join mode and visibility, building a reading
+        list, and running cycles.
       </p>
 
       <h3>What to do</h3>
@@ -401,11 +402,11 @@ function StepSops() {
           Open{' '}
           <Link to="/sops" className="onboarding-inline-link">
             Standard Operating Procedures
-          </Link>
-          .
+          </Link>{' '}
+          and skim the gallery.
         </li>
         <li>
-          Read <strong>SOP 1: Running a Book Club or Video Club</strong> — Setup and Managing a club over time.
+          Open <strong>SOP 1: Running a Book Club or Video Club</strong> — Setup and Managing a club over time.
         </li>
         <li>Skim the Done when checklist so you know what “club ready” means.</li>
         <li>

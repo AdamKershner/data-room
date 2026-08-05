@@ -1,13 +1,16 @@
 /**
  * Standard Operating Procedures — team-facing product ops guides.
- * Add new SOPs to the SOPS array; the page renders the index + full bodies.
+ * /sops is a searchable gallery; /sops/:sopId shows the full procedure.
  */
 
 export const SOP_PAGE = {
   title: 'Standard Operating Procedures',
   subtitle:
-    'Step-by-step guides for hosting clubs and other recurring product work on Kahana. Start with SOP 1 when you run a book or video club.',
+    'Searchable guides for hosting clubs and other recurring product work on Kahana. Open a card to read the full procedure.',
 }
+
+/** Categories used for gallery filters (order matters). */
+export const SOP_CATEGORIES = ['Clubs']
 
 /** @typedef {{ text: string, note?: string }} SopStep */
 
@@ -16,6 +19,9 @@ export const SOP_PAGE = {
  * @property {string} id
  * @property {number} number
  * @property {string} title
+ * @property {string} category
+ * @property {string} description
+ * @property {string[]} [keywords]
  * @property {string} who
  * @property {string} when
  * @property {{ id: string, title: string, intro?: string, steps: SopStep[] }[]} sections
@@ -28,6 +34,22 @@ export const SOPS = [
     id: 'running-a-book-or-video-club',
     number: 1,
     title: 'Running a Book Club or Video Club',
+    category: 'Clubs',
+    description:
+      'Create a club, set theme and frequency in the description, choose join mode and visibility, then run reading-list cycles with feed, events, and Aura.',
+    keywords: [
+      'book club',
+      'video club',
+      'create club',
+      'my clubs',
+      'reading list',
+      'join mode',
+      'visibility',
+      'feed',
+      'events',
+      'aura',
+      'host',
+    ],
     who: 'Any team member hosting a club',
     when: 'Once at setup, then ongoing for every new title.',
     sections: [
@@ -107,3 +129,30 @@ export const SOPS = [
     ],
   },
 ]
+
+export function getSopById(sopId) {
+  return SOPS.find((s) => s.id === sopId) ?? null
+}
+
+export function sopMatchesQuery(sop, query) {
+  const q = query.trim().toLowerCase()
+  if (!q) return true
+  const hay = [
+    sop.title,
+    `SOP ${sop.number}`,
+    sop.category,
+    sop.description,
+    sop.who,
+    sop.when,
+    ...(sop.keywords ?? []),
+    ...sop.sections.flatMap((section) => [
+      section.title,
+      section.intro ?? '',
+      ...section.steps.map((step) => `${step.text} ${step.note ?? ''}`),
+    ]),
+    ...sop.doneWhen,
+  ]
+    .join(' ')
+    .toLowerCase()
+  return hay.includes(q)
+}

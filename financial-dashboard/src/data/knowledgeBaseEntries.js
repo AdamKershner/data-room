@@ -135,7 +135,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'SOPs',
     category: 'SOPs',
     description:
-      'Standard operating procedures — hosting book and video clubs, setup, cycles, and done-when checklists.',
+      'Searchable gallery of standard operating procedures — hosting book and video clubs, setup, cycles, and done-when checklists.',
     keywords: [
       'sop',
       'sops',
