@@ -178,6 +178,34 @@ const EXTRA_SEARCH_ENTRIES = [
     ],
   },
   {
+    path: '/sops',
+    title: 'SOPs',
+    businessFunction: 'Product',
+    description:
+      'Standard operating procedures for hosting book and video clubs — setup, reading lists, cycles, and done-when checks.',
+    keywords: [
+      'sop',
+      'sops',
+      'standard operating procedures',
+      'book club',
+      'video club',
+      'create club',
+      'reading list',
+      'my clubs',
+      'join mode',
+      'visibility',
+      'aura',
+      'feed',
+      'events',
+    ],
+    nlHints: [
+      'how do I start a book club',
+      'how to run a video club',
+      'club setup on kahana',
+      'standard operating procedures',
+    ],
+  },
+  {
     path: '/project-charter',
     title: 'Project Charter',
     businessFunction: 'Product',
@@ -331,6 +359,7 @@ function primaryNavExtras() {
 function inferBusinessFunctionFromPath(path) {
   if (path === '/archive') return 'Finance'
   if (path === '/how-we-work' || path === '/operating-system') return 'Technical'
+  if (path === '/sops') return 'Product'
   if (path === '/project-charter') return 'Product'
   if (path === '/nps' || path === '/hitl') return 'Product'
   if (path === '/onboarding') return 'HR'

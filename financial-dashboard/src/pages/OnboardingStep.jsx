@@ -370,8 +370,56 @@ function StepHowWeWork() {
         <Link to="/how-we-work" className="onboarding-cta-link">
           Open How We Work →
         </Link>
-        <Link to="/onboarding/company-landscape" className="onboarding-cta-link">
-          Back to Company Landscape →
+        <Link to="/onboarding/sops" className="onboarding-cta-link">
+          Next: SOPs →
+        </Link>
+      </div>
+    </div>
+  )
+}
+
+function StepSops() {
+  return (
+    <div className="onboarding-step-content">
+      <p className="onboarding-step-done onboarding-step-done-top">
+        <strong>✓ Done when:</strong> You&apos;ve opened{' '}
+        <Link to="/sops" className="onboarding-inline-link">
+          SOPs
+        </Link>
+        , read SOP 1 (Running a Book Club or Video Club), and can state theme, frequency, join mode, and
+        visibility for a club you might host.
+      </p>
+
+      <p>
+        Clubs are how we grow on Kahana. SOP 1 walks through creating a club, writing a clear description,
+        choosing join mode and visibility, building a reading list, and running cycles.
+      </p>
+
+      <h3>What to do</h3>
+      <ol className="onboarding-steps-list">
+        <li>
+          Open{' '}
+          <Link to="/sops" className="onboarding-inline-link">
+            Standard Operating Procedures
+          </Link>
+          .
+        </li>
+        <li>
+          Read <strong>SOP 1: Running a Book Club or Video Club</strong> — Setup and Managing a club over time.
+        </li>
+        <li>Skim the Done when checklist so you know what “club ready” means.</li>
+        <li>
+          Note that SOP 3 (choosing what the club reads) and SOP 5 (logging feedback) are referenced and coming
+          soon.
+        </li>
+      </ol>
+
+      <div className="onboarding-cta-row">
+        <Link to="/sops" className="onboarding-cta-link">
+          Open SOPs →
+        </Link>
+        <Link to="/onboarding/project-charter" className="onboarding-cta-link">
+          Next: Project Charter →
         </Link>
       </div>
     </div>
@@ -413,8 +461,8 @@ function StepProjectCharter() {
         <Link to="/project-charter" className="onboarding-cta-link">
           Open Project Charter →
         </Link>
-        <Link to="/onboarding/how-we-work" className="onboarding-cta-link">
-          Back to How We Work →
+        <Link to="/onboarding/sops" className="onboarding-cta-link">
+          Back to SOPs →
         </Link>
       </div>
     </div>
@@ -1266,6 +1314,7 @@ const STEP_CONTENT = {
   'company-landscape': StepCompanyLandscapeOnboarding,
   'battlecards': StepCompanyLandscapeOnboarding,
   'how-we-work': StepHowWeWork,
+  'sops': StepSops,
   'project-charter': StepProjectCharter,
   'explore-aura-library': StepExploreAuraLibrary,
   'time-log': StepTimeLog,

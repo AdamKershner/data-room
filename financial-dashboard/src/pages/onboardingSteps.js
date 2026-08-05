@@ -106,6 +106,14 @@ export const ONBOARDING_STEPS = [
     badge: '15 min',
   },
   {
+    id: 'sops',
+    label: 'Read SOPs (Book & Video Clubs)',
+    icon: 'book',
+    category: 'Product',
+    day: 2,
+    badge: '15 min',
+  },
+  {
     id: 'project-charter',
     label: 'Read the Project Charter',
     icon: 'clipboard',

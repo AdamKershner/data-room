@@ -25,6 +25,7 @@ export const ROLE_TAG_LABELS = {
   streaming: 'Streaming (Series/Films)',
   'newsletter-writing': 'Newsletter / Writing',
   'knowledge-reference': 'Knowledge / Reference',
+  'discovery-search': 'Discovery / Search',
   ebook: 'Ebook / Reading',
   'short-form': 'Short-Form Video',
   'long-form': 'Long-Form Video',
@@ -47,6 +48,10 @@ export const LANDSCAPE_CATEGORY_OVERRIDES = {
     secondaryFragmentIds: ['ebook-reading'],
   },
   'guild-education': { primaryFragmentId: 'courses-learning' },
+  'nas-io': {
+    primaryFragmentId: 'messaging-community',
+    secondaryFragmentIds: ['courses-learning', 'creator-monetization', 'online-storefront'],
+  },
 
   // Dual-role clarity
   skool: {
@@ -90,6 +95,38 @@ export const LANDSCAPE_CATEGORY_OVERRIDES = {
     secondaryFragmentIds: ['online-storefront'],
   },
   'facebook-reels': { primaryFragmentId: 'short-form-video' },
+  snapchat: {
+    primaryFragmentId: 'short-form-video',
+    secondaryFragmentIds: ['messaging-community'],
+  },
+  linkedin: { primaryFragmentId: 'messaging-community' },
+  bluesky: { primaryFragmentId: 'messaging-community' },
+  x: { primaryFragmentId: 'messaging-community' },
+  reddit: { primaryFragmentId: 'messaging-community' },
+  quora: { primaryFragmentId: null, secondaryFragmentIds: [] },
+  pinterest: {
+    primaryFragmentId: 'messaging-community',
+    secondaryFragmentIds: ['digital-marketplaces', 'online-storefront'],
+  },
+  tumblr: {
+    primaryFragmentId: 'messaging-community',
+    secondaryFragmentIds: ['newsletters-written'],
+  },
+  wechat: {
+    primaryFragmentId: 'messaging-community',
+    secondaryFragmentIds: ['digital-marketplaces', 'online-storefront'],
+  },
+  line: { primaryFragmentId: 'messaging-community' },
+  weibo: {
+    primaryFragmentId: 'messaging-community',
+    secondaryFragmentIds: ['newsletters-written'],
+  },
+  'google-search': { primaryFragmentId: null, secondaryFragmentIds: [] },
+  'youtube-podcasts': {
+    primaryFragmentId: 'audio-listening',
+    secondaryFragmentIds: ['long-form-video'],
+  },
+  'tiktok-music': { primaryFragmentId: 'audio-listening' },
 }
 
 /**
@@ -106,6 +143,20 @@ export const LANDSCAPE_INCLUDE_IDS = [
   // Community
   'heartbeat',
   'higher-logic',
+  'nas-io',
+  'linkedin',
+  'bluesky',
+  'x',
+  'reddit',
+  'quora',
+  'pinterest',
+  'tumblr',
+  'wechat',
+  'line',
+  'weibo',
+  'google-search',
+  'youtube-podcasts',
+  'tiktok-music',
   // Courses
   'edx',
   'domestika',
@@ -288,6 +339,124 @@ export const LANDSCAPE_EXTRA_COMPANIES = [
       'Employer education-benefits platform connecting companies, workers, and learning providers for tuition-funded upskilling and career pathways.',
     primaryFragmentId: 'courses-learning',
   },
+  {
+    id: 'nas-io',
+    name: 'Nas.io / Nas.com',
+    website: 'https://nas.com',
+    description:
+      'AI-powered platform for creators to launch and monetize communities, memberships, courses, events, and digital products — often layered on WhatsApp, Discord, and Telegram.',
+    primaryFragmentId: 'messaging-community',
+    secondaryFragmentIds: ['courses-learning', 'creator-monetization', 'online-storefront'],
+  },
+  {
+    id: 'linkedin',
+    name: 'LinkedIn',
+    website: 'https://www.linkedin.com',
+    description:
+      'Microsoft-owned professional social network for profiles, company pages, content, jobs, messaging, and B2B advertising.',
+    primaryFragmentId: 'messaging-community',
+  },
+  {
+    id: 'bluesky',
+    name: 'Bluesky',
+    website: 'https://bsky.social',
+    description:
+      'Decentralized microblogging network on the AT Protocol — portable identity, custom feeds, and modular moderation.',
+    primaryFragmentId: 'messaging-community',
+  },
+  {
+    id: 'x',
+    name: 'X (formerly Twitter)',
+    website: 'https://x.com',
+    description:
+      'Global microblogging and social network for short posts, media, and live public conversation across news, entertainment, sports, and politics.',
+    primaryFragmentId: 'messaging-community',
+  },
+  {
+    id: 'reddit',
+    name: 'Reddit',
+    website: 'https://www.reddit.com',
+    description:
+      'Community-based social network of topic-focused subreddits where posts and comments are ranked by votes.',
+    primaryFragmentId: 'messaging-community',
+  },
+  {
+    id: 'quora',
+    name: 'Quora',
+    website: 'https://www.quora.com',
+    description:
+      'Question-and-answer platform for sharing knowledge through long-form answers, topics, Spaces, and business profiles.',
+    primaryFragmentId: null,
+  },
+  {
+    id: 'pinterest',
+    name: 'Pinterest',
+    website: 'https://www.pinterest.com',
+    description:
+      'Visual search and discovery platform for inspiration, planning, and shopping via Pins, boards, and shoppable product catalogs.',
+    primaryFragmentId: 'messaging-community',
+    secondaryFragmentIds: ['digital-marketplaces', 'online-storefront'],
+  },
+  {
+    id: 'tumblr',
+    name: 'Tumblr',
+    website: 'https://www.tumblr.com',
+    description:
+      'Microblogging and social media platform for multimedia posts, reblogs, and creative / fandom communities.',
+    primaryFragmentId: 'messaging-community',
+    secondaryFragmentIds: ['newsletters-written'],
+  },
+  {
+    id: 'wechat',
+    name: 'WeChat / Weixin',
+    website: 'https://www.wechat.com',
+    description:
+      'Tencent super-app (Weixin in China, WeChat internationally) combining messaging, social, payments, commerce, and mini-programs.',
+    primaryFragmentId: 'messaging-community',
+    secondaryFragmentIds: ['digital-marketplaces', 'online-storefront'],
+  },
+  {
+    id: 'line',
+    name: 'LINE',
+    website: 'https://line.me',
+    description:
+      'Japan’s leading messaging and social app — chat, calls, Stories, stickers, and LINE Pay for 100M+ monthly active users.',
+    primaryFragmentId: 'messaging-community',
+  },
+  {
+    id: 'weibo',
+    name: 'Weibo',
+    website: 'https://weibo.com',
+    description:
+      'China’s major microblogging social network (Sina Weibo) — short posts, media, live streams, and public conversation at scale.',
+    primaryFragmentId: 'messaging-community',
+    secondaryFragmentIds: ['newsletters-written'],
+  },
+  {
+    id: 'google-search',
+    name: 'Google Search',
+    website: 'https://www.google.com',
+    description:
+      'Dominant web search engine — crawl, index, and serve results across pages, images, and video, increasingly with AI overviews and multimodal search.',
+    primaryFragmentId: null,
+  },
+  {
+    id: 'youtube-podcasts',
+    name: 'YouTube Podcasts',
+    website: 'https://www.youtube.com/podcasts',
+    description:
+      'Podcast shows as YouTube playlists/episodes, distributed on YouTube and YouTube Music with Partner Program monetization.',
+    primaryFragmentId: 'audio-listening',
+    secondaryFragmentIds: ['long-form-video'],
+  },
+  {
+    id: 'tiktok-music',
+    name: 'TikTok Music',
+    website: 'https://www.tiktok.com',
+    description:
+      'Former standalone TikTok music streaming app (2023–2024); strategy now centers on in-app music tools rather than a separate streamer.',
+    primaryFragmentId: 'audio-listening',
+  },
 ]
 
 /** @type {Record<string, SizeTier>} */
@@ -316,6 +485,20 @@ export const COMPANY_SIZE_TIER = {
   signal: 'niche',
   heartbeat: 'challenger',
   'higher-logic': 'challenger',
+  'nas-io': 'challenger',
+  linkedin: 'incumbent',
+  bluesky: 'challenger',
+  x: 'incumbent',
+  reddit: 'incumbent',
+  quora: 'challenger',
+  pinterest: 'incumbent',
+  tumblr: 'challenger',
+  wechat: 'incumbent',
+  line: 'incumbent',
+  weibo: 'incumbent',
+  'google-search': 'incumbent',
+  'youtube-podcasts': 'incumbent',
+  'tiktok-music': 'niche',
 
   // Courses
   coursera: 'incumbent',
@@ -391,7 +574,7 @@ export const COMPANY_SIZE_TIER = {
   instagram: 'incumbent',
   'youtube-shorts': 'incumbent',
   'facebook-reels': 'challenger',
-  snapchat: 'challenger',
+  snapchat: 'incumbent',
   triller: 'niche',
   likee: 'niche',
 
@@ -415,6 +598,8 @@ export const COMPANY_ROLE_TAG = {
   'amazon-music': 'audio',
   'youtube-music': 'audio',
   scribd: 'audio',
+  'youtube-podcasts': 'audio',
+  'tiktok-music': 'audio',
 
   discord: 'community-messaging',
   whatsapp: 'community-messaging',
@@ -431,6 +616,17 @@ export const COMPANY_ROLE_TAG = {
   signal: 'community-messaging',
   heartbeat: 'community-messaging',
   'higher-logic': 'community-messaging',
+  'nas-io': 'community-messaging',
+  linkedin: 'community-messaging',
+  bluesky: 'community-messaging',
+  x: 'community-messaging',
+  reddit: 'community-messaging',
+  quora: 'knowledge-reference',
+  pinterest: 'community-messaging',
+  tumblr: 'community-messaging',
+  wechat: 'community-messaging',
+  line: 'community-messaging',
+  weibo: 'community-messaging',
 
   coursera: 'course-learning',
   udemy: 'course-learning',
@@ -509,6 +705,7 @@ export const COMPANY_ROLE_TAG = {
   hypage: 'storefront-commerce',
 
   wikipedia: 'knowledge-reference',
+  'google-search': 'discovery-search',
   curios: 'storefront-commerce',
 }
 

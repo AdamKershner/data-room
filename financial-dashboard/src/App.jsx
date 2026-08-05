@@ -18,6 +18,7 @@ import FinancialPlan from './pages/FinancialPlan'
 import TeamExecution from './pages/TeamExecution'
 import OasisSprintsArchive from './pages/OasisSprintsArchive'
 import OperatingSystem from './pages/OperatingSystem'
+import Sops from './pages/Sops'
 import KahanaNarrative from './pages/KahanaNarrative'
 import MarketSize from './pages/MarketSize'
 import WeeklyReports from './pages/WeeklyReports'
@@ -84,6 +85,7 @@ function App() {
           <Route path="/sprints" element={<Navigate to="/archive/oasis-sprints" replace />} />
           <Route path="/how-we-work" element={<OperatingSystem />} />
           <Route path="/operating-system" element={<Navigate to="/how-we-work" replace />} />
+          <Route path="/sops" element={<Sops />} />
           <Route path="/technical-roadmap" element={<Navigate to="/" replace />} />
           <Route path="/kahana-competitors" element={<Navigate to="/company-landscape" replace />} />
           <Route path="/kahana-narrative" element={<KahanaNarrative />} />

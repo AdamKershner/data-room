@@ -255,8 +255,7 @@ function CompanyLandscape() {
         {researchedCount > 0 && (
           <p className="battlecards-wip-note">
             {researchedCount} companies have enhanced research (description, scale, benefits,
-            weaknesses). Landscape research coverage is effectively complete, including Curios
-            (author storefront) and Guild Education (separate from guild.so).
+            weaknesses). Landscape research coverage complete, including Nas.io / Nas.com.
           </p>
         )}
       </div>

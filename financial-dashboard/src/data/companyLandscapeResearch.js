@@ -4952,56 +4952,61 @@ export const COMPANY_LANDSCAPE_RESEARCH = {
 
   snapchat: {
     tagline:
-      '“Snapchat Spotlight is Snap’s short-form video feed, built into the Snapchat app, showcasing vertical, music-enhanced snaps from creators to a broad audience.”',
+      '“Snapchat is a camera-based social networking app built around ephemeral photos and videos, lenses and filters, and chat, with Discover and Spotlight surfaces for creator and brand content.”',
     scaleFacts: [
-      'Spotlight launched November 2020 to compete with TikTok and Instagram Reels.',
-      'Short vertical videos up to 60 seconds with music, filters, and lenses.',
-      'Housed in Snapchat (~900M MAUs); content can reach millions without a large following; targets the youngest demographic among major short-form apps.',
-      'Moderated content; Spotlight does not allow public comments to reduce toxicity.',
+      'Camera-first social app: Snaps and chats disappear after viewing or after 24 hours in Stories — ephemeral model later copied by other platforms.',
+      '≈98% of revenue from advertising (Snap Ads, Story Ads, Collection Ads, sponsored lenses/filters); remaining from hardware like Spectacles.',
+      'Spotlight (launched Nov 2020): short vertical videos up to 60 seconds with music/effects; can reach millions without a large following; no public comments.',
+      'Snapchat Business accounts unlock ads, AR Lens creation, and Insights (Story views, view time, completion, demographics). Platform often cited ~900M MAUs with a young demographic skew.',
     ],
     benefits: [
       {
-        title: 'Built into a highly active messaging app',
+        title: 'Highly engaging, visual-first communication',
         detail:
-          'Rides Snapchat’s huge youth user base — strong for Gen Z content and ephemeral culture.',
+          'Camera-centric UX, filters, lenses, and stickers make interactive content easy — strong for youth engagement and creative storytelling.',
       },
       {
-        title: 'Discovery beyond follower graph',
+        title: 'Ephemeral content reduces posting anxiety',
         detail:
-          'Like TikTok, Spotlight can push content to non-followers — small creators can go viral.',
+          'Temporary Snaps/Stories encourage authentic, low-stakes sharing vs permanent feeds.',
       },
       {
-        title: 'Creative tools (filters, lenses, AR)',
+        title: 'Discover and Spotlight for reach',
         detail:
-          'AR filters and lenses make Spotlight visually rich for playful, creative short-form.',
+          'Brand and creator content can appear beyond direct connections via Discover and Spotlight.',
       },
       {
-        title: 'Moderation and reduced comment toxicity',
+        title: 'Robust ad and AR ecosystem',
         detail:
-          'No public comments plus moderation can feel safer than fully open comment platforms.',
+          'AR lenses and creative ad formats plus Insights give marketers distinctive formats and performance data.',
       },
     ],
     weaknesses: [
       {
-        title: 'Less robust channel/brand infrastructure',
+        title: 'Ephemerality can hinder long-form discovery',
         detail:
-          'Ephemeral-messaging roots — weaker evergreen channel infrastructure than YouTube or TikTok.',
+          'Great for chat and moments; weaker for evergreen learning, deep series, or archives.',
       },
       {
-        title: 'Monetization pathways less clear',
+        title: 'Ad-heavy model and attention fragmentation',
         detail:
-          'Creator funds/incentives exist, but long-term monetization is less transparent than YouTube Partner Program.',
+          'Ad reliance pushes high-volume attention-grabbing content — less conducive to focused consumption.',
+      },
+      {
+        title: 'Complex UX for non-native users',
+        detail:
+          'Intuitive for younger users; can confuse older or less tech-savvy audiences.',
       },
       {
         title: 'Limited external discoverability',
         detail:
-          'Lives inside Snapchat — content isn’t easily searchable or embeddable across the web.',
+          'Content lives inside Snapchat — not easily searchable or embeddable across the web.',
       },
     ],
     sources: [
+      'https://thinkinsights.net/digital/snapchat-business-model',
+      'https://sproutsocial.com/insights/snapchat-marketing-guide/',
       'https://www.investopedia.com/snap-rolls-out-new-video-platform-5088878',
-      'https://www.imagine.art/blogs/short-form-video-platforms',
-      'https://www.conbersa.ai/learn/short-form-video-apps',
       'https://www.snapchat.com/',
     ],
   },
@@ -5267,6 +5272,805 @@ export const COMPANY_LANDSCAPE_RESEARCH = {
       'https://www.onlineeducation.com/features/companies-with-education-benefits-guild',
       'https://scholarships360.org/financial-aid/guild-education/',
       'https://myjourney.guildeducation.com/',
+    ],
+  },
+
+  'nas-io': {
+    tagline:
+      '“Nas.io (Nas.com) is an AI-powered platform that helps creators and entrepreneurs build and monetize digital communities by launching memberships, courses, events, and digital products — all tied into messaging apps like WhatsApp, Discord, and Telegram.”',
+    scaleFacts: [
+      'Part of Nas Company (Nas Daily, Nas.com, Nas House, etc.) — ecosystem reaching ≈300M people globally each month.',
+      'Materials cite 200K+ users building digital businesses and ≈350K people across 150+ countries selling on Nas.com.',
+      'Positioned as the “fastest way to build a digital business using AI” — memberships, courses, events, challenges, storefront/checkout (Stripe), AI ideation, email/marketing automation, WhatsApp/Discord/Telegram integrations.',
+      'Pricing: Free Basic USD 0/mo with ≈7.9% transaction fee; Pro ≈USD 29–30/mo with ≈4.9% fee and priority support — no upfront cost; pay when you sell.',
+    ],
+    benefits: [
+      {
+        title: 'All-in-one creator business stack',
+        detail:
+          'Community, memberships, courses, events, digital products, and marketing automation in one place — less multi-tool sprawl.',
+      },
+      {
+        title: 'AI-powered launch and marketing',
+        detail:
+          'AI suggests offers from social presence, helps ideate products, and automates content, ads, upsells, and abandoned-cart flows.',
+      },
+      {
+        title: 'Community-first on existing chat apps',
+        detail:
+          'Monetization layered over WhatsApp, Discord, and Telegram — communities stay where members already are.',
+      },
+      {
+        title: 'Low barrier to entry and global payments',
+        detail:
+          'Free basic plan and simple setup (describe offer + photo); worldwide payments with clear revenue tracking.',
+      },
+      {
+        title: 'Suited for diverse use cases',
+        detail:
+          'Creators, brands, influencers, coaches, and founders can run memberships, challenges, events, and digital product businesses.',
+      },
+    ],
+    weaknesses: [
+      {
+        title: 'Transaction-fee heavy model at scale',
+        detail:
+          '≈7.9% (Basic) / ≈4.9% (Pro) can feel expensive vs low-fee gateways or fixed-fee platforms for high-revenue creators.',
+      },
+      {
+        title: 'Complex product surface for new users',
+        detail:
+          'AI, communities, courses, events, storefronts, and campaigns can overwhelm beginners with a simple product to sell.',
+      },
+      {
+        title: 'Still emerging vs incumbents',
+        detail:
+          'Competes with Kajabi, Circle, Patreon, Shopify, etc. — ecosystem and tutorials are growing but smaller.',
+      },
+      {
+        title: 'Reliance on external messaging apps',
+        detail:
+          'Deep WhatsApp/Discord/Telegram ties mean UX and retention partly depend on those platforms.',
+      },
+    ],
+    sources: [
+      'https://nas.com/',
+      'https://www.nas.co/',
+      'https://withhimanshu.com/nas-io-review/',
+      'https://www.capterra.com/p/10011181/Nas-io/',
+      'https://help.nas.com/en/articles/6770478-how-can-i-use-nas-com',
+    ],
+  },
+
+  linkedin: {
+    tagline:
+      '“LinkedIn is a business-oriented social media platform where professionals build profiles, connect with colleagues and companies, and share content to grow their careers and businesses.”',
+    scaleFacts: [
+      'Founded 2002 (launched 2003); acquired by Microsoft in 2016 for USD 26B; HQ in Sunnyvale / Mountain View, California.',
+      'Hundreds of millions of members worldwide (1B+ registered; significant monthly actives — exact counts vary by source); professional identity vs recreational networks.',
+      'Profiles for individuals; Pages for companies/brands/institutions; feed posts, articles, newsletters, groups, messaging, jobs, ads, events, and learning content.',
+      'Free membership plus premium SKUs (Premium Career, Sales Navigator, Recruiter) and advertising — premium unlocks more views, InMail, filters, and analytics.',
+    ],
+    benefits: [
+      {
+        title: 'Professional identity and networking hub',
+        detail:
+          'Living resume and networking platform — central for hiring, recruiting, B2B sales, and career building.',
+      },
+      {
+        title: 'Content and thought leadership',
+        detail:
+          'Posts, articles, newsletters, and events help professionals and companies build audience and authority.',
+      },
+      {
+        title: 'Robust B2B advertising and targeting',
+        detail:
+          'Ads and Pages can target by industry, role, seniority, and skills — strong for B2B marketing.',
+      },
+      {
+        title: 'Company Pages and employer branding',
+        detail:
+          'Organizations use Pages, Showcase Pages, and education pages for brand, jobs, and culture.',
+      },
+    ],
+    weaknesses: [
+      {
+        title: 'Feed noise and engagement quality',
+        detail:
+          'Increasingly filled with generic or non-professional content — signal-to-noise can be low for thought leadership.',
+      },
+      {
+        title: 'Premium cost and complexity',
+        detail:
+          'Advanced features sit behind multiple premium SKUs that can be confusing and costly.',
+      },
+      {
+        title: 'Limited deep community features',
+        detail:
+          'Groups and events exist, but Discord, Circle, and Mighty Networks offer richer ongoing community tools.',
+      },
+    ],
+    sources: [
+      'https://www.britannica.com/money/LinkedIn',
+      'https://business.linkedin.com/advertise/linkedin-pages',
+      'https://www.linkedin.com/help/linkedin/answer/a6204405',
+      'https://www.linkedin.com/',
+    ],
+  },
+
+  bluesky: {
+    tagline:
+      '“Bluesky is a decentralized microblogging social network built on the AT Protocol, designed as a public conversation platform where users control their experience, identities, and moderation across interoperable apps.”',
+    scaleFacts: [
+      'Operated by Bluesky Social PBC (US public benefit corporation); reference implementation of the open AT Protocol for distributed social networks.',
+      'Microblogging similar to X/Twitter — short posts with text, images, and video via bsky.social and apps; one account as a shared identity across the social internet.',
+      'AT Protocol is open source; multiple apps can plug into the same protocol for portable identities, follows, and content.',
+      'Users can subscribe to independent moderation services and personalized algorithmic feeds from different providers.',
+    ],
+    benefits: [
+      {
+        title: 'User-controlled identity and experience',
+        detail:
+          'Account and social graph can move across apps on AT Protocol — not locked into a single company’s product.',
+      },
+      {
+        title: 'Transparent, open-source stack',
+        detail:
+          'Public code and protocol enable oversight and new apps (long-form, short-form, etc.) using Bluesky accounts.',
+      },
+      {
+        title: 'Modular moderation and feeds',
+        detail:
+          'Choose moderation services and feed algorithms to tailor what you see and how content is filtered.',
+      },
+      {
+        title: 'Familiar microblogging UX',
+        detail:
+          'Posts, replies, and quotes feel like X/Twitter — easier onboarding for migrants from legacy networks.',
+      },
+    ],
+    weaknesses: [
+      {
+        title: 'Smaller user base and network effects (for now)',
+        detail:
+          'Early-stage vs major networks — creators who need reach may treat Bluesky as a secondary channel.',
+      },
+      {
+        title: 'Complex concepts for mainstream users',
+        detail:
+          'Decentralization, AT Protocol, and custom moderation/feeds are powerful but harder to explain than a single-app network.',
+      },
+      {
+        title: 'Ecosystem fragmentation risk',
+        detail:
+          'Multiple apps and moderation services can fragment experiences and norms across implementations.',
+      },
+    ],
+    sources: [
+      'https://en.wikipedia.org/wiki/Bluesky',
+      'https://bsky.social/',
+      'https://www.aspire.io/blog/a-quick-guide-to-bluesky',
+    ],
+  },
+
+  x: {
+    tagline:
+      '“X (formerly Twitter) is a global microblogging and social networking platform where people share short posts, media, and live commentary, serving the public conversation across news, entertainment, sports, and politics.”',
+    scaleFacts: [
+      'Founded March 21, 2006 in San Francisco by Jack Dorsey, Noah Glass, Biz Stone, and Evan Williams.',
+      'Acquired by Elon Musk in October 2022 for USD 44B; merged into X Corp. April 2023; rebranded Twitter → X on July 23, 2023.',
+      'Microblogging with short posts (historically 140, now 280 characters) plus images, video, and audio — among the world’s largest social platforms and most-visited sites for real-time news and culture.',
+      'Monetizes via promoted ads, follower ads, and takeover ads (trend and timeline); operates globally across major regions.',
+    ],
+    benefits: [
+      {
+        title: 'Real-time public conversation',
+        detail:
+          'Strong for breaking news, live events (sports, politics), and commentary — posts spread quickly via reposts and quotes.',
+      },
+      {
+        title: 'Global reach and influence',
+        detail:
+          'Used by journalists, politicians, brands, and creators; posts can shape discourse and media narratives.',
+      },
+      {
+        title: 'Simple, text-first format',
+        detail:
+          'Low friction to publish short posts and threads — easy for creators and communities to share updates.',
+      },
+      {
+        title: 'Advertising and brand tools',
+        detail:
+          'Promoted posts, follower campaigns, and takeovers offer high-visibility placements for brands.',
+      },
+    ],
+    weaknesses: [
+      {
+        title: 'Content risk and moderation challenges',
+        detail:
+          'Open conversation brings spam, harassment, misinformation, and polarization; moderation policy and enforcement remain contentious.',
+      },
+      {
+        title: 'Algorithm opacity and engagement incentives',
+        detail:
+          'Engagement-driven ranking can favor outrage and sensational content over nuance.',
+      },
+      {
+        title: 'Platform volatility and policy changes',
+        detail:
+          'Frequent ownership and product changes raise platform risk and uncertainty for creators and brands.',
+      },
+    ],
+    sources: [
+      'https://en.wikipedia.org/wiki/X_(social_network)',
+      'https://www.britannica.com/money/Twitter',
+      'https://about.x.com/en',
+      'https://x.com/',
+      'https://www.globaldata.com/company-profile/twitter-inc/',
+    ],
+  },
+
+  reddit: {
+    tagline:
+      '“Reddit is a community-based social network and news/entertainment site where registered users submit posts and comments into thousands of topic-focused communities (‘subreddits’), with content ranked by voting.”',
+    scaleFacts: [
+      'Founded June 23, 2005 by Steve Huffman and Alexis Ohanian; HQ San Francisco; public as Reddit, Inc. (NYSE: RDDT).',
+      'Members submit text, links, images, and video to subreddits; upvote/downvote and comment drive ranking and personalized feeds.',
+      'Advertising aimed at moments of active research and authentic conversation; Reddit Pro offers business profile tools and suggested bios.',
+      'Millions of subreddits; hundreds of millions of monthly visitors — among top US social sites (exact MAU figures vary by source).',
+    ],
+    benefits: [
+      {
+        title: 'Deep, topic-focused communities',
+        detail:
+          'Subreddits form high-intent niches (tech, hobbies, cities, professions) — strong for research, feedback, and niche discovery.',
+      },
+      {
+        title: 'Authentic, text-heavy discussion',
+        detail:
+          'Comment threads and voting produce multi-perspective discussion — useful for qualitative insight and user voice.',
+      },
+      {
+        title: 'Organic research and marketing opportunities',
+        detail:
+          'Users research and debate products/problems; brands can learn from threads, run AMAs, and advertise to engaged audiences.',
+      },
+      {
+        title: 'Reddit Pro and business tools',
+        detail:
+          'Official profiles and campaign tools help companies show verified info and run targeted campaigns.',
+      },
+    ],
+    weaknesses: [
+      {
+        title: 'Moderation variation by subreddit',
+        detail:
+          'Community-run moderation means inconsistent norms and enforcement — quality and safety vary widely.',
+      },
+      {
+        title: 'Potential hostility to overt marketing',
+        detail:
+          'Many communities dislike direct promotion — brands must focus on value and transparency.',
+      },
+      {
+        title: 'Signal-to-noise challenges',
+        detail:
+          'Threads can be long, repetitive, or personality-dominated — extracting reliable insights takes careful reading.',
+      },
+    ],
+    sources: [
+      'https://www.forbes.com/companies/reddit/',
+      'https://www.business.reddit.com/',
+      'https://redditinc.com/news/introducing-reddit-pro-profile-tools-for-businesses',
+      'https://www.reddit.com/',
+    ],
+  },
+
+  quora: {
+    tagline:
+      '“Quora is a question-and-answer platform whose mission is to ‘share and grow the world’s knowledge’ by connecting people (and AI) to ask questions, provide answers, and collaborate on solutions.”',
+    scaleFacts: [
+      'Founded 2009 in the San Francisco Bay Area; mission to share and grow the world’s knowledge / collective intelligence (people + AI).',
+      'Private company valued around USD 2B with ≈1,300 employees; organizes user-created questions and answers as internet media services.',
+      'Users ask questions; others answer with editing, comments, and votes; Topics and Spaces organize often long-form answers from experts and enthusiasts.',
+      'Business Profiles (beta) for companies to answer questions; Quora Ads / Promoted Answers target by topics, questions, and behavior.',
+    ],
+    benefits: [
+      {
+        title: 'High-intent, knowledge-focused content',
+        detail:
+          'Users search and ask specific questions — detailed answers make Quora valuable for research and learning.',
+      },
+      {
+        title: 'Long-form Q&A and expert participation',
+        detail:
+          'Encourages thoughtful answers; some domains attract experts, founders, and professionals sharing deep knowledge.',
+      },
+      {
+        title: 'SEO and evergreen visibility',
+        detail:
+          'Many answers rank in search — useful for long-tail knowledge and brand thought leadership via Business Profiles.',
+      },
+      {
+        title: 'Growing integration with AI',
+        detail:
+          'Mission language emphasizes people + AI; experimenting with AI-enhanced knowledge experiences.',
+      },
+    ],
+    weaknesses: [
+      {
+        title: 'Answer quality and reliability vary',
+        detail:
+          'Anyone can answer — quality ranges from expert-level to incorrect; readers must evaluate sources and reputations.',
+      },
+      {
+        title: 'Moderation and spam challenges',
+        detail:
+          'Spam, low-effort answers, and self-promotion can clutter topics.',
+      },
+      {
+        title: 'Less “real-time community” feel',
+        detail:
+          'More asynchronous Q&A repository than always-on community vs Reddit or Discord.',
+      },
+    ],
+    sources: [
+      'https://www.trueup.io/co/quora',
+      'https://www.quora.com/',
+      'https://www.bloomberg.com/profile/company/4529172Z:US',
+      'https://quoraadsupport.zendesk.com/hc/en-us/articles/360061083132-Create-a-Business-Profile',
+    ],
+  },
+
+  pinterest: {
+    tagline:
+      '“Pinterest is a visual search and discovery platform where people find inspiration, curate ideas, and shop products—all in a positive place online.” Mission: “To bring everyone the inspiration to create a life they love.”',
+    scaleFacts: [
+      'Founded December 2009 (launched 2010) by Ben Silbermann, Paul Sciarra, and Evan Sharp; HQ San Francisco; public on NYSE (PINS).',
+      '≈518M MAUs in Q1 2024; other cites ~578M–640M MAUs worldwide; ~1.5B Pins saved every week; 5B+ Pins saved overall.',
+      'Visual pinboards for recipes, home décor, DIY, fashion, beauty, art, education, entertainment, and event planning — users search, save, and shop with planning/purchase intent.',
+      'Primarily ad-supported: ≈USD 3.1B FY2023 / ≈USD 3.65B FY2024 revenue; roughly ~80% Sponsored Pins, ~15% ecommerce/shoppable Pins, ~5% other services.',
+    ],
+    benefits: [
+      {
+        title: 'Visual discovery engine with high commercial intent',
+        detail:
+          'Sits at the intersection of social, search, and commerce — people discover and plan purchases, so ads often feel like helpful ideas.',
+      },
+      {
+        title: 'Strong for planning and inspiration',
+        detail:
+          'Boards and Pins structure long-term projects (remodels, weddings, wardrobes, learning) beyond a scroll feed.',
+      },
+      {
+        title: 'Shopping and product discovery built-in',
+        detail:
+          'Shoppable Pins, catalogs, visual search, and merchant tools connect inspiration to checkout.',
+      },
+      {
+        title: 'Positive brand positioning and lower toxicity',
+        detail:
+          'Emphasizes a “positive place online” — content skews toward inspiration rather than outrage.',
+      },
+    ],
+    weaknesses: [
+      {
+        title: 'Less real-time, conversational community',
+        detail:
+          'Strong for discovery and planning; weaker for sync chat or threaded conversation vs Reddit, Discord, or Facebook Groups.',
+      },
+      {
+        title: 'Algorithm and ad dependence',
+        detail:
+          'Visibility depends heavily on search and recommendations — creators/merchants need pin SEO and optimization.',
+      },
+      {
+        title: 'Category skew (lifestyle-heavy)',
+        detail:
+          'Home décor, DIY, fashion, food, and beauty dominate; some professional/technical topics are less represented.',
+      },
+    ],
+    sources: [
+      'https://newsroom.pinterest.com/company/',
+      'https://umbrex.com/resources/company-profiles/pinterest/',
+      'https://en.wikipedia.org/wiki/Pinterest',
+      'https://www.pinterest.com/',
+      'https://iide.co/case-studies/business-model-of-pinterest/',
+    ],
+  },
+
+  'google-search': {
+    tagline:
+      'Google Search is a fully automated web search engine that crawls, indexes, and serves web pages, images, videos, and other content to match users’ queries, now increasingly enhanced with AI overviews and multimodal search.',
+    scaleFacts: [
+      'Founded 1998 by Larry Page and Sergey Brin; since 2015 Google is a subsidiary of Alphabet Inc.',
+      'Handles over 70% of worldwide online search requests — central to most internet users’ experience.',
+      'Search works in three stages: crawling (download text, images, video), indexing (analyze and store in a massive index), and serving results (rank and return matches).',
+      'Results are personalized by location, search history, and other data; advanced features include exact phrases, file-type and site/domain filters, and AI-powered suggestions.',
+      'New Search experiences integrate Gemini models, AI overviews, and agentic / multimodal search (text, images, video, and more).',
+    ],
+    benefits: [
+      {
+        title: 'Primary discovery engine for the entire stack',
+        detail:
+          'Users find courses, newsletters, communities, and content via Google; SEO and rich snippets deeply affect visibility across creator platforms.',
+      },
+      {
+        title: 'Multimodal, high-intent traffic',
+        detail:
+          'Supports queries from troubleshooting and how-tos to product research and local services — ideal for inbound discovery.',
+      },
+      {
+        title: 'Rich tooling for site owners',
+        detail:
+          'Search Console helps measure traffic, fix issues, and optimize visibility (clicks, impressions, indexing, errors).',
+      },
+    ],
+    weaknesses: [
+      {
+        title: 'Opaque ranking and frequent changes',
+        detail:
+          'Algorithm updates can dramatically change visibility; creators and companies must continually adapt SEO strategies.',
+      },
+      {
+        title: 'Ads and AI overviews competing with organic',
+        detail:
+          'Ads, knowledge panels, and AI overviews can push organic results lower, reducing click-through even when content ranks.',
+      },
+      {
+        title: 'Data privacy and personalization concerns',
+        detail:
+          'Heavy personalization relies on user data; some users and businesses worry about tracking and bias.',
+      },
+    ],
+    sources: [
+      'https://www.britannica.com/money/Google-Inc',
+      'https://developers.google.com/search/docs/fundamentals/how-search-works',
+      'https://search.google.com/search-console/about',
+      'https://unimelb.libguides.com/comparing-search-pathways/google-and-other-search-engines',
+      'https://search.google/',
+    ],
+  },
+
+  'youtube-podcasts': {
+    tagline:
+      'YouTube Podcasts are video or audio podcast shows hosted on YouTube channels as playlists, distributed across YouTube and YouTube Music, with discovery and monetization powered by YouTube’s search and recommendation systems.',
+    scaleFacts: [
+      'On YouTube, a podcast show is a playlist and episodes are videos in that playlist; creators can convert any playlist into a podcast or create one from YouTube Studio.',
+      'YouTube notes that over a billion people tune in monthly, and YouTube is the #1 place in the U.S. to consume podcasts.',
+      'Podcast content can appear in YouTube Music with background play and downloads for most shows, often without Music Premium.',
+      'Features include podcast badges on Watch and Playlist pages, spotlight on youtube.com/podcasts, improved search/recommendations, and Watch-page links to the full show.',
+      'Monetization via YouTube Partner Program: ad revenue (pre-/mid-/post-roll), channel memberships, fan funding (Super Thanks, Super Chat), Shopping, and sponsorships.',
+    ],
+    benefits: [
+      {
+        title: 'Massive reach and discovery',
+        detail:
+          'YouTube’s search and recommendation systems surface podcast content to new audiences even if they’ve never heard of the show.',
+      },
+      {
+        title: 'Video + audio flexibility',
+        detail:
+          'Formats range from audio-only with a static image to high-production multi-camera video shows.',
+      },
+      {
+        title: 'Central hub for creator brands',
+        detail:
+          'Channels can host full episodes, clips, Shorts, behind-the-scenes, and community posts — formats that cross-promote each other.',
+      },
+      {
+        title: 'Integrated monetization stack',
+        detail:
+          'Multiple YPP revenue streams (ads, memberships, fan funding, Shopping) tied to the same channel and audience.',
+      },
+    ],
+    weaknesses: [
+      {
+        title: 'Higher production demands vs audio-only',
+        detail:
+          'Video podcasts need more equipment, editing, and time; creators must maintain both audio and video quality.',
+      },
+      {
+        title: 'Algorithm dependence',
+        detail:
+          'Discovery and success rely heavily on YouTube’s algorithm; changes can affect reach and revenue.',
+      },
+      {
+        title: 'Fragmentation with traditional podcast apps',
+        detail:
+          'Many listeners still prefer Spotify, Apple Podcasts, and other audio apps — creators often need a hybrid distribution strategy.',
+      },
+    ],
+    sources: [
+      'https://blog.youtube/creator-and-artist-stories/four-reasons-your-podcast-belongs-on-youtube/',
+      'https://www.youtube.com/creators/create/podcasts/',
+      'https://www.linkedin.com/pulse/what-know-youtube-podcasts-jeremy-sherlick',
+      'https://www.ausha.co/blog/podcast-vs-youtube/',
+      'https://www.reddit.com/r/podcasting/comments/1etxrlb/understanding_youtube_podcasts/',
+    ],
+  },
+
+  'tiktok-music': {
+    tagline:
+      'TikTok Music was a standalone music streaming app that combined TikTok’s discovery with a full-featured subscription music service, offering catalog streaming, playlist tools, and social song reactions before shutting down in November 2024.',
+    scaleFacts: [
+      'Launched July 2023 as a separate app tied to TikTok; shut down November 28, 2024, with users advised to migrate playlists elsewhere.',
+      'Catalogs from Universal Music Group, Warner Music Group, and Sony Music while active.',
+      'Subscription-only model (no free tier like Spotify / YouTube Music).',
+      'Features included collaborative playlists, lyric search, personalized suggestions, offline listening, synced lyrics, and song comments/reactions shared back into TikTok.',
+      'Initially tested in Brazil, Australia, Singapore, Mexico, and Indonesia — never a full global rollout.',
+      'Post-shutdown, TikTok’s music strategy centers on in-app tools (Artist Accounts, Add to Music, etc.) rather than a separate streaming competitor.',
+    ],
+    benefits: [
+      {
+        title: 'Tight integration with TikTok discovery (while active)',
+        detail:
+          'Built to make saving and streaming full songs seen on TikTok seamless — bridging short-form discovery and full-length listening.',
+      },
+      {
+        title: 'Full-featured streaming experience (while active)',
+        detail:
+          'Standard streaming features (playlists, offline, lyrics, personalization) plus social reactions back to TikTok.',
+      },
+    ],
+    weaknesses: [
+      {
+        title: 'Limited regional rollout and short lifespan',
+        detail:
+          'Never widely launched globally; shut down after ~1.5 years, limiting adoption.',
+      },
+      {
+        title: 'Subscription-only model',
+        detail:
+          'No free tier made it harder to compete against freemium incumbents like Spotify and YouTube Music.',
+      },
+      {
+        title: 'Strategic pivot to in-app tools, not a full streamer',
+        detail:
+          'TikTok now leans into music tools inside the main app rather than competing as a standalone subscription music service.',
+      },
+    ],
+    sources: [
+      'https://en.wikipedia.org/wiki/TikTok_Music',
+      'https://www.midiaresearch.com/blog/tiktok-may-be-shutting-down-its-music-service-but-it-will-still-compete-with-streaming',
+      'https://soundiiz.com/blog/what-is-tiktok-music-and-can-it-be-a-serious-streaming-service/',
+      'https://revelator.com/blog/tiktok-music-tools-guide-for-artists-and-labels',
+    ],
+  },
+
+  tumblr: {
+    tagline:
+      'Tumblr is a microblogging and social media platform where people share multimedia posts to short-form blogs, follow others, and participate in creative, fandom, and cultural communities.',
+    scaleFacts: [
+      'Founded February 2007 by David Karp.',
+      'Sold to Yahoo! in 2013 for USD 1.1B; Yahoo later wrote down much of that value.',
+      'Acquired by Automattic (WordPress.com’s parent) in August 2019 for <USD 3M — about 0.3% of Yahoo’s purchase price — and run as an Automattic subsidiary complementary to WordPress.com.',
+      'As of 2025, still active with an estimated ~135M monthly active users and 600M+ blogs; historically influential in fandom, social justice, and creative communities at its mid-2010s peak.',
+      'Short-form blogs (“tumblelogs”) for text, photos, GIFs, quotes, links, audio, and video; follow/follower dashboard with reblogs and tagging; private blogs and custom themes.',
+      'Estimated ~USD 96.7M annual revenue (2025) with ~1,900 employees across Tumblr/Automattic roles; monetizes via ads and premium features, often cited as loss-making.',
+      'Focus shifting to core functionality and streamlining; product/marketing teams moved within Automattic in 2023; backend migration to WordPress-derived architecture (2024–2025) aimed at easier development and ActivityPub / Fediverse support.',
+      '2024: Automattic announced selling some user data from Tumblr and WordPress.com to OpenAI and Midjourney, with default opt-in and manual opt-out.',
+    ],
+    benefits: [
+      {
+        title: 'Rich expressive, creative culture',
+        detail:
+          'Historically a hub for fandoms, memes, art, social commentary, and queer/alternative communities; still a vibrant space for niche cultural exchange.',
+      },
+      {
+        title: 'Flexible multimedia microblogging',
+        detail:
+          'Posts can combine text, images, GIFs, audio, and video; reblogging encourages remixing and layered commentary.',
+      },
+      {
+        title: 'Strong tagging and discovery for niche topics',
+        detail:
+          'Tagging and reblog networks surface niche content and foster communities around aesthetics, fandoms, and ideas.',
+      },
+      {
+        title: 'Complementary to WordPress ecosystem',
+        detail:
+          'Automattic’s stewardship and planned ActivityPub integration may deepen interoperability with WordPress and the broader Fediverse.',
+      },
+    ],
+    weaknesses: [
+      {
+        title: 'Massive value collapse and strategic drift',
+        detail:
+          'From a USD 1.1B acquisition to a <USD 3M sale — a cautionary tale about monetizing cultural communities under corporate pressure.',
+      },
+      {
+        title: 'Policy and content moderation shocks',
+        detail:
+          'Changes (e.g. adult content bans under Verizon/Yahoo) alienated core users and contributed to decline in usage and cultural relevance.',
+      },
+      {
+        title: 'Profitability challenges and perceived decline',
+        detail:
+          'Frequently reported as loss-making; layoffs and restructuring within Automattic underscore ongoing business struggles.',
+      },
+      {
+        title: 'Less mainstream relevance vs newer platforms',
+        detail:
+          'Now overshadowed by Instagram, TikTok, and X — best understood as a niche, culture-heavy microblogging platform, not a primary mass-market social app.',
+      },
+    ],
+    sources: [
+      'https://en.wikipedia.org/wiki/Tumblr',
+      'https://www.ebsco.com/research-starters/business-and-management/tumblr',
+      'https://www.washingtonpost.com/technology/2019/08/13/tumblr-once-sold-billion-owner-wordpress-just-bought-site-fraction-that/',
+      'https://rocketreach.co/tumblr-profile_b5df6ea1f42e484d',
+      'https://www.youtube.com/watch?v=klEVSJsM_ww',
+      'https://martech.zone/tumblr-statistics/?amp=1',
+    ],
+  },
+
+  wechat: {
+    tagline:
+      'WeChat (and its sister service Weixin) is Tencent’s super-app combining messaging, social networking, digital payments, e-commerce, and mini-programs into one platform for over a billion users.',
+    scaleFacts: [
+      'Developed by Tencent; Weixin is the domestic Chinese app and WeChat is the international-facing version.',
+      'Combined Weixin + WeChat have ≈1.4B monthly active users worldwide, majority in mainland China; user base exceeds 1.3B with ~88% daily usage rate in China.',
+      '764M users engage with mini-programs daily (≈52% of total user base); mini-program penetration ~89% in 2022.',
+      'Messaging: text, photo, voice, video, location; group chats up to 500 members; voice/video calls and group video up to 9 people.',
+      'Social: Moments feed, Status for ephemeral updates, stickers and custom Selfie Stickers; Official Accounts, Channels, and Mini Programs for media, brands, and services.',
+      'Payments: WeChat Pay / Wallet for P2P transfers, merchant payments, and bill pay — ~1.318B active WeChat Pay users.',
+    ],
+    benefits: [
+      {
+        title: 'All-in-one digital life infrastructure',
+        detail:
+          'Messaging, payments, commerce, and services are bundled — users can chat, pay, shop, book travel, and access government services in one app.',
+      },
+      {
+        title: 'Near-ubiquitous adoption in China',
+        detail:
+          'With ~1.4B MAUs and ~88% daily usage, WeChat/Weixin is the default channel for communication and transactions in China.',
+      },
+      {
+        title: 'Powerful platform for brands and services',
+        detail:
+          'Official Accounts, Mini-programs, and Channels let brands run apps, content, and storefronts inside WeChat with low friction.',
+      },
+      {
+        title: 'Multi-modal communication and social',
+        detail:
+          'Supports rich media, Moments, Status, and Channels — blending social and utility in a single interface.',
+      },
+    ],
+    weaknesses: [
+      {
+        title: 'Highly China-centric ecosystem',
+        detail:
+          'Core strength and integrations (payments, services, government) center on China; less relevant as an all-in-one stack elsewhere.',
+      },
+      {
+        title: 'Platform and regulatory risk',
+        detail:
+          'Subject to Chinese regulations and censorship; foreign creators and brands must navigate compliance and local norms.',
+      },
+      {
+        title: 'Closed, walled-garden environment',
+        detail:
+          'Experiences are siloed inside WeChat; interoperability and open web presence can be limited.',
+      },
+    ],
+    sources: [
+      'https://play.google.com/store/apps/details?id=com.tencent.mm&hl=en',
+      'https://www.statista.com/topics/9085/wechat/',
+      'https://qpsoftware.net/blog/your-guide-to-wechat-features',
+      'https://checkthat.ai/brands/wechat',
+      'https://newsroom.wechat.com/newsRooms/WeixinWeChatDifference',
+    ],
+  },
+
+  line: {
+    tagline:
+      'LINE is Japan’s leading messaging and social media app, combining chat, calls, social feeds, stickers, and cashless payments for over 100 million monthly active users.',
+    scaleFacts: [
+      'Created after disrupted communications from the 2011 Tōhoku earthquake; later released publicly and grew through customizable design and stickers.',
+      'As of August 2024, ~97M monthly active users in Japan (≈78% of the population); early 2026 reports 100M+ MAUs in Japan — the most widely used platform in the country.',
+      'Covers ~78.6% of Japan’s population; widely used across age groups, especially people in their 40s–50s.',
+      'Messaging and calling with text, stickers, photos, videos, voice calls, and group chats; social status updates and Instagram-like Stories.',
+      'LINE Pay for send/request money, shop payments, and coupons; brands use official accounts, campaigns, and stickers for advertising reach.',
+    ],
+    benefits: [
+      {
+        title: 'Default communication channel in Japan',
+        detail:
+          'Used for personal and work communication; many people rely on LINE exclusively for social media and messaging.',
+      },
+      {
+        title: 'All-in-one app with payments',
+        detail:
+          'Combines chat, calls, Stories, and LINE Pay — a lighter WeChat-style stack for social and financial interactions.',
+      },
+      {
+        title: 'Strong brand and advertising reach',
+        detail:
+          'With >100M users and high penetration, LINE ads and official accounts can reach large portions of Japan’s population.',
+      },
+      {
+        title: 'Distinct culture and stickers',
+        detail:
+          'Stickers and LINE Friends character branding create a unique, playful UX attractive to Japanese users.',
+      },
+    ],
+    weaknesses: [
+      {
+        title: 'Regionally concentrated',
+        detail:
+          'Dominant in Japan and some parts of East/Southeast Asia, but far less used globally than WhatsApp or Telegram.',
+      },
+      {
+        title: 'Platform dependence for brands',
+        detail:
+          'Brands targeting Japanese audiences often need LINE in addition to global stacks, adding complexity.',
+      },
+      {
+        title: 'Everything-app UX can feel crowded',
+        detail:
+          'Combining chat, Stories, payments, and services in one app can feel overwhelming and harder to design for deep focus.',
+      },
+    ],
+    sources: [
+      'https://www.statista.com/statistics/560545/number-of-monthly-active-line-app-users-japan/',
+      'https://tam-tamlo.com/en/307',
+      'https://www.digitalmarketingforasia.com/line-most-popular-app-in-japan/',
+      'https://www.reddit.com/r/AskAJapanese/comments/1htf1x6/why_are_everything_apps_like_line_so_popular_in/',
+    ],
+  },
+
+  weibo: {
+    tagline:
+      'Weibo (Sina Weibo) is one of China’s largest social media platforms, a microblogging service akin to a combination of Twitter and Facebook where users share short posts, images, videos, and live streams with hundreds of millions of followers.',
+    scaleFacts: [
+      'Launched 14 August 2009 by Sina Corporation; operated as Sina Weibo within China’s social media ecosystem.',
+      '≈582M monthly active users and 252M daily active users as of Q1 2022; earlier figures include ~550M MAUs (2020) and 450M MAUs / 203M DAUs (March 2020).',
+      'Microblogging with text, photos, GIFs, and videos; comments, hashtags, DMs, and multimedia instant messaging.',
+      'Live streaming (via partner Yizhibo), Stories-like short visual posts, and e-commerce integrations.',
+      'Widely used by celebrities, media organizations, brands, and government officials for news and communication.',
+    ],
+    benefits: [
+      {
+        title: 'Massive reach in China’s public conversation',
+        detail:
+          'With hundreds of millions of users, Weibo is central to news dissemination, celebrity culture, and brand awareness in China.',
+      },
+      {
+        title: 'Hybrid of Twitter + Facebook + commerce',
+        detail:
+          'Combines microblogging, social features, live video, and e-commerce — versatile for content and campaigns.',
+      },
+      {
+        title: 'Strong for brand and institution presence',
+        detail:
+          'Recommended for publishers, universities, and research societies wanting to reach Chinese audiences.',
+      },
+    ],
+    weaknesses: [
+      {
+        title: 'China-specific ecosystem and regulations',
+        detail:
+          'Subject to Chinese censorship and regulations; foreign brands must align content with local requirements.',
+      },
+      {
+        title: 'Different norms vs Western social platforms',
+        detail:
+          'Content formats, trends, and user expectations differ from X/Twitter — requires localized strategy and language.',
+      },
+      {
+        title: 'Algorithmic and moderation opacity',
+        detail:
+          'Ranking and enforcement decisions can be opaque, as on many large platforms.',
+      },
+    ],
+    sources: [
+      'https://en.wikipedia.org/wiki/Weibo',
+      'https://cactusglobal.com/media-center/using-weibo-to-build-your-presence-in-china-an-introduction-for-research-societies-publishers-and-universities/',
+      'https://www.eviom.com/en/china-marketing/china-social-media/sina-weibo-weibo/',
+      'https://www.chinafy.com/china-tech/what-is-weibo-and-how-to-get-started',
+      'https://www.nytimes.com/2018/11/19/fashion/china-social-media-weibo-wechat.html',
     ],
   },
 }

@@ -1,0 +1,160 @@
+.sops-page .page-subtitle {
+  margin: 8px 0 0;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: #475569;
+  max-width: 52rem;
+}
+
+.sop-index-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sop-index-list a {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #d4e8dc;
+  background: #f7faf3;
+  color: #1e293b;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sop-index-list a:hover {
+  border-color: var(--oasis-green-medium, #7a9200);
+  background: #eef5e6;
+}
+
+.sop-index-num {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--oasis-green-dark, #495800);
+}
+
+.sop-doc {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 28px 32px;
+  background: #fff;
+}
+
+.sop-doc-eyebrow {
+  margin: 0 0 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--oasis-green-dark, #495800);
+}
+
+.sop-doc-header h2 {
+  margin: 0 0 16px;
+  font-size: 1.45rem;
+  color: #1e293b;
+  border: none;
+  padding: 0;
+}
+
+.sop-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px 24px;
+  margin: 0 0 8px;
+}
+
+.sop-meta dt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #64748b;
+  margin: 0 0 4px;
+}
+
+.sop-meta dd {
+  margin: 0;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.sop-section {
+  margin-top: 28px;
+}
+
+.sop-section h3 {
+  margin: 0 0 12px;
+  font-size: 1.15rem;
+  color: var(--oasis-green-dark, #495800);
+}
+
+.sop-section-intro {
+  margin: 0 0 12px;
+  color: #475569;
+  line-height: 1.55;
+}
+
+.sop-steps {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #334155;
+}
+
+.sop-steps li {
+  margin-bottom: 14px;
+  line-height: 1.55;
+}
+
+.sop-steps li p {
+  margin: 0;
+}
+
+.sop-step-note {
+  margin: 8px 0 0 !important;
+  padding: 8px 12px;
+  border-left: 3px solid #d4e8dc;
+  background: #f7faf3;
+  font-size: 0.92rem;
+  color: #475569;
+}
+
+.sop-done-when {
+  margin-top: 28px;
+  padding: 20px 22px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f0f7f4 0%, #e8f5ef 100%);
+  border: 1px solid #d4e8dc;
+}
+
+.sop-done-when h3 {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+  color: #1e293b;
+}
+
+.sop-done-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #334155;
+}
+
+.sop-done-list li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .sop-doc {
+    padding: 20px 18px;
+  }
+}

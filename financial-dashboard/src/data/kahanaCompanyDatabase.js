@@ -52,6 +52,8 @@ const ID_ALIASES = {
   'apple-tv-plus': 'apple-tv',
   convertkit: 'kit',
   'kit-convertkit': 'kit',
+  twitter: 'x',
+  'twitter-x': 'x',
 }
 
 /**

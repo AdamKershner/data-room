@@ -12,6 +12,7 @@ export const PRIMARY_NAV_LINKS = [
   { path: '/team-execution', id: 'team-execution', label: 'Team Directory' },
   { path: '/weekly-reports', id: 'weekly-reports', label: 'Weekly Reports' },
   { path: '/how-we-work', id: 'how-we-work', label: 'How We Work' },
+  { path: '/sops', id: 'sops', label: 'SOPs' },
   { path: '/project-charter', id: 'project-charter', label: 'Project Charter' },
   { path: '/onboarding', id: 'onboarding', label: 'Onboarding' },
   {
@@ -62,6 +63,12 @@ export const TOC_EXPLORE_ITEMS = [
     title: 'How We Work',
     description:
       'Linear, Slack, and Mixpanel — how new teammates get work done day to day.',
+  },
+  {
+    path: '/sops',
+    title: 'SOPs',
+    description:
+      'Standard operating procedures for hosting book and video clubs and other recurring product work.',
   },
   {
     path: '/project-charter',

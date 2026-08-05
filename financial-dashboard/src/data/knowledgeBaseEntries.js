@@ -130,6 +130,27 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     ],
   },
   {
+    path: '/sops',
+    title: 'SOPs',
+    category: 'Product',
+    description:
+      'Standard operating procedures — hosting book and video clubs, setup, cycles, and done-when checklists.',
+    keywords: [
+      'sop',
+      'sops',
+      'standard operating procedures',
+      'book club',
+      'video club',
+      'create club',
+      'reading list',
+      'my clubs',
+      'join mode',
+      'visibility',
+      'aura',
+      'onboarding',
+    ],
+  },
+  {
     path: '/soc2-type1-checklist',
     title: 'SOC2 Type 1 Checklist',
     category: 'Technical',
