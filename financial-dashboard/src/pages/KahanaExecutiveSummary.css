@@ -15,6 +15,12 @@
   color: #313a00;
 }
 
+.kahana-vision-product-lead--body {
+  font-weight: 400;
+  color: #3f4a1a;
+  font-size: 1.02rem;
+}
+
 .kahana-vision-expand-btn {
   border: none;
   background: none;

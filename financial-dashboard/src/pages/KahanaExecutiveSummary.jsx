@@ -92,6 +92,21 @@ function KahanaExecutiveSummary() {
               {VISION_FEELING.title}
             </h2>
             <p className="kahana-vision-product-lead">{VISION_FEELING.product}</p>
+            <p className="kahana-vision-product-lead kahana-vision-product-lead--body">
+              Today, finding what you want means hopping platforms. Series and movies live on Netflix, Hulu,
+              or Prime Video. Books pull you to Goodreads or another reading site. Short-form video means
+              switching again to TikTok or Instagram. A single place where you can conveniently access every
+              type of content, without jumping apps, would change that. That&apos;s what we&apos;re building
+              with Kahana. And as more content is added, Aura does the job of filtering what&apos;s actually
+              good.
+            </p>
+            <p className="kahana-vision-product-lead kahana-vision-product-lead--body">
+              Most platforms surface what&apos;s paid for or algorithmically pushed, not what&apos;s actually
+              good. Aura is different: it&apos;s given by people who genuinely engaged with the work, not
+              bought or manufactured. That makes Kahana a place where what rises to the top does so because
+              people actually valued it, not because someone paid for visibility. It&apos;s discovery driven
+              by real human judgment, not manipulation.
+            </p>
             <button
               type="button"
               className="kahana-vision-expand-btn"
@@ -127,26 +142,6 @@ function KahanaExecutiveSummary() {
         <h2>North star</h2>
         <div className="content-block">
           <blockquote className="kahana-north-star-inline">{KAHANA_PLATFORM_PAGE.northStar}</blockquote>
-          <p>
-            Grow through Clubs, hubs of the right content, and creator outreach — so a reader who searches
-            always finds something worth falling into. Aura (up to 5/day) surfaces what the community
-            believes deserves to rise: a library for learning, not a feed for dopamine.
-          </p>
-          <p>
-            Today, finding what you want means hopping platforms. Series and movies live on Netflix, Hulu,
-            or Prime Video. Books pull you to Goodreads or another reading site. Short-form video means
-            switching again to TikTok or Instagram. A single place where you can conveniently access every
-            type of content — without jumping apps — would change that. That&apos;s what we&apos;re building
-            with Kahana. And as more content is added, Aura does the job of filtering what&apos;s actually
-            good.
-          </p>
-          <p>
-            Most platforms surface what&apos;s paid for or algorithmically pushed, not what&apos;s actually
-            good. Aura is different: it&apos;s given by people who genuinely engaged with the work — not
-            bought or manufactured. That makes Kahana a place where what rises to the top does so because
-            people actually valued it, not because someone paid for visibility. It&apos;s discovery driven
-            by real human judgment, not manipulation.
-          </p>
         </div>
       </section>
 
