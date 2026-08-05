@@ -7,6 +7,7 @@ export const KNOWLEDGE_BASE_CATEGORIES = [
   'Marketing',
   'Sales',
   'Product',
+  'SOPs',
   'HR',
   'Technical',
   'Finance',
@@ -132,7 +133,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
   {
     path: '/sops',
     title: 'SOPs',
-    category: 'Product',
+    category: 'SOPs',
     description:
       'Standard operating procedures — hosting book and video clubs, setup, cycles, and done-when checklists.',
     keywords: [

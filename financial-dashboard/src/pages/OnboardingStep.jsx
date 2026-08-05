@@ -1180,42 +1180,6 @@ function StepToolsAccess() {
 }
 
 
-const SOC2_POLICIES = [
-  { name: 'Information Security Policy', description: 'Overall security framework and how we protect systems and data.' },
-  { name: 'Access Control Policy', description: 'Who can access what, least privilege, onboarding/offboarding access.' },
-  { name: 'Data Classification & Handling Policy', description: 'How we classify and protect user data, browse history, and AI interactions.' },
-  { name: 'Incident Response Policy', description: 'What to do when a security incident or data breach occurs.' },
-  { name: 'Acceptable Use Policy', description: 'Permitted use of company systems, networks, and tools.' },
-  { name: 'Change Management Policy', description: 'How we implement and approve system changes and deployments.' },
-  { name: 'Business Continuity & Disaster Recovery Policy', description: 'Backup, recovery, and maintaining operations during disruptions.' },
-  { name: 'Vendor & Third-Party Risk Management Policy', description: 'How we evaluate and manage risks from cloud providers, AI vendors, and other third parties.' },
-  { name: 'Privacy Policy', description: 'How we collect, use, and protect customer and user data.' },
-  { name: 'Risk Assessment Policy', description: 'Periodic risk assessment and how we identify and mitigate risks.' },
-]
-
-function StepSoc2Compliance() {
-  return (
-    <div className="onboarding-step-content">
-      <p className="onboarding-step-done onboarding-step-done-top"><strong>✓ Done when:</strong> You've read and acknowledged the SOC 2 policies relevant to your role.</p>
-
-      <p>As a company handling user data and building an AI browser, we maintain SOC 2–aligned policies to protect customer data and meet enterprise security requirements. Everyone should be familiar with these policies.</p>
-
-      <h3>Policies to review</h3>
-      <ol className="onboarding-steps-list">
-        {SOC2_POLICIES.map((policy, i) => (
-          <li key={policy.name}>
-            <strong>{policy.name}</strong> — {policy.description}
-          </li>
-        ))}
-      </ol>
-
-      <div className="onboarding-note">
-        <p><strong>Where to find them:</strong> Policy documents are maintained in our compliance repository. Ask Adam or your manager for the current links if you don't have access yet.</p>
-      </div>
-    </div>
-  )
-}
-
 const SOCIAL_MEDIA_CHANNELS = [
   { name: 'LinkedIn', url: 'https://www.linkedin.com/company/kahana-co' },
   { name: 'X (Twitter)', url: 'https://x.com/KahanaHQ' },
@@ -1323,7 +1287,6 @@ const STEP_CONTENT = {
   'create-profiles': StepCreateProfiles,
   'review-landing-page': StepReviewLandingPage,
   'duolingo-article': StepDuolingoArticle,
-  'soc2-compliance': StepSoc2Compliance,
   'social-media': StepSocialMedia,
   'tools-access': StepToolsAccess,
   'onboarding-survey': StepOnboardingSurvey,

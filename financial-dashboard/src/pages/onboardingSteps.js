@@ -130,12 +130,4 @@ export const ONBOARDING_STEPS = [
     day: 'optional',
     badge: 'optional',
   },
-  // Coming soon
-  {
-    id: 'soc2-compliance',
-    label: 'Review SOC 2 Policies',
-    icon: 'lock',
-    category: 'Company & Culture',
-    comingSoon: true,
-  },
 ]

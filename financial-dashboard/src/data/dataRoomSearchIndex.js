@@ -180,7 +180,7 @@ const EXTRA_SEARCH_ENTRIES = [
   {
     path: '/sops',
     title: 'SOPs',
-    businessFunction: 'Product',
+    businessFunction: 'SOPs',
     description:
       'Standard operating procedures for hosting book and video clubs — setup, reading lists, cycles, and done-when checks.',
     keywords: [
@@ -359,7 +359,7 @@ function primaryNavExtras() {
 function inferBusinessFunctionFromPath(path) {
   if (path === '/archive') return 'Finance'
   if (path === '/how-we-work' || path === '/operating-system') return 'Technical'
-  if (path === '/sops') return 'Product'
+  if (path === '/sops') return 'SOPs'
   if (path === '/project-charter') return 'Product'
   if (path === '/nps' || path === '/hitl') return 'Product'
   if (path === '/onboarding') return 'HR'
