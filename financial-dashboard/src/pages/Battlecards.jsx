@@ -9,6 +9,7 @@ import {
   filterCompanies,
   getCompanies,
 } from '../data/kahanaCompanyDatabase'
+import { buildKahanaComparisonRows } from '../data/kahanaFragmentPresence'
 
 function Field({ label, value, emphasize }) {
   if (value == null || value === '') return null
@@ -164,6 +165,70 @@ function SourcePills({ sources }) {
   )
 }
 
+function PresenceCell({ value }) {
+  const supported = value === 'yes'
+  return (
+    <span
+      className={`battlecard-presence is-${supported ? 'yes' : 'no'}`}
+      title={supported ? 'Supported' : 'Not supported'}
+    >
+      {supported ? 'Yes' : '—'}
+    </span>
+  )
+}
+
+/**
+ * Content types as columns. Kahana supports all; company row shows overlap.
+ */
+function KahanaComparisonChart({ card }) {
+  const modalities = useMemo(() => buildKahanaComparisonRows(card), [card])
+  const companyName = card.name || 'Them'
+
+  return (
+    <ResearchCallout variant="compare" title={`Coverage: Kahana vs ${companyName}`} icon="chart">
+      <p className="battlecard-compare-note">
+        Columns are content types Kahana aims to unify in one Aura-powered library.
+        Kahana supports all of them; {companyName} shows which of those it supports today.
+        All modality columns are draft-reviewed Yes/— lists (team spot-check later).
+      </p>
+      <div className="battlecard-compare-scroll">
+        <table className="battlecard-compare-table is-modality-columns">
+          <thead>
+            <tr>
+              <th scope="col" className="battlecard-compare-corner">
+                Platform
+              </th>
+              {modalities.map((col) => (
+                <th key={col.fragmentId} scope="col" title={col.name}>
+                  {col.label}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="is-kahana-row">
+              <th scope="row">Kahana</th>
+              {modalities.map((col) => (
+                <td key={`kahana-${col.fragmentId}`}>
+                  <PresenceCell value={col.kahana} />
+                </td>
+              ))}
+            </tr>
+            <tr className="is-company-row">
+              <th scope="row">{companyName}</th>
+              {modalities.map((col) => (
+                <td key={`${card.id}-${col.fragmentId}`}>
+                  <PresenceCell value={col.company} />
+                </td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ResearchCallout>
+  )
+}
+
 function AboutCallout({ card }) {
   const text = card.description || card.theyDo
   if (!text && !card.website) return null
@@ -248,9 +313,11 @@ function CompanyLandscape() {
         <h1>Company Landscape</h1>
         <p className="battlecards-subtitle">
           Facts on peer platforms — same categories as the{' '}
-          <Link to="/fragment-capture">Market Map</Link>. Cards include size tier
-          (Incumbent / Challenger / Niche). For how Kahana relates to the creator stack,
-          see the <Link to="/glossary">Glossary</Link>.
+          <Link to="/fragment-capture">Market Map</Link>. Open a card for the{' '}
+          <strong>Kahana vs …</strong> coverage chart (library modalities + Aura discovery
+          vs what they ship). Cards also include size tier (Incumbent / Challenger / Niche).
+          For how Kahana relates to the creator stack, see the{' '}
+          <Link to="/glossary">Glossary</Link>.
         </p>
         {researchedCount > 0 && (
           <p className="battlecards-wip-note">
@@ -355,6 +422,7 @@ function CompanyLandscape() {
 
                 {isOpen && (
                   <div className="battlecard-body">
+                    <KahanaComparisonChart card={card} />
                     {hasResearch ? (
                       <>
                         {card.scaleFacts?.length > 0 && (

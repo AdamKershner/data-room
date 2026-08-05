@@ -377,6 +377,11 @@
   color: #456;
 }
 
+.battlecard-callout.is-compare .battlecard-callout-icon,
+.battlecard-callout.is-compare .battlecard-callout-title {
+  color: #1f5c3d;
+}
+
 .battlecard-about-text {
   margin: 0;
   font-size: 0.95rem;
@@ -858,4 +863,104 @@
 
 .battlecards-matrix tr.is-kahana {
   background: #f3faf7;
+}
+
+/* Kahana vs company modality chart */
+.battlecard-callout.is-compare {
+  border-color: #c5d4c9;
+  background: #f7faf8;
+}
+
+.battlecard-compare-note {
+  margin: 0 0 12px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #556;
+}
+
+.battlecard-compare-scroll {
+  overflow-x: auto;
+  border: 1px solid #d7e0da;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.battlecard-compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  min-width: 52rem;
+}
+
+.battlecard-compare-table.is-modality-columns th,
+.battlecard-compare-table.is-modality-columns td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #eef1ee;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.battlecard-compare-table.is-modality-columns thead th {
+  background: #eef4f0;
+  font-weight: 700;
+  color: #334;
+  white-space: normal;
+  line-height: 1.25;
+  min-width: 4.5rem;
+  max-width: 6.5rem;
+}
+
+.battlecard-compare-table.is-modality-columns .battlecard-compare-corner,
+.battlecard-compare-table.is-modality-columns tbody th {
+  text-align: left;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: #fff;
+  min-width: 6.5rem;
+  max-width: 9rem;
+  font-weight: 700;
+  color: #333;
+  box-shadow: 1px 0 0 #e5ebe7;
+}
+
+.battlecard-compare-table.is-modality-columns thead .battlecard-compare-corner {
+  background: #eef4f0;
+  z-index: 2;
+}
+
+.battlecard-compare-table.is-modality-columns tr.is-kahana-row th,
+.battlecard-compare-table.is-modality-columns tr.is-kahana-row td {
+  background: #f3faf7;
+}
+
+.battlecard-compare-table.is-modality-columns tr.is-kahana-row th {
+  background: #eaf6ef;
+}
+
+.battlecard-compare-table.is-modality-columns tbody tr:last-child th,
+.battlecard-compare-table.is-modality-columns tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.battlecard-presence {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.battlecard-presence.is-yes {
+  background: #d8efe0;
+  color: #1b5e3a;
+}
+
+.battlecard-presence.is-no {
+  background: #ececec;
+  color: #888;
 }
