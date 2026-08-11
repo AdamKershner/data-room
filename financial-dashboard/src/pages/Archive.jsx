@@ -31,7 +31,7 @@ function Archive() {
         <h1>Archive</h1>
         <p className="page-subtitle">
           Historical and point-in-time pages. Oasis Browser materials are preserved here while the team
-          focuses on scaling Kahana. Content is unchanged.
+          focuses on scaling Aura Library. Content is unchanged.
         </p>
       </div>
 

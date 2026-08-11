@@ -1,4 +1,4 @@
-/** How We Work — Linear + Slack + Mixpanel workflows for Kahana team (new-hire friendly). */
+/** How We Work — Linear + Slack + Mixpanel workflows for Aura Library team (new-hire friendly). */
 
 import {
   LINEAR_WORKSPACE_URL,
@@ -24,7 +24,7 @@ export const TOOL_OVERVIEW = {
   slack:
     'Async communication, quick questions, and escalations. Decisions that need tracking become Linear issues.',
   mixpanel:
-    'Kahana PROD analytics — ~20 dashboards across the user lifecycle (activity, acquisition, discovery, retention, monetization, email). Filter to environment = production unless debugging.',
+    'Aura Library PROD analytics — ~20 dashboards across the user lifecycle (activity, acquisition, discovery, retention, monetization, email). Filter to environment = production unless debugging.',
 }
 
 export const FUNCTION_TOOLS = [
@@ -68,7 +68,7 @@ export const FUNCTION_TOOLS = [
 
 export const MIXPANEL_OVERVIEW = {
   intro:
-    'Kahana PROD has ~20 dashboards covering the full user lifecycle. Use them to answer the questions below — not as a forecast, but as the live scoreboard for product and GTM.',
+    'Aura Library PROD has ~20 dashboards covering the full user lifecycle. Use them to answer the questions below — not as a forecast, but as the live scoreboard for product and GTM.',
   projectUrl: MIXPANEL_URL,
   clusters: [
     {
@@ -260,7 +260,7 @@ export const LINEAR_WORKFLOW_STEPS = [
   },
   {
     step: 'Prioritize',
-    detail: 'Backlog ordered daily/weekly. Top items reflect Kahana roadmap and creator/buyer impact.',
+    detail: 'Backlog ordered daily/weekly. Top items reflect Aura Library roadmap and creator/buyer impact.',
   },
   {
     step: 'Assign',
@@ -295,7 +295,7 @@ export const PM_LIFECYCLE_RESOURCES = {
     {
       path: '/',
       title: 'Executive Summary',
-      description: 'Kahana traction, GTM, and strategic context — what we are scaling toward.',
+      description: 'Aura Library traction, GTM, and strategic context — what we are scaling toward.',
     },
     {
       path: '/weekly-reports',
@@ -305,7 +305,7 @@ export const PM_LIFECYCLE_RESOURCES = {
     {
       path: '/glossary',
       title: 'Glossary',
-      description: 'How Kahana relates to the creator stack and Market Map categories.',
+      description: 'How Aura Library relates to the creator stack and Market Map categories.',
     },
   ],
   customerData: [
@@ -372,7 +372,7 @@ export const LIFECYCLE_LINKS = [
   {
     path: '/glossary',
     title: 'Glossary',
-    description: 'How Kahana relates to the creator stack.',
+    description: 'How Aura Library relates to the creator stack.',
   },
   {
     path: HOW_WE_WORK_PATH,

@@ -90,7 +90,7 @@ function ProForma() {
   return (
     <div className="page pro-forma-page">
       <div className="page-header">
-        <h1>Kahana Pro Forma</h1>
+        <h1>Aura Library Pro Forma</h1>
         <p className="pro-forma-subtitle">
           Named focus cases for {PRO_FORMA_META.product} — compare segment and feature bets on a{' '}
           {PRO_FORMA_META.horizonLabel} basis. Assumptions live in data; totals are computed.
@@ -279,7 +279,7 @@ function ProForma() {
           <p className="pro-forma-deck-copy">{ARGUMENT_SKELETON.gap.punchline}</p>
         </div>
 
-        <h3 className="pro-forma-subhead">Market fragments Kahana aims to unify</h3>
+        <h3 className="pro-forma-subhead">Market fragments Aura Library aims to unify</h3>
         <p className="pro-forma-table-note">
           Named fragments with directional market-size ranges and who owns each today. Refine
           numbers per platform later — this is the unification story spine.
@@ -290,7 +290,7 @@ function ProForma() {
               <tr>
                 <th>Fragment</th>
                 <th>Market size (directional)</th>
-                <th>Kahana angle</th>
+                <th>Aura Library angle</th>
               </tr>
             </thead>
             <tbody>
@@ -332,7 +332,7 @@ function ProForma() {
                 </table>
               </div>
               <p>
-                <strong>Kahana:</strong> {f.kahanaAngle}
+                <strong>Aura Library:</strong> {f.kahanaAngle}
               </p>
             </details>
           ))}
@@ -346,12 +346,12 @@ function ProForma() {
           <p className="pro-forma-deck-copy">{UNIFY_FRAGMENTS_THESIS}</p>
           <p>
             <Link to="/fragment-capture">Open Market Map →</Link> Categories and companies sized by
-            directional market $. Then use <Link to="/company-landscape">Company Landscape</Link> for how Kahana
+            directional market $. Then use <Link to="/company-landscape">Company Landscape</Link> for how Aura Library
             fits beside each peer.
           </p>
         </div>
 
-        <h3 className="pro-forma-subhead">3. Kahana’s all-in-one value proposition</h3>
+        <h3 className="pro-forma-subhead">3. Aura Library’s all-in-one value proposition</h3>
         <div className="pro-forma-split">
           <div className="pro-forma-split-card">
             <h4>{ARGUMENT_SKELETON.creatorVp.title}</h4>
@@ -434,7 +434,7 @@ function ProForma() {
             <thead>
               <tr>
                 <th>Versus</th>
-                <th>Kahana contrast</th>
+                <th>Aura Library contrast</th>
               </tr>
             </thead>
             <tbody>
@@ -481,7 +481,7 @@ function ProForma() {
             <strong>Fragmented today:</strong> {CRISP_NARRATIVE_COPY.fragmentedToday}
           </p>
           <p>
-            <strong>Unified on Kahana:</strong> {CRISP_NARRATIVE_COPY.unifiedOnKahana}
+            <strong>Unified on Aura Library:</strong> {CRISP_NARRATIVE_COPY.unifiedOnKahana}
           </p>
           <p>
             <strong>Aura preserves quality:</strong> {CRISP_NARRATIVE_COPY.auraPreservesQuality}
@@ -559,8 +559,8 @@ function ProForma() {
         <h2>Competitive pools</h2>
         <div className="content-block">
           <p>
-            As Kahana grows, Clubs + library overlap many creator and knowledge platforms. For each,
-            people may <strong>switch</strong> to Kahana or <strong>use Kahana with</strong> that
+            As Aura Library grows, Clubs + library overlap many creator and knowledge platforms. For each,
+            people may <strong>switch</strong> to Aura Library or <strong>use Aura Library with</strong> that
             platform. Three views: nested market lenses (use-case wedges), revenue rank, and
             creators (supply) vs viewers (demand). Canva/Figma excluded. Curios included as a niche
             author tool.
@@ -623,11 +623,11 @@ function ProForma() {
                           <span className="pro-forma-platform-label">Revenue</span> {p.revenueLabel}
                         </p>
                         <p className="pro-forma-platform-reason">
-                          <span className="pro-forma-platform-label">Switch to Kahana</span>{' '}
+                          <span className="pro-forma-platform-label">Switch to Aura Library</span>{' '}
                           {p.switchReason}
                         </p>
                         <p className="pro-forma-platform-reason">
-                          <span className="pro-forma-platform-label">Use with Kahana</span>{' '}
+                          <span className="pro-forma-platform-label">Use with Aura Library</span>{' '}
                           {p.useWithReason}
                         </p>
                       </article>
@@ -654,7 +654,7 @@ function ProForma() {
                     <th>Platform</th>
                     <th>Sort key</th>
                     <th>Revenue (detail)</th>
-                    <th>Kahana angle</th>
+                    <th>Aura Library angle</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -682,7 +682,7 @@ function ProForma() {
                   <tr>
                     <th>Platform</th>
                     <th>Notes</th>
-                    <th>Kahana angle</th>
+                    <th>Aura Library angle</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -715,7 +715,7 @@ function ProForma() {
                     <th>Platform</th>
                     <th>Viewers / demand</th>
                     <th>Creators / supply</th>
-                    <th>Kahana angle</th>
+                    <th>Aura Library angle</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -738,7 +738,7 @@ function ProForma() {
                     <th>Platform</th>
                     <th>Creators / supply</th>
                     <th>Viewers / demand</th>
-                    <th>Kahana angle</th>
+                    <th>Aura Library angle</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -763,7 +763,7 @@ function ProForma() {
                         <th>Platform</th>
                         <th>Viewers / demand</th>
                         <th>Creators / supply</th>
-                        <th>Kahana angle</th>
+                        <th>Aura Library angle</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -994,7 +994,7 @@ function ProForma() {
       <section className="page-section">
         <h2>Long-term saturation caps</h2>
         <p className="pro-forma-table-note">
-          Upper bounds if Kahana captures a small share of predisposed U.S. club participants
+          Upper bounds if Aura Library captures a small share of predisposed U.S. club participants
           (clubs ≈ users ÷ {CLUBS_SEED.targetClubSize}). Use to bend the viral curve — not Y1
           targets.
         </p>

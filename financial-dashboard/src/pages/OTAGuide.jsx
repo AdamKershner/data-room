@@ -98,8 +98,8 @@ function OTAGuide() {
             </div>
           </div>
           <div className="ota-releases-link">
-            <p><strong>GitHub Releases:</strong> <a href="https://github.com/Kahana-LLC/firefox-oasis/releases" target="_blank" rel="noopener noreferrer" className="ota-inline-link">Kahana-LLC/firefox-oasis/releases</a> – Canary builds and stable releases are published here.</p>
-            <a href="https://github.com/Kahana-LLC/firefox-oasis/releases" target="_blank" rel="noopener noreferrer">
+            <p><strong>GitHub Releases:</strong> <a href="https://github.com/Aura Library-LLC/firefox-oasis/releases" target="_blank" rel="noopener noreferrer" className="ota-inline-link">Aura Library-LLC/firefox-oasis/releases</a> – Canary builds and stable releases are published here.</p>
+            <a href="https://github.com/Aura Library-LLC/firefox-oasis/releases" target="_blank" rel="noopener noreferrer">
               <img src="/images/oasis-github-releases-canary.png" alt="GitHub Releases page showing Canary Builds with DMG and signed artifacts" className="ota-releases-screenshot" />
             </a>
           </div>

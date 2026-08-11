@@ -52,7 +52,7 @@ function KahanaNarrative() {
         <span className="kn-raskin-kicker">Magic gifts</span>
         <h2>Magical gifts</h2>
         <div className="content-block">
-          <p>What Kahana gives creators and learners that existing tools don&apos;t offer.</p>
+          <p>What Aura Library gives creators and learners that existing tools don&apos;t offer.</p>
           <div className="kn-gifts-grid">
             <div className="kn-gifts-card">
               <h3>For creators and experts</h3>
@@ -100,7 +100,7 @@ function KahanaNarrative() {
             ))}
           </ul>
           <p style={{ marginTop: '16px' }}>
-            Markdown source: <code>Kahana/12-strategic-narrative.md</code>
+            Markdown source: <code>Aura Library/12-strategic-narrative.md</code>
           </p>
         </div>
       </section>

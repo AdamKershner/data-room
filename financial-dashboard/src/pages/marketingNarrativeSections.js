@@ -16,7 +16,7 @@
 
 import { kahanaUrl } from '../constants/kahanaSite'
 
-/** Kahana workspace on Linear */
+/** Aura Library workspace on Linear */
 export const LINEAR_WORKSPACE = 'kahana'
 export const LINEAR_TEAM_KEY = 'KAH'
 export const LINEAR_ALL_ISSUES_URL = `https://linear.app/${LINEAR_WORKSPACE}/team/${LINEAR_TEAM_KEY}/all`

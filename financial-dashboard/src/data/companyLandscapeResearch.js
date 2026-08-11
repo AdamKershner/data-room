@@ -245,6 +245,309 @@ export const COMPANY_LANDSCAPE_RESEARCH = {
     ],
   },
 
+  storygraph: {
+    tagline:
+      '“The StoryGraph is an independent, Amazon-free book tracking and discovery platform that helps readers log books, visualize reading habits, and find personalized recommendations based on mood, pace, genre, and other detailed attributes.”',
+    scaleFacts: [
+      'Founded in 2019 by CEO Nadia Odunayo; independent, Black woman–owned alternative to Amazon-owned Goodreads.',
+      'Reportedly 4M+ users, driven by readers seeking a cleaner, more data-centric way to track and discover books.',
+      'Core tracker workflow: import Goodreads data; track read / currently reading / owned / DNF; reading goals; reviews; To-Read Pile.',
+      'Differentiation via structured metadata — mood, pacing, genre, page count, themes, content warnings, and character/story tags that feed recommendations and analytics.',
+      'Free core product plus StoryGraph Plus (USD $4.99/mo or $49.99/yr) for unlimited personalized recommendations, enhanced comparison tools, buddy-read suggestions, and advanced features.',
+    ],
+    benefits: [
+      {
+        title: 'Personalized discovery beyond star ratings',
+        detail:
+          'Readers can seek books by how they want a book to feel — hopeful, dark, emotional, fast-paced, character-driven — not only by broad genre or popularity.',
+      },
+      {
+        title: 'Excellent reading analytics',
+        detail:
+          'Visual graphs and reports reveal reading patterns over time: genres, moods, formats, page counts, rating behavior, and reading pace.',
+      },
+      {
+        title: 'Independent and ad-free alternative',
+        detail:
+          'Black woman–owned, Amazon-free, no-ad positioning appeals to readers who want an alternative to Goodreads and a less commercially driven reading space.',
+      },
+      {
+        title: 'Granular tracking tools',
+        detail:
+          'Statuses for DNF and owned, quarter-star ratings, edition/format tracking, and reader- or author-submitted content warnings — more precision than a basic shelf model.',
+      },
+      {
+        title: 'Privacy controls',
+        detail:
+          'Private, community-only, or public profile visibility — more control over how reading activity is exposed.',
+      },
+    ],
+    weaknesses: [
+      {
+        title: 'Smaller social layer than Goodreads',
+        detail:
+          'Primarily personal tracking and recommendation; less-developed public discussion, groups, author-following, quote-sharing, review replies, and messaging than Goodreads.',
+      },
+      {
+        title: 'Limited author and publisher tooling',
+        detail:
+          'No formal Author Program or author-controlled profile management; authors generally cannot directly edit author or book pages.',
+      },
+      {
+        title: 'Recommendation depth partly paywalled',
+        detail:
+          'Free users get the core tracker and some recommendations; unlimited personalized recommendations and several advanced tools require StoryGraph Plus.',
+      },
+      {
+        title: 'Smaller network effects',
+        detail:
+          'About 4M+ users is substantial but far smaller than Goodreads — fewer friend connections, reviews, and social signals for obscure titles.',
+      },
+    ],
+    sources: [
+      'https://app.thestorygraph.com/',
+      'https://authornews.penguinrandomhouse.com/a-spotlight-on-the-storygraph/',
+      'https://bookriot.com/storygraph-review/',
+      'https://makeheadway.com/blog/goodreads-alternatives/',
+      'https://orgs.emerson.edu/undergraduate-students-publishing/2024/01/14/the-switch-goodreads-to-the-storygraph/',
+      'https://anhistorianabouttown.com/storygraph-review-is-it-worth-it/',
+      'https://simmonsvoice.com/13123/showcase/goodreads-vs-the-storygraph-a-readers-thoughts/',
+      'https://thissplendidshambles.com/the-storygraph-full-review/',
+    ],
+  },
+
+  bookclubs: {
+    tagline:
+      '“Bookclubs is a free app and website that make organizing a book club simple—helping you start, manage, and join clubs, schedule meetings, choose books, track reading, and chat all in one place.”',
+    scaleFacts: [
+      'Purpose-built to start, manage, or join online or in-person book clubs.',
+      'Core features: club creation (multiple clubs per account), digital bookshelves, meeting scheduling, polls/voting for book selection, member management, RSVPs, and messaging/chat.',
+      'Import book lists from CSV (e.g. exported Goodreads lists) to populate shelves.',
+      'Granular privacy per club: share or hide contact info and personal shelves; email notification preferences; account deletion.',
+      'Operated by Bookclubz, Inc., HQ in Camden, Maine.',
+    ],
+    benefits: [
+      {
+        title: 'Purpose-built infrastructure for clubs',
+        detail:
+          'Operational pieces many clubs otherwise manage via email, spreadsheets, and group chats — selection, scheduling, reminders, RSVPs, shelves, and messaging.',
+      },
+      {
+        title: 'Supports online and in-person clubs',
+        detail:
+          'Flexible for hybrid, fully virtual, or in-person groups; one platform for logistics regardless of meeting style.',
+      },
+      {
+        title: 'Easy onboarding and list import',
+        detail:
+          'Import legacy reading lists from CSV (e.g. Goodreads exports) to quickly populate shelves and history.',
+      },
+      {
+        title: 'Reasonable privacy controls',
+        detail:
+          'Members choose what information and shelves to share with club peers — useful for mixed online/offline groups.',
+      },
+    ],
+    weaknesses: [
+      {
+        title: 'Not a full reading social network',
+        detail:
+          'Focused on club logistics, not broader discovery, algorithmic recommendations, or a large-scale social graph like Goodreads or Fable.',
+      },
+      {
+        title: 'Limited direct integration with ebook/audio platforms',
+        detail:
+          'Tracks book choices and meetings but does not provide native reading or listening — users still rely on external apps.',
+      },
+      {
+        title: 'Club-centric UX may feel narrow for solo readers',
+        detail:
+          'Strongest when there is a group; solo readers may prefer StoryGraph, Goodreads, Literal, or Fable.',
+      },
+    ],
+    sources: [
+      'https://bookclubs.com/',
+      'https://www.linkedin.com/company/bookclubs',
+      'https://bookclubs.com/blog/new-bookclubz-features-import-book-lists-messaging',
+      'https://bookclubs.com/faqs/managing-your-account-profile-and-email-preference',
+    ],
+  },
+
+  librarything: {
+    tagline:
+      '“LibraryThing is a social cataloging platform for storing, organizing, and sharing book collections and metadata, used by individual readers, authors, libraries, and publishers.”',
+    scaleFacts: [
+      'Launched August 29, 2005 — two years before Goodreads.',
+      'As of February 2021: ≈2.6M users and 155M+ books cataloged, drawing data from Amazon and thousands of libraries via Z39.50.',
+      'Users catalog personal libraries, track editions, and share metadata; libraries use LibraryThing for Libraries™ to enrich OPACs with social data, tags, and recommendations.',
+      'Import from Amazon and 65M+ library records; add by search or ISBN barcode scan; high-res covers and cover editor.',
+      'Rich metadata: edition, cover variant, condition, acquisition date, shelf location, lending status, tags, collections.',
+      'Free tier up to 200 books; lifetime membership ≈ USD $25; LibraryThing for Libraries sold separately to institutions.',
+    ],
+    benefits: [
+      {
+        title: 'Unmatched cataloging depth for serious readers',
+        detail:
+          'Designed for collectors, academics, and librarians who want precise records — far richer cataloging than most consumer reading apps.',
+      },
+      {
+        title: 'Strong for obscure and academic titles',
+        detail:
+          'Draws from Library of Congress and many library catalogs; reliable for out-of-print, rare, and scholarly works.',
+      },
+      {
+        title: 'Social layer around serious collections',
+        detail:
+          'Connects book lovers via shared libraries, tags, and forums; discover others with similar collections and tastes.',
+      },
+      {
+        title: 'Lifetime pricing',
+        detail:
+          '≈ USD $25 lifetime membership remains attractive for heavy users who prefer one-time payment over subscriptions.',
+      },
+    ],
+    weaknesses: [
+      {
+        title: 'Less modern UX and mobile experience',
+        detail:
+          'Interfaces feel older and more utilitarian compared to StoryGraph, Literal, or Fable.',
+      },
+      {
+        title: 'Collection focus vs mainstream social',
+        detail:
+          'Optimized for cataloging, not modern feed-based social interactions — less appealing for casual social readers.',
+      },
+      {
+        title: 'Smaller current user base than newer platforms',
+        detail:
+          'Still significant, but mindshare has declined relative to Goodreads and newer alternatives.',
+      },
+    ],
+    sources: [
+      'https://www.librarything.com/',
+      'https://en.wikipedia.org/wiki/LibraryThing',
+      'https://play.google.com/store/apps/details?id=com.librarything.librarything',
+      'https://about.proquest.com/en/products-services/library-thing-for-libraries/',
+      'https://tjlibraries.monticello.org/about/librarything.html',
+    ],
+  },
+
+  literal: {
+    tagline:
+      '“Literal is a minimalist social reading app where you build a personal library, share highlights and notes, follow trusted readers, and join real book clubs to discuss books together.”',
+    scaleFacts: [
+      'Available on web, iOS, and Android.',
+      'Built around the belief that best recommendations come from people you know and trust — not purely engagement-optimized algorithms.',
+      'Personal library with custom shelves; follow readers; share highlights and notes (export to X, Instagram, WhatsApp, etc.).',
+      'Book clubs with schedules, discussion threads, shared progress; moderators approve members, manage books, and set permissions.',
+      'Positioned vs StoryGraph as social discovery + real clubs, while StoryGraph is more solo tracking and data-focused.',
+      'Freemium: core tracking, social reading, and basic clubs free; premium tiers planned or available (details vary by region/time).',
+    ],
+    benefits: [
+      {
+        title: 'Social-first design for readers',
+        detail:
+          'Clean, minimal interface focused on social reading — follow people over algorithms; not cluttered by ads or excessive features.',
+      },
+      {
+        title: 'Integrated book clubs, not bolted-on groups',
+        detail:
+          'Clubs are core: schedules, discussions, shared progress, and highlight-based conversations.',
+      },
+      {
+        title: 'Highlight-centric sharing',
+        detail:
+          'Encourages sharing impactful passages across social channels, strengthening conversation around books.',
+      },
+      {
+        title: 'Good fit for modern book communities',
+        detail:
+          'Works well with online fandoms and BookTok-style communities that want to track, share, and discuss beyond generic feeds.',
+      },
+    ],
+    weaknesses: [
+      {
+        title: 'Smaller catalog and user base vs incumbents',
+        detail:
+          'Still growing; may lack depth of ratings/reviews for obscure titles that Goodreads or LibraryThing have.',
+      },
+      {
+        title: 'Freemium details evolving',
+        detail:
+          'Premium features and pricing are changing; some readers may be unclear about long-term cost vs free tier.',
+      },
+      {
+        title: 'Less advanced analytics than StoryGraph',
+        detail:
+          'Strong on social reading and clubs; weaker on mood/pace analytics and deep reading stats.',
+      },
+    ],
+    sources: [
+      'https://literal.club/',
+      'https://apps.apple.com/us/app/literal-club/id1566119883',
+      'https://literal.club/vs/storygraph',
+      'https://bookwiseapp.com/blog/literal-app-review-the-minimalist-social-book-tracker',
+    ],
+  },
+
+  bookbrowse: {
+    tagline:
+      '“BookBrowse is a curated book review and readers’ advisory site that provides in-depth reviews, reading guides, and multiple online book club discussions each month in a moderated community for book lovers.”',
+    scaleFacts: [
+      'In-depth reviews, previews, and “beyond the book” articles.',
+      'Extensive index of 1,800+ reading/discussion guides for fiction and nonfiction — each with 10+ questions plus contextual materials (reviews, author interviews).',
+      'BookBrowse Community Forum: general book talk, Recent Reads, author Q&A, and structured club discussions.',
+      'Hosts multiple in-depth online book club discussions each month — new releases, classics, and hidden gems — guided by moderators; discussions typically run ≈6 weeks asynchronously.',
+      'Some books offer limited free copies to members; full access to reviews, guides, and community features via membership.',
+    ],
+    benefits: [
+      {
+        title: 'High-quality reading guides and moderation',
+        detail:
+          'Well-crafted discussion guides and moderated forums deepen discussions — saves clubs time versus writing their own questions.',
+      },
+      {
+        title: 'Curated selection and trusted reviews',
+        detail:
+          'Editorial selection of titles and thoughtful reviews help clubs choose books rich for discussion.',
+      },
+      {
+        title: 'Structured online book club environment',
+        detail:
+          'Traditional book club feel: schedules, curated prompts, and sustained conversation over weeks.',
+      },
+      {
+        title: 'Useful resource for offline clubs',
+        detail:
+          'Offline organizers can use guides, questions, and schedules even if they do not run the club inside the BookBrowse forum.',
+      },
+    ],
+    weaknesses: [
+      {
+        title: 'Curated hub, not a general social network',
+        detail:
+          'Not designed as a broad open social reading app — focus is guides, editorial content, and moderated club discussions.',
+      },
+      {
+        title: 'Membership paywall for full features',
+        detail:
+          'Best features (full guides, some discussions, deeper content) reserved for paying members; casual users get partial access.',
+      },
+      {
+        title: 'Less emphasis on personal library tracking',
+        detail:
+          'Not a tracking app like StoryGraph or Goodreads — complements rather than replaces those tools.',
+      },
+    ],
+    sources: [
+      'https://www.bookbrowse.com/',
+      'https://www.bookbrowse.com/onlinebookclub/',
+      'https://www.bookbrowse.com/bookclubs/',
+      'https://www.bookbrowse.com/reading_guides/',
+      'https://leahslittlepleasures.com/blog/meetliteralclub',
+    ],
+  },
+
   'apple-books': {
     tagline:
       '“Apple Books is the single destination to find, buy, and dive into audiobooks and ebooks. Browse curated collections and get personalized recommendations.” Native reading and listening across iPhone, iPad, Mac, and CarPlay.',

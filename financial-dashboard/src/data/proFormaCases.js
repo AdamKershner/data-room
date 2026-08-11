@@ -1,5 +1,5 @@
 /**
- * Kahana marketplace Pro Forma — named cases with assumptions.
+ * Aura Library marketplace Pro Forma — named cases with assumptions.
  * Edit assumptions here during walkthroughs; computeCaseRevenue() derives totals.
  *
  * Streams: Growth SaaS · marketplace take rate (5%) · Enterprise · optional feature lines.
@@ -7,7 +7,7 @@
  */
 
 export const PRO_FORMA_META = {
-  product: 'Kahana marketplace',
+  product: 'Aura Library marketplace',
   horizonLabel: '12-month EOY run-rate',
   horizonMonths: 12,
   takeRateDefault: 0.05,
@@ -20,7 +20,7 @@ export const PRO_FORMA_META = {
     dauContext:
       'Internal beta testers; returning users dominate; no paid marketing in ~2 years.',
     hubTxLast30Days: 0,
-    /** Last calendar year GMV mostly one adult hub ($375 entry); creator ~$15k → Kahana 5% = $750. */
+    /** Last calendar year GMV mostly one adult hub ($375 entry); creator ~$15k → Aura Library 5% = $750. */
     lastYearGmv: 15000,
     lastYearTakeRateRevenue: 750,
     /** Going-forward Growth MRR after Aug 7, 2026 cancel (Stripe actuals). */
@@ -44,7 +44,7 @@ export const PRO_FORMA_META = {
       'Group discussion after finishing',
     ],
     retentionThesis:
-      'Hosting a club on Kahana implies multi-day check-ins (reading + discussion), then spillover into Public Library browse/search.',
+      'Hosting a club on Aura Library implies multi-day check-ins (reading + discussion), then spillover into Public Library browse/search.',
     contentInventory: {
       files: 17700,
       hubs: 1473,
@@ -77,7 +77,7 @@ export const PRO_FORMA_META = {
         'Outreach prioritizes repeatedly requested books/videos; genre demand data guides curation',
       ],
       deckCopy:
-        'Kahana uses book and video clubs as demand signals for content acquisition. Rather than bulk-loading public domain titles that nobody reads, we onboard content that clubs explicitly request—e.g., if a club chooses Life of Pi, we invite Yann Martel and his publisher to upload the book, set a price, and start selling directly to that club and others. This demand-driven model is similar to library DDA for ebooks, but applied to a social, creator-friendly marketplace where authors and publishers earn royalties whenever clubs choose their titles.',
+        'Aura Library uses book and video clubs as demand signals for content acquisition. Rather than bulk-loading public domain titles that nobody reads, we onboard content that clubs explicitly request—e.g., if a club chooses Life of Pi, we invite Yann Martel and his publisher to upload the book, set a price, and start selling directly to that club and others. This demand-driven model is similar to library DDA for ebooks, but applied to a social, creator-friendly marketplace where authors and publishers earn royalties whenever clubs choose their titles.',
     },
   },
 }
@@ -136,11 +136,11 @@ export const PRO_FORMA_CASES = [
       analyticsUpsellMonthly: 0,
     },
     notes: [
-      'Organic baseline: no Kahana marketing for ~2 years — Growth SaaS + take-rate happened without paid acquisition.',
+      'Organic baseline: no Aura Library marketing for ~2 years — Growth SaaS + take-rate happened without paid acquisition.',
       'Registered users: 6,482 — vast majority dead/inactive; do not treat as addressable live users.',
       'Last 30 days (Jul 4–Aug 3 2026): 1–14 DAU, mostly returning internal beta testers; 0 hub transactions.',
       'Stripe Growth as of 2026-08-03: going-forward 9 subs · ~$76.62 MRR · ~$919 ARR after Aug 7 cancel.',
-      'Take-rate baseline: last calendar year ~$15k GMV (mostly one adult hub @ $375) → Kahana 5% ≈ $750. Concentrated; not diversified GMV.',
+      'Take-rate baseline: last calendar year ~$15k GMV (mostly one adult hub @ $375) → Aura Library 5% ≈ $750. Concentrated; not diversified GMV.',
       'Enterprise: none closed in this baseline.',
     ],
   },

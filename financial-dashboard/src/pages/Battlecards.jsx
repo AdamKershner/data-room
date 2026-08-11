@@ -178,17 +178,17 @@ function PresenceCell({ value }) {
 }
 
 /**
- * Content types as columns. Kahana supports all; company row shows overlap.
+ * Content types as columns. Aura Library supports all; company row shows overlap.
  */
 function KahanaComparisonChart({ card }) {
   const modalities = useMemo(() => buildKahanaComparisonRows(card), [card])
   const companyName = card.name || 'Them'
 
   return (
-    <ResearchCallout variant="compare" title={`Coverage: Kahana vs ${companyName}`} icon="chart">
+    <ResearchCallout variant="compare" title={`Coverage: Aura Library vs ${companyName}`} icon="chart">
       <p className="battlecard-compare-note">
-        Columns are content types Kahana aims to unify in one Aura-powered library.
-        Kahana supports all of them; {companyName} shows which of those it supports today.
+        Columns are content types Aura Library aims to unify in one Aura-powered library.
+        Aura Library supports all of them; {companyName} shows which of those it supports today.
         All modality columns are draft-reviewed Yes/— lists (team spot-check later).
       </p>
       <div className="battlecard-compare-scroll">
@@ -207,7 +207,7 @@ function KahanaComparisonChart({ card }) {
           </thead>
           <tbody>
             <tr className="is-kahana-row">
-              <th scope="row">Kahana</th>
+              <th scope="row">Aura Library</th>
               {modalities.map((col) => (
                 <td key={`kahana-${col.fragmentId}`}>
                   <PresenceCell value={col.kahana} />
@@ -314,9 +314,9 @@ function CompanyLandscape() {
         <p className="battlecards-subtitle">
           Facts on peer platforms — same categories as the{' '}
           <Link to="/fragment-capture">Market Map</Link>. Open a card for the{' '}
-          <strong>Kahana vs …</strong> coverage chart (library modalities + Aura discovery
+          <strong>Aura Library vs …</strong> coverage chart (library modalities + Aura discovery
           vs what they ship). Cards also include size tier (Incumbent / Challenger / Niche).
-          For how Kahana relates to the creator stack, see the{' '}
+          For how Aura Library relates to the creator stack, see the{' '}
           <Link to="/glossary">Glossary</Link>.
         </p>
         {researchedCount > 0 && (

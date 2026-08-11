@@ -5,24 +5,24 @@ import './ProductHuntTasks.css'
 const TEMPLATE_MESSAGES = {
   favor: "Hey hope you're doing well, could I ask you a quick favor?",
   overview:
-    "We've been building Kahana (https://about.kahana.io) and we're launching it on Product Hunt soon. Our goal is #1—the top spot on the feed. That's a big deal because it drives visibility, reach, and opportunities. News, investors, and customers all take notice. We need at least 350 upvotes on launch day, so we're reaching out now to line up support in advance. It takes less than 5 minutes to help, and it would mean a lot for us and for my career. If you're in, just say Yes and I'll send you the instructions.",
+    "We've been building Aura Library (https://about.kahana.io) and we're launching it on Product Hunt soon. Our goal is #1—the top spot on the feed. That's a big deal because it drives visibility, reach, and opportunities. News, investors, and customers all take notice. We need at least 350 upvotes on launch day, so we're reaching out now to line up support in advance. It takes less than 5 minutes to help, and it would mean a lot for us and for my career. If you're in, just say Yes and I'll send you the instructions.",
   instructions:
     "Amazing, thank you! Here's all you need to do:\n\n1. Create a free Product Hunt account: https://www.producthunt.com/\n2. After creating your account, text me the link to your account/profile.\n3. On the day of the launch, I'll send you a reminder to log in, check out the launch page, upvote, and comment.\n\nThat's it. Thank you again for backing us.",
   // Variation: Short
   shortFavor: 'Hey! Quick favor?',
   shortOverview:
-    "We're launching Kahana (https://about.kahana.io) on Product Hunt soon. Going for #1—need 350 upvotes on launch day. Takes <5 min to help and would mean a lot. Say Yes and I'll send instructions.",
+    "We're launching Aura Library (https://about.kahana.io) on Product Hunt soon. Going for #1—need 350 upvotes on launch day. Takes <5 min to help and would mean a lot. Say Yes and I'll send instructions.",
   shortInstructions:
     "Thanks! Here's what to do:\n\n1. Create a free Product Hunt account: https://www.producthunt.com/\n2. Text me your profile link\n3. On launch day I'll remind you to upvote and comment\n\nThat's it!",
   // Variation: Email
   emailFavor: "Hope you're doing well. Could I ask you a quick favor?",
   emailOverview:
-    "We've been building Kahana (https://about.kahana.io) and we're launching it on Product Hunt soon. Our goal is #1—the top spot on the feed, which drives visibility, reach, and opportunities. We need at least 350 upvotes on launch day, so we're reaching out in advance to line up support. It takes less than 5 minutes to help, and it would mean a lot for us and for my career. If you're open to it, just reply Yes and I'll send the instructions.",
+    "We've been building Aura Library (https://about.kahana.io) and we're launching it on Product Hunt soon. Our goal is #1—the top spot on the feed, which drives visibility, reach, and opportunities. We need at least 350 upvotes on launch day, so we're reaching out in advance to line up support. It takes less than 5 minutes to help, and it would mean a lot for us and for my career. If you're open to it, just reply Yes and I'll send the instructions.",
   emailInstructions:
     "Thank you! Here's what you need to do:\n\n1. Create a free Product Hunt account: https://www.producthunt.com/\n2. After creating your account, send me the link to your profile.\n3. On launch day, I'll send you a reminder to log in, check out the launch page, upvote, and comment.\n\nThat's it. Thanks again for your support.",
   // Variation: Group (combined ask)
   groupAsk:
-    "Hey everyone—quick favor? We're launching Kahana (https://about.kahana.io) on Product Hunt soon. Going for #1—need 350 upvotes on launch day. If you're willing to help (takes <5 min), reply here and I'll send instructions. Would mean a lot!",
+    "Hey everyone—quick favor? We're launching Aura Library (https://about.kahana.io) on Product Hunt soon. Going for #1—need 350 upvotes on launch day. If you're willing to help (takes <5 min), reply here and I'll send instructions. Would mean a lot!",
   groupInstructions:
     "Thanks! Here's what to do:\n\n1. Create a free Product Hunt account: https://www.producthunt.com/\n2. Send me your profile link\n3. On launch day I'll remind you to upvote and comment\n\nThat's it. Thank you!",
 }
@@ -46,7 +46,7 @@ function ProductHuntTasks() {
         <h1>ProductHunt Tasks</h1>
         <p className="page-subtitle">
           Recruit 10 friends, family members, and former colleagues to support our upcoming Product Hunt
-          launch of Kahana (
+          launch of Aura Library (
           <a href="https://about.kahana.io/" target="_blank" rel="noopener noreferrer" className="producthunt-link">
             about.kahana.io
           </a>
@@ -102,7 +102,7 @@ function ProductHuntTasks() {
                 </button>
               </div>
               <p>
-                We&apos;ve been building Kahana (
+                We&apos;ve been building Aura Library (
                 <a href="https://about.kahana.io/" target="_blank" rel="noopener noreferrer" className="producthunt-link">
                   about.kahana.io
                 </a>
@@ -207,7 +207,7 @@ function ProductHuntTasks() {
                   <button type="button" className="producthunt-copy-btn" onClick={() => handleCopy(TEMPLATE_MESSAGES.shortOverview, 'shortOverview')} aria-label="Copy">{copiedId === 'shortOverview' ? 'Copied!' : 'Copy'}</button>
                 </div>
                 <p>
-                  We&apos;re launching Kahana (
+                  We&apos;re launching Aura Library (
                   <a href="https://about.kahana.io/" target="_blank" rel="noopener noreferrer" className="producthunt-link">
                     about.kahana.io
                   </a>
@@ -265,7 +265,7 @@ function ProductHuntTasks() {
                   <button type="button" className="producthunt-copy-btn" onClick={() => handleCopy(TEMPLATE_MESSAGES.emailOverview, 'emailOverview')} aria-label="Copy">{copiedId === 'emailOverview' ? 'Copied!' : 'Copy'}</button>
                 </div>
                 <p>
-                  We&apos;ve been building Kahana (
+                  We&apos;ve been building Aura Library (
                   <a href="https://about.kahana.io/" target="_blank" rel="noopener noreferrer" className="producthunt-link">
                     about.kahana.io
                   </a>
@@ -311,7 +311,7 @@ function ProductHuntTasks() {
                   <button type="button" className="producthunt-copy-btn" onClick={() => handleCopy(TEMPLATE_MESSAGES.groupAsk, 'groupAsk')} aria-label="Copy">{copiedId === 'groupAsk' ? 'Copied!' : 'Copy'}</button>
                 </div>
                 <p>
-                  Hey everyone—quick favor? We&apos;re launching Kahana (
+                  Hey everyone—quick favor? We&apos;re launching Aura Library (
                   <a href="https://about.kahana.io/" target="_blank" rel="noopener noreferrer" className="producthunt-link">
                     about.kahana.io
                   </a>

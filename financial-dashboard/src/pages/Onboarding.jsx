@@ -192,7 +192,7 @@ function Onboarding() {
             <div className="onboarding-day-section">
               <h3 className="onboarding-day-title">Day 2 — Lay of the land</h3>
               <p className="onboarding-day-intro">
-                Orient to the market, how Kahana fits beside peers, how we work day to day
+                Orient to the market, how Aura Library fits beside peers, how we work day to day
                 (Linear, Slack, Mixpanel), and the Project Charter.
               </p>
               <ul className="onboarding-list">

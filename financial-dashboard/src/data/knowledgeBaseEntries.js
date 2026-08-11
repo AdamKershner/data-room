@@ -16,7 +16,7 @@ export const KNOWLEDGE_BASE_CATEGORIES = [
 export const KNOWLEDGE_BASE_ENTRIES = [
   {
     path: '/kahana-narrative',
-    title: 'Kahana Story',
+    title: 'Aura Library Story',
     category: 'Marketing',
     description: 'Strategic narrative — AI slop, creator platform gaps, hubs as Wan Shi Tong\'s Library.',
     keywords: ['narrative', 'story', 'positioning', 'ai slop', 'wan shi tong', 'promised land', 'magic gifts'],
@@ -53,7 +53,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'Glossary',
     category: 'Marketing',
     description:
-      'How Kahana relates to the creator stack — Content & Audience, Community & Messaging, Memberships, Storefronts, Marketplaces.',
+      'How Aura Library relates to the creator stack — Content & Audience, Community & Messaging, Memberships, Storefronts, Marketplaces.',
     keywords: [
       'glossary',
       'kahana positioning',
@@ -273,7 +273,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     path: '/oasis-rfp',
     title: 'Oasis RFP',
     category: 'Oasis (Archive)',
-    description: 'Kahana Oasis request-for-proposal template for enterprise deals (archived).',
+    description: 'Aura Library Oasis request-for-proposal template for enterprise deals (archived).',
     keywords: ['rfp', 'request for proposal', 'enterprise', 'procurement', 'oasis', 'archive'],
     archive: true,
   },

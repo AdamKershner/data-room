@@ -6,7 +6,7 @@
 export const SOP_PAGE = {
   title: 'Standard Operating Procedures',
   subtitle:
-    'Searchable guides for hosting clubs and other recurring product work on Kahana. Open a card to read the full procedure.',
+    'Searchable guides for hosting clubs and other recurring product work on Aura Library. Open a card to read the full procedure.',
 }
 
 /** Categories used for gallery filters (order matters). */
@@ -112,7 +112,7 @@ export const SOPS = [
           },
           {
             text:
-              'Encourage members to give Aura to the hubs they enjoy — that is how good work rises on Kahana and it keeps the club tied to the wider library.',
+              'Encourage members to give Aura to the hubs they enjoy — that is how good work rises on Aura Library and it keeps the club tied to the wider library.',
           },
           {
             text: 'Log anything broken or missing as you go.',
@@ -122,7 +122,7 @@ export const SOPS = [
       },
     ],
     doneWhen: [
-      'The club exists on Kahana with a clear name and a detailed description covering theme and frequency.',
+      'The club exists on Aura Library with a clear name and a detailed description covering theme and frequency.',
       'A join mode is set.',
       'Visibility is set to public if you want outsiders to join, or private if it’s invite-only.',
       'At least one cycle has been planned or is running.',

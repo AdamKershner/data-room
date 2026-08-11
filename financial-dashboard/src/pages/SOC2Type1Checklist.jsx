@@ -216,7 +216,7 @@ function CheckRowWithInstructions({ id, checked, onToggle, label, sublabel, tag,
               {instruction.prompt && (
                 <div className="soc2-instruction-block soc2-prompt-block">
                   <strong>Prompts for content generation:</strong>
-                  <p className="soc2-prompt-intro">1. In Cursor or <a href={ANTIGRAVITY_URL} target="_blank" rel="noopener noreferrer" className="soc2-instruction-link">Antigravity</a> (<a href={DATA_ROOM_REPO_URL} target="_blank" rel="noopener noreferrer" className="soc2-instruction-link">Data Room repo</a>), Konika can prompt to generate Kahana-specific content. 2. Hasitha takes the output, adds to Google Doc, or further refines with <a href={PERPLEXITY_URL} target="_blank" rel="noopener noreferrer" className="soc2-instruction-link">Perplexity</a> for industry standards and best practices.</p>
+                  <p className="soc2-prompt-intro">1. In Cursor or <a href={ANTIGRAVITY_URL} target="_blank" rel="noopener noreferrer" className="soc2-instruction-link">Antigravity</a> (<a href={DATA_ROOM_REPO_URL} target="_blank" rel="noopener noreferrer" className="soc2-instruction-link">Data Room repo</a>), Konika can prompt to generate Aura Library-specific content. 2. Hasitha takes the output, adds to Google Doc, or further refines with <a href={PERPLEXITY_URL} target="_blank" rel="noopener noreferrer" className="soc2-instruction-link">Perplexity</a> for industry standards and best practices.</p>
                   <div className="soc2-prompt-item">
                     <strong>Cursor or <a href={ANTIGRAVITY_URL} target="_blank" rel="noopener noreferrer" className="soc2-instruction-link">Antigravity</a> (<a href={DATA_ROOM_REPO_URL} target="_blank" rel="noopener noreferrer" className="soc2-instruction-link">Data Room repository</a>):</strong>
                     <blockquote className="soc2-prompt-quote">{parseInstructionWithLinks(instruction.prompt.cursor, onNavigateToTask)}</blockquote>
@@ -409,7 +409,7 @@ function SOC2Type1Checklist() {
 
       <section className="page-section soc2-section">
         <h2>Documents to Create and Add to Google Drive</h2>
-        <p className="soc2-section-intro">Each document must be created as a Google Doc, added to the SOC2 Docs &amp; Policies folder, and include at the top: <strong>Document Creation Date</strong>, <strong>Last Change</strong>, and a <strong>Change Control / Version History</strong> table (Date | Editor | Summary of change). Assigned to Hasitha and Konika—Konika can cross-reference the codebase to ensure documentation is contextually accurate to Kahana. Use &quot;View instructions&quot; for document-specific guidance.</p>
+        <p className="soc2-section-intro">Each document must be created as a Google Doc, added to the SOC2 Docs &amp; Policies folder, and include at the top: <strong>Document Creation Date</strong>, <strong>Last Change</strong>, and a <strong>Change Control / Version History</strong> table (Date | Editor | Summary of change). Assigned to Hasitha and Konika—Konika can cross-reference the codebase to ensure documentation is contextually accurate to Aura Library. Use &quot;View instructions&quot; for document-specific guidance.</p>
 
         <h3>Core Policies</h3>
         <div className="content-block">

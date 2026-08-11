@@ -1,8 +1,8 @@
-# Kahana Internal Data Room
+# Aura Library Internal Data Room
 
 A React-based internal data room for Kahana Group Inc. — business plan, team ops, sprints, onboarding, and product documentation.
 
-**Active product:** [Kahana platform](https://kahana.io) (formerly Curio) at kahana.io and kahana.io/library.
+**Active product:** [Aura Library platform](https://kahana.io) (formerly Curio) at kahana.io and kahana.io/library.
 
 **Archived product:** Oasis Browser (consumer + enterprise) — preserved in the archive section for future return.
 

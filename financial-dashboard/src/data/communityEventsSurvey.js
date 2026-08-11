@@ -1,10 +1,10 @@
 /**
- * Aggregated from "Kahana Community-Led Events" survey export (Sheet1).
+ * Aggregated from "Aura Library Community-Led Events" survey export (Sheet1).
  * 11 responses, Apr 7–9, 2026. All respondents opted into the events email list.
  */
 
 export const SURVEY_META = {
-  name: 'Kahana Community-Led Events',
+  name: 'Aura Library Community-Led Events',
   responseCount: 11,
   dateRangeLabel: 'April 7–9, 2026',
   optInPercent: 100,

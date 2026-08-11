@@ -86,7 +86,7 @@ function LinkedInConnectionsGuide() {
 
       <div className="linkedin-connections-tracker-callout">
         <h3>ICP Prospect Tracker</h3>
-        <p>When you find prospects in your network (people with mutual connections who have one of our ICP roles), log them in our shared tracker. Add their name, company, LinkedIn profile, your name, and connection degree (1st, 2nd, 3rd+). This creates a database so we can strategize who should reach out and avoid multiple Kahana team members contacting the same person.</p>
+        <p>When you find prospects in your network (people with mutual connections who have one of our ICP roles), log them in our shared tracker. Add their name, company, LinkedIn profile, your name, and connection degree (1st, 2nd, 3rd+). This creates a database so we can strategize who should reach out and avoid multiple Aura Library team members contacting the same person.</p>
         <a
           href="https://docs.google.com/spreadsheets/d/17YPQ9mUpl5uUdI3q1E25qv4g-GKkJxnXWC_T07GV4Pg/edit?usp=sharing"
           target="_blank"

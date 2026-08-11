@@ -284,7 +284,7 @@ function PlayerBattleCard({ card, style, onClose }) {
       </div>
       {card.kahanaAngle && (
         <p className="fragment-battlecard-angle">
-          <strong>Kahana:</strong> {card.kahanaAngle}
+          <strong>Aura Library:</strong> {card.kahanaAngle}
         </p>
       )}
       <Link className="fragment-battlecard-link" to="/company-landscape">
@@ -534,7 +534,7 @@ function FragmentCapture() {
         <p className="fragment-capture-subtitle">
           Lay of the land — content modalities plus how creators operate (community, memberships,
           storefronts, marketplaces), sized by directional market $. Company facts live on{' '}
-          <Link to="/company-landscape">Company Landscape</Link>; Kahana positioning is in the{' '}
+          <Link to="/company-landscape">Company Landscape</Link>; Aura Library positioning is in the{' '}
           <Link to="/glossary">Glossary</Link>.
         </p>
         <div className="fragment-capture-stack-row" aria-label="Creator stack layers">

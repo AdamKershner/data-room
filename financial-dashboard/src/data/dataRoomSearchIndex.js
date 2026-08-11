@@ -56,7 +56,7 @@ const EXTRA_SEARCH_ENTRIES = [
     title: 'Glossary',
     businessFunction: 'Marketing',
     description:
-      'How Kahana relates to the creator stack — Content & Audience, Community & Messaging, Memberships, Storefronts, Marketplaces.',
+      'How Aura Library relates to the creator stack — Content & Audience, Community & Messaging, Memberships, Storefronts, Marketplaces.',
     keywords: [
       'glossary',
       'kahana positioning',
@@ -147,9 +147,9 @@ const EXTRA_SEARCH_ENTRIES = [
   },
   {
     path: '/kahana-narrative',
-    title: 'Kahana Story',
+    title: 'Aura Library Story',
     businessFunction: 'Marketing',
-    description: 'Strategic narrative — why Kahana, hub model, magical gifts, promised land.',
+    description: 'Strategic narrative — why Aura Library, hub model, magical gifts, promised land.',
     keywords: ['narrative', 'story', 'positioning', 'ai slop', 'wan shi tong', 'strategic narrative'],
     nlHints: ['why kahana', 'high level story', 'what is our pitch', 'promised land'],
   },
@@ -235,7 +235,7 @@ const EXTRA_SEARCH_ENTRIES = [
     title: 'Weekly Reports',
     businessFunction: 'Product',
     description:
-      'Cross-team progress synthesized from weekly Time Log submissions — read against Scaling Kahana charter KPIs.',
+      'Cross-team progress synthesized from weekly Time Log submissions — read against Scaling Aura Library charter KPIs.',
     keywords: [
       'weekly reports',
       'time log',

@@ -1,5 +1,5 @@
 /**
- * Kahana battlecards — thin shim over the company landscape database.
+ * Aura Library battlecards — thin shim over the company landscape database.
  * Prefer importing from kahanaCompanyDatabase.js for new code.
  */
 

@@ -7,7 +7,7 @@ function ArchiveBanner({ product = 'Oasis Browser' }) {
     <div className="archive-banner" role="status">
       <p>
         <strong>{product}</strong> — privacy-first AI browser, optional for internal work. Not part of
-        onboarding or Kahana&apos;s scaling focus; we love the product but have no paid users yet. Install
+        onboarding or Aura Library&apos;s scaling focus; we love the product but have no paid users yet. Install
         from{' '}
         <a href="https://kahana.io/installations" target="_blank" rel="noopener noreferrer">
           kahana.io/installations

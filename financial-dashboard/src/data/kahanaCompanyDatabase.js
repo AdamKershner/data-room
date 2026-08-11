@@ -1,5 +1,5 @@
 /**
- * Canonical Kahana company landscape database.
+ * Canonical Aura Library company landscape database.
  * Merges Battlecards + Synergy + Competitive Landscape into one staff-facing record set.
  * Market categories align with Market Map (CONTENT_FRAGMENTS / fragment players).
  */

@@ -41,7 +41,7 @@ export const INSTRUCTIONS = {
       'Mission and workstreams in `data-leakage-consortium-summary.md`.',
     successCriteria:
       'Clear who it is for (security leaders) and what members get (patterns, not hype).',
-    why: 'Positions Kahana as convener of the change, not only a vendor.',
+    why: 'Positions Aura Library as convener of the change, not only a vendor.',
   },
   'mn-change-05': {
     howTo:
@@ -76,7 +76,7 @@ export const INSTRUCTIONS = {
     alreadyDone:
       'Consortium The average company (IBM-derived snapshot).',
     successCriteria:
-      'CFO-readable; footnotes point to IBM source, not Kahana math.',
+      'CFO-readable; footnotes point to IBM source, not Aura Library math.',
     why: 'Quantifies loser future for economic buyers.',
   },
   'mn-winners-04': {
@@ -171,7 +171,7 @@ export const INSTRUCTIONS = {
   },
   'mn-change-chrome-02': {
     howTo:
-      'Category: B2C Chrome privacy narrative: **Name the change villain Name the villain.**\n1. Set linearId.\n2. **Pull from copy bank The Mosquitoes + The Cost** ([[AD_NAUSEAM_BRIEF|copy bank]]). Open in Name the change villain voice, not Winners and losers quiet rebels yet. Adapt:\n\n“You know the drone. Your mind is still cloudy from Ad Nauseam. Big tech is a cloud of **mosquitoes**, always hovering, always hungry. Each tracker, pixel, cookie, and ‘helpful’ assistant is another bite.\n\nYou do not feel every bite. That is the point. By the time you notice, your attention is covered in **welts**, ads stitched together by the assumption your data is theirs to drink.\n\nAt first it was annoying. Then normal. Your **field of view** fills with autoplay. Your **mental RAM** goes to ignoring instead of creating. Priority erodes under ‘this might be relevant to you.’”\n\n3. Ads are what you *see*; data collection is what drains you.\n4. Invite **horror stories**: worst ad pile-on, creepy retargeting, “why does it know that?”\n5. **One stat max** footnote: Chrome ~**20** data types vs **~6** peers ([[SURFSHARK_BROWSERS|Surfshark]]).\n6. CTA: [[CHROME_BLOG|Kahana Chrome post]]; next → [[mn-change-chrome-03|Fallen Portal]].',
+      'Category: B2C Chrome privacy narrative: **Name the change villain Name the villain.**\n1. Set linearId.\n2. **Pull from copy bank The Mosquitoes + The Cost** ([[AD_NAUSEAM_BRIEF|copy bank]]). Open in Name the change villain voice, not Winners and losers quiet rebels yet. Adapt:\n\n“You know the drone. Your mind is still cloudy from Ad Nauseam. Big tech is a cloud of **mosquitoes**, always hovering, always hungry. Each tracker, pixel, cookie, and ‘helpful’ assistant is another bite.\n\nYou do not feel every bite. That is the point. By the time you notice, your attention is covered in **welts**, ads stitched together by the assumption your data is theirs to drink.\n\nAt first it was annoying. Then normal. Your **field of view** fills with autoplay. Your **mental RAM** goes to ignoring instead of creating. Priority erodes under ‘this might be relevant to you.’”\n\n3. Ads are what you *see*; data collection is what drains you.\n4. Invite **horror stories**: worst ad pile-on, creepy retargeting, “why does it know that?”\n5. **One stat max** footnote: Chrome ~**20** data types vs **~6** peers ([[SURFSHARK_BROWSERS|Surfshark]]).\n6. CTA: [[CHROME_BLOG|Aura Library Chrome post]]; next → [[mn-change-chrome-03|Fallen Portal]].',
     alreadyDone:
       'Copy bank Mosquitoes + Cost; Surfshark in privacy brief.',
     successCriteria:
@@ -235,7 +235,7 @@ export const INSTRUCTIONS = {
   },
   'mn-winners-chrome-01': {
     howTo:
-      'Category: B2C Chrome privacy narrative.\n1. Set linearId.\n2. **Frame:** loser arc “deeper data trails” ([[WINNERS_LOSERS_BRIEF|loser arc / framework]]), futures, not blame; one line on hollow husk or identity splinters, then receipts.\n3. Visual: 8 rows. Identifiers, Contact, Financial, Location, Browsing, User content, Usage, Diagnostics ([[CHROME_BLOG|Kahana post]]).\n4. Loser future: all categories **linked to you** when signed in.\n5. Winner future: reduce surface area, limit what is linked (state Oasis truthfully per legal).\n6. **Do not** claim Oasis collects zero data.\n7. Pair with [[mn-winners-chrome-09|loser arc over time]] thread.',
+      'Category: B2C Chrome privacy narrative.\n1. Set linearId.\n2. **Frame:** loser arc “deeper data trails” ([[WINNERS_LOSERS_BRIEF|loser arc / framework]]), futures, not blame; one line on hollow husk or identity splinters, then receipts.\n3. Visual: 8 rows. Identifiers, Contact, Financial, Location, Browsing, User content, Usage, Diagnostics ([[CHROME_BLOG|Aura Library post]]).\n4. Loser future: all categories **linked to you** when signed in.\n5. Winner future: reduce surface area, limit what is linked (state Oasis truthfully per legal).\n6. **Do not** claim Oasis collects zero data.\n7. Pair with [[mn-winners-chrome-09|loser arc over time]] thread.',
     alreadyDone:
       'Eight categories in privacy brief; Winners and losers story in checklist + copy bank.',
     successCriteria:
@@ -262,7 +262,7 @@ export const INSTRUCTIONS = {
   },
   'mn-winners-chrome-04': {
     howTo:
-      'Category: B2C Chrome privacy narrative.\n1. Set linearId.\n2. Pairs with Winners and losers **stay on default** / mosquito metaphor, this task is **factual receipts** for the loser future.\n3. Use these copy-ready lines on the **“Working for Google”** / loser side of [[mn-ph-chrome-02|split-screen]] (attribute sources in footer), verbatim from [[WINNERS_LOSERS_BRIEF|copy bank: evidence block]]:\n• “Chrome is the most data-hungry popular browser, collecting 20–24 different types of personal data, far more than competitors that average just 6.”\n• “Chrome is the only major browser that pulls in your phone’s contacts and your payment details, then links that information to your identity and devices.”\n• “Google confirms that Chrome has leaked pieces of your browsing history for years via a fundamental browser behavior, now only being locked down in Chrome 136.”\n• “Google collects more data than any other big-tech firm, and Chrome-synced browsing history becomes part of the profile that powers its ad and AI systems.”\n4. Footnote Surfshark, Forbes, [[SECURITY_ORG|Security.org]], [[CHROME_BLOG|Kahana blog]].\n5. Right / **quiet rebel** side stays clean, full PH tagline on [[mn-ph-chrome-02|PH square]] / [[mn-ph-chrome-03|caption]] only.',
+      'Category: B2C Chrome privacy narrative.\n1. Set linearId.\n2. Pairs with Winners and losers **stay on default** / mosquito metaphor, this task is **factual receipts** for the loser future.\n3. Use these copy-ready lines on the **“Working for Google”** / loser side of [[mn-ph-chrome-02|split-screen]] (attribute sources in footer), verbatim from [[WINNERS_LOSERS_BRIEF|copy bank: evidence block]]:\n• “Chrome is the most data-hungry popular browser, collecting 20–24 different types of personal data, far more than competitors that average just 6.”\n• “Chrome is the only major browser that pulls in your phone’s contacts and your payment details, then links that information to your identity and devices.”\n• “Google confirms that Chrome has leaked pieces of your browsing history for years via a fundamental browser behavior, now only being locked down in Chrome 136.”\n• “Google collects more data than any other big-tech firm, and Chrome-synced browsing history becomes part of the profile that powers its ad and AI systems.”\n4. Footnote Surfshark, Forbes, [[SECURITY_ORG|Security.org]], [[CHROME_BLOG|Aura Library blog]].\n5. Right / **quiet rebel** side stays clean, full PH tagline on [[mn-ph-chrome-02|PH square]] / [[mn-ph-chrome-03|caption]] only.',
     alreadyDone:
       'Privacy brief : mosquito metaphor; [[WINNERS_LOSERS_BRIEF|docs/b2c-winners-losers-copy.md]].',
     successCriteria:
@@ -442,7 +442,7 @@ export const INSTRUCTIONS = {
   },
   'mn-evidence-chrome-01': {
     howTo:
-      'Category: B2C Chrome privacy narrative.\n1. Set linearId.\n2. Update or republish [[CHROME_BLOG|Kahana Chrome 2025 post]] as hub page.\n3. Inline links: [[SURFSHARK_BROWSERS|Surfshark browsers]], [[SURFSHARK_GEMINI|Surfshark Gemini]], [[SECURITY_ORG|Security.org]], [[FORBES_VISITED|Forbes visited-link]], cookies [[PRIVACY_SANDBOX|Privacy Sandbox]].\n4. **Comms guardrails:** attribute third parties; Kahana is not independent research; no “Oasis collects nothing.”\n5. Optional: embed mosquito block from [[mn-winners-chrome-04|mosquito lines]].',
+      'Category: B2C Chrome privacy narrative.\n1. Set linearId.\n2. Update or republish [[CHROME_BLOG|Aura Library Chrome 2025 post]] as hub page.\n3. Inline links: [[SURFSHARK_BROWSERS|Surfshark browsers]], [[SURFSHARK_GEMINI|Surfshark Gemini]], [[SECURITY_ORG|Security.org]], [[FORBES_VISITED|Forbes visited-link]], cookies [[PRIVACY_SANDBOX|Privacy Sandbox]].\n4. **Comms guardrails:** attribute third parties; Aura Library is not independent research; no “Oasis collects nothing.”\n5. Optional: embed mosquito block from [[mn-winners-chrome-04|mosquito lines]].',
     alreadyDone:
       'Privacy brief consolidates all URLs; blog already exists.',
     successCriteria:
@@ -451,7 +451,7 @@ export const INSTRUCTIONS = {
   },
   'mn-evidence-chrome-02': {
     howTo:
-      'Category: B2C Chrome privacy narrative.\n1. Set linearId.\n2. Publish internal or public bibliography listing:\n• [[CHROME_BLOG|Kahana Chrome 2025]]\n• [[SURFSHARK_BROWSERS|Surfshark mobile browsers]]\n• [[SURFSHARK_GEMINI|Surfshark Gemini + Chrome]]\n• [[SECURITY_ORG|Security.org big tech data]]\n• [[FORBES_TARGET|Forbes Target pregnancy 2012]]\n• [[FORBES_VISITED|Forbes visited-link Apr 2025]]\n• [[PRIVACY_SANDBOX|Privacy Sandbox cookies]]\n• [[DIDOMI_COOKIES|Didomi explainer]]\n• [[PH_BRIEF|Product Hunt Brief 01]] + [[PRODUCT_HUNT|Product Hunt]]\n3. Add PH deliverable matrix (header 1270×760, square 1080×1080, story 1080×1920, thumbnail 240×240), see [[mn-ph-chrome-08|format pack]].\n4. For comms/legal review only or public transparency page.',
+      'Category: B2C Chrome privacy narrative.\n1. Set linearId.\n2. Publish internal or public bibliography listing:\n• [[CHROME_BLOG|Aura Library Chrome 2025]]\n• [[SURFSHARK_BROWSERS|Surfshark mobile browsers]]\n• [[SURFSHARK_GEMINI|Surfshark Gemini + Chrome]]\n• [[SECURITY_ORG|Security.org big tech data]]\n• [[FORBES_TARGET|Forbes Target pregnancy 2012]]\n• [[FORBES_VISITED|Forbes visited-link Apr 2025]]\n• [[PRIVACY_SANDBOX|Privacy Sandbox cookies]]\n• [[DIDOMI_COOKIES|Didomi explainer]]\n• [[PH_BRIEF|Product Hunt Brief 01]] + [[PRODUCT_HUNT|Product Hunt]]\n3. Add PH deliverable matrix (header 1270×760, square 1080×1080, story 1080×1920, thumbnail 240×240), see [[mn-ph-chrome-08|format pack]].\n4. For comms/legal review only or public transparency page.',
     alreadyDone:
       'All URLs in `marketingNarrativeSections.js` constants; brief in data room `docs/product-hunt-brief-01-privacy-angle.md`.',
     successCriteria:

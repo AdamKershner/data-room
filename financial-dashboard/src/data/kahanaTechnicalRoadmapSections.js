@@ -12,11 +12,11 @@ export const TECHNICAL_ROADMAP_PAGE = {
 }
 
 export const SECURITY_AUDIT = {
-  title: 'Kahana LLC — Security Audit Report',
+  title: 'Aura Library LLC — Security Audit Report',
   date: '2026-07-01',
   scope: 'kahana-web (frontend) · firebase-functions (backend) · kahana.io',
   /** Repo-relative path for team with data room checkout */
-  repoPath: 'Kahana LLC - Security Audit Report.pdf',
+  repoPath: 'Aura Library LLC - Security Audit Report.pdf',
 }
 
 export const PILLARS = [
@@ -182,5 +182,5 @@ export const EXECUTION_LINKS = [
   { path: 'https://linear.app/kahana', title: 'Linear', external: true, description: 'Active backlog — features, bugs, security remediation' },
   { path: '/how-we-work', title: 'How We Work', description: 'Linear, Slack, Mixpanel — how work gets done' },
   { path: '/sprints', title: 'Product Lifecycle', description: 'Feedback → backlog flow' },
-  { path: '/kahana#how-we-grow', title: 'Kahana growth', description: 'Clubs, hubs, creator outreach on the platform page' },
+  { path: '/kahana#how-we-grow', title: 'Aura Library growth', description: 'Clubs, hubs, creator outreach on the platform page' },
 ]

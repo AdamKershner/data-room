@@ -90,14 +90,14 @@ function CompanyLandscapeTeaser() {
   return (
     <div className="content-block">
       <p>
-        Kahana works alongside peers — complementary, not extractive. Keep the other platform for what it
-        does well; use Kahana for library, Clubs, and Aura. Browse the full Company Landscape.
+        Aura Library works alongside peers — complementary, not extractive. Keep the other platform for what it
+        does well; use Aura Library for library, Clubs, and Aura. Browse the full Company Landscape.
       </p>
       <div className="kahana-landscape-teaser-grid">
         {featured.map((company) => (
           <article key={company.id} className="kahana-landscape-teaser-card">
             <p className="kahana-synergy-kicker">{company.category || 'Peer'}</p>
-            <h3>Kahana + {company.name}</h3>
+            <h3>Aura Library + {company.name}</h3>
             <p>{company.kahanaOneLiner || company.together || company.useWithReason}</p>
           </article>
         ))}
@@ -140,13 +140,13 @@ function KahanaPlatform() {
         <p className="page-subtitle">{KAHANA_PLATFORM_PAGE.subtitle}</p>
       </div>
 
-      <section className="kahana-platform-hero page-section" aria-label="Kahana platform overview">
+      <section className="kahana-platform-hero page-section" aria-label="Aura Library platform overview">
         <div className="kahana-platform-hero-inner">
           <div>
             <p className="kahana-platform-hero-kicker">kahana.io</p>
-            <h2 className="kahana-platform-hero-title">A digital library with Aura</h2>
+            <h2 className="kahana-platform-hero-title">Aura Library</h2>
             <p className="kahana-platform-hero-body">
-              Kahana is a trusted digital library — ebooks, courses, and long-form video first — built for Clubs
+              Aura Library is a trusted digital library — ebooks, courses, and long-form video first — built for Clubs
               where friends and colleagues discuss, learn, and build empathy together. Aura (up to 5 per day)
               surfaces what the community believes deserves to rise. Formerly Curio. 6,500+ users and growing.
             </p>

@@ -79,7 +79,7 @@ function KahanaTechnicalRoadmap() {
         <h2>Three pillars</h2>
         <div className="content-block">
           <p>
-            Kahana aspires to be Wan Shi Tong&apos;s Library — a trusted place to discover curated human
+            Aura Library aspires to be Wan Shi Tong&apos;s Library — a trusted place to discover curated human
             knowledge. The next wave of technical work clusters around Security, Trust, and Algorithm.
           </p>
           <div className="tr-pillar-hero">
@@ -186,7 +186,7 @@ function KahanaTechnicalRoadmap() {
             ))}
           </ul>
           <p>
-            Full markdown: <code>Kahana/10-technical-roadmap.md</code> in the data room repo.
+            Full markdown: <code>Aura Library/10-technical-roadmap.md</code> in the data room repo.
           </p>
         </div>
       </section>

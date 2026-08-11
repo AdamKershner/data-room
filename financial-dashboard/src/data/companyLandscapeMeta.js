@@ -75,6 +75,17 @@ export const LANDSCAPE_CATEGORY_OVERRIDES = {
   'google-books': { primaryFragmentId: 'ebook-reading' },
   'project-gutenberg': { primaryFragmentId: 'ebook-reading' },
   'internet-archive': { primaryFragmentId: 'ebook-reading' },
+  storygraph: { primaryFragmentId: 'ebook-reading' },
+  bookclubs: {
+    primaryFragmentId: 'messaging-community',
+    secondaryFragmentIds: ['ebook-reading'],
+  },
+  librarything: { primaryFragmentId: 'ebook-reading' },
+  literal: {
+    primaryFragmentId: 'ebook-reading',
+    secondaryFragmentIds: ['messaging-community'],
+  },
+  bookbrowse: { primaryFragmentId: 'ebook-reading' },
   shopify: {
     primaryFragmentId: 'digital-marketplaces',
     secondaryFragmentIds: ['online-storefront'],
@@ -172,6 +183,11 @@ export const LANDSCAPE_INCLUDE_IDS = [
   'google-books',
   'project-gutenberg',
   'internet-archive',
+  'storygraph',
+  'bookclubs',
+  'librarything',
+  'literal',
+  'bookbrowse',
   // Long-form
   'twitch',
   'vimeo',
@@ -329,6 +345,48 @@ export const LANDSCAPE_EXTRA_COMPANIES = [
     website: 'https://archive.org',
     description:
       'Nonprofit digital library with Open Library ebook lending — public-domain downloads and controlled digital lending of scanned books.',
+    primaryFragmentId: 'ebook-reading',
+  },
+  {
+    id: 'storygraph',
+    name: 'The StoryGraph',
+    website: 'https://app.thestorygraph.com/',
+    description:
+      'Independent, Amazon-free book tracking and discovery — log books, visualize reading habits, and get mood/pace/genre-based recommendations. Leading Goodreads alternative; Black woman–owned (Nadia Odunayo).',
+    primaryFragmentId: 'ebook-reading',
+  },
+  {
+    id: 'bookclubs',
+    name: 'Bookclubs (Bookclubz)',
+    website: 'https://bookclubs.com/',
+    description:
+      'Free app and site to start, manage, and join book clubs — shelves, scheduling, polls, RSVPs, messaging, and CSV list import. Operated by Bookclubz, Inc. (Camden, Maine).',
+    primaryFragmentId: 'messaging-community',
+    secondaryFragmentIds: ['ebook-reading'],
+  },
+  {
+    id: 'librarything',
+    name: 'LibraryThing',
+    website: 'https://www.librarything.com/',
+    description:
+      'Social cataloging for personal and institutional book collections — deep metadata, library Z39.50 imports, tags, and LibraryThing for Libraries enrichment. Launched 2005.',
+    primaryFragmentId: 'ebook-reading',
+  },
+  {
+    id: 'literal',
+    name: 'Literal (Literal Club)',
+    website: 'https://literal.club/',
+    description:
+      'Minimalist social reading app — personal library, highlights/notes, follow trusted readers, and real book clubs with schedules and discussion.',
+    primaryFragmentId: 'ebook-reading',
+    secondaryFragmentIds: ['messaging-community'],
+  },
+  {
+    id: 'bookbrowse',
+    name: 'BookBrowse',
+    website: 'https://www.bookbrowse.com/',
+    description:
+      'Curated reviews, 1,800+ reading/discussion guides, and moderated online book club discussions for traditional and online clubs.',
     primaryFragmentId: 'ebook-reading',
   },
   {
@@ -524,6 +582,11 @@ export const COMPANY_SIZE_TIER = {
   goodreads: 'incumbent',
   wattpad: 'challenger',
   fable: 'challenger',
+  storygraph: 'challenger',
+  bookclubs: 'challenger',
+  librarything: 'challenger',
+  literal: 'challenger',
+  bookbrowse: 'niche',
   'google-books': 'incumbent',
   'project-gutenberg': 'incumbent',
   'internet-archive': 'incumbent',
@@ -650,6 +713,11 @@ export const COMPANY_ROLE_TAG = {
   goodreads: 'ebook',
   wattpad: 'ebook',
   fable: 'ebook',
+  storygraph: 'ebook',
+  bookclubs: 'community-messaging',
+  librarything: 'ebook',
+  literal: 'ebook',
+  bookbrowse: 'knowledge-reference',
   'google-books': 'ebook',
   'project-gutenberg': 'ebook',
   'internet-archive': 'ebook',

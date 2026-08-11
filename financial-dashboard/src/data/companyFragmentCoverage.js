@@ -42,6 +42,11 @@ export const FRAGMENT_YES_COMPANY_IDS = {
     'wattpad',
     'goodreads',
     'fable',
+    'storygraph',
+    'bookclubs',
+    'librarything',
+    'literal',
+    'bookbrowse',
     'royal-road',
     'inkitt',
     'tapas',
@@ -212,6 +217,8 @@ export const FRAGMENT_YES_COMPANY_IDS = {
     'kajabi',
     'thinkific',
     'snapchat', // messaging + spotlight
+    'bookclubs',
+    'literal',
   ],
 
   /**

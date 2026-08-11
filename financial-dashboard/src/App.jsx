@@ -56,6 +56,7 @@ function App() {
           <Navigation />
           <Routes>
           <Route path="/" element={<KahanaExecutiveSummary />} />
+          <Route path="/aura-library" element={<Navigate to="/" replace />} />
           <Route path="/oasis-browser" element={<ExecutiveSummary />} />
           <Route path="/archive" element={<Archive />} />
           <Route path="/archive/oasis-sprints" element={<OasisSprintsArchive />} />

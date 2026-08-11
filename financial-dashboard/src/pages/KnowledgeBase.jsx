@@ -38,7 +38,7 @@ function KnowledgeBase() {
       <div className="page-header">
         <h1>Knowledge base</h1>
         <p className="page-subtitle">
-          Kahana platform, GTM, finance, product, HR, and technical reference for scaling the library.
+          Aura Library platform, GTM, finance, product, HR, and technical reference for scaling the library.
         </p>
       </div>
 

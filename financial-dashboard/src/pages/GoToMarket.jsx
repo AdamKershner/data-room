@@ -108,7 +108,7 @@ function GoToMarket() {
               consultants and third-party partners. Julian is a strong champion for a pilot. Full requirements and effort breakdown are documented in <code>CULTURE_AMP_ESTIMATE.md</code>.
             </li>
             <li>
-              <strong>Jonathan Gans (Former CEO of Kahana):</strong> Will become a champion at 
+              <strong>Jonathan Gans (Former CEO of Aura Library):</strong> Will become a champion at 
               Angellist, leveraging his network and understanding of the product to drive adoption 
               within the organization.
             </li>

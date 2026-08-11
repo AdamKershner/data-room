@@ -45,7 +45,7 @@ function Sprints() {
         <h2>Feedback → backlog</h2>
         <div className="content-block">
           <p>
-            Kahana product development is driven by creator and buyer needs, survey data, and
+            Aura Library product development is driven by creator and buyer needs, survey data, and
             in-product feedback. Insights from these sources inform what gets logged as issues in
             Linear — not ad-hoc Slack threads alone.
           </p>

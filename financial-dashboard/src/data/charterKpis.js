@@ -1,4 +1,4 @@
-/** Organization KPIs for Scaling Kahana charter, time log onboarding, and weekly reports. */
+/** Organization KPIs for Scaling Aura Library charter, time log onboarding, and weekly reports. */
 
 export const CHARTER_KPIS = [
   {
@@ -72,7 +72,7 @@ export const TIME_LOG_RITUAL = {
   why: [
     'Compliance — an audit trail of who worked on what.',
     'Weekly Reports — entries feed accurate cross-team progress updates.',
-    'Transparency — so our remote team can see what others are focused on and understand what’s going on across Kahana.',
+    'Transparency — so our remote team can see what others are focused on and understand what’s going on across Aura Library.',
   ],
   examples: [
     {
@@ -81,7 +81,7 @@ export const TIME_LOG_RITUAL = {
     },
     {
       title: 'Growth / marketing',
-      body: 'I drafted and scheduled three LinkedIn posts for the Kahana launch narrative, updated the creator outreach sheet with 12 new influencer profiles, and sent first-touch emails to five creators. I also reviewed Mixpanel checkout funnels for the last 30 days and noted drop-off between billing page view and plan click for Adam.',
+      body: 'I drafted and scheduled three LinkedIn posts for the Aura Library launch narrative, updated the creator outreach sheet with 12 new influencer profiles, and sent first-touch emails to five creators. I also reviewed Mixpanel checkout funnels for the last 30 days and noted drop-off between billing page view and plan click for Adam.',
     },
     {
       title: 'General / ops',

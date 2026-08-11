@@ -2,14 +2,19 @@ export const KAHANA_SITE_URL = 'https://kahana.io'
 export const KAHANA_LIBRARY_URL = 'https://kahana.io/library'
 export const KAHANA_CONTACT_EMAIL = 'adam@kahana.io'
 
-/** Kahana Slack workspace invite (shared onboarding link). */
+/** Product name (platform). Parent company is LEGAL_ENTITY. */
+export const PRODUCT_NAME = 'Aura Library'
+/** Legal / parent company entity. */
+export const LEGAL_ENTITY = 'Kahana Group Inc.'
+
+/** Kahana Group Slack workspace invite (shared onboarding link). */
 export const SLACK_INVITE_URL =
   'https://join.slack.com/t/kahanaworkspace/shared_invite/zt-1pdah6gwn-W6HaRPH2iy~juLOlafO2HA'
 
 /** Linear workspace — product backlog, bugs, feature requests, sprint prioritization. */
 export const LINEAR_WORKSPACE_URL = 'https://linear.app/kahana'
 
-/** Mixpanel — Kahana project home (userbase analytics). */
+/** Mixpanel — Aura Library project home (userbase analytics). */
 export const MIXPANEL_URL =
   'https://mixpanel.com/project/4042294/view/4538547/app/home'
 
@@ -30,10 +35,10 @@ export const ADAM_ONCEHUB_URL = 'https://go.oncehub.com/AdamKershner'
 /** Adam Kershner — personal socials hub (founder-led brand). */
 export const ADAM_SOCIALS_URL = 'https://about.kahana.io/adam-kershner'
 
-/** Public marketing site / landing page — what Kahana is and how people benefit. */
+/** Public marketing site / landing page — what Aura Library is and how people benefit. */
 export const KAHANA_ABOUT_URL = 'https://about.kahana.io/'
 
-/** Example Kahana product profile (for onboarding recognition). */
+/** Example Aura Library product profile (for onboarding recognition). */
 export const KAHANA_PROFILE_EXAMPLE_URL =
   'https://kahana.io/profile/lxZb9mrcMROsWZhigOBfTwbUGfB3'
 

@@ -39,7 +39,7 @@ export const TOC_EXPLORE_ITEMS = [
     path: '/glossary',
     title: 'Glossary',
     description:
-      'How Kahana relates to the creator stack — Content & Audience, Community & Messaging, Memberships, Storefronts, Marketplaces.',
+      'How Aura Library relates to the creator stack — Content & Audience, Community & Messaging, Memberships, Storefronts, Marketplaces.',
   },
   {
     path: '/fragment-capture',

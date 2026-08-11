@@ -1,15 +1,15 @@
-/** Kahana competitive landscape — creator economy and discovery market map. */
+/** Aura Library competitive landscape — creator economy and discovery market map. */
 
 export const COMPETITORS_PAGE_PATH = '/company-landscape'
 
 export const COMPETITORS_PAGE = {
-  title: 'Kahana Competitive Landscape',
+  title: 'Aura Library Competitive Landscape',
   subtitle:
-    'Market map for Kahana as the Amazon of digital knowledge — Wan Shi Tong\'s library for people. Compare discovery, storefront, knowledge depth, and trust.',
+    'Market map for Aura Library as the Amazon of digital knowledge — Wan Shi Tong\'s library for people. Compare discovery, storefront, knowledge depth, and trust.',
 }
 
 export const CUSTOMER_STACK_REPLACED =
-  'Gumroad or Stan (sales) + Notion/Drive (delivery) + Linktree (bio links) + social for audience → one Kahana platform.'
+  'Gumroad or Stan (sales) + Notion/Drive (delivery) + Linktree (bio links) + social for audience → one Aura Library platform.'
 
 export const THESIS_LEGEND = [
   {
@@ -51,7 +51,7 @@ export const COMPETITOR_CATEGORIES = [
 
 export const KAHANA_REFERENCE = {
   id: 'kahana',
-  name: 'Kahana',
+  name: 'Aura Library',
   category: 'kahana',
   description:
     'Marketplace and storefront for curated digital knowledge — library discovery, monetized hubs, Stripe Connect, multi-format resource libraries at kahana.io.',
@@ -77,7 +77,7 @@ export const KAHANA_COMPETITORS = [
       'Lightweight ecommerce for digital products (ebooks, templates, courses, software, music) — checkout, file delivery, basic email, and analytics.',
     website: 'https://gumroad.com',
     thesis: { discovery: 'weak', storefront: 'strong', knowledgeDepth: 'partial', trust: 'partial' },
-    kahanaAngle: 'Kahana adds Explore discovery, hub as product container, and collaboration',
+    kahanaAngle: 'Aura Library adds Explore discovery, hub as product container, and collaboration',
     stackRole: 'sales + delivery',
   },
   {
@@ -88,7 +88,7 @@ export const KAHANA_COMPETITORS = [
       'Global marketplace for handmade and craft items; also supports digital downloads (templates, art, patterns).',
     website: 'https://www.etsy.com',
     thesis: { discovery: 'strong', storefront: 'partial', knowledgeDepth: 'weak', trust: 'partial' },
-    kahanaAngle: 'Kahana is knowledge-first with richer hub containers, not craft/physical-first',
+    kahanaAngle: 'Aura Library is knowledge-first with richer hub containers, not craft/physical-first',
     stackRole: 'marketplace sales',
   },
   {
@@ -99,7 +99,7 @@ export const KAHANA_COMPETITORS = [
       'Link-in-bio storefront for digital products, courses, subscriptions, and coaching from social profiles; built-in email, low transaction fees.',
     website: 'https://stan.store',
     thesis: { discovery: 'weak', storefront: 'strong', knowledgeDepth: 'partial', trust: 'partial' },
-    kahanaAngle: 'Kahana adds marketplace browse, richer hub content, and category taxonomy',
+    kahanaAngle: 'Aura Library adds marketplace browse, richer hub content, and category taxonomy',
     stackRole: 'sales + link-in-bio',
   },
   {
@@ -110,7 +110,7 @@ export const KAHANA_COMPETITORS = [
       'Membership platform where fans pay recurring subscriptions for exclusive content, community, and creator perks.',
     website: 'https://www.patreon.com',
     thesis: { discovery: 'weak', storefront: 'partial', knowledgeDepth: 'partial', trust: 'partial' },
-    kahanaAngle: 'Kahana sells curated product libraries, not just ongoing membership feeds',
+    kahanaAngle: 'Aura Library sells curated product libraries, not just ongoing membership feeds',
     stackRole: 'membership monetization',
   },
   {
@@ -121,7 +121,7 @@ export const KAHANA_COMPETITORS = [
       'Paywalled content platform with subscriptions, tips, pay-per-view posts, and paid messaging — popular with adult creators.',
     website: 'https://onlyfans.com',
     thesis: { discovery: 'weak', storefront: 'partial', knowledgeDepth: 'partial', trust: 'weak' },
-    kahanaAngle: 'Different ICP — Kahana targets curated expert knowledge, not fan-media paywalls',
+    kahanaAngle: 'Different ICP — Aura Library targets curated expert knowledge, not fan-media paywalls',
     stackRole: 'subscription content',
   },
   {
@@ -132,7 +132,7 @@ export const KAHANA_COMPETITORS = [
       'Adult-friendly subscription platform — locked content via subscriptions, tips, and pay-per-view.',
     website: 'https://fansly.com',
     thesis: { discovery: 'weak', storefront: 'partial', knowledgeDepth: 'partial', trust: 'weak' },
-    kahanaAngle: 'Same segment as OnlyFans; not Kahana\'s primary market',
+    kahanaAngle: 'Same segment as OnlyFans; not Aura Library\'s primary market',
     stackRole: 'subscription content',
   },
   {
@@ -143,7 +143,7 @@ export const KAHANA_COMPETITORS = [
       'Massive course marketplace — video-based courses in modules; students buy individual courses on demand.',
     website: 'https://www.udemy.com',
     thesis: { discovery: 'strong', storefront: 'partial', knowledgeDepth: 'weak', trust: 'partial' },
-    kahanaAngle: 'Kahana supports multi-format hubs beyond video courses; creator-owned storefronts',
+    kahanaAngle: 'Aura Library supports multi-format hubs beyond video courses; creator-owned storefronts',
     stackRole: 'course marketplace',
   },
   {
@@ -154,7 +154,7 @@ export const KAHANA_COMPETITORS = [
       'University-backed online learning — professional certificates and degrees with structured curricula and cohorts.',
     website: 'https://www.coursera.org',
     thesis: { discovery: 'strong', storefront: 'weak', knowledgeDepth: 'weak', trust: 'strong' },
-    kahanaAngle: 'Formal MOOCs vs indie creator hubs — Kahana is lighter and creator-led',
+    kahanaAngle: 'Formal MOOCs vs indie creator hubs — Aura Library is lighter and creator-led',
     stackRole: 'formal education',
   },
   {
@@ -165,7 +165,7 @@ export const KAHANA_COMPETITORS = [
       'Build and sell online courses and coaching under your own brand — hosting, checkout, and course delivery.',
     website: 'https://teachable.com',
     thesis: { discovery: 'weak', storefront: 'strong', knowledgeDepth: 'weak', trust: 'partial' },
-    kahanaAngle: 'Kahana is hub-centric for curated resource bundles, not full course-builder depth',
+    kahanaAngle: 'Aura Library is hub-centric for curated resource bundles, not full course-builder depth',
     stackRole: 'course hosting + sales',
   },
   {
@@ -176,7 +176,7 @@ export const KAHANA_COMPETITORS = [
       'All-in-one platform — courses, coaching, memberships, website builder, funnels, and email marketing.',
     website: 'https://kajabi.com',
     thesis: { discovery: 'weak', storefront: 'strong', knowledgeDepth: 'partial', trust: 'partial' },
-    kahanaAngle: 'Kahana is lighter-weight, discovery-first, and hub-centric vs full business-in-a-box',
+    kahanaAngle: 'Aura Library is lighter-weight, discovery-first, and hub-centric vs full business-in-a-box',
     stackRole: 'full creator stack',
   },
   {
@@ -187,7 +187,7 @@ export const KAHANA_COMPETITORS = [
       'Sell courses, downloads, and memberships with community areas on a unified creator site — storefront, not discovery marketplace.',
     website: 'https://www.podia.com',
     thesis: { discovery: 'weak', storefront: 'strong', knowledgeDepth: 'partial', trust: 'partial' },
-    kahanaAngle: 'Kahana adds public Explore discovery and marketplace browse',
+    kahanaAngle: 'Aura Library adds public Explore discovery and marketplace browse',
     stackRole: 'creator storefront',
   },
   {
@@ -198,7 +198,7 @@ export const KAHANA_COMPETITORS = [
       'Subscription publishing for newsletters (and sometimes podcasts/video) — payments, analytics, subscriber community.',
     website: 'https://substack.com',
     thesis: { discovery: 'partial', storefront: 'partial', knowledgeDepth: 'weak', trust: 'partial' },
-    kahanaAngle: 'Kahana supports multi-format hubs and marketplace discovery beyond email-first writing',
+    kahanaAngle: 'Aura Library supports multi-format hubs and marketplace discovery beyond email-first writing',
     stackRole: 'newsletter + community',
   },
   {
@@ -209,7 +209,7 @@ export const KAHANA_COMPETITORS = [
       'Newsletter and audience-building platform with paid subscriptions and sponsorship monetization.',
     website: 'https://www.beehiiv.com',
     thesis: { discovery: 'weak', storefront: 'weak', knowledgeDepth: 'weak', trust: 'partial' },
-    kahanaAngle: 'Email-first infrastructure vs Kahana\'s artifact library and Explore',
+    kahanaAngle: 'Email-first infrastructure vs Aura Library\'s artifact library and Explore',
     stackRole: 'newsletter infrastructure',
   },
   {
@@ -220,7 +220,7 @@ export const KAHANA_COMPETITORS = [
       'Writing platform in a reading subscription ecosystem — authors earn from engagement, not direct product sales.',
     website: 'https://medium.com',
     thesis: { discovery: 'strong', storefront: 'weak', knowledgeDepth: 'weak', trust: 'partial' },
-    kahanaAngle: 'Reading-time model vs Kahana\'s commerce-first curated product hubs',
+    kahanaAngle: 'Reading-time model vs Aura Library\'s commerce-first curated product hubs',
     stackRole: 'writing + discovery',
   },
   {
@@ -231,7 +231,7 @@ export const KAHANA_COMPETITORS = [
       'Link-in-bio hub aggregating URLs; basic monetization blocks but primarily navigational for creator presence.',
     website: 'https://linktr.ee',
     thesis: { discovery: 'weak', storefront: 'weak', knowledgeDepth: 'n/a', trust: 'weak' },
-    kahanaAngle: 'Kahana profiles + hubs replace link-in-bio with real storefront and discovery',
+    kahanaAngle: 'Aura Library profiles + hubs replace link-in-bio with real storefront and discovery',
     stackRole: 'bio links',
   },
   {
@@ -242,7 +242,7 @@ export const KAHANA_COMPETITORS = [
       'Tip-jar and lightweight membership — one-off or recurring support, sometimes unlocking posts or downloads.',
     website: 'https://ko-fi.com',
     thesis: { discovery: 'weak', storefront: 'weak', knowledgeDepth: 'weak', trust: 'partial' },
-    kahanaAngle: 'Tips vs Kahana\'s full hub commerce and marketplace discovery',
+    kahanaAngle: 'Tips vs Aura Library\'s full hub commerce and marketplace discovery',
     stackRole: 'tips + light membership',
   },
   {
@@ -253,7 +253,7 @@ export const KAHANA_COMPETITORS = [
       'Ad-free Premium subscriptions and channel memberships for exclusive videos, badges, and community posts.',
     website: 'https://www.youtube.com',
     thesis: { discovery: 'strong', storefront: 'weak', knowledgeDepth: 'weak', trust: 'partial' },
-    kahanaAngle: 'Video-native platform vs Kahana multi-format curated libraries and owned hubs',
+    kahanaAngle: 'Video-native platform vs Aura Library multi-format curated libraries and owned hubs',
     stackRole: 'video audience + membership',
   },
   {
@@ -264,7 +264,7 @@ export const KAHANA_COMPETITORS = [
       'Social monetization via brand deals, subscriptions, badges, Shops — often links out to Stan, Gumroad, or Etsy.',
     website: 'https://www.instagram.com',
     thesis: { discovery: 'partial', storefront: 'weak', knowledgeDepth: 'weak', trust: 'weak' },
-    kahanaAngle: 'Discovery via algorithm feed vs Kahana\'s curated expert marketplace',
+    kahanaAngle: 'Discovery via algorithm feed vs Aura Library\'s curated expert marketplace',
     stackRole: 'audience + outbound links',
   },
   {
@@ -275,7 +275,7 @@ export const KAHANA_COMPETITORS = [
       'Short-form video with live gifting, tips, and product links — paired with Stan or Linktree for selling, not a download marketplace.',
     website: 'https://www.tiktok.com',
     thesis: { discovery: 'partial', storefront: 'weak', knowledgeDepth: 'weak', trust: 'weak' },
-    kahanaAngle: 'Attention platform vs Kahana persistent knowledge libraries',
+    kahanaAngle: 'Attention platform vs Aura Library persistent knowledge libraries',
     stackRole: 'audience + outbound links',
   },
   {
@@ -286,7 +286,7 @@ export const KAHANA_COMPETITORS = [
       'Global group messaging — family, friend, and interest groups; Business API for brands. Chat-first, not a content library.',
     website: 'https://www.whatsapp.com',
     thesis: { discovery: 'weak', storefront: 'n/a', knowledgeDepth: 'weak', trust: 'partial' },
-    kahanaAngle: 'Groups keep chatting on WhatsApp; Kahana hosts the library + Clubs those groups discuss',
+    kahanaAngle: 'Groups keep chatting on WhatsApp; Aura Library hosts the library + Clubs those groups discuss',
     stackRole: 'group chat',
   },
   {
@@ -297,7 +297,7 @@ export const KAHANA_COMPETITORS = [
       'Channels and large groups for broadcasting and discussion — strong for announcements, weak as a curated multi-format library.',
     website: 'https://telegram.org',
     thesis: { discovery: 'partial', storefront: 'weak', knowledgeDepth: 'weak', trust: 'weak' },
-    kahanaAngle: 'Channels stay on Telegram; Kahana is the club room and shelf for deeper reading/watching',
+    kahanaAngle: 'Channels stay on Telegram; Aura Library is the club room and shelf for deeper reading/watching',
     stackRole: 'channels + groups',
   },
   {
@@ -308,7 +308,7 @@ export const KAHANA_COMPETITORS = [
       'Lightweight group messaging popular with campuses and friend circles — chat threads, not storefronts or libraries.',
     website: 'https://groupme.com',
     thesis: { discovery: 'weak', storefront: 'n/a', knowledgeDepth: 'n/a', trust: 'partial' },
-    kahanaAngle: 'Friend groups spin up clubs on Kahana while keeping GroupMe for day-to-day chat',
+    kahanaAngle: 'Friend groups spin up clubs on Aura Library while keeping GroupMe for day-to-day chat',
     stackRole: 'friend / campus groups',
   },
   {
@@ -319,7 +319,7 @@ export const KAHANA_COMPETITORS = [
       'Workplace and community workspaces — channels for ops and discussion, not a public knowledge marketplace.',
     website: 'https://slack.com',
     thesis: { discovery: 'weak', storefront: 'n/a', knowledgeDepth: 'partial', trust: 'partial' },
-    kahanaAngle: 'Teams keep Slack; Kahana for learning clubs and shared library materials',
+    kahanaAngle: 'Teams keep Slack; Aura Library for learning clubs and shared library materials',
     stackRole: 'workspace chat',
   },
   {
@@ -330,12 +330,12 @@ export const KAHANA_COMPETITORS = [
       'Anonymous, text-and-links encyclopedia where curious people wander and learn — discovery inspiration, not a commerce competitor.',
     website: 'https://www.wikipedia.org',
     thesis: { discovery: 'strong', storefront: 'n/a', knowledgeDepth: 'weak', trust: 'weak' },
-    kahanaAngle: 'Kahana aspires to Wikipedia-like serendipitous discovery with trusted experts and rich media',
+    kahanaAngle: 'Aura Library aspires to Wikipedia-like serendipitous discovery with trusted experts and rich media',
     stackRole: 'discovery inspiration',
   },
 ]
 
-/** Top competitors for comparison matrix (plus Kahana). */
+/** Top competitors for comparison matrix (plus Aura Library). */
 export const MATRIX_COMPETITOR_IDS = [
   'kahana',
   'gumroad',

@@ -26,7 +26,7 @@ export const ONBOARDING_STEPS = [
   },
   {
     id: 'social-media',
-    label: 'Follow Kahana & Adam on socials',
+    label: 'Follow Aura Library & Adam on socials',
     icon: 'megaphone',
     category: 'External Presence',
     day: 1,
@@ -50,7 +50,7 @@ export const ONBOARDING_STEPS = [
   },
   {
     id: 'review-landing-page',
-    label: 'Review Kahana website',
+    label: 'Review Aura Library website',
     icon: 'globe',
     category: 'Company & Culture',
     day: 1,

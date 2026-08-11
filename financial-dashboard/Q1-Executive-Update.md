@@ -1,6 +1,6 @@
 # Q1 Executive Update
 
-**Kahana / Oasis** — traction, pipeline, and priorities (Q1 2026)
+**Aura Library / Oasis** — traction, pipeline, and priorities (Q1 2026)
 
 > **Source of truth (interactive):** Financial dashboard route `Q1-executive-report` — implemented in [`src/pages/Q1ExecutiveReport.jsx`](./src/pages/Q1ExecutiveReport.jsx). Keep this file in sync when you change the page (or vice versa).
 
