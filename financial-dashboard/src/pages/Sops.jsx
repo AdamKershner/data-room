@@ -29,6 +29,9 @@ function Sops() {
       <div className="page-header">
         <h1>{SOP_PAGE.title}</h1>
         <p className="page-subtitle">{SOP_PAGE.subtitle}</p>
+        {SOP_PAGE.freshnessNote && (
+          <p className="sop-freshness-note">{SOP_PAGE.freshnessNote}</p>
+        )}
       </div>
 
       <section className="page-section kb-filters">

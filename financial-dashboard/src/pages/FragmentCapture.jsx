@@ -20,8 +20,11 @@ import {
 } from '../data/fragmentCaptureData'
 import { FRAGMENT_ICON_PATHS, getPlayerLogoUrl } from '../data/fragmentMapBranding'
 import {
-  CREATOR_STACK_LAYERS,
-} from '../data/creatorStackSegmentation'
+  MARKET_MAP_GLOSSARY,
+  MARKET_MAP_LAYER_LABELS,
+  MARKET_MAP_METHOD_BLOCKS,
+  MARKET_MAP_SUBTITLE_LEAD,
+} from '../data/marketMapAdvisorCopy'
 
 const LABEL_DARK = '#0f0f0f'
 const LABEL_LIGHT = '#f7f3ea'
@@ -284,7 +287,7 @@ function PlayerBattleCard({ card, style, onClose }) {
       </div>
       {card.kahanaAngle && (
         <p className="fragment-battlecard-angle">
-          <strong>Aura Library:</strong> {card.kahanaAngle}
+          <strong>Kahana:</strong> {card.kahanaAngle}
         </p>
       )}
       <Link className="fragment-battlecard-link" to="/company-landscape">
@@ -532,18 +535,48 @@ function FragmentCapture() {
       <div className="page-header fragment-capture-header">
         <h1>Market Map</h1>
         <p className="fragment-capture-subtitle">
-          Lay of the land — content modalities plus how creators operate (community, memberships,
-          storefronts, marketplaces), sized by directional market $. Company facts live on{' '}
-          <Link to="/company-landscape">Company Landscape</Link>; Aura Library positioning is in the{' '}
+          {MARKET_MAP_SUBTITLE_LEAD} Company facts:{' '}
+          <Link to="/company-landscape">Company Landscape</Link>. Kahana position:{' '}
           <Link to="/glossary">Glossary</Link>.
         </p>
-        <div className="fragment-capture-stack-row" aria-label="Creator stack layers">
-          {CREATOR_STACK_LAYERS.filter((l) => l.onMap !== false).map((layer) => (
-            <div key={layer.id} className="fragment-capture-stack-pill">
-              <strong>{layer.name}</strong>
-              <span>{layer.purpose}</span>
+        <p className="fragment-capture-layer-line" aria-label="Creator stack layers on this map">
+          {MARKET_MAP_LAYER_LABELS.join(' · ')}
+        </p>
+        <div className="fragment-capture-advisor-panels">
+          <details className="fragment-capture-collapsible">
+            <summary>
+              <span className="fragment-capture-collapsible__title">Key terms</span>
+              <span className="fragment-capture-collapsible__hint" aria-hidden="true">
+                Expand
+              </span>
+            </summary>
+            <div className="fragment-capture-collapsible__panel">
+              <dl className="fragment-capture-glossary">
+                {MARKET_MAP_GLOSSARY.map((item) => (
+                  <div key={item.term} className="fragment-capture-glossary__row">
+                    <dt>{item.term}</dt>
+                    <dd>{item.definition}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
-          ))}
+          </details>
+          <details className="fragment-capture-collapsible">
+            <summary>
+              <span className="fragment-capture-collapsible__title">How this map was built</span>
+              <span className="fragment-capture-collapsible__hint" aria-hidden="true">
+                Expand
+              </span>
+            </summary>
+            <div className="fragment-capture-collapsible__panel">
+              {MARKET_MAP_METHOD_BLOCKS.map((block) => (
+                <div key={block.title} className="fragment-capture-method-block">
+                  <h3>{block.title}</h3>
+                  <p>{block.body}</p>
+                </div>
+              ))}
+            </div>
+          </details>
         </div>
       </div>
 

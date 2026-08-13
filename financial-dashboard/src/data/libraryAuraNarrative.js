@@ -1,7 +1,7 @@
 /**
  * “Library vs virtual party” + unification + Aura discovery thesis.
  * Social / short-form + streaming = dopamine party.
- * Aura Library = digital library with Aura (focus, clubs, community-governed discovery).
+ * Kahana = digital library with Aura (focus, clubs, community-governed discovery).
  */
 
 export const LIBRARY_AURA_NARRATIVE = {
@@ -9,7 +9,7 @@ export const LIBRARY_AURA_NARRATIVE = {
   campusScene: `You are on campus and a friend texts asking if you want to pregame for the party. You went out last night, and the weekend before. You say thanks, but you are headed to the library.
 Inside, it is quiet and warm. People are curled into chairs in comfortable hoodies, deep in their work, laptops and books open. Shelves rise around you holding more than you could read in a lifetime. The size of it makes you feel small in a good way. Surrounded by centuries of collected knowledge and other focused people, you become curious and open. You fall into the reading. Hours pass without your noticing. When you step outside into clear night air, ideas are connecting in your head and you feel better than when you walked in.`,
   partyContrast: `Instagram, TikTok, YouTube and Netflix are the virtual party. They are always there when you want a dopamine hit, and there is nothing wrong with a party. But eventually you graduate and lose your library card, or you move somewhere without a good public library.`,
-  kahanaLine: `Aura Library is the digital library with Aura: a place you can always go to fall into focus, feel productive, and be surrounded by other learners. We are building the room people deserve for thinking, learning, and becoming better.`,
+  kahanaLine: `Kahana is the digital library with Aura: a place you can always go to fall into focus, feel productive, and be surrounded by other learners. We are building the room people deserve for thinking, learning, and becoming better.`,
   problemLine: `Everything in this charter serves that experience. A reader who searches and finds nothing does not get that feeling. That is the problem we are solving.`,
   opportunityLine: `Be the digital library with Aura that sits alongside the virtual party—where creators host book and video clubs instead of only posting into an endless feed, viewers become readers/learners in focused rooms, and content is demand-driven by clubs, not algorithmically sprayed.`,
 }
@@ -114,9 +114,9 @@ export const AURA_VS_OPAQUE = {
   partyAlgos:
     'TikTok / Instagram / Netflix rank with proprietary engagement signals (watch time, CTR, skips, replays, shares, paid promotion) — optimized for dopamine per minute and their revenue.',
   kahanaAura:
-    'Aura Library ranks with deliberate, scarce endorsements (5/day, no self-Aura) — optimized for what the community finds worth learning from, with Aura counts visible on hubs and files.',
+    'Kahana ranks with deliberate, scarce endorsements (5/day, no self-Aura) — optimized for what the community finds worth learning from, with Aura counts visible on hubs and files.',
   deckLine:
-    'TikTok, Instagram, and Netflix are driven by private, engagement-maximizing algorithms. Aura Library’s discovery engine is driven by Aura, a visible, scarce, community-given signal that surfaces work people genuinely think is worth learning from.',
+    'TikTok, Instagram, and Netflix are driven by private, engagement-maximizing algorithms. Kahana’s discovery engine is driven by Aura, a visible, scarce, community-given signal that surfaces work people genuinely think is worth learning from.',
 }
 
 /** Positioning vs ecosystem categories. */
@@ -125,7 +125,7 @@ export const POSITIONING_VS_ECOSYSTEM = [
     id: 'social',
     versus: 'Social networks (Instagram, TikTok, YouTube)',
     contrast:
-      'They are the party; Aura Library is the library with club rooms. They optimize for-you feeds; we optimize for-learning experiences.',
+      'They are the party; Kahana is the library with club rooms. They optimize for-you feeds; we optimize for-learning experiences.',
   },
   {
     id: 'streaming',
@@ -143,7 +143,7 @@ export const POSITIONING_VS_ECOSYSTEM = [
     id: 'reading',
     versus: 'Reading / social (Wattpad, Goodreads, Fable, Substack, Beehiiv, Medium)',
     contrast:
-      'They focus on specific forms (stories, reviews, essays, newsletters). Aura Library is modality-agnostic, anchored in clubs + library, with Aura as the unifying discovery signal.',
+      'They focus on specific forms (stories, reviews, essays, newsletters). Kahana is modality-agnostic, anchored in clubs + library, with Aura as the unifying discovery signal.',
   },
 ]
 
@@ -154,7 +154,7 @@ export const CRISP_NARRATIVE_COPY = {
   unifiedOnKahana:
     'Books, essays, courses, podcasts, music, audiobooks, and videos live in one digital library, organized into clubs. You don’t have to keep switching apps or stacking subscriptions.',
   auraPreservesQuality:
-    'On Aura Library, discovery isn’t controlled by a black-box engagement algo. Each person gets 5 Aura per day to give to hubs and files they truly find worth learning from. Aura powers the Aura Library algorithm, so the content that rises has been deliberately endorsed by the community, not just optimized for watch time.',
+    'On Kahana, discovery isn’t controlled by a black-box engagement algo. Each person gets 5 Aura per day to give to hubs and files they truly find worth learning from. Aura powers the Kahana algorithm, so the content that rises has been deliberately endorsed by the community, not just optimized for watch time.',
 }
 
 /**
@@ -243,7 +243,7 @@ export const ARGUMENT_SKELETON = {
     ],
   },
   creatorVp: {
-    title: 'Aura Library for creators',
+    title: 'Kahana for creators',
     homeLine: 'A single home for all your content and your audience.',
     bullets: [
       'Host books, essays, newsletters, videos, courses, audio, and digital files in one library',
@@ -252,10 +252,10 @@ export const ARGUMENT_SKELETON = {
     ],
     beforePitch:
       '“Follow me on TikTok, subscribe on Substack, buy my ebook on Gumroad, join my course on Teachable, and chat in my Discord.”',
-    afterPitch: '“Join me on Aura Library. This is where we read, watch, learn, and discuss together.”',
+    afterPitch: '“Join me on Kahana. This is where we read, watch, learn, and discuss together.”',
   },
   consumerVp: {
-    title: 'Aura Library for consumers',
+    title: 'Kahana for consumers',
     homeLine: 'Your digital library with Aura — one account, one focused room.',
     modalities: [
       'Books and ebooks',
@@ -268,7 +268,7 @@ export const ARGUMENT_SKELETON = {
     ],
     insteadOf:
       'Netflix + Hulu + HBO + Prime + TikTok + Instagram + YouTube + Spotify + Audible + Substack + Udemy + Coursera',
-    instead: 'Aura Library — the place you go to fall into focus, feel productive, and be surrounded by other learners.',
+    instead: 'Kahana — the place you go to fall into focus, feel productive, and be surrounded by other learners.',
   },
   algoContrast: {
     title: 'Aura vs black-box algorithms',
@@ -278,7 +278,7 @@ export const ARGUMENT_SKELETON = {
       'Ranking driven by watch time, CTR, replays/skips, ad revenue, platform investment priorities',
       'User role in curating the ecosystem is minimal; private platform objectives dominate',
     ],
-    kahanaTitle: 'How Aura works on Aura Library',
+    kahanaTitle: 'How Aura works on Kahana',
     kahanaBullets: [
       'Community endorsement (not money or likes) with a scarce 5 Aura/day budget',
       'Cannot self-Aura; only others’ hubs and files',
@@ -286,7 +286,7 @@ export const ARGUMENT_SKELETON = {
       'High-Aura content is “canonized” by learners, not by a profit-maximizing feed',
     ],
     deckLine:
-      'On TikTok, Instagram, YouTube, and Netflix, you watch whatever the private algorithm decides to show you. On Aura Library, Aura lets you and the community decide what rises to the top. The algorithm is human-driven: only content that real people give Aura to becomes visible at scale.',
+      'On TikTok, Instagram, YouTube, and Netflix, you watch whatever the private algorithm decides to show you. On Kahana, Aura lets you and the community decide what rises to the top. The algorithm is human-driven: only content that real people give Aura to becomes visible at scale.',
   },
   threeSlides: [
     {
@@ -299,7 +299,7 @@ export const ARGUMENT_SKELETON = {
     },
     {
       id: 'slide-2',
-      title: 'Slide 2 — Aura Library: all-in-one library + clubs',
+      title: 'Slide 2 — Kahana: all-in-one library + clubs',
       body: 'One platform for books, videos, courses, newsletters, audio, digital products — plus book clubs, video clubs, listen-alongs, learning cohorts, and communities. One “library card” for focused consumption and shared learning.',
     },
     {
@@ -316,7 +316,7 @@ export const ARGUMENT_SKELETON = {
 }
 
 /**
- * Content-market fragments Aura Library aims to unify.
+ * Content-market fragments Kahana aims to unify.
  * Market sizes are directional ranges for strategy docs — refine per platform later.
  */
 export const CONTENT_FRAGMENTS = [
@@ -368,7 +368,7 @@ export const CONTENT_FRAGMENTS = [
       },
     ],
     kahanaAngle:
-      'Phase 4 later: short-form as GTM channel and in-hub prompts (clip → join Aura Library club), not a feed to replace. Core experience stays deep clubs.',
+      'Phase 4 later: short-form as GTM channel and in-hub prompts (clip → join Kahana club), not a feed to replace. Core experience stays deep clubs.',
   },
   {
     id: 'long-form-video',
@@ -380,7 +380,7 @@ export const CONTENT_FRAGMENTS = [
     marketSizeHighUsd: 50e9,
     marketSizeExpandedUsd: null,
     marketNote:
-      'Separate from OTT/SVOD streaming TAM (series/films). YouTube ad revenue is the anchor; long-form vs Shorts split is a directional proxy. Aura Library Phase 1 attack = embed public YouTube into video groups (iframe), not rehost. Vimeo, Nebula, Twitch, Rumble, CuriosityStream are smaller / adjacent.',
+      'Separate from OTT/SVOD streaming TAM (series/films). YouTube ad revenue is the anchor; long-form vs Shorts split is a directional proxy. Kahana Phase 1 attack = embed public YouTube into video groups (iframe), not rehost. Vimeo, Nebula, Twitch, Rumble, CuriosityStream are smaller / adjacent.',
     players: [
       {
         tier: 'Creator long-form',
@@ -392,7 +392,7 @@ export const CONTENT_FRAGMENTS = [
       },
     ],
     kahanaAngle:
-      'Phase 1 wedge: YouTube-powered video groups via Add YouTube — store embed URL (youtube.com/embed/…), play in iframe; no file copy onto Aura Library. Creators keep YouTube views, watch time, and ad monetization (subject to YouTube). Same club pattern as book clubs (watch by date → discuss → Aura). Raw mp4 upload is a separate path and does not pass plays back to YouTube.',
+      'Phase 1 wedge: YouTube-powered video groups via Add YouTube — store embed URL (youtube.com/embed/…), play in iframe; no file copy onto Kahana. Creators keep YouTube views, watch time, and ad monetization (subject to YouTube). Same club pattern as book clubs (watch by date → discuss → Aura). Raw mp4 upload is a separate path and does not pass plays back to YouTube.',
   },
   {
     id: 'series-films-streaming',
@@ -471,7 +471,7 @@ export const CONTENT_FRAGMENTS = [
     marketSizeHighUsd: 60e9,
     marketSizeExpandedUsd: 200e9,
     marketNote:
-      'Audio streaming (music + spoken word) ~$46.9–54.5B (2025–26) → ~$104–116B by early 2030s. Podcasting reports vary widely (~$10–41B today depending on scope) with high teens–high 20s% CAGR; some project $130–220B+ by 2030–33. Aura Library summary: overlapping audio fragment ~$50–60B today → $200B+ early 2030s. Audiobooks (Audible et al.) sit inside / adjacent.',
+      'Audio streaming (music + spoken word) ~$46.9–54.5B (2025–26) → ~$104–116B by early 2030s. Podcasting reports vary widely (~$10–41B today depending on scope) with high teens–high 20s% CAGR; some project $130–220B+ by 2030–33. Kahana summary: overlapping audio fragment ~$50–60B today → $200B+ early 2030s. Audiobooks (Audible et al.) sit inside / adjacent.',
     players: [
       {
         tier: 'Streaming music',
@@ -508,7 +508,7 @@ export const CONTENT_FRAGMENTS = [
       },
     ],
     kahanaAngle:
-      'Membership destination for clubs / hubs / libraries — or unlock Aura Library via Patreon / OnlyFans tiers while billing stays elsewhere.',
+      'Membership destination for clubs / hubs / libraries — or unlock Kahana via Patreon / OnlyFans tiers while billing stays elsewhere.',
   },
   {
     id: 'messaging-community',
@@ -533,7 +533,7 @@ export const CONTENT_FRAGMENTS = [
       },
     ],
     kahanaAngle:
-      'Where the group hangs out — Aura Library is clubs + libraries, not general chat. Integrate with Discord / Telegram / Slack for notifications; keep deep learning on Aura Library.',
+      'Where the group hangs out — Kahana is clubs + libraries, not general chat. Integrate with Discord / Telegram / Slack for notifications; keep deep learning on Kahana.',
   },
   {
     id: 'online-storefront',
@@ -554,7 +554,7 @@ export const CONTENT_FRAGMENTS = [
       },
     ],
     kahanaAngle:
-      'Put Aura Library behind the bio — “Join my Aura Library club” as the destination, not another checkout page.',
+      'Put Kahana behind the bio — “Join my Kahana club” as the destination, not another checkout page.',
   },
   {
     id: 'digital-marketplaces',
@@ -575,12 +575,12 @@ export const CONTENT_FRAGMENTS = [
       },
     ],
     kahanaAngle:
-      'Discovery and checkout stay on the marketplace — Aura Library is the club + library layer after purchase (or a linked destination), not a replacement browse feed.',
+      'Discovery and checkout stay on the marketplace — Kahana is the club + library layer after purchase (or a linked destination), not a replacement browse feed.',
   },
 ]
 
 export const UNIFY_FRAGMENTS_THESIS =
-  'Aura Library’s thesis is to unify content modalities—ebooks, short-form video, long-form video, series/films, courses, newsletters, audio—into a single digital library with clubs, governed by Aura. Creators publish on content & audience platforms, host groups on community & messaging tools, and monetize via memberships and storefronts; Aura Library sits between content and community as the club + library home, with Aura as the discovery signal.'
+  'Kahana’s thesis is to unify content modalities—ebooks, short-form video, long-form video, series/films, courses, newsletters, audio—into a single digital library with clubs, governed by Aura. Creators publish on content & audience platforms, host groups on community & messaging tools, and monetize via memberships and storefronts; Kahana sits between content and community as the club + library home, with Aura as the discovery signal.'
 
 export const UNIFY_FRAGMENTS_DECK_LINES = [
   'The ebook fragment is a USD 15–25B consumer market dominated by Amazon, Goodreads, Wattpad, and Fable.',
@@ -589,10 +589,10 @@ export const UNIFY_FRAGMENTS_DECK_LINES = [
   'The series/films streaming fragment is a USD 130–160B market dominated by Netflix, Hulu, Max, Disney+, and Prime Video.',
   'The courses/learning and newsletters/written fragments add tens of billions more across Coursera, Udemy, Substack, Medium, Kajabi, Teachable, etc.',
   'The audio fragment—streaming music plus podcasts (plus audiobooks)—is a USD 50–60B market today, growing toward USD 200B+ by the early 2030s (Spotify, Apple, Amazon, YouTube, Audible).',
-  'Memberships & fan support (Patreon, OnlyFans, Ko-fi, etc.) is the paywall / ongoing-support layer — often complementary to Aura Library.',
-  'Community & Messaging (Discord, Telegram, WhatsApp, Circle, Mighty Networks, etc.) is where groups hang out — Aura Library is clubs + libraries beside chat.',
-  'Storefronts (Linktree, Stan, Beacons, Pensight, HYpage, etc.) are the creator-owned bio / personal checkout layer — Aura Library is the destination behind the link.',
-  'Marketplaces (Gumroad, Etsy, Shopify, etc.) are where buyers browse and find products from many sellers — Aura Library sits after purchase as clubs + library, not a browse replacement.',
+  'Memberships & fan support (Patreon, OnlyFans, Ko-fi, etc.) is the paywall / ongoing-support layer — often complementary to Kahana.',
+  'Community & Messaging (Discord, Telegram, WhatsApp, Circle, Mighty Networks, etc.) is where groups hang out — Kahana is clubs + libraries beside chat.',
+  'Storefronts (Linktree, Stan, Beacons, Pensight, HYpage, etc.) are the creator-owned bio / personal checkout layer — Kahana is the destination behind the link.',
+  'Marketplaces (Gumroad, Etsy, Shopify, etc.) are where buyers browse and find products from many sellers — Kahana sits after purchase as clubs + library, not a browse replacement.',
 ]
 
 /**

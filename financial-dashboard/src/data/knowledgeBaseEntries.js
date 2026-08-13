@@ -16,7 +16,7 @@ export const KNOWLEDGE_BASE_CATEGORIES = [
 export const KNOWLEDGE_BASE_ENTRIES = [
   {
     path: '/kahana-narrative',
-    title: 'Aura Library Story',
+    title: 'Kahana Story',
     category: 'Marketing',
     description: 'Strategic narrative — AI slop, creator platform gaps, hubs as Wan Shi Tong\'s Library.',
     keywords: ['narrative', 'story', 'positioning', 'ai slop', 'wan shi tong', 'promised land', 'magic gifts'],
@@ -26,7 +26,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'Company Landscape',
     category: 'Marketing',
     description:
-      'Searchable peer platforms aligned with Market Map categories — facts on what each company is and does.',
+      'Searchable peer research cards aligned to Market Map — glossary and build notes for advisors.',
     keywords: [
       'company landscape',
       'battlecards',
@@ -53,7 +53,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'Glossary',
     category: 'Marketing',
     description:
-      'How Aura Library relates to the creator stack — Content & Audience, Community & Messaging, Memberships, Storefronts, Marketplaces.',
+      'How Kahana (AKA "The Aura Library") relates to the creator stack — Content & Audience, Community & Messaging, Memberships, Storefronts, Marketplaces.',
     keywords: [
       'glossary',
       'kahana positioning',
@@ -70,7 +70,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'Market Map',
     category: 'Marketing',
     description:
-      'Lay of the land — content categories and companies sized by directional market $. First stop for new teammates before Company Landscape.',
+      'Directional content and creator-ops categories sized by mid TAM — glossary and build notes for advisors. First stop before Company Landscape.',
     keywords: [
       'market map',
       'fragment',
@@ -135,7 +135,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'SOPs',
     category: 'SOPs',
     description:
-      'Searchable gallery of standard operating procedures — hosting book and video clubs, setup, cycles, and done-when checklists.',
+      'Five Club SOPs: create & run clubs, invite members, choose titles, creator outreach, and logging feedback.',
     keywords: [
       'sop',
       'sops',
@@ -143,7 +143,9 @@ export const KNOWLEDGE_BASE_ENTRIES = [
       'book club',
       'video club',
       'create club',
-      'reading list',
+      'wishlist',
+      'invite',
+      'outreach',
       'my clubs',
       'join mode',
       'visibility',
@@ -273,7 +275,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     path: '/oasis-rfp',
     title: 'Oasis RFP',
     category: 'Oasis (Archive)',
-    description: 'Aura Library Oasis request-for-proposal template for enterprise deals (archived).',
+    description: 'Kahana Oasis request-for-proposal template for enterprise deals (archived).',
     keywords: ['rfp', 'request for proposal', 'enterprise', 'procurement', 'oasis', 'archive'],
     archive: true,
   },

@@ -129,7 +129,7 @@ export const GTM_PHASES = [
     summary:
       'Book clubs, course clubs, and YouTube-powered video groups — same club pattern, three modalities.',
     pathway:
-      'Start where clubs are natural. Phase 1 “Add YouTube” stores a youtube.com/embed/… URL and plays in an iframe — Aura Library does not download or rehost the file, so the channel still gets YouTube views, watch time, and ads (per YouTube’s rules). Pair with book clubs and course clubs in multi-modal learning hubs. Caveat: a raw mp4 upload is a different path (Aura Library-hosted) and does not credit the original YouTube channel.',
+      'Start where clubs are natural. Phase 1 “Add YouTube” stores a youtube.com/embed/… URL and plays in an iframe — Kahana does not download or rehost the file, so the channel still gets YouTube views, watch time, and ads (per YouTube’s rules). Pair with book clubs and course clubs in multi-modal learning hubs. Caveat: a raw mp4 upload is a different path (Kahana-hosted) and does not credit the original YouTube channel.',
   },
   {
     id: 'phase-2',
@@ -139,7 +139,7 @@ export const GTM_PHASES = [
     fragmentIds: ['newsletters-written'],
     summary: 'Reuse the reading/notes stack for newsletter and essay clubs.',
     pathway:
-      'Clubs around a Substack/Beehiiv/Medium letter or essay collection. Outreach: “We already host book and video clubs — host yours on Aura Library.”',
+      'Clubs around a Substack/Beehiiv/Medium letter or essay collection. Outreach: “We already host book and video clubs — host yours on Kahana.”',
   },
   {
     id: 'phase-3',
@@ -159,7 +159,7 @@ export const GTM_PHASES = [
     fragmentIds: ['short-form-video'],
     summary: 'GTM channel and in-hub prompts — not a feed to replace.',
     pathway:
-      'Creators invite from TikTok/Reels/Shorts into Aura Library clubs; short clips as discussion prompts inside hubs. Core experience stays deep.',
+      'Creators invite from TikTok/Reels/Shorts into Kahana clubs; short clips as discussion prompts inside hubs. Core experience stays deep.',
   },
   {
     id: 'phase-5',
@@ -179,9 +179,9 @@ export const GTM_CREATOR_LAYER = {
   name: 'Memberships (channel)',
   fragmentIds: ['creator-monetization'],
   summary:
-    'Patreon, OnlyFans, Ko-fi, etc. — paywall / fan-support layer; unlock Aura Library clubs via tiers.',
+    'Patreon, OnlyFans, Ko-fi, etc. — paywall / fan-support layer; unlock Kahana clubs via tiers.',
   pathway:
-    'Patreon creators host reading/video clubs on Aura Library; memberships unlock library access — keep billing, move clubs home.',
+    'Patreon creators host reading/video clubs on Kahana; memberships unlock library access — keep billing, move clubs home.',
 }
 
 /** Link-in-bio / personal storefront tools — destination behind the link. */
@@ -190,20 +190,20 @@ export const GTM_STOREFRONT_LAYER = {
   name: 'Storefronts (channel)',
   fragmentIds: ['online-storefront'],
   summary:
-    'Linktree, Stan, Beacons, Pensight, HYpage — “Join my Aura Library club” as the destination behind the bio.',
+    'Linktree, Stan, Beacons, Pensight, HYpage — “Join my Kahana club” as the destination behind the bio.',
   pathway:
-    'Put Aura Library on the link-in-bio; personal storefront creators bundle club access with offers.',
+    'Put Kahana on the link-in-bio; personal storefront creators bundle club access with offers.',
 }
 
-/** Multi-seller marketplaces — browse & buy, then deepen on Aura Library. */
+/** Multi-seller marketplaces — browse & buy, then deepen on Kahana. */
 export const GTM_MARKETPLACE_LAYER = {
   id: 'marketplace-layer',
   name: 'Marketplaces (channel)',
   fragmentIds: ['digital-marketplaces'],
   summary:
-    'Gumroad, Etsy, Shopify — buyers find products on the marketplace; Aura Library hosts clubs + library after purchase.',
+    'Gumroad, Etsy, Shopify — buyers find products on the marketplace; Kahana hosts clubs + library after purchase.',
   pathway:
-    'Keep discovery/checkout on the marketplace; link purchased ebooks/courses into Aura Library clubs.',
+    'Keep discovery/checkout on the marketplace; link purchased ebooks/courses into Kahana clubs.',
 }
 
 /** Group chat / community homes — sit beside, don’t replace chat. */
@@ -212,9 +212,9 @@ export const GTM_MESSAGING_LAYER = {
   name: 'Community & Messaging (channel)',
   fragmentIds: ['messaging-community'],
   summary:
-    'Discord, Telegram, WhatsApp, Circle, Mighty Networks — link the group to a Aura Library hub (library + Clubs).',
+    'Discord, Telegram, WhatsApp, Circle, Mighty Networks — link the group to a Kahana hub (library + Clubs).',
   pathway:
-    'Discord/WhatsApp admins keep chat; Aura Library hosts the reading/watch club and library shelf the group is discussing.',
+    'Discord/WhatsApp admins keep chat; Kahana hosts the reading/watch club and library shelf the group is discussing.',
 }
 
 export function getGtmPhaseForFragment(fragmentId) {
@@ -1483,7 +1483,7 @@ export function getMarketPieData(breakdown = 'categories') {
 }
 
 /**
- * Drill-in wedge brief: Aura Library angle + top displaceable + scout count.
+ * Drill-in wedge brief: Kahana angle + top displaceable + scout count.
  */
 export function getWedgeBrief(fragmentId) {
   const meta = getFragmentMeta(fragmentId)

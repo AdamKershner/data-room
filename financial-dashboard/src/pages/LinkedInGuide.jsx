@@ -9,16 +9,16 @@ function LinkedInGuide() {
       <div className="page-header">
         <h1>LinkedIn Guide & Best Practices</h1>
         <p className="page-subtitle">
-          LinkedIn is a significant part of Aura Library's growth and go-to-market strategy. Your weekly participation is mandatory. This page explains in detail what is expected.
+          LinkedIn is a significant part of Kahana's growth and go-to-market strategy. Your weekly participation is mandatory. This page explains in detail what is expected.
         </p>
       </div>
 
       <p className="linkedin-intro">
-        As a team member at Aura Library, you will now be expected to participate in our LinkedIn initiatives. To do that, you should read this page and then fill out the form at the bottom to select your category.
+        As a team member at Kahana, you will now be expected to participate in our LinkedIn initiatives. To do that, you should read this page and then fill out the form at the bottom to select your category.
       </p>
 
       <div className="linkedin-mandatory-callout">
-        <p><strong>Mandatory participation.</strong> You will choose Category 1 or Category 2, and based on that category, you will be expected to handle the responsibilities for it. Everyone at Aura Library participates.</p>
+        <p><strong>Mandatory participation.</strong> You will choose Category 1 or Category 2, and based on that category, you will be expected to handle the responsibilities for it. Everyone at Kahana participates.</p>
       </div>
 
       <div className="linkedin-guide-warning">
@@ -40,7 +40,7 @@ function LinkedInGuide() {
                 ~15 min/day · ~1–1.5 hrs/week
               </div>
               <div className="linkedin-category-callout">
-                <p>When you engage quickly on teammates' posts, everyone's content gets better reach. You're part of the engine that makes Aura Library's LinkedIn strategy work.</p>
+                <p>When you engage quickly on teammates' posts, everyone's content gets better reach. You're part of the engine that makes Kahana's LinkedIn strategy work.</p>
               </div>
               <p><strong>Weekly checklist:</strong></p>
               <ul className="linkedin-category-checklist">
@@ -56,7 +56,7 @@ function LinkedInGuide() {
                 ~30–45 min/day · ~3–4 hrs/week
               </div>
               <div className="linkedin-category-callout">
-                <p>You build your personal brand while driving Aura Library's growth. Structured posting + early engagement = stronger algorithm push for both you and the team.</p>
+                <p>You build your personal brand while driving Kahana's growth. Structured posting + early engagement = stronger algorithm push for both you and the team.</p>
               </div>
               <p><strong>Weekly checklist:</strong></p>
               <ul className="linkedin-category-checklist">
@@ -95,7 +95,7 @@ function LinkedInGuide() {
               Dhruv Patel started managing the LinkedIn profile of one of his close friends, <a href="https://www.linkedin.com/in/devarshi-prajapati/" target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">Devarshi Prajapati</a>, from zero connections. From sending the first connection request to building it to where it is today, everything was done from scratch—and it has been less than 6 months since the first post. She began to get 100+ reactions on posts consistently.
             </p>
             <p>
-              Go through that account and use it as a reference to get more context regarding this group's focus. We derive our overall LinkedIn framework and strategy from these learnings. This strategy was created and executed successfully by Dhruv Patel—so we know it's proven. We take the fundamentals that worked and adapt them to Aura Library as an organization, improving both our individual presences and the overall brand.
+              Go through that account and use it as a reference to get more context regarding this group's focus. We derive our overall LinkedIn framework and strategy from these learnings. This strategy was created and executed successfully by Dhruv Patel—so we know it's proven. We take the fundamentals that worked and adapt them to Kahana as an organization, improving both our individual presences and the overall brand.
             </p>
           </div>
           <div className="linkedin-rationale-example">
@@ -130,7 +130,7 @@ function LinkedInGuide() {
           <div className="linkedin-algorithm-callout">
             <p>If your post gets strong engagement in the first 1–2 hours and consistent comments in the first 24 hours, the algorithm pushes it further. <strong>That is exactly what we leverage as a team.</strong></p>
             <div className="linkedin-algorithm-benefits">
-              <p><strong>For Aura Library:</strong> More reach means more visibility for our product, our brand, and our team. Every post that goes further builds credibility and awareness—helping with hiring, partnerships, and growth.</p>
+              <p><strong>For Kahana:</strong> More reach means more visibility for our product, our brand, and our team. Every post that goes further builds credibility and awareness—helping with hiring, partnerships, and growth.</p>
               <p><strong>For you:</strong> A strong LinkedIn profile separates you in today's job market. When your posts perform well, you build your personal brand, expand your network, and create opportunities.</p>
             </div>
           </div>
@@ -139,7 +139,7 @@ function LinkedInGuide() {
             <div className="linkedin-strategy-card">
               <div className="linkedin-strategy-icon">📈</div>
               <h4>Comments + Likes From Each Other</h4>
-              <p>Within our group, we already have a foundation for comments and likes (from each other!)—let's take advantage of it. Currently we have 40+ active team members at Aura Library.</p>
+              <p>Within our group, we already have a foundation for comments and likes (from each other!)—let's take advantage of it. Currently we have 40+ active team members at Kahana.</p>
             </div>
             <div className="linkedin-strategy-card">
               <div className="linkedin-strategy-icon">🤝</div>
@@ -190,7 +190,7 @@ function LinkedInGuide() {
         <h2>4. Posting Expectations</h2>
         <div className="content-block">
           <p>
-            We encourage you to post regularly about your work at Aura Library. Content should be authentic, valuable, and aligned with our brand.
+            We encourage you to post regularly about your work at Kahana. Content should be authentic, valuable, and aligned with our brand.
           </p>
           <div className="linkedin-strategy-cards">
             <div className="linkedin-strategy-card">
@@ -198,7 +198,7 @@ function LinkedInGuide() {
               <h4>What to Post</h4>
               <ul className="linkedin-category-checklist">
                 <li>Insights and learnings from your work</li>
-                <li>Reshares of Aura Library <a href="https://kahana.io/blog" target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">blog</a> and <a href="https://www.youtube.com/@kahanaHQ" target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">YouTube</a> videos</li>
+                <li>Reshares of Kahana <a href="https://kahana.io/blog" target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">blog</a> and <a href="https://www.youtube.com/@kahanaHQ" target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">YouTube</a> videos</li>
                 <li>Polls and surveys that generate insights for our product</li>
               </ul>
             </div>
@@ -243,11 +243,11 @@ function LinkedInGuide() {
             <div className="linkedin-strategy-card">
               <div className="linkedin-strategy-icon">👔</div>
               <h4>Stay Professional</h4>
-              <p>You represent Aura Library when you post.</p>
+              <p>You represent Kahana when you post.</p>
             </div>
           </div>
           <div className="linkedin-category-callout" style={{ marginTop: '20px' }}>
-            <p>As you progress at Aura Library, you'll have opportunities to receive LinkedIn recommendations from teammates. These strengthen both your profile and our collective credibility.</p>
+            <p>As you progress at Kahana, you'll have opportunities to receive LinkedIn recommendations from teammates. These strengthen both your profile and our collective credibility.</p>
           </div>
         </div>
       </section>

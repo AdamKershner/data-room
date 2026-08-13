@@ -2,8 +2,16 @@ export const KAHANA_SITE_URL = 'https://kahana.io'
 export const KAHANA_LIBRARY_URL = 'https://kahana.io/library'
 export const KAHANA_CONTACT_EMAIL = 'adam@kahana.io'
 
-/** Product name (platform). Parent company is LEGAL_ENTITY. */
-export const PRODUCT_NAME = 'Aura Library'
+/**
+ * Product / platform name.
+ * Primary: Kahana. Also known as “The Aura Library.”
+ * “Aura” alone remains the discovery signal (up to 5/day) — not the product name.
+ */
+export const PRODUCT_NAME = 'Kahana'
+/** Alternate / legacy product name. */
+export const PRODUCT_AKA = 'The Aura Library'
+/** First-mention / hero form. */
+export const PRODUCT_NAME_WITH_AKA = 'Kahana (AKA "The Aura Library")'
 /** Legal / parent company entity. */
 export const LEGAL_ENTITY = 'Kahana Group Inc.'
 
@@ -14,7 +22,7 @@ export const SLACK_INVITE_URL =
 /** Linear workspace — product backlog, bugs, feature requests, sprint prioritization. */
 export const LINEAR_WORKSPACE_URL = 'https://linear.app/kahana'
 
-/** Mixpanel — Aura Library project home (userbase analytics). */
+/** Mixpanel — Kahana project home (userbase analytics). */
 export const MIXPANEL_URL =
   'https://mixpanel.com/project/4042294/view/4538547/app/home'
 
@@ -35,10 +43,10 @@ export const ADAM_ONCEHUB_URL = 'https://go.oncehub.com/AdamKershner'
 /** Adam Kershner — personal socials hub (founder-led brand). */
 export const ADAM_SOCIALS_URL = 'https://about.kahana.io/adam-kershner'
 
-/** Public marketing site / landing page — what Aura Library is and how people benefit. */
+/** Public marketing site / landing page — what Kahana is and how people benefit. */
 export const KAHANA_ABOUT_URL = 'https://about.kahana.io/'
 
-/** Example Aura Library product profile (for onboarding recognition). */
+/** Example Kahana product profile (for onboarding recognition). */
 export const KAHANA_PROFILE_EXAMPLE_URL =
   'https://kahana.io/profile/lxZb9mrcMROsWZhigOBfTwbUGfB3'
 

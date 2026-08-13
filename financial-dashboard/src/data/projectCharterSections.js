@@ -3,7 +3,7 @@ export const PROJECT_CHARTER_META = {
   title: "Project Charter",
   projectTitle: "Library Supply and Search Satisfaction",
   subtitle: "Seeding, creator acquisition, reader demand, and platform support",
-  metaRows: [["Sponsor", "Adam Kershner, Co-Founder"], ["Project Manager", "Nithila"], ["Prepared", "23 July 2026"], ["Version", "v4.0  (Revised on sponsor feedback, for team review)"], ["Informed by", "Sponsor feedback 23 July, Women Creators New Market Research, Scaling Aura Library charter v2.0, about.kahana.io"]],
+  metaRows: [["Sponsor", "Adam Kershner, Co-Founder"], ["Project Manager", "Nithila"], ["Prepared", "23 July 2026"], ["Version", "v4.0  (Revised on sponsor feedback, for team review)"], ["Informed by", "Sponsor feedback 23 July, Women Creators New Market Research, Scaling Kahana charter v2.0, about.kahana.io"]],
 }
 
 export const PROJECT_CHARTER_GROUPS = [

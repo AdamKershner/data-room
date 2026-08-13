@@ -25,7 +25,7 @@ const EXTRA_SEARCH_ENTRIES = [
     title: 'Company Landscape',
     businessFunction: 'Marketing',
     description:
-      'Searchable peer platforms aligned with Market Map categories — facts on what each company is and does.',
+      'Searchable peer research cards aligned to Market Map — glossary and build notes for advisors.',
     keywords: [
       'company landscape',
       'battlecards',
@@ -56,7 +56,7 @@ const EXTRA_SEARCH_ENTRIES = [
     title: 'Glossary',
     businessFunction: 'Marketing',
     description:
-      'How Aura Library relates to the creator stack — Content & Audience, Community & Messaging, Memberships, Storefronts, Marketplaces.',
+      'How Kahana (AKA "The Aura Library") relates to the creator stack — Content & Audience, Community & Messaging, Memberships, Storefronts, Marketplaces.',
     keywords: [
       'glossary',
       'kahana positioning',
@@ -78,7 +78,7 @@ const EXTRA_SEARCH_ENTRIES = [
     title: 'Market Map',
     businessFunction: 'Marketing',
     description:
-      'Lay of the land — market pie plus one board of categories and companies. Start here, then Company Landscape.',
+      'Directional market map of content and creator-ops categories sized by mid TAM — with glossary and build notes for advisors.',
     keywords: [
       'market map',
       'fragment',
@@ -147,9 +147,9 @@ const EXTRA_SEARCH_ENTRIES = [
   },
   {
     path: '/kahana-narrative',
-    title: 'Aura Library Story',
+    title: 'Kahana Story',
     businessFunction: 'Marketing',
-    description: 'Strategic narrative — why Aura Library, hub model, magical gifts, promised land.',
+    description: 'Strategic narrative — why Kahana, hub model, magical gifts, promised land.',
     keywords: ['narrative', 'story', 'positioning', 'ai slop', 'wan shi tong', 'strategic narrative'],
     nlHints: ['why kahana', 'high level story', 'what is our pitch', 'promised land'],
   },
@@ -182,7 +182,7 @@ const EXTRA_SEARCH_ENTRIES = [
     title: 'SOPs',
     businessFunction: 'SOPs',
     description:
-      'Standard operating procedures for hosting book and video clubs — searchable gallery with full procedure pages.',
+      'Five Club SOPs: create & run clubs, invite members, choose titles, creator outreach, and logging feedback.',
     keywords: [
       'sop',
       'sops',
@@ -190,7 +190,9 @@ const EXTRA_SEARCH_ENTRIES = [
       'book club',
       'video club',
       'create club',
-      'reading list',
+      'wishlist',
+      'invite',
+      'outreach',
       'my clubs',
       'join mode',
       'visibility',
@@ -202,6 +204,7 @@ const EXTRA_SEARCH_ENTRIES = [
       'how do I start a book club',
       'how to run a video club',
       'club setup on kahana',
+      'creator outreach for clubs',
       'standard operating procedures',
     ],
   },
@@ -235,7 +238,7 @@ const EXTRA_SEARCH_ENTRIES = [
     title: 'Weekly Reports',
     businessFunction: 'Product',
     description:
-      'Cross-team progress synthesized from weekly Time Log submissions — read against Scaling Aura Library charter KPIs.',
+      'Cross-team progress synthesized from weekly Time Log submissions — read against Scaling Kahana charter KPIs.',
     keywords: [
       'weekly reports',
       'time log',

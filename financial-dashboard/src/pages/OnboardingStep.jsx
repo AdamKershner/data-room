@@ -140,7 +140,7 @@ function downloadTimeLogICS() {
   const ics = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//Aura Library//Time Log Reminder//EN',
+    'PRODID:-//Kahana//Time Log Reminder//EN',
     'BEGIN:VEVENT',
     `DTSTART:${formatICSDate(nextFriday)}`,
     `DTEND:${formatICSDate(end)}`,
@@ -185,7 +185,7 @@ function StepCompanyRules() {
           <p>Demonstrating dedication, perseverance, and commitment to excellence in everything we do.</p>
         </div>
       </div>
-      <p className="onboarding-values-footer">These four principles are foundational to Aura Library's philosophy.</p>
+      <p className="onboarding-values-footer">These four principles are foundational to Kahana's philosophy.</p>
 
       <h3>Company Rules</h3>
       <ul className="onboarding-rules-list">
@@ -219,7 +219,7 @@ function StepMarketMap() {
       </p>
 
       <p>
-        This is Day 2 orientation. Aura Library sits in a landscape of content markets plus how creators
+        This is Day 2 orientation. Kahana sits in a landscape of content markets plus how creators
         operate — Content & Audience (ebooks, video, courses, newsletters, audio…), Community &
         Messaging, Memberships, Storefronts, and Marketplaces. Dollar sizes are directional midpoints for
         orientation, not a forecast.
@@ -272,13 +272,13 @@ function StepCompanyLandscapeOnboarding() {
         <Link to="/company-landscape" className="onboarding-inline-link">
           Company Landscape
         </Link>
-        , browsed at least a few companies, and can explain how Aura Library fits beside one peer (e.g. YouTube,
+        , browsed at least a few companies, and can explain how Kahana fits beside one peer (e.g. YouTube,
         Patreon, or Substack) — complementary, not “kill the competitor.”
       </p>
 
       <p>
         After the Market Map, Company Landscape is the searchable company database — same categories as the
-        map (primary + secondary), how Aura Library fits, they-do / we-do / use-both, thesis scores, and conversation
+        map (primary + secondary), how Kahana fits, they-do / we-do / use-both, thesis scores, and conversation
         tips.
       </p>
 
@@ -295,10 +295,10 @@ function StepCompanyLandscapeOnboarding() {
           Use the search bar and Market Map category chips (same labels as the map). Try filtering a category
           you just saw on the map.
         </li>
-        <li>Skim the Aura Library reference card (our thesis scores).</li>
+        <li>Skim the Kahana reference card (our thesis scores).</li>
         <li>
           Expand 3–4 peers. Note <strong>primary vs secondary</strong> categories,{' '}
-          <strong>how Aura Library fits</strong>, and <strong>use both</strong> — we usually sit alongside, not
+          <strong>how Kahana fits</strong>, and <strong>use both</strong> — we usually sit alongside, not
           replace.
         </li>
         <li>Optional: open the comparison matrix for a quick thesis scan.</li>
@@ -340,7 +340,7 @@ function StepHowWeWork() {
 
       <p>
         Day 2 wraps with how the team actually operates. Linear holds tasks and bugs, Slack is for chat, and
-        Mixpanel is the live product scoreboard (~20 Aura Library PROD dashboards).
+        Mixpanel is the live product scoreboard (~20 Kahana PROD dashboards).
       </p>
 
       <h3>What to do</h3>
@@ -354,7 +354,7 @@ function StepHowWeWork() {
         </li>
         <li>Skim who uses what (by function) and the Linear workflow steps.</li>
         <li>
-          Read the <strong>Mixpanel — Aura Library PROD</strong> section — pick one board cluster relevant to your
+          Read the <strong>Mixpanel — Kahana PROD</strong> section — pick one board cluster relevant to your
           role (e.g. retention if PM, acquisition if marketing).
         </li>
         <li>
@@ -382,18 +382,19 @@ function StepSops() {
   return (
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You&apos;ve opened{' '}
+        <strong>✓ Done when:</strong> You&apos;ve opened the{' '}
         <Link to="/sops" className="onboarding-inline-link">
           SOPs
-        </Link>
-        , read SOP 1 (Running a Book Club or Video Club), and can state theme, frequency, join mode, and
-        visibility for a club you might host.
+        </Link>{' '}
+        gallery, read all five Club procedures (or can find them), and can explain how a club is
+        created, how members are invited, how the next title is chosen, when to outreach a creator,
+        and how to log feedback.
       </p>
 
       <p>
-        Clubs are how we grow on Aura Library. The SOPs gallery lists procedures as searchable cards — open SOP 1
-        for creating a club, writing a clear description, choosing join mode and visibility, building a reading
-        list, and running cycles.
+        Clubs are how we grow on Kahana. These SOPs are the playbook for hosting Book Clubs and
+        Video Clubs — create → invite → vote → outreach when needed → log issues. Product UI moves
+        quickly; the gallery notes the freshness date (August 12, 2026).
       </p>
 
       <h3>What to do</h3>
@@ -403,21 +404,51 @@ function StepSops() {
           <Link to="/sops" className="onboarding-inline-link">
             Standard Operating Procedures
           </Link>{' '}
-          and skim the gallery.
+          and skim the five Clubs cards.
         </li>
         <li>
-          Open <strong>SOP 1: Running a Book Club or Video Club</strong> — Setup and Managing a club over time.
+          Read{' '}
+          <Link to="/sops/running-a-book-or-video-club" className="onboarding-inline-link">
+            SOP 1: Running a Book Club or Video Club
+          </Link>{' '}
+          — multi-step create builder, visibility, policies, wishlist, focus, Feed, Events.
         </li>
-        <li>Skim the Done when checklist so you know what “club ready” means.</li>
         <li>
-          Note that SOP 3 (choosing what the club reads) and SOP 5 (logging feedback) are referenced and coming
-          soon.
+          Skim{' '}
+          <Link to="/sops/inviting-members-to-a-club" className="onboarding-inline-link">
+            SOP 2: Inviting Members
+          </Link>{' '}
+          — email, Suggested people, join link; keep a small active core and honest counts.
+        </li>
+        <li>
+          Skim{' '}
+          <Link to="/sops/choosing-what-the-club-reads" className="onboarding-inline-link">
+            SOP 3: Choosing What the Club Reads
+          </Link>{' '}
+          — Wishlist → votes → Set as focus; read on or off Kahana.
+        </li>
+        <li>
+          Skim{' '}
+          <Link to="/sops/outreach-to-creators-for-a-club" className="onboarding-inline-link">
+            SOP 4: Outreach to Creators
+          </Link>{' '}
+          — one sender, honest demand pitch, rights caveats, log outcomes.
+        </li>
+        <li>
+          Bookmark{' '}
+          <Link to="/sops/logging-feedback-and-issues" className="onboarding-inline-link">
+            SOP 5: Logging Feedback
+          </Link>{' '}
+          and the improvement survey for when something breaks.
         </li>
       </ol>
 
       <div className="onboarding-cta-row">
         <Link to="/sops" className="onboarding-cta-link">
-          Open SOPs →
+          Open SOPs gallery →
+        </Link>
+        <Link to="/sops/running-a-book-or-video-club" className="onboarding-cta-link">
+          Start with SOP 1 →
         </Link>
         <Link to="/onboarding/project-charter" className="onboarding-cta-link">
           Next: Project Charter →
@@ -475,8 +506,8 @@ function StepExploreAuraLibrary() {
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
         <strong>✓ Done when:</strong> You&apos;ve explored the library and authors, given Aura to work you love,
-        started a free hub, bookmarked/pinned Aura Library, and committed to an Aura streak (give Aura at least once
-        every 24 hours). Create your Aura Library profile in{' '}
+        started a free hub, bookmarked/pinned Kahana, and committed to an Aura streak (give Aura at least once
+        every 24 hours). Create your Kahana profile in{' '}
         <Link to="/onboarding/create-profiles" className="onboarding-inline-link">
           Create profiles
         </Link>{' '}
@@ -484,7 +515,7 @@ function StepExploreAuraLibrary() {
       </p>
 
       <p>
-        <strong>Aura Library</strong> is the product we are scaling. Live in it from day one —
+        <strong>Kahana</strong> is the product we are scaling. Live in it from day one —
         create your profile, browse hubs and authors, give Aura, and start contributing. This is how you build
         product intuition for every role. On Day 2, orient with the{' '}
         <Link to="/onboarding/market-map" className="onboarding-inline-link">
@@ -507,7 +538,7 @@ function StepExploreAuraLibrary() {
         rel="noopener noreferrer"
         className="onboarding-cta-link onboarding-cta-link-block"
       >
-        Open Aura Library → kahana.io
+        Open Kahana → kahana.io
       </a>
 
       <h3>1. Set up and explore</h3>
@@ -515,7 +546,7 @@ function StepExploreAuraLibrary() {
         <li>
           Optimize your{' '}
           <Link to="/onboarding/create-profiles" className="onboarding-inline-link">
-            Aura Library profile
+            Kahana profile
           </Link>{' '}
           (photo, bio, links) if you haven&apos;t already.
         </li>
@@ -532,12 +563,12 @@ function StepExploreAuraLibrary() {
         </li>
         <li>
           Add schedule-style context if you can (what to finish by when + a discussion prompt) — that matches
-          how real Aura Library clubs should feel.
+          how real Kahana clubs should feel.
         </li>
         <li>When ready, list it on Explore so you are contributing to the public library.</li>
       </ol>
 
-      <h3>3. Make Aura Library a daily habit (Aura streak)</h3>
+      <h3>3. Make Kahana a daily habit (Aura streak)</h3>
       <ul className="onboarding-rules-list">
         <li>
           <strong>Pin</strong> the library as one of your browser tabs and <strong>bookmark</strong>{' '}
@@ -547,7 +578,7 @@ function StepExploreAuraLibrary() {
           .
         </li>
         <li>
-          Go on Aura Library <strong>every day</strong> and maintain an <strong>Aura streak</strong> — give Aura at
+          Go on Kahana <strong>every day</strong> and maintain an <strong>Aura streak</strong> — give Aura at
           least once every 24 hours.
         </li>
       </ul>
@@ -636,7 +667,7 @@ function StepTimeLog() {
           <Link to="/weekly-reports">Weekly Reports</Link> — synthesized from time log submissions each week
         </li>
         <li>
-          <Link to="/glossary">Glossary</Link> — how Aura Library relates to the creator stack
+          <Link to="/glossary">Glossary</Link> — how Kahana relates to the creator stack
         </li>
         <li>
           <Link to="/how-we-work">How We Work</Link> — Linear + Slack + Mixpanel rhythms
@@ -790,18 +821,18 @@ function StepCreateProfiles() {
   return (
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You have an Aura Library profile, an Avenger (team) profile, and a Product Hunt
+        <strong>✓ Done when:</strong> You have a Kahana profile, an Avenger (team) profile, and a Product Hunt
         profile on the team sheet — and you&apos;ve followed everyone on that sheet.
       </p>
 
       <p>
         Set up your presence on the product, the internal team roster, and Product Hunt. These profiles help
-        teammates know you and prepare us for Aura Library&apos;s upcoming Product Hunt launch.
+        teammates know you and prepare us for Kahana&apos;s upcoming Product Hunt launch.
       </p>
 
       <div className="onboarding-avenger-tasks">
         <div className="onboarding-nps-step">
-          <strong>1. Aura Library profile</strong>
+          <strong>1. Kahana profile</strong>
           <p>
             Create your profile on{' '}
             <a href={KAHANA_SITE_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
@@ -815,7 +846,7 @@ function StepCreateProfiles() {
             rel="noopener noreferrer"
             className="onboarding-cta-link onboarding-cta-link-block"
           >
-            View example Aura Library profile →
+            View example Kahana profile →
           </a>
           <a
             href={KAHANA_SITE_URL}
@@ -823,7 +854,7 @@ function StepCreateProfiles() {
             rel="noopener noreferrer"
             className="onboarding-cta-button onboarding-cta-button-outline"
           >
-            Open Aura Library → create yours
+            Open Kahana → create yours
           </a>
         </div>
 
@@ -847,7 +878,7 @@ function StepCreateProfiles() {
             rel="noopener noreferrer"
             className="onboarding-cta-button onboarding-cta-button-outline"
           >
-            View team profiles on Aura Library HQ →
+            View team profiles on Kahana HQ →
           </a>
         </div>
 
@@ -856,7 +887,7 @@ function StepCreateProfiles() {
           <p>
             Create a Product Hunt account for our upcoming{' '}
             <a href={KAHANA_ABOUT_URL} target="_blank" rel="noopener noreferrer" className="onboarding-inline-link">
-              Aura Library
+              Kahana
             </a>{' '}
             launch. Add your profile to the team sheet and follow everyone on it. Example profile:
           </p>
@@ -910,7 +941,7 @@ function StepReviewLandingPage() {
   return (
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You&apos;ve read the full landing page and can explain what Aura Library is,
+        <strong>✓ Done when:</strong> You&apos;ve read the full landing page and can explain what Kahana is,
         what Aura is, and how learners and creators benefit.
       </p>
 
@@ -919,7 +950,7 @@ function StepReviewLandingPage() {
           about.kahana.io
         </a>{' '}
         is the <strong>central place</strong> where everyone — new hires, creators, and customers — learns what
-        Aura Library is and how people benefit. Read it carefully; this is the public story of the product.
+        Kahana is and how people benefit. Read it carefully; this is the public story of the product.
       </p>
 
       <a
@@ -942,7 +973,7 @@ function StepReviewLandingPage() {
           promote quality across hubs and files.
         </li>
         <li>
-          <strong>How to use Aura Library:</strong> Learn (Explore) → Create (hubs + digital artifacts / clubs) →
+          <strong>How to use Kahana:</strong> Learn (Explore) → Create (hubs + digital artifacts / clubs) →
           Grow (exposure, followers, Aura, optional monetization).
         </li>
         <li>
@@ -1049,7 +1080,7 @@ function StepDuolingoArticle() {
 
         <p><strong>The takeaway:</strong> As X gets more specific and more value-creating, the chance of coming back goes up. That&apos;s how we identify which behaviors are real retention drivers — and where to focus onboarding, nudges, and product polish.</p>
         <p>
-          On Aura Library, CURR, DAUs, and retention are core product metrics we track in{' '}
+          On Kahana, CURR, DAUs, and retention are core product metrics we track in{' '}
           <Link to="/how-we-work">How We Work</Link> (Mixpanel) and your weekly{' '}
           <Link to="/onboarding/time-log">Time Log</Link>.
         </p>
@@ -1116,10 +1147,10 @@ function StepToolsAccess() {
       <figure className="onboarding-screenshot">
         <img
           src={linearKahanaBoard}
-          alt="Linear Aura Library board showing Backlog, Todo, and In Progress columns with KAH issues"
+          alt="Linear Kahana board showing Backlog, Todo, and In Progress columns with KAH issues"
         />
         <figcaption>
-          What you&apos;ll see in Linear: Aura Library workspace, issue board, and KAH-* tickets by status.
+          What you&apos;ll see in Linear: Kahana workspace, issue board, and KAH-* tickets by status.
         </figcaption>
       </figure>
       <a
@@ -1139,7 +1170,7 @@ function StepToolsAccess() {
       <figure className="onboarding-screenshot">
         <img
           src={mixpanelCheckoutJourneys}
-          alt="Mixpanel Aura Library Checkout Journeys dashboard with Growth upgrade and downgrade funnels"
+          alt="Mixpanel Kahana Checkout Journeys dashboard with Growth upgrade and downgrade funnels"
         />
         <figcaption>
           What you&apos;ll see in Mixpanel: boards like Checkout Journeys with funnel steps and conversion rates.
@@ -1193,12 +1224,12 @@ function StepSocialMedia() {
   return (
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You&apos;ve followed all Aura Library channels, followed Adam on his socials
+        <strong>✓ Done when:</strong> You&apos;ve followed all Kahana channels, followed Adam on his socials
         (via his about page), and turned on notifications for each.
       </p>
 
       <p>
-        Follow Aura Library social accounts and Adam&apos;s personal channels so you stay up to date on company
+        Follow Kahana social accounts and Adam&apos;s personal channels so you stay up to date on company
         updates, product news, and founder-led content. More content coming soon — stay tuned!
       </p>
 
@@ -1225,7 +1256,7 @@ function StepSocialMedia() {
         Follow Adam Kershner → about.kahana.io/adam-kershner
       </a>
 
-      <h3>2. Follow Aura Library company channels</h3>
+      <h3>2. Follow Kahana company channels</h3>
       <ul className="onboarding-steps-list">
         {SOCIAL_MEDIA_CHANNELS.map((channel) => (
           <li key={channel.name}>

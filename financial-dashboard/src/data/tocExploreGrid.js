@@ -33,19 +33,19 @@ export const TOC_EXPLORE_ITEMS = [
     path: '/company-landscape',
     title: 'Company Landscape',
     description:
-      'Searchable peer platforms aligned with Market Map categories — facts on what each company is and does.',
+      'Searchable peer research cards aligned to Market Map — glossary and build notes for advisors.',
   },
   {
     path: '/glossary',
     title: 'Glossary',
     description:
-      'How Aura Library relates to the creator stack — Content & Audience, Community & Messaging, Memberships, Storefronts, Marketplaces.',
+      'How Kahana (AKA "The Aura Library") relates to the creator stack — Content & Audience, Community & Messaging, Memberships, Storefronts, Marketplaces.',
   },
   {
     path: '/fragment-capture',
     title: 'Market Map',
     description:
-      'Lay of the land — content categories and companies sized by directional market $, then Company Landscape for company facts.',
+      'Directional content and creator-ops categories sized by mid TAM — glossary and build notes included. Company facts on Company Landscape.',
   },
   {
     path: '/team-execution',
@@ -68,7 +68,7 @@ export const TOC_EXPLORE_ITEMS = [
     path: '/sops',
     title: 'SOPs',
     description:
-      'Searchable gallery of standard operating procedures for hosting book and video clubs and other product ops.',
+      'Five Club SOPs: create & run clubs, invite members, choose titles, creator outreach, and logging feedback.',
   },
   {
     path: '/project-charter',

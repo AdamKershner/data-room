@@ -26,7 +26,7 @@ export const ONBOARDING_STEPS = [
   },
   {
     id: 'social-media',
-    label: 'Follow Aura Library & Adam on socials',
+    label: 'Follow Kahana & Adam on socials',
     icon: 'megaphone',
     category: 'External Presence',
     day: 1,
@@ -50,7 +50,7 @@ export const ONBOARDING_STEPS = [
   },
   {
     id: 'review-landing-page',
-    label: 'Review Aura Library website',
+    label: 'Review Kahana website',
     icon: 'globe',
     category: 'Company & Culture',
     day: 1,
@@ -58,7 +58,7 @@ export const ONBOARDING_STEPS = [
   },
   {
     id: 'explore-aura-library',
-    label: 'Explore Aura Library',
+    label: 'Explore Kahana',
     icon: 'sparkles',
     category: 'Product',
     day: 1,
@@ -111,7 +111,7 @@ export const ONBOARDING_STEPS = [
     icon: 'book',
     category: 'Product',
     day: 2,
-    badge: '15 min',
+    badge: '25–30 min',
   },
   {
     id: 'project-charter',

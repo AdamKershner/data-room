@@ -106,7 +106,7 @@ function OperatingSystem() {
       </section>
 
       <section className="page-section" id="mixpanel">
-        <h2>Mixpanel — Aura Library PROD</h2>
+        <h2>Mixpanel — Kahana PROD</h2>
         <div className="content-block">
           <p>{MIXPANEL_OVERVIEW.intro}</p>
           <p>
@@ -162,7 +162,7 @@ function OperatingSystem() {
           <p>
             Feature requests, bug fixes, and sprint items live in the{' '}
             <a href={LINEAR_WORKSPACE_URL} target="_blank" rel="noopener noreferrer">
-              Aura Library Linear workspace
+              Kahana Linear workspace
             </a>
             . PM prioritizes the backlog; engineers implement assigned work.
           </p>

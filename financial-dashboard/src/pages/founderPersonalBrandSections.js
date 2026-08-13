@@ -16,7 +16,7 @@ export const JOHN_SUMMIT_REFERENCE_VIDEO_EMBED_URL = `https://www.youtube.com/em
 
 export const ADAM_HEADSHOT = {
   src: '/images/adam-kershner-headshot.png',
-  alt: 'Adam Kershner, CEO and founder of Aura Library, professional headshot',
+  alt: 'Adam Kershner, CEO and founder of Kahana, professional headshot',
 }
 
 export const JOHN_SUMMIT_CORPORATE_IMAGE = {
@@ -57,7 +57,7 @@ export const PROVEN_MODEL_CONTENT = {
       'John Summit makes high-energy electronic music that blends driving house, melodic techno, and vocal-driven pop. Known for infectious basslines, sleek synths, and emotional toplines, his sound ranges from club-ready dancefloor anthems to melancholic, genre-melding tracks.',
     comparison: [
       'Summit wins on feeling first. The bass and groove get people moving, but the topline is what they remember the next day. He can run peak-time energy and melancholy in the same catalog without it feeling like a contradiction.',
-      'Adam\'s work is aimed at making you feel peaceful, safe, and elegant. Aura Library and Oasis are not pitched as a feature matrix alone. Branding, product, and vision lean into refuge: calm focus instead of tab chaos, agency instead of being watched, a place online that does not grind you down.',
+      'Adam\'s work is aimed at making you feel peaceful, safe, and elegant. Kahana and Oasis are not pitched as a feature matrix alone. Branding, product, and vision lean into refuge: calm focus instead of tab chaos, agency instead of being watched, a place online that does not grind you down.',
       'The music and the tech, from both sides, create a refuge to feel safe in your own skin and the vitality of being truly alive. Summit\'s sound can lift you on the dancefloor; Adam\'s stack is built so you can breathe in the browser. Emotional appeal is the through-line in both worlds.',
     ],
   },
@@ -66,27 +66,27 @@ export const PROVEN_MODEL_CONTENT = {
   blueprint: [
     'Summit has achieved far greater success at this point, but he has shown a blueprint of what could be possible for Adam. It is not the same path, yet many of the same habits transfer: show up on social, post often, let people see your face, reply and connect, build a community that cares about the person behind the work. The fact that Adam actually looks like John Summit is what makes the comparison credible, not forced.',
     'In dance music, a lot of artists stay anonymous. Alan Walker built a global brand while hiding his face behind a mask. Summit went the opposite direction: TikTok, Instagram, thumbnails, and live moments where the audience knows the person, not just the drop. For a founder, the parallel is outward-facing storytelling on LinkedIn and YouTube, not only product screenshots in a deck.',
-    'The interesting part of this branding approach, and what parallels John Summit most directly, is the benefit of being linked to his meteoric rise. Summit compressed years of struggle into a short window: hundreds of label rejections, then arenas and the largest festivals in the world. Adam has heard rejections and nos from plenty of investors and kept grinding anyway. Same shape, different gatekeepers. That velocity of success makes the playbook especially appealing for Adam and Aura Library. If the story catches, growth does not have to feel slow or linear.',
+    'The interesting part of this branding approach, and what parallels John Summit most directly, is the benefit of being linked to his meteoric rise. Summit compressed years of struggle into a short window: hundreds of label rejections, then arenas and the largest festivals in the world. Adam has heard rejections and nos from plenty of investors and kept grinding anyway. Same shape, different gatekeepers. That velocity of success makes the playbook especially appealing for Adam and Kahana. If the story catches, growth does not have to feel slow or linear.',
     'Where Summit stands now sharpens the appeal of the comparison. He owns his own record label and signs other DJs to it. Brand partnerships include Bose and Fontainebleau Las Vegas. He is ranked among the top 50 DJs in the world, closes festivals like Ultra, and has played Tomorrowland main stage. More than 10 million people listen on Spotify each month. He is originally from Chicago. Adam is originally from New Jersey but moved to Chicago and lived there for a time, another thread that makes the parallel feel lived-in, not manufactured.',
     'The key to Summit\'s meteoric rise, from getting rejected by hundreds of record labels to selling out massive crowds at the largest music festivals in the world, is that he continuously focused on the quality of his music (the product). The same needs to be true of Adam and his products for this strategy to work: face-forward brand and distribution only amplify something people already want to keep using.',
-    'Summit\'s music is widely popular and well-regarded, but it is not without skepticism. Many critics say other DJs are more musically gifted than Summit and credit his marketing and branding with much of his success. Both can be true. The same can be true for Adam, Aura Library, and Oasis: a great product and a great founder brand are not mutually exclusive, and outside observers will often attribute the wins to one or the other.',
+    'Summit\'s music is widely popular and well-regarded, but it is not without skepticism. Many critics say other DJs are more musically gifted than Summit and credit his marketing and branding with much of his success. Both can be true. The same can be true for Adam, Kahana, and Oasis: a great product and a great founder brand are not mutually exclusive, and outside observers will often attribute the wins to one or the other.',
   ],
   youtubeThumbnailHeading: 'Adam\'s face-forward YouTube thumbnails',
   parallels: [
     {
       label: 'Day job vs passion',
       johnSummit: 'Corporate work, then music full time',
-      adam: 'Corporate work, then tech and Aura Library full time',
+      adam: 'Corporate work, then tech and Kahana full time',
     },
     {
       label: 'COVID-era start',
       johnSummit: 'YouTube tutorial videos, then short-form face content while producing music',
-      adam: 'YouTube tutorial videos, then founder content while building Aura Library',
+      adam: 'YouTube tutorial videos, then founder content while building Kahana',
     },
     {
       label: 'Product quality',
       johnSummit: 'Relentless focus on music quality through label rejections to festival headliners',
-      adam: 'Relentless focus on Oasis and Aura Library product quality; brand tactics cannot substitute',
+      adam: 'Relentless focus on Oasis and Kahana product quality; brand tactics cannot substitute',
     },
     {
       label: 'How they started',
@@ -111,7 +111,7 @@ export const PROVEN_MODEL_CONTENT = {
     {
       label: 'Rise velocity',
       johnSummit: 'Meteoric arc in a short period: rejections to global festivals fuels the narrative',
-      adam: 'Linking to that arc can help Aura Library and Oasis grow large quickly if the story spreads',
+      adam: 'Linking to that arc can help Kahana and Oasis grow large quickly if the story spreads',
     },
     {
       label: 'Community',
@@ -132,7 +132,7 @@ export const PROVEN_MODEL_CONTENT = {
       label: 'Scale today',
       johnSummit:
         'Own label, signs DJs; Bose and Fontainebleau; top 50 DJs globally; Ultra, Tomorrowland main stage; 10M+ Spotify listeners',
-      adam: 'Building Aura Library and Oasis toward platform-scale growth in tech',
+      adam: 'Building Kahana and Oasis toward platform-scale growth in tech',
     },
   ],
   videoCaption: 'Reference: John Summit (watch on YouTube for context on the comparison below).',
@@ -263,7 +263,7 @@ export const FOUNDER_EXAMPLES_TESTIMONIALS = [
     heading: 'CEO Alliance testimonial',
     context: 'Fellow CEO, CEO Alliance',
     quote:
-      'As a long-time surfer, I\'ve developed an interest in the Hawaiian language, and one definition of kahana is "turning point." If that\'s what you had in mind, may Aura Library Oasis achieve a turning point in making browsing private and secure enough to prevent the kind of ransomware disaster that impacted you early in your professional life, so much so that you shifted your career focus. Your impressive volunteer work, repairing biomedical devices and literally building bridges to prosperity, shows how strong your commitment is, once the mission has been defined.',
+      'As a long-time surfer, I\'ve developed an interest in the Hawaiian language, and one definition of kahana is "turning point." If that\'s what you had in mind, may Kahana Oasis achieve a turning point in making browsing private and secure enough to prevent the kind of ransomware disaster that impacted you early in your professional life, so much so that you shifted your career focus. Your impressive volunteer work, repairing biomedical devices and literally building bridges to prosperity, shows how strong your commitment is, once the mission has been defined.',
   },
   {
     id: 'narrative-writing',

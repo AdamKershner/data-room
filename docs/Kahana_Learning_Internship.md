@@ -1,8 +1,8 @@
-# Aura Library Learning Internship
+# Kahana Learning Internship
 
 ## What to Expect When Applying
 
-Thank you for your interest in the Aura Library Learning Internship. This document outlines what potential interns should expect when applying to join our team.
+Thank you for your interest in the Kahana Learning Internship. This document outlines what potential interns should expect when applying to join our team.
 
 ---
 
@@ -86,7 +86,7 @@ Experience varies by the function(s) you're assigned to.
 
 #### Marketing
 - **LinkedIn** — Update profile, post about your work, engage with team content, participate in the LinkedIn focus group, connect with team members
-- **Social media** — Follow Aura Library channels (LinkedIn, X, Instagram, YouTube, TikTok), engage with content, support campaigns
+- **Social media** — Follow Kahana channels (LinkedIn, X, Instagram, YouTube, TikTok), engage with content, support campaigns
 - **Product Hunt** — Create profile, follow the team, participate in launch preparation and supporter outreach
 - **Content pipeline** — Blog planning, YouTube video production, content calendars
 - **SEO & analytics** — Looker reports, Google Trends, traffic and performance analysis
@@ -194,4 +194,4 @@ If this sounds like the right fit for you, we encourage you to apply. We look fo
 
 ---
 
-*Aura Library — Building in public, learning together.*
+*Kahana — Building in public, learning together.*

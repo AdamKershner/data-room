@@ -17,6 +17,14 @@
   line-height: 1.55;
 }
 
+.glossary-aka-note {
+  margin: 12px 0 0;
+  max-width: 52rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #556;
+}
+
 .glossary-intro {
   margin: 0 0 16px;
   color: #556;

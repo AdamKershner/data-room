@@ -10,6 +10,7 @@ import {
   VISION_FEELING,
   TRACTION_METRICS,
   PRODUCT_NAME,
+  PRODUCT_NAME_WITH_AKA,
   LEGAL_ENTITY,
 } from '../data/kahanaPlatformSections'
 import './Page.css'
@@ -81,12 +82,12 @@ function KahanaExecutiveSummary() {
       <div className="page-header">
         <h1>Executive Summary</h1>
         <p className="page-subtitle">
-          {LEGAL_ENTITY} — {PRODUCT_NAME}, a digital library with Aura. The room people deserve for thinking,
-          learning, and becoming better.
+          {LEGAL_ENTITY} — {PRODUCT_NAME_WITH_AKA}, a digital library with Aura. The room people deserve for
+          thinking, learning, and becoming better.
         </p>
       </div>
 
-      <section className="kahana-hero page-section" aria-label="Aura Library at a glance">
+      <section className="kahana-hero page-section" aria-label="Kahana at a glance">
         <div className="kahana-hero-inner">
           <div>
             <p className="kahana-hero-kicker">{VISION_FEELING.eyebrow}</p>
@@ -99,13 +100,13 @@ function KahanaExecutiveSummary() {
               or Prime Video. Books pull you to Goodreads or another reading site. Short-form video means
               switching again to TikTok or Instagram. A single place where you can conveniently access every
               type of content, without jumping apps, would change that. That&apos;s what we&apos;re building
-              with Aura Library. And as more content is added, Aura does the job of filtering what&apos;s actually
+              with Kahana. And as more content is added, Aura does the job of filtering what&apos;s actually
               good.
             </p>
             <p className="kahana-vision-product-lead kahana-vision-product-lead--body">
               Most platforms surface what&apos;s paid for or algorithmically pushed, not what&apos;s actually
               good. Aura is different: it&apos;s given by people who genuinely engaged with the work, not
-              bought or manufactured. That makes Aura Library a place where what rises to the top does so because
+              bought or manufactured. That makes Kahana a place where what rises to the top does so because
               people actually valued it, not because someone paid for visibility. It&apos;s discovery driven
               by real human judgment, not manipulation.
             </p>

@@ -72,7 +72,7 @@ export const TASK_META = {
     channel: 'Blog',
     format: 'writing',
     essence:
-      'Imagine a long Aura Library blog post, the Rise of Ad Nauseam, walking the copy bank beats with Target 2012 footnoted and a handoff to the villain stage.',
+      'Imagine a long Kahana blog post, the Rise of Ad Nauseam, walking the copy bank beats with Target 2012 footnoted and a handoff to the villain stage.',
     label: 'Format playbook · Name the change blog; [[AD_NAUSEAM_BRIEF]]',
   },
 
@@ -163,7 +163,7 @@ export const TASK_META = {
     format: 'infographic',
     essence:
       'Imagine a single shareable graphic with eight rows of Chrome data categories, all linked to you when signed in, so the loser future feels concrete, not abstract.',
-    label: '[[CHROME_BLOG|Aura Library Chrome 2025 post]]',
+    label: '[[CHROME_BLOG|Kahana Chrome 2025 post]]',
   },
   'mn-winners-chrome-02': {
     channel: 'LinkedIn',
@@ -487,8 +487,8 @@ export const TASK_META = {
     channel: 'Blog',
     format: 'writing',
     essence:
-      'Imagine the Aura Library Chrome 2025 hub post updated as the owned evidence anchor, with every third-party stat footnoted and no “Oasis collects nothing” overclaim.',
-    label: '[[CHROME_BLOG|Aura Library blog]]',
+      'Imagine the Kahana Chrome 2025 hub post updated as the owned evidence anchor, with every third-party stat footnoted and no “Oasis collects nothing” overclaim.',
+    label: '[[CHROME_BLOG|Kahana blog]]',
   },
   'mn-evidence-chrome-02': {
     channel: 'Internal',

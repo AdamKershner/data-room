@@ -14,7 +14,7 @@ const STORAGE_KEY = 'project-charter-checklist'
 const CHARTER_PDF_URL =
   '/documents/project-charter-library-supply-search-satisfaction.pdf'
 const CHARTER_PDF_FILENAME =
-  'Aura Library-Project-Charter-Library-Supply-Search-Satisfaction.pdf'
+  'Kahana-Project-Charter-Library-Supply-Search-Satisfaction.pdf'
 const CONFETTI_COLORS = ['#0d9488', '#10b981', '#34d399', '#f59e0b', '#f97316', '#ec4899', '#8b5cf6', '#3b82f6']
 const CONFETTI_COUNT = 16
 

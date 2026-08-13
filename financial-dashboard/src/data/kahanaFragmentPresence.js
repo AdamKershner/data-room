@@ -1,6 +1,6 @@
 /**
- * Aura Library vs company coverage across Market Map content fragments.
- * Chart layout: content types as columns; Aura Library supports all; company shows which they support.
+ * Kahana vs company coverage across Market Map content fragments.
+ * Chart layout: content types as columns; Kahana supports all; company shows which they support.
  */
 
 import { MARKET_MAP_CATEGORIES } from './kahanaCompanyDatabase'
@@ -14,7 +14,7 @@ export const PRESENCE_LABELS = {
 }
 
 /**
- * Aura Library target coverage — the library aims to encompass every content modality.
+ * Kahana target coverage — the library aims to encompass every content modality.
  * @type {Record<string, FragmentPresence>}
  */
 export const KAHANA_FRAGMENT_PRESENCE = Object.fromEntries(
@@ -54,7 +54,7 @@ export function getComparisonModalities() {
 }
 
 /**
- * Per-modality presence for Aura Library + company (for transposed chart).
+ * Per-modality presence for Kahana + company (for transposed chart).
  * @param {{ id?: string, name?: string, primaryFragmentId?: string | null, secondaryFragmentIds?: string[], marketFragmentIds?: string[] }} company
  */
 export function buildKahanaComparisonRows(company) {

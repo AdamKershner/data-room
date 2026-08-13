@@ -1157,7 +1157,7 @@ function ContentPipeline() {
                   rel="noopener noreferrer"
                   style={{ color: '#0369a1', textDecoration: 'underline' }}
                 >
-                  Open Aura Library Reports
+                  Open Kahana Reports
                 </a>
               </p>
               <p>

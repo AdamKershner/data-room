@@ -1,11 +1,18 @@
-/** Aura Library platform page — core idea, growth, club playbooks, company landscape teaser */
+/** Kahana platform page — core idea, growth, club playbooks, company landscape teaser */
 
-import { KAHANA_LIBRARY_URL, KAHANA_SITE_URL, PRODUCT_NAME, LEGAL_ENTITY } from '../constants/kahanaSite'
+import {
+  KAHANA_LIBRARY_URL,
+  KAHANA_SITE_URL,
+  PRODUCT_NAME,
+  PRODUCT_AKA,
+  PRODUCT_NAME_WITH_AKA,
+  LEGAL_ENTITY,
+} from '../constants/kahanaSite'
 
 export const KAHANA_PLATFORM_URL = KAHANA_SITE_URL
 /** @deprecated Prefer KAHANA_LIBRARY_URL — library catalog lives at /library */
 export const KAHANA_EXPLORE_URL = KAHANA_LIBRARY_URL
-export { KAHANA_LIBRARY_URL, PRODUCT_NAME, LEGAL_ENTITY }
+export { KAHANA_LIBRARY_URL, PRODUCT_NAME, PRODUCT_AKA, PRODUCT_NAME_WITH_AKA, LEGAL_ENTITY }
 export const KAHANA_CLUBS_FEEDBACK_URL = 'https://kahana.io/survey/improve?source=support_panel'
 export const COMPETITORS_PAGE_PATH = '/company-landscape'
 export const NARRATIVE_PAGE_PATH = '/kahana-narrative'
@@ -13,7 +20,7 @@ export const FRAGMENT_MAP_PATH = '/fragment-capture'
 
 export const KAHANA_PLATFORM_PAGE = {
   title: `${PRODUCT_NAME} Overview`,
-  subtitle: `A digital library with Aura — Clubs, curated content, and community-governed discovery at kahana.io.`,
+  subtitle: `A digital library with Aura — Clubs, curated content, and community-governed discovery at kahana.io. Also known as "${PRODUCT_AKA}".`,
   northStar: `Make ${PRODUCT_NAME} a beloved place to discover curated human knowledge — where anyone could spend an eternity exploring.`,
   legalEntity: LEGAL_ENTITY,
 }
@@ -44,7 +51,7 @@ export const VISION_FEELING = {
   contrast:
     'Instagram, TikTok, YouTube and Netflix are the virtual party. They are always there when you want a dopamine hit, and there is nothing wrong with a party. But eventually you graduate and lose your library card, or you move somewhere without a good public library.',
   product:
-    'Aura Library is the digital library with Aura: a place you can always go to fall into focus, feel productive, and be surrounded by other learners. We are building the room people deserve for thinking, learning, and becoming better.',
+    'Kahana (AKA "The Aura Library") is the digital library with Aura: a place you can always go to fall into focus, feel productive, and be surrounded by other learners. We are building the room people deserve for thinking, learning, and becoming better.',
   stakes:
     'Everything in this data room serves that experience. A reader who searches and finds nothing does not get that feeling. That is the problem we are solving.',
 }
@@ -63,15 +70,15 @@ export const GTM_STRATEGY = {
 export const CORE_IDEA = {
   title: 'Core idea',
   paragraphs: [
-    'Aura Library is a digital library with Aura. Clubs are how friends, family, colleagues, and teammates discuss what they read and watch — fostering empathy and understanding.',
+    'Kahana (AKA "The Aura Library") is a digital library with Aura. Clubs are how friends, family, colleagues, and teammates discuss what they read and watch — fostering empathy and understanding.',
     'We start with Clubs around ebooks, long-form YouTube, and courses — primarily educational or interesting content that drives real discussion. As Clubs grow, the community grows naturally, and we expand to more content types.',
-    'Aura is simple: each person can give up to 5 Aura per day to things they feel deserve to rise. That is the algorithm — wisdom of the crowds. We hope Aura Library becomes a wonderful place to discover high-quality, important things to learn.',
+    'Aura is simple: each person can give up to 5 Aura per day to things they feel deserve to rise. That is the algorithm — wisdom of the crowds. We hope Kahana becomes a wonderful place to discover high-quality, important things to learn.',
   ],
 }
 
 export const HOW_WE_GROW = {
   title: 'How we grow',
-  intro: 'Three things. Do them well and Aura Library compounds.',
+  intro: 'Three things. Do them well and Kahana compounds.',
   verbs: [
     {
       name: 'Make Clubs',
@@ -86,7 +93,7 @@ export const HOW_WE_GROW = {
     {
       name: 'Ask creators to add content',
       detail:
-        'Outreach to authors and creators so their books, videos, and courses live on Aura Library and can fuel Clubs.',
+        'Outreach to authors and creators so their books, videos, and courses live on Kahana and can fuel Clubs.',
     },
   ],
 }
@@ -115,12 +122,12 @@ const SHARED_CLUB_STEPS = [
   {
     title: 'Build wishlist lists',
     detail:
-      'List books/videos not on Aura Library yet — titles, authors, videos, creators — so we know what to board for the club.',
+      'List books/videos not on Kahana yet — titles, authors, videos, creators — so we know what to board for the club.',
   },
   {
     title: 'Outreach to creators / authors',
     detail:
-      'Request that they put their books or videos on Aura Library so the club can use them. Complementary ask, not a rip-and-replace.',
+      'Request that they put their books or videos on Kahana so the club can use them. Complementary ask, not a rip-and-replace.',
   },
 ]
 
@@ -156,7 +163,7 @@ export const HOME_SECTION_LINKS = [
 ]
 
 export const GO_DEEPER_LINKS = [
-  { to: NARRATIVE_PAGE_PATH, label: 'Aura Library story / narrative' },
+  { to: NARRATIVE_PAGE_PATH, label: 'Kahana story / narrative' },
   { to: FRAGMENT_MAP_PATH, label: 'Market Map' },
   { to: COMPETITORS_PAGE_PATH, label: 'Company Landscape' },
 ]

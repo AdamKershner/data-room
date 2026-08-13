@@ -1,13 +1,13 @@
-/** Aura Library strategic narrative — story beats for onboarding and marketing alignment. */
+/** Kahana strategic narrative — story beats for onboarding and marketing alignment. */
 
 import { COMPETITORS_PAGE_PATH } from './kahanaCompetitorsData'
 
 export const NARRATIVE_PAGE_PATH = '/kahana-narrative'
 
 export const NARRATIVE_PAGE = {
-  title: 'Aura Library Story',
+  title: 'Kahana Story',
   subtitle:
-    'Why Aura Library exists — from AI slop and broken creator platforms to Wan Shi Tong\'s Library for humans.',
+    'Why Kahana exists — from AI slop and broken creator platforms to Wan Shi Tong\'s Library for humans.',
 }
 
 export const ONE_LINER =
@@ -70,11 +70,11 @@ export const NARRATIVE_BEATS = [
   },
   {
     id: 'solution',
-    title: 'The solution: Aura Library as Wan Shi Tong\'s Library',
+    title: 'The solution: Kahana as Wan Shi Tong\'s Library',
     raskinStage: 'New way',
     paragraphs: [
-      'Aura Library starts from a different premise: the atomic unit is not "content," it\'s a hub of knowledge.',
-      'A hub on Aura Library is a living environment built around a problem, skill, or outcome. The creator isn\'t forced into a tier system or a newsletter. They design the hub the way an expert actually thinks about their domain: as an interconnected set of assets that help people get from "I don\'t know how" to "I can do this."',
+      'Kahana starts from a different premise: the atomic unit is not "content," it\'s a hub of knowledge.',
+      'A hub on Kahana is a living environment built around a problem, skill, or outcome. The creator isn\'t forced into a tier system or a newsletter. They design the hub the way an expert actually thinks about their domain: as an interconnected set of assets that help people get from "I don\'t know how" to "I can do this."',
     ],
     bullets: [
       'Videos and walkthroughs',
@@ -88,12 +88,12 @@ export const NARRATIVE_BEATS = [
     title: 'The promised land',
     raskinStage: 'Promised land',
     paragraphs: [
-      'In the promised land, Aura Library is the default answer to a simple question: "Where do I go to find the best digital resources for what I\'m trying to do?"',
-      'Instead of doom-scrolling through social feeds or hunting across hundreds of fragmented creator storefronts, people go straight to Aura Library — a modern, human-aligned version of Wan Shi Tong\'s Library.',
+      'In the promised land, Kahana is the default answer to a simple question: "Where do I go to find the best digital resources for what I\'m trying to do?"',
+      'Instead of doom-scrolling through social feeds or hunting across hundreds of fragmented creator storefronts, people go straight to Kahana — a modern, human-aligned version of Wan Shi Tong\'s Library.',
       'The internet finally gains a central, navigable library of high-signal knowledge, not just an endless buffet of content.',
     ],
     bullets: [
-      'Students and professionals use Aura Library hubs to upskill in weeks instead of semesters.',
+      'Students and professionals use Kahana hubs to upskill in weeks instead of semesters.',
       'Teams rely on hubs as onboarding and capability stacks for specific roles or projects.',
       'Experts maintain evolving libraries of their best work, earning fairly while watching their knowledge genuinely empower others.',
     ],
@@ -103,12 +103,12 @@ export const NARRATIVE_BEATS = [
     title: 'Look to the horizon',
     raskinStage: 'Horizon',
     paragraphs: [
-      'In that future, social platforms remain places to be entertained. Aura Library becomes the place you go to get smarter and get things done.',
+      'In that future, social platforms remain places to be entertained. Kahana becomes the place you go to get smarter and get things done.',
     ],
     bullets: [
       'As AI generates more generic slop, provenance and curation become the new scarcity.',
-      'The creator economy drifts toward structured catalogs of durable knowledge — Aura Library becomes the spine.',
-      'Aura Library evolves from marketplace into infrastructure: hubs embedded in tools, workflows, and organizations.',
+      'The creator economy drifts toward structured catalogs of durable knowledge — Kahana becomes the spine.',
+      'Kahana evolves from marketplace into infrastructure: hubs embedded in tools, workflows, and organizations.',
     ],
   },
 ]
@@ -118,23 +118,23 @@ export const MAGIC_GIFTS = {
     { title: 'Freedom of form', detail: 'No imposed tiers, no mandatory newsletter. Spin up as many hubs as you want, each structured for the job it\'s meant to do.' },
     { title: 'Flexible monetization', detail: 'Set one-time or monthly pricing per hub. Static library, living lab, recurring program, or a mix — without switching platforms.' },
     { title: 'Safer assets', detail: 'Artifacts live in a controlled hub environment. Access is permissioned, making casual copying and redistribution harder.' },
-    { title: 'Better economics', detail: 'Low transaction fees and many hubs mean Aura Library scales with your expertise.' },
+    { title: 'Better economics', detail: 'Low transaction fees and many hubs mean Kahana scales with your expertise.' },
   ],
   learners: [
-    { title: 'A real place to start', detail: 'When you have a project or learning goal, go to Aura Library first — not Google plus 15 tabs. Hubs are organized around outcomes, not algorithms.' },
+    { title: 'A real place to start', detail: 'When you have a project or learning goal, go to Kahana first — not Google plus 15 tabs. Hubs are organized around outcomes, not algorithms.' },
     { title: 'Trustworthy knowledge', detail: 'See who created a hub, what else they\'ve built, and how others have used it. Real experts with reputations.' },
     { title: 'Actionable artifacts', detail: 'Download templates, files, and assets you can plug directly into your work or study — not just read about something.' },
   ],
 }
 
 export const REFINE_NOTE =
-  'Draft for internal alignment. Elevator versions and website hero copy live in Aura Library/12-strategic-narrative.md — refine from here.'
+  'Draft for internal alignment. Elevator versions and website hero copy live in Kahana/12-strategic-narrative.md — refine from here.'
 
 export const RELATED_LINKS = [
-  { path: '/', title: 'Executive Summary', description: 'Aura Library overview, traction, and GTM' },
-  { path: '/glossary', title: 'Glossary', description: 'How Aura Library relates to the creator stack' },
-  { path: COMPETITORS_PAGE_PATH, title: 'Company Landscape', description: 'Searchable peers aligned with Market Map' },
-  { path: '/fragment-capture', title: 'Market Map', description: 'Content categories and companies sized by directional market $' },
+  { path: '/', title: 'Executive Summary', description: 'Kahana overview, traction, and GTM' },
+  { path: '/glossary', title: 'Glossary', description: 'How Kahana relates to the creator stack' },
+  { path: COMPETITORS_PAGE_PATH, title: 'Company Landscape', description: 'Peer research cards aligned with Market Map' },
+  { path: '/fragment-capture', title: 'Market Map', description: 'Content categories sized by directional mid TAM' },
   { path: '/b2c-strategic-narrative', title: 'Oasis Browser narrative (archived)', description: 'Separate product — browser privacy story' },
 ]
 

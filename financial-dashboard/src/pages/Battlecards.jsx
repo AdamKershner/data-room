@@ -10,6 +10,11 @@ import {
   getCompanies,
 } from '../data/kahanaCompanyDatabase'
 import { buildKahanaComparisonRows } from '../data/kahanaFragmentPresence'
+import {
+  COMPANY_LANDSCAPE_GLOSSARY,
+  COMPANY_LANDSCAPE_METHOD_BLOCKS,
+  COMPANY_LANDSCAPE_SUBTITLE_LEAD,
+} from '../data/companyLandscapeAdvisorCopy'
 
 function Field({ label, value, emphasize }) {
   if (value == null || value === '') return null
@@ -178,17 +183,17 @@ function PresenceCell({ value }) {
 }
 
 /**
- * Content types as columns. Aura Library supports all; company row shows overlap.
+ * Content types as columns. Kahana supports all; company row shows overlap.
  */
 function KahanaComparisonChart({ card }) {
   const modalities = useMemo(() => buildKahanaComparisonRows(card), [card])
   const companyName = card.name || 'Them'
 
   return (
-    <ResearchCallout variant="compare" title={`Coverage: Aura Library vs ${companyName}`} icon="chart">
+    <ResearchCallout variant="compare" title={`Coverage: Kahana vs ${companyName}`} icon="chart">
       <p className="battlecard-compare-note">
-        Columns are content types Aura Library aims to unify in one Aura-powered library.
-        Aura Library supports all of them; {companyName} shows which of those it supports today.
+        Columns are content types Kahana aims to unify in one Aura-powered library.
+        Kahana supports all of them; {companyName} shows which of those it supports today.
         All modality columns are draft-reviewed Yes/— lists (team spot-check later).
       </p>
       <div className="battlecard-compare-scroll">
@@ -207,7 +212,7 @@ function KahanaComparisonChart({ card }) {
           </thead>
           <tbody>
             <tr className="is-kahana-row">
-              <th scope="row">Aura Library</th>
+              <th scope="row">Kahana</th>
               {modalities.map((col) => (
                 <td key={`kahana-${col.fragmentId}`}>
                   <PresenceCell value={col.kahana} />
@@ -309,22 +314,55 @@ function CompanyLandscape() {
 
   return (
     <div className="page battlecards-page">
-      <div className="page-header">
+      <div className="page-header battlecards-header">
         <h1>Company Landscape</h1>
         <p className="battlecards-subtitle">
-          Facts on peer platforms — same categories as the{' '}
-          <Link to="/fragment-capture">Market Map</Link>. Open a card for the{' '}
-          <strong>Aura Library vs …</strong> coverage chart (library modalities + Aura discovery
-          vs what they ship). Cards also include size tier (Incumbent / Challenger / Niche).
-          For how Aura Library relates to the creator stack, see the{' '}
+          {COMPANY_LANDSCAPE_SUBTITLE_LEAD} Same categories as the{' '}
+          <Link to="/fragment-capture">Market Map</Link>. Kahana vs creator stack:{' '}
           <Link to="/glossary">Glossary</Link>.
         </p>
         {researchedCount > 0 && (
-          <p className="battlecards-wip-note">
-            {researchedCount} companies have enhanced research (description, scale, benefits,
-            weaknesses). Landscape research coverage complete, including Nas.io / Nas.com.
+          <p className="battlecards-meta-line">
+            {researchedCount} companies with enhanced research · open a card for coverage chart +
+            size tier
           </p>
         )}
+        <div className="battlecards-advisor-panels">
+          <details className="battlecards-collapsible">
+            <summary>
+              <span className="battlecards-collapsible__title">Key terms</span>
+              <span className="battlecards-collapsible__hint" aria-hidden="true">
+                Expand
+              </span>
+            </summary>
+            <div className="battlecards-collapsible__panel">
+              <dl className="battlecards-glossary">
+                {COMPANY_LANDSCAPE_GLOSSARY.map((item) => (
+                  <div key={item.term} className="battlecards-glossary__row">
+                    <dt>{item.term}</dt>
+                    <dd>{item.definition}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </details>
+          <details className="battlecards-collapsible">
+            <summary>
+              <span className="battlecards-collapsible__title">How this landscape was built</span>
+              <span className="battlecards-collapsible__hint" aria-hidden="true">
+                Expand
+              </span>
+            </summary>
+            <div className="battlecards-collapsible__panel">
+              {COMPANY_LANDSCAPE_METHOD_BLOCKS.map((block) => (
+                <div key={block.title} className="battlecards-method-block">
+                  <h3>{block.title}</h3>
+                  <p>{block.body}</p>
+                </div>
+              ))}
+            </div>
+          </details>
+        </div>
       </div>
 
       <section className="page-section battlecards-find-section" aria-label="Find companies">

@@ -16,7 +16,7 @@ import {
 const OMAD_HEADSHOT_URL =
   'https://media.licdn.com/dms/image/v2/C5603AQGD3CJdjaOjGQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1517482665497?e=1777507200&v=beta&t=4hZ8chAVb67RxlUhMeUKH_H_jGReVPcK9MAtHKimQok'
 
-/** Live survey — Aura Library Community-Led Events on Tally. */
+/** Live survey — Kahana Community-Led Events on Tally. */
 const COMMUNITY_EVENTS_SURVEY_URL = 'https://tally.so/r/NpYZqB'
 
 /** Google Sheet export / linked responses. */
@@ -81,11 +81,11 @@ function Events() {
   return (
     <div className="page" id="events">
       <div className="page-header">
-        <p className="events-brief-kicker">Aura Library × Everyday Business Leaders · May 2026</p>
+        <p className="events-brief-kicker">Kahana × Everyday Business Leaders · May 2026</p>
         <h1>Co-host planning brief</h1>
         <p className="page-subtitle">
           A single place for <strong>Gregory Gray</strong> (founder,{' '}
-          <strong>Everyday Business Leaders</strong>) and <strong>Adam Kershner</strong> (CEO, Aura Library) to review{' '}
+          <strong>Everyday Business Leaders</strong>) and <strong>Adam Kershner</strong> (CEO, Kahana) to review{' '}
           <strong>survey data and qualitative signals</strong> while aligning on the{' '}
           <strong>masterclass title</strong>, <strong>format</strong>, <strong>agenda</strong>, and{' '}
           <strong>perks / giveaways</strong> for the joint session.
@@ -97,7 +97,7 @@ function Events() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Take the survey — Aura Library Community-Led Events (Tally)
+            Take the survey — Kahana Community-Led Events (Tally)
           </a>
           <a
             className="events-top-btn events-top-btn--secondary"
@@ -112,7 +112,7 @@ function Events() {
 
       <p className="events-audience-line">
         <strong>Purpose:</strong> turn what we are learning from respondents —{' '}
-        <strong>Aura Library team members</strong> plus <strong>prospective attendees across industries</strong> — into concrete
+        <strong>Kahana team members</strong> plus <strong>prospective attendees across industries</strong> — into concrete
         decisions Greg and Adam can make together before promoting the event.
       </p>
 
@@ -146,7 +146,7 @@ function Events() {
         <div className="events-landing-frame">
           <p className="events-landing-badge">Live masterclass · May 2026</p>
           <p className="events-landing-hosts">
-            Presented by <strong>Everyday Business Leaders</strong> &amp; <strong>Aura Library</strong>
+            Presented by <strong>Everyday Business Leaders</strong> &amp; <strong>Kahana</strong>
           </p>
 
           <h3 className="events-landing-title">
@@ -183,7 +183,7 @@ function Events() {
               and day-to-day workflows converging in one place.
             </p>
             <p>
-              Join <strong>Gregory Gray</strong> (Everyday Business Leaders) and <strong>Adam Kershner</strong> (Aura Library) for a{' '}
+              Join <strong>Gregory Gray</strong> (Everyday Business Leaders) and <strong>Adam Kershner</strong> (Kahana) for a{' '}
               <strong>~60-minute live session</strong> built for owners and leaders who are not full-time security
               professionals. Expect a <strong>plain-language story</strong>, <strong>real examples</strong>, and{' '}
               <strong>live Q&amp;A</strong> — no jargon wall, no death-by-slides.
@@ -285,7 +285,7 @@ function Events() {
 
         <p className="events-rationale-meta">
           The landing preview above is synthesized from the <strong>Community-Led Events survey</strong> on this page (
-          {SURVEY_META.responseCount} responses, {SURVEY_META.dateRangeLabel}) — including <strong>Aura Library internal team</strong>{' '}
+          {SURVEY_META.responseCount} responses, {SURVEY_META.dateRangeLabel}) — including <strong>Kahana internal team</strong>{' '}
           and <strong>external contacts Adam has built relationships with</strong> who match{' '}
           <strong>business-owner / operator</strong> interest in <strong>productivity</strong>, <strong>AI</strong>, and{' '}
           <strong>security</strong>. Treat it as a <strong>starting point</strong> for discussion, not a final sign-off.
@@ -358,7 +358,7 @@ function Events() {
           <p>
             <strong>Format signal:</strong> Strong interest in <strong>webinars / masterclass-style sessions</strong>,{' '}
             <strong>hands-on workshops</strong>, and <strong>AMAs</strong>, with room for fireside chats, roundtables, and light
-            networking for an EBL × Aura Library audience.
+            networking for an EBL × Kahana audience.
           </p>
         </div>
 
@@ -424,7 +424,7 @@ function Events() {
             <h4 className="events-planning-h3">Sample agenda outline (draft)</h4>
             <ol className="events-agenda-list">
               <li>
-                <strong>Opening (Greg + Adam, ~5 min):</strong> why this topic now for business leaders; what EBL and Aura Library each
+                <strong>Opening (Greg + Adam, ~5 min):</strong> why this topic now for business leaders; what EBL and Kahana each
                 bring.
               </li>
               <li>
@@ -433,7 +433,7 @@ function Events() {
               </li>
               <li>
                 <strong>Deep dive (~30 min):</strong> where work actually happens; shadow AI; what “good governance” looks like
-                without killing speed — Aura Library POV with concrete examples.
+                without killing speed — Kahana POV with concrete examples.
               </li>
               <li>
                 <strong>Audience Q&amp;A (~10 min).</strong>
@@ -456,7 +456,7 @@ function Events() {
             <ul className="feature-list">
               <li>
                 <strong>Founder pricing lock-in</strong> for <strong>Oasis Enterprise Browser</strong> for qualifying registrants —
-                define eligibility, price book, end date, and how it stacks with other promos with Aura Library
+                define eligibility, price book, end date, and how it stacks with other promos with Kahana
                 before launch.
               </li>
               <li>
@@ -470,12 +470,12 @@ function Events() {
                 produce, high perceived value.
               </li>
               <li>
-                <strong>Limited office hours:</strong> raffle or first-N signups get a short block with Aura Library (optional if the
+                <strong>Limited office hours:</strong> raffle or first-N signups get a short block with Kahana (optional if the
                 diagnosis covers high-touch follow-up).
               </li>
               <li>
                 <strong>Partner framing:</strong> position <strong>founder pricing</strong> as <strong>EBL-exclusive</strong> where
-                appropriate — confirm pricing, capacity, and fulfillment with Aura Library.
+                appropriate — confirm pricing, capacity, and fulfillment with Kahana.
               </li>
             </ul>
           </div>
@@ -513,7 +513,7 @@ function Events() {
               </li>
               <li>
                 <strong>Where the gap shows up:</strong> Several responses tie risk to everyday work surfaces and visibility —
-                natural bridge to Aura Library’s story without a pure product pitch.
+                natural bridge to Kahana’s story without a pure product pitch.
               </li>
               <li>
                 <strong>Identity and access:</strong> IAM strain, contractors, and non-human identities (agents, APIs) — useful for
@@ -524,7 +524,7 @@ function Events() {
                 celebrity keynotes.
               </li>
               <li>
-                <strong>Sample composition:</strong> Aura Library internal voices plus cross-industry prospects; response table
+                <strong>Sample composition:</strong> Kahana internal voices plus cross-industry prospects; response table
                 anonymized. Directional only — layer EBL member intuition on top.
               </li>
             </ul>

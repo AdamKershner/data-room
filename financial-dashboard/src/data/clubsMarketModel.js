@@ -62,7 +62,7 @@ export const CLUBS_MARKET_SIZING = {
     tamLowUsd: 7e9,
     tamHighUsd: 8e9,
     tamNote:
-      'Global book clubs market ($1.2–1.85B) + social reading platforms ($6.2B) ≈ $7–8B if Aura Library were the dominant club + social-reading layer.',
+      'Global book clubs market ($1.2–1.85B) + social reading platforms ($6.2B) ≈ $7–8B if Kahana were the dominant club + social-reading layer.',
     userTamLow: 20_000_000,
     userTamHigh: 30_000_000,
     userTamNote:
@@ -235,7 +235,7 @@ export const CLUBS_SEED = {
   invitesPerOrganizerPerYear: 10,
   /** Clubs a typical active user joins/manages (1–2). */
   clubsPerUser: 1.5,
-  /** Long-term Aura Library share of 13M U.S. club participants (saturation caps). */
+  /** Long-term Kahana share of 13M U.S. club participants (saturation caps). */
   saturationShareScenarios: [
     { id: 'cap-01', name: '0.1% of 13M', share: 0.001 },
     { id: 'cap-05', name: '0.5% of 13M', share: 0.005 },
@@ -482,7 +482,7 @@ export function getClubsMarketSnapshotRows() {
       value: `$${(m.globalBookClubsMarket2024Usd / 1e9).toFixed(2)}B (NA ~${(m.northAmericaShareOfBookClubs * 100).toFixed(0)}% ≈ $${(naBookClubs / 1e6).toFixed(0)}M)`,
     },
     {
-      label: 'Social reading platforms (closest Aura Library proxy)',
+      label: 'Social reading platforms (closest Kahana proxy)',
       value: `$${(m.socialReading2025Usd / 1e9).toFixed(1)}B (2025) → $${(m.socialReading2034Usd / 1e9).toFixed(1)}B @ ~${(m.socialReadingCagr * 100).toFixed(1)}% CAGR`,
     },
     {

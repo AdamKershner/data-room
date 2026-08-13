@@ -1,9 +1,138 @@
 .fragment-capture-subtitle {
   margin: 12px 0 0;
   font-size: 1.05rem;
-  line-height: 1.6;
-  color: #555;
-  max-width: 52rem;
+  line-height: 1.55;
+  color: #445;
+  max-width: 48rem;
+}
+
+.fragment-capture-layer-line {
+  margin: 10px 0 0;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: #5a6b5e;
+  max-width: 48rem;
+}
+
+.fragment-capture-advisor-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 16px;
+  max-width: 48rem;
+}
+
+.fragment-capture-collapsible {
+  border: 1px solid #d5ddd7;
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.fragment-capture-collapsible[open] {
+  border-color: #b8c9bc;
+  box-shadow: 0 2px 10px rgba(45, 106, 79, 0.06);
+}
+
+.fragment-capture-collapsible > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #f7f9f7;
+  font-weight: 600;
+  color: #1f4d38;
+  user-select: none;
+}
+
+.fragment-capture-collapsible > summary::-webkit-details-marker {
+  display: none;
+}
+
+.fragment-capture-collapsible > summary::marker {
+  display: none;
+  content: '';
+}
+
+.fragment-capture-collapsible > summary:hover {
+  background: #eef3ef;
+}
+
+.fragment-capture-collapsible[open] > summary {
+  border-bottom: 1px solid #e4ebe6;
+}
+
+.fragment-capture-collapsible__title {
+  font-size: 0.95rem;
+}
+
+.fragment-capture-collapsible__hint {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #6a7a6e;
+}
+
+.fragment-capture-collapsible[open] .fragment-capture-collapsible__hint {
+  display: none;
+}
+
+.fragment-capture-collapsible__panel {
+  padding: 14px 16px 16px;
+}
+
+.fragment-capture-glossary {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fragment-capture-glossary__row {
+  display: grid;
+  grid-template-columns: minmax(8rem, 11rem) 1fr;
+  gap: 10px 14px;
+  align-items: start;
+}
+
+.fragment-capture-glossary__row dt {
+  margin: 0;
+  font-size: 0.86rem;
+  font-weight: 650;
+  color: #1f4d38;
+  line-height: 1.35;
+}
+
+.fragment-capture-glossary__row dd {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #445;
+}
+
+.fragment-capture-method-block {
+  margin: 0 0 14px;
+}
+
+.fragment-capture-method-block:last-child {
+  margin-bottom: 0;
+}
+
+.fragment-capture-method-block h3 {
+  margin: 0 0 4px;
+  font-size: 0.86rem;
+  font-weight: 650;
+  color: #1f4d38;
+}
+
+.fragment-capture-method-block p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #445;
 }
 
 .fragment-capture-stack-position {
@@ -49,6 +178,13 @@
 
 .fragment-capture-header {
   margin-bottom: 8px;
+}
+
+@media (max-width: 640px) {
+  .fragment-capture-glossary__row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
 }
 
 .fragment-map-world-section {

@@ -1,5 +1,5 @@
 /**
- * Adjacent platforms for Aura Library Clubs + library GTM (market-sizing lenses).
+ * Adjacent platforms for Kahana Clubs + library GTM (market-sizing lenses).
  * Nested by category; filterable by market lens; ranked by revenue and by
  * creators (supply) vs viewers (demand). Excludes Canva / Figma.
  * Staff conversation copy lives in kahanaCompanyDatabase / battlecard overrides.
@@ -95,7 +95,7 @@ export const MARKET_LENSES = [
     id: 'membership',
     name: 'Onboard membership / patron creators',
     description:
-      'Creators monetizing community access — Clubs as the consumption ritual; Aura Library hub as the paid library.',
+      'Creators monetizing community access — Clubs as the consumption ritual; Kahana hub as the paid library.',
   },
   {
     id: 'newsletter',
@@ -158,7 +158,7 @@ export const PLATFORM_POOLS = [
     demandScale: 80e6,
     supplyScale: null,
     sideBias: 'viewer-heavy',
-    kahanaAngle: 'Reader graph for book clubs; Aura Library as action layer for real clubs around shelves.',
+    kahanaAngle: 'Reader graph for book clubs; Kahana as action layer for real clubs around shelves.',
   },
   {
     id: 'medium',
@@ -189,7 +189,7 @@ export const PLATFORM_POOLS = [
     supplyScale: 286e3,
     sideBias: 'creator-heavy',
     kahanaAngle:
-      'Creators already monetize; Aura Library adds structured reading/video clubs as new offerings.',
+      'Creators already monetize; Kahana adds structured reading/video clubs as new offerings.',
   },
   {
     id: 'onlyfans',
@@ -205,7 +205,7 @@ export const PLATFORM_POOLS = [
     supplyScale: 500e3,
     sideBias: 'viewer-heavy',
     kahanaAngle:
-      'Highly monetized creator↔fan relationships; Aura Library for club-style / non-adult knowledge communities.',
+      'Highly monetized creator↔fan relationships; Kahana for club-style / non-adult knowledge communities.',
   },
   {
     id: 'gumroad',
@@ -220,7 +220,7 @@ export const PLATFORM_POOLS = [
     demandScale: 1e6,
     supplyScale: 27e3,
     sideBias: 'creator-heavy',
-    kahanaAngle: 'Digital product marketplace — clubs + library on Aura Library after purchase.',
+    kahanaAngle: 'Digital product marketplace — clubs + library on Kahana after purchase.',
   },
   {
     id: 'linktree',
@@ -235,7 +235,7 @@ export const PLATFORM_POOLS = [
     demandScale: null,
     supplyScale: 50e6,
     sideBias: 'creator-heavy',
-    kahanaAngle: 'Supply-side heavy — Aura Library as destination in the link-in-bio stack.',
+    kahanaAngle: 'Supply-side heavy — Kahana as destination in the link-in-bio stack.',
   },
   {
     id: 'beacons',
@@ -250,7 +250,7 @@ export const PLATFORM_POOLS = [
     demandScale: null,
     supplyScale: 200e3,
     sideBias: 'creator-heavy',
-    kahanaAngle: 'Supply-side tool; Aura Library = club engagement/demand layer.',
+    kahanaAngle: 'Supply-side tool; Kahana = club engagement/demand layer.',
   },
   {
     id: 'stan-store',
@@ -280,7 +280,7 @@ export const PLATFORM_POOLS = [
     demandScale: null,
     supplyScale: 100e3,
     sideBias: 'creator-heavy',
-    kahanaAngle: 'Aura Library as club/library destination behind the bio.',
+    kahanaAngle: 'Kahana as club/library destination behind the bio.',
   },
   {
     id: 'podia',
@@ -385,7 +385,7 @@ export const PLATFORM_POOLS = [
     demandScale: 2e9,
     supplyScale: 50e6,
     sideBias: 'viewer-heavy',
-    kahanaAngle: 'Groups already chat here — Aura Library is the library + Clubs layer beside the chat.',
+    kahanaAngle: 'Groups already chat here — Kahana is the library + Clubs layer beside the chat.',
   },
   {
     id: 'telegram',
@@ -400,7 +400,7 @@ export const PLATFORM_POOLS = [
     demandScale: 900e6,
     supplyScale: 5e6,
     sideBias: 'viewer-heavy',
-    kahanaAngle: 'Channels and groups discuss content — link to a Aura Library hub for the library shelf.',
+    kahanaAngle: 'Channels and groups discuss content — link to a Kahana hub for the library shelf.',
   },
   {
     id: 'groupme',
@@ -415,7 +415,7 @@ export const PLATFORM_POOLS = [
     demandScale: 30e6,
     supplyScale: 5e6,
     sideBias: 'viewer-heavy',
-    kahanaAngle: 'Natural friend-group chat — Aura Library hosts the book/watch club those groups spin up.',
+    kahanaAngle: 'Natural friend-group chat — Kahana hosts the book/watch club those groups spin up.',
   },
   {
     id: 'slack',
@@ -430,7 +430,7 @@ export const PLATFORM_POOLS = [
     demandScale: 40e6,
     supplyScale: 1e6,
     sideBias: 'balanced',
-    kahanaAngle: 'Workplace communities keep Slack; Aura Library for learning clubs and library.',
+    kahanaAngle: 'Workplace communities keep Slack; Kahana for learning clubs and library.',
   },
   {
     id: 'signal',
@@ -445,7 +445,7 @@ export const PLATFORM_POOLS = [
     demandScale: 40e6,
     supplyScale: 1e6,
     sideBias: 'viewer-heavy',
-    kahanaAngle: 'Small trusted groups — Aura Library for the library shelf those groups discuss.',
+    kahanaAngle: 'Small trusted groups — Kahana for the library shelf those groups discuss.',
   },
   {
     id: 'facebook-groups',
@@ -460,7 +460,7 @@ export const PLATFORM_POOLS = [
     demandScale: 500e6,
     supplyScale: 20e6,
     sideBias: 'viewer-heavy',
-    kahanaAngle: 'Mass-market groups stay on Facebook; Aura Library for deeper clubs and libraries.',
+    kahanaAngle: 'Mass-market groups stay on Facebook; Kahana for deeper clubs and libraries.',
   },
   {
     id: 'circle',
@@ -475,7 +475,7 @@ export const PLATFORM_POOLS = [
     demandScale: 200e3,
     supplyScale: 5e3,
     sideBias: 'creator-heavy',
-    kahanaAngle: 'Ready-made communities; Aura Library as reading/video club plugin.',
+    kahanaAngle: 'Ready-made communities; Kahana as reading/video club plugin.',
   },
   {
     id: 'guild',
@@ -490,7 +490,7 @@ export const PLATFORM_POOLS = [
     demandScale: null,
     supplyScale: 2e3,
     sideBias: 'creator-heavy',
-    kahanaAngle: 'Branded community home — Aura Library for learning clubs inside or beside.',
+    kahanaAngle: 'Branded community home — Kahana for learning clubs inside or beside.',
   },
   {
     id: 'hivebrite',
@@ -505,7 +505,7 @@ export const PLATFORM_POOLS = [
     demandScale: null,
     supplyScale: 1e3,
     sideBias: 'creator-heavy',
-    kahanaAngle: 'Org communities keep Hivebrite; Aura Library for learning hubs.',
+    kahanaAngle: 'Org communities keep Hivebrite; Kahana for learning hubs.',
   },
   {
     id: 'disciple',
@@ -520,7 +520,7 @@ export const PLATFORM_POOLS = [
     demandScale: null,
     supplyScale: 2e3,
     sideBias: 'creator-heavy',
-    kahanaAngle: 'Branded app communities — Aura Library for multi-format clubs and libraries.',
+    kahanaAngle: 'Branded app communities — Kahana for multi-format clubs and libraries.',
   },
   {
     id: 'bettermode',
@@ -535,7 +535,7 @@ export const PLATFORM_POOLS = [
     demandScale: null,
     supplyScale: 2e3,
     sideBias: 'creator-heavy',
-    kahanaAngle: 'General community platform — Aura Library for learning-focused clubs.',
+    kahanaAngle: 'General community platform — Kahana for learning-focused clubs.',
   },
   {
     id: 'hypage',
@@ -550,7 +550,7 @@ export const PLATFORM_POOLS = [
     demandScale: null,
     supplyScale: 50e3,
     sideBias: 'creator-heavy',
-    kahanaAngle: 'Bio / storefront destination — put Aura Library club behind the link.',
+    kahanaAngle: 'Bio / storefront destination — put Kahana club behind the link.',
   },
   {
     id: 'shopify',
@@ -565,7 +565,7 @@ export const PLATFORM_POOLS = [
     demandScale: null,
     supplyScale: 500e3,
     sideBias: 'creator-heavy',
-    kahanaAngle: 'Buyers find products on Shopify; Aura Library for clubs + library after purchase.',
+    kahanaAngle: 'Buyers find products on Shopify; Kahana for clubs + library after purchase.',
   },
   {
     id: 'skool',
@@ -580,7 +580,7 @@ export const PLATFORM_POOLS = [
     demandScale: null,
     supplyScale: 10e3,
     sideBias: 'creator-heavy',
-    kahanaAngle: 'Cohort classroom on Skool; library shelf + Aura + Clubs on Aura Library — use both.',
+    kahanaAngle: 'Cohort classroom on Skool; library shelf + Aura + Clubs on Kahana — use both.',
   },
   {
     id: 'mighty-networks',
@@ -595,7 +595,7 @@ export const PLATFORM_POOLS = [
     demandScale: null,
     supplyScale: 10e3,
     sideBias: 'creator-heavy',
-    kahanaAngle: 'All-in-one community + courses — Aura Library for multi-format clubs and Aura.',
+    kahanaAngle: 'All-in-one community + courses — Kahana for multi-format clubs and Aura.',
   },
   {
     id: 'fable',
@@ -603,7 +603,7 @@ export const PLATFORM_POOLS = [
     categoryId: 'story-reading',
     lenses: ['book-social'],
     usersLabel: 'Social reading clubs (scale not fully public)',
-    revenueLabel: 'Consumer social reading; not a primary Aura Library revenue peer',
+    revenueLabel: 'Consumer social reading; not a primary Kahana revenue peer',
     revenueUsdMid: null,
     demandLabel: 'Readers in social book clubs',
     supplyLabel: 'Authors/titles via publisher/Amazon ecosystem',
@@ -611,7 +611,7 @@ export const PLATFORM_POOLS = [
     supplyScale: null,
     sideBias: 'viewer-heavy',
     kahanaAngle:
-      'If you like Fable, you might also love Aura Library for book clubs — library shelf + Aura + multi-format.',
+      'If you like Fable, you might also love Kahana for book clubs — library shelf + Aura + multi-format.',
   },
   {
     id: 'thinkific',
@@ -626,7 +626,7 @@ export const PLATFORM_POOLS = [
     demandScale: null,
     supplyScale: 50e3,
     sideBias: 'creator-heavy',
-    kahanaAngle: 'Course ops on Thinkific; discovery + Clubs on Aura Library — dual-list.',
+    kahanaAngle: 'Course ops on Thinkific; discovery + Clubs on Kahana — dual-list.',
   },
   {
     id: 'spotify',
@@ -641,7 +641,7 @@ export const PLATFORM_POOLS = [
     demandScale: 600e6,
     supplyScale: 5e6,
     sideBias: 'viewer-heavy',
-    kahanaAngle: 'Listen on Spotify; organize listen-along Clubs and companion materials on Aura Library.',
+    kahanaAngle: 'Listen on Spotify; organize listen-along Clubs and companion materials on Kahana.',
   },
   {
     id: 'audible',
@@ -656,7 +656,7 @@ export const PLATFORM_POOLS = [
     demandScale: 50e6,
     supplyScale: null,
     sideBias: 'viewer-heavy',
-    kahanaAngle: 'Listen on Audible; meet the Book Club on Aura Library; ebook when boarded.',
+    kahanaAngle: 'Listen on Audible; meet the Book Club on Kahana; ebook when boarded.',
   },
   {
     id: 'beehiiv',
@@ -686,7 +686,7 @@ export const PLATFORM_POOLS = [
     demandScale: 93e6,
     supplyScale: 200e3,
     sideBias: 'viewer-heavy',
-    kahanaAngle: 'Marketplace discovery stays on Etsy; Aura Library for clubs + library after purchase.',
+    kahanaAngle: 'Marketplace discovery stays on Etsy; Kahana for clubs + library after purchase.',
   },
   {
     id: 'curios',
@@ -701,7 +701,7 @@ export const PLATFORM_POOLS = [
     demandScale: null,
     supplyScale: 5e3,
     sideBias: 'creator-heavy',
-    kahanaAngle: 'Author-focused supply; Aura Library for club engagement + library.',
+    kahanaAngle: 'Author-focused supply; Kahana for club engagement + library.',
   },
 ]
 

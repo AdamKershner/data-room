@@ -28,10 +28,18 @@
 }
 
 .kahana-platform-hero-title {
-  margin: 0 0 16px 0;
+  margin: 0 0 6px 0;
   font-size: 1.75rem;
   color: #1e293b;
   font-weight: 700;
+}
+
+.kahana-platform-hero-aka {
+  margin: 0 0 16px 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--oasis-green-medium, #2d6a4f);
+  letter-spacing: 0.01em;
 }
 
 .kahana-platform-hero-body {

@@ -74,7 +74,7 @@ function CompetitorCard({ competitor }) {
         ))}
       </div>
       <p className="kc-angle">
-        <strong>vs Aura Library:</strong> {competitor.kahanaAngle}
+        <strong>vs Kahana:</strong> {competitor.kahanaAngle}
       </p>
     </article>
   )
@@ -109,12 +109,12 @@ function KahanaCompetitors() {
       <section className="page-section">
         <div className="kc-hero">
           <p>
-            Aura Library is the <strong>Amazon of digital products</strong> operationally — and aspires to become
+            Kahana is the <strong>Amazon of digital products</strong> operationally — and aspires to become
             Wan Shi Tong&apos;s Library for people: a trusted place to discover curated knowledge from experts,
             with videos, files, images, PDFs, and text.
           </p>
           <p className="kc-stack">
-            Customer stack Aura Library replaces: {CUSTOMER_STACK_REPLACED}
+            Customer stack Kahana replaces: {CUSTOMER_STACK_REPLACED}
           </p>
         </div>
       </section>
@@ -134,7 +134,7 @@ function KahanaCompetitors() {
       </section>
 
       <section className="page-section" id="kahana-reference">
-        <h2>Aura Library</h2>
+        <h2>Kahana</h2>
         <div className="content-block">
           <CompetitorCard competitor={KAHANA_REFERENCE} />
         </div>
@@ -212,14 +212,14 @@ function KahanaCompetitors() {
         <h2>Related</h2>
         <div className="content-block kc-footer-links">
           <p>
-            <Link to="/kahana">Aura Library Overview</Link> — positioning and competitive frame summary
+            <Link to="/kahana">Kahana Overview</Link> — positioning and competitive frame summary
           </p>
           <p>
             <Link to="/competitors">Oasis Browser competitor database (archived)</Link> — enterprise and
             consumer browser competitors (separate product)
           </p>
           <p>
-            Markdown source: <code>Aura Library/11-competitive-landscape.md</code> in the data room repo
+            Markdown source: <code>Kahana/11-competitive-landscape.md</code> in the data room repo
           </p>
         </div>
       </section>

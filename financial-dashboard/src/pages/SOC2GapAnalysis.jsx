@@ -20,7 +20,7 @@ function SOC2GapAnalysis() {
           <table className="soc2-summary-table">
             <tbody>
               <tr><td><strong>Purpose</strong></td><td>Pre-audit readiness factsheet for SOC 2 Type 2 preparation</td></tr>
-              <tr><td><strong>Company</strong></td><td>Aura Library (AI browser, B2B SaaS). Pre-revenue, small team</td></tr>
+              <tr><td><strong>Company</strong></td><td>Kahana (AI browser, B2B SaaS). Pre-revenue, small team</td></tr>
               <tr><td><strong>Scope</strong></td><td>Oasis product, Supabase backend, AWS infrastructure, internal tools</td></tr>
               <tr><td><strong>Status</strong></td><td>Early preparation; no formal audit engagement yet</td></tr>
               <tr><td><strong>What we need from you</strong></td><td>Prioritized recommendations, gap severity assessment, and guidance on documentation requirements</td></tr>

@@ -1,10 +1,12 @@
 /**
- * How creators actually operate — maps to Market Map categories + Aura Library position.
+ * How creators actually operate — maps to Market Map categories + Kahana position.
  * Content modalities (ebook, video, etc.) sit under Content & Audience on the map.
+ *
+ * Platform name: Kahana (AKA "The Aura Library"). “Aura” alone = discovery signal.
  */
 
 export const KAHANA_CREATOR_STACK_POSITION =
-  'Aura Library is a club + library platform that sits between content and community, and ties into monetization. Creators publish on Instagram / TikTok / YouTube (and peers), then bring their audience into Aura Library to join book / video / course clubs, access curated hubs (ebooks, videos, audio, newsletters), and participate in structured learning and discussion. Aura surfaces the best content across modalities based on what people genuinely endorse.'
+  'Kahana (AKA "The Aura Library") is a club + library platform that sits between content and community, and ties into monetization. Creators publish on Instagram / TikTok / YouTube (and peers), then bring their audience into Kahana to join book / video / course clubs, access curated hubs (ebooks, videos, audio, newsletters), and participate in structured learning and discussion. Aura surfaces the best content across modalities based on what people genuinely endorse.'
 
 /**
  * @typedef {object} CreatorStackLayer
@@ -26,7 +28,7 @@ export const CREATOR_STACK_LAYERS = [
     examples:
       'Instagram, TikTok, YouTube, Twitch, Snapchat · Wattpad, Substack, Beehiiv, Medium · Spotify, Apple Podcasts, Audible',
     kahanaRelation:
-      'Not primarily business tools — Aura Library sits alongside as the deep room where clubs and libraries live.',
+      'Sits alongside as the deep room where clubs and libraries live — not primarily a business-tool layer.',
     fragmentIds: [
       'ebook-reading',
       'short-form-video',
@@ -45,7 +47,7 @@ export const CREATOR_STACK_LAYERS = [
     examples:
       'Discord, Telegram, WhatsApp, Signal, Slack, Facebook Groups · Circle, Mighty Networks, Guild, Hivebrite, Disciple, Bettermode',
     kahanaRelation:
-      'Aura Library is a community platform focused on learning clubs and libraries, not general chat — integrate with Discord / Telegram / Slack for notifications and lightweight conversation.',
+      'Community focused on learning clubs and libraries, not general chat — integrate with Discord / Telegram / Slack for notifications and lightweight conversation.',
     fragmentIds: ['messaging-community'],
     onMap: true,
   },
@@ -55,7 +57,7 @@ export const CREATOR_STACK_LAYERS = [
     purpose: 'Paywall and ongoing fan support — access, tiers, tips.',
     examples: 'Patreon, OnlyFans, Ko-fi, Buy Me a Coffee, Memberful',
     kahanaRelation:
-      'Aura Library can be the membership destination (clubs / hubs / libraries) or unlock via Patreon / OnlyFans tiers.',
+      'Can be the membership destination (clubs / hubs / libraries) or unlock via Patreon / OnlyFans tiers.',
     fragmentIds: ['creator-monetization'],
     onMap: true,
   },
@@ -65,7 +67,7 @@ export const CREATOR_STACK_LAYERS = [
     purpose: 'Creator-owned link-in-bio and personal digital storefronts — not multi-seller marketplaces.',
     examples: 'Stan.store, Beacons, Pensight, Linktree, HYpage, Podia',
     kahanaRelation:
-      'Put Aura Library behind the bio — sell club + library access as the destination product.',
+      'Put it behind the bio — sell club + library access as the destination product.',
     fragmentIds: ['online-storefront'],
     onMap: true,
   },
@@ -75,7 +77,7 @@ export const CREATOR_STACK_LAYERS = [
     purpose: 'Multi-seller marketplaces where buyers browse and find products to buy.',
     examples: 'Gumroad, Etsy, Shopify',
     kahanaRelation:
-      'Checkout and discovery stay on the marketplace; Aura Library is the club + library layer after (or linked from) purchase.',
+      'Checkout and discovery stay on the marketplace; Kahana is the club + library layer after (or linked from) purchase — not the checkout itself.',
     fragmentIds: ['digital-marketplaces'],
     onMap: true,
   },
@@ -85,7 +87,7 @@ export const CREATOR_STACK_LAYERS = [
     purpose: 'Back office — content planning, scheduling, analytics, sponsorships, community CRM.',
     examples:
       'Later, Hootsuite, Notion, Airtable · Stir, Passionfroot · WhatsApp / Telegram CRM (WATI, Respond.io, CRMChat)',
-    kahanaRelation: 'Aura Library does not compete here — integrate or lean on these for data and outreach.',
+    kahanaRelation: 'Does not compete here — integrate or lean on these for data and outreach.',
     fragmentIds: [],
     onMap: false,
   },
