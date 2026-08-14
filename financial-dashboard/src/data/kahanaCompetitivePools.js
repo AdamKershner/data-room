@@ -43,7 +43,7 @@ export const COMPETITIVE_CATEGORIES = [
   {
     id: 'digital-marketplaces',
     name: 'Marketplaces',
-    blurb: 'Multi-seller marketplaces where buyers browse and find products.',
+    blurb: 'Multi-seller catalogs where buyers search and shop (courses, books, digital goods).',
   },
   {
     id: 'link-in-bio',

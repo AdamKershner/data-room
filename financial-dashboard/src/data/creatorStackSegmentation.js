@@ -65,7 +65,7 @@ export const CREATOR_STACK_LAYERS = [
     id: 'monetization-storefront',
     name: 'Monetization — Storefronts',
     purpose: 'Creator-owned link-in-bio and personal digital storefronts — not multi-seller marketplaces.',
-    examples: 'Stan.store, Beacons, Pensight, Linktree, HYpage, Podia',
+    examples: 'Linktree, Kajabi, Stan.store, Beacons, Pensight, HYpage, Shopify',
     kahanaRelation:
       'Put it behind the bio — sell club + library access as the destination product.',
     fragmentIds: ['online-storefront'],
@@ -74,8 +74,8 @@ export const CREATOR_STACK_LAYERS = [
   {
     id: 'monetization-marketplaces',
     name: 'Monetization — Marketplaces',
-    purpose: 'Multi-seller marketplaces where buyers browse and find products to buy.',
-    examples: 'Gumroad, Etsy, Shopify',
+    purpose: 'Multi-seller catalogs where buyers search and shop offerings from many sellers (courses, books, digital goods).',
+    examples: 'Udemy, Gumroad, Etsy, Kindle Store, Creative Market',
     kahanaRelation:
       'Checkout and discovery stay on the marketplace; Kahana is the club + library layer after (or linked from) purchase — not the checkout itself.',
     fragmentIds: ['digital-marketplaces'],

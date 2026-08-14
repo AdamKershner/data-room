@@ -4,7 +4,10 @@
  */
 
 import { MARKET_MAP_CATEGORIES } from './kahanaCompanyDatabase'
-import { getReviewedFragmentPresence } from './companyFragmentCoverage'
+import {
+  getCoverageColumnDefinition,
+  getReviewedFragmentPresence,
+} from './companyFragmentCoverage'
 
 /** @typedef {'yes' | 'no'} FragmentPresence */
 
@@ -46,11 +49,17 @@ export function getCompanyFragmentPresence(company, fragmentId) {
  * Ordered modality columns for the comparison chart.
  */
 export function getComparisonModalities() {
-  return MARKET_MAP_CATEGORIES.map((cat) => ({
-    fragmentId: cat.id,
-    label: cat.label,
-    name: cat.name,
-  }))
+  return MARKET_MAP_CATEGORIES.map((cat) => {
+    const def = getCoverageColumnDefinition(cat.id)
+    return {
+      fragmentId: cat.id,
+      label: cat.label,
+      name: cat.name,
+      definition: def?.definition ?? cat.name,
+      yesExample: def?.yesExample,
+      noExample: def?.noExample,
+    }
+  })
 }
 
 /**
@@ -62,6 +71,9 @@ export function buildKahanaComparisonRows(company) {
     fragmentId: cat.fragmentId,
     label: cat.label,
     name: cat.name,
+    definition: cat.definition,
+    yesExample: cat.yesExample,
+    noExample: cat.noExample,
     kahana: 'yes',
     company: getCompanyFragmentPresence(company, cat.fragmentId),
   }))

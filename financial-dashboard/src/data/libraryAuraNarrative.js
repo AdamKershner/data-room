@@ -75,12 +75,12 @@ export const FRAGMENTATION_BUCKETS = [
   {
     id: 'online-storefront',
     label: 'Storefronts',
-    examples: 'Linktree, Stan.store, Beacons, Pensight, HYpage, Podia',
+    examples: 'Linktree, Kajabi, Stan.store, Beacons, Pensight, HYpage, Shopify',
   },
   {
     id: 'digital-marketplaces',
     label: 'Marketplaces',
-    examples: 'Gumroad, Etsy, Shopify',
+    examples: 'Gumroad, Etsy, Udemy, Kindle Store, Creative Market',
   },
 ]
 
@@ -539,18 +539,18 @@ export const CONTENT_FRAGMENTS = [
     id: 'online-storefront',
     name: 'Storefronts & link-in-bio',
     covers:
-      'Creator-owned link-in-bio hubs and personal digital storefronts — Stan, Beacons, Linktree, Pensight, HYpage, Podia. Not multi-seller marketplaces.',
+      'Creator-owned link-in-bio hubs and personal digital storefronts — Linktree, Kajabi, Stan, Beacons, Shopify. Not multi-seller marketplaces.',
     marketSizeLabel:
       'USD ~0.5–2B directional (platform rev across link-in-bio + personal storefronts; GMV larger)',
     marketSizeLowUsd: 0.5e9,
     marketSizeHighUsd: 2e9,
     marketSizeExpandedUsd: null,
     marketNote:
-      'Platform ARR is often tens of $M (Linktree ~$37M). Multi-seller marketplaces (Gumroad, Etsy, Shopify) live under Marketplaces. Course LMS checkout primarily sits in Courses.',
+      'Platform ARR is often tens of $M (Linktree ~$37M). Multi-seller marketplaces (Udemy, Gumroad, Etsy, Kindle Store) live under Marketplaces. Course LMS checkout on a creator’s own Kajabi site sits in Storefronts + Courses.',
     players: [
       {
         tier: 'Link-in-bio / personal storefront',
-        names: 'Linktree, Beacons, Pensight, Stan.store, HYpage, Podia',
+        names: 'Linktree, Kajabi, Beacons, Pensight, Stan.store, HYpage, Podia, Shopify',
       },
     ],
     kahanaAngle:
@@ -560,18 +560,18 @@ export const CONTENT_FRAGMENTS = [
     id: 'digital-marketplaces',
     name: 'Marketplaces',
     covers:
-      'Multi-seller marketplaces and commerce platforms where buyers browse and find products — Gumroad, Etsy, Shopify (and peers).',
+      'Multi-seller marketplaces where buyers search and shop offerings from many sellers — Udemy (courses), Gumroad, Etsy, Kindle Store, Creative Market.',
     marketSizeLabel:
       'USD ~5–20B directional (creator / digital-product commerce slice; full Etsy/Shopify GMV far larger)',
     marketSizeLowUsd: 5e9,
     marketSizeHighUsd: 20e9,
     marketSizeExpandedUsd: null,
     marketNote:
-      'Etsy and Shopify are multi-billion platforms; map mid is a directional creator/digital slice so the category is visible — not full retail GMV. Gumroad ~$24M ARR is smaller but sits in the same “browse & buy from many sellers” pattern.',
+      'Etsy is a multi-billion marketplace; Udemy is a course marketplace; Kindle Store is an ebook marketplace. Map mid is a directional creator/digital slice so the category is visible — not full retail GMV. Shopify/WooCommerce are storefront software (Storefronts column), not shopper marketplaces.',
     players: [
       {
         tier: 'Digital / creator marketplaces',
-        names: 'Gumroad, Etsy (digital), Shopify (digital / creator commerce)',
+        names: 'Udemy, Coursera, Gumroad, Etsy (digital), Kindle Store, Creative Market',
       },
     ],
     kahanaAngle:
@@ -591,8 +591,8 @@ export const UNIFY_FRAGMENTS_DECK_LINES = [
   'The audio fragment—streaming music plus podcasts (plus audiobooks)—is a USD 50–60B market today, growing toward USD 200B+ by the early 2030s (Spotify, Apple, Amazon, YouTube, Audible).',
   'Memberships & fan support (Patreon, OnlyFans, Ko-fi, etc.) is the paywall / ongoing-support layer — often complementary to Kahana.',
   'Community & Messaging (Discord, Telegram, WhatsApp, Circle, Mighty Networks, etc.) is where groups hang out — Kahana is clubs + libraries beside chat.',
-  'Storefronts (Linktree, Stan, Beacons, Pensight, HYpage, etc.) are the creator-owned bio / personal checkout layer — Kahana is the destination behind the link.',
-  'Marketplaces (Gumroad, Etsy, Shopify, etc.) are where buyers browse and find products from many sellers — Kahana sits after purchase as clubs + library, not a browse replacement.',
+  'Storefronts (Linktree, Kajabi, Stan, Beacons, Shopify, etc.) are the creator-owned bio / site / personal checkout layer — Kahana is the destination behind the link.',
+  'Marketplaces (Udemy, Gumroad, Etsy, Kindle Store, etc.) are where buyers search and shop offerings from many sellers — Kahana sits after purchase as clubs + library, not a browse replacement.',
 ]
 
 /**

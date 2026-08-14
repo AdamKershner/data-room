@@ -59,7 +59,7 @@ export const MARKET_MAP_GLOSSARY = [
   {
     term: 'Memberships / Storefronts / Marketplaces',
     definition:
-      'Monetization layers: ongoing fan support and paywalls; creator-owned link-in-bio / personal shops; and multi-seller marketplaces where buyers browse.',
+      'Monetization layers: ongoing fan support and paywalls; creator-owned storefronts that can replace a personal website (Linktree, Kajabi); and multi-seller marketplaces where buyers search and shop (Udemy for courses, Etsy, Gumroad, Kindle Store).',
   },
   {
     term: 'Creator stack layers',

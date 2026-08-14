@@ -11,6 +11,10 @@ import {
 } from '../data/kahanaCompanyDatabase'
 import { buildKahanaComparisonRows } from '../data/kahanaFragmentPresence'
 import {
+  COVERAGE_COLUMN_DEFINITIONS,
+  COVERAGE_EASY_BAR,
+} from '../data/companyFragmentCoverage'
+import {
   COMPANY_LANDSCAPE_GLOSSARY,
   COMPANY_LANDSCAPE_METHOD_BLOCKS,
   COMPANY_LANDSCAPE_SUBTITLE_LEAD,
@@ -175,7 +179,7 @@ function PresenceCell({ value }) {
   return (
     <span
       className={`battlecard-presence is-${supported ? 'yes' : 'no'}`}
-      title={supported ? 'Supported' : 'Not supported'}
+      title={supported ? 'Supported — first-class product job' : 'Not a first-class product job'}
     >
       {supported ? 'Yes' : '—'}
     </span>
@@ -193,8 +197,9 @@ function KahanaComparisonChart({ card }) {
     <ResearchCallout variant="compare" title={`Coverage: Kahana vs ${companyName}`} icon="chart">
       <p className="battlecard-compare-note">
         Columns are content types Kahana aims to unify in one Aura-powered library.
-        Kahana supports all of them; {companyName} shows which of those it supports today.
-        All modality columns are draft-reviewed Yes/— lists (team spot-check later).
+        Kahana supports all of them; {companyName} shows which of those it supports
+        as a <strong>first-class, easy product job</strong> — not something you could
+        theoretically find if you hunt. Hover a column name for the definition.
       </p>
       <div className="battlecard-compare-scroll">
         <table className="battlecard-compare-table is-modality-columns">
@@ -204,7 +209,13 @@ function KahanaComparisonChart({ card }) {
                 Platform
               </th>
               {modalities.map((col) => (
-                <th key={col.fragmentId} scope="col" title={col.name}>
+                <th
+                  key={col.fragmentId}
+                  scope="col"
+                  title={[col.definition, col.yesExample && `Yes: ${col.yesExample}`, col.noExample && `No: ${col.noExample}`]
+                    .filter(Boolean)
+                    .join(' ')}
+                >
                   {col.label}
                 </th>
               ))}
@@ -230,6 +241,21 @@ function KahanaComparisonChart({ card }) {
           </tbody>
         </table>
       </div>
+      <details className="battlecard-coverage-defs">
+        <summary>Column definitions</summary>
+        <dl>
+          {modalities.map((col) => (
+            <div key={`def-${col.fragmentId}`}>
+              <dt>{col.label}</dt>
+              <dd>
+                {col.definition}
+                {col.yesExample ? ` Yes: ${col.yesExample}.` : ''}
+                {col.noExample ? ` No: ${col.noExample}.` : ''}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </details>
     </ResearchCallout>
   )
 }
@@ -341,6 +367,27 @@ function CompanyLandscape() {
                   <div key={item.term} className="battlecards-glossary__row">
                     <dt>{item.term}</dt>
                     <dd>{item.definition}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </details>
+          <details className="battlecards-collapsible">
+            <summary>
+              <span className="battlecards-collapsible__title">Coverage column definitions</span>
+              <span className="battlecards-collapsible__hint" aria-hidden="true">
+                Expand
+              </span>
+            </summary>
+            <div className="battlecards-collapsible__panel">
+              <p className="battlecards-coverage-bar">{COVERAGE_EASY_BAR}</p>
+              <dl className="battlecards-glossary">
+                {Object.entries(COVERAGE_COLUMN_DEFINITIONS).map(([id, item]) => (
+                  <div key={id} className="battlecards-glossary__row">
+                    <dt>{item.label}</dt>
+                    <dd>
+                      {item.definition} <em>Yes:</em> {item.yesExample}. <em>No:</em> {item.noExample}.
+                    </dd>
                   </div>
                 ))}
               </dl>

@@ -34,7 +34,12 @@ export const COMPANY_LANDSCAPE_GLOSSARY = [
   {
     term: 'Kahana vs … chart',
     definition:
-      'Per-card modality coverage: which library modalities Kahana targets vs what the peer ships (reviewed Yes/No where filled in, else inferred from primary/secondary Market Map membership). Includes Aura discovery as a distinct signal from content types.',
+      'Per-card modality coverage: which library modalities Kahana targets vs what the peer ships as a first-class, easy product job. Yes means a typical person can consume or shop that modality without hunting (Kindle/Goodreads for ebooks; not Discord). Definitions live under Coverage column definitions. Hover a column name on the chart for the rule.',
+  },
+  {
+    term: 'Marketplaces vs Storefronts',
+    definition:
+      'Marketplaces: search and shop a catalog from many sellers (Udemy for courses, Etsy, Gumroad, Kindle Store). Storefronts: a creator-owned page or site that can replace building your own website (Linktree, Kajabi, Stan, Shopify). Memberships: the creator can accept payments and earn on the platform (YouTube, Instagram, Patreon, Udemy) — not only a Patreon-style membership product.',
   },
   {
     term: 'Conversation guide',
@@ -69,7 +74,7 @@ export const COMPANY_LANDSCAPE_METHOD_BLOCKS = [
   },
   {
     title: 'Assumptions',
-    body: 'Facts are directional and dated to when researched — products and metrics change. Benefits/weaknesses synthesize common public claims and criticisms, not primary user research. Size tiers are judgment calls for map readability. Coverage charts prefer explicit reviews; otherwise they fall back to Market Map category membership. Conversation guides favor “use both” when peers are adjacent, not always “switch.”',
+    body: 'Facts are directional and dated to when researched — products and metrics change. Benefits/weaknesses synthesize common public claims and criticisms, not primary user research. Size tiers are judgment calls for map readability. Coverage charts use explicit Yes/No lists scored as first-class product jobs (easy to consume or shop that modality). Conversation guides favor “use both” when peers are adjacent, not always “switch.”',
   },
   {
     title: 'What this is not',

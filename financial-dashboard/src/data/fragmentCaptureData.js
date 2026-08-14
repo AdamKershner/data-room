@@ -201,7 +201,7 @@ export const GTM_MARKETPLACE_LAYER = {
   name: 'Marketplaces (channel)',
   fragmentIds: ['digital-marketplaces'],
   summary:
-    'Gumroad, Etsy, Shopify — buyers find products on the marketplace; Kahana hosts clubs + library after purchase.',
+    'Udemy, Gumroad, Etsy, Kindle Store — buyers find products on the marketplace; Kahana hosts clubs + library after purchase.',
   pathway:
     'Keep discovery/checkout on the marketplace; link purchased ebooks/courses into Kahana clubs.',
 }

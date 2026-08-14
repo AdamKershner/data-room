@@ -1,11 +1,14 @@
 /**
  * Explicit Yes/No coverage by Market Map modality — filled category-by-category.
  *
+ * Rule: Yes only if a typical person can easily use that modality as a
+ * first-class product job — not because a file or clip might exist if you hunt.
+ * Example: Goodreads = Ebook Yes. Discord = Ebook No (some servers share files;
+ * that is not an ebook product).
+ *
  * Once a fragment id is in REVIEWED_FRAGMENT_IDS, company charts use this list
  * (Yes only if company id is listed). Unreviewed fragments still fall back to
  * Market Map primary/secondary membership.
- *
- * All lists are draft v1 for team spot-check later.
  */
 
 /** Fragments that have been draft-reviewed for comparison charts. */
@@ -24,17 +27,101 @@ export const REVIEWED_FRAGMENT_IDS = new Set([
 ])
 
 /**
+ * How each coverage column is scored.
+ * Hover text on Company Landscape charts + Key terms.
+ * @type {Record<string, { label: string, definition: string, yesExample: string, noExample: string }>}
+ */
+export const COVERAGE_COLUMN_DEFINITIONS = {
+  'ebook-reading': {
+    label: 'Ebook',
+    definition:
+      'Yes if you can easily get and consume ebooks on the platform (free or paid) as a first-class product — open, buy, borrow, or read without hunting.',
+    yesExample: 'Kindle, Goodreads, Wattpad, Project Gutenberg',
+    noExample: 'Discord (a server might share a PDF; that is not an ebook product)',
+  },
+  'short-form-video': {
+    label: 'Short-form video',
+    definition:
+      'Yes if you can easily consume short-form video as a first-class surface (For You, Reels, Shorts).',
+    yesExample: 'TikTok, Instagram Reels, YouTube Shorts',
+    noExample: 'Twitch clips buried in a live-stream product',
+  },
+  'long-form-video': {
+    label: 'Long-form video',
+    definition:
+      'Yes if you can easily watch creator / UGC long-form video (or specialty long video) as a core surface. Course lectures belong under Courses. Hollywood catalogs belong under Series/Films.',
+    yesExample: 'YouTube, Vimeo, Twitch VODs, Nebula',
+    noExample: 'Udemy lecture video (that is Courses)',
+  },
+  'series-films-streaming': {
+    label: 'Series/Films',
+    definition:
+      'Yes if you can easily watch series and films as an SVOD / catalog entertainment product.',
+    yesExample: 'Netflix, Disney+, Crunchyroll',
+    noExample: 'YouTube (some movies exist; it is not an SVOD catalog)',
+  },
+  'courses-learning': {
+    label: 'Courses',
+    definition:
+      'Yes if you can easily take or browse structured courses as a first-class product.',
+    yesExample: 'Udemy, Coursera, Teachable, Kajabi',
+    noExample: 'YouTube tutorials (helpful, not a course catalog)',
+  },
+  'newsletters-written': {
+    label: 'Newsletters',
+    definition:
+      'Yes if you can easily read or subscribe to newsletters / creator writing as a first-class product.',
+    yesExample: 'Substack, beehiiv, Medium, Ghost',
+    noExample: 'X posts (not a newsletter product)',
+  },
+  'audio-listening': {
+    label: 'Audio',
+    definition:
+      'Yes if you can easily listen to music, podcasts, or audiobooks as a first-class product.',
+    yesExample: 'Spotify, Amazon Music, Audible, YouTube Music',
+    noExample: 'Discord voice chat',
+  },
+  'creator-monetization': {
+    label: 'Memberships',
+    definition:
+      'Yes if a creator or seller can accept payments from others and make money through the platform — checkout, fan subscriptions, tips, ads, shop, or creator funds. Not only a classic Patreon-style membership product.',
+    yesExample: 'YouTube, Instagram, Patreon, Udemy, Gumroad, Shopify',
+    noExample: 'Netflix, Goodreads, Slack, Wikipedia (you don’t earn as a typical creator)',
+  },
+  'messaging-community': {
+    label: 'Community & Messaging',
+    definition:
+      'Yes if groups, chat, or social feeds are a first-class product — where people hang out, not a comments thread on something else.',
+    yesExample: 'Discord, Slack, Circle, WhatsApp',
+    noExample: 'Udemy Q&A on a lecture',
+  },
+  'online-storefront': {
+    label: 'Storefronts',
+    definition:
+      'Yes if the product gives a creator a custom storefront or site that can take the place of building their own website (bio page, creator site, branded shop). Not a shop tab on someone else’s multi-seller marketplace.',
+    yesExample: 'Linktree, Kajabi, Stan, Beacons, Shopify',
+    noExample: 'Udemy instructor page, Etsy shop on Etsy’s marketplace',
+  },
+  'digital-marketplaces': {
+    label: 'Marketplaces',
+    definition:
+      'Yes if a typical person can search and shop a catalog of offerings from many sellers — courses, books, digital goods, etc. Storefront software (Shopify, WooCommerce) is not a marketplace unless shoppers browse many sellers there.',
+    yesExample: 'Udemy (courses), Etsy, Gumroad, Kindle Store, Creative Market',
+    noExample: 'Kajabi or Linktree (your site, not a public multi-seller catalog)',
+  },
+}
+
+export const COVERAGE_EASY_BAR =
+  '“Easily” means the modality is an obvious product job — what you open the app to do — not something you could theoretically find if you hunt. Discord can host an ebook file; Goodreads is built so you can find and get books.'
+
+/**
  * Company ids that support each reviewed modality.
  * @type {Record<string, string[]>}
  */
 export const FRAGMENT_YES_COMPANY_IDS = {
-  /**
-   * Ebook / reading — consumer ebook retail, libraries, serialized fiction reading,
-   * or book-club reading surfaces (not pure discovery without reading).
-   */
   'ebook-reading': [
     'amazon-kindle',
-    'amazon', // Kindle / ebook retail within Amazon
+    'amazon',
     'apple-books',
     'google-play-books',
     'google-books',
@@ -43,28 +130,19 @@ export const FRAGMENT_YES_COMPANY_IDS = {
     'goodreads',
     'fable',
     'storygraph',
-    'bookclubs',
     'librarything',
     'literal',
-    'bookbrowse',
+    'project-gutenberg',
+    'internet-archive',
+    'scribd',
+    'curios',
+    'crunchyroll', // manga reader
     'royal-road',
     'inkitt',
     'tapas',
     'radish',
-    'draft2digital',
-    'smashwords',
-    'ingramspark',
-    'publishdrive',
-    'project-gutenberg',
-    'internet-archive',
-    'crunchyroll', // manga
-    'etsy', // digital downloads / ebook niche
-    'curios',
   ],
 
-  /**
-   * Short-form video — vertical / Reels / Shorts as a core product surface.
-   */
   'short-form-video': [
     'tiktok',
     'instagram',
@@ -77,10 +155,6 @@ export const FRAGMENT_YES_COMPANY_IDS = {
     'kwai',
   ],
 
-  /**
-   * Long-form video — UGC / creator long-form, live+VOD, specialty long video
-   * (not Hollywood SVOD catalog — that is Series/Films).
-   */
   'long-form-video': [
     'youtube',
     'vimeo',
@@ -90,13 +164,10 @@ export const FRAGMENT_YES_COMPANY_IDS = {
     'rumble',
   ],
 
-  /**
-   * Series / films streaming — SVOD / catalog entertainment streaming.
-   */
   'series-films-streaming': [
     'netflix',
     'prime-video',
-    'amazon', // Prime Video within Amazon
+    'amazon',
     'disney',
     'max',
     'hulu',
@@ -106,9 +177,6 @@ export const FRAGMENT_YES_COMPANY_IDS = {
     'apple-tv',
   ],
 
-  /**
-   * Courses / learning — course marketplaces, creator LMS, cohort learning.
-   */
   'courses-learning': [
     'udemy',
     'coursera',
@@ -129,12 +197,9 @@ export const FRAGMENT_YES_COMPANY_IDS = {
     'guild-education',
     'circle',
     'nas-io',
+    'linkedin', // LinkedIn Learning
   ],
 
-  /**
-   * Newsletters / written — creator newsletter / blog publishing stack
-   * (not traditional news paywalls unless added later).
-   */
   'newsletters-written': [
     'substack',
     'beehiiv',
@@ -143,36 +208,30 @@ export const FRAGMENT_YES_COMPANY_IDS = {
     'kit',
     'wordpress',
     'tumblr',
+    'linkedin',
   ],
 
-  /**
-   * Audio — music, podcasts, audiobooks as a listening product.
-   */
   'audio-listening': [
     'spotify',
     'apple-music',
     'amazon-music',
     'amazon',
     'youtube-music',
-    'youtube', // Music / podcasts surface
+    'youtube',
     'youtube-podcasts',
     'audible',
     'apple-podcasts',
     'scribd',
     'deezer',
-    'megaphone',
-    'libsyn',
-    'simplecast',
-    'google-play-books', // audiobook retail slice
+    'google-play-books',
     'pandora',
     'iheartradio',
     'tiktok-music',
+    'curios',
   ],
 
-  /**
-   * Memberships — paid fan memberships / tip+membership as a core product.
-   */
   'creator-monetization': [
+    // Fan payments / patronage
     'patreon',
     'onlyfans',
     'fansly',
@@ -181,11 +240,70 @@ export const FRAGMENT_YES_COMPANY_IDS = {
     'locals',
     'nas-io',
     'circle',
+    'skool',
+    // Social / video where creators earn (ads, subs, tips, shop)
+    'youtube',
+    'youtube-shorts',
+    'youtube-podcasts',
+    'youtube-music',
+    'instagram',
+    'tiktok',
+    'facebook-reels',
+    'snapchat',
+    'twitch',
+    'triller',
+    'likee',
+    'x',
+    'facebook-groups',
+    'telegram',
+    'discord',
+    'pinterest',
+    'wechat',
+    'vimeo',
+    'nebula',
+    // Course / site builders with checkout
+    'udemy',
+    'coursera',
+    'edx',
+    'domestika',
+    'kajabi',
+    'teachable',
+    'thinkific',
+    'podia',
+    'learnworlds',
+    'kartra',
+    'zenler',
+    'mighty-networks',
+    'ghost',
+    'substack',
+    'medium',
+    'beehiiv',
+    'kit',
+    'wordpress',
+    // Commerce / storefronts / marketplaces
+    'gumroad',
+    'etsy',
+    'shopify',
+    'woocommerce',
+    'creative-market',
+    'stan',
+    'beacons',
+    'pensight',
+    'hypage',
+    'linktree',
+    'curios',
+    'amazon-kindle',
+    'apple-books',
+    'kobo',
+    'google-play-books',
+    'wattpad',
+    'scribd',
+    'audible',
+    'spotify',
+    'apple-music',
+    'amazon-music',
   ],
 
-  /**
-   * Community & messaging — groups, chats, social feeds as the core product.
-   */
   'messaging-community': [
     'discord',
     'telegram',
@@ -216,15 +334,12 @@ export const FRAGMENT_YES_COMPANY_IDS = {
     'skool',
     'kajabi',
     'thinkific',
-    'snapchat', // messaging + spotlight
+    'snapchat',
     'bookclubs',
     'literal',
+    'fable',
   ],
 
-  /**
-   * Storefronts — link-in-bio / personal creator storefront / profile shop.
-   * Includes platforms whose secondary job is selling from a creator storefront.
-   */
   'online-storefront': [
     'linktree',
     'beacons',
@@ -232,30 +347,43 @@ export const FRAGMENT_YES_COMPANY_IDS = {
     'pensight',
     'hypage',
     'podia',
-    'curios',
     'kajabi',
     'teachable',
     'thinkific',
+    'learnworlds',
+    'kartra',
+    'zenler',
+    'curios',
     'kit',
     'kofi',
     'nas-io',
-    'shopify', // merchant storefronts
-    'pinterest',
-    'wechat',
-  ],
-
-  /**
-   * Marketplaces — multi-seller digital goods / commerce marketplaces.
-   */
-  'digital-marketplaces': [
-    'gumroad',
-    'etsy',
     'shopify',
     'woocommerce',
+    'mighty-networks',
+    'gumroad',
+    'wordpress',
+  ],
+
+  'digital-marketplaces': [
+    'udemy',
+    'coursera',
+    'edx',
+    'domestika',
+    'masterclass',
+    'gumroad',
+    'etsy',
     'creative-market',
     'amazon',
+    'amazon-kindle',
+    'apple-books',
+    'kobo',
+    'google-play-books',
+    'audible',
+    'curios',
     'pinterest',
     'wechat',
+    'substack',
+    'medium',
   ],
 }
 
@@ -280,6 +408,10 @@ export function normalizeCoverageCompanyId(id) {
   if (!id) return null
   const key = String(id)
   return COMPANY_ID_ALIASES[key] || key
+}
+
+export function getCoverageColumnDefinition(fragmentId) {
+  return COVERAGE_COLUMN_DEFINITIONS[fragmentId] ?? null
 }
 
 /**
