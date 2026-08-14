@@ -153,6 +153,7 @@ export const FRAGMENT_YES_COMPANY_IDS = {
     'triller',
     'likee',
     'kwai',
+    'linkedin',
   ],
 
   'long-form-video': [
