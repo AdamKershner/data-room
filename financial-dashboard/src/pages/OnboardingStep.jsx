@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
 import { OnboardingIcon } from './onboardingIcons'
-import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, MIXPANEL_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL, TOOLS_ACCESS_TALLY_URL, TOOLS_ACCESS_TALLY_EMBED_URL, ADAM_SOCIALS_URL, ADAM_ONCEHUB_URL, KAHANA_ABOUT_URL, KAHANA_SITE_URL, KAHANA_SUPPORT_URL, KAHANA_FEEDBACK_URL, KAHANA_PROFILE_EXAMPLE_URL } from '../constants/kahanaSite'
+import { KAHANA_CONTACT_EMAIL, LINEAR_WORKSPACE_URL, MIXPANEL_URL, SLACK_INVITE_URL, TIME_LOG_TALLY_URL, TOOLS_ACCESS_TALLY_URL, TOOLS_ACCESS_TALLY_EMBED_URL, ADAM_SOCIALS_URL, ADAM_CALENDLY_URL, KAHANA_ABOUT_URL, KAHANA_SITE_URL, KAHANA_SUPPORT_URL, KAHANA_FEEDBACK_URL, KAHANA_PROFILE_EXAMPLE_URL } from '../constants/kahanaSite'
 import { TIME_LOG_RITUAL } from '../data/charterKpis'
 import linearKahanaBoard from '../images/linear-kahana-board.png'
 import mixpanelCheckoutJourneys from '../images/mixpanel-checkout-journeys.png'
@@ -79,21 +79,21 @@ function StepWeekly1on1() {
   return (
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You&apos;ve booked a recurring weekly 1-on-1 with Adam via OnceHub.
+        <strong>✓ Done when:</strong> You&apos;ve booked a recurring weekly 1-on-1 with Adam via Calendly.
       </p>
 
       <p>
-        Everyone schedules a <strong>weekly 1-on-1</strong> with Adam. Use the OnceHub link below — it puts a
+        Everyone schedules a <strong>weekly 1-on-1</strong> with Adam. Use the Calendly link below — it puts a
         meeting on both calendars so you check in every week (join the call or sync over Slack at that time).
       </p>
 
       <a
-        href={ADAM_ONCEHUB_URL}
+        href={ADAM_CALENDLY_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="onboarding-cta-link onboarding-cta-link-block"
       >
-        Schedule weekly 1-on-1 with Adam → OnceHub
+        Schedule weekly 1-on-1 with Adam → Calendly
       </a>
 
       <h3>FAQs</h3>

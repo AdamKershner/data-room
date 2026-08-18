@@ -37,8 +37,10 @@ export const TIME_LOG_TALLY_URL = 'https://tally.so/r/w2YdzL'
 export const TOOLS_ACCESS_TALLY_URL = 'https://tally.so/r/2EgxRV'
 export const TOOLS_ACCESS_TALLY_EMBED_URL = 'https://tally.so/embed/2EgxRV'
 
-/** Adam Kershner OnceHub — schedule weekly 1-on-1. */
-export const ADAM_ONCEHUB_URL = 'https://go.oncehub.com/AdamKershner'
+/** Adam Kershner Calendly — schedule weekly 1-on-1. */
+export const ADAM_CALENDLY_URL = 'https://calendly.com/adam-kahana-s5hl/30min'
+/** @deprecated Use ADAM_CALENDLY_URL */
+export const ADAM_ONCEHUB_URL = ADAM_CALENDLY_URL
 
 /** Adam Kershner — personal socials hub (founder-led brand). */
 export const ADAM_SOCIALS_URL = 'https://about.kahana.io/adam-kershner'

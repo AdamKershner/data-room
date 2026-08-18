@@ -162,7 +162,7 @@ Short demos of the consumer browser: tab control with AI commands and a fuller p
 
 Questions or a live conversation with the CEO:
 
-- **Calendar:** [go.oncehub.com/AdamKershner](https://go.oncehub.com/AdamKershner)
+- **Calendar:** [calendly.com/adam-kahana-s5hl/30min](https://calendly.com/adam-kahana-s5hl/30min)
 - **Learning internship:** [kahana.io/learning-internship](https://kahana.io/learning-internship)
 - **Event topics survey:** [tally.so/r/NpYZqB](https://tally.so/r/NpYZqB)
 

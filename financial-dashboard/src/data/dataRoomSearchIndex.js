@@ -312,7 +312,7 @@ function buildOnboardingStepEntries() {
         : step.id === 'tools-access'
           ? ['tools', 'access', 'tally', 'mixpanel', 'linear', 'github', 'developer', 'email']
           : step.id === 'weekly-1on1'
-            ? ['1-on-1', 'oncehub', 'weekly', 'adam', 'meeting']
+            ? ['1-on-1', 'calendly', 'weekly', 'adam', 'meeting']
             : []
     const extraDescription =
       step.id === 'time-log'
@@ -320,7 +320,7 @@ function buildOnboardingStepEntries() {
         : step.id === 'tools-access'
           ? 'Submit the Get Access to Tools & Data form for Linear, Mixpanel, and (if coding) GitHub email.'
           : step.id === 'weekly-1on1'
-            ? 'Schedule a recurring weekly 1-on-1 with Adam via OnceHub.'
+            ? 'Schedule a recurring weekly 1-on-1 with Adam via Calendly.'
             : `Onboarding step (Day 1) — ${step.category}.`
     return {
       path: `/onboarding/${step.id}`,
