@@ -2,6 +2,7 @@ import React, { useState, useCallback, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { ONBOARDING_STEPS } from './onboardingSteps'
 import { OnboardingIcon } from './onboardingIcons'
+import { readLocalJson, writeLocalJson } from '../utils/safeStorage'
 import './Page.css'
 import './Onboarding.css'
 
@@ -91,10 +92,7 @@ function OnboardingChecklistItem({ step, checked, onToggle, lastClickRef, option
 }
 
 function Onboarding() {
-  const [checked, setChecked] = useState(() => {
-    const stored = localStorage.getItem('onboarding-checklist')
-    return stored ? JSON.parse(stored) : {}
-  })
+  const [checked, setChecked] = useState(() => readLocalJson('onboarding-checklist', {}))
   const [confetti, setConfetti] = useState(null)
   const lastClickRef = useRef(null)
 
@@ -102,7 +100,7 @@ function Onboarding() {
     const wasChecked = checked[id]
     const next = { ...checked, [id]: !wasChecked }
     setChecked(next)
-    localStorage.setItem('onboarding-checklist', JSON.stringify(next))
+    writeLocalJson('onboarding-checklist', next)
     if (!wasChecked && clickPos) {
       setConfetti({ x: clickPos.x, y: clickPos.y })
     }
