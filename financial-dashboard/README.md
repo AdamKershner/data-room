@@ -36,7 +36,31 @@ Start the development server:
 npm run dev
 ```
 
-The app will open at `http://localhost:3000`
+The app will open at `http://localhost:5173`.
+
+### Access (staff, advisors, onboarding)
+
+The whole site is gated per person. There is no shared password to circulate.
+
+1. Someone requests access (or you invite them from **Access** in the menu).
+2. You approve — from the email link, or from `/access`.
+3. They get a one-time email sign-in link. Next time they enter the same email and get a new link.
+4. Revoke that person from `/access` without rotating everyone else.
+
+Local defaults in `.env.local` (gitignored):
+
+- `DATA_ROOM_ADMINS=adam@kahana.io` — can invite, approve, and revoke
+- `DATA_ROOM_DEV_LINKS=true` — sign-in links are printed in the terminal and shown on the login page because Resend is not required locally
+- optional `DATA_ROOM_PASSWORD` — break-glass for admins if email is not set up
+
+On Vercel set:
+
+- `DATA_ROOM_COOKIE_SECRET` — long random string (changing it signs everyone out)
+- `DATA_ROOM_ADMINS` — comma-separated admin emails
+- `DATA_ROOM_PUBLIC_URL` — the live site URL, used in magic-link emails
+- `RESEND_API_KEY` — so requests, invites, and sign-in links actually email
+- `KV_REST_API_URL` + `KV_REST_API_TOKEN` — Vercel KV / Upstash so the access directory survives deploys (locally it is `data/access-store.json`)
+- `KNOWLEDGE_BASE_EMBED_JWT_SECRET` — same HS256 secret as Kahana Cloud Functions (`KNOWLEDGE_BASE_EMBED_JWT_SECRET`). Hub members open pages in Kahana; everyone else sees `/open-from-kahana.html`
 
 ### Build for Production
 
@@ -95,7 +119,8 @@ Edit the data in:
 3. Click "New Project" and import your repository
 4. Set the **Root Directory** to `financial-dashboard`
 5. Vercel will auto-detect Vite - click "Deploy"
-6. Your app will be live in ~2 minutes!
+6. Set `DATA_ROOM_COOKIE_SECRET`, `DATA_ROOM_ADMINS`, `DATA_ROOM_PUBLIC_URL`, `RESEND_API_KEY`, and Vercel KV (`KV_REST_API_URL` / `KV_REST_API_TOKEN`) so access requests persist and email works
+7. Your app will be live in ~2 minutes!
 
 **Option 2: Via Vercel CLI**
 ```bash
@@ -137,7 +162,7 @@ Consider adding:
 - Multiple scenario views (Conservative, Base, Aggressive) ✅ Already implemented
 - Interactive charts (Chart.js, Recharts, or D3.js) ✅ Recharts already included
 - Data fetching from API or JSON files
-- User authentication for staff vs investor views
+- Per-person roles / staff vs investor views (today: one room; access is per email)
 - Export functionality (PDF, Excel)
 - Sensitivity analysis visualizations ✅ Already implemented
 - Monthly breakdown views ✅ Already implemented
