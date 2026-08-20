@@ -1,0 +1,31 @@
+.copy-page-link {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+  height: 40px;
+  padding: 0 14px;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 650;
+  white-space: nowrap;
+  color: var(--oasis-green-dark, #495800);
+  transition: all 0.3s ease;
+}
+
+.copy-page-link:hover {
+  background: white;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+.copy-page-link--copied {
+  color: var(--oasis-green-medium, #0d9488);
+}

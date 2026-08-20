@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Navigation from './components/Navigation'
+import CopyPageLink from './components/CopyPageLink'
 import { DataRoomSearchProvider } from './components/DataRoomSearchProvider'
 import KahanaExecutiveSummary from './pages/KahanaExecutiveSummary'
 import ExecutiveSummary from './pages/ExecutiveSummary'
@@ -57,6 +58,7 @@ function App() {
       <DataRoomSearchProvider>
         <div className="app">
           <Navigation />
+          <CopyPageLink />
           <Routes>
           <Route path="/" element={<KahanaExecutiveSummary />} />
           <Route path="/access" element={<Access />} />
