@@ -291,6 +291,19 @@
   text-decoration: underline;
 }
 
+.menu-sign-out {
+  margin-top: 8px;
+  border-top: 1px solid #e8ead9;
+  padding-top: 8px;
+}
+
+.menu-signed-in {
+  padding: 8px 20px 4px;
+  font-size: 0.78rem;
+  color: #64748b;
+  word-break: break-all;
+}
+
 @media (max-width: 768px) {
   .menu-drawer {
     width: 280px;

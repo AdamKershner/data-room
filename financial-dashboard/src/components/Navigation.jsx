@@ -37,6 +37,7 @@ const archiveCategory = {
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [archiveSectionOpen, setArchiveSectionOpen] = useState(false)
+  const [session, setSession] = useState(null)
   const location = useLocation()
   const dataRoomSearch = useDataRoomSearchOptional()
 
@@ -48,6 +49,19 @@ function Navigation() {
       setArchiveSectionOpen(true)
     }
   }, [isOnArchiveRoute])
+
+  useEffect(() => {
+    let cancelled = false
+    fetch('/api/session')
+      .then((response) => (response.ok ? response.json() : null))
+      .then((body) => {
+        if (!cancelled && body?.ok) setSession(body)
+      })
+      .catch(() => {})
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
   const toggleArchiveSection = () => {
     setArchiveSectionOpen((prev) => !prev)
@@ -64,6 +78,9 @@ function Navigation() {
   const isActive = (path) => {
     if (path === '/onboarding') {
       return location.pathname === '/onboarding' || location.pathname.startsWith('/onboarding/')
+    }
+    if (path === '/sops') {
+      return location.pathname === '/sops' || location.pathname.startsWith('/sops/')
     }
     if (path === '/archive') {
       return location.pathname === '/archive' || archiveContentPaths.includes(location.pathname)
@@ -169,6 +186,23 @@ function Navigation() {
                 </li>
               ))}
             </ul>
+          </li>
+          <li className="menu-nav-item menu-sign-out">
+            {session?.admin ? (
+              <Link
+                to="/access"
+                className={`menu-link menu-link--flat ${isActive('/access') ? 'active' : ''}`}
+                onClick={closeMenu}
+              >
+                Access
+              </Link>
+            ) : null}
+            {session?.email ? (
+              <div className="menu-signed-in">{session.email}</div>
+            ) : null}
+            <a className="menu-link menu-link--flat" href="/api/logout">
+              Sign out
+            </a>
           </li>
         </ul>
       </div>

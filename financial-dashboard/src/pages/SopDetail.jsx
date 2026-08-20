@@ -94,14 +94,14 @@ function SopDetail() {
       <SopDoc sop={sop} />
       <nav className="sop-adjacent" aria-label="Adjacent SOPs">
         {prev ? (
-          <Link to={`/sops/${prev.id}`} className="sop-adjacent-link">
+          <Link to={prev.href || `/sops/${prev.id}`} className="sop-adjacent-link">
             ← SOP {prev.number}: {prev.title}
           </Link>
         ) : (
           <span />
         )}
         {next ? (
-          <Link to={`/sops/${next.id}`} className="sop-adjacent-link sop-adjacent-link--next">
+          <Link to={next.href || `/sops/${next.id}`} className="sop-adjacent-link sop-adjacent-link--next">
             SOP {next.number}: {next.title} →
           </Link>
         ) : (

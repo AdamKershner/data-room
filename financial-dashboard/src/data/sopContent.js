@@ -1,17 +1,20 @@
 /**
  * Standard Operating Procedures — team-facing product ops guides.
- * /sops is a searchable gallery; /sops/:sopId shows the full procedure.
+ * /sops is a searchable gallery; long-form SOPs at /sops/:sopId;
+ * checklist SOPs at /sops/:sopId with /sops/:sopId/:stepId subpages.
  *
- * Source of truth for Clubs: Kahana Club SOPs (as of August 12, 2026) —
- * wishlist, voting, email invite, multi-step create builder.
+ * Clubs: Kahana Club SOPs (as of August 12, 2026) plus The Keeper’s Codex
+ * checklist (v1.0 draft).
  */
+
+import { KEEPERS_CODEX_STEPS, keepersCodexSearchBlob } from './keepersCodexSteps'
 
 export const SOP_PAGE = {
   title: 'Standard Operating Procedures',
   subtitle:
-    'Searchable guides for hosting clubs and other recurring product work on Kahana. Open a card to read the full procedure.',
+    'Searchable guides for hosting clubs and other recurring product work on Kahana. Open a card to read the full procedure, or a checklist with digestible subpages.',
   freshnessNote:
-    'Club SOPs reflect Kahana as of August 12, 2026 (wishlist, voting, email invite, multi-step create builder). Re-check steps if the product UI has moved on.',
+    'Club SOPs 1–5 reflect Kahana as of August 12, 2026 (wishlist, voting, email invite, multi-step create builder). SOP 6 The Keeper’s Codex is a v1.0 draft checklist — Section VI is proposed, not standing. Re-check steps if the product UI has moved on.',
 }
 
 /** Categories used for gallery filters (order matters). */
@@ -31,6 +34,8 @@ const IMPROVE_SURVEY_URL = 'https://kahana.io/survey/improve?source=support_pane
  * @property {string[]} [keywords]
  * @property {string} who
  * @property {string} when
+ * @property {string} [format] - 'checklist' for onboarding-style SOP pages
+ * @property {string} [href] - Override gallery link (checklist index)
  * @property {string[]} [notes] - Callouts shown under Who/When
  * @property {{ id: string, title: string, intro?: string, steps: SopStep[] }[]} sections
  * @property {string[]} doneWhen
@@ -435,6 +440,50 @@ export const SOPS = [
       'Anything blocking club work is also flagged to the Project Manager.',
     ],
   },
+
+  {
+    id: 'keepers-codex',
+    number: 6,
+    title: 'The Keeper’s Codex',
+    category: 'Clubs',
+    format: 'checklist',
+    href: '/sops/keepers-codex',
+    description:
+      'Checklist SOP for founding, tending, inviting, stocking, and growing a book or video club — with digestible subpages and a Done tracker.',
+    keywords: [
+      'keeper',
+      'codex',
+      'checklist',
+      'book club',
+      'video club',
+      'create club',
+      'wish list',
+      'wishlist',
+      'invite',
+      'feed',
+      'events',
+      'outreach',
+      'ledger',
+      'aura',
+      'pod b',
+    ],
+    who: 'Club owner / intern keepers',
+    when: 'From founding through the first cycle, then as the rhythm of the hall.',
+    notes: [
+      'v1.0 draft. Section VI (creator outreach / missing volume) is proposed, not standing. Product UI follows Kahana as of August 2026.',
+    ],
+    sections: KEEPERS_CODEX_STEPS.map((step) => ({
+      id: step.id,
+      title: step.label,
+      steps: [{ text: step.doneWhen }],
+    })),
+    doneWhen: [
+      'A club is published with name, description, visibility, and join mode set deliberately.',
+      'The launch threshold is met before invites go out.',
+      'Wish list, Feed, and a first event are in place.',
+      'Feedback is filed in the proper form when something breaks.',
+    ],
+  },
 ]
 
 export function getSopById(sopId) {
@@ -457,6 +506,7 @@ export function sopMatchesQuery(sop, query) {
     sop.title,
     `SOP ${sop.number}`,
     sop.category,
+    sop.format ?? '',
     sop.description,
     sop.who,
     sop.when,
@@ -468,6 +518,7 @@ export function sopMatchesQuery(sop, query) {
       ...section.steps.map((step) => `${step.text} ${step.note ?? ''} ${step.href ?? ''}`),
     ]),
     ...sop.doneWhen,
+    sop.id === 'keepers-codex' ? keepersCodexSearchBlob() : '',
   ]
     .join(' ')
     .toLowerCase()

@@ -1,0 +1,70 @@
+.keepers-codex-page .page-subtitle {
+  margin: 8px 0 0;
+  max-width: 52rem;
+}
+
+.keepers-codex-ol {
+  margin: 0 0 20px;
+}
+
+.keepers-codex-plate {
+  margin: 20px 0 28px;
+  padding: 0;
+}
+
+.keepers-codex-plate img {
+  display: block;
+  width: 100%;
+  max-width: 920px;
+  height: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.keepers-codex-plate figcaption {
+  margin: 8px 0 0;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #64748b;
+  max-width: 920px;
+}
+
+.keepers-codex-copy {
+  margin: 12px 0 24px;
+  padding: 16px 18px 16px 20px;
+  border-left: 4px solid var(--oasis-green-medium, #0d9488);
+  background: #f8fafc;
+  border-radius: 0 10px 10px 0;
+}
+
+.keepers-codex-copy-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--oasis-green-dark, #495800);
+  margin-bottom: 8px;
+}
+
+.keepers-codex-copy p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: #334155;
+}
+
+.keepers-codex-callout--proposed {
+  background: #fef9ec;
+  border-color: #fde68a;
+}
+
+.keepers-codex-callout--exception {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.keepers-codex-body .onboarding-cta-link-block {
+  margin-bottom: 10px;
+}

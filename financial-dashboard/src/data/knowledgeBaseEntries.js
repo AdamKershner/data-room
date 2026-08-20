@@ -135,7 +135,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'SOPs',
     category: 'SOPs',
     description:
-      'Five Club SOPs: create & run clubs, invite members, choose titles, creator outreach, and logging feedback.',
+      'Club SOPs plus The Keeper’s Codex checklist: create & run clubs, invite members, choose titles, creator outreach, and logging feedback.',
     keywords: [
       'sop',
       'sops',
@@ -151,6 +151,27 @@ export const KNOWLEDGE_BASE_ENTRIES = [
       'visibility',
       'aura',
       'onboarding',
+      'keeper',
+      'codex',
+      'checklist',
+    ],
+  },
+  {
+    path: '/sops/keepers-codex',
+    title: 'The Keeper’s Codex',
+    category: 'SOPs',
+    description:
+      'Checklist SOP for founding, tending, inviting, stocking, and growing a book or video club.',
+    keywords: [
+      'keeper',
+      'codex',
+      'checklist',
+      'book club',
+      'video club',
+      'create club',
+      'wish list',
+      'invite',
+      'outreach',
     ],
   },
   {

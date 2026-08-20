@@ -81,7 +81,7 @@ function Sops() {
             {filtered.map((sop) => (
               <Link
                 key={sop.id}
-                to={`/sops/${sop.id}`}
+                to={sop.href || `/sops/${sop.id}`}
                 className="kb-card"
                 aria-label={`SOP ${sop.number}: ${sop.title}`}
               >
@@ -93,7 +93,10 @@ function Sops() {
                 <span className="sop-card-meta">
                   Who: {sop.who}
                 </span>
-                <span className="kb-card-path">/sops/{sop.id}</span>
+                {sop.format === 'checklist' && (
+                  <span className="sop-card-format">Checklist</span>
+                )}
+                <span className="kb-card-path">{sop.href || `/sops/${sop.id}`}</span>
               </Link>
             ))}
           </div>

@@ -195,7 +195,7 @@ function StepCompanyRules() {
         <li>If you cannot meet the minimum availability (check Slack at least once per day during 9–5 PM in your time zone), DM Adam on Slack or email him with a reason (e.g., sick, emergency). If you need personal leave, contact him the same way.</li>
         <li>
           Fill out the <strong>weekly Time Log every Friday by EOD</strong> — supports compliance, accurate{' '}
-          <Link to="/weekly-reports">Weekly Reports</Link>. Day 2 covers the{' '}
+          <Link to="/weekly-reports">Weekly Reports</Link>. Supplementary pages cover the{' '}
           <Link to="/onboarding/market-map">Market Map</Link>,{' '}
           <Link to="/onboarding/company-landscape">Company Landscape</Link>, and{' '}
           <Link to="/onboarding/how-we-work">How We Work</Link>.{' '}
@@ -219,7 +219,7 @@ function StepMarketMap() {
       </p>
 
       <p>
-        This is Day 2 orientation. Kahana sits in a landscape of content markets plus how creators
+        Supplementary orientation. Kahana sits in a landscape of content markets plus how creators
         operate — Content & Audience (ebooks, video, courses, newsletters, audio…), Community &
         Messaging, Memberships, Storefronts, and Marketplaces. Dollar sizes are directional midpoints for
         orientation, not a forecast.
@@ -339,7 +339,7 @@ function StepHowWeWork() {
       </p>
 
       <p>
-        Day 2 wraps with how the team actually operates. Linear holds tasks and bugs, Slack is for chat, and
+        How the team actually operates. Linear holds tasks and bugs, Slack is for chat, and
         Mixpanel is the live product scoreboard (~20 Kahana PROD dashboards).
       </p>
 
@@ -371,7 +371,7 @@ function StepHowWeWork() {
           Open How We Work →
         </Link>
         <Link to="/onboarding/sops" className="onboarding-cta-link">
-          Next: SOPs →
+          Phase 2: SOPs →
         </Link>
       </div>
     </div>
@@ -382,76 +382,56 @@ function StepSops() {
   return (
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You&apos;ve opened the{' '}
-        <Link to="/sops" className="onboarding-inline-link">
-          SOPs
-        </Link>{' '}
-        gallery, read all five Club procedures (or can find them), and can explain how a club is
-        created, how members are invited, how the next title is chosen, when to outreach a creator,
-        and how to log feedback.
+        <strong>✓ Done when:</strong> After two weeks you can name the processes you own on a day /
+        week / month / quarter / year cadence, open the data and tools those processes need, and find
+        the SOP or instruction page for each without asking where it lives.
       </p>
 
       <p>
-        Clubs are how we grow on Kahana. These SOPs are the playbook for hosting Book Clubs and
-        Video Clubs — create → invite → vote → outreach when needed → log issues. Product UI moves
-        quickly; the gallery notes the freshness date (August 12, 2026).
+        Phase 2 lasts <strong>two weeks</strong>. It is not a reading list to finish in an afternoon.
+        With your manager, pick the SOPs that match your role and responsibilities, then run those
+        processes for real. Your manager is available to answer questions and guide you.
       </p>
 
       <h3>What to do</h3>
       <ol className="onboarding-steps-list">
         <li>
-          Open{' '}
+          Open the{' '}
           <Link to="/sops" className="onboarding-inline-link">
-            Standard Operating Procedures
+            SOP gallery
           </Link>{' '}
-          and skim the five Clubs cards.
+          and, with your manager, choose the procedures that match your role — not every card.
         </li>
         <li>
-          Read{' '}
-          <Link to="/sops/running-a-book-or-video-club" className="onboarding-inline-link">
-            SOP 1: Running a Book Club or Video Club
-          </Link>{' '}
-          — multi-step create builder, visibility, policies, wishlist, focus, Feed, Events.
+          Work those procedures over the two weeks. Bring blockers to your manager in 1:1s and Slack.
         </li>
         <li>
-          Skim{' '}
-          <Link to="/sops/inviting-members-to-a-club" className="onboarding-inline-link">
-            SOP 2: Inviting Members
+          Confirm you have the data and tools those processes need. If anything is missing, finish{' '}
+          <Link to="/onboarding/tools-access" className="onboarding-inline-link">
+            Request tools access
           </Link>{' '}
-          — email, Suggested people, join link; keep a small active core and honest counts.
+          (Day 1) and ask your manager to unblock the rest.
         </li>
         <li>
-          Skim{' '}
-          <Link to="/sops/choosing-what-the-club-reads" className="onboarding-inline-link">
-            SOP 3: Choosing What the Club Reads
-          </Link>{' '}
-          — Wishlist → votes → Set as focus; read on or off Kahana.
-        </li>
-        <li>
-          Skim{' '}
-          <Link to="/sops/outreach-to-creators-for-a-club" className="onboarding-inline-link">
-            SOP 4: Outreach to Creators
-          </Link>{' '}
-          — one sender, honest demand pitch, rights caveats, log outcomes.
-        </li>
-        <li>
-          Bookmark{' '}
-          <Link to="/sops/logging-feedback-and-issues" className="onboarding-inline-link">
-            SOP 5: Logging Feedback
-          </Link>{' '}
-          and the improvement survey for when something breaks.
+          Bookmark the gallery and the specific SOP pages you will reuse, so you can get back to
+          instructions in one click.
         </li>
       </ol>
 
+      <div className="onboarding-note onboarding-note-help">
+        <p>
+          Club hosts will spend time in{' '}
+          <Link to="/sops/keepers-codex" className="onboarding-inline-link">
+            The Keeper’s Codex
+          </Link>{' '}
+          and the other Club SOPs. Other roles will have different cards. Let your manager point you
+          at the right ones.
+        </p>
+      </div>
+
       <div className="onboarding-cta-row">
         <Link to="/sops" className="onboarding-cta-link">
-          Open SOPs gallery →
-        </Link>
-        <Link to="/sops/running-a-book-or-video-club" className="onboarding-cta-link">
-          Start with SOP 1 →
-        </Link>
-        <Link to="/onboarding/project-charter" className="onboarding-cta-link">
-          Next: Project Charter →
+          Open SOP gallery →
         </Link>
       </div>
     </div>
@@ -494,7 +474,7 @@ function StepProjectCharter() {
           Open Project Charter →
         </Link>
         <Link to="/onboarding/sops" className="onboarding-cta-link">
-          Back to SOPs →
+          Phase 2: SOPs →
         </Link>
       </div>
     </div>
@@ -517,7 +497,7 @@ function StepExploreAuraLibrary() {
       <p>
         <strong>Kahana</strong> is the product we are scaling. Live in it from day one —
         create your profile, browse hubs and authors, give Aura, and start contributing. This is how you build
-        product intuition for every role. On Day 2, orient with the{' '}
+        product intuition for every role. For supplementary orientation, see the{' '}
         <Link to="/onboarding/market-map" className="onboarding-inline-link">
           Market Map
         </Link>

@@ -68,7 +68,7 @@ export const TOC_EXPLORE_ITEMS = [
     path: '/sops',
     title: 'SOPs',
     description:
-      'Five Club SOPs: create & run clubs, invite members, choose titles, creator outreach, and logging feedback.',
+      'Club SOPs plus The Keeper’s Codex checklist: create & run clubs, invite members, choose titles, creator outreach, and logging feedback.',
   },
   {
     path: '/project-charter',

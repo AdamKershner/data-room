@@ -6,6 +6,7 @@
 import { KNOWLEDGE_BASE_ENTRIES } from './knowledgeBaseEntries'
 import { TOC_EXPLORE_ITEMS, PRIMARY_NAV_LINKS } from './tocExploreGrid'
 import { ONBOARDING_STEPS } from '../pages/onboardingSteps'
+import { KEEPERS_CODEX_STEPS } from './keepersCodexSteps'
 
 /** Display order for Executive Summary business-function grid */
 export const BUSINESS_FUNCTIONS = ['Marketing', 'Sales', 'Product', 'HR', 'Technical', 'Finance']
@@ -182,7 +183,7 @@ const EXTRA_SEARCH_ENTRIES = [
     title: 'SOPs',
     businessFunction: 'SOPs',
     description:
-      'Five Club SOPs: create & run clubs, invite members, choose titles, creator outreach, and logging feedback.',
+      'Club SOPs plus The Keeper’s Codex checklist: create & run clubs, invite members, choose titles, creator outreach, and logging feedback.',
     keywords: [
       'sop',
       'sops',
@@ -197,6 +198,9 @@ const EXTRA_SEARCH_ENTRIES = [
       'join mode',
       'visibility',
       'aura',
+      'keeper',
+      'codex',
+      'checklist',
       'feed',
       'events',
     ],
@@ -206,6 +210,34 @@ const EXTRA_SEARCH_ENTRIES = [
       'club setup on kahana',
       'creator outreach for clubs',
       'standard operating procedures',
+      'keepers codex',
+    ],
+  },
+  {
+    path: '/sops/keepers-codex',
+    title: 'The Keeper’s Codex',
+    businessFunction: 'SOPs',
+    description:
+      'Checklist SOP for founding, tending, inviting, stocking, and growing a book or video club — with digestible subpages.',
+    keywords: [
+      'keeper',
+      'codex',
+      'checklist',
+      'book club',
+      'video club',
+      'create club',
+      'wish list',
+      'wishlist',
+      'invite',
+      'outreach',
+      'ledger',
+      'aura',
+    ],
+    nlHints: [
+      'keepers codex',
+      'club checklist',
+      'how do I found a club',
+      'club sop checklist',
     ],
   },
   {
@@ -313,7 +345,9 @@ function buildOnboardingStepEntries() {
           ? ['tools', 'access', 'tally', 'mixpanel', 'linear', 'github', 'developer', 'email']
           : step.id === 'weekly-1on1'
             ? ['1-on-1', 'calendly', 'weekly', 'adam', 'meeting']
-            : []
+            : step.id === 'sops'
+              ? ['phase 2', 'sop', 'sops', 'role', 'processes', 'calendar', 'manager']
+              : []
     const extraDescription =
       step.id === 'time-log'
         ? 'Establish weekly Time Log habit — Friday EOD, compliance, Weekly Reports, charter KPIs.'
@@ -321,7 +355,11 @@ function buildOnboardingStepEntries() {
           ? 'Submit the Get Access to Tools & Data form for Linear, Mixpanel, and (if coding) GitHub email.'
           : step.id === 'weekly-1on1'
             ? 'Schedule a recurring weekly 1-on-1 with Adam via Calendly.'
-            : `Onboarding step (Day 1) — ${step.category}.`
+            : step.id === 'sops'
+              ? 'Phase 2 (2 weeks): with your manager, read SOPs for your role until you know your process calendar, tools, and where instructions live.'
+            : step.day === 'optional'
+              ? `Supplementary onboarding — ${step.category}.`
+              : `Onboarding step (Day 1) — ${step.category}.`
     return {
       path: `/onboarding/${step.id}`,
       title: step.label,
@@ -338,7 +376,9 @@ function buildOnboardingStepEntries() {
       nlHints:
         step.id === 'time-log'
           ? ['weekly time log', 'friday time log', 'compliance time tracking']
-          : ['getting started', 'first week', 'new employee'],
+          : step.id === 'sops'
+            ? ['phase 2', 'role sops', 'process calendar', 'onboarding sops']
+            : ['getting started', 'first week', 'new employee'],
       source: 'onboarding',
     }
   })
@@ -362,7 +402,7 @@ function primaryNavExtras() {
 function inferBusinessFunctionFromPath(path) {
   if (path === '/archive') return 'Finance'
   if (path === '/how-we-work' || path === '/operating-system') return 'Technical'
-  if (path === '/sops') return 'SOPs'
+  if (path === '/sops' || path.startsWith('/sops/')) return 'SOPs'
   if (path === '/project-charter') return 'Product'
   if (path === '/nps' || path === '/hitl') return 'Product'
   if (path === '/onboarding') return 'HR'
@@ -382,6 +422,24 @@ function normalizeTocItem(item) {
     nlHints: [],
     source: 'toc',
   }
+}
+
+function buildKeepersCodexStepEntries() {
+  return KEEPERS_CODEX_STEPS.map((step) => ({
+    path: `/sops/keepers-codex/${step.id}`,
+    title: step.label,
+    businessFunction: 'SOPs',
+    description: step.doneWhen,
+    keywords: [
+      'sop',
+      'keepers codex',
+      'club',
+      step.id.replace(/-/g, ' '),
+      step.label.toLowerCase(),
+    ],
+    nlHints: ['club sop', 'keepers codex'],
+    source: 'keepers-codex',
+  }))
 }
 
 function buildRawList() {
@@ -414,6 +472,10 @@ function buildRawList() {
   }
 
   for (const e of buildOnboardingStepEntries()) {
+    raw.push(e)
+  }
+
+  for (const e of buildKeepersCodexStepEntries()) {
     raw.push(e)
   }
 

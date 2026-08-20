@@ -20,6 +20,8 @@ import OasisSprintsArchive from './pages/OasisSprintsArchive'
 import OperatingSystem from './pages/OperatingSystem'
 import Sops from './pages/Sops'
 import SopDetail from './pages/SopDetail'
+import KeepersCodexChecklist from './pages/KeepersCodexChecklist'
+import KeepersCodexStep from './pages/KeepersCodexStep'
 import KahanaNarrative from './pages/KahanaNarrative'
 import MarketSize from './pages/MarketSize'
 import WeeklyReports from './pages/WeeklyReports'
@@ -46,6 +48,7 @@ import Glossary from './pages/Glossary'
 import FragmentCapture from './pages/FragmentCapture'
 import ProjectCharterChecklist from './pages/ProjectCharterChecklist'
 import ProjectCharterSection from './pages/ProjectCharterSection'
+import Access from './pages/Access'
 import './App.css'
 
 function App() {
@@ -56,6 +59,7 @@ function App() {
           <Navigation />
           <Routes>
           <Route path="/" element={<KahanaExecutiveSummary />} />
+          <Route path="/access" element={<Access />} />
           <Route path="/aura-library" element={<Navigate to="/" replace />} />
           <Route path="/oasis-browser" element={<ExecutiveSummary />} />
           <Route path="/archive" element={<Archive />} />
@@ -88,6 +92,8 @@ function App() {
           <Route path="/how-we-work" element={<OperatingSystem />} />
           <Route path="/operating-system" element={<Navigate to="/how-we-work" replace />} />
           <Route path="/sops" element={<Sops />} />
+          <Route path="/sops/keepers-codex/:stepId" element={<KeepersCodexStep />} />
+          <Route path="/sops/keepers-codex" element={<KeepersCodexChecklist />} />
           <Route path="/sops/:sopId" element={<SopDetail />} />
           <Route path="/technical-roadmap" element={<Navigate to="/" replace />} />
           <Route path="/kahana-competitors" element={<Navigate to="/company-landscape" replace />} />

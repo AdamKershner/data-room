@@ -110,7 +110,7 @@ function Onboarding() {
 
   const activeSteps = ONBOARDING_STEPS.filter((s) => !s.comingSoon && s.day !== 'optional')
   const day1Steps = activeSteps.filter((s) => s.day === 1)
-  const day2Steps = activeSteps.filter((s) => s.day === 2)
+  const phase2Steps = activeSteps.filter((s) => s.day === 'phase2')
   const optionalSteps = ONBOARDING_STEPS.filter((s) => s.day === 'optional')
   const comingSoonSteps = ONBOARDING_STEPS.filter((s) => s.comingSoon)
   const completedCount = activeSteps.filter((s) => checked[s.id]).length
@@ -131,11 +131,8 @@ function Onboarding() {
         <h1>Onboarding</h1>
         <p className="page-subtitle">
           New team member checklist. <strong>Day 1</strong> gets you set up (Slack, tools, profiles).{' '}
-          <strong>Day 2</strong> is orientation —{' '}
-          <Link to="/onboarding/market-map">Market Map</Link>,{' '}
-          <Link to="/onboarding/company-landscape">Company Landscape</Link>,{' '}
-          <Link to="/onboarding/how-we-work">How We Work</Link>, and the{' '}
-          <Link to="/onboarding/project-charter">Project Charter</Link>.
+          <strong>Phase 2</strong> is two weeks of role SOPs with your manager — by the end you know
+          your process calendar, have the tools to run it, and can find the docs without asking.
         </p>
         <p className="onboarding-hint">
           <span className="onboarding-hint-item">☐ Check Done</span>
@@ -186,15 +183,15 @@ function Onboarding() {
             </ul>
           </div>
 
-          {day2Steps.length > 0 && (
+          {phase2Steps.length > 0 && (
             <div className="onboarding-day-section">
-              <h3 className="onboarding-day-title">Day 2 — Lay of the land</h3>
+              <h3 className="onboarding-day-title">Phase 2 — Own your processes (2 weeks)</h3>
               <p className="onboarding-day-intro">
-                Orient to the market, how Kahana fits beside peers, how we work day to day
-                (Linear, Slack, Mixpanel), and the Project Charter.
+                Read the SOPs for your role and responsibilities. Your manager is available to answer
+                questions and guide you. This phase lasts two weeks.
               </p>
               <ul className="onboarding-list">
-                {day2Steps.map((step) => (
+                {phase2Steps.map((step) => (
                   <OnboardingChecklistItem
                     key={step.id}
                     step={step}
@@ -209,9 +206,10 @@ function Onboarding() {
 
           {optionalSteps.length > 0 && (
             <div className="onboarding-day-section">
-              <h3 className="onboarding-day-title">Optional</h3>
+              <h3 className="onboarding-day-title">Supplementary learning</h3>
               <p className="onboarding-optional-intro">
-                Recommended but not required — especially useful for product, growth, and marketing roles.
+                Market Map, Company Landscape, How We Work, the Project Charter, and the growth
+                framework. Useful orientation — not required to finish Phase 2.
               </p>
               <ul className="onboarding-list">
                 {optionalSteps.map((step) => (
