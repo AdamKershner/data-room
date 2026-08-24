@@ -559,6 +559,11 @@
   gap: 8px;
 }
 
+.battlecard-columns + .battlecard-fact-list,
+.battlecard-scale-caution + .battlecard-fact-list {
+  margin-top: 12px;
+}
+
 .battlecard-fact-item {
   display: flex;
   align-items: flex-start;
@@ -763,6 +768,13 @@
 .battlecard-field.is-tbd .battlecard-field-value {
   color: #999;
   font-style: italic;
+}
+
+.battlecard-scale-caution {
+  margin: 10px 0 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #7a5a1e;
 }
 
 .battlecard-field.is-emphasis.is-tbd {

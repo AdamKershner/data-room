@@ -510,12 +510,24 @@ function CompanyLandscape() {
                     <KahanaComparisonChart card={card} />
                     {hasResearch ? (
                       <>
-                        {card.scaleFacts?.length > 0 && (
+                        {(card.usersLabel ||
+                          card.revenueLabel ||
+                          card.scaleCaution ||
+                          card.scaleFacts?.length > 0) && (
                           <ResearchCallout
                             variant="scale"
                             title="Recent scale / facts"
                             icon="chart"
                           >
+                            {(card.usersLabel || card.revenueLabel) && (
+                              <div className="battlecard-columns">
+                                <Field label="Users / audience" value={card.usersLabel} />
+                                <Field label="Revenue / business" value={card.revenueLabel} />
+                              </div>
+                            )}
+                            {card.scaleCaution && (
+                              <p className="battlecard-scale-caution">{card.scaleCaution}</p>
+                            )}
                             <FactList items={card.scaleFacts} />
                           </ResearchCallout>
                         )}

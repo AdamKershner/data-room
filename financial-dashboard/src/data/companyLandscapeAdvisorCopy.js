@@ -49,7 +49,7 @@ export const COMPANY_LANDSCAPE_GLOSSARY = [
   {
     term: 'Scale facts',
     definition:
-      'Directional public signals (users, catalog size, revenue proxies, geography). Sourced from company sites, app stores, filings, press, and research notes — not audited metrics.',
+      'Verified Aug 2026 overlay: users and revenue with the metric named explicitly (MAU, subscribers, creators, etc.) and one source URL per company. Desk-research bullets below that remain directional (catalog size, geography, product notes) and are not audited metrics.',
   },
   {
     term: 'Market Map',
@@ -70,11 +70,11 @@ export const COMPANY_LANDSCAPE_METHOD_BLOCKS = [
   },
   {
     title: 'Process',
-    body: '1) Pull companies from Market Map fragment players plus explicit landscape extras (gaps and dual-role platforms). 2) Assign primary/secondary Market Map categories and a size tier / role tag. 3) Research each company into a standard card: tagline, scale facts, benefits, weaknesses, sources (desk research from public sites, stores, filings, and secondary reports). 4) Attach modality coverage (reviewed Yes/No where available) and, where useful, tandem conversation-guide overrides for Kahana.',
+    body: '1) Pull companies from Market Map fragment players plus explicit landscape extras (gaps and dual-role platforms). 2) Assign primary/secondary Market Map categories and a size tier / role tag. 3) Research each company into a standard card: tagline, scale facts, benefits, weaknesses, sources (desk research from public sites, stores, filings, and secondary reports). 4) Overlay verified users/revenue from the Aug 2026 spreadsheet pass as the scale source of truth (metric + period + one source URL); keep older desk-research bullets below for product context. 5) Attach modality coverage (reviewed Yes/No where available) and, where useful, tandem conversation-guide overrides for Kahana.',
   },
   {
     title: 'Assumptions',
-    body: 'Facts are directional and dated to when researched — products and metrics change. Benefits/weaknesses synthesize common public claims and criticisms, not primary user research. Size tiers are judgment calls for map readability. Coverage charts use explicit Yes/No lists scored as first-class product jobs (easy to consume or shop that modality). Conversation guides favor “use both” when peers are adjacent, not always “switch.”',
+    body: 'Users/revenue on each card come from the Aug 21–22 2026 verification pass (MAU/DAU only when disclosed as active users; standalone product revenue only). A few cells needed unit inference or were withheld (called out on the card). Other facts are directional and dated to when researched — products and metrics change. Benefits/weaknesses synthesize common public claims and criticisms, not primary user research. Size tiers are judgment calls for map readability. Coverage charts use explicit Yes/No lists scored as first-class product jobs (easy to consume or shop that modality). Conversation guides favor “use both” when peers are adjacent, not always “switch.”',
   },
   {
     title: 'What this is not',

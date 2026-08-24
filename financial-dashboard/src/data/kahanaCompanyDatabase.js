@@ -36,6 +36,12 @@ import {
   getSizeTier,
 } from './companyLandscapeMeta'
 import { getCompanyResearch } from './companyLandscapeResearch'
+import {
+  formatRevenueLabel,
+  formatScaleFacts,
+  formatUsersLabel,
+  getCompanyScale,
+} from './companyLandscapeScale'
 
 const TBD = 'TBD — fill in'
 
@@ -285,10 +291,22 @@ function applyLandscapeEnrichment(company) {
   const sizeTier = getSizeTier(company.id)
   const roleTag = getRoleTag(company.id)
   const research = getCompanyResearch(company.id)
+  const scale = getCompanyScale(company.id)
   const displayNames = {
     youtube: 'YouTube',
     'amazon-kindle': 'Amazon Kindle',
     scribd: 'Scribd / Everand',
+  }
+  const overlayFacts = scale ? formatScaleFacts(scale) : []
+  const researchFacts = research?.scaleFacts ?? []
+  const scaleFacts = overlayFacts.length
+    ? [...overlayFacts, ...researchFacts.filter((fact) => !overlayFacts.includes(fact))]
+    : researchFacts.length
+      ? researchFacts
+      : null
+  const sources = [...(research?.sources ?? [])]
+  if (scale?.sourceUrl && !sources.includes(scale.sourceUrl)) {
+    sources.unshift(scale.sourceUrl)
   }
   return {
     ...company,
@@ -300,10 +318,13 @@ function applyLandscapeEnrichment(company) {
     research: research ?? null,
     // Prefer researched tagline when present
     description: research?.tagline ?? company.description,
-    scaleFacts: research?.scaleFacts ?? null,
+    usersLabel: scale ? formatUsersLabel(scale) : company.usersLabel,
+    revenueLabel: scale ? formatRevenueLabel(scale) : company.revenueLabel,
+    scaleFacts,
+    scaleCaution: scale?.caution ?? null,
     benefits: research?.benefits ?? null,
     weaknesses: research?.weaknesses ?? null,
-    researchSources: research?.sources ?? null,
+    researchSources: sources.length ? sources : null,
   }
 }
 
@@ -581,6 +602,9 @@ export function filterCompanies(
       c.sizeTierLabel,
       c.roleTagLabel,
       c.description,
+      c.usersLabel,
+      c.revenueLabel,
+      c.scaleCaution,
       ...(c.scaleFacts ?? []),
       ...(c.benefits ?? []).map((b) => `${b.title} ${b.detail}`),
       ...(c.weaknesses ?? []).map((w) => `${w.title} ${w.detail}`),
