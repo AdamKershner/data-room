@@ -31,6 +31,12 @@
   text-transform: uppercase;
 }
 
+.sop-card-format--playbook {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1e40af;
+}
+
 .sop-card-meta {
   font-size: 0.85rem;
   line-height: 1.4;

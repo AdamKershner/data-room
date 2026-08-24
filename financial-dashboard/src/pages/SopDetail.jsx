@@ -4,6 +4,28 @@ import { getAdjacentSops, getSopById } from '../data/sopContent'
 import './Page.css'
 import './Sops.css'
 
+function isInternalHref(href) {
+  return href.startsWith('/') && !href.startsWith('//')
+}
+
+function SopStepLink({ href, label }) {
+  const text = label || href
+  if (isInternalHref(href)) {
+    return (
+      <p className="sop-step-link">
+        <Link to={href}>{text} →</Link>
+      </p>
+    )
+  }
+  return (
+    <p className="sop-step-link">
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        {text} →
+      </a>
+    </p>
+  )
+}
+
 function SopDoc({ sop }) {
   return (
     <article className="sop-doc" id={sop.id}>
@@ -13,6 +35,16 @@ function SopDoc({ sop }) {
         </p>
         <h1 className="sop-detail-title">{sop.title}</h1>
         <dl className="sop-meta">
+          <div>
+            <dt>Function</dt>
+            <dd>{sop.category}</dd>
+          </div>
+          {sop.owner ? (
+            <div>
+              <dt>Owner</dt>
+              <dd>{sop.owner}</dd>
+            </div>
+          ) : null}
           <div>
             <dt>Who</dt>
             <dd>{sop.who}</dd>
@@ -42,11 +74,7 @@ function SopDoc({ sop }) {
               <li key={`${section.id}-${i}`}>
                 <p>{step.text}</p>
                 {step.href && (
-                  <p className="sop-step-link">
-                    <a href={step.href} target="_blank" rel="noopener noreferrer">
-                      {step.hrefLabel || step.href} →
-                    </a>
-                  </p>
+                  <SopStepLink href={step.href} label={step.hrefLabel} />
                 )}
                 {step.note && <p className="sop-step-note">{step.note}</p>}
               </li>

@@ -8,6 +8,7 @@ import { TOC_EXPLORE_ITEMS, PRIMARY_NAV_LINKS } from './tocExploreGrid'
 import { ONBOARDING_STEPS } from '../pages/onboardingSteps'
 import { KEEPERS_CODEX_STEPS } from './keepersCodexSteps'
 import { FINDING_WHATS_BROKEN_STEPS } from './findingWhatsBrokenSteps'
+import { SOPS } from './sopContent'
 
 /** Display order for Executive Summary business-function grid */
 export const BUSINESS_FUNCTIONS = ['Marketing', 'Sales', 'Product', 'HR', 'Technical', 'Finance']
@@ -184,7 +185,7 @@ const EXTRA_SEARCH_ENTRIES = [
     title: 'SOPs',
     businessFunction: 'SOPs',
     description:
-      'Club SOPs plus The Keeper’s Codex checklist: create & run clubs, invite members, choose titles, creator outreach, and logging feedback.',
+      'Function-tagged operating procedures: club checklists, department playbooks from SOPS.txt, and day-to-day tasks from Marketing through Legal.',
     keywords: [
       'sop',
       'sops',
@@ -204,6 +205,14 @@ const EXTRA_SEARCH_ENTRIES = [
       'checklist',
       'feed',
       'events',
+      'playbook',
+      'marketing',
+      'sales',
+      'finance',
+      'engineering',
+      'payroll',
+      'mixpanel',
+      'product hunt',
     ],
     nlHints: [
       'how do I start a book club',
@@ -212,6 +221,9 @@ const EXTRA_SEARCH_ENTRIES = [
       'creator outreach for clubs',
       'standard operating procedures',
       'keepers codex',
+      'marketing sop',
+      'payroll sop',
+      'engineering deploy',
     ],
   },
   {
@@ -438,6 +450,34 @@ function inferBusinessFunctionFromPath(path) {
   return 'Product'
 }
 
+/** Map SOP gallery categories onto the six Executive Summary functions. */
+function mapSopCategoryToBusinessFunction(category) {
+  if (category === 'Marketing') return 'Marketing'
+  if (category === 'Sales') return 'Sales'
+  if (category === 'Finance') return 'Finance'
+  if (category === 'HR & Talent') return 'HR'
+  if (category === 'Engineering' || category === 'Security' || category === 'IT') return 'Technical'
+  return 'Product'
+}
+
+function buildSopEntries() {
+  return SOPS.map((sop) => ({
+    path: sop.href || `/sops/${sop.id}`,
+    title: `SOP ${sop.number}: ${sop.title}`,
+    businessFunction: mapSopCategoryToBusinessFunction(sop.category),
+    description: sop.description,
+    keywords: [
+      'sop',
+      sop.category,
+      sop.owner ?? '',
+      sop.id.replace(/-/g, ' '),
+      ...(sop.keywords || []),
+    ],
+    nlHints: [sop.title.toLowerCase(), `${sop.category.toLowerCase()} sop`],
+    source: 'sop',
+  }))
+}
+
 function normalizeTocItem(item) {
   return {
     path: item.path,
@@ -524,6 +564,10 @@ function buildRawList() {
   }
 
   for (const e of buildFindingWhatsBrokenStepEntries()) {
+    raw.push(e)
+  }
+
+  for (const e of buildSopEntries()) {
     raw.push(e)
   }
 

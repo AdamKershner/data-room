@@ -9,17 +9,18 @@
 
 import { KEEPERS_CODEX_STEPS, keepersCodexSearchBlob } from './keepersCodexSteps'
 import { FINDING_WHATS_BROKEN_STEPS, findingWhatsBrokenSearchBlob } from './findingWhatsBrokenSteps'
+import { FUNCTION_SOP_CATEGORIES, FUNCTION_SOPS } from './functionSops'
 
 export const SOP_PAGE = {
   title: 'Standard Operating Procedures',
   subtitle:
-    'Searchable guides for hosting clubs and other recurring product work on Kahana. Open a card to read the full procedure, or a checklist with digestible subpages.',
+    'Searchable guides tagged by business function. Club and product quality checklists sit alongside department playbooks and day-to-day operating tasks.',
   freshnessNote:
-    'Club SOPs 1–5 reflect Kahana as of August 12, 2026 (wishlist, voting, email invite, multi-step create builder). SOP 6 The Keeper’s Codex is a v1.0 draft checklist — Section VI is proposed, not standing. SOP 7 Finding What’s Broken is a product quality checklist. Re-check steps if the product UI has moved on.',
+    'Club SOPs 1–5 reflect Kahana as of August 12, 2026. SOP 6 Keeper’s Codex is a v1.0 draft. SOP 7 Finding What’s Broken is the product quality checklist. SOPs 8+ are function playbooks (from SOPS.txt) plus the operating-task list (Marketing through Legal). Re-check steps if the product UI has moved on.',
 }
 
-/** Categories used for gallery filters (order matters). */
-export const SOP_CATEGORIES = ['Clubs', 'Product']
+/** Categories used for gallery filters (order matters). Clubs first, then functions. */
+export const SOP_CATEGORIES = ['Clubs', ...FUNCTION_SOP_CATEGORIES]
 
 const IMPROVE_SURVEY_URL = 'https://kahana.io/survey/improve?source=support_panel'
 
@@ -31,6 +32,7 @@ const IMPROVE_SURVEY_URL = 'https://kahana.io/survey/improve?source=support_pane
  * @property {number} number
  * @property {string} title
  * @property {string} category
+ * @property {string} [owner] - Function owner / accountable role
  * @property {string} description
  * @property {string[]} [keywords]
  * @property {string} who
@@ -49,6 +51,7 @@ export const SOPS = [
     number: 1,
     title: 'Running a Book Club or Video Club',
     category: 'Clubs',
+    owner: 'Community',
     description:
       'Create a club through the multi-step builder, set visibility and policies, then run wishlist cycles with focus, Feed, Events, and Aura.',
     keywords: [
@@ -168,6 +171,7 @@ export const SOPS = [
     number: 2,
     title: 'Inviting Members to a Club',
     category: 'Clubs',
+    owner: 'Community',
     description:
       'Grow a small active core via email invite, Suggested people, or the join link — and keep counts honest for later outreach.',
     keywords: [
@@ -232,6 +236,7 @@ export const SOPS = [
     number: 3,
     title: 'Choosing What the Club Reads',
     category: 'Clubs',
+    owner: 'Community',
     description:
       'Build the Wishlist, let members vote, set focus, read on or off Kahana, and pass non-library winners to outreach.',
     keywords: [
@@ -292,6 +297,7 @@ export const SOPS = [
     number: 4,
     title: 'Outreach to Creators for a Club',
     category: 'Clubs',
+    owner: 'Community',
     description:
       'One coordinated, honest demand-led ask when a voted title is not yet on Kahana — then log the outcome.',
     keywords: [
@@ -395,6 +401,7 @@ export const SOPS = [
     number: 5,
     title: 'Logging Feedback and Issues',
     category: 'Clubs',
+    owner: 'Community',
     description:
       'Capture bugs, rough edges, and ideas the moment you notice them — via the improvement survey, and flag blockers to the PM.',
     keywords: [
@@ -449,6 +456,7 @@ export const SOPS = [
     category: 'Clubs',
     format: 'checklist',
     href: '/sops/keepers-codex',
+    owner: 'Community',
     description:
       'Checklist SOP for founding, tending, inviting, stocking, and growing a book or video club — with digestible subpages and a Done tracker.',
     keywords: [
@@ -493,6 +501,7 @@ export const SOPS = [
     category: 'Product',
     format: 'checklist',
     href: '/sops/finding-whats-broken',
+    owner: 'Product Manager',
     description:
       'Product quality checklist: dogfood like a stranger, walk core journeys, read the data, log findings, prioritize on impact vs effort, and verify the fix.',
     keywords: [
@@ -527,6 +536,7 @@ export const SOPS = [
       'Fixes are re-tested before the log is closed.',
     ],
   },
+  ...FUNCTION_SOPS,
 ]
 
 export function getSopById(sopId) {
@@ -549,6 +559,7 @@ export function sopMatchesQuery(sop, query) {
     sop.title,
     `SOP ${sop.number}`,
     sop.category,
+    sop.owner ?? '',
     sop.format ?? '',
     sop.description,
     sop.who,

@@ -91,10 +91,13 @@ function Sops() {
                 </span>
                 <span className="kb-card-desc">{sop.description}</span>
                 <span className="sop-card-meta">
-                  Who: {sop.who}
+                  {sop.owner ? `Owner: ${sop.owner}` : `Who: ${sop.who}`}
                 </span>
-                {sop.format && (
+                {sop.format === 'checklist' && (
                   <span className="sop-card-format">Checklist</span>
+                )}
+                {sop.format === 'playbook' && (
+                  <span className="sop-card-format sop-card-format--playbook">Playbook</span>
                 )}
                 <span className="kb-card-path">{sop.href || `/sops/${sop.id}`}</span>
               </Link>

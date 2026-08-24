@@ -135,7 +135,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'SOPs',
     category: 'SOPs',
     description:
-      'Club SOPs plus The Keeper’s Codex and Finding What’s Broken checklists: create & run clubs, invite members, choose titles, creator outreach, logging feedback, and product quality reviews.',
+      'Searchable SOPs tagged by function — club checklists, SOPS.txt department playbooks, and operating tasks (Marketing through Legal). Filter by function on /sops.',
     keywords: [
       'sop',
       'sops',
@@ -157,6 +157,12 @@ export const KNOWLEDGE_BASE_ENTRIES = [
       'product quality',
       'dogfood',
       'heuristic',
+      'playbook',
+      'marketing',
+      'sales',
+      'finance',
+      'engineering',
+      'payroll',
     ],
   },
   {

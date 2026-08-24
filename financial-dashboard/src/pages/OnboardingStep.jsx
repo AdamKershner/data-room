@@ -399,8 +399,9 @@ function StepSops() {
           Open the{' '}
           <Link to="/sops" className="onboarding-inline-link">
             SOP gallery
-          </Link>{' '}
-          and, with your manager, choose the procedures that match your role — not every card.
+          </Link>
+          , filter by your function (Marketing, Engineering, HR, and so on), and with your manager
+          choose the playbooks and tasks that match your role — not every card.
         </li>
         <li>
           Work those procedures over the two weeks. Bring blockers to your manager in 1:1s and Slack.
