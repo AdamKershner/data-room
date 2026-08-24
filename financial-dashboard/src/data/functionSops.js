@@ -1159,7 +1159,7 @@ const TASKS = [
     keywords: ['time log', 'tally', 'friday'],
     steps: [
       {
-        text: 'Submit the weekly time log form Friday EOD.',
+        text: 'Submit the weekly time log form Friday EOD (a reminder email goes to every Kahana HQ hub member Friday afternoon).',
         href: TIME_LOG_TALLY_URL,
         hrefLabel: 'Time log (Tally)',
       },
@@ -1657,7 +1657,7 @@ const TASKS = [
     keywords: ['time log', 'attendance', 'pto'],
     steps: [
       {
-        text: 'Everyone submits Friday’s time log.',
+        text: 'Everyone submits Friday’s time log (Kahana HQ members also get the Friday reminder email).',
         href: TIME_LOG_TALLY_URL,
         hrefLabel: 'Time log (Tally)',
       },
