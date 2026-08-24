@@ -7,6 +7,7 @@ import { KNOWLEDGE_BASE_ENTRIES } from './knowledgeBaseEntries'
 import { TOC_EXPLORE_ITEMS, PRIMARY_NAV_LINKS } from './tocExploreGrid'
 import { ONBOARDING_STEPS } from '../pages/onboardingSteps'
 import { KEEPERS_CODEX_STEPS } from './keepersCodexSteps'
+import { FINDING_WHATS_BROKEN_STEPS } from './findingWhatsBrokenSteps'
 
 /** Display order for Executive Summary business-function grid */
 export const BUSINESS_FUNCTIONS = ['Marketing', 'Sales', 'Product', 'HR', 'Technical', 'Finance']
@@ -241,6 +242,31 @@ const EXTRA_SEARCH_ENTRIES = [
     ],
   },
   {
+    path: '/sops/finding-whats-broken',
+    title: "Finding What's Broken and Fixing It",
+    businessFunction: 'SOPs',
+    description:
+      'Product quality checklist SOP — find broken UX, log findings, prioritize, and verify the fix.',
+    keywords: [
+      'product',
+      'quality',
+      'bug',
+      'ux',
+      'heuristic',
+      'dogfood',
+      'funnel',
+      'checklist',
+      'sop',
+      'srujana',
+    ],
+    nlHints: [
+      'product sop',
+      'how do we find bugs',
+      'quality checklist',
+      'dogfood kahana',
+    ],
+  },
+  {
     path: '/project-charter',
     title: 'Project Charter',
     businessFunction: 'Product',
@@ -442,6 +468,24 @@ function buildKeepersCodexStepEntries() {
   }))
 }
 
+function buildFindingWhatsBrokenStepEntries() {
+  return FINDING_WHATS_BROKEN_STEPS.map((step) => ({
+    path: `/sops/finding-whats-broken/${step.id}`,
+    title: step.label,
+    businessFunction: 'SOPs',
+    description: step.doneWhen,
+    keywords: [
+      'sop',
+      'product quality',
+      'finding whats broken',
+      step.id.replace(/-/g, ' '),
+      step.label.toLowerCase(),
+    ],
+    nlHints: ['product sop', 'quality checklist'],
+    source: 'finding-whats-broken',
+  }))
+}
+
 function buildRawList() {
   const raw = []
 
@@ -476,6 +520,10 @@ function buildRawList() {
   }
 
   for (const e of buildKeepersCodexStepEntries()) {
+    raw.push(e)
+  }
+
+  for (const e of buildFindingWhatsBrokenStepEntries()) {
     raw.push(e)
   }
 

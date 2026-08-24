@@ -8,17 +8,18 @@
  */
 
 import { KEEPERS_CODEX_STEPS, keepersCodexSearchBlob } from './keepersCodexSteps'
+import { FINDING_WHATS_BROKEN_STEPS, findingWhatsBrokenSearchBlob } from './findingWhatsBrokenSteps'
 
 export const SOP_PAGE = {
   title: 'Standard Operating Procedures',
   subtitle:
     'Searchable guides for hosting clubs and other recurring product work on Kahana. Open a card to read the full procedure, or a checklist with digestible subpages.',
   freshnessNote:
-    'Club SOPs 1–5 reflect Kahana as of August 12, 2026 (wishlist, voting, email invite, multi-step create builder). SOP 6 The Keeper’s Codex is a v1.0 draft checklist — Section VI is proposed, not standing. Re-check steps if the product UI has moved on.',
+    'Club SOPs 1–5 reflect Kahana as of August 12, 2026 (wishlist, voting, email invite, multi-step create builder). SOP 6 The Keeper’s Codex is a v1.0 draft checklist — Section VI is proposed, not standing. SOP 7 Finding What’s Broken is a product quality checklist. Re-check steps if the product UI has moved on.',
 }
 
 /** Categories used for gallery filters (order matters). */
-export const SOP_CATEGORIES = ['Clubs']
+export const SOP_CATEGORIES = ['Clubs', 'Product']
 
 const IMPROVE_SURVEY_URL = 'https://kahana.io/survey/improve?source=support_panel'
 
@@ -484,6 +485,48 @@ export const SOPS = [
       'Feedback is filed in the proper form when something breaks.',
     ],
   },
+
+  {
+    id: 'finding-whats-broken',
+    number: 7,
+    title: "Finding What's Broken and Fixing It",
+    category: 'Product',
+    format: 'checklist',
+    href: '/sops/finding-whats-broken',
+    description:
+      'Product quality checklist: dogfood like a stranger, walk core journeys, read the data, log findings, prioritize on impact vs effort, and verify the fix.',
+    keywords: [
+      'product',
+      'quality',
+      'bug',
+      'ux',
+      'usability',
+      'heuristic',
+      'nielsen',
+      'dogfood',
+      'funnel',
+      'rage click',
+      'empty state',
+      'checkout',
+      'srujana',
+    ],
+    who: 'Product Managers',
+    when: 'Daily notes, weekly dogfood, bi-weekly triage, monthly journey pass, and before every major launch.',
+    notes: [
+      'Working playbook from Srujana Divya Emmadi. Open Section V during every review session.',
+    ],
+    sections: FINDING_WHATS_BROKEN_STEPS.map((step) => ({
+      id: step.id,
+      title: step.label,
+      steps: [{ text: step.doneWhen }],
+    })),
+    doneWhen: [
+      'A weekly dogfood session is on the calendar.',
+      'Findings are logged with screenshot, issue, and named impact.',
+      'High impact / low effort items ship the same week.',
+      'Fixes are re-tested before the log is closed.',
+    ],
+  },
 ]
 
 export function getSopById(sopId) {
@@ -519,6 +562,7 @@ export function sopMatchesQuery(sop, query) {
     ]),
     ...sop.doneWhen,
     sop.id === 'keepers-codex' ? keepersCodexSearchBlob() : '',
+    sop.id === 'finding-whats-broken' ? findingWhatsBrokenSearchBlob() : '',
   ]
     .join(' ')
     .toLowerCase()

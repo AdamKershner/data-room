@@ -93,7 +93,7 @@ function Sops() {
                 <span className="sop-card-meta">
                   Who: {sop.who}
                 </span>
-                {sop.format === 'checklist' && (
+                {sop.format && (
                   <span className="sop-card-format">Checklist</span>
                 )}
                 <span className="kb-card-path">{sop.href || `/sops/${sop.id}`}</span>

@@ -135,7 +135,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'SOPs',
     category: 'SOPs',
     description:
-      'Club SOPs plus The Keeper’s Codex checklist: create & run clubs, invite members, choose titles, creator outreach, and logging feedback.',
+      'Club SOPs plus The Keeper’s Codex and Finding What’s Broken checklists: create & run clubs, invite members, choose titles, creator outreach, logging feedback, and product quality reviews.',
     keywords: [
       'sop',
       'sops',
@@ -154,6 +154,9 @@ export const KNOWLEDGE_BASE_ENTRIES = [
       'keeper',
       'codex',
       'checklist',
+      'product quality',
+      'dogfood',
+      'heuristic',
     ],
   },
   {
@@ -172,6 +175,24 @@ export const KNOWLEDGE_BASE_ENTRIES = [
       'wish list',
       'invite',
       'outreach',
+    ],
+  },
+  {
+    path: '/sops/finding-whats-broken',
+    title: "Finding What's Broken and Fixing It",
+    category: 'SOPs',
+    description:
+      'Product quality checklist: dogfood like a stranger, walk core journeys, read the data, log findings, and verify fixes.',
+    keywords: [
+      'product',
+      'quality',
+      'bug',
+      'ux',
+      'heuristic',
+      'dogfood',
+      'funnel',
+      'checklist',
+      'sop',
     ],
   },
   {

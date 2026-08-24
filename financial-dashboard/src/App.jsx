@@ -24,6 +24,8 @@ import Sops from './pages/Sops'
 import SopDetail from './pages/SopDetail'
 import KeepersCodexChecklist from './pages/KeepersCodexChecklist'
 import KeepersCodexStep from './pages/KeepersCodexStep'
+import FindingWhatsBrokenChecklist from './pages/FindingWhatsBrokenChecklist'
+import FindingWhatsBrokenStep from './pages/FindingWhatsBrokenStep'
 import KahanaNarrative from './pages/KahanaNarrative'
 import MarketSize from './pages/MarketSize'
 import WeeklyReports from './pages/WeeklyReports'
@@ -98,6 +100,8 @@ function App() {
           <Route path="/sops" element={<Sops />} />
           <Route path="/sops/keepers-codex/:stepId" element={<KeepersCodexStep />} />
           <Route path="/sops/keepers-codex" element={<KeepersCodexChecklist />} />
+          <Route path="/sops/finding-whats-broken/:stepId" element={<FindingWhatsBrokenStep />} />
+          <Route path="/sops/finding-whats-broken" element={<FindingWhatsBrokenChecklist />} />
           <Route path="/sops/:sopId" element={<SopDetail />} />
           <Route path="/technical-roadmap" element={<Navigate to="/" replace />} />
           <Route path="/kahana-competitors" element={<Navigate to="/company-landscape" replace />} />
