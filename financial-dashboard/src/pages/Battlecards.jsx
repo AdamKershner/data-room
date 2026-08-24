@@ -260,6 +260,67 @@ function KahanaComparisonChart({ card }) {
   )
 }
 
+function sourceLinkLabel(href, fallback) {
+  if (href) {
+    return href.replace(/^https?:\/\//, '').split('/')[0]
+  }
+  if (!fallback || fallback === 'N/A') return null
+  return fallback.replace(/^https?:\/\//, '').split('/')[0]
+}
+
+function ScaleSnapshot({ card }) {
+  const scale = card.scale
+  const users = scale?.usersScale
+  const metric = scale?.usersMetric
+  const period = scale?.period
+  const revenue = scale?.revenue
+  const href = scale?.sourceUrl || null
+  const sourceLabel = sourceLinkLabel(href, scale?.source)
+  if (!users && !period && !revenue && !href && !sourceLabel) {
+    return null
+  }
+
+  return (
+    <ResearchCallout variant="scale" title="Scale" icon="chart">
+      <div className="battlecard-snapshot-grid">
+        {users ? (
+          <div className="battlecard-field">
+            <span className="battlecard-field-label">Users</span>
+            <p className="battlecard-field-value">{users}</p>
+            {metric ? <p className="battlecard-snapshot-metric">{metric}</p> : null}
+          </div>
+        ) : null}
+        {period ? (
+          <div className="battlecard-field">
+            <span className="battlecard-field-label">Period</span>
+            <p className="battlecard-field-value">{period}</p>
+          </div>
+        ) : null}
+        {revenue ? (
+          <div className="battlecard-field">
+            <span className="battlecard-field-label">Revenue</span>
+            <p className="battlecard-field-value">{revenue}</p>
+          </div>
+        ) : null}
+      </div>
+      {href ? (
+        <a
+          className="battlecard-source-pill battlecard-snapshot-source"
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={(event) => event.stopPropagation()}
+        >
+          <CardIcon name="link" className="battlecard-source-pill-icon" />
+          {sourceLabel || 'Source'}
+        </a>
+      ) : sourceLabel ? (
+        <p className="battlecard-snapshot-source-text">Source: {sourceLabel}</p>
+      ) : null}
+    </ResearchCallout>
+  )
+}
+
 function AboutCallout({ card }) {
   const text = card.description || card.theyDo
   if (!text && !card.website) return null
@@ -503,6 +564,7 @@ function CompanyLandscape() {
 
                 <div className="battlecard-summary">
                   <AboutCallout card={card} />
+                  <ScaleSnapshot card={card} />
                 </div>
 
                 {isOpen && (
@@ -510,25 +572,17 @@ function CompanyLandscape() {
                     <KahanaComparisonChart card={card} />
                     {hasResearch ? (
                       <>
-                        {(card.usersLabel ||
-                          card.revenueLabel ||
-                          card.scaleCaution ||
-                          card.scaleFacts?.length > 0) && (
+                        {(card.scaleCaution ||
+                          card.scaleResearchFacts?.length > 0) && (
                           <ResearchCallout
                             variant="scale"
-                            title="Recent scale / facts"
+                            title="Notes on these figures"
                             icon="chart"
                           >
-                            {(card.usersLabel || card.revenueLabel) && (
-                              <div className="battlecard-columns">
-                                <Field label="Users / audience" value={card.usersLabel} />
-                                <Field label="Revenue / business" value={card.revenueLabel} />
-                              </div>
-                            )}
                             {card.scaleCaution && (
                               <p className="battlecard-scale-caution">{card.scaleCaution}</p>
                             )}
-                            <FactList items={card.scaleFacts} />
+                            <FactList items={card.scaleResearchFacts} />
                           </ResearchCallout>
                         )}
                         {card.benefits?.length > 0 && (
@@ -589,11 +643,17 @@ function CompanyLandscape() {
                           </ResearchCallout>
                         )}
 
-                        <ResearchCallout variant="scale" title="Scale" icon="chart">
-                          <div className="battlecard-columns">
-                            <Field label="Users / audience" value={card.usersLabel} />
-                            <Field label="Revenue / business" value={card.revenueLabel} />
-                          </div>
+                        <ResearchCallout
+                          variant="scale"
+                          title={card.scale ? 'Demand / supply' : 'Scale'}
+                          icon="chart"
+                        >
+                          {!card.scale && (
+                            <div className="battlecard-columns">
+                              <Field label="Users / audience" value={card.usersLabel} />
+                              <Field label="Revenue / business" value={card.revenueLabel} />
+                            </div>
+                          )}
                           <div className="battlecard-columns">
                             <Field label="Demand side" value={card.demandLabel} />
                             <Field label="Supply side" value={card.supplyLabel} />

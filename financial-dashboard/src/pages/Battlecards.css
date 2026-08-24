@@ -721,6 +721,35 @@
   padding: 0 18px 16px;
 }
 
+.battlecard-snapshot-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(7.5rem, 0.7fr) minmax(0, 1.1fr);
+  gap: 10px 16px;
+  align-items: start;
+}
+
+.battlecard-snapshot-grid .battlecard-field {
+  margin-bottom: 0;
+}
+
+.battlecard-snapshot-metric {
+  margin: 4px 0 0;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: #5a6b5e;
+}
+
+.battlecard-snapshot-source {
+  display: inline-flex;
+  margin-top: 12px;
+}
+
+.battlecard-snapshot-source-text {
+  margin: 12px 0 0;
+  font-size: 0.82rem;
+  color: #5a6b5e;
+}
+
 .battlecard-body {
   border-top: 1px solid #e5e5e5;
   padding: 16px 18px 18px;
@@ -786,6 +815,10 @@
 
 @media (max-width: 700px) {
   .battlecard-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .battlecard-snapshot-grid {
     grid-template-columns: 1fr;
   }
 
