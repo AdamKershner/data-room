@@ -219,6 +219,24 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     ],
   },
   {
+    path: '/sops/writing-a-project-charter',
+    title: 'Writing a Project Charter',
+    category: 'SOPs',
+    description:
+      'Project Management SOP: take the brief from Adam, draft before every answer exists, verify steps in the product, assign owners from Kahana HQ collaborators and the Notion directory, keep risks, then hand off for him to circulate.',
+    keywords: [
+      'project charter',
+      'charter',
+      'project management',
+      'scope',
+      'sponsor',
+      'brief',
+      'collaborators',
+      'directory',
+      'sop',
+    ],
+  },
+  {
     path: '/soc2-type1-checklist',
     title: 'SOC2 Type 1 Checklist',
     category: 'Technical',

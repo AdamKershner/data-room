@@ -104,6 +104,7 @@ function App() {
           <Route path="/sops/outreach-to-creators-for-a-club" element={<Navigate to="/sops/community-building" replace />} />
           <Route path="/sops/logging-feedback-and-issues" element={<Navigate to="/sops/community-building" replace />} />
           <Route path="/sops/product-management-operations" element={<Navigate to="/sops/product-management-playbook" replace />} />
+          <Route path="/sops/creating-project-charters" element={<Navigate to="/sops/writing-a-project-charter" replace />} />
           <Route path="/sops/keepers-codex/:stepId" element={<KeepersCodexStep />} />
           <Route path="/sops/keepers-codex" element={<KeepersCodexChecklist />} />
           <Route path="/sops/finding-whats-broken/:stepId" element={<FindingWhatsBrokenStep />} />

@@ -6,7 +6,8 @@
  * SOP 1 Product Hunt Launch. SOP 2 Community Building (clubs + Keeper’s Codex).
  * SOP 3 Product Quality. SOP 4 Product Management Playbook. SOP 5 Blogs.
  * SOP 6 Brand Guidelines. SOP 7 Merch. SOP 8 Official Social Media.
- * SOP 9 Author Outreach. SOP 10+ function playbooks and operating tasks.
+ * SOP 9 Author Outreach. SOP 10 Writing a Project Charter.
+ * SOP 11+ function playbooks and operating tasks.
  */
 
 import { keepersCodexSearchBlob } from './keepersCodexSteps'
@@ -17,6 +18,8 @@ import {
   MERCH_SOP,
   SOCIAL_MEDIA_ACCESS_SOP,
   AUTHOR_OUTREACH_SOP,
+  WRITING_PROJECT_CHARTER_SOP,
+  WRITING_PROJECT_CHARTER_ALIASES,
   FUNCTION_SOP_CATEGORIES,
   FUNCTION_SOPS,
   PRODUCT_HUNT_LAUNCH_SOP,
@@ -32,11 +35,11 @@ export const SOP_PAGE = {
   subtitle:
     'Searchable guides tagged by business function. Club and product quality checklists sit alongside department playbooks and day-to-day operating tasks.',
   freshnessNote:
-    'SOP 1–9 are Ready for review. SOP 10+ are labeled Updates in progress (function playbooks from SOPS.txt plus operating tasks, Marketing through Legal). SOP 1 is Product Hunt Launch. SOP 2 Community Building covers clubs (as of August 12, 2026) and The Keeper’s Codex (v1.0 draft). SOP 3 Product Quality is the product quality checklist. SOP 4 is the Product Management Playbook (v1.0). SOP 5 is Blogs. SOP 6 is Brand Guidelines (original PDF plus Aura Library overlay; revamp in progress). SOP 7 is Merch (Canva, Printify, living mood board). SOP 8 is Official Social Media (restricted credentials, brand/proofread, Linear marketing-manager review before schedule or post). SOP 9 is Author Outreach (contact list, tracker, personalized template). Re-check steps if the product UI has moved on.',
+    'SOP 1–10 are Ready for review. SOP 11+ are labeled Updates in progress (function playbooks from SOPS.txt plus operating tasks, Marketing through Legal). SOP 1 is Product Hunt Launch. SOP 2 Community Building covers clubs (as of August 12, 2026) and The Keeper’s Codex (v1.0 draft). SOP 3 Product Quality is the product quality checklist. SOP 4 is the Product Management Playbook (v1.0). SOP 5 is Blogs. SOP 6 is Brand Guidelines (original PDF plus Aura Library overlay; revamp in progress). SOP 7 is Merch (Canva, Printify, living mood board). SOP 8 is Official Social Media (restricted credentials, brand/proofread, Linear marketing-manager review before schedule or post). SOP 9 is Author Outreach (contact list, tracker, personalized template). SOP 10 is Writing a Project Charter (brief from Adam, draft before every answer, product-verified steps, he circulates). Re-check steps if the product UI has moved on.',
 }
 
 /** SOPs 1 through this number are ready for review; later numbers are still being updated. */
-export const SOP_READY_THROUGH = 9
+export const SOP_READY_THROUGH = 10
 
 export const SOP_REVIEW_STATUS = {
   ready: 'ready-for-review',
@@ -132,6 +135,7 @@ export const SOPS = [
   { ...MERCH_SOP, number: 7 },
   { ...SOCIAL_MEDIA_ACCESS_SOP, number: 8 },
   { ...AUTHOR_OUTREACH_SOP, number: 9 },
+  { ...WRITING_PROJECT_CHARTER_SOP, number: 10 },
   ...FUNCTION_SOPS,
 ]
 
@@ -139,6 +143,7 @@ export function resolveSopId(sopId) {
   return (
     COMMUNITY_BUILDING_ALIASES[sopId] ||
     PRODUCT_MANAGEMENT_PLAYBOOK_ALIASES[sopId] ||
+    WRITING_PROJECT_CHARTER_ALIASES[sopId] ||
     sopId
   )
 }

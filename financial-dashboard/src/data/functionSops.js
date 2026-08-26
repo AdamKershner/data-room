@@ -1,9 +1,9 @@
 /**
  * Function-tagged SOPs: department playbooks from SOPS.txt plus the
  * operating-task checklist (Marketing through Legal).
- * Numbered from SOP 10 onward in sopContent.js (SOP 1 Product Hunt, SOP 2 Community Building,
+ * Numbered from SOP 11 onward in sopContent.js (SOP 1 Product Hunt, SOP 2 Community Building,
  * SOP 3 Product Quality, SOP 4 Product Management Playbook, SOP 5 Blogs, SOP 6 Brand Guidelines,
- * SOP 7 Merch, SOP 8 Official Social Media, SOP 9 Author Outreach).
+ * SOP 7 Merch, SOP 8 Official Social Media, SOP 9 Author Outreach, SOP 10 Writing a Project Charter).
  */
 
 import {
@@ -14,6 +14,7 @@ import {
   TIME_LOG_TALLY_URL,
   TOOLS_ACCESS_TALLY_URL,
 } from '../constants/kahanaSite'
+import { NOTION_TEAM_DIRECTORY_APP_URL } from '../constants/notionTeamDirectory'
 
 export const FUNCTION_SOP_CATEGORIES = [
   'Marketing',
@@ -1564,6 +1565,187 @@ export const AUTHOR_OUTREACH_SOP = playbook({
   ],
 })
 
+export const WRITING_PROJECT_CHARTER_ALIASES = {
+  'creating-project-charters': 'writing-a-project-charter',
+}
+
+export const WRITING_PROJECT_CHARTER_SOP = playbook({
+  id: 'writing-a-project-charter',
+  title: 'Writing a Project Charter',
+  category: 'Project Management',
+  owner: 'Project Manager',
+  who: 'Whoever is running the project (project manager, intern, or team lead)',
+  when: 'At the outset of any project involving more than two or three people, before work begins.',
+  format: 'checklist',
+  description:
+    'Write the charter at the start and revise it as decisions land. Most of the work is establishing facts with the person commissioning the project (today: Adam), not polishing prose.',
+  keywords: [
+    'project charter',
+    'charter',
+    'project management',
+    'nithila',
+    'scope',
+    'sponsor',
+    'adam',
+    'brief',
+    'collaborators',
+    'kahana hq',
+    'directory',
+  ],
+  notes: [
+    'Aim for three to six pages. Write the full document, including sections you are still uncertain about.',
+    'Keep assumptions and risks in the final document. Removing them to look more confident hides problems participants could plan around.',
+    'Anticipate one or two review rounds. The first draft exists to be corrected. A project’s shape commonly changes once the stakeholder sees it written down; that is the charter working.',
+    'Complete the summary block last (owner, dates, participation). Those details change most.',
+    'As of August 26, 2026, Adam is the commissioning stakeholder. When another manager commissions a project, the same steps apply with that person in his place.',
+  ],
+  sections: [
+    {
+      id: 'brief',
+      title: '1. Receive the brief',
+      intro:
+        'A charter records what the project is, why it exists, what is expected of those taking part, and by when. It is produced at the start and revised as decisions are confirmed.',
+      steps: [
+        {
+          id: 'pc-receive',
+          text: 'New projects are generally raised by Adam in the weekly 1:1 or over Slack. Treat that first conversation as the main chance to establish what the project involves. Written follow-up is slower and less complete than asking while you have his attention.',
+        },
+      ],
+    },
+    {
+      id: 'capture',
+      title: '2. Capture what is said',
+      intro:
+        'Take notes as the project is described and leave them messy: incomplete sentences and fragments. Tidying during the conversation loses details. The stakeholder’s own account of why it matters is usually stronger than a rewritten version.',
+      steps: [
+        {
+          id: 'pc-verbatim',
+          text: 'Where a vivid line appears (for example a test of whether the company could absorb fifty new joiners tomorrow), record it verbatim. Lines like that carry more weight in the finished charter than a paragraph of reasoning.',
+        },
+        {
+          id: 'pc-listen',
+          text: 'Listen while the project is explained. Ask about anything you cannot picture clearly. Do not work through a questionnaire. More questions will surface once you start drafting.',
+        },
+        {
+          id: 'pc-checklist',
+          text: 'By the end of the conversation you should be able to state: purpose and what is in/out of scope; which teammates are involved and whether participation is expected or optional; timeline; deadline for the draft charter; when the final version is expected and when it goes out; what follows the project and how completion will be judged. Anything missing is a question for step 5, not something you invent.',
+        },
+      ],
+    },
+    {
+      id: 'first-draft',
+      title: '3. Draft before you have every answer',
+      steps: [
+        {
+          id: 'pc-partial',
+          text: 'Do not wait for complete information. A partial draft shows what is missing better than a list of questions, and stakeholders correct a draft faster than they fill a blank. Write the full document, including the sections you are uncertain about.',
+        },
+        {
+          id: 'pc-example',
+          text: 'Use the data-room Project Charter as structure (problem, scope, KPIs, risks) and as an example of a live Kahana charter, not as a fill-in-the-blank that replaces the conversation.',
+          href: '/project-charter',
+          hrefLabel: 'Project Charter (example)',
+        },
+      ],
+    },
+    {
+      id: 'product',
+      title: '4. Work the product and log questions',
+      steps: [
+        {
+          id: 'pc-walk',
+          text: 'Work through the relevant areas of Kahana as a participant would. Record each question as it occurs, with a proposed answer. Many questions only appear once drafting has started.',
+        },
+        {
+          id: 'pc-verify',
+          text: 'Verify every procedure against the product. If the charter asks people to follow a sequence, go to the site and follow that sequence yourself before writing it. Confirm each step exists and behaves as described. A procedure from memory will go stale; the reader cannot tell which part is wrong.',
+        },
+        {
+          id: 'pc-screenshots',
+          text: 'Take screenshots as you go and put them in the charter. An image of the button someone should click beats a paragraph of description. If order matters, annotate the screenshot so numbering matches the written steps.',
+        },
+      ],
+    },
+    {
+      id: 'questions',
+      title: '5. Put questions to Adam with proposed solutions',
+      steps: [
+        {
+          id: 'pc-batch',
+          text: 'Compile questions into one Slack message. Do not send them one by one. Group by decision and include your recommendation for each. A stakeholder answers a proposal faster than an open question. Where the decision is genuinely his, set out the options, then state your preference.',
+        },
+      ],
+    },
+    {
+      id: 'amend',
+      title: '6. Amend the charter and reread it in full',
+      steps: [
+        {
+          id: 'pc-reread',
+          text: 'Answers often move the timeline, sometimes a lot. When one element changes, reread the entire charter. Do not patch only the paragraph that was asked about. A phase that made sense in the original sequence may now overlap another; put that overlap in risks rather than leaving participants to discover it.',
+        },
+      ],
+    },
+    {
+      id: 'risks',
+      title: '7. Set out assumptions, risks, and responsibilities',
+      intro:
+        'Resolve open questions with Adam before the draft goes for review. What belongs at the end of the charter is different: what the project depends on, what could go wrong, and who is answerable.',
+      steps: [
+        {
+          id: 'pc-assumptions',
+          text: 'Assumptions and risks: record anything the project relies on that is not confirmed, plus anything foreseeable that could go wrong (optional participation leaving a function uncovered, overlapping phases, a window too short for the work). Stating a risk plainly is not pessimism. It stops someone discovering it halfway through.',
+        },
+        {
+          id: 'pc-raci',
+          text: 'Who does what: name the owner. State who is responsible for which part. If several people are involved, say who leads, how tasks split, and how often the group meets. A charter that names a phase but not a person leaves everyone assuming somebody else has it.',
+        },
+        {
+          id: 'pc-allocate',
+          text: 'If tasks need owners and the stakeholder has not named them, propose an allocation rather than leaving blanks. Open the Kahana HQ hub on Kahana, open the collaborator list, and use the names and emails shown there. Open a collaborator’s profile when you need more contact information. Adam can correct the allocation at review. A proposal he amends is more useful than a blank he has to fill.',
+        },
+        {
+          id: 'pc-directory',
+          text: 'For a more complete roster (function and job title), use the Notion team directory. Treat it as the fuller directory when the hub list is not enough to assign work.',
+          href: NOTION_TEAM_DIRECTORY_APP_URL,
+          hrefLabel: 'Notion team directory',
+        },
+      ],
+    },
+    {
+      id: 'submit',
+      title: '8–10. Review, revise, hand off for circulation',
+      steps: [
+        {
+          id: 'pc-submit',
+          text: 'Submit the complete draft to Adam for review. Note anything you assumed and anything still outstanding so he is reviewing with the same information you have.',
+        },
+        {
+          id: 'pc-revise',
+          text: 'Act on review comments. Make the changes and return the revised version. Expect more than one pass on a substantial project. Each round should shrink the open-items list, not leave it unchanged.',
+        },
+        {
+          id: 'pc-circulate',
+          text: 'Hand the charter to Adam for circulation. He sends it to the team. Before he does, confirm the document states how participants should raise changes and by when. If the project begins the next day, say so plainly so nobody assumes a review period that does not exist.',
+          href: '/sops/sending-project-charters',
+          hrefLabel: 'Sending Project Charters',
+        },
+        {
+          id: 'pc-linear',
+          text: 'Once approved, link the charter from the Linear project (description or first comment) so the work and the document stay in one place.',
+          href: LINEAR_WORKSPACE_URL,
+          hrefLabel: 'Linear (Kahana workspace)',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'The charter names an owner, dates for every phase, a purpose a reader outside the project can follow, what success looks like, and an accurate list of what remains unknown.',
+    'Assumptions and risks are still in the document. The summary block (owner, dates, participation) was filled last.',
+    'Adam has reviewed and approved it, and it has gone out to everyone taking part.',
+  ],
+})
+
 const TASKS = [
   task({
     id: 'linkedin-operating-rhythm',
@@ -2075,36 +2257,21 @@ const TASKS = [
     doneWhen: ['Ticket is closed or owned in Linear, and the user has a reply if they expected one.'],
   }),
   task({
-    id: 'creating-project-charters',
-    title: 'Creating Project Charters',
-    category: 'Project Management',
-    owner: 'Nithila',
-    who: 'Project Manager',
-    when: 'Before a sprint or workstream that will take more than a few days.',
-    description: 'Write a charter so the team shares problem, scope, and done-when.',
-    keywords: ['charter', 'nithila', 'scope'],
-    steps: [
-      {
-        text: 'Use the data-room Project Charter structure (problem, scope, KPIs, risks).',
-        href: '/project-charter',
-        hrefLabel: 'Project Charter',
-      },
-      'Name owner, timeline, and what is out of scope. Link Linear project or issues.',
-      'Keep it short enough that people will read it.',
-    ],
-    doneWhen: ['Charter is in the data room or shared doc and linked from Linear.'],
-  }),
-  task({
     id: 'sending-project-charters',
     title: 'Sending Project Charters to Team Members',
     category: 'Project Management',
     owner: 'Nithila',
     who: 'Project Manager',
     when: 'When the charter is approved to start.',
-    description: 'Make sure the people doing the work actually received the charter.',
+    description: 'Make sure the people doing the work actually received the charter (Adam circulates; you confirm).',
     keywords: ['charter', 'kickoff', 'slack'],
     steps: [
-      'Post the link in the relevant Slack channel and @ the owners.',
+      {
+        text: 'Write and get approval through SOP 10 first. Adam circulates the charter. Do not send it yourself unless he asked you to.',
+        href: '/sops/writing-a-project-charter',
+        hrefLabel: 'SOP 10: Writing a Project Charter',
+      },
+      'After he sends it: confirm the link is in the relevant Slack channel and @ the owners.',
       'Add it to the project’s Linear description or first comment.',
       'Confirm in the kickoff that everyone can open it (data-room gate / Kahana hub).',
     ],
@@ -2919,5 +3086,5 @@ const TASKS = [
 
 export const FUNCTION_SOPS = [...PLAYBOOKS, ...TASKS].map((sop, index) => ({
   ...sop,
-  number: 10 + index,
+  number: 11 + index,
 }))

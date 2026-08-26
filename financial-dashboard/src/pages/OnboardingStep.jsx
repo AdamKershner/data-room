@@ -454,7 +454,11 @@ function StepProjectCharter() {
         <Link to="/project-charter" className="onboarding-inline-link">
           Project Charter
         </Link>{' '}
-        checklist and marked the sections you&apos;ve read (aim for all 19 over your first week).
+        checklist and marked the sections you&apos;ve read (aim for all 19 over your first week). If you will write a charter, follow{' '}
+        <Link to="/sops/writing-a-project-charter" className="onboarding-inline-link">
+          SOP 10: Writing a Project Charter
+        </Link>
+        .
       </p>
 
       <p>
@@ -480,6 +484,9 @@ function StepProjectCharter() {
       <div className="onboarding-cta-row">
         <Link to="/project-charter" className="onboarding-cta-link">
           Open Project Charter →
+        </Link>
+        <Link to="/sops/writing-a-project-charter" className="onboarding-cta-link">
+          SOP 10: Writing a Project Charter →
         </Link>
         <Link to="/onboarding/sops" className="onboarding-cta-link">
           Phase 2: SOPs →

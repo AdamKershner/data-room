@@ -146,6 +146,11 @@ function ProjectCharterChecklist() {
           {PROJECT_CHARTER_META.subtitle}
         </p>
         <p className="onboarding-hint">
+          Writing a new charter? Follow{' '}
+          <Link to="/sops/writing-a-project-charter">SOP 10: Writing a Project Charter</Link>
+          . This page is the live Library Supply example.
+        </p>
+        <p className="onboarding-hint">
           <span className="onboarding-hint-item">☐ Mark read</span>
           <span className="onboarding-hint-item">→ Open a section</span>
         </p>
