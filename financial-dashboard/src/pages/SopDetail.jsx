@@ -36,7 +36,11 @@ function SopStepBody({ step }) {
   return (
     <>
       <p>{step.text}</p>
-      {step.template && <pre className="sop-template-block">{step.template}</pre>}
+      {step.template && (
+        <pre className={step.code ? 'sop-template-block sop-template-block--code' : 'sop-template-block'}>
+          {step.template}
+        </pre>
+      )}
       {step.href && <SopStepLink href={step.href} label={step.hrefLabel} />}
       {step.note && <p className="sop-step-note">{step.note}</p>}
     </>

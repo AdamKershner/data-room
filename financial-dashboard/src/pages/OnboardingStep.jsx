@@ -1190,7 +1190,11 @@ function StepToolsAccess() {
       <p>
         If you plan to contribute to technical development, use the form to share your preferred{' '}
         <strong>GitHub</strong> email. You&apos;ll get invited to the repos once your request is processed —
-        don&apos;t assume you have access until the invite arrives.
+        don&apos;t assume you have access until the invite arrives. Marketing website work is{' '}
+        <Link to="/sops/marketing-website" className="onboarding-inline-link">
+          SOP 13: Updating the Marketing Website
+        </Link>{' '}
+        (kahana-homepage-public), not the product app.
       </p>
 
       <div className="onboarding-note onboarding-note-help">
@@ -1277,6 +1281,14 @@ function StepSocialMedia() {
         brand check, proofread, and a marketing manager&apos;s Linear review first. See{' '}
         <Link to="/sops/official-social-media" className="onboarding-inline-link">
           SOP 8: Official Social Media
+        </Link>
+        . Product walkthroughs for YouTube follow{' '}
+        <Link to="/sops/creating-youtube-videos" className="onboarding-inline-link">
+          SOP 11: Creating YouTube Videos
+        </Link>
+        . Search, sitemaps, UTMs, and Mixpanel sign-up source follow{' '}
+        <Link to="/sops/seo" className="onboarding-inline-link">
+          SOP 12: SEO
         </Link>
         .
       </p>

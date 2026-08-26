@@ -26,9 +26,31 @@ export const LINEAR_WORKSPACE_URL = 'https://linear.app/kahana'
 export const MIXPANEL_URL =
   'https://mixpanel.com/project/4042294/view/4538547/app/home'
 
-/** Creator & influencer outreach pipeline — profiles, links, and outreach notes. */
+/** Public marketing site repo (kahana.io / about.kahana.io). Not kahana-web. */
+export const MARKETING_SITE_REPO_URL =
+  'https://github.com/Kahana-LLC/kahana-homepage-public'
+
+/** Google Search Console — kahana.io domain property (impressions, clicks, sitemaps, indexing). */
+export const GOOGLE_SEARCH_CONSOLE_URL =
+  'https://search.google.com/search-console?utm_source=about-page&resource_id=sc-domain:kahana.io'
+
+/** Creator database — Influencer & Creator Profiles (Instagram, YouTube, TikTok, Other Link, Email, Notes, plus SOP 16 outreach columns). */
 export const CREATOR_OUTREACH_SHEET_URL =
   'https://docs.google.com/spreadsheets/d/1_QF9SAQR-P0VU78MmVg1XjVpGhltqfWqRlANc4W8sXE/edit?gid=0#gid=0'
+
+/** Latest product demo linked in creator outreach (SOP 16). Swap when SOP 11 ships a newer cut. */
+export const CREATOR_OUTREACH_DEMO_VIDEO_URL = 'https://youtu.be/YUKRcYzdAm4'
+
+/** Past creator collab used as outreach proof (SOP 16). */
+export const AMY_WANG_HUB_URL = 'https://kahana.io/hub/UMKtgp76MN1MvZuD6p7W'
+export const AMY_WANG_YOUTUBE_URL = 'https://www.youtube.com/@wamyy5'
+export const AMY_WANG_HUB_TITLE =
+  'The Ultimate Guide to getting Internship/Research Opportunities'
+export const CREATOR_OUTREACH_HUB_PROOF_DEFAULT =
+  'Amy Wang’s hub The Ultimate Guide to getting Internship/Research Opportunities (https://kahana.io/hub/UMKtgp76MN1MvZuD6p7W)'
+
+/** Google Chat — used to check whether a guessed Gmail is a real Google account. */
+export const GOOGLE_CHAT_URL = 'https://chat.google.com/app/home'
 
 /** Weekly time log — Tally form submitted every Friday EOD by all teammates. */
 export const TIME_LOG_TALLY_URL = 'https://tally.so/r/w2YdzL'

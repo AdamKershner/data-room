@@ -1,20 +1,31 @@
 /**
  * Function-tagged SOPs: department playbooks from SOPS.txt plus the
  * operating-task checklist (Marketing through Legal).
- * Numbered from SOP 11 onward in sopContent.js (SOP 1 Product Hunt, SOP 2 Community Building,
+ * Numbered from SOP 17 onward in sopContent.js (SOP 1 Product Hunt, SOP 2 Community Building,
  * SOP 3 Product Quality, SOP 4 Product Management Playbook, SOP 5 Blogs, SOP 6 Brand Guidelines,
- * SOP 7 Merch, SOP 8 Official Social Media, SOP 9 Author Outreach, SOP 10 Writing a Project Charter).
+ * SOP 7 Merch, SOP 8 Official Social Media, SOP 9 Author Outreach, SOP 10 Writing a Project Charter,
+ * SOP 11 Creating YouTube Videos, SOP 12 SEO, SOP 13 Updating the Marketing Website,
+ * SOP 14 Third-Party News and PR, SOP 15 Creator Prospecting, SOP 16 Creator Outreach).
  */
 
 import {
+  ADAM_CALENDLY_URL,
+  AMY_WANG_HUB_URL,
+  AMY_WANG_YOUTUBE_URL,
+  CREATOR_OUTREACH_DEMO_VIDEO_URL,
   CREATOR_OUTREACH_SHEET_URL,
+  GOOGLE_CHAT_URL,
+  GOOGLE_SEARCH_CONSOLE_URL,
+  KAHANA_LIBRARY_URL,
   KAHANA_SITE_URL,
   LINEAR_WORKSPACE_URL,
+  MARKETING_SITE_REPO_URL,
   MIXPANEL_URL,
   TIME_LOG_TALLY_URL,
   TOOLS_ACCESS_TALLY_URL,
 } from '../constants/kahanaSite'
 import { NOTION_TEAM_DIRECTORY_APP_URL } from '../constants/notionTeamDirectory'
+import { CREATOR_OUTREACH_APPS_SCRIPT } from './creatorOutreachAppsScript'
 
 export const FUNCTION_SOP_CATEGORIES = [
   'Marketing',
@@ -77,6 +88,85 @@ const SOCIAL_ACCOUNTS_CREDENTIALS_DOC =
 const IMPROVE_SURVEY = 'https://kahana.io/survey/improve?source=support_panel'
 const SUPPORT_PAGE = 'https://kahana.io/support'
 const CONTACT_PAGE = 'https://kahana.io/contact'
+const SCREEN_STUDIO_URL = 'https://www.screen.studio/'
+const KAHANA_YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@kahanaHQ'
+const FEATURE_VIDEO_EXAMPLE_URL = 'https://youtu.be/YUKRcYzdAm4'
+const KAHANA_ABOUT_BLOG_URL = 'https://about.kahana.io/blog'
+const KAHANA_HELP_CENTER_URL = 'https://help.kahana.io'
+const YOUTUBE_DESCRIPTION_TEMPLATE = `What this video is for (one sentence).
+
+Chapters
+0:00 Intro
+0:20 [First beat]
+1:10 [Second beat]
+
+Try it on Kahana: https://kahana.io/?utm_source=youtube&utm_medium=video&utm_campaign=[slug]
+
+Help: https://kahana.io/support
+Blog: https://about.kahana.io/blog
+
+#Kahana #AuraLibrary`
+const EXPLODING_TOPICS_URL = 'https://explodingtopics.com/'
+const GOOGLE_TRENDS_URL = 'https://trends.google.com/trends/'
+const UTM_LINK_TEMPLATE = `https://kahana.io/?utm_source=[channel]&utm_medium=[medium]&utm_campaign=[slug]
+
+Examples
+YouTube: utm_source=youtube&utm_medium=video&utm_campaign=[slug]
+Instagram: utm_source=instagram&utm_medium=social&utm_campaign=[slug]
+LinkedIn: utm_source=linkedin&utm_medium=social&utm_campaign=[slug]
+X: utm_source=x&utm_medium=social&utm_campaign=[slug]
+TikTok: utm_source=tiktok&utm_medium=social&utm_campaign=[slug]
+Blog CTA: utm_source=blog&utm_medium=content&utm_campaign=[slug]
+Press / coverage CTA: utm_source=press&utm_medium=referral&utm_campaign=[outlet-slug]`
+const PR_PITCH_TEMPLATE = `Hi [Name],
+
+I'm [YOUR NAME] at Kahana (AKA "The Aura Library"), a digital library and book/video club platform.
+
+[One-sentence scoop: what happened, why it matters now, who it is for.]
+
+You recently covered [their article or beat]. This is a fit because [one specific reason tied to that beat].
+
+Happy to share a short demo, a founder quote, or product screens if useful: https://kahana.io/?utm_source=press&utm_medium=referral&utm_campaign=[outlet-slug]
+
+Best,
+[YOUR NAME]`
+const CREATOR_OUTREACH_EMAIL_TEMPLATE = `Hi [First Name],
+
+[One or two sentences that are only true of this creator's work. Name a video, series, or post. Do not write "I love your content."]
+
+I'm [YOUR NAME] at Kahana (AKA "The Aura Library"), a digital library and book/video club platform. Creators host hubs of their work, run clubs around them, and get discovered through Aura (a daily recognition signal). Kahana sits alongside the platforms you already post on; it is not a replacement for TikTok, Instagram, or YouTube.
+
+What Kahana is: https://about.kahana.io/?utm_source=email&utm_medium=creator_outreach&utm_campaign=collab
+The product: https://kahana.io/?utm_source=email&utm_medium=creator_outreach&utm_campaign=collab
+
+Creators already have hubs live on Kahana, including Amy Wang’s The Ultimate Guide to getting Internship/Research Opportunities (https://kahana.io/hub/UMKtgp76MN1MvZuD6p7W) [and a second live hub if Marketing Lead named one].
+
+Here is a short demo of how a hub looks: [current YouTube demo URL]
+
+If we collaborate, we white-glove the hub with you. You tell us your vision. You create a Kahana account, start a hub, and invite our team as collaborators. We migrate your content and build the hub privately. You review it. When it matches what you wanted, you publish it to the library. Then you can add it to your link in bio or Linktree and let your audience know.
+
+As part of the collab we also give you a complimentary Growth plan (large files and unlimited hubs), a success story on our blog and official social (only with your say-so), and featured placement in the library, including featured collections.
+
+If you are open to it, grab a time here: [calendar URL]
+
+Best,
+[YOUR NAME]`
+const CREATOR_OUTREACH_DM_TEMPLATE = `Collab?
+
+[One or two sentences only true of this creator's work.]
+
+I'm [YOUR NAME] at Kahana (AKA "The Aura Library"): a digital library and book/video club platform. Aura is how work gets discovered. We sit alongside TikTok, Instagram, and YouTube; we are not a replacement.
+
+Story: https://about.kahana.io/?utm_source=[instagram/tiktok/youtube]&utm_medium=dm&utm_campaign=collab
+Product: https://kahana.io/?utm_source=[instagram/tiktok/youtube]&utm_medium=dm&utm_campaign=collab
+Live hubs: Amy Wang — The Ultimate Guide to getting Internship/Research Opportunities (https://kahana.io/hub/UMKtgp76MN1MvZuD6p7W)
+Demo: [current YouTube demo URL]
+
+If we collab: you share the vision, make a Kahana account, start a hub, and invite us as collaborators. We migrate content and build it privately. You review, then publish it to the library and put it in your link in bio / Linktree.
+
+Collab partners also get a complimentary Growth plan (large files, unlimited hubs), a success story on our blog and social if you want it, and featured library placement (including featured collections).
+
+If you are open: [calendar URL]`
 
 function stepsFrom(items) {
   return items.map((item) => (typeof item === 'string' ? { text: item } : item))
@@ -160,7 +250,7 @@ const PLAYBOOKS = [
         title: 'Purpose and scope',
         steps: [
           'Purpose: identify opportunities, execute campaigns, measure results, and decide what to continue, change, or stop.',
-          'Scope includes strategy, market and competitor research, content and blogs, SEO, campaigns, creator partnerships, retargeting, analytics, and campaign reporting.',
+          'Scope includes strategy, market and competitor research, content and blogs, SEO, campaigns, creator partnerships, third-party PR, retargeting, analytics, and campaign reporting.',
         ],
       },
       {
@@ -175,6 +265,11 @@ const PLAYBOOKS = [
         title: 'Step 2 — Conduct market research',
         steps: [
           'Cover competitors, similar platforms, industry and content trends, user behavior, creator trends, relevant communities, and emerging opportunities. File notes in the campaign brief.',
+          {
+            text: 'For search topics, run keyword research in SOP 12 (Exploding Topics, Google Trends, suggested and related searches). File a primary keyword plus secondaries in the brief before you draft.',
+            href: '/sops/seo',
+            hrefLabel: 'SOP 12: SEO',
+          },
         ],
       },
       {
@@ -197,6 +292,16 @@ const PLAYBOOKS = [
         title: 'Step 5 — Creator and influencer partnerships',
         steps: [
           'Identify the creator, check audience relevance and engagement, define the opportunity, outreach, agree deliverables, get required approvals, execute, track results, and document learning.',
+          {
+            text: 'Prospecting (TikTok, Instagram, YouTube → creator database → contact) is SOP 15. The collab email (Apps Script from the same sheet) is SOP 16. Do not pitch a creator who is not in the database.',
+            href: '/sops/creator-prospecting',
+            hrefLabel: 'SOP 15: Creator Prospecting',
+          },
+          {
+            text: 'Send Collab? from the creator database (email via Apps Script, or Instagram / TikTok / YouTube DM when that is the path they published). First Name and Acknowledgment still required.',
+            href: '/sops/creator-outreach',
+            hrefLabel: 'SOP 16: Creator Outreach',
+          },
         ],
       },
       {
@@ -204,6 +309,11 @@ const PLAYBOOKS = [
         title: 'Step 6 — Measure performance',
         steps: [
           'Track new and returning users, traffic, engagement, conversion, campaign performance, acquisition source, and content performance. Prefer Mixpanel product events over vanity impressions.',
+          {
+            text: 'Measure search in Google Search Console (impressions and clicks), social in each platform’s analytics section, and sign-up source in Mixpanel (UTMs plus initial referring domain). SOP 12 is the playbook.',
+            href: '/sops/seo',
+            hrefLabel: 'SOP 12: SEO',
+          },
         ],
       },
       {
@@ -357,7 +467,7 @@ const PLAYBOOKS = [
         title: 'Deployment',
         steps: [
           'Before production: code reviewed, tests and QA done, dependencies known, deploy owner assigned, rollback confirmed.',
-          'Then Deploy → Monitor → Validate → Document. Staging (heroku-beta / curio-beta) before product prod (heroku-alpha) unless the change is docs-only.',
+          'Then Deploy → Monitor → Validate → Document. Staging (heroku-beta / curio-beta) before product prod (heroku-alpha) unless the change is docs-only. Marketing site (kahana-public) is SOP 13: Adam or an engineering manager deploys after Linear In Review and quality review. Never push kahana-web to kahana-public.',
         ],
       },
       {
@@ -753,7 +863,7 @@ export const BLOG_PUBLISHING_SOP = playbook({
   category: 'Marketing',
   owner: 'Marketing Lead',
   who: 'Anyone writing for kahana.io/blog (Marketing, plus Product or Community when they have a story)',
-  when: 'Per content calendar, after a ship or success story, or when a landscape comparison would help a creator or viewer choose a stack.',
+  when: 'Per content calendar, after a ship on the Linear board, after a success story, or when a landscape comparison would help a creator or viewer choose a stack.',
   description:
     'Write blogs that compare and educate: Kahana with the platforms creators, content, and viewers already use, plus success stories, use-case guides, and practical help. Research on Company Landscape and Market Map. Ship via marketing-site code, Slack to Adam, or the KahanaHQ hub.',
   keywords: [
@@ -770,11 +880,14 @@ export const BLOG_PUBLISHING_SOP = playbook({
     'kahana hq',
     'sitemap',
     'search console',
+    'linear',
+    'shipped',
   ],
   notes: [
+    'Completed Linear issues (Done) are inputs for new posts, same as for YouTube and official social.',
     'Ideal blogs compare and educate. Show how Kahana works with YouTube, Discord, Substack, Patreon, Teachable, Goodreads, and the rest of the landscape, not as a silent replacement.',
     'SEO bar: no em dashes, proofread before anyone else sees it, and include source links. A YouTube video embedded in the post is a plus.',
-    'The live blog URL should appear in the sitemap. Update the sitemap and submit it in Google Search Console if you want to expedite SEO.',
+    'The live blog URL should appear in the sitemap. Update the sitemap and request indexing in Google Search Console (SOP 12) if you want to expedite SEO.',
     'Kahana (AKA "The Aura Library"). Aura is the discovery signal, not the product name.',
   ],
   sections: [
@@ -785,6 +898,11 @@ export const BLOG_PUBLISHING_SOP = playbook({
         'A blog earns a publish when a creator, club host, or viewer can do something clearer afterward: pick a stack, try a workflow, or trust a story.',
       steps: [
         'Write Topic, Audience, and Objective before the draft. Audience is usually creators, club hosts, or people who already watch/read/listen somewhere else.',
+        {
+          text: 'Check the Linear board for features and updates that are completed (Done). Those ships are inputs for new blogs, YouTube videos (SOP 11), and official social posts (SOP 8). Walk the live product before you write.',
+          href: LINEAR_WORKSPACE_URL,
+          hrefLabel: 'Linear (Kahana workspace)',
+        },
         'Check the quality bar before you draft. Level A (accurate, no PII, working links) is the floor. Level B needs a point of view plus one proof. Level C is flagship narrative.',
         {
           text: 'Open Content Guidelines if you are unsure whether this is public, draft, or internal-only.',
@@ -828,7 +946,7 @@ export const BLOG_PUBLISHING_SOP = playbook({
         'Use-case guide: a click-by-click or week-by-week workflow (start a book club, add a YouTube curriculum, pin a hub in Discord, run a course discussion alongside Teachable).',
         'Tips, recommendations, and help: practical answers (wishlist vs focus title, Aura vs a like, invite links, how to talk about Kahana next to Patreon or Substack). Point at in-app help when it already exists.',
         {
-          text: 'File raw inputs (ships, testimonials, CS stories) so blogs are not invented from memory. Customer-named stories need permission before they go public.',
+          text: 'File raw inputs so blogs are not invented from memory: Linear Done issues, ships, testimonials, CS stories. Customer-named stories need permission before they go public.',
           href: '/sops/marketing-inputs',
           hrefLabel: 'Inputs for Marketing',
         },
@@ -847,7 +965,7 @@ export const BLOG_PUBLISHING_SOP = playbook({
           href: '/kahana-narrative',
           hrefLabel: 'Kahana Story',
         },
-        'End with a tandem flow the reader can copy this week, plus a CTA to kahana.io (Library, a relevant hub, or sign-up) with UTM if this is a campaign.',
+        'End with a tandem flow the reader can copy this week, plus a CTA to kahana.io (Library, a relevant hub, or sign-up) with UTM parameters so Mixpanel can attribute sign-ups (SOP 12).',
       ],
     },
     {
@@ -859,9 +977,14 @@ export const BLOG_PUBLISHING_SOP = playbook({
         'Include source links: Company Landscape research sources, the platform’s own docs or pricing page, and Kahana product pages you mention. Make claims checkable.',
         'Title and meta description match the live page. No keyword stuffing. First screen states who it is for and the job.',
         {
-          text: 'The live blog URL should appear in the sitemap. After publish, update the sitemap and submit it in Google Search Console if you want to expedite SEO.',
-          href: '/sops/seo-sitemap',
-          hrefLabel: 'SEO / Sitemap',
+          text: 'Form a keyword cluster before you lock the title: one primary keyword plus secondaries from Exploding Topics, Google Trends, and Google/YouTube suggested and related searches. SOP 12 is the research playbook. Put the primary in the title and H1; cover secondaries in headings and body. Do not stuff.',
+          href: '/sops/seo',
+          hrefLabel: 'SOP 12: SEO',
+        },
+        {
+          text: 'The live blog URL should appear in the sitemap. After publish, update the sitemap and request indexing in Google Search Console if you want to expedite SEO.',
+          href: '/sops/seo',
+          hrefLabel: 'SOP 12: SEO',
         },
         'Legal review if you mention pricing, user counts, fundraising, medical/financial claims, or someone else’s IP or likeness.',
       ],
@@ -872,8 +995,8 @@ export const BLOG_PUBLISHING_SOP = playbook({
       steps: [
         {
           text: 'When the post teaches a workflow, record a YouTube video (job-to-be-done, product on screen, chapters, UTM in the description) and embed it near the top of the blog.',
-          href: '/sops/youtube-publishing',
-          hrefLabel: 'YouTube SOP',
+          href: '/sops/creating-youtube-videos',
+          hrefLabel: 'SOP 11: Creating YouTube Videos',
         },
         {
           text: 'Publish on the Kahana HQ YouTube channel, then paste the embed so watch time stays on YouTube.',
@@ -889,14 +1012,14 @@ export const BLOG_PUBLISHING_SOP = playbook({
       intro: 'Pick one path. Do not leave a finished draft only on your laptop.',
       steps: [
         {
-          text: 'Path A: contribute directly. Request tools access and say you will contribute to website/code (GitHub email). Edit the marketing site repo, not kahana-web, and never deploy to kahana-public from the product app.',
+          text: 'Path A: contribute directly. Request tools access and say you will contribute to website/code (GitHub email). Edit kahana-homepage-public, not kahana-web, and never deploy to kahana-public from the product app. SOP 13 is the ship path (Linear card, local test, In Review, Adam or EM deploys).',
           href: TOOLS_ACCESS_TALLY_URL,
           hrefLabel: 'Get access to tools and data',
         },
         {
-          text: 'Follow the Marketing Website SOP for the homepage/blog repo, local preview, and deploy.',
+          text: 'Follow SOP 13 for the homepage/blog repo, Linear tracking, local preview, quality review, and Heroku deploy.',
           href: '/sops/marketing-website',
-          hrefLabel: 'Marketing Website',
+          hrefLabel: 'SOP 13: Updating the Marketing Website',
         },
         'Path B: send the draft to Adam Kershner on Slack (title, audience, live outline or Google Doc, sources, and any video).',
         'Path C: upload the draft into the KahanaHQ hub, section Marketing > Blogs (blog drafts). Keep filename or title clear: date, topic, status (draft / review / ready).',
@@ -913,9 +1036,9 @@ export const BLOG_PUBLISHING_SOP = playbook({
           hrefLabel: 'kahana.io/blog',
         },
         {
-          text: 'Confirm the new post is in the sitemap. Update the sitemap if it is missing, then submit the sitemap in Google Search Console to expedite indexing.',
-          href: '/sops/seo-sitemap',
-          hrefLabel: 'SEO / Sitemap',
+          text: 'Confirm the new post is in the sitemap. Update the sitemap if it is missing, then submit the sitemap and request indexing in Google Search Console (SOP 12).',
+          href: '/sops/seo',
+          hrefLabel: 'SOP 12: SEO',
         },
         {
           text: 'Promote on LinkedIn, Instagram, newsletter, and Slack for teammate engagement. Category 2 LinkedIn posters can reshare from personal profiles. Official Kahana-account posts go through SOP 8 first.',
@@ -923,7 +1046,7 @@ export const BLOG_PUBLISHING_SOP = playbook({
           hrefLabel: 'SOP 8: Official Social Media',
         },
         {
-          text: 'Measure traffic and sign-ups (Mixpanel where the CTA hits the product). Note what to reuse in the monthly marketing report.',
+          text: 'Measure search in Google Search Console (impressions and clicks on the post URL) and sign-ups in Mixpanel (UTM campaign plus initial referring domain). Note what to reuse in the monthly marketing report.',
           href: MIXPANEL_URL,
           hrefLabel: 'Mixpanel Kahana project',
         },
@@ -935,7 +1058,7 @@ export const BLOG_PUBLISHING_SOP = playbook({
     'A reader can see how Kahana is used with at least one real platform, not only instead of one.',
     'The draft was proofread, has no em dashes, and includes source links. A YouTube embed is live or explicitly deferred.',
     'The draft left the laptop: marketing-site PR, Slack to Adam, or KahanaHQ hub Marketing > Blogs.',
-    'The live URL is in the sitemap. Sitemap was updated and submitted in Google Search Console when you wanted to expedite SEO.',
+    'The live URL is in the sitemap. Sitemap was updated and indexing was requested in Google Search Console (SOP 12) when you wanted to expedite SEO.',
     'Live URL, promotion, and a measurement note exist in the monthly marketing report.',
   ],
 })
@@ -1312,9 +1435,12 @@ export const SOCIAL_MEDIA_ACCESS_SOP = playbook({
     'linear review',
     'marketing manager',
     'brand check',
+    'linear board',
+    'shipped',
   ],
   notes: [
     'Login and password live only in a restricted Google Doc. Request access before opening it. Do not paste credentials into Slack, Linear, email, screenshots, or this data room.',
+    'Completed Linear issues (Done) are inputs for what to post. Access is not a topic list.',
     'Personal teammate LinkedIn (Category 1 / 2) is a different SOP. This SOP is official Kahana-owned accounts only.',
   ],
   sections: [
@@ -1351,6 +1477,26 @@ export const SOCIAL_MEDIA_ACCESS_SOP = playbook({
       ],
     },
     {
+      id: 'inputs',
+      title: 'Choose what to post',
+      intro:
+        'Official posts should come from something that actually shipped or a real audience question, not a blank calendar slot.',
+      steps: [
+        {
+          id: 'social-linear',
+          text: 'Check the Linear board for features and updates that are completed (Done). Those ships are inputs for new official posts, blogs (SOP 5), and YouTube videos (SOP 11). Confirm the UI is live before you announce it.',
+          href: LINEAR_WORKSPACE_URL,
+          hrefLabel: 'Linear (Kahana workspace)',
+        },
+        {
+          id: 'social-keywords',
+          text: 'If the post is built around a topic (not only a ship), pull a keyword cluster from SOP 12 so the caption and on-screen text match how people search.',
+          href: '/sops/seo',
+          hrefLabel: 'SOP 12: SEO',
+        },
+      ],
+    },
+    {
       id: 'quality-gate',
       title: 'Before you post (quality gate)',
       intro:
@@ -1369,6 +1515,13 @@ export const SOCIAL_MEDIA_ACCESS_SOP = playbook({
         {
           id: 'social-no-raw-ai',
           text: 'Do not paste AI-generated copy or images straight to an official account. People notice. AI is fine for a portion (outline, alt-text draft, crop ideas) if a human rewrites, fact-checks, and brand-checks before review.',
+        },
+        {
+          id: 'social-utm',
+          text: 'Any kahana.io link in the caption, bio, or sticker gets UTM parameters (source = this channel, medium = social, campaign = post slug) so Mixpanel can attribute new sign-ups. SOP 12 has the template.',
+          href: '/sops/seo',
+          hrefLabel: 'SOP 12: SEO',
+          template: UTM_LINK_TEMPLATE,
         },
         {
           id: 'social-linear-review',
@@ -1394,15 +1547,39 @@ export const SOCIAL_MEDIA_ACCESS_SOP = playbook({
         },
         {
           id: 'social-yt',
-          text: 'YouTube uploads to @kahanaHQ still follow the YouTube SOP after this gate.',
-          href: '/sops/youtube-publishing',
-          hrefLabel: 'YouTube SOP',
+          text: 'YouTube uploads to @kahanaHQ still follow SOP 11 after this gate (Screen Studio, thumbnail, title/description/timestamps, then this SOP for channel access).',
+          href: '/sops/creating-youtube-videos',
+          hrefLabel: 'SOP 11: Creating YouTube Videos',
         },
         {
           id: 'social-blogs',
           text: 'If the post is promoting a blog, the article itself still ships through SOP 5. This SOP is only the official social post.',
           href: '/sops/blog-publishing',
           hrefLabel: 'SOP 5: Blogs',
+        },
+        {
+          id: 'social-pr',
+          text: 'If the post is amplifying third-party coverage, the pitch and logging still follow SOP 14. This SOP is only the official social post.',
+          href: '/sops/pr-news',
+          hrefLabel: 'SOP 14: Third-Party News and PR',
+        },
+      ],
+    },
+    {
+      id: 'measure',
+      title: 'Measure after you post',
+      intro:
+        'Channel analytics tell you if the post was seen. Mixpanel tells you if anyone signed up.',
+      steps: [
+        {
+          id: 'social-native-analytics',
+          text: 'Open the analytics section of the platform you posted on (YouTube Studio, Instagram Insights, LinkedIn Page analytics, X Analytics, TikTok Analytics). Note impressions, clicks or profile visits, and anything worth repeating.',
+        },
+        {
+          id: 'social-mixpanel',
+          text: 'In Mixpanel, check new sign-ups against this campaign’s UTM and the initial referring domain. A spike in youtube.com or linkedin.com with no matching UTM means a link went out untagged.',
+          href: MIXPANEL_URL,
+          hrefLabel: 'Mixpanel Kahana project',
         },
       ],
     },
@@ -1412,6 +1589,7 @@ export const SOCIAL_MEDIA_ACCESS_SOP = playbook({
     'The post was brand-checked (SOP 6), proofread, and not raw AI output.',
     'A marketing design was attached in Linear and a marketing manager approved quality review.',
     'Only then was the post scheduled or published from the official Kahana account.',
+    'kahana.io links in the post used UTM parameters. Native analytics and Mixpanel (referring domain / UTM) were checked after publish.',
   ],
 })
 
@@ -1498,8 +1676,8 @@ export const AUTHOR_OUTREACH_SOP = playbook({
         {
           id: 'ao-demo',
           text: 'Adam records the product demo (elevator pitch + screenshare). Get a real YouTube URL before you send. Do not leave “[INSERT YOUTUBE VIDEO LINK]” or “[YouTube demo link]” in the email. If the video is not ready, ask Adam and wait, or send without a demo line rather than a broken placeholder.',
-          href: '/sops/youtube-publishing',
-          hrefLabel: 'YouTube SOP',
+          href: '/sops/creating-youtube-videos',
+          hrefLabel: 'SOP 11: Creating YouTube Videos',
         },
         {
           id: 'ao-proofread',
@@ -1746,6 +1924,1109 @@ export const WRITING_PROJECT_CHARTER_SOP = playbook({
   ],
 })
 
+export const CREATING_YOUTUBE_VIDEOS_ALIASES = {
+  'use-case-feature-videos': 'creating-youtube-videos',
+  'youtube-publishing': 'creating-youtube-videos',
+}
+
+export const CREATING_YOUTUBE_VIDEOS_SOP = playbook({
+  id: 'creating-youtube-videos',
+  title: 'Creating YouTube Videos',
+  category: 'Marketing',
+  owner: 'Marketing Lead',
+  who: 'Anyone recording Kahana product videos (Marketing, Product, or a teammate with Screen Studio)',
+  when: 'After a ship on the Linear board, when a use case or feature needs a walkthrough, when the same question keeps arriving through contact or support, or when a blog or Help Center article has no video.',
+  format: 'checklist',
+  description:
+    'Record Kahana use-case, feature, and tutorial videos in Screen Studio. Cut pauses, add music, make a demo thumbnail, then package title, description, tags, hashtags, and timestamps for YouTube.',
+  keywords: [
+    'youtube',
+    'video',
+    'screen studio',
+    'use case',
+    'feature',
+    'tutorial',
+    'thumbnail',
+    'demo',
+    'rashmi',
+    'kahana hq',
+    'linear',
+    'shipped',
+  ],
+  notes: [
+    'Screen Studio is the capture tool. Slack Adam Kershner to request access. Do not buy a license on your own.',
+    'Write an outline of the points you must cover. Do not read a script on camera. The outline is a checklist, not a teleprompter.',
+    'YouTube titles, descriptions, tags, and on-screen text follow the same public-copy bar as blogs: no em dashes, proofread, Kahana AKA “The Aura Library,” Aura is the discovery signal.',
+    'Official @kahanaHQ login is restricted (SOP 8). If you do not have channel access, zip the finished file and send it to Adam on Slack.',
+  ],
+  sections: [
+    {
+      id: 'inputs',
+      title: '1. Pick the job from a real input',
+      intro:
+        'A video earns a slot when it answers a question, walks a use case, or shows a feature that is Done on the Linear board. Do not start from a blank “we should make content” list.',
+      steps: [
+        {
+          id: 'yt-linear',
+          text: 'Check the Linear board for features and updates that are completed (Done). Those ships are inputs for new YouTube videos, blogs (SOP 5), and official social posts (SOP 8). Confirm the UI path still exists on production before you record.',
+          href: LINEAR_WORKSPACE_URL,
+          hrefLabel: 'Linear (Kahana workspace)',
+        },
+        {
+          id: 'yt-questions',
+          text: 'Scan questions from users and customers. Contact and support forms are the first input. Repeat questions (how do I start a club, where does Aura show up, how do I add a YouTube video) are better topics than a feature dump.',
+          href: CONTACT_PAGE,
+          hrefLabel: 'kahana.io/contact',
+        },
+        {
+          id: 'yt-support',
+          text: 'Read open tickets and support threads for the same patterns. If several people asked it, the video should answer it on screen.',
+          href: SUPPORT_PAGE,
+          hrefLabel: 'kahana.io/support',
+        },
+        {
+          id: 'yt-use-cases',
+          text: 'Overview a key use case we are introducing (book club, video club, hub as library, Aura as discovery). Name the user and the job in one sentence before you open Screen Studio.',
+        },
+        {
+          id: 'yt-features',
+          text: 'Overview a key feature from a completed Linear issue. Product confirms the UI path still exists. Record on production or a clean staging hub. No secrets, no other users’ PII on screen.',
+        },
+        {
+          id: 'yt-blog-gaps',
+          text: 'Scan the blog. Any post without a video is a candidate for an accompanying walkthrough. Embed it after publish (SOP 5).',
+          href: KAHANA_ABOUT_BLOG_URL,
+          hrefLabel: 'Kahana Blog',
+        },
+        {
+          id: 'yt-help-gaps',
+          text: 'Scan the Help Center. Any article without a video is the same opportunity: record the steps in the product, then attach or embed the YouTube link on that doc.',
+          href: KAHANA_HELP_CENTER_URL,
+          hrefLabel: 'Kahana Help Center',
+        },
+      ],
+    },
+    {
+      id: 'outline',
+      title: '2. Outline the beats (do not read a script)',
+      steps: [
+        {
+          id: 'yt-outline',
+          text: 'Write a short outline: hook, the job, the clicks you will show, what success looks like, CTA. Keep it to the points you must cover so you do not ramble or skip the important ones.',
+        },
+        {
+          id: 'yt-no-script',
+          text: 'Do not read the outline on camera. Talk to the viewer while you drive the product. If you freeze, pause, then pick up. Pauses get cut in Screen Studio.',
+        },
+        {
+          id: 'yt-together',
+          text: 'If another platform is on screen (YouTube, Discord, Substack), say how Kahana is used with it, not instead of it. Kahana is the club and library layer.',
+        },
+      ],
+    },
+    {
+      id: 'record',
+      title: '3. Record in Screen Studio',
+      steps: [
+        {
+          id: 'yt-access',
+          text: 'If you do not have Screen Studio, Slack Adam Kershner and request access. Wait for the license. Do not screenshot a teammate’s install or share a login.',
+          href: SCREEN_STUDIO_URL,
+          hrefLabel: 'Screen Studio',
+        },
+        {
+          id: 'yt-example',
+          text: 'Watch a short Kahana example before your first recording so the pacing is clear: product on screen, tight cuts, demo not a slide deck. Rashmi Kadwani’s walkthrough is the bar for a quick feature video.',
+          href: FEATURE_VIDEO_EXAMPLE_URL,
+          hrefLabel: 'Example (Rashmi Kadwani)',
+        },
+        {
+          id: 'yt-capture',
+          text: 'Record the real product. Zoom to the control the viewer must click. Cursor and face cam are fine; slides-only is not. Follow the outline so every promised beat is on tape.',
+        },
+      ],
+    },
+    {
+      id: 'edit',
+      title: '4. Edit: cut pauses, overlay music',
+      steps: [
+        {
+          id: 'yt-pauses',
+          text: 'In Screen Studio, remove the dead air: long pauses, “um,” retries, and the stretch while a page loads. The cut should feel like one clean pass.',
+        },
+        {
+          id: 'yt-music',
+          text: 'Overlay music in Screen Studio. Keep it under the voice. No lyric bed that fights the walkthrough. Export the master you will upload.',
+        },
+      ],
+    },
+    {
+      id: 'thumbnail',
+      title: '5. Make a demo thumbnail',
+      intro:
+        'The thumbnail has to say “this is a product demo” before the title loads. A text-only card or a stock photo fails that test.',
+      steps: [
+        {
+          id: 'yt-thumb',
+          text: 'Use a person overlay (you, a teammate, or an approved still) or a product screenshot/visual of Kahana. Viewers should recognize the app, not a generic talking-head template.',
+        },
+        {
+          id: 'yt-thumb-brand',
+          text: 'Check SOP 6 against type, logo clearspace, and naming. Readable at small size. No em dashes on the thumbnail text.',
+          href: '/sops/brand-guidelines',
+          hrefLabel: 'SOP 6: Brand Guidelines',
+        },
+      ],
+    },
+    {
+      id: 'metadata',
+      title: '6. Title, description, tags, hashtags, timestamps',
+      intro: 'A file is not ready to upload until the YouTube package is written.',
+      steps: [
+        {
+          id: 'yt-title',
+          text: 'Write a proper title: the job or feature in plain language (tutorial, use case, or what’s new). No em dashes. Kahana spelled correctly. The viewer should know what they will be able to do.',
+        },
+        {
+          id: 'yt-description',
+          text: 'Write the description from the template: one-sentence job, chapter timestamps, kahana.io CTA with UTM (SOP 12), Help and Blog links, hashtags. Proofread. Do not paste raw AI.',
+          href: '/sops/seo',
+          hrefLabel: 'SOP 12: SEO',
+          template: YOUTUBE_DESCRIPTION_TEMPLATE,
+        },
+        {
+          id: 'yt-tags',
+          text: 'Add tags and hashtags from a SOP 12 keyword cluster (primary plus secondaries). Match the video. Do not keyword-stuff unrelated terms.',
+          href: '/sops/seo',
+          hrefLabel: 'SOP 12: SEO',
+        },
+        {
+          id: 'yt-chapters',
+          text: 'Timestamps must match the cut. First chapter at 0:00. Each later stamp is a real beat from the outline, not filler.',
+        },
+      ],
+    },
+    {
+      id: 'publish',
+      title: '7. Review, then upload or hand off',
+      steps: [
+        {
+          id: 'yt-sop8',
+          text: 'Official @kahanaHQ access is restricted. Request it through SOP 8 if you will schedule the upload yourself. Brand-check, proofread, and attach the cut plus title/description in Linear for marketing-manager review before you go Public or schedule.',
+          href: '/sops/official-social-media',
+          hrefLabel: 'SOP 8: Official Social Media',
+        },
+        {
+          id: 'yt-channel',
+          text: 'After approval, schedule or publish on the Kahana HQ channel. Share the link in Slack.',
+          href: KAHANA_YOUTUBE_CHANNEL_URL,
+          hrefLabel: 'YouTube @kahanaHQ',
+        },
+        {
+          id: 'yt-zip',
+          text: 'If you do not have channel access, zip the video (and thumbnail if separate) and send it to Adam Kershner on Slack with the title, description, tags, hashtags, and timestamps. Do not upload to a personal channel as a stand-in for @kahanaHQ.',
+        },
+        {
+          id: 'yt-blog',
+          text: 'When the video teaches a workflow, embed it in the matching blog (SOP 5) so watch time stays on YouTube.',
+          href: '/sops/blog-publishing',
+          hrefLabel: 'SOP 5: Blogs',
+        },
+        {
+          id: 'yt-ig',
+          text: 'Clip 15–30s for Instagram or LinkedIn if the beat stands alone. Those official posts still go through SOP 8.',
+          href: '/sops/instagram-publishing',
+          hrefLabel: 'Instagram SOP',
+        },
+        {
+          id: 'yt-measure',
+          text: 'After the video is live, check YouTube Studio analytics and Mixpanel (this campaign’s UTM and initial referring domain on new sign-ups). SOP 12 is the measurement playbook.',
+          href: '/sops/seo',
+          hrefLabel: 'SOP 12: SEO',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'The video came from a real input (a completed Linear issue, support/contact question, use case, feature, or a blog/help article with no video).',
+    'It was recorded in Screen Studio, pauses were cut, music was overlaid, and the thumbnail shows a person or a Kahana product visual.',
+    'Title, description, tags, hashtags, and timestamps are written and proofread.',
+    'SOP 8 gate passed, or Adam has the zip and the metadata to upload on @kahanaHQ.',
+  ],
+})
+
+export const SEO_ALIASES = {
+  'seo-sitemap': 'seo',
+  'ai-seo': 'seo',
+}
+
+export const SEO_SOP = playbook({
+  id: 'seo',
+  title: 'SEO',
+  category: 'Marketing',
+  owner: 'Marketing Lead',
+  who: 'Marketing, plus Product and Engineering when indexable product pages (hubs, profiles, clubs) change',
+  when: 'Before drafting a blog, video, or campaign; after every public website or sitemap change; and on a regular Search Console and Mixpanel pass.',
+  format: 'checklist',
+  description:
+    'Find keyword clusters, ship tagged content, submit sitemaps in Google Search Console, and measure search, social, and Mixpanel sign-up source. Product SEO for hubs, profiles, and clubs is an ongoing effort.',
+  keywords: [
+    'seo',
+    'search console',
+    'sitemap',
+    'indexing',
+    'impressions',
+    'clicks',
+    'utm',
+    'mixpanel',
+    'referring domain',
+    'exploding topics',
+    'google trends',
+    'keywords',
+    'keyword cluster',
+    'ai search',
+    'hubs',
+    'profiles',
+    'clubs',
+  ],
+  notes: [
+    'Google Search Console is the kahana.io domain property. Request access (your Google account invited) from Marketing Lead or Adam. Do not assume you already have it.',
+    'UTM parameters on marketing links are how Mixpanel attributes new sign-ups to a video, post, or blog. Untagged links still show a referring domain, but not which asset.',
+    'Product SEO (hubs, user profiles, clubs in Google and AI search) is in progress with Product and Engineering. A blog sitemap submit does not finish that work.',
+  ],
+  sections: [
+    {
+      id: 'access',
+      title: '1. Get Search Console access',
+      intro:
+        'Search Console is where we see how Google sees kahana.io: queries, impressions, clicks, coverage, and indexing requests.',
+      steps: [
+        {
+          id: 'seo-gsc-access',
+          text: 'Open Google Search Console on the kahana.io domain property (sc-domain:kahana.io). If you cannot see the property, ask Marketing Lead or Adam to invite your Google account. Use the tools form first if you still lack Kahana analytics access.',
+          href: GOOGLE_SEARCH_CONSOLE_URL,
+          hrefLabel: 'Google Search Console (kahana.io)',
+        },
+        {
+          id: 'seo-tools',
+          text: 'Confirm Mixpanel access as well. Search Console is discovery. Mixpanel is whether those visitors signed up.',
+          href: MIXPANEL_URL,
+          hrefLabel: 'Mixpanel Kahana project',
+        },
+      ],
+    },
+    {
+      id: 'keywords',
+      title: '2. Build a keyword cluster',
+      intro:
+        'Pick topics people already search, with enough traffic and room to rank. Then group them: one primary keyword for the page or video, plus secondaries you actually cover.',
+      steps: [
+        {
+          id: 'seo-exploding',
+          text: 'In Exploding Topics, look for Kahana-relevant topics (book clubs, digital libraries, creator communities, memberships) with high search volume and lower competition or still-rising growth. Skip random consumer fads that we do not serve.',
+          href: EXPLODING_TOPICS_URL,
+          hrefLabel: 'Exploding Topics',
+        },
+        {
+          id: 'seo-trends',
+          text: 'Confirm interest in Google Trends. Check the time range, related queries, and whether the topic is seasonal or steadily rising. A one-week spike is not a cluster.',
+          href: GOOGLE_TRENDS_URL,
+          hrefLabel: 'Google Trends',
+        },
+        {
+          id: 'seo-suggested',
+          text: 'Type the seed into Google and YouTube search. Capture autocomplete (suggested searches) and the related-searches block. Those phrases are how people actually query, not how we nickname the feature internally.',
+        },
+        {
+          id: 'seo-cluster',
+          text: 'Form the cluster: one primary keyword (the job of the page or video) and a short list of secondaries (related searches you will cover in headings, description, tags, or body). File primary + secondaries in the content brief before draft.',
+        },
+        {
+          id: 'seo-use-cluster',
+          text: 'Use the cluster on the live asset. Primary goes in the title and H1 (or YouTube title). Secondaries go in headings, description, tags, and body. No stuffing, no unrelated terms. Public copy still follows SOP 6 (no em dashes, Kahana AKA “The Aura Library”).',
+          href: '/sops/brand-guidelines',
+          hrefLabel: 'SOP 6: Brand Guidelines',
+        },
+      ],
+    },
+    {
+      id: 'utm',
+      title: '3. Put UTM parameters on marketing links',
+      intro:
+        'Every public kahana.io CTA from content should be tagged so Mixpanel can attribute new signed-up users to the source.',
+      steps: [
+        {
+          id: 'seo-utm',
+          text: 'Add utm_source (channel), utm_medium (video, social, content, email), and utm_campaign (slug for this asset). Use the same campaign slug in the Linear issue and the monthly report.',
+          template: UTM_LINK_TEMPLATE,
+        },
+        {
+          id: 'seo-utm-channels',
+          text: 'YouTube descriptions, blog CTAs, official social captions, link stickers, and creator/PR links we control all get UTMs. SOP 5, SOP 8, SOP 11, and SOP 14 call this out at publish time.',
+          href: '/sops/blog-publishing',
+          hrefLabel: 'SOP 5: Blogs',
+        },
+      ],
+    },
+    {
+      id: 'sitemap',
+      title: '4. After a website update: sitemap and request indexing',
+      intro:
+        'Google will not guess that a new or changed URL is live. Tell it with the sitemap, then request indexing for the URLs that matter.',
+      steps: [
+        {
+          id: 'seo-site-repo',
+          text: 'Marketing-site and blog changes ship from kahana-homepage-public, not kahana-web. Follow SOP 13 so the live URL is actually the one you are indexing.',
+          href: '/sops/marketing-website',
+          hrefLabel: 'SOP 13: Updating the Marketing Website',
+        },
+        {
+          id: 'seo-sitemap-update',
+          text: 'Regenerate or update the sitemap so every live public URL is listed (including new blog posts). Titles and meta descriptions must match the live page. No keyword stuffing.',
+        },
+        {
+          id: 'seo-gsc-sitemap',
+          text: 'In Google Search Console, add or resubmit the sitemap for the kahana.io property. Then open URL Inspection on the new or changed URLs and request indexing (Google’s review of those pages).',
+          href: GOOGLE_SEARCH_CONSOLE_URL,
+          hrefLabel: 'Google Search Console (kahana.io)',
+        },
+        {
+          id: 'seo-coverage',
+          text: 'On a regular pass, check coverage and Performance. Unexplained drops on pages we still publish are a bug: fix the URL or the sitemap, then request indexing again. Do not ignore “Excluded” URLs we meant to rank.',
+        },
+      ],
+    },
+    {
+      id: 'measure',
+      title: '5. Measure search, social, and sign-ups',
+      intro:
+        'Impressions are not sign-ups. Use each tool for what it actually sees.',
+      steps: [
+        {
+          id: 'seo-gsc-perf',
+          text: 'In Search Console Performance, track impressions and clicks (and queries) for kahana.io and for the URLs you shipped. This is how search is working, not how social is working.',
+          href: GOOGLE_SEARCH_CONSOLE_URL,
+          hrefLabel: 'Google Search Console (kahana.io)',
+        },
+        {
+          id: 'seo-social-analytics',
+          text: 'Track social in each platform’s own analytics section: YouTube Studio, Instagram Insights, LinkedIn Page analytics, X Analytics, TikTok Analytics. Note reach, clicks or profile visits, and what to repeat. Official posts still go through SOP 8.',
+          href: '/sops/official-social-media',
+          hrefLabel: 'SOP 8: Official Social Media',
+        },
+        {
+          id: 'seo-mixpanel-ref',
+          text: 'In Mixpanel, look at new users who sign up and their initial referring domain (where the browser came from: google.com, youtube.com, linkedin.com, and so on). Pair that with UTM source / medium / campaign when the link was tagged. Acquisition boards on How We Work list the signup and channel views.',
+          href: MIXPANEL_URL,
+          hrefLabel: 'Mixpanel Kahana project',
+        },
+        {
+          id: 'seo-how-we-work',
+          text: 'If you are new to Mixpanel boards, start with Acquisition & onboarding on How We Work, then filter to production.',
+          href: '/how-we-work#mixpanel-acquisition',
+          hrefLabel: 'How We Work — Mixpanel acquisition',
+        },
+      ],
+    },
+    {
+      id: 'product-seo',
+      title: '6. Product SEO (ongoing)',
+      intro:
+        'Marketing-site SEO is not the whole job. Hubs, user profiles, and clubs should be discoverable in search rankings and in AI search. That work is in progress.',
+      steps: [
+        {
+          id: 'seo-product-surfaces',
+          text: 'Treat public hubs, user profiles, and clubs as indexable product surfaces: real titles, descriptions, and URLs a crawler and an answer engine can cite. Private or Restricted clubs stay out of search on purpose (SOP 2 visibility).',
+          href: '/sops/community-building',
+          hrefLabel: 'SOP 2: Community Building',
+        },
+        {
+          id: 'seo-ai',
+          text: 'For AI search and answer engines, keep durable facts in plain language on About and Story (what Kahana is, who it is for, what Aura is). Names stay consistent: Kahana, Aura Library. Do not invent a third product name. After a flagship change, search a few answer surfaces for “Kahana library” and fix hallucinations with page updates, not comment spam.',
+          href: '/kahana-narrative',
+          hrefLabel: 'Kahana Story',
+        },
+        {
+          id: 'seo-product-linear',
+          text: 'Product SEO is an ongoing Product + Engineering effort (crawlable pages, metadata, sitemap coverage for app URLs). File Linear issues for gaps. Do not mark this SOP done because a blog was indexed.',
+          href: LINEAR_WORKSPACE_URL,
+          hrefLabel: 'Linear (Kahana workspace)',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'You can open the kahana.io property in Google Search Console.',
+    'The asset has a filed keyword cluster (primary plus secondaries) from Exploding Topics, Google Trends, and Google/YouTube suggested and related searches.',
+    'Public kahana.io CTAs use UTM parameters.',
+    'After a website update, the sitemap was updated and indexing was requested in Search Console.',
+    'Measurement used Search Console (impressions and clicks), native social analytics, and Mixpanel (UTM plus initial referring domain on new sign-ups).',
+    'Product SEO gaps on hubs, profiles, or clubs were filed in Linear rather than assumed finished.',
+  ],
+})
+
+export const MARKETING_WEBSITE_SOP = playbook({
+  id: 'marketing-website',
+  title: 'Updating the Marketing Website',
+  category: 'Marketing',
+  owner: 'Marketing Lead',
+  who: 'Anyone changing kahana.io / about.kahana.io copy, layout, blogs, or landing pages (Marketing, plus Engineering when they deploy)',
+  when: 'Any marketing-site enhancement, bug fix, blog publish, or campaign landing change. File the Linear card before you start the work.',
+  format: 'checklist',
+  description:
+    'Change the public marketing site in kahana-homepage-public, track it on a Linear card, test locally, move In Review for quality review, then Adam or an engineering manager deploys to Heroku. Verify on production and mark Complete.',
+  keywords: [
+    'marketing website',
+    'kahana.io',
+    'homepage',
+    'kahana-homepage-public',
+    'kahana-public',
+    'github',
+    'heroku',
+    'linear',
+    'in review',
+    'deploy',
+    'blog',
+  ],
+  notes: [
+    'The marketing site lives in kahana-homepage-public. The product app is kahana-web. Never push kahana-web to the Heroku app kahana-public. That took the marketing site down in July 2026.',
+    'You do not deploy to production. Adam or an engineering manager deploys on Heroku after quality review.',
+    'Every update needs a Linear card. Ideas and bugs can sit in the Backlog until someone picks them up.',
+  ],
+  sections: [
+    {
+      id: 'access',
+      title: '1. Get GitHub access and open the repo',
+      intro:
+        'You cannot edit the live site from Slack or a Google Doc. The source is GitHub.',
+      steps: [
+        {
+          id: 'mw-tools',
+          text: 'Request GitHub access on the tools form. Say you will contribute to website/code and give the GitHub email you use. Do not assume you have access until the Kahana-LLC invite arrives.',
+          href: TOOLS_ACCESS_TALLY_URL,
+          hrefLabel: 'Get access to tools and data',
+        },
+        {
+          id: 'mw-repo',
+          text: 'Open and clone kahana-homepage-public. This is the marketing website (kahana.io / about.kahana.io). Do not clone kahana-web for this work.',
+          href: MARKETING_SITE_REPO_URL,
+          hrefLabel: 'github.com/Kahana-LLC/kahana-homepage-public',
+        },
+        {
+          id: 'mw-not-product',
+          text: 'Product frontend changes stay in kahana-web and follow the Website Code SOP. Mixing the two repos, or deploying the product app to kahana-public, is how the marketing site goes down.',
+          href: '/sops/website-code',
+          hrefLabel: 'Website Code (product app)',
+        },
+      ],
+    },
+    {
+      id: 'linear',
+      title: '2. File a Linear card',
+      intro:
+        'If it is not on the board, it is not tracked. Do not ship a silent GitHub commit.',
+      steps: [
+        {
+          id: 'mw-backlog',
+          text: 'Log initial website enhancements and bug fixes in the Linear backlog when you notice them. A backlog card is enough until someone starts the work. Do not wait for a campaign brief to file a broken link or a copy error.',
+          href: LINEAR_WORKSPACE_URL,
+          hrefLabel: 'Linear (Kahana workspace)',
+        },
+        {
+          id: 'mw-card',
+          text: 'Before you edit code, create or pick up a Linear card for this update. Name the page, the change, and the intended live URL. Link the GitHub branch or PR on the card when you have one.',
+        },
+        {
+          id: 'mw-brand',
+          text: 'Public copy still follows SOP 6 (Kahana AKA “The Aura Library,” no em dashes, together-not-instead). Blog posts still follow SOP 5. UTMs and sitemaps still follow SOP 12 after the URL is live.',
+          href: '/sops/brand-guidelines',
+          hrefLabel: 'SOP 6: Brand Guidelines',
+        },
+      ],
+    },
+    {
+      id: 'local',
+      title: '3. Build and test locally',
+      intro:
+        'Local preview is the quality gate before anyone looks at production.',
+      steps: [
+        {
+          id: 'mw-edit',
+          text: 'Make the change on a branch in kahana-homepage-public. Keep the product app untouched unless the brief required both.',
+        },
+        {
+          id: 'mw-local',
+          text: 'Run the site locally and walk the changed pages the way a visitor would: home, the updated landing or blog, links, mobile width, and any CTA to kahana.io or the library. Confirm UTM’d links if this is a campaign (SOP 12).',
+          href: '/sops/seo',
+          hrefLabel: 'SOP 12: SEO',
+        },
+        {
+          id: 'mw-push-github',
+          text: 'Push the branch to GitHub so the reviewer can see the diff. Pushing to GitHub is not a production deploy. Do not push to Heroku yourself.',
+          href: MARKETING_SITE_REPO_URL,
+          hrefLabel: 'kahana-homepage-public on GitHub',
+        },
+      ],
+    },
+    {
+      id: 'review',
+      title: '4. In Review, then quality review',
+      intro:
+        'Production is closed until the card is In Review and quality review has passed.',
+      steps: [
+        {
+          id: 'mw-in-review',
+          text: 'After local testing passes, move the Linear card to In Review. Attach what to check (URLs, screenshots, the GitHub PR). Do not ask for a Heroku deploy while the card is still In Progress or Backlog.',
+          href: LINEAR_WORKSPACE_URL,
+          hrefLabel: 'Linear (Kahana workspace)',
+        },
+        {
+          id: 'mw-qr',
+          text: 'Wait for quality review on that card (copy, brand, links, and that the change is in the marketing repo). If the reviewer requests fixes, update locally, re-test, and re-attach. Do not skip this step to “just get it live.”',
+        },
+      ],
+    },
+    {
+      id: 'deploy',
+      title: '5. Production deploy (Adam or engineering manager)',
+      intro:
+        'Heroku production is a restricted step. Contributors stop at In Review.',
+      steps: [
+        {
+          id: 'mw-heroku',
+          text: 'After quality review passes, Adam or an engineering manager deploys the update to production on Heroku (marketing app kahana-public). Only they run that deploy. Do not deploy from kahana-web.',
+        },
+        {
+          id: 'mw-prod-verify',
+          text: 'When the deploy is done, verify on the live site: the changed URLs, CTAs, and that the product app is untouched. Hard-refresh. Check mobile. If something is wrong, the deployer rolls back or hotfixes. Do not mark Complete on a broken page.',
+          href: KAHANA_SITE_URL,
+          hrefLabel: 'kahana.io',
+        },
+        {
+          id: 'mw-complete',
+          text: 'After it is tested and verified in production, move the Linear card to Complete. Drop the live URL in Slack if teammates need to see it.',
+          href: LINEAR_WORKSPACE_URL,
+          hrefLabel: 'Linear (Kahana workspace)',
+        },
+        {
+          id: 'mw-seo',
+          text: 'If URLs, titles, or indexable pages changed, update the sitemap and request indexing in Google Search Console (SOP 12).',
+          href: '/sops/seo',
+          hrefLabel: 'SOP 12: SEO',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'The work was tracked on a Linear card (backlog for ideas and bugs; a card before code for the change you shipped).',
+    'Edits were in kahana-homepage-public, tested locally, and never pushed from kahana-web to kahana-public.',
+    'The card was In Review and passed quality review before production.',
+    'Adam or an engineering manager deployed to Heroku. Production was verified. The card is Complete.',
+  ],
+})
+
+export const PR_NEWS_SOP = playbook({
+  id: 'pr-news',
+  title: 'Third-Party News and PR',
+  category: 'Marketing',
+  owner: 'Marketing Lead',
+  who: 'Anyone pitching Kahana to journalists, tech blogs, or news outlets',
+  when: 'When there is a real scoop (a ship, launch, or permissioned story) worth offering for coverage, and when inbound press arrives.',
+  format: 'checklist',
+  description:
+    'Work the media-member database. Prepare a scoop or story, pitch the journalists whose beat actually matches, log every send, and archive coverage. This is third-party outlets, not Kahana-owned channels.',
+  keywords: [
+    'pr',
+    'press',
+    'news',
+    'journalist',
+    'media',
+    'scoop',
+    'pitch',
+    'coverage',
+    'tech blog',
+    'outlet',
+  ],
+  notes: [
+    'The PR / News spreadsheet is the database of media members who write for tech blogs and news outlets. Do not keep a private shadow list.',
+    'We prepare scoops and stories for their consideration. We do not buy the article, and we do not blast the whole sheet with the same paste.',
+    'This is not SOP 8 (official Kahana accounts), SOP 5 (our blog), SOP 9 (authors), or SOP 15–16 (creators). Those people are different lists.',
+  ],
+  sections: [
+    {
+      id: 'database',
+      title: '1. Open the media database',
+      intro:
+        'If you cannot see the sheet, you do not pitch yet. Access first, then a named row.',
+      steps: [
+        {
+          id: 'pr-sheet',
+          text: 'Open the PR / News spreadsheet. This is the living database: outlet, journalist or writer, beat, contact, what we sent, status, and coverage URL. Request access from Marketing Lead or Adam if the link is closed to you.',
+          href: PR_NEWS_SHEET,
+          hrefLabel: 'PR / News spreadsheet',
+        },
+        {
+          id: 'pr-claim',
+          text: 'Claim or add the row before you send. If someone already has that journalist as Pending, do not double-pitch the same scoop. Fill the sheet’s columns (outlet, contact, scoop, date, status) rather than inventing a second tracker.',
+        },
+      ],
+    },
+    {
+      id: 'scoop',
+      title: '2. Prepare the scoop',
+      intro:
+        'A pitch is “here is a story you might want to cover,” not “please write about Kahana.”',
+      steps: [
+        {
+          id: 'pr-linear',
+          text: 'Start from something real. Completed Linear issues (Done), a launch, or a permissioned customer/club story are inputs. Confirm the product or fact is live before you offer it as news.',
+          href: LINEAR_WORKSPACE_URL,
+          hrefLabel: 'Linear (Kahana workspace)',
+        },
+        {
+          id: 'pr-story',
+          text: 'Write the scoop in one sentence: what happened, why it matters now, who it is for. Then two or three proof points a reporter can check (product URL, quote, metric Legal will stand behind). Kahana AKA “The Aura Library.” Aura is the discovery signal, not the product name.',
+          href: '/kahana-narrative',
+          hrefLabel: 'Kahana Story',
+        },
+        {
+          id: 'pr-legal',
+          text: 'Legal reviews claims, fundraising, user counts, and named customers before the pitch goes out. If you cannot source the number, cut it. Customer-named stories need permission, same as blogs.',
+        },
+      ],
+    },
+    {
+      id: 'match',
+      title: '3. Match journalists to the beat',
+      intro:
+        'The database is for targeting, not a CC list.',
+      steps: [
+        {
+          id: 'pr-beat',
+          text: 'Pick people who actually write about this topic (libraries, book clubs, creator tools, startups, the specific launch). Read one recent piece. If the beat is a mismatch, skip them.',
+          href: PR_NEWS_SHEET,
+          hrefLabel: 'PR / News spreadsheet',
+        },
+        {
+          id: 'pr-not-authors',
+          text: 'Authors and publishers we want on Kahana as a paid book go through SOP 9. Creators for collabs go through SOP 15 (database) then SOP 16 (Collab? email). Do not mix those rows into this pitch.',
+          href: '/sops/creator-outreach',
+          hrefLabel: 'SOP 16: Creator Outreach',
+        },
+      ],
+    },
+    {
+      id: 'pitch',
+      title: '4. Personalize and send',
+      intro:
+        'Use the template. Do not send it raw. A mail-merge with leftover brackets does not go out.',
+      steps: [
+        {
+          id: 'pr-template',
+          text: 'Tailor the pitch: their name, their beat or a recent article, the one-sentence scoop, and a kahana.io CTA with press UTM (SOP 12). No em dashes. Proofread as a human. AI can draft a portion; you rewrite the why-this-beat line.',
+          href: '/sops/seo',
+          hrefLabel: 'SOP 12: SEO',
+          template: PR_PITCH_TEMPLATE,
+        },
+        {
+          id: 'pr-send-log',
+          text: 'Send from a real Kahana person, not a no-reply. Log date, channel, which scoop, and status on the sheet the same day. One journalist, one thread. Do not attach a 20-page deck unless they asked.',
+          href: PR_NEWS_SHEET,
+          hrefLabel: 'PR / News spreadsheet',
+        },
+        {
+          id: 'pr-followup',
+          text: 'If there is no reply, one short follow-up is enough. Then mark Pending or No. Do not chase. Inbound press: log the request, get Legal/founder on facts, answer on their deadline.',
+        },
+      ],
+    },
+    {
+      id: 'coverage',
+      title: '5. When they cover Kahana',
+      intro:
+        'Coverage is theirs. We archive it, share it, and measure what we can control.',
+      steps: [
+        {
+          id: 'pr-archive',
+          text: 'Archive the live URL on the spreadsheet row. Share it internally in Slack. Add it to the monthly marketing report. Thank the journalist once. Do not argue in the comments.',
+          href: PR_NEWS_SHEET,
+          hrefLabel: 'PR / News spreadsheet',
+        },
+        {
+          id: 'pr-utm',
+          text: 'Where we control a CTA (our quote follow-up, a link we give them, or how we share the piece), use UTM parameters so Mixpanel can attribute sign-ups. SOP 12 is the playbook. Do not demand they use our UTM in their article.',
+          href: '/sops/seo',
+          hrefLabel: 'SOP 12: SEO',
+        },
+        {
+          id: 'pr-social',
+          text: 'Official Kahana posts that amplify the article still go through SOP 8 (access, brand, Linear review). Personal teammate shares can go out after the URL is logged.',
+          href: '/sops/official-social-media',
+          hrefLabel: 'SOP 8: Official Social Media',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'The scoop was real (live product or permissioned story), Legal-cleared where it needed to be, and matched to journalists on the PR / News sheet.',
+    'Every send is logged (who, outlet, date, status). No shadow list.',
+    'Live coverage has an archived URL, an internal share, a monthly-report note, and UTM’d CTAs where we control the link.',
+  ],
+})
+
+export const CREATOR_PROSPECTING_ALIASES = {
+  'creator-collaborations-outreach': 'creator-prospecting',
+}
+
+export const CREATOR_PROSPECTING_SOP = playbook({
+  id: 'creator-prospecting',
+  title: 'Creator Prospecting',
+  category: 'Marketing',
+  owner: 'Marketing Lead',
+  who: 'Anyone building the creator pipeline (profiles and contact, before SOP 16 sends)',
+  when: 'Ongoing. Log the profile in the creator database before you hunt email. Do not pitch a creator who has no row.',
+  format: 'checklist',
+  description:
+    'Find creators on TikTok, Instagram, YouTube, and similar platforms. Add the profile to the creator database (Influencer & Creator Profiles), then find a brand-ready contact (email, form, link, or a published DM path). A handle plus @gmail.com can be checked in Google Chat. The Collab? pitch (email or DM) is SOP 16 on the same row.',
+  keywords: [
+    'creator',
+    'prospecting',
+    'influencer',
+    'database',
+    'tiktok',
+    'instagram',
+    'youtube',
+    'email',
+    'gmail',
+    'google chat',
+    'outreach',
+    'brands',
+  ],
+  notes: [
+    'The creator database is the Google Sheet Influencer & Creator Profiles. Columns: Instagram Link, YouTube Link, TikTok Link, Other Link, Email, Notes. Put each URL in the matching column. Do not dump everything into column A.',
+    'Creators usually want brand outreach through a published contact (email for brands, business inbox, media kit, or Linktree). That beats a guessed Gmail.',
+    'handle@gmail.com is a fallback. Google Chat only tells you the address might be a real Google account. It is not permission to pitch in Chat, and it is not proof it is their brand inbox.',
+    'Authors and publishers (paid book + club) are SOP 9. Journalists are SOP 14. Do not mix lists.',
+  ],
+  sections: [
+    {
+      id: 'find',
+      title: '1. Find creators on the platforms',
+      intro:
+        'Prospect where they already post. Kahana-relevant beats first: reading, book clubs, learning, creator community, memberships. Skip vanity follower counts.',
+      steps: [
+        {
+          id: 'cp-platforms',
+          text: 'Search TikTok, Instagram, YouTube, and similar platforms for creators whose audience overlaps Kahana (BookTok / Bookstagram, learning clubs, creator-ops). Watch enough to know the beat. Note the profile URL and handle.',
+        },
+        {
+          id: 'cp-qualify',
+          text: 'Qualify before you add a pile of rows: real posts, comments that look human, and a topic we might actually collaborate on. A huge following with no overlap is not a prospect.',
+        },
+      ],
+    },
+    {
+      id: 'sheet',
+      title: '2. Add the profile to the creator database',
+      intro:
+        'If it is not in the database, it is not in the pipeline.',
+      steps: [
+        {
+          id: 'cp-sheet',
+          text: 'Open the creator database (Influencer & Creator Profiles). Add a new row. Put profile URLs in the matching columns: Instagram Link, YouTube Link, TikTok Link. Linktree, media kit, or a form goes in Other Link. Beat and why they fit go in Notes. Request access from Marketing Lead or Adam if the link is closed to you. Do not keep a private shadow list.',
+          href: CREATOR_OUTREACH_SHEET_URL,
+          hrefLabel: 'Creator database (Influencer & Creator Profiles)',
+        },
+        {
+          id: 'cp-not-authors',
+          text: 'If the person is an author or publisher you want on Kahana as a paid book and club title, use SOP 9 instead of this database. Journalists and outlets are SOP 14.',
+          href: '/sops/author-outreach',
+          hrefLabel: 'SOP 9: Author Outreach',
+        },
+      ],
+    },
+    {
+      id: 'contact',
+      title: '3. Get email, contact, or a link',
+      intro:
+        'Most creators want brands to use the channel they published for that purpose.',
+      steps: [
+        {
+          id: 'cp-bio',
+          text: 'Look for a published contact: “email for brands,” business email, media kit, press page, or a link in bio (Linktree, Stan, Beacons). Put the address in Email. Put a form or Linktree in Other Link. Prefer that over any guess.',
+        },
+        {
+          id: 'cp-link',
+          text: 'If the only public path is a site or form, use that. Log it in Other Link. Do not scrape private data or buy email lists.',
+        },
+      ],
+    },
+    {
+      id: 'gmail-chat',
+      title: '4. Guess Gmail only if nothing is published, then check Google Chat',
+      intro:
+        'Sometimes the public handle is also their Gmail. Check it. Do not turn this into a guessing game.',
+      steps: [
+        {
+          id: 'cp-gmail-guess',
+          text: 'If there is no published brand contact, take the Instagram, TikTok, or YouTube handle (no @, lowercase) and try handle@gmail.com. One extra try is enough if the handle has extra punctuation you can drop. Then stop. Do not generate a list of variants.',
+        },
+        {
+          id: 'cp-chat',
+          text: 'Open Google Chat (Kahana Google account). Start a new chat and paste the guessed email. If Chat finds a person (a valid chat target appears), put the address in Email and note “Gmail guess, Chat match” in Notes. If Chat finds nobody, the guess is probably wrong. Go back to the bio or note Needs research.',
+          href: GOOGLE_CHAT_URL,
+          hrefLabel: 'Google Chat',
+        },
+        {
+          id: 'cp-chat-not-pitch',
+          text: 'Chat is only a check that the address might exist. Do not send the Kahana pitch as a Google Chat message. Do not treat a Chat match as confirmed brand inbox. If a published “email for brands” exists, use that instead of the guess.',
+        },
+      ],
+    },
+    {
+      id: 'handoff',
+      title: '5. Hand off to outreach',
+      intro:
+        'Prospecting is done when Email or a social/DM path is filled. Sending Collab? (email or DM) is SOP 16 on the same row, not a new list.',
+      steps: [
+        {
+          id: 'cp-log-contact',
+          text: 'Confirm Email, a published “DM for collabs” path, or Other Link is filled. Do not put emails in the Instagram or YouTube columns.',
+          href: CREATOR_OUTREACH_SHEET_URL,
+          hrefLabel: 'Creator database (Influencer & Creator Profiles)',
+        },
+        {
+          id: 'cp-sop16',
+          text: 'Open SOP 16. Email rows: First Name, Acknowledgment, Channel = Email, Outreach Status = Ready, then Apps Script. No email, or they asked for DMs: same pitch by hand on Instagram, TikTok, or YouTube from the official Kahana account.',
+          href: '/sops/creator-outreach',
+          hrefLabel: 'SOP 16: Creator Outreach',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'The creator is a row in the creator database with platform URLs in the right columns. No shadow list.',
+    'Contact is in Email or Other Link: a published brand path, or a Gmail guess checked in Google Chat and labeled in Notes. Chat was not used to send the pitch.',
+    'Rows with Email or a named social/DM path are handed to SOP 16. Form-only rows (no DM, no Email) stay parked in Notes until there is a channel.',
+  ],
+})
+
+export const CREATOR_OUTREACH_SOP = playbook({
+  id: 'creator-outreach',
+  title: 'Creator Outreach',
+  category: 'Marketing',
+  owner: 'Marketing Lead',
+  who: 'Anyone sending the Kahana collab pitch (email or official social DM) to creators already in the database',
+  when: 'After SOP 15 has Email or a named social/DM path on the row. Batch email when those rows are Ready. Send DMs by hand the same day you would have emailed.',
+  format: 'checklist',
+  description:
+    'Send Collab? from the creator database: Apps Script for email rows, the same pitch by hand for Instagram / TikTok / YouTube DMs when that is the path they published. Offer white-glove hub build, a complimentary Growth plan, a permissioned success story, and featured library placement.',
+  keywords: [
+    'creator',
+    'outreach',
+    'collab',
+    'email',
+    'dm',
+    'instagram',
+    'tiktok',
+    'apps script',
+    'gmail',
+    'growth plan',
+    'white-glove',
+    'featured',
+    'amy wang',
+    'hub',
+  ],
+  notes: [
+    'Same sheet as SOP 15. Channel = Email goes through Apps Script. Channel = Instagram DM, TikTok DM, or YouTube uses the DM template from the official Kahana account (SOP 8 access). Do not DM from a personal intern account unless Marketing Lead named you.',
+    'Named proof of a past creator collab: Amy Wang’s hub The Ultimate Guide to getting Internship/Research Opportunities (https://kahana.io/hub/UMKtgp76MN1MvZuD6p7W). YouTube: https://www.youtube.com/@wamyy5. Lead HUB_PROOF with her. Add a second live hub only if Marketing Lead named one you are allowed to cite.',
+    'Authors and publishers (paid book + club) are SOP 9. Journalists are SOP 14. A Linktree or form with no DM and no Email is not Ready; pitch that form by hand and log it.',
+  ],
+  sections: [
+    {
+      id: 'channel',
+      title: '1. Pick email or social/DM',
+      intro:
+        'Use the channel they published for brands. Email first when they gave one. DMs when they said so, or when there is no Email.',
+      steps: [
+        {
+          id: 'co-sheet',
+          text: 'Open the creator database. Confirm this is a creator collab (not an author, not a journalist). Put the address in Email. Put Instagram, TikTok, and YouTube URLs in those columns. Linktree or a form stays in Other Link.',
+          href: CREATOR_OUTREACH_SHEET_URL,
+          hrefLabel: 'Creator database (Influencer & Creator Profiles)',
+        },
+        {
+          id: 'co-columns',
+          text: 'Add outreach columns if they are missing (Kahana menu → Set up): First Name, Acknowledgment, Channel, Outreach Status, Sent At. Channel is Email, Instagram DM, TikTok DM, YouTube, or Form.',
+        },
+        {
+          id: 'co-pick',
+          text: 'Channel = Email if Email is filled, unless their bio says “collabs via IG/TikTok DM only.” Then use that DM and leave Email for later. If there is no Email, pick the platform they actually use for brand messages. Do not email and DM the same person on the same day.',
+        },
+        {
+          id: 'co-ready',
+          text: 'First Name as they would expect, Acknowledgment of 20+ characters that names a real video, series, or post, Outreach Status = Ready. Skip the row if you cannot write that sentence. Do not mark Ready on Sent, bounced, or unsubscribed rows.',
+        },
+      ],
+    },
+    {
+      id: 'config',
+      title: '2. Fill the Config tab',
+      intro:
+        'Shared links are edited once per batch, not once per row. DMs use the same demo, hubs, and calendar.',
+      steps: [
+        {
+          id: 'co-sender',
+          text: 'On Config, set SENDER_NAME to the person sending. TEST_EMAIL is that inbox for the email preview. REPLY_TO is optional (for example adam@kahana.io). Email sends from Kahana Workspace, not a personal Gmail.',
+        },
+        {
+          id: 'co-demo',
+          text: 'Set DEMO_VIDEO to the latest product demo on @kahanaHQ. If nothing newer has shipped, use the current default. Record a new cut in SOP 11 when the walkthrough is stale.',
+          href: CREATOR_OUTREACH_DEMO_VIDEO_URL,
+          hrefLabel: 'Current demo video',
+        },
+        {
+          id: 'co-youtube',
+          text: 'Confirm that URL is still the right cut by checking the channel. Swap Config the same day you upload a newer demo.',
+          href: KAHANA_YOUTUBE_CHANNEL_URL,
+          hrefLabel: 'Kahana YouTube (@kahanaHQ)',
+        },
+        {
+          id: 'co-calendar',
+          text: 'Set CALENDAR_URL to the booking link for this collab conversation (Adam’s Calendly unless Marketing Lead names a different event).',
+          href: ADAM_CALENDLY_URL,
+          hrefLabel: 'Adam’s Calendly',
+        },
+        {
+          id: 'co-links',
+          text: 'Keep ABOUT_URL and SITE_URL with creator_outreach UTMs (SOP 12). For DMs, change utm_source to instagram, tiktok, or youtube and utm_medium=dm.',
+          href: '/sops/seo',
+          hrefLabel: 'SOP 12: SEO',
+        },
+        {
+          id: 'co-hubs',
+          text: 'Lead HUB_PROOF with Amy Wang (past collab): The Ultimate Guide to getting Internship/Research Opportunities. Add a second public hub only if Marketing Lead named one. The email script will not send while HUB_PROOF still says “replace this”.',
+          href: AMY_WANG_HUB_URL,
+          hrefLabel: 'Amy Wang’s hub',
+        },
+        {
+          id: 'co-amy-yt',
+          text: 'Her YouTube is @wamyy5. Use that if you need a public creator channel next to the hub URL. Do not invent a second named collab.',
+          href: AMY_WANG_YOUTUBE_URL,
+          hrefLabel: 'Amy Wang on YouTube (@wamyy5)',
+        },
+      ],
+    },
+    {
+      id: 'script',
+      title: '3. Email: install Apps Script and send Ready Email rows',
+      intro:
+        'The script only emails rows where Channel is Email (or blank) and Outreach Status is Ready. DM rows stay for section 4.',
+      steps: [
+        {
+          id: 'co-install',
+          text: 'In the creator database: Extensions → Apps Script. Delete any stub code. Paste the script below. Save (title: Kahana creator outreach). Reload the sheet. You should see a Kahana menu.',
+          code: true,
+          template: CREATOR_OUTREACH_APPS_SCRIPT,
+        },
+        {
+          id: 'co-setup',
+          text: 'Kahana → Set up Config and outreach columns. Authorize Gmail and Sheets when Google asks. Scopes: send email as you, and edit this spreadsheet. Do not add extra APIs.',
+        },
+        {
+          id: 'co-template',
+          text: 'This is the email the script sends. Row fields fill First Name and the acknowledgment. Config fills links, hubs, demo, and calendar. A leftover bracket in Acknowledgment blocks that row.',
+          template: CREATOR_OUTREACH_EMAIL_TEMPLATE,
+        },
+        {
+          id: 'co-test',
+          text: 'Kahana → Send test to me. It uses the first Ready Email row but delivers to TEST_EMAIL. Read it. The creator is not marked Sent.',
+        },
+        {
+          id: 'co-quota',
+          text: 'Kahana → Check remaining email quota. About 100/day on consumer Gmail, about 1,500 on Kahana Workspace. Do not run this from a personal account.',
+        },
+        {
+          id: 'co-send',
+          text: 'Kahana → Send all Ready rows. Confirm the count. It sends from the signed-in Kahana user, sets Sent, stamps Sent At, and notes the date. Failed rows stay Ready. Do not re-run until you have read the alert.',
+        },
+      ],
+    },
+    {
+      id: 'dm',
+      title: '4. Social/DM: same pitch, official account',
+      intro:
+        'No Email, or they asked for DMs. Copy the DM template. Do not paste leftover brackets. Do not buy a DM blaster.',
+      steps: [
+        {
+          id: 'co-dm-access',
+          text: 'Send from the official Kahana account for that platform (@kahanahq / @KahanaHQ). Get access through SOP 8. Do not DM collab pitches from a personal intern login unless Marketing Lead named that account.',
+          href: '/sops/official-social-media',
+          hrefLabel: 'SOP 8: Official Social Media',
+        },
+        {
+          id: 'co-dm-template',
+          text: 'Paste the DM template, then fill First Name context, Acknowledgment, hub proof, demo, calendar, and the matching UTM source. Opener is Collab? Keep it one message, not a five-bubble drip.',
+          template: CREATOR_OUTREACH_DM_TEMPLATE,
+        },
+        {
+          id: 'co-dm-send',
+          text: 'Send on the Channel you logged. If message requests sit unread, try the next platform they actually use, once. Same day, set Outreach Status = Sent, stamp Sent At, and note the platform in Notes. Do not also fire Apps Script on that row.',
+        },
+      ],
+    },
+    {
+      id: 'yes',
+      title: '5. If they say yes: white-glove hub, Growth plan, story, featured',
+      intro:
+        'The hub stays theirs. We build as collaborators. They publish. We do not post a success story without permission.',
+      steps: [
+        {
+          id: 'co-replies',
+          text: 'Watch the sending inbox, REPLY_TO, and the official DMs. Log yes / no / parked and the next step in Notes. One short follow-up is enough unless they asked you to wait.',
+          href: CREATOR_OUTREACH_SHEET_URL,
+          hrefLabel: 'Creator database (Influencer & Creator Profiles)',
+        },
+        {
+          id: 'co-vision',
+          text: 'On the call or in the thread: they tell us the vision for the hub (who it is for, what belongs in it, what should stay off it). Write that in Notes. Do not invent a hub they did not describe.',
+        },
+        {
+          id: 'co-account',
+          text: 'They create their own Kahana account and start the hub. They invite our team as collaborators (Marketing + CS owners, emails from the Kahana HQ hub collaborator list). Do not create the hub under a Kahana employee login and pretend it is theirs.',
+        },
+        {
+          id: 'co-build',
+          text: 'White-glove: migrate the content they pointed us at, structure the hub, and optimize it while it is still private. They review. When it matches their expectations, they make it public on the library. Then they can put the hub URL in their link in bio or Linktree and tell their audience.',
+          href: KAHANA_LIBRARY_URL,
+          hrefLabel: 'Kahana library',
+        },
+        {
+          id: 'co-growth',
+          text: 'Complimentary Growth plan (large files, unlimited hubs) is part of this collab. Adam (or whoever can grant a comped Growth plan) turns it on after they have an account. Do not send a public coupon or promise a dollar amount we cannot support.',
+        },
+        {
+          id: 'co-story',
+          text: 'If they agree to be a success story: blog via SOP 5, official social via SOP 8. Get permission on name, quotes, and screens before anything public. Legal if the story includes numbers or a named brand.',
+          href: '/sops/blog-publishing',
+          hrefLabel: 'SOP 5: Blogs',
+        },
+        {
+          id: 'co-featured',
+          text: 'Ask Product / Marketing to place the live hub in featured collections (and any other featured library placement we are actually running). Do not promise a homepage slot we cannot give. Log the collection name on the row once it is live.',
+          href: '/sops/official-social-media',
+          hrefLabel: 'SOP 8: Official Social Media',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'Every pitched creator was a Ready row with First Name, a specific Acknowledgment, and a Channel (Email via script, or official DM). Sent At is filled. No shadow list.',
+    'The pitch included Kahana links, Amy Wang’s live hub (and a second hub only if named), the current demo, the white-glove hub path, complimentary Growth plan, permissioned story, featured placement, and a calendar link.',
+    'A yes has vision notes, their account and collaborator invite, a private hub they reviewed before publish, Growth granted by Adam, and story/featured work only with permission.',
+  ],
+})
+
 const TASKS = [
   task({
     id: 'linkedin-operating-rhythm',
@@ -1766,6 +3047,16 @@ const TASKS = [
         text: 'If you will post from the Kahana company page (not your personal profile), get access and pass Linear marketing-manager review first.',
         href: '/sops/official-social-media',
         hrefLabel: 'SOP 8: Official Social Media',
+      },
+      {
+        text: 'Category 2: before you draft a post, check the Linear board for completed features and updates. Same ships feed blogs (SOP 5) and YouTube (SOP 11). Official company-page posts still go through SOP 8.',
+        href: LINEAR_WORKSPACE_URL,
+        hrefLabel: 'Linear (Kahana workspace)',
+      },
+      {
+        text: 'Category 2: any kahana.io link in a personal post gets UTM parameters (utm_source=linkedin) so Mixpanel can attribute sign-ups. SOP 12 has the template.',
+        href: '/sops/seo',
+        hrefLabel: 'SOP 12: SEO',
       },
       'Block 15 minutes each business day to like and comment on every link in the Slack channel — early engagement matters.',
       {
@@ -1792,71 +3083,33 @@ const TASKS = [
         href: '/sops/official-social-media',
         hrefLabel: 'SOP 8: Official Social Media',
       },
-      'Pull this week’s inputs: shipped features, backlog teasers (only if approved), testimonials, cognitive-challenge stories, and trends.',
       {
-        text: 'Draft caption + visual against SOP 6 Brand Guidelines. Short-form video follows the use-case SOP. Do not paste raw AI output.',
+        text: 'Check the Linear board for features and updates that are completed (Done). Those ships are inputs for new Instagram posts, blogs (SOP 5), and YouTube videos (SOP 11). Confirm the UI is live before you post.',
+        href: LINEAR_WORKSPACE_URL,
+        hrefLabel: 'Linear (Kahana workspace)',
+      },
+      'Pull the rest of this week’s inputs: backlog teasers (only if approved), testimonials, cognitive-challenge stories, and trends.',
+      {
+        text: 'Draft caption + visual against SOP 6 Brand Guidelines. Short-form product video follows SOP 11. Do not paste raw AI output.',
         href: '/sops/brand-guidelines',
         hrefLabel: 'SOP 6: Brand Guidelines',
       },
+      {
+        text: 'If you are cutting a Reel from a Kahana demo, record and edit in Screen Studio per SOP 11, then come back here for the caption and SOP 8 gate.',
+        href: '/sops/creating-youtube-videos',
+        hrefLabel: 'SOP 11: Creating YouTube Videos',
+      },
       'After marketing-manager approval in Linear: publish, then share the link in Slack for teammate engagement where appropriate.',
-      'Log reach, saves, and profile visits; note anything that should become a blog or YouTube cut.',
+      {
+        text: 'Put UTM parameters on kahana.io links (caption, sticker, or bio when that post is the CTA). SOP 12 has the template.',
+        href: '/sops/seo',
+        hrefLabel: 'SOP 12: SEO',
+      },
+      'In Instagram Insights, log reach, saves, and profile visits. In Mixpanel, check this campaign’s UTM and the initial referring domain on new sign-ups. Note anything that should become a blog or YouTube cut.',
     ],
     doneWhen: [
-      'SOP 8 gate passed (access, brand, proofread, Linear approval). Post is live, assets are filed, and a one-line performance note exists.',
+      'SOP 8 gate passed (access, brand, proofread, Linear approval). Post is live with UTM’d kahana.io links, Insights are logged, and a one-line performance note exists.',
     ],
-  }),
-  task({
-    id: 'youtube-publishing',
-    title: 'YouTube',
-    category: 'Marketing',
-    owner: 'Marketing Lead',
-    who: 'Video owner',
-    when: 'When a use-case, feature, or narrative film is ready.',
-    description: 'Script, record, publish, and point viewers at Kahana with UTMs.',
-    keywords: ['youtube', 'video', 'use case'],
-    steps: [
-      'Script the job-to-be-done (not a feature dump). Show the product, not slides-only.',
-      'Record, edit to brand, add chapters and a description with kahana.io UTM links.',
-      {
-        text: 'Official @kahanaHQ access is restricted. Get credentials via SOP 8. Attach the cut in Linear for marketing-manager quality review before you go Public or schedule.',
-        href: '/sops/official-social-media',
-        hrefLabel: 'SOP 8: Official Social Media',
-      },
-      'Publish Unlisted for review, then Public after approval; share in Slack and socials.',
-      {
-        text: 'When the video teaches a workflow, embed it in a kahana.io blog (no em dashes, sources, landscape comparisons where relevant).',
-        href: '/sops/blog-publishing',
-        hrefLabel: 'SOP 5: Blogs',
-      },
-      'Watch retention and click-through; clip a 15–30s cut for Instagram/LinkedIn (those official posts also go through SOP 8).',
-    ],
-    doneWhen: ['SOP 8 gate passed. Video is public with UTMs and a short-form cut is scheduled or posted.'],
-  }),
-  task({
-    id: 'creator-collaborations-outreach',
-    title: 'Creator Collaborations Outreach',
-    category: 'Marketing',
-    owner: 'Marketing Lead',
-    who: 'Creator partnerships owner',
-    when: 'Ongoing pipeline; never cold-pitch without a logged row.',
-    description: 'Find, qualify, outreach, and track creator collaborations.',
-    keywords: ['creator', 'influencer', 'partnership', 'outreach'],
-    steps: [
-      {
-        text: 'Log the creator on the outreach sheet (profile, relevance, status). Authors and publishers are a different SOP (paid book + book club).',
-        href: CREATOR_OUTREACH_SHEET_URL,
-        hrefLabel: 'Creator outreach sheet',
-      },
-      {
-        text: 'If the person is an author or publisher you want on Kahana as a paid book and club title, use SOP 9 instead of this sheet.',
-        href: '/sops/author-outreach',
-        hrefLabel: 'SOP 9: Author Outreach',
-      },
-      'Qualify audience overlap with Kahana (reading, learning, clubs, Aura). Skip vanity follower counts.',
-      'Customize outreach. Agree deliverables, legal/IP, and tracking links before anything goes live.',
-      'Execute, measure, and write the learning back on the sheet.',
-    ],
-    doneWhen: ['Sheet row is updated through outcome (yes / no / parked) with a result note.'],
   }),
   task({
     id: 'narrative-creation',
@@ -1900,22 +3153,6 @@ const TASKS = [
     doneWhen: ['Locked board is linked from the campaign brief.'],
   }),
   task({
-    id: 'use-case-feature-videos',
-    title: 'Creating Videos of Use Cases and Features',
-    category: 'Marketing',
-    owner: 'Marketing Lead',
-    who: 'Video owner with Product demo help',
-    when: 'After a ship that changes a user job, or when Sales needs a clip.',
-    description: 'Show a real job on Kahana, not a feature laundry list.',
-    keywords: ['video', 'use case', 'demo', 'feature'],
-    steps: [
-      'Name the user, the job, and the 60–90s storyboard. Product confirms the UI path still exists.',
-      'Record on production or a clean staging hub. No secrets, no other users’ PII on screen.',
-      'Edit, captions, end card with UTM. Publish per YouTube/Instagram SOPs.',
-    ],
-    doneWhen: ['Video is live and linked from the ship announcement or Sales deck.'],
-  }),
-  task({
     id: 'content-from-shipped-features',
     title: 'Creating Content Based on Shipped Features',
     category: 'Marketing',
@@ -1925,8 +3162,28 @@ const TASKS = [
     description: 'Turn shipped work into social, blog, or changelog content while it is still true.',
     keywords: ['changelog', 'shipped', 'launch content'],
     steps: [
+      {
+        text: 'Check the Linear board for features and updates that are completed (Done). Do not wait only on a Slack ping. Those ships are inputs for social, blogs (SOP 5), and YouTube (SOP 11).',
+        href: LINEAR_WORKSPACE_URL,
+        hrefLabel: 'Linear (Kahana workspace)',
+      },
       'Product posts ship notes in Slack (what, who it’s for, Mixpanel event if any).',
-      'Marketing picks format (post, blog, clip) using content guidelines.',
+      'Marketing picks format (post, blog, or SOP 11 video) using content guidelines.',
+      {
+        text: 'If the ship needs a walkthrough, record it in Screen Studio per SOP 11 the same week.',
+        href: '/sops/creating-youtube-videos',
+        hrefLabel: 'SOP 11: Creating YouTube Videos',
+      },
+      {
+        text: 'If the ship includes a marketing-site or public URL change, ship it through SOP 13 (Linear card, local test, In Review, Heroku). Then update the sitemap and request indexing (SOP 12). Put UTM on the announcement links.',
+        href: '/sops/marketing-website',
+        hrefLabel: 'SOP 13: Updating the Marketing Website',
+      },
+      {
+        text: 'If the ship is news-worthy (first-of, launch, or a permissioned customer story), prepare a scoop and pitch from the media database (SOP 14) the same week. Do not wait for a blog to exist first.',
+        href: '/sops/pr-news',
+        hrefLabel: 'SOP 14: Third-Party News and PR',
+      },
       'Publish within five business days unless Legal is blocking.',
     ],
     doneWhen: ['At least one public artifact exists for the ship, or a written deferral.'],
@@ -1940,8 +3197,18 @@ const TASKS = [
     when: 'Weekly intake; monthly planning.',
     description:
       'Collect trends, ships, backlog teasers, success stories, testimonials, and cognitive-challenge stories.',
-    keywords: ['inputs', 'testimonials', 'trends', 'backlog'],
+    keywords: ['inputs', 'testimonials', 'trends', 'backlog', 'linear'],
     steps: [
+      {
+        text: 'Check the Linear board for features and updates that are completed (Done). File those ships as inputs for blogs (SOP 5), YouTube (SOP 11), official social (SOP 8), and PR scoops (SOP 14).',
+        href: LINEAR_WORKSPACE_URL,
+        hrefLabel: 'Linear (Kahana workspace)',
+      },
+      {
+        text: 'Add search-demand inputs from SOP 12: Exploding Topics, Google Trends, and Google/YouTube suggested and related searches. File primary + secondary keyword clusters next to the ships.',
+        href: '/sops/seo',
+        hrefLabel: 'SOP 12: SEO',
+      },
       'Weekly: Product lists shipped + soon-to-ship; CS lists testimonials and tickets that are really stories; Analytics lists one insight.',
       'Marketing files them in the content calendar as raw inputs, not as automatic posts.',
       'Anything customer-named needs permission before public use.',
@@ -1964,77 +3231,6 @@ const TASKS = [
       'If it fails A, do not publish. If it is B without a proof, mark as draft.',
     ],
     doneWhen: ['The piece has an explicit A/B/C mark in the calendar.'],
-  }),
-  task({
-    id: 'seo-sitemap',
-    title: 'SEO / Sitemap',
-    category: 'Marketing',
-    owner: 'Marketing Lead',
-    who: 'Web + Marketing',
-    when: 'On marketing-site or app SEO changes; quarterly Search Console pass.',
-    description: 'Keep sitemaps and indexable URLs honest for kahana.io.',
-    keywords: ['seo', 'sitemap', 'search console'],
-    steps: [
-      'Marketing site and product app have separate deploy targets — do not treat kahana-public as the React app.',
-      'After nav, public page, or blog publishes, regenerate the sitemap so every live URL (including new posts) is listed. Submit the sitemap in Google Search Console when you want to expedite SEO.',
-      'No keyword stuffing; titles and descriptions match the live page.',
-    ],
-    doneWhen: ['Search Console has no unexplained coverage drops on pages we still publish.'],
-  }),
-  task({
-    id: 'ai-seo',
-    title: 'AI SEO',
-    category: 'Marketing',
-    owner: 'Marketing Lead',
-    who: 'Marketing + web',
-    when: 'When publishing flagship pages or changing the Kahana Story.',
-    description: 'Make Kahana easy for answer engines to cite accurately (clear facts, not spam).',
-    keywords: ['ai seo', 'llmo', 'schema', 'citations'],
-    steps: [
-      'Put durable facts (what Kahana is, who it is for, what Aura is) in plain language on About and Story pages.',
-      'Keep organization/product names consistent (Kahana, Aura Library) — do not invent third names.',
-      'After publish, search a few model/answer surfaces for “Kahana library” and correct hallucinations with page updates, not with comment spam.',
-    ],
-    doneWhen: ['Flagship pages state name, job, and differentiator in the first screen of copy.'],
-  }),
-  task({
-    id: 'marketing-website',
-    title: 'Marketing Website',
-    category: 'Marketing',
-    owner: 'Marketing Lead',
-    who: 'Homepage maintainers',
-    when: 'Copy, SEO, or campaign landing changes.',
-    description: 'Ship marketing-site changes in the homepage repo — never from kahana-web.',
-    keywords: ['kahana.io', 'homepage', 'kahana-public', 'marketing site'],
-    notes: [
-      'kahana-web must never be pushed to Heroku app kahana-public. That took the marketing site down in July 2026.',
-    ],
-    steps: [
-      'Edit kahana-homepage-public (or the current marketing repo), not the product frontend.',
-      'Preview locally, then deploy the marketing app only.',
-      'UTM links into app.kahana.io / kahana.io library as specified by the campaign brief.',
-    ],
-    doneWhen: ['Change is live on kahana.io and product app is untouched unless the brief required both.'],
-  }),
-  task({
-    id: 'pr-news',
-    title: 'PR / News',
-    category: 'Marketing',
-    owner: 'Marketing Lead',
-    who: 'PR owner',
-    when: 'Proactive pitches and inbound press.',
-    description: 'Track journalists, pitches, and coverage in the PR spreadsheet.',
-    keywords: ['pr', 'press', 'news'],
-    steps: [
-      {
-        text: 'Log every outlet, contact, and status in the PR/News spreadsheet.',
-        href: PR_NEWS_SHEET,
-        hrefLabel: 'PR / News spreadsheet',
-      },
-      'Legal reviews claims, fundraising, and user numbers before a pitch goes out.',
-      'After coverage, archive the URL, share internally, and add UTM’d links where we control the CTA.',
-    ],
-    doneWhen: ['Sheet row is current and any live coverage is linked from the monthly marketing report.'],
   }),
   task({
     id: 'book-club-management',
@@ -2157,7 +3353,7 @@ const TASKS = [
     keywords: ['outreach', 'email', 'linkedin'],
     steps: [
       'Research a specific connection to Kahana (their content, community, or learners).',
-      'Send a short custom note. Use the Kahana pitch SOP — no spray templates.',
+      'Send a short custom note. Creator collabs use SOP 16. Do not spray a generic paste.',
       'Record response or non-response and the follow-up date.',
     ],
     doneWhen: ['The CRM/sheet shows sent date, channel, and next date.'],
@@ -2555,11 +3751,17 @@ const TASKS = [
     keywords: ['git', 'branch', 'heroku', 'pr'],
     notes: [
       'Never push kahana-web to kahana-public. Staging: git push heroku-beta <branch>:main. Prod: heroku-alpha.',
+      'Marketing website changes are SOP 13 (kahana-homepage-public, Linear In Review, Adam or EM deploys Heroku). Do not treat this product-app SOP as the marketing-site path.',
     ],
     steps: [
       'Branch from an up-to-date main. Name it after the Linear issue or a short intent.',
       'Push to origin. Open a PR. Do not force-push main. Do not skip hooks unless explicitly asked.',
       'Deploy staging before product prod when the change is user-facing.',
+      {
+        text: 'If the change is kahana.io / about.kahana.io, stop here and follow SOP 13 instead of heroku-alpha.',
+        href: '/sops/marketing-website',
+        hrefLabel: 'SOP 13: Updating the Marketing Website',
+      },
     ],
     doneWhen: ['Remote branch exists and the PR (or agreed direct deploy) is the source of truth.'],
   }),
@@ -2606,7 +3808,11 @@ const TASKS = [
     keywords: ['kahana-web', 'heroku-alpha', 'frontend'],
     steps: [
       'Work in kahana-web. Staging curio-beta, production kahana-alpha.',
-      'Never deploy this repo to kahana-public.',
+      {
+        text: 'Never deploy this repo to kahana-public. Marketing site updates are SOP 13 (kahana-homepage-public).',
+        href: '/sops/marketing-website',
+        hrefLabel: 'SOP 13: Updating the Marketing Website',
+      },
       'UI changes: verify in the browser, including empty/error states.',
     ],
     doneWhen: ['The intended Heroku app has the commit and the marketing site is unaffected.'],
@@ -3086,5 +4292,5 @@ const TASKS = [
 
 export const FUNCTION_SOPS = [...PLAYBOOKS, ...TASKS].map((sop, index) => ({
   ...sop,
-  number: 11 + index,
+  number: 17 + index,
 }))
