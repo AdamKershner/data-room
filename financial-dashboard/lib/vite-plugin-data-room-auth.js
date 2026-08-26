@@ -36,8 +36,14 @@ function isViteInternal(pathname) {
   )
 }
 
+function localOpenEnabled(source) {
+  return String(source.DATA_ROOM_LOCAL_OPEN ?? 'true').toLowerCase() !== 'false'
+}
+
 export function dataRoomAuthPlugin() {
   let env = getAuthEnv()
+  let allowLocalOpen = false
+  let localOpenPreference = true
 
   function attach(server) {
     server.middlewares.use(async (req, res, next) => {
@@ -70,6 +76,14 @@ export function dataRoomAuthPlugin() {
         }
 
         if (isPublicPath(pathname) || isStaticAssetPath(pathname) || isViteInternal(pathname)) {
+          next()
+          return
+        }
+
+        // Local `npm run dev` exception: browse the data room without a Kahana hub token.
+        // Production (Vercel middleware) and `vite preview` stay gated.
+        // Set DATA_ROOM_LOCAL_OPEN=false to test the gate on localhost.
+        if (allowLocalOpen) {
           next()
           return
         }
@@ -135,9 +149,17 @@ export function dataRoomAuthPlugin() {
     enforce: 'pre',
     configResolved(config) {
       const loaded = loadEnv(config.mode, config.envDir || process.cwd(), '')
-      env = getAuthEnv({ ...process.env, ...loaded })
+      const merged = { ...process.env, ...loaded }
+      env = getAuthEnv(merged)
+      localOpenPreference = localOpenEnabled(merged)
     },
-    configureServer: attach,
-    configurePreviewServer: attach,
+    configureServer(server) {
+      allowLocalOpen = localOpenPreference
+      attach(server)
+    },
+    configurePreviewServer(server) {
+      allowLocalOpen = false
+      attach(server)
+    },
   }
 }

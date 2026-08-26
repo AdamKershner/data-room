@@ -1,11 +1,14 @@
 /**
  * Function-tagged SOPs: department playbooks from SOPS.txt plus the
  * operating-task checklist (Marketing through Legal).
- * Numbered from SOP 8 onward in sopContent.js.
+ * Numbered from SOP 10 onward in sopContent.js (SOP 1 Product Hunt, SOP 2 Community Building,
+ * SOP 3 Product Quality, SOP 4 Product Management Playbook, SOP 5 Blogs, SOP 6 Brand Guidelines,
+ * SOP 7 Merch, SOP 8 Official Social Media, SOP 9 Author Outreach).
  */
 
 import {
   CREATOR_OUTREACH_SHEET_URL,
+  KAHANA_SITE_URL,
   LINEAR_WORKSPACE_URL,
   MIXPANEL_URL,
   TIME_LOG_TALLY_URL,
@@ -29,14 +32,47 @@ export const FUNCTION_SOP_CATEGORIES = [
   'Legal',
 ]
 
-const AUTHOR_OUTREACH_SHEET =
-  'https://docs.google.com/spreadsheets/d/1VGc8dwCdZDJ9H04yjaMeCoskNRp8mruCzjJfMUesa6k/edit?gid=534997309#gid=534997309'
+const AUTHOR_CONTACT_LIST_URL =
+  'https://docs.google.com/spreadsheets/d/1VGc8dwCdZDJ9H04yjaMeCoskNRp8mruCzjJfMUesa6k/edit?gid=0#gid=0'
+const AUTHOR_OUTREACH_TRACKER_URL =
+  'https://docs.google.com/spreadsheets/d/1PVmuq5rv9Ef--KSECCzoCFybkyftI3k6KFpifq5IkfQ/edit?pli=1&gid=197662251#gid=197662251'
+const AUTHOR_OUTREACH_EMAIL_TEMPLATE = `Hi [Author/Publisher],
+
+I'm [YOUR NAME].
+
+I am running a book club on Kahana.io, [a startup / an early-stage startup], a digital library and book club platform for teams and communities. Our internal book clubs are starting up, and your book [Title] came up as something multiple people want to read and discuss together.
+
+For context, on Kahana, authors can set a price for access to their book. Readers pay to unlock the book inside Kahana, where they can read, take notes, and participate in guided discussions. It is a combination of ebook access and structured book club space.
+
+We'd love you to:
+
+Host [Title] on Kahana as a paid book (at a price you choose), and
+
+Use it as the core of one of our upcoming book clubs.
+
+Initially this would be our team reading it, but you can also feature the book publicly and drive more readers your way if you're interested. Here's a quick demo of how this would look: [YouTube demo link]
+
+Would you be open to exploring this?
+
+Best,
+[YOUR NAME]`
 const PR_NEWS_SHEET =
   'https://docs.google.com/spreadsheets/d/1za1CWQzqrcSG9-WED4HLdoW9YX9LrWwk/edit?gid=1774411181#gid=1774411181'
 const PRODUCT_HUNT_ACCOUNTS_SHEET =
-  'https://docs.google.com/spreadsheets/d/1gSMDizFLvRliMZgYNyQND4lipZ3Dde6FPn2EWDRZolM/edit?gid=0#gid=0'
+  'https://docs.google.com/spreadsheets/d/1gSMDizFLvRliMZgYNyQND4lipZ3Dde6FPn2EWDRZolM/edit?pli=1&gid=0#gid=0'
 const PRODUCT_HUNT_CHARTER =
   'https://docs.google.com/document/d/1fbnq13Uj8n3qaCCg1BOdiQD-awjl5c2sswxWaX6oyU8/edit'
+const PRODUCT_HUNT_LAUNCH_GUIDE = 'https://www.producthunt.com/launch'
+const PRODUCT_HUNT_OASIS_LAUNCH =
+  'https://www.producthunt.com/products/kahana/launches/oasis-browser-for-mac'
+const SALES_HERO_JOURNEY_URL =
+  'https://storytellingedge.substack.com/p/a-6-step-framework-for-incredible'
+const KAHANA_BRAND_GUIDE_URL =
+  'https://drive.google.com/file/d/1t0m-qmNqf-BdnrA6ytxyYPkRh5EdaDEI/view?usp=sharing'
+const PRINTIFY_PRODUCTS_URL = 'https://printify.com/app/products'
+const CANVA_URL = 'https://www.canva.com/'
+const SOCIAL_ACCOUNTS_CREDENTIALS_DOC =
+  'https://docs.google.com/document/d/1Livnd-dsmFV33N_XZXP2kLf15JYd2TVxz1Duz-8RrWg/edit?tab=t.0'
 const IMPROVE_SURVEY = 'https://kahana.io/survey/improve?source=support_panel'
 const SUPPORT_PAGE = 'https://kahana.io/support'
 const CONTACT_PAGE = 'https://kahana.io/contact'
@@ -55,6 +91,7 @@ function playbook({
   description,
   keywords = [],
   notes,
+  format = 'playbook',
   sections,
   doneWhen,
 }) {
@@ -68,7 +105,7 @@ function playbook({
     description,
     keywords,
     notes,
-    format: 'playbook',
+    format,
     sections: sections.map((section) => ({
       ...section,
       steps: stepsFrom(section.steps),
@@ -293,50 +330,6 @@ const PLAYBOOKS = [
     ],
   }),
   playbook({
-    id: 'product-management-operations',
-    title: 'Product Management Operations',
-    category: 'Product',
-    owner: 'Product Manager / Product Owner',
-    who: 'Product Managers',
-    when: 'Every opportunity from discovery through release and measurement.',
-    description:
-      'Identify user needs, prioritize, ship improvements, and use product data to keep Kahana on mission.',
-    keywords: ['discovery', 'backlog', 'prioritization', 'requirements', 'mixpanel', 'cringey gaps'],
-    notes: [
-      'Every product decision: does this help Kahana accomplish its ultimate mission?',
-      'Quality dogfood lives in SOP 7 Finding What’s Broken.',
-    ],
-    sections: [
-      {
-        id: 'discovery',
-        title: 'Discovery and opportunity',
-        steps: [
-          'Inputs: user feedback, product analytics, customer support, market and competitor research, internal observations, advisor feedback.',
-          'For each opportunity capture problem, user, current vs desired experience, business value, expected impact, and risks.',
-        ],
-      },
-      {
-        id: 'prioritize',
-        title: 'Prioritization and requirements',
-        steps: [
-          'Score user impact, business impact, mission alignment, engineering effort, risk, urgency, and supporting data.',
-          'Requirements: objective, persona, expected behavior, acceptance criteria, dependencies, stakeholders, then create the development work in Linear.',
-        ],
-      },
-      {
-        id: 'analytics',
-        title: 'Product analytics',
-        steps: [
-          'Watch new and returning users, engagement, retention, content interaction, Aura behavior, transactions, and conversion in Mixpanel Kahana PROD.',
-        ],
-      },
-    ],
-    doneWhen: [
-      'Prioritized work is in Linear with acceptance criteria.',
-      'Shipped work has a Mixpanel read (or an explicit reason it cannot).',
-    ],
-  }),
-  playbook({
     id: 'engineering-operations',
     title: 'Engineering Operations',
     category: 'Engineering',
@@ -538,41 +531,1040 @@ const PLAYBOOKS = [
   }),
 ]
 
-const TASKS = [
-  task({
+export const PRODUCT_HUNT_LAUNCH_SOP = playbook({
     id: 'product-hunt-launch',
     title: 'Product Hunt Launch',
     category: 'Marketing',
     owner: 'Marketing Lead',
-    who: 'Marketing plus the whole team on launch day',
-    when: 'When NPS and critical product blockers meet the launch charter; then T-minus outreach through launch day.',
-    description: 'Line up upvotes, run launch day, and capture the spike in Mixpanel.',
-    keywords: ['product hunt', 'upvote', 'launch'],
-    steps: [
-      'Confirm charter conditions (NPS target and critical technical blockers) before locking a date.',
+    format: 'checklist',
+    who: 'The entire team, plus every community member who agrees to support; Marketing coordinates; CS and Product own post-launch',
+    when: 'Work the pre-launch checklist to 40 confirmed testimonials and three town halls, then the day-of list starting 3 AM EST, then post-launch Mixpanel and support.',
+    description:
+      'Three-phase checklist: pre-launch (community, honest testimonials, hype, town halls), day of (3 AM EST posts and 300-upvote push), and post-launch (Mixpanel, support, retention, revenue).',
+    keywords: [
+      'product hunt',
+      'upvote',
+      'launch',
+      'oasis',
+      'aura library',
+      'hype campaign',
+      '3am',
+      'testimonial',
+      'town hall',
+      'checklist',
+      'pre-launch',
+      'retention',
+    ],
+    notes: [
+      'Do not lock a launch date until at least 40 confirmed testimonials and people are on the tally. Missing that count means slip the date.',
+      'A #1 Product Hunt launch needs at least 300 upvotes on average. Plan outreach to that bar, not to a handful of friends.',
+      'The algorithm rewards genuine early comments when the launch opens (3 AM EST) — not a late-day dump of upvotes. Launch day is posting work already written, not drafting.',
+      'Before launch, run three consecutive 30-minute town halls (Tuesday, Wednesday, Thursday). Every teammate must attend at least one.',
+    ],
+    sections: [
       {
-        text: 'Every teammate has a Product Hunt account listed on the team sheet.',
-        href: PRODUCT_HUNT_ACCOUNTS_SHEET,
-        hrefLabel: 'Product Hunt accounts sheet',
+        id: 'pre-launch',
+        title: 'Pre-launch',
+        intro:
+          'Nothing on this list is optional. Do not lock a date until the 40-testimonial tally is confirmed and the Tuesday–Thursday town halls are on the calendar with attendance tracking.',
+        steps: [
+          {
+            id: 'pre-charter',
+            text: 'Charter conditions are met (NPS target and critical technical blockers). Date is not locked yet.',
+            href: PRODUCT_HUNT_CHARTER,
+            hrefLabel: 'Product Hunt Launch Charter',
+          },
+          {
+            id: 'pre-ph-guide',
+            text: 'Read Product Hunt’s launch guide for current rules, assets, and hunter/maker mechanics.',
+            href: PRODUCT_HUNT_LAUNCH_GUIDE,
+            hrefLabel: 'Product Hunt launch guide',
+          },
+          {
+            id: 'pre-oasis',
+            text: 'Study the previous Oasis Browser for Mac launch. Reuse what worked; do not start from a blank page.',
+            href: PRODUCT_HUNT_OASIS_LAUNCH,
+            hrefLabel: 'Oasis Browser for Mac — Product Hunt launch',
+          },
+          {
+            id: 'pre-sheet-profiles',
+            text: 'Community sheet is current: every teammate and recruited supporter has a live Product Hunt profile. Track used-the-product / draft in / confirmed / 3 AM EST committed on the same sheet.',
+            href: PRODUCT_HUNT_ACCOUNTS_SHEET,
+            hrefLabel: 'Product Hunt community / accounts sheet',
+          },
+          {
+            id: 'pre-recruit-300',
+            text: 'Recruit friends and colleagues toward at least 300 upvotes (the #1 bar). The ship gate is 40 confirmed testimonials and people, not the calendar.',
+            href: '/producthunt-tasks',
+            hrefLabel: 'Product Hunt tasks (data room)',
+          },
+          {
+            id: 'pre-team-use',
+            text: 'Entire team used Kahana (AKA The Aura Library) for real — hubs, club, Aura, a new-user path. No invented reviews.',
+          },
+          {
+            id: 'pre-team-testimonials',
+            text: 'Every teammate wrote a true four-part testimonial days in advance: what they like, what they do not like, what to improve, and what they are most hopeful to do next. Hype-only blurbs do not count.',
+          },
+          {
+            id: 'pre-community-testimonials',
+            text: 'Same four-part testimonials collected from every community member who agreed to support, as completely as we can. Chase until confirmed or they drop off.',
+          },
+          {
+            id: 'pre-tally-40',
+            text: 'Tally is at least 40 confirmed people. Confirmed = used the product + four-part draft + Product Hunt login + committed to post at 3 AM EST. Under 40: slip the date.',
+            href: PRODUCT_HUNT_ACCOUNTS_SHEET,
+            hrefLabel: 'Product Hunt community / accounts sheet',
+          },
+          {
+            id: 'pre-brief-community',
+            text: 'Community is briefed before launch morning: use the product, write the testimonial, upvote, and paste that testimonial when it opens — not “Congrats.”',
+          },
+          {
+            id: 'pre-reminder',
+            text: 'Each person has a reminder: 3 AM EST, Kahana (AKA The Aura Library), paste the testimonial already written.',
+          },
+          {
+            id: 'pre-chase-profiles',
+            text: 'Missing Product Hunt profile links chased before T-minus 48 hours.',
+          },
+          {
+            id: 'pre-hype-framework',
+            text: 'Social hype campaign written to the Sales Hero’s Journey, tailored to Kahana: Aura Library — not a feature dump. Founding-story beat under 90 seconds if spoken or video.',
+            href: SALES_HERO_JOURNEY_URL,
+            hrefLabel: 'Sales Hero’s Journey (Storytelling Edge)',
+            note: '1) Prologue / trust. 2) Force of change (AI slop, feeds for dopamine). 3) Stakes (winners vs learners). 4) Magical guide: Kahana (AKA The Aura Library). 5) Three-step plan (club, hub, Aura). 6) Promised land + Oasis proof + CTA when live.',
+          },
+          {
+            id: 'pre-hype-kahana-story',
+            text: 'Hype copy is aligned to the Kahana Story. Scheduled on LinkedIn, Instagram, and other live channels so the story is already circulating before 3 AM EST.',
+            href: '/kahana-narrative',
+            hrefLabel: 'Kahana Story',
+          },
+          {
+            id: 'pre-townhall-booked',
+            text: 'Three consecutive 30-minute town halls booked: Tuesday, Wednesday, Thursday (week before launch, or the three days immediately before). Same agenda each day.',
+          },
+          {
+            id: 'pre-townhall-rsvp',
+            text: 'Every teammate is signed up for at least one town hall. Chase anyone without a slot before Tuesday. Missing all three is not allowed.',
+          },
+          {
+            id: 'pre-townhall-ran',
+            text: 'All three town halls ran. Drill: 3 AM EST login → paste four-part testimonial on the launch discussion → upvote → makers reply → share socials and text chats all day. Rehearse the first-15-minute ping list.',
+          },
+          {
+            id: 'pre-townhall-roles',
+            text: 'Each attendee knows their launch-day job (testimonial, upvote, which chats/socials, 3 AM EST shift). Unfinished testimonials finished on the call.',
+          },
+          {
+            id: 'pre-townhall-hype',
+            text: 'Every town hall ended hyped — why this is worth 3 AM EST, what a #1 day means, “see you at 3 AM.” Not logistics-only.',
+          },
+          {
+            id: 'pre-lock-date',
+            text: 'Date locked only after 40 confirmed testimonials and people, a named 3 AM EST shift list, and the three town halls complete with attendance tracked.',
+          },
+        ],
       },
       {
-        text: 'Recruit friends and colleagues using the data-room Product Hunt task copy (favor → overview → instructions). Goal historically: ~350 launch-day upvotes.',
-        href: '/producthunt-tasks',
-        hrefLabel: 'Product Hunt tasks (data room)',
+        id: 'day-of-launch',
+        title: 'Day of launch',
+        intro:
+          'Launch day is execution. Testimonials are already written. The 40 confirmed people are the first wave at 3 AM EST. Upvotes still have to reach 300.',
+        steps: [
+          {
+            id: 'day-3am-login',
+            text: 'At 3 AM EST, when Product Hunt opens, everyone on the confirmed tally logs in.',
+          },
+          {
+            id: 'day-post-testimonials',
+            text: 'Each person posts the testimonial they already wrote on the launch-page discussion (like / don’t like / improve / hope next). Do not draft in the moment.',
+          },
+          {
+            id: 'day-ping-15',
+            text: 'Run the 3 AM EST shift list. Ping anyone who has not posted within 15 minutes.',
+          },
+          {
+            id: 'day-makers-reply',
+            text: 'Makers reply to every comment within minutes. First hour of the thread is not empty.',
+          },
+          {
+            id: 'day-share-all-day',
+            text: 'Throughout the day: share the live launch on all socials, Slack (#linkedin-focus-group and team channels), and text group chats. Not a one-and-done morning blast. Official Kahana-account posts still go through SOP 8 (access + Linear review); personal shares do not.',
+            href: '/sops/official-social-media',
+            hrefLabel: 'SOP 8: Official Social Media',
+          },
+          {
+            id: 'day-upvotes-300',
+            text: 'Upvote from prepared accounts. Watch ranking. If comments or votes stall, ping the next wave — a #1 launch needs at least 300 upvotes on average.',
+            href: PRODUCT_HUNT_ACCOUNTS_SHEET,
+            hrefLabel: 'Product Hunt community / accounts sheet',
+          },
+        ],
       },
       {
-        text: 'Read the launch charter for timing, assets, and hunter/maker roles.',
-        href: PRODUCT_HUNT_CHARTER,
-        hrefLabel: 'Product Hunt Launch Charter',
+        id: 'post-launch',
+        title: 'Post-launch',
+        intro:
+          'A spike that does not come back, get support, or pay is not a win. Track the Product Hunt cohort until the retro is written.',
+        steps: [
+          {
+            id: 'post-mixpanel',
+            text: 'Monitor Mixpanel for the Product Hunt cohort: sign-ups with UTM/source, activation, and drop-off. Do not wait for a weekly report.',
+            href: MIXPANEL_URL,
+            hrefLabel: 'Mixpanel Kahana project',
+          },
+          {
+            id: 'post-support',
+            text: 'Customer support is staffed for new users (kahana.io/support and /contact). Reply fast.',
+            href: '/sops/handling-user-tickets',
+            hrefLabel: 'SOP: Handling Suggestions, Contacts, and Tickets',
+          },
+          {
+            id: 'post-retention',
+            text: 'Retention of newly signed-up users tracked as its own cohort (D1 / D7, return to a hub or club).',
+          },
+          {
+            id: 'post-revenue',
+            text: 'Paid-plan upgrades and revenue from that cohort recorded next to sign-up count.',
+          },
+          {
+            id: 'post-retro',
+            text: 'Within 24–48 hours, short retro: ranking, comment quality, Mixpanel sign-ups, support load, retention, paid conversion. File what to reuse next time.',
+          },
+        ],
       },
-      'Launch day: post, upvote from prepared accounts, reply to comments within minutes, and share in Slack #linkedin-focus-group and socials.',
-      'After 24–48 hours, record Mixpanel sign-ups with UTM/source and write a short retro.',
     ],
     doneWhen: [
-      'Accounts sheet is complete and launch-day comments are answered.',
-      'A retro names sign-ups attributed to Product Hunt.',
+      'At least 40 confirmed testimonials and people were on the tally before the date was locked — each from real product use, covering like / dislike / improve / hope next.',
+      'Every teammate (and as many supporting community members as we could get) had a draft days in advance and posted it on the launch discussion at 3 AM EST.',
+      'Three consecutive 30-minute town halls ran Tuesday, Wednesday, and Thursday; every teammate attended at least one; each meeting drilled launch-day steps and ended hyped.',
+      'Hype posts followed the Aura Library story arc. Upvote plan targeted at least 300 (the #1 bar).',
+      'Launch-day comments were answered and the link was shared on socials and in group chats.',
+      'A retro names Product Hunt sign-ups, new-user retention, paid upgrades, and revenue — not just upvotes.',
     ],
-  }),
+  })
+
+export const BLOG_PUBLISHING_SOP = playbook({
+  id: 'blog-publishing',
+  title: 'Blogs',
+  category: 'Marketing',
+  owner: 'Marketing Lead',
+  who: 'Anyone writing for kahana.io/blog (Marketing, plus Product or Community when they have a story)',
+  when: 'Per content calendar, after a ship or success story, or when a landscape comparison would help a creator or viewer choose a stack.',
+  description:
+    'Write blogs that compare and educate: Kahana with the platforms creators, content, and viewers already use, plus success stories, use-case guides, and practical help. Research on Company Landscape and Market Map. Ship via marketing-site code, Slack to Adam, or the KahanaHQ hub.',
+  keywords: [
+    'blog',
+    'content',
+    'seo',
+    'comparison',
+    'company landscape',
+    'market map',
+    'success story',
+    'use case',
+    'youtube embed',
+    'em dash',
+    'kahana hq',
+    'sitemap',
+    'search console',
+  ],
+  notes: [
+    'Ideal blogs compare and educate. Show how Kahana works with YouTube, Discord, Substack, Patreon, Teachable, Goodreads, and the rest of the landscape, not as a silent replacement.',
+    'SEO bar: no em dashes, proofread before anyone else sees it, and include source links. A YouTube video embedded in the post is a plus.',
+    'The live blog URL should appear in the sitemap. Update the sitemap and submit it in Google Search Console if you want to expedite SEO.',
+    'Kahana (AKA "The Aura Library"). Aura is the discovery signal, not the product name.',
+  ],
+  sections: [
+    {
+      id: 'purpose',
+      title: 'What a Kahana blog is for',
+      intro:
+        'A blog earns a publish when a creator, club host, or viewer can do something clearer afterward: pick a stack, try a workflow, or trust a story.',
+      steps: [
+        'Write Topic, Audience, and Objective before the draft. Audience is usually creators, club hosts, or people who already watch/read/listen somewhere else.',
+        'Check the quality bar before you draft. Level A (accurate, no PII, working links) is the floor. Level B needs a point of view plus one proof. Level C is flagship narrative.',
+        {
+          text: 'Open Content Guidelines if you are unsure whether this is public, draft, or internal-only.',
+          href: '/sops/content-guidelines-quality',
+          hrefLabel: 'Content Guidelines — Quality Levels',
+        },
+      ],
+    },
+    {
+      id: 'research',
+      title: 'Research the landscape before you write',
+      intro:
+        'Company Landscape and Market Map are the source of truth for who sits in the same space as Kahana. Use them so comparisons are specific, sourced, and fair.',
+      steps: [
+        {
+          text: 'Start on Market Map. Pick the category your reader already lives in: Ebook, Short-form or Long-form video, Courses, Newsletters, Audio, Community & Messaging, Memberships, Storefronts, or Marketplaces.',
+          href: '/fragment-capture',
+          hrefLabel: 'Market Map',
+        },
+        {
+          text: 'Open Company Landscape and filter that same Market Map category. Read the cards for platforms creators, content, and viewers actually use. Note what each does well, where it is weak, scale signals, and the listed sources.',
+          href: '/company-landscape',
+          hrefLabel: 'Company Landscape',
+        },
+        {
+          text: 'Read how Kahana sits in the creator stack (content, community, memberships, storefronts, marketplaces) so the blog does not invent a new category story.',
+          href: '/glossary',
+          hrefLabel: 'Glossary — Kahana vs the creator stack',
+        },
+        'For each platform you name, write two sentences: what people use it for today, and how Kahana is used with it (library, Clubs, Aura) rather than instead of it. Pull together-positioning from the landscape card or synergy notes (Discord as the living room, Kahana as the shelf; YouTube keeps the video and ads, Kahana is the club layer).',
+        'Cite the landscape sources and any public pages you used. Do not invent user counts, revenue, or “we replace X.”',
+      ],
+    },
+    {
+      id: 'types',
+      title: 'Pick a blog type',
+      intro: 'Most posts should be one of these. Mix only when the reader still gets a single job.',
+      steps: [
+        'Compare and educate: Kahana and another platform (or a small set) in the same Market Map space. Teach the jobs each one is good at, then the tandem workflow. Example: “How a YouTube educator runs a Kahana video club without leaving YouTube.”',
+        'Success story: a real club, hub, creator, or team. What they were doing, what they set up on Kahana, what changed. Named people and brands need permission.',
+        'Use-case guide: a click-by-click or week-by-week workflow (start a book club, add a YouTube curriculum, pin a hub in Discord, run a course discussion alongside Teachable).',
+        'Tips, recommendations, and help: practical answers (wishlist vs focus title, Aura vs a like, invite links, how to talk about Kahana next to Patreon or Substack). Point at in-app help when it already exists.',
+        {
+          text: 'File raw inputs (ships, testimonials, CS stories) so blogs are not invented from memory. Customer-named stories need permission before they go public.',
+          href: '/sops/marketing-inputs',
+          hrefLabel: 'Inputs for Marketing',
+        },
+      ],
+    },
+    {
+      id: 'together',
+      title: 'Comparison blogs: used together, not against',
+      intro:
+        'Creators and viewers already have a stack. The useful blog shows how Kahana plugs into it.',
+      steps: [
+        'Name the reader’s current tools from Company Landscape. Typical pairs: YouTube + Kahana video club; Discord or Circle + Kahana library and Clubs; Substack, Beehiiv, or Medium + a reading club; Patreon or Memberful + Kahana as the membership destination; Teachable, Thinkific, Kajabi, or Udemy + Kahana discussion; Goodreads, Fable, or Literal + Kahana book clubs; Spotify or Audible + a listening club.',
+        'Be explicit about what Kahana does not replace: YouTube hosting and ads, Discord chat, Teachable checkout, Kindle storefronts. Kahana is the club + library layer and Aura is the discovery signal.',
+        {
+          text: 'Keep the Kahana Story in view so the comparison stays on mission (hubs as library, clubs as the room, Aura as the signal).',
+          href: '/kahana-narrative',
+          hrefLabel: 'Kahana Story',
+        },
+        'End with a tandem flow the reader can copy this week, plus a CTA to kahana.io (Library, a relevant hub, or sign-up) with UTM if this is a campaign.',
+      ],
+    },
+    {
+      id: 'seo-bar',
+      title: 'Drafting and SEO bar',
+      steps: [
+        'Proofread the full draft yourself before Slack, hub upload, or a PR. Do not send a first pass that still reads like a transcript.',
+        'Do not use em dashes (—) in the title, meta, or body. Readers treat them as a tell that a robot wrote the post. Use a period, a comma, a colon, or a hyphen instead. Same rule as LinkedIn.',
+        'Include source links: Company Landscape research sources, the platform’s own docs or pricing page, and Kahana product pages you mention. Make claims checkable.',
+        'Title and meta description match the live page. No keyword stuffing. First screen states who it is for and the job.',
+        {
+          text: 'The live blog URL should appear in the sitemap. After publish, update the sitemap and submit it in Google Search Console if you want to expedite SEO.',
+          href: '/sops/seo-sitemap',
+          hrefLabel: 'SEO / Sitemap',
+        },
+        'Legal review if you mention pricing, user counts, fundraising, medical/financial claims, or someone else’s IP or likeness.',
+      ],
+    },
+    {
+      id: 'video',
+      title: 'YouTube and embeds',
+      steps: [
+        {
+          text: 'When the post teaches a workflow, record a YouTube video (job-to-be-done, product on screen, chapters, UTM in the description) and embed it near the top of the blog.',
+          href: '/sops/youtube-publishing',
+          hrefLabel: 'YouTube SOP',
+        },
+        {
+          text: 'Publish on the Kahana HQ YouTube channel, then paste the embed so watch time stays on YouTube.',
+          href: 'https://www.youtube.com/@kahanaHQ',
+          hrefLabel: 'YouTube @kahanaHQ',
+        },
+        'If a video is not ready, ship the written guide with screenshots rather than delaying the post forever. File a follow-up to add the embed.',
+      ],
+    },
+    {
+      id: 'ship',
+      title: 'How to ship the draft',
+      intro: 'Pick one path. Do not leave a finished draft only on your laptop.',
+      steps: [
+        {
+          text: 'Path A: contribute directly. Request tools access and say you will contribute to website/code (GitHub email). Edit the marketing site repo, not kahana-web, and never deploy to kahana-public from the product app.',
+          href: TOOLS_ACCESS_TALLY_URL,
+          hrefLabel: 'Get access to tools and data',
+        },
+        {
+          text: 'Follow the Marketing Website SOP for the homepage/blog repo, local preview, and deploy.',
+          href: '/sops/marketing-website',
+          hrefLabel: 'Marketing Website',
+        },
+        'Path B: send the draft to Adam Kershner on Slack (title, audience, live outline or Google Doc, sources, and any video).',
+        'Path C: upload the draft into the KahanaHQ hub, section Marketing > Blogs (blog drafts). Keep filename or title clear: date, topic, status (draft / review / ready).',
+        'Internal review before publish. The reviewer checks landscape accuracy, together-not-instead framing, em dashes, sources, and the CTA.',
+      ],
+    },
+    {
+      id: 'publish-promote',
+      title: 'Publish, promote, measure',
+      steps: [
+        {
+          text: 'Publish on kahana.io/blog with title, meta description, internal links (Library, About, relevant hub), and the YouTube embed when you have one.',
+          href: `${KAHANA_SITE_URL}/blog`,
+          hrefLabel: 'kahana.io/blog',
+        },
+        {
+          text: 'Confirm the new post is in the sitemap. Update the sitemap if it is missing, then submit the sitemap in Google Search Console to expedite indexing.',
+          href: '/sops/seo-sitemap',
+          hrefLabel: 'SEO / Sitemap',
+        },
+        {
+          text: 'Promote on LinkedIn, Instagram, newsletter, and Slack for teammate engagement. Category 2 LinkedIn posters can reshare from personal profiles. Official Kahana-account posts go through SOP 8 first.',
+          href: '/sops/official-social-media',
+          hrefLabel: 'SOP 8: Official Social Media',
+        },
+        {
+          text: 'Measure traffic and sign-ups (Mixpanel where the CTA hits the product). Note what to reuse in the monthly marketing report.',
+          href: MIXPANEL_URL,
+          hrefLabel: 'Mixpanel Kahana project',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'The post has a named audience, a type (comparison, success story, use-case, or tips), and landscape research behind any platform names.',
+    'A reader can see how Kahana is used with at least one real platform, not only instead of one.',
+    'The draft was proofread, has no em dashes, and includes source links. A YouTube embed is live or explicitly deferred.',
+    'The draft left the laptop: marketing-site PR, Slack to Adam, or KahanaHQ hub Marketing > Blogs.',
+    'The live URL is in the sitemap. Sitemap was updated and submitted in Google Search Console when you wanted to expedite SEO.',
+    'Live URL, promotion, and a measurement note exist in the monthly marketing report.',
+  ],
+})
+
+export const BRAND_GUIDELINES_SOP = playbook({
+  id: 'brand-guidelines',
+  title: 'Brand Guidelines',
+  category: 'Marketing',
+  owner: 'Marketing Lead',
+  format: 'checklist',
+  who: 'Anyone creating marketing campaigns, social posts, blogs, videos, merch, ads, or landing pages',
+  when: 'Before every public piece of content. Recheck if copy, visuals, or the product story changed after the first draft.',
+  description:
+    'Check Kahana brand before you publish: original guide (values, manifesto, personality, color, type, logo) plus current Aura Library naming and story. A revamped guide for the Aura Library focus is in progress.',
+  keywords: [
+    'brand',
+    'guidelines',
+    'logo',
+    'voice',
+    'color',
+    'typography',
+    'manifesto',
+    'personality',
+    'aura library',
+    'campaign',
+    'social',
+    'mazzard',
+    'nunito',
+  ],
+  notes: [
+    'Open the original brand guide for values, manifesto, how we feel about the people we serve, personality, color, type, and logo. Check this SOP against it on every campaign and social post.',
+    'A revamped brand guide is in progress, geared to Kahana’s current focus as the Aura Library (hubs, Clubs, Aura as the discovery signal). Until that ships, do not treat old About copy (split-screen research workspace, kahana.co) as current campaign language.',
+    'Kahana (AKA "The Aura Library"). Aura is the discovery signal, not the product name.',
+  ],
+  sections: [
+    {
+      id: 'when',
+      title: 'When to run this check',
+      intro: 'Brand is not a quarterly document pass. It is a gate before content goes public.',
+      steps: [
+        {
+          id: 'bg-when-campaign',
+          text: 'Run this checklist on marketing campaigns, ads, landing pages, newsletters, and PR visuals before spend or publish.',
+        },
+        {
+          id: 'bg-when-social',
+          text: 'Run it on LinkedIn, Instagram, YouTube thumbnails and descriptions, TikTok, and X. Same bar as a campaign, even if the post is short. Official-account posts also need SOP 8 (access + Linear marketing-manager review) before schedule or publish.',
+          href: '/sops/official-social-media',
+          hrefLabel: 'SOP 8: Official Social Media',
+        },
+        {
+          id: 'bg-when-blog',
+          text: 'Run it on kahana.io/blog drafts (title, body, images, embed cards) alongside SOP 5 Blogs.',
+          href: '/sops/blog-publishing',
+          hrefLabel: 'SOP 5: Blogs',
+        },
+        {
+          id: 'bg-when-merch',
+          text: 'Run it on merch and mood boards before a vendor quote.',
+          href: '/sops/merch',
+          hrefLabel: 'SOP 7: Merch',
+        },
+      ],
+    },
+    {
+      id: 'guides',
+      title: 'Which guide to open',
+      steps: [
+        {
+          id: 'bg-open-original',
+          text: 'Open the original Kahana brand guide (17 pages): About, core values, manifesto, brand personality, logo, clearspace, logo usage, color, typography, iconography, patterns and shapes, imagery, digital, print, merchandise.',
+          href: KAHANA_BRAND_GUIDE_URL,
+          hrefLabel: 'Original brand guide (PDF)',
+        },
+        {
+          id: 'bg-revamp',
+          text: 'Know that a revamped guide is being written for the Aura Library era. Use it when it exists. Until then, overlay current product truth from the Kahana Story on top of the original visual and voice system.',
+          href: '/kahana-narrative',
+          hrefLabel: 'Kahana Story',
+        },
+        {
+          id: 'bg-quality',
+          text: 'If the piece fails Content Guidelines Level A (accurate product, no PII, working links, Kahana spelled correctly), it does not ship even if it looks on-brand.',
+          href: '/sops/content-guidelines-quality',
+          hrefLabel: 'Content Guidelines — Quality Levels',
+        },
+      ],
+    },
+    {
+      id: 'people',
+      title: 'How we feel about the people we serve',
+      intro:
+        'From the original manifesto: we listen with care to creators’ problems and pain points, and we build in hope of helping them. We do not fixate on why people create. We revere that they create to answer the why.',
+      steps: [
+        {
+          id: 'bg-manifesto',
+          text: 'Keep the manifesto in earshot: “If I was imprisoned alone between four blank walls with nothing but time, I would sing.” Creation gives meaning. The goal is a seamless, immersive creative experience, not a lecture.',
+          href: KAHANA_BRAND_GUIDE_URL,
+          hrefLabel: 'Original brand guide (PDF)',
+        },
+        {
+          id: 'bg-who-creators',
+          text: 'Never Forget Who Creators Are: minds never slow down, challenge the status quo, create in cycles, need time and space, focus intensely, feel deeply, battle resistance, struggle to believe in themselves, procrastinate, connect the dots, never grow old.',
+        },
+        {
+          id: 'bg-what-creation',
+          text: 'Never Forget What Creation Is: ceaseless absorption of experience that connects disparate dots. Active, as long as willpower exists. Copy should respect that process, not flatten it into “content.”',
+        },
+        {
+          id: 'bg-tone-to-audience',
+          text: 'Speak as a library and club for learners and creators, not as a growth hacker dunking on them. Comparison blogs (SOP 5) show how Kahana is used with YouTube, Discord, Substack, and the rest, not as a silent replacement.',
+        },
+      ],
+    },
+    {
+      id: 'values-voice',
+      title: 'Values, personality, and voice',
+      steps: [
+        {
+          id: 'bg-values',
+          text: 'The four principles still hold: eagerness to learn, accountability, problem-solving skills, strong work ethic. Public copy should not mock learning, dodge ownership, or sound lazy.',
+          href: '/onboarding/company-rules',
+          hrefLabel: 'Onboarding — values',
+        },
+        {
+          id: 'bg-personality',
+          text: 'Check the six personality notes from the original guide: Exhilarating Exploration, Killer Cuteness, Comic Spontaneity, Nighttime Intelligence, Aesthetic Appreciation, Power & Activism. A piece can lean on two or three. It should not feel like generic SaaS beige or rage-bait.',
+        },
+        {
+          id: 'bg-no-emdash',
+          text: 'No em dashes in public marketing copy (same rule as LinkedIn and blogs). Proofread before anyone else sees it.',
+        },
+        {
+          id: 'bg-naming',
+          text: 'First mention: Kahana (AKA “The Aura Library”). After that, Kahana or the Aura Library. Do not call the product Aura. Do not invent a third name. Do not use kahana.co; the live site is kahana.io.',
+        },
+      ],
+    },
+    {
+      id: 'visual',
+      title: 'Visual system (original guide)',
+      intro: 'Until the Aura Library guide publishes new tokens, use these original specs. Product UI has its own tokens; do not casually mix product chrome into campaign art.',
+      steps: [
+        {
+          id: 'bg-logo-files',
+          text: 'Use only the given logo files: stacked, wide, or icon. Do not skew, squash, outline, drop-shadow, swap fonts, move the icon, or place the logo on a background that hides it. Keep minimum clearspace.',
+          href: KAHANA_BRAND_GUIDE_URL,
+          hrefLabel: 'Original brand guide (PDF) — logo pages',
+        },
+        {
+          id: 'bg-color',
+          text: 'Stay in the original palette. Primary: #3B4041, #3B675E, #000000. Secondary: #6EA487, #879C98, #FFFFFF, #E9F4E9, #E6CA61, #FEE3EC. Do not introduce a random accent because a template had it.',
+        },
+        {
+          id: 'bg-type',
+          text: 'Typography: Mazzard Soft H (primary), Nunito (secondary). Do not substitute a lookalike without Marketing Lead approval.',
+        },
+        {
+          id: 'bg-shapes',
+          text: 'Patterns and shapes: soft lines, curves, circles, rounded corners. Smooth, fun, approachable, ergonomic. Avoid harsh corporate grids and clip-art.',
+        },
+        {
+          id: 'bg-imagery',
+          text: 'Imagery should match the guide’s digital/print/merch pages: people and libraries in focus, not stock-handshake or engagement-farm faces.',
+        },
+      ],
+    },
+    {
+      id: 'aura-overlay',
+      title: 'Aura Library overlay (until the revamp ships)',
+      intro:
+        'The original About page described a split-screen research workspace and kahana.co. That is not the campaign story now.',
+      steps: [
+        {
+          id: 'bg-current-job',
+          text: 'Current product: Kahana is the club + library layer. Hubs hold ebooks, video, audio, newsletters, courses. Clubs are the room. Aura (up to 5/day) is the discovery signal for what people genuinely endorse.',
+          href: '/kahana-narrative',
+          hrefLabel: 'Kahana Story',
+        },
+        {
+          id: 'bg-no-obsolete',
+          text: 'Do not ship obsolete claims as if they are current: “start research here instead of Google,” “open source verification” as the headline, or kahana.co in CTAs. If you quote the original About for history, label it as heritage, not as today’s product.',
+        },
+        {
+          id: 'bg-together',
+          text: 'When you name other platforms, use Company Landscape and Market Map the same way SOP 5 does: together, not against.',
+          href: '/company-landscape',
+          hrefLabel: 'Company Landscape',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'The original brand guide was opened for this piece (values, manifesto, personality, logo, color, type).',
+    'Voice treats creators as the manifesto describes, and naming is Kahana / Aura Library (Aura is the signal).',
+    'Logo, color, type, and shapes match the original specs (or an approved exception is written down).',
+    'Copy matches the current Aura Library story, not the old split-screen / kahana.co About.',
+    'The piece is a campaign, social post, blog, video, merch, or landing page that passed this check before publish.',
+  ],
+})
+
+export const MERCH_SOP = playbook({
+  id: 'merch',
+  title: 'Merch',
+  category: 'Marketing',
+  owner: 'Marketing Lead',
+  format: 'checklist',
+  who: 'Anyone designing merch for the team, customers, marketing campaigns, or community building',
+  when: 'On an ongoing mood board, then before each drop, restock, giveaway, or campaign kit.',
+  description:
+    'Design Kahana merch in Canva, produce through Printify (or another POD/vendor), and keep a living mood board of ideas. Brand-check every design. Use merch for team, customers, campaigns, and clubs.',
+  keywords: [
+    'merch',
+    'swag',
+    'printify',
+    'canva',
+    'mood board',
+    'print on demand',
+    't-shirt',
+    'campaign',
+    'community',
+  ],
+  notes: [
+    'Printify is the default ecommerce / print-on-demand catalog (tees, bags, bottles, and the rest of their product list). Canva is the default design tool. Other vendors are fine if brand and legal still pass.',
+    'Keep a merch mood board of ideas and concepts on an ongoing basis, not only when a drop is already approved.',
+    'Every design runs SOP 6 Brand Guidelines before a sample is ordered. Kahana (AKA "The Aura Library"); Aura is the signal, not the product name.',
+  ],
+  sections: [
+    {
+      id: 'who-for',
+      title: 'Who the merch is for',
+      intro: 'Name the audience before you pick a SKU. The same logo on a tote is a different job for a keeper vs a campaign shoot.',
+      steps: [
+        {
+          id: 'merch-team',
+          text: 'Team: onboarding kits, offsites, all-hands, and everyday wear so Kahana shows up in the room.',
+        },
+        {
+          id: 'merch-customers',
+          text: 'Customers: thank-you packs, paid drops, or membership gifts. Confirm we have permission to ship to them and that sizing/address collection is planned.',
+        },
+        {
+          id: 'merch-campaigns',
+          text: 'Marketing campaigns: Product Hunt, launches, events, photo/video props. Tie the piece to a named campaign and a CTA (kahana.io, a club, a hub).',
+        },
+        {
+          id: 'merch-community',
+          text: 'Community building: club hosts, keepers, hall merch, and event swag that makes a club feel like a place. Coordinate with SOP 2 so we do not surprise a host with branding they did not ask for.',
+          href: '/sops/community-building',
+          hrefLabel: 'SOP 2: Community Building',
+        },
+      ],
+    },
+    {
+      id: 'mood-board',
+      title: 'Keep the merch mood board going',
+      intro: 'Ideas land all year. Capture them on a living board so drops are pulled from a pile, not invented the week of.',
+      steps: [
+        {
+          id: 'merch-board-live',
+          text: 'Maintain an ongoing merch mood board (Canva, FigJam, or Figma) for ideas and concepts: phrases, colorways, mockups, references, and “not this.” Tag each idea with audience (team / customer / campaign / community).',
+          href: '/sops/mood-board-collaboration',
+          hrefLabel: 'Mood Board — Collaboration',
+        },
+        {
+          id: 'merch-board-cadence',
+          text: 'Add to the board whenever someone spots a concept (Slack screenshot is fine). Monthly, Marketing Lead reviews the board and marks explore / later / no.',
+        },
+        {
+          id: 'merch-board-lock',
+          text: 'Before production, lock a subset of the board into the drop brief: audience, emotion, must-include marks, off-limits, quantity, budget, and in-hand date.',
+        },
+      ],
+    },
+    {
+      id: 'design',
+      title: 'Design in Canva, check brand',
+      steps: [
+        {
+          id: 'merch-canva',
+          text: 'Design (or refine) the artwork in Canva. Export print-ready files at the vendor’s required DPI and color mode. Keep a source file on the board.',
+          href: CANVA_URL,
+          hrefLabel: 'Canva',
+        },
+        {
+          id: 'merch-brand',
+          text: 'Run SOP 6 Brand Guidelines on the mock: logo lockup, clearspace, palette, type, naming (Kahana / Aura Library), no em dashes on printed copy, no obsolete kahana.co story.',
+          href: '/sops/brand-guidelines',
+          hrefLabel: 'SOP 6: Brand Guidelines',
+        },
+        {
+          id: 'merch-legal',
+          text: 'Legal check: Kahana wordmarks only as approved. No third-party IP (other platforms’ logos, book covers, creator faces) without written rights. No user photos without permission.',
+        },
+      ],
+    },
+    {
+      id: 'printify',
+      title: 'Produce on Printify (or an approved vendor)',
+      steps: [
+        {
+          id: 'merch-printify-catalog',
+          text: 'Pick the product from Printify’s catalog (t-shirts, bags, bottles, and other SKUs). Match fabric, print area, and color to the locked mood-board references.',
+          href: PRINTIFY_PRODUCTS_URL,
+          hrefLabel: 'Printify product catalog',
+        },
+        {
+          id: 'merch-printify-mock',
+          text: 'Upload the Canva export, generate mocks, and sanity-check print size on the actual SKU (chest, tote face, bottle wrap). Save mocks back to the merch mood board.',
+        },
+        {
+          id: 'merch-sample',
+          text: 'Order a sample before a bulk run or campaign giveaway. Photograph it in daylight. If the sample fails brand or quality, fix the file before anyone else gets one.',
+        },
+        {
+          id: 'merch-order',
+          text: 'Place the production order with a named fulfillment owner, ship-to list, and in-hand date. For ecommerce, confirm the Printify storefront or campaign checkout is branded Kahana, not a raw Printify URL in customer-facing copy.',
+          href: PRINTIFY_PRODUCTS_URL,
+          hrefLabel: 'Printify',
+        },
+      ],
+    },
+    {
+      id: 'ship-show',
+      title: 'Fulfill, show, and account',
+      steps: [
+        {
+          id: 'merch-inventory',
+          text: 'Log inventory, unit cost, and who received what (team, customer, campaign, community). Restocks start from this log, not memory.',
+        },
+        {
+          id: 'merch-photo',
+          text: 'Photograph the drop for LinkedIn, Instagram, and the campaign folder. People wearing it beat flat mocks. File the photos next to the Canva source. Official-account posts of those photos go through SOP 8.',
+          href: '/sops/official-social-media',
+          hrefLabel: 'SOP 8: Official Social Media',
+        },
+        {
+          id: 'merch-community-hand',
+          text: 'If this is club or keeper merch, hand it off with SOP 2 (who gets it, when, honest member counts only). Do not use merch to inflate a club’s story.',
+          href: '/sops/community-building',
+          hrefLabel: 'SOP 2: Community Building',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'Audience is named (team, customer, campaign, or community) and the idea lived on the merch mood board first.',
+    'Artwork was designed in Canva, brand-checked (SOP 6), and legally cleared.',
+    'Product was set up in Printify (or an approved vendor), a sample was seen, then production ordered.',
+    'Inventory, cost, and a photo of the real piece are filed. Recipients are recorded.',
+  ],
+})
+
+export const SOCIAL_MEDIA_ACCESS_SOP = playbook({
+  id: 'official-social-media',
+  title: 'Official Social Media',
+  category: 'Marketing',
+  owner: 'Marketing Lead',
+  who: 'Anyone posting from a Kahana-owned account (company LinkedIn, Instagram, YouTube, X, TikTok). Personal LinkedIn (Category 1 / 2) is a different SOP.',
+  when: 'Before first login to an official account, and before every official post or scheduled slot.',
+  format: 'checklist',
+  description:
+    'Get access to official Kahana social accounts (restricted credentials), then pass brand, proofread, and marketing-manager review in Linear before you schedule or post.',
+  keywords: [
+    'social media',
+    'instagram',
+    'linkedin company',
+    'youtube',
+    'tiktok',
+    'twitter',
+    'x',
+    'credentials',
+    'access request',
+    'linear review',
+    'marketing manager',
+    'brand check',
+  ],
+  notes: [
+    'Login and password live only in a restricted Google Doc. Request access before opening it. Do not paste credentials into Slack, Linear, email, screenshots, or this data room.',
+    'Personal teammate LinkedIn (Category 1 / 2) is a different SOP. This SOP is official Kahana-owned accounts only.',
+  ],
+  sections: [
+    {
+      id: 'access',
+      title: 'Get access (restricted)',
+      intro:
+        'Official logins are not in Slack and not in this SOP. You request them, then use the restricted doc. Access is granted, not assumed.',
+      steps: [
+        {
+          id: 'social-need',
+          text: 'Confirm you actually need an official account (you will post or schedule as Kahana, not only engage from your personal profile). Personal LinkedIn engagement stays on the LinkedIn SOP.',
+          href: '/sops/linkedin-operating-rhythm',
+          hrefLabel: 'LinkedIn SOP (personal)',
+        },
+        {
+          id: 'social-request',
+          text: 'Request access. Use the tools form if you are still missing Linear or Slack, then ask Marketing Lead (or Adam) for the credentials doc. Do not share logins sideways with a teammate who was not granted access.',
+          href: TOOLS_ACCESS_TALLY_URL,
+          hrefLabel: 'Get Access to Tools & Data',
+        },
+        {
+          id: 'social-credentials',
+          text: 'Open the restricted credentials doc only after you are granted access. Use those logins. Never copy passwords into Slack, Linear, a ticket, a screenshot dump, or this data room.',
+          href: SOCIAL_ACCOUNTS_CREDENTIALS_DOC,
+          hrefLabel: 'Official social logins (restricted — request access)',
+        },
+        {
+          id: 'social-channels',
+          text: 'Know which handle you are using. Official channels: LinkedIn company (kahana-co), X (@KahanaHQ), Instagram (@kahanahq), YouTube (@kahanaHQ), TikTok (@kahanahq). Post only from the account the calendar named.',
+          href: 'https://www.linkedin.com/company/kahana-co',
+          hrefLabel: 'LinkedIn company page',
+        },
+      ],
+    },
+    {
+      id: 'quality-gate',
+      title: 'Before you post (quality gate)',
+      intro:
+        'Access is not permission to hit Publish. Brand, proofread, and a marketing manager’s Linear review all happen first.',
+      steps: [
+        {
+          id: 'social-brand',
+          text: 'Check SOP 6 Brand Guidelines against the caption, visual, and handle. Colors, type, logo clearspace, voice (together-not-instead), and naming (Kahana AKA “The Aura Library”; Aura is the signal, not the product name).',
+          href: '/sops/brand-guidelines',
+          hrefLabel: 'SOP 6: Brand Guidelines',
+        },
+        {
+          id: 'social-proofread',
+          text: 'Proofread the full post as a human. No typos, leftover placeholder text, or ugly issues (cropped faces, low-res exports, stretched logos, unreadable type, broken line breaks, wrong crop for Stories vs feed vs Reel).',
+        },
+        {
+          id: 'social-no-raw-ai',
+          text: 'Do not paste AI-generated copy or images straight to an official account. People notice. AI is fine for a portion (outline, alt-text draft, crop ideas) if a human rewrites, fact-checks, and brand-checks before review.',
+        },
+        {
+          id: 'social-linear-review',
+          text: 'Create a Linear issue for this post. Attach the marketing design (Canva export, mock, or video cut) plus caption and intended channel/time. Assign a marketing manager. They run quality review. Do not schedule or post until they approve.',
+          href: LINEAR_WORKSPACE_URL,
+          hrefLabel: 'Linear (Kahana workspace)',
+        },
+        {
+          id: 'social-wait',
+          text: 'Wait for the marketing manager’s quality review. If they request changes, fix and re-attach. Only after approval: schedule in the native tool or post directly. Then drop the live link in Slack for teammate engagement.',
+        },
+      ],
+    },
+    {
+      id: 'handoffs',
+      title: 'Channel handoffs',
+      steps: [
+        {
+          id: 'social-ig',
+          text: 'Instagram caption, Reel, or Story from @kahanahq still follows the Instagram SOP after this gate.',
+          href: '/sops/instagram-publishing',
+          hrefLabel: 'Instagram SOP',
+        },
+        {
+          id: 'social-yt',
+          text: 'YouTube uploads to @kahanaHQ still follow the YouTube SOP after this gate.',
+          href: '/sops/youtube-publishing',
+          hrefLabel: 'YouTube SOP',
+        },
+        {
+          id: 'social-blogs',
+          text: 'If the post is promoting a blog, the article itself still ships through SOP 5. This SOP is only the official social post.',
+          href: '/sops/blog-publishing',
+          hrefLabel: 'SOP 5: Blogs',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'Access was requested and granted; credentials were used from the restricted doc only (never pasted elsewhere).',
+    'The post was brand-checked (SOP 6), proofread, and not raw AI output.',
+    'A marketing design was attached in Linear and a marketing manager approved quality review.',
+    'Only then was the post scheduled or published from the official Kahana account.',
+  ],
+})
+
+export const AUTHOR_OUTREACH_SOP = playbook({
+  id: 'author-outreach',
+  title: 'Author Outreach',
+  category: 'Marketing',
+  owner: 'Marketing Lead',
+  who: 'Anyone recruiting authors or publishers to host a paid book on Kahana and seed a book club',
+  when: 'In batches from the contact list and tracker. Log the row before you send. Follow up on Touch 2 and Touch 3.',
+  format: 'checklist',
+  description:
+    'Recruit authors to host a paid book on Kahana and use it as the core of a book club. Work the contact list and tracker. Personalize the outreach template. Do not send a generic paste.',
+  keywords: [
+    'author',
+    'outreach',
+    'publisher',
+    'ebook',
+    'book club',
+    'hub',
+    'tracker',
+    'contact list',
+    'indie',
+    'self-published',
+  ],
+  notes: [
+    'Two sheets, two jobs. The contact list is candidate titles (what the team wants to read). The tracker is the pipeline (who you contacted, when, and what happened). Do not keep a private shadow list.',
+    'The email below is a starting template. Tailor and personalize it. A paste that still has brackets, a placeholder demo link, or zero proof you read the book does not go out.',
+    'Ask is two parts: host [Title] as a paid book at a price they choose, and use it as the core of an upcoming book club. Team read first; public feature is optional.',
+  ],
+  sections: [
+    {
+      id: 'sheets',
+      title: 'The two sheets',
+      intro:
+        'Open both. Pick from the contact list (or add a sourced indie to the tracker). Every send gets a tracker row first.',
+      steps: [
+        {
+          id: 'ao-contact-list',
+          text: 'Open the author contact list (Authors Contact Details). This is the candidate shelf: Founders & Builders, product/engineering, Money, Mind & Growth, Myths & Fantasy, Thrills, Literary picks. Confirm the current title and year before you name the book in email.',
+          href: AUTHOR_CONTACT_LIST_URL,
+          hrefLabel: 'Author contact list',
+        },
+        {
+          id: 'ao-tracker',
+          text: 'Open the Author Outreach Tracker (Outreach Log tab). Columns to fill: Author Name, Book Title, Segment, Source Found, Contact Info, Contact Channel Used, Date Touch 1 / 2 / 3, Message/Template Used, Response (Y/N/Pending), Time to Respond (days), Outcome / Status, What Worked / Didn\'t, Owner. Use Legend & Instructions and Summary when you are unsure.',
+          href: AUTHOR_OUTREACH_TRACKER_URL,
+          hrefLabel: 'Author outreach tracker',
+        },
+        {
+          id: 'ao-claim',
+          text: 'Claim the row (Owner = you) before sending. If the author is already Pending or Yes, do not double-email. If they are a sourced indie (Curios, Goodreads, etc.) with Contact Info = Needs research, research first. Do not send to a blank channel.',
+        },
+      ],
+    },
+    {
+      id: 'research',
+      title: 'Research before you write',
+      steps: [
+        {
+          id: 'ao-verify-title',
+          text: 'Verify the live title. Tracker rows often say “title TBD” or “see Curios/Goodreads.” Confirm the book exists, is still theirs, and is a realistic rights ask (indie/self-published is usually easier than a celebrity biography via a big house).',
+        },
+        {
+          id: 'ao-contact',
+          text: 'Find a real channel: author site contact, publisher, agent, or a public email they invite. Put it in Contact Info and name the channel (email, form, Instagram DM). One named person, not a blast list.',
+        },
+        {
+          id: 'ao-why-this-book',
+          text: 'Write one sentence that is only true of this book (what multiple teammates want to discuss). That sentence goes into the email. If you cannot write it, pick a different title.',
+        },
+      ],
+    },
+    {
+      id: 'personalize',
+      title: 'Personalize the template',
+      intro:
+        'Use the template. Do not send it raw. People notice a mail-merge. AI can draft a portion; a human rewrites name, title, the why-this-book line, and the demo link.',
+      steps: [
+        {
+          id: 'ao-fill-brackets',
+          text: 'Replace every bracket. Greeting: pick Hi or Hello, and Author or Publisher (not both stacked). Name: your real name in the intro and the sign-off. Title: the verified book title, twice. A/B the company line: “a startup” or “an early-stage startup” (pick one).',
+        },
+        {
+          id: 'ao-demo',
+          text: 'Adam records the product demo (elevator pitch + screenshare). Get a real YouTube URL before you send. Do not leave “[INSERT YOUTUBE VIDEO LINK]” or “[YouTube demo link]” in the email. If the video is not ready, ask Adam and wait, or send without a demo line rather than a broken placeholder.',
+          href: '/sops/youtube-publishing',
+          hrefLabel: 'YouTube SOP',
+        },
+        {
+          id: 'ao-proofread',
+          text: 'Proofread as a human. No leftover placeholders, no em dashes, no “Kahana.io” typos, no wrong title. Official social posts about a yes still go through SOP 8.',
+          href: '/sops/official-social-media',
+          hrefLabel: 'SOP 8: Official Social Media',
+        },
+        {
+          id: 'ao-template',
+          text: 'Copy the template, then rewrite it for this author. Log which version you sent in Message/Template Used.',
+          template: AUTHOR_OUTREACH_EMAIL_TEMPLATE,
+        },
+      ],
+    },
+    {
+      id: 'send-followup',
+      title: 'Send, follow up, log',
+      steps: [
+        {
+          id: 'ao-touch1',
+          text: 'Send Touch 1. Same day, fill Date - Touch 1, Contact Channel Used, Message/Template Used, Response = Pending, Owner.',
+          href: AUTHOR_OUTREACH_TRACKER_URL,
+          hrefLabel: 'Author outreach tracker',
+        },
+        {
+          id: 'ao-touch23',
+          text: 'If no reply, send Touch 2 and Touch 3 on a humane cadence (about a week apart unless they asked you to wait). Log each date. Do not nag past Touch 3 without a new angle (different title, publisher instead of author, or park the row).',
+        },
+        {
+          id: 'ao-response',
+          text: 'When they reply (or you give up): Response Y/N/Pending, Time to Respond (days), Outcome / Status, and What Worked / Didn’t so the next sender is not guessing.',
+        },
+      ],
+    },
+    {
+      id: 'yes-path',
+      title: 'If they say yes',
+      steps: [
+        {
+          id: 'ao-paid-book',
+          text: 'Route hub setup (account, paid book at their price, rights/import) to Product / Customer Success. Put that owner on the tracker row. Authors set the price. Do not promise a rate we cannot support.',
+        },
+        {
+          id: 'ao-club',
+          text: 'Stand up the book club around that title (team read first, public feature only if they want it). Run the club with SOP 2 and Book Club Management.',
+          href: '/sops/community-building',
+          hrefLabel: 'SOP 2: Community Building',
+        },
+        {
+          id: 'ao-club-ops',
+          text: 'Hand the live club to hosts using Book Club Management (wishlist, cycle, Keeper’s Codex).',
+          href: '/sops/book-club-management',
+          hrefLabel: 'Book Club Management',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'The author is on the tracker with Owner, verified title, and a real contact channel (not “Needs research” if you already sent).',
+    'The email was personalized (no leftover brackets, real demo link or a deliberate omit, one sentence only true of this book).',
+    'Touch dates, template used, response, and outcome are logged.',
+    'A yes has a Product/CS owner for the paid book and a club path via SOP 2.',
+  ],
+})
+
+const TASKS = [
   task({
     id: 'linkedin-operating-rhythm',
     title: 'LinkedIn',
@@ -584,9 +1576,14 @@ const TASKS = [
     keywords: ['linkedin', 'social', 'category 1', 'category 2'],
     steps: [
       {
-        text: 'Read the LinkedIn Guide, join #linkedin-focus-group, and pick Category 1 (engage) or Category 2 (engage + 3 posts/week).',
+        text: 'Read the LinkedIn Guide, join #linkedin-focus-group, and pick Category 1 (engage) or Category 2 (engage + 3 posts/week). This SOP is personal profiles. Official company-page posts go through SOP 8.',
         href: '/linkedin-guide',
         hrefLabel: 'LinkedIn Guide',
+      },
+      {
+        text: 'If you will post from the Kahana company page (not your personal profile), get access and pass Linear marketing-manager review first.',
+        href: '/sops/official-social-media',
+        hrefLabel: 'SOP 8: Official Social Media',
       },
       'Block 15 minutes each business day to like and comment on every link in the Slack channel — early engagement matters.',
       {
@@ -608,29 +1605,23 @@ const TASKS = [
     description: 'Plan, publish, and measure Instagram posts that match brand and shipped product.',
     keywords: ['instagram', 'reels', 'social'],
     steps: [
+      {
+        text: 'Official @kahanahq access is restricted. Get credentials via SOP 8, then run brand, proofread, and Linear marketing-manager review before you schedule or post.',
+        href: '/sops/official-social-media',
+        hrefLabel: 'SOP 8: Official Social Media',
+      },
       'Pull this week’s inputs: shipped features, backlog teasers (only if approved), testimonials, cognitive-challenge stories, and trends.',
-      'Draft caption + visual against brand guidelines. Short-form video follows the use-case SOP.',
-      'Publish, then share the link in Slack for teammate engagement where appropriate.',
+      {
+        text: 'Draft caption + visual against SOP 6 Brand Guidelines. Short-form video follows the use-case SOP. Do not paste raw AI output.',
+        href: '/sops/brand-guidelines',
+        hrefLabel: 'SOP 6: Brand Guidelines',
+      },
+      'After marketing-manager approval in Linear: publish, then share the link in Slack for teammate engagement where appropriate.',
       'Log reach, saves, and profile visits; note anything that should become a blog or YouTube cut.',
     ],
-    doneWhen: ['Post is live, assets are filed, and a one-line performance note exists.'],
-  }),
-  task({
-    id: 'blog-publishing',
-    title: 'Blogs',
-    category: 'Marketing',
-    owner: 'Marketing Lead',
-    who: 'Writer + reviewer',
-    when: 'Per content calendar.',
-    description: 'Topic through publish and promote for kahana.io / narrative blogs.',
-    keywords: ['blog', 'content', 'seo'],
-    steps: [
-      'Topic → Audience → Objective. Check content guidelines for the quality bar before drafting.',
-      'Draft, internal review, legal review if claims, pricing, or creator IP are involved.',
-      'Publish with title, meta description, and internal links (Library, About, relevant hub).',
-      'Promote on LinkedIn/Instagram/newsletter and measure traffic + sign-ups.',
+    doneWhen: [
+      'SOP 8 gate passed (access, brand, proofread, Linear approval). Post is live, assets are filed, and a one-line performance note exists.',
     ],
-    doneWhen: ['Live URL, promotion done, and a measurement note in the monthly marketing report.'],
   }),
   task({
     id: 'youtube-publishing',
@@ -644,10 +1635,20 @@ const TASKS = [
     steps: [
       'Script the job-to-be-done (not a feature dump). Show the product, not slides-only.',
       'Record, edit to brand, add chapters and a description with kahana.io UTM links.',
-      'Publish Unlisted for review, then Public; share in Slack and socials.',
-      'Watch retention and click-through; clip a 15–30s cut for Instagram/LinkedIn.',
+      {
+        text: 'Official @kahanaHQ access is restricted. Get credentials via SOP 8. Attach the cut in Linear for marketing-manager quality review before you go Public or schedule.',
+        href: '/sops/official-social-media',
+        hrefLabel: 'SOP 8: Official Social Media',
+      },
+      'Publish Unlisted for review, then Public after approval; share in Slack and socials.',
+      {
+        text: 'When the video teaches a workflow, embed it in a kahana.io blog (no em dashes, sources, landscape comparisons where relevant).',
+        href: '/sops/blog-publishing',
+        hrefLabel: 'SOP 5: Blogs',
+      },
+      'Watch retention and click-through; clip a 15–30s cut for Instagram/LinkedIn (those official posts also go through SOP 8).',
     ],
-    doneWhen: ['Video is public with UTMs and a short-form cut is scheduled or posted.'],
+    doneWhen: ['SOP 8 gate passed. Video is public with UTMs and a short-form cut is scheduled or posted.'],
   }),
   task({
     id: 'creator-collaborations-outreach',
@@ -660,36 +1661,20 @@ const TASKS = [
     keywords: ['creator', 'influencer', 'partnership', 'outreach'],
     steps: [
       {
-        text: 'Log the creator on the outreach sheet (profile, relevance, status).',
+        text: 'Log the creator on the outreach sheet (profile, relevance, status). Authors and publishers are a different SOP (paid book + book club).',
         href: CREATOR_OUTREACH_SHEET_URL,
         hrefLabel: 'Creator outreach sheet',
+      },
+      {
+        text: 'If the person is an author or publisher you want on Kahana as a paid book and club title, use SOP 9 instead of this sheet.',
+        href: '/sops/author-outreach',
+        hrefLabel: 'SOP 9: Author Outreach',
       },
       'Qualify audience overlap with Kahana (reading, learning, clubs, Aura). Skip vanity follower counts.',
       'Customize outreach. Agree deliverables, legal/IP, and tracking links before anything goes live.',
       'Execute, measure, and write the learning back on the sheet.',
     ],
     doneWhen: ['Sheet row is updated through outcome (yes / no / parked) with a result note.'],
-  }),
-  task({
-    id: 'author-outreach',
-    title: 'Author Outreach',
-    category: 'Marketing',
-    owner: 'Marketing Lead',
-    who: 'Author outreach owner',
-    when: 'Working the author spreadsheet in batches.',
-    description: 'Recruit authors into Kahana hubs using the living spreadsheet.',
-    keywords: ['author', 'outreach', 'ebook', 'hub'],
-    steps: [
-      {
-        text: 'Work the author outreach spreadsheet — do not keep a private shadow list.',
-        href: AUTHOR_OUTREACH_SHEET,
-        hrefLabel: 'Author outreach spreadsheet',
-      },
-      'Personalize from their work. Pitch the hub + Aura + reader community, not a generic “platform.”',
-      'If they say yes, route onboarding (account, hub, import/rights) to Product/CS and note the owner on the sheet.',
-      'Log reply, next date, and whether a club or Library listing is the fit.',
-    ],
-    doneWhen: ['Every contacted row has status, last touch, and next action.'],
   }),
   task({
     id: 'narrative-creation',
@@ -712,50 +1697,22 @@ const TASKS = [
     doneWhen: ['Approved narrative is live in data room + public surfaces, and Sales has the new pitch.'],
   }),
   task({
-    id: 'brand-guidelines',
-    title: 'Brand Guidelines',
-    category: 'Marketing',
-    owner: 'Marketing Lead',
-    who: 'Brand owner',
-    when: 'When visual or voice rules change; review quarterly.',
-    description: 'Keep color, type, voice, and logo usage consistent across product, merch, and campaigns.',
-    keywords: ['brand', 'logo', 'voice', 'guidelines'],
-    steps: [
-      'Document logo, color, type, photography, and voice do/don’ts in one living page.',
-      'Any campaign or merch mock must be checked against the guide before spend.',
-      'Product UI follows product tokens; marketing site follows the homepage repo — do not mix those systems casually.',
-    ],
-    doneWhen: ['Guide is findable from SOPs and the last campaign used it.'],
-  }),
-  task({
-    id: 'merch',
-    title: 'Merch',
-    category: 'Marketing',
-    owner: 'Marketing Lead',
-    who: 'Merch owner',
-    when: 'Each merch drop or restock.',
-    description: 'Design, approve, produce, and fulfill Kahana merch without brand or legal surprises.',
-    keywords: ['merch', 'swag', 'print'],
-    steps: [
-      'Mood-board with brand guidelines; get visual approval before a vendor quote.',
-      'Legal check on wordmarks and any third-party IP on the design.',
-      'Quote, PO, quality sample, production, inventory, and a fulfillment owner.',
-      'Photo the drop for social; track cost vs giveaway/sale.',
-    ],
-    doneWhen: ['Inventory count and cost are recorded; assets are in the campaign folder.'],
-  }),
-  task({
     id: 'mood-board-collaboration',
     title: 'Mood Board — Collaboration',
     category: 'Marketing',
     owner: 'Marketing Lead',
     who: 'Designer + requesting function',
-    when: 'Before a campaign, merch drop, or video series.',
-    description: 'Shared visual direction so makers are not guessing.',
-    keywords: ['mood board', 'collaboration', 'design'],
+    when: 'Ongoing for merch ideas; also before a campaign, merch drop, or video series.',
+    description: 'Shared visual direction so makers are not guessing. Merch keeps a living ideas board, then locks a subset before production.',
+    keywords: ['mood board', 'collaboration', 'design', 'merch'],
     steps: [
       'Requester writes the job (audience, emotion, must-include product shots, off-limits).',
-      'Designer posts a board (FigJam/Figma/slides) tagged to the campaign.',
+      {
+        text: 'For merch, add ideas to the ongoing merch mood board in Canva, FigJam, or Figma whenever they appear. Do not wait for a drop to be approved.',
+        href: '/sops/merch',
+        hrefLabel: 'SOP 7: Merch',
+      },
+      'Designer posts a board (FigJam/Figma/Canva/slides) tagged to the campaign or drop.',
       'One review round with Marketing + requester; lock references before production starts.',
     ],
     doneWhen: ['Locked board is linked from the campaign brief.'],
@@ -837,7 +1794,7 @@ const TASKS = [
     keywords: ['seo', 'sitemap', 'search console'],
     steps: [
       'Marketing site and product app have separate deploy targets — do not treat kahana-public as the React app.',
-      'After nav or public page changes, regenerate/submit sitemaps and spot-check Search Console coverage.',
+      'After nav, public page, or blog publishes, regenerate the sitemap so every live URL (including new posts) is listed. Submit the sitemap in Google Search Console when you want to expedite SEO.',
       'No keyword stuffing; titles and descriptions match the live page.',
     ],
     doneWhen: ['Search Console has no unexplained coverage drops on pages we still publish.'],
@@ -908,14 +1865,19 @@ const TASKS = [
     keywords: ['book club', 'clubs', 'keeper', 'wishlist'],
     steps: [
       {
-        text: 'Create and run the club with SOP 1 (builder, visibility, wishlist, Feed, Events, Aura).',
-        href: '/sops/running-a-book-or-video-club',
-        hrefLabel: 'SOP 1: Running a Book or Video Club',
+        text: 'Create and run the club with SOP 2 Community Building (builder, visibility, wishlist, Feed, Events, Aura, invites, outreach). If the title is not on Kahana yet, recruit the author with SOP 9 first.',
+        href: '/sops/community-building',
+        hrefLabel: 'SOP 2: Community Building',
       },
       {
-        text: 'Use The Keeper’s Codex checklist for founding through first cycle.',
+        text: 'Author not onboarded: work the contact list and tracker, personalize the template, log touches. Then come back to this SOP for the club cycle.',
+        href: '/sops/author-outreach',
+        hrefLabel: 'SOP 9: Author Outreach',
+      },
+      {
+        text: 'Use The Keeper’s Codex checklist (inside SOP 2) for founding through first cycle.',
         href: '/sops/keepers-codex',
-        hrefLabel: 'SOP 6: The Keeper’s Codex',
+        hrefLabel: 'The Keeper’s Codex',
       },
       'Log blockers through the feedback SOP rather than only Slack.',
     ],
@@ -1104,9 +2066,9 @@ const TASKS = [
         hrefLabel: 'Improvement survey',
       },
       {
-        text: 'Club-related logging: SOP 5.',
-        href: '/sops/logging-feedback-and-issues',
-        hrefLabel: 'SOP 5: Logging Feedback and Issues',
+        text: 'Club-related logging: SOP 2 Community Building (logging section).',
+        href: '/sops/community-building',
+        hrefLabel: 'SOP 2: Community Building',
       },
       'Close the loop with the user. Feature requests go to Product with problem + frequency.',
     ],
@@ -1175,13 +2137,13 @@ const TASKS = [
     owner: 'Product Manager',
     who: 'Product (everyone dogfoods)',
     when: 'Weekly dogfood; any time you flinch as a new user.',
-    description: 'Catch embarrassing UX before users do. Full playbook is SOP 7.',
+    description: 'Catch embarrassing UX before users do. Full playbook is SOP 3.',
     keywords: ['cringey', 'dogfood', 'ux', 'quality'],
     steps: [
       {
-        text: 'Follow Finding What’s Broken: stranger dogfood, journeys, heuristics, log with screenshot and impact.',
+        text: 'Follow SOP 3 Product Quality: stranger dogfood, journeys, heuristics, log with screenshot and impact.',
         href: '/sops/finding-whats-broken',
-        hrefLabel: 'SOP 7: Finding What’s Broken',
+        hrefLabel: 'SOP 3: Product Quality',
       },
       'If it is high impact / low effort, it should be in Linear the same day.',
     ],
@@ -1957,5 +2919,5 @@ const TASKS = [
 
 export const FUNCTION_SOPS = [...PLAYBOOKS, ...TASKS].map((sop, index) => ({
   ...sop,
-  number: 8 + index,
+  number: 10 + index,
 }))

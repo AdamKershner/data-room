@@ -38,6 +38,8 @@ npm run dev
 
 The app will open at `http://localhost:5173`.
 
+Local `npm run dev` skips the Kahana hub gate so you can browse the data room on localhost. Production still requires a hub embed token (or an approved session). Set `DATA_ROOM_LOCAL_OPEN=false` in `.env.local` if you need to test `/open-from-kahana.html` locally.
+
 ### Access (staff, advisors, onboarding)
 
 The whole site is gated per person. There is no shared password to circulate.

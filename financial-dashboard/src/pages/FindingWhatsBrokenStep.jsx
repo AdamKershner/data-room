@@ -141,7 +141,7 @@ function FindingWhatsBrokenStep() {
     return (
       <div className="page onboarding-step-page">
         <div className="onboarding-back-banner">
-          <Link to="/sops/finding-whats-broken">← Back to Finding What’s Broken</Link>
+          <Link to="/sops/finding-whats-broken">← Back to Product Quality</Link>
         </div>
         <div className="page-header onboarding-step-header">
           <h1>Section not found</h1>
@@ -154,7 +154,7 @@ function FindingWhatsBrokenStep() {
   return (
     <div className="page onboarding-step-page keepers-codex-step" id="finding-whats-broken-step">
       <div className="onboarding-back-banner">
-        <Link to="/sops/finding-whats-broken">← Back to Finding What’s Broken</Link>
+        <Link to="/sops/finding-whats-broken">← Back to Product Quality</Link>
       </div>
       <div className="page-header onboarding-step-header">
         <p className="project-charter-eyebrow">

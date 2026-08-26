@@ -1,14 +1,14 @@
 /**
- * The Keeper’s Codex — checklist SOP for hosting a book or video club.
- * Gallery card: /sops/keepers-codex · step pages: /sops/keepers-codex/:stepId
+ * The Keeper’s Codex — click-by-click checklist inside SOP 2 Community Building.
+ * Index: /sops/keepers-codex · steps: /sops/keepers-codex/:stepId
  */
 
 export const KEEPERS_CODEX_META = {
   title: 'The Keeper’s Codex',
-  sopNumber: 6,
-  category: 'Clubs',
+  sopNumber: 2,
+  category: 'Community',
   subtitle:
-    'Standard procedures for founding, tending, and growing a hall on Kahana. Check Done as you complete each labour; open a row for the exact clicks.',
+    'Part of SOP 2 Community Building. Check Done as you complete each labour; open a row for the exact clicks.',
   edition: 'v1.0 — draft for review',
   standing: 'Awaiting the Keeper’s word (Appendix III). Section VI is proposed, not standing.',
   metaRows: [

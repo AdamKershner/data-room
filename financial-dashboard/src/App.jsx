@@ -98,6 +98,12 @@ function App() {
           <Route path="/how-we-work" element={<OperatingSystem />} />
           <Route path="/operating-system" element={<Navigate to="/how-we-work" replace />} />
           <Route path="/sops" element={<Sops />} />
+          <Route path="/sops/running-a-book-or-video-club" element={<Navigate to="/sops/community-building" replace />} />
+          <Route path="/sops/inviting-members-to-a-club" element={<Navigate to="/sops/community-building" replace />} />
+          <Route path="/sops/choosing-what-the-club-reads" element={<Navigate to="/sops/community-building" replace />} />
+          <Route path="/sops/outreach-to-creators-for-a-club" element={<Navigate to="/sops/community-building" replace />} />
+          <Route path="/sops/logging-feedback-and-issues" element={<Navigate to="/sops/community-building" replace />} />
+          <Route path="/sops/product-management-operations" element={<Navigate to="/sops/product-management-playbook" replace />} />
           <Route path="/sops/keepers-codex/:stepId" element={<KeepersCodexStep />} />
           <Route path="/sops/keepers-codex" element={<KeepersCodexChecklist />} />
           <Route path="/sops/finding-whats-broken/:stepId" element={<FindingWhatsBrokenStep />} />

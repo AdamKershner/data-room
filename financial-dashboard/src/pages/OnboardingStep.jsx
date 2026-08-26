@@ -425,8 +425,15 @@ function StepSops() {
           <Link to="/sops/keepers-codex" className="onboarding-inline-link">
             The Keeper’s Codex
           </Link>{' '}
-          and the other Club SOPs. Other roles will have different cards. Let your manager point you
-          at the right ones.
+          (inside SOP 2). Product Managers work{' '}
+          <Link to="/sops/product-management-playbook" className="onboarding-inline-link">
+            SOP 4: Product Management Playbook
+          </Link>{' '}
+          and{' '}
+          <Link to="/sops/finding-whats-broken" className="onboarding-inline-link">
+            SOP 3: Product Quality
+          </Link>
+          . Other roles will have different cards. Let your manager point you at the right ones.
         </p>
       </div>
 
@@ -1256,6 +1263,16 @@ function StepSocialMedia() {
           preferences.
         </p>
       </div>
+
+      <p>
+        Following and engaging is this onboarding step. Posting from an official Kahana account is not.
+        If you will log in as Kahana, credentials are restricted (request access) and every post needs
+        brand check, proofread, and a marketing manager&apos;s Linear review first. See{' '}
+        <Link to="/sops/official-social-media" className="onboarding-inline-link">
+          SOP 8: Official Social Media
+        </Link>
+        .
+      </p>
     </div>
   )
 }

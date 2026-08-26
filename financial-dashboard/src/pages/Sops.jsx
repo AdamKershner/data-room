@@ -1,13 +1,15 @@
 import React, { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { SOP_PAGE, SOP_CATEGORIES, SOPS, sopMatchesQuery } from '../data/sopContent'
+import { SOP_PAGE, SOP_CATEGORIES, SOPS, sopMatchesQuery, getSopReviewStatus, SOP_REVIEW_STATUS } from '../data/sopContent'
 import { formatCardTitle } from '../utils/formatCardTitle'
+import { SopReviewStatusBadge } from '../components/SopReviewStatusBadge'
 import './Page.css'
 import './KnowledgeBase.css'
 import './Sops.css'
 
 function Sops() {
   const [categoryFilter, setCategoryFilter] = useState('all')
+  const [statusFilter, setStatusFilter] = useState('all')
   const [search, setSearch] = useState('')
 
   const countsByCategory = useMemo(() => {
@@ -18,11 +20,24 @@ function Sops() {
     return m
   }, [])
 
+  const countsByStatus = useMemo(() => {
+    const ready = SOPS.filter((s) => getSopReviewStatus(s) === SOP_REVIEW_STATUS.ready).length
+    return {
+      all: SOPS.length,
+      ready,
+      inProgress: SOPS.length - ready,
+    }
+  }, [])
+
   const filtered = useMemo(() => {
-    const pool =
-      categoryFilter === 'all' ? SOPS : SOPS.filter((s) => s.category === categoryFilter)
+    let pool = categoryFilter === 'all' ? SOPS : SOPS.filter((s) => s.category === categoryFilter)
+    if (statusFilter === SOP_REVIEW_STATUS.ready) {
+      pool = pool.filter((s) => getSopReviewStatus(s) === SOP_REVIEW_STATUS.ready)
+    } else if (statusFilter === SOP_REVIEW_STATUS.inProgress) {
+      pool = pool.filter((s) => getSopReviewStatus(s) === SOP_REVIEW_STATUS.inProgress)
+    }
     return pool.filter((s) => sopMatchesQuery(s, search))
-  }, [categoryFilter, search])
+  }, [categoryFilter, statusFilter, search])
 
   return (
     <div className="page sops-page" id="sops">
@@ -59,6 +74,32 @@ function Sops() {
                 ))}
               </div>
             </div>
+            <div className="kb-filter-group">
+              <span className="kb-filter-group-label">Status</span>
+              <div className="kb-filter-buttons" role="group" aria-label="Filter by SOP review status">
+                <button
+                  type="button"
+                  className={`kb-filter-btn ${statusFilter === 'all' ? 'kb-filter-btn--active' : ''}`}
+                  onClick={() => setStatusFilter('all')}
+                >
+                  All ({countsByStatus.all})
+                </button>
+                <button
+                  type="button"
+                  className={`kb-filter-btn ${statusFilter === SOP_REVIEW_STATUS.ready ? 'kb-filter-btn--active' : ''}`}
+                  onClick={() => setStatusFilter(SOP_REVIEW_STATUS.ready)}
+                >
+                  Ready for review ({countsByStatus.ready})
+                </button>
+                <button
+                  type="button"
+                  className={`kb-filter-btn ${statusFilter === SOP_REVIEW_STATUS.inProgress ? 'kb-filter-btn--active' : ''}`}
+                  onClick={() => setStatusFilter(SOP_REVIEW_STATUS.inProgress)}
+                >
+                  Updates in progress ({countsByStatus.inProgress})
+                </button>
+              </div>
+            </div>
             <div className="kb-filter-group kb-search-group">
               <label htmlFor="sops-search">Search</label>
               <input
@@ -83,9 +124,12 @@ function Sops() {
                 key={sop.id}
                 to={sop.href || `/sops/${sop.id}`}
                 className="kb-card"
-                aria-label={`SOP ${sop.number}: ${sop.title}`}
+                aria-label={`SOP ${sop.number}: ${sop.title}. ${getSopReviewStatus(sop) === SOP_REVIEW_STATUS.ready ? 'Ready for review' : 'Updates in progress'}`}
               >
-                <span className="kb-card-category">{sop.category}</span>
+                <span className="sop-card-topline">
+                  <span className="kb-card-category">{sop.category}</span>
+                  <SopReviewStatusBadge number={sop.number} />
+                </span>
                 <span className="kb-card-title" title={sop.title}>
                   {formatCardTitle(`SOP ${sop.number}: ${sop.title}`)}
                 </span>

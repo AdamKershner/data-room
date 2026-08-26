@@ -1,10 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { dataRoomAuthPlugin } from './lib/vite-plugin-data-room-auth.js'
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [dataRoomAuthPlugin(), react()],
   server: {
-    port: 3000,
+    port: 5173,
     open: true
   }
 })

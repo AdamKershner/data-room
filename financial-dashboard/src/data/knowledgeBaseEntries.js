@@ -185,7 +185,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
   },
   {
     path: '/sops/finding-whats-broken',
-    title: "Finding What's Broken and Fixing It",
+    title: 'Product Quality',
     category: 'SOPs',
     description:
       'Product quality checklist: dogfood like a stranger, walk core journeys, read the data, log findings, and verify fixes.',
@@ -198,6 +198,23 @@ export const KNOWLEDGE_BASE_ENTRIES = [
       'dogfood',
       'funnel',
       'checklist',
+      'sop',
+    ],
+  },
+  {
+    path: '/sops/product-management-playbook',
+    title: 'Product Management Playbook',
+    category: 'SOPs',
+    description:
+      'Kahana’s product operating system: 90-day launchpad, opportunity test, artifacts, quality gates, and AI readiness.',
+    keywords: [
+      'product management',
+      'playbook',
+      'pm',
+      'opportunity test',
+      'problem brief',
+      'quality gates',
+      'ai readiness',
       'sop',
     ],
   },

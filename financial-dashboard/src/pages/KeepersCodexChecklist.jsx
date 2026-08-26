@@ -6,6 +6,7 @@ import {
   KEEPERS_CODEX_STEPS,
 } from '../data/keepersCodexSteps'
 import { OnboardingIcon } from './onboardingIcons'
+import { SopReviewStatusBadge } from '../components/SopReviewStatusBadge'
 import { readLocalJson, writeLocalJson } from '../utils/safeStorage'
 import './Page.css'
 import './Onboarding.css'
@@ -130,12 +131,13 @@ function KeepersCodexChecklist() {
         <ConfettiBurst x={confetti.x} y={confetti.y} onComplete={clearConfetti} />
       )}
       <div className="sop-back-banner">
-        <Link to="/sops">← Back to SOPs</Link>
+        <Link to="/sops/community-building">← SOP 2: Community Building</Link>
       </div>
       <div className="page-header">
         <p className="project-charter-eyebrow">
           SOP {KEEPERS_CODEX_META.sopNumber} · {KEEPERS_CODEX_META.category}
         </p>
+        <SopReviewStatusBadge number={KEEPERS_CODEX_META.sopNumber} className="sop-status-badge--detail" />
         <h1>{KEEPERS_CODEX_META.title}</h1>
         <p className="page-subtitle">{KEEPERS_CODEX_META.subtitle}</p>
         <p className="sop-freshness-note">{KEEPERS_CODEX_META.standing}</p>

@@ -8,7 +8,7 @@ import { TOC_EXPLORE_ITEMS, PRIMARY_NAV_LINKS } from './tocExploreGrid'
 import { ONBOARDING_STEPS } from '../pages/onboardingSteps'
 import { KEEPERS_CODEX_STEPS } from './keepersCodexSteps'
 import { FINDING_WHATS_BROKEN_STEPS } from './findingWhatsBrokenSteps'
-import { SOPS } from './sopContent'
+import { SOPS, getSopReviewStatusLabel } from './sopContent'
 
 /** Display order for Executive Summary business-function grid */
 export const BUSINESS_FUNCTIONS = ['Marketing', 'Sales', 'Product', 'HR', 'Technical', 'Finance']
@@ -231,7 +231,7 @@ const EXTRA_SEARCH_ENTRIES = [
     title: 'The Keeper’s Codex',
     businessFunction: 'SOPs',
     description:
-      'Checklist SOP for founding, tending, inviting, stocking, and growing a book or video club — with digestible subpages.',
+      'Click-by-click club checklist inside SOP 2 Community Building — founding, tending, inviting, stocking, and growing a hall.',
     keywords: [
       'keeper',
       'codex',
@@ -255,7 +255,7 @@ const EXTRA_SEARCH_ENTRIES = [
   },
   {
     path: '/sops/finding-whats-broken',
-    title: "Finding What's Broken and Fixing It",
+    title: 'Product Quality',
     businessFunction: 'SOPs',
     description:
       'Product quality checklist SOP — find broken UX, log findings, prioritize, and verify the fix.',
@@ -276,6 +276,33 @@ const EXTRA_SEARCH_ENTRIES = [
       'how do we find bugs',
       'quality checklist',
       'dogfood kahana',
+    ],
+  },
+  {
+    path: '/sops/product-management-playbook',
+    title: 'Product Management Playbook',
+    businessFunction: 'SOPs',
+    description:
+      'Kahana’s product operating system — 90-day launchpad, opportunity test, quality gates, AI readiness, and PM bar.',
+    keywords: [
+      'product management',
+      'playbook',
+      'pm',
+      'opportunity test',
+      'problem brief',
+      'delivery spec',
+      'launch brief',
+      'outcome review',
+      '90 day',
+      'ai readiness',
+      'quality gates',
+      'sop',
+    ],
+    nlHints: [
+      'product management sop',
+      'how do we decide what to build',
+      'pm playbook',
+      '90 day pm onboarding',
     ],
   },
   {
@@ -470,6 +497,7 @@ function buildSopEntries() {
       'sop',
       sop.category,
       sop.owner ?? '',
+      getSopReviewStatusLabel(sop),
       sop.id.replace(/-/g, ' '),
       ...(sop.keywords || []),
     ],

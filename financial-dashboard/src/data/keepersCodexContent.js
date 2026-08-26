@@ -212,8 +212,8 @@ export const KEEPERS_CODEX_CONTENT = {
       },
       {
         type: 'link',
-        to: '/sops/running-a-book-or-video-club',
-        label: 'Long-form SOP 1: Running a Book Club or Video Club →',
+        to: '/sops/community-building',
+        label: 'SOP 2: Community Building — running a club →',
       },
     ],
   },
@@ -365,8 +365,8 @@ export const KEEPERS_CODEX_CONTENT = {
       },
       {
         type: 'link',
-        to: '/sops/choosing-what-the-club-reads',
-        label: 'Long-form SOP 3: Choosing What the Club Reads →',
+        to: '/sops/community-building',
+        label: 'SOP 2: Community Building — choosing titles →',
       },
       { type: 'h2', text: 'When something breaks' },
       {
@@ -460,8 +460,8 @@ export const KEEPERS_CODEX_CONTENT = {
       },
       {
         type: 'link',
-        to: '/sops/inviting-members-to-a-club',
-        label: 'Long-form SOP 2: Inviting Members to a Club →',
+        to: '/sops/community-building',
+        label: 'SOP 2: Community Building — inviting members →',
       },
       {
         type: 'link',
@@ -557,8 +557,8 @@ export const KEEPERS_CODEX_CONTENT = {
       },
       {
         type: 'link',
-        to: '/sops/logging-feedback-and-issues',
-        label: 'Long-form SOP 5: Logging Feedback and Issues →',
+        to: '/sops/community-building',
+        label: 'SOP 2: Community Building — logging feedback →',
       },
     ],
   },
@@ -635,8 +635,8 @@ export const KEEPERS_CODEX_CONTENT = {
       },
       {
         type: 'link',
-        to: '/sops/choosing-what-the-club-reads',
-        label: 'Long-form SOP 3: Choosing What the Club Reads →',
+        to: '/sops/community-building',
+        label: 'SOP 2: Community Building — choosing titles →',
       },
       {
         type: 'link',
@@ -740,8 +740,8 @@ export const KEEPERS_CODEX_CONTENT = {
       },
       {
         type: 'link',
-        to: '/sops/outreach-to-creators-for-a-club',
-        label: 'Long-form SOP 4: Outreach to Creators for a Club →',
+        to: '/sops/community-building',
+        label: 'SOP 2: Community Building — creator outreach →',
       },
     ],
   },
@@ -791,8 +791,8 @@ export const KEEPERS_CODEX_CONTENT = {
       },
       {
         type: 'link',
-        to: '/sops/outreach-to-creators-for-a-club',
-        label: 'Long-form SOP 4: Outreach to Creators →',
+        to: '/sops/community-building',
+        label: 'SOP 2: Community Building — creator outreach →',
       },
     ],
   },

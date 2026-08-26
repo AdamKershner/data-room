@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { getAdjacentSops, getSopById } from '../data/sopContent'
+import { readLocalJson, writeLocalJson } from '../utils/safeStorage'
+import { SopReviewStatusBadge } from '../components/SopReviewStatusBadge'
 import './Page.css'
 import './Sops.css'
 
@@ -26,13 +28,57 @@ function SopStepLink({ href, label }) {
   )
 }
 
+function stepKey(sectionId, step, index) {
+  return step.id || `${sectionId}-${index}`
+}
+
+function SopStepBody({ step }) {
+  return (
+    <>
+      <p>{step.text}</p>
+      {step.template && <pre className="sop-template-block">{step.template}</pre>}
+      {step.href && <SopStepLink href={step.href} label={step.hrefLabel} />}
+      {step.note && <p className="sop-step-note">{step.note}</p>}
+    </>
+  )
+}
+
 function SopDoc({ sop }) {
+  const isChecklist = sop.format === 'checklist'
+  const storageKey = `sop-checklist-${sop.id}`
+  const [checked, setChecked] = useState(() =>
+    isChecklist ? readLocalJson(storageKey, {}) : {}
+  )
+
+  const allKeys = useMemo(() => {
+    if (!isChecklist) return []
+    return sop.sections.flatMap((section) =>
+      section.steps.map((step, i) => stepKey(section.id, step, i))
+    )
+  }, [isChecklist, sop.sections])
+
+  const doneCount = allKeys.filter((key) => checked[key]).length
+  const totalCount = allKeys.length
+
+  const toggle = useCallback(
+    (key) => {
+      setChecked((prev) => {
+        const next = { ...prev, [key]: !prev[key] }
+        writeLocalJson(storageKey, next)
+        return next
+      })
+    },
+    [storageKey]
+  )
+
   return (
     <article className="sop-doc" id={sop.id}>
       <header className="sop-doc-header">
         <p className="sop-doc-eyebrow">
           SOP {sop.number} · {sop.category}
+          {isChecklist ? ' · Checklist' : ''}
         </p>
+        <SopReviewStatusBadge number={sop.number} className="sop-status-badge--detail" />
         <h1 className="sop-detail-title">{sop.title}</h1>
         <dl className="sop-meta">
           <div>
@@ -63,23 +109,63 @@ function SopDoc({ sop }) {
             ))}
           </div>
         )}
+        {isChecklist && totalCount > 0 && (
+          <p className="sop-checklist-progress" aria-live="polite">
+            {doneCount} / {totalCount} items complete
+            {sop.sections.map((section) => {
+              const keys = section.steps.map((step, i) => stepKey(section.id, step, i))
+              const done = keys.filter((key) => checked[key]).length
+              return (
+                <span key={section.id} className="sop-checklist-progress-phase">
+                  {section.title}: {done}/{keys.length}
+                </span>
+              )
+            })}
+          </p>
+        )}
       </header>
 
       {sop.sections.map((section) => (
         <section key={section.id} className="sop-section" id={`${sop.id}-${section.id}`}>
           <h2>{section.title}</h2>
           {section.intro && <p className="sop-section-intro">{section.intro}</p>}
-          <ol className="sop-steps">
-            {section.steps.map((step, i) => (
-              <li key={`${section.id}-${i}`}>
-                <p>{step.text}</p>
-                {step.href && (
-                  <SopStepLink href={step.href} label={step.hrefLabel} />
-                )}
-                {step.note && <p className="sop-step-note">{step.note}</p>}
-              </li>
-            ))}
-          </ol>
+          {isChecklist ? (
+            <ul className="sop-checklist">
+              {section.steps.map((step, i) => {
+                const key = stepKey(section.id, step, i)
+                const isDone = !!checked[key]
+                return (
+                  <li
+                    key={key}
+                    className={isDone ? 'sop-checklist-item is-done' : 'sop-checklist-item'}
+                  >
+                    <div className="sop-checklist-row">
+                      <label className="sop-checklist-label">
+                        <input
+                          type="checkbox"
+                          checked={isDone}
+                          onChange={() => toggle(key)}
+                        />
+                        <span className="sop-checklist-box" aria-hidden="true" />
+                        <span className="sop-checklist-mark">Mark done</span>
+                      </label>
+                      <div className="sop-checklist-body">
+                        <SopStepBody step={step} />
+                      </div>
+                    </div>
+                  </li>
+                )
+              })}
+            </ul>
+          ) : (
+            <ol className="sop-steps">
+              {section.steps.map((step, i) => (
+                <li key={`${section.id}-${i}`}>
+                  <SopStepBody step={step} />
+                </li>
+              ))}
+            </ol>
+          )}
         </section>
       ))}
 
@@ -119,7 +205,7 @@ function SopDetail() {
       <div className="sop-back-banner">
         <Link to="/sops">← Back to SOPs</Link>
       </div>
-      <SopDoc sop={sop} />
+      <SopDoc key={sop.id} sop={sop} />
       <nav className="sop-adjacent" aria-label="Adjacent SOPs">
         {prev ? (
           <Link to={prev.href || `/sops/${prev.id}`} className="sop-adjacent-link">

@@ -1,12 +1,12 @@
 /**
- * Finding What's Broken and Fixing It — product quality checklist SOP.
+ * Product Quality — checklist SOP (formerly Finding What's Broken).
  * Gallery: /sops/finding-whats-broken · steps: /sops/finding-whats-broken/:stepId
  * Source: Product SOP playbook by Srujana Divya Emmadi (Technical Product Manager).
  */
 
 export const FINDING_WHATS_BROKEN_META = {
-  title: "Finding What's Broken and Fixing It",
-  sopNumber: 7,
+  title: 'Product Quality',
+  sopNumber: 3,
   category: 'Product',
   subtitle:
     'A working playbook for noticing broken, confusing, or absurd product moments, deciding what to fix first, and closing the loop. Check Done as you complete each step; open a row for the exact method.',

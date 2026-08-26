@@ -6,6 +6,7 @@ import {
   FINDING_WHATS_BROKEN_STEPS,
 } from '../data/findingWhatsBrokenSteps'
 import { OnboardingIcon } from './onboardingIcons'
+import { SopReviewStatusBadge } from '../components/SopReviewStatusBadge'
 import { readLocalJson, writeLocalJson } from '../utils/safeStorage'
 import './Page.css'
 import './Onboarding.css'
@@ -135,6 +136,7 @@ function FindingWhatsBrokenChecklist() {
         <p className="project-charter-eyebrow">
           SOP {FINDING_WHATS_BROKEN_META.sopNumber} · {FINDING_WHATS_BROKEN_META.category}
         </p>
+        <SopReviewStatusBadge number={FINDING_WHATS_BROKEN_META.sopNumber} className="sop-status-badge--detail" />
         <h1>{FINDING_WHATS_BROKEN_META.title}</h1>
         <p className="page-subtitle">{FINDING_WHATS_BROKEN_META.subtitle}</p>
         <p className="sop-freshness-note">{FINDING_WHATS_BROKEN_META.standing}</p>
