@@ -7,7 +7,7 @@
  * SOP 3 Product Quality. SOP 4 Product Management Playbook. SOP 5 Blogs.
  * SOP 6 Brand Guidelines. SOP 7 Merch. SOP 8 Official Social Media.
  * SOP 9 Author Outreach. SOP 10 Writing a Project Charter.
- * SOP 11 Creating YouTube Videos. SOP 12 SEO. SOP 13 Updating the Marketing Website. SOP 14 Third-Party News and PR. SOP 15 Creator Prospecting. SOP 16 Creator Outreach. SOP 17+ function playbooks and operating tasks.
+ * SOP 11 Creating YouTube Videos. SOP 12 SEO. SOP 13 Updating the Marketing Website. SOP 14 Third-Party News and PR. SOP 15 Creator Prospecting. SOP 16 Creator Outreach. SOP 17 Creator Collab Calls. SOP 18 Post-Collab Follow-ups. SOP 19 Lifecycle Emails and Tickets. SOP 20 Time Log. SOP 21+ function playbooks and operating tasks.
  */
 
 import { keepersCodexSearchBlob } from './keepersCodexSteps'
@@ -29,6 +29,13 @@ import {
   CREATOR_PROSPECTING_SOP,
   CREATOR_PROSPECTING_ALIASES,
   CREATOR_OUTREACH_SOP,
+  CREATOR_COLLAB_CALLS_SOP,
+  CREATOR_COLLAB_CALLS_ALIASES,
+  POST_COLLAB_FOLLOWUPS_SOP,
+  LIFECYCLE_EMAILS_AND_TICKETS_SOP,
+  LIFECYCLE_EMAILS_AND_TICKETS_ALIASES,
+  TIME_LOG_SOP,
+  TIME_LOG_ALIASES,
   FUNCTION_SOP_CATEGORIES,
   FUNCTION_SOPS,
   PRODUCT_HUNT_LAUNCH_SOP,
@@ -44,11 +51,11 @@ export const SOP_PAGE = {
   subtitle:
     'Searchable guides tagged by business function. Club and product quality checklists sit alongside department playbooks and day-to-day operating tasks.',
   freshnessNote:
-    'SOP 1–16 are Ready for review. SOP 17+ are labeled Updates in progress (function playbooks from SOPS.txt plus operating tasks, Marketing through Legal). SOP 1 is Product Hunt Launch. SOP 2 Community Building covers clubs (as of August 12, 2026) and The Keeper’s Codex (v1.0 draft). SOP 3 Product Quality is the product quality checklist. SOP 4 is the Product Management Playbook (v1.0). SOP 5 is Blogs. SOP 6 is Brand Guidelines (original PDF plus Aura Library overlay; revamp in progress). SOP 7 is Merch (Canva, Printify, living mood board). SOP 8 is Official Social Media (restricted credentials, brand/proofread, Linear marketing-manager review before schedule or post). SOP 9 is Author Outreach (contact list, tracker, personalized template). SOP 10 is Writing a Project Charter (brief from Adam, draft before every answer, product-verified steps, he circulates). SOP 11 is Creating YouTube Videos (Screen Studio, pauses and music, demo thumbnail, YouTube package, SOP 8 or zip to Adam). SOP 12 is SEO (Search Console, keyword clusters, UTMs, Mixpanel referring domain, product SEO for hubs/profiles/clubs ongoing). SOP 13 is Updating the Marketing Website (kahana-homepage-public, Linear card, local test, In Review, Adam or EM deploys Heroku, then Complete). SOP 14 is Third-Party News and PR (media database, scoops, personalized pitches, legal on claims, archive coverage). SOP 15 is Creator Prospecting (TikTok/Instagram/YouTube → sheet, brand contact, handle@gmail.com checked in Google Chat). SOP 16 is Creator Outreach (email or official DM, white-glove hub, complimentary Growth plan, featured placement). Re-check steps if the product UI has moved on.',
+    'SOP 1–20 are Ready for review. SOP 21+ are labeled Updates in progress (function playbooks from SOPS.txt plus operating tasks, Marketing through Legal). SOP 1 is Product Hunt Launch. SOP 2 Community Building covers clubs (as of August 12, 2026) and The Keeper’s Codex (v1.0 draft). SOP 3 Product Quality is the product quality checklist. SOP 4 is the Product Management Playbook (v1.0). SOP 5 is Blogs. SOP 6 is Brand Guidelines (original PDF plus Aura Library overlay; revamp in progress). SOP 7 is Merch (Canva, Printify, living mood board). SOP 8 is Official Social Media (restricted credentials, brand/proofread, Linear marketing-manager review before schedule or post). SOP 9 is Author Outreach (contact list, tracker, personalized template). SOP 10 is Writing a Project Charter (brief from Adam, draft before every answer, product-verified steps, he circulates). SOP 11 is Creating YouTube Videos (Screen Studio, pauses and music, demo thumbnail, YouTube package, SOP 8 or zip to Adam). SOP 12 is SEO (Search Console, keyword clusters, UTMs, Mixpanel referring domain, product SEO for hubs/profiles/clubs ongoing). SOP 13 is Updating the Marketing Website (kahana-homepage-public, Linear card, local test, In Review, Adam or EM deploys Heroku, then Complete). SOP 14 is Third-Party News and PR (media database, scoops, personalized pitches, legal on claims, archive coverage). SOP 15 is Creator Prospecting (TikTok/Instagram/YouTube → sheet, brand contact, handle@gmail.com checked in Google Chat). SOP 16 is Creator Outreach (email or official DM, white-glove hub, complimentary Growth plan, featured placement). SOP 17 is Creator Collab Calls (booked meeting, listen, offer, paid-collab screen, help them to a hub on the library). SOP 18 is Post-Collab Follow-ups (hub views and payments, how else we can help, opt-in collab-creators club). SOP 19 is Lifecycle Emails and Tickets (Resend + Mixpanel delivery/landing, NPS/PMF, contact, support, feedback). SOP 20 is Time Log (Kahana HQ Friday reminder, HR and PM check the output sheet, Slack missing people). Re-check steps if the product UI has moved on.',
 }
 
 /** SOPs 1 through this number are ready for review; later numbers are still being updated. */
-export const SOP_READY_THROUGH = 16
+export const SOP_READY_THROUGH = 20
 
 export const SOP_REVIEW_STATUS = {
   ready: 'ready-for-review',
@@ -151,6 +158,10 @@ export const SOPS = [
   { ...PR_NEWS_SOP, number: 14 },
   { ...CREATOR_PROSPECTING_SOP, number: 15 },
   { ...CREATOR_OUTREACH_SOP, number: 16 },
+  { ...CREATOR_COLLAB_CALLS_SOP, number: 17 },
+  { ...POST_COLLAB_FOLLOWUPS_SOP, number: 18 },
+  { ...LIFECYCLE_EMAILS_AND_TICKETS_SOP, number: 19 },
+  { ...TIME_LOG_SOP, number: 20 },
   ...FUNCTION_SOPS,
 ]
 
@@ -162,6 +173,9 @@ export function resolveSopId(sopId) {
     CREATING_YOUTUBE_VIDEOS_ALIASES[sopId] ||
     SEO_ALIASES[sopId] ||
     CREATOR_PROSPECTING_ALIASES[sopId] ||
+    CREATOR_COLLAB_CALLS_ALIASES[sopId] ||
+    LIFECYCLE_EMAILS_AND_TICKETS_ALIASES[sopId] ||
+    TIME_LOG_ALIASES[sopId] ||
     sopId
   )
 }

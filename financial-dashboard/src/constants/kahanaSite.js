@@ -26,6 +26,21 @@ export const LINEAR_WORKSPACE_URL = 'https://linear.app/kahana'
 export const MIXPANEL_URL =
   'https://mixpanel.com/project/4042294/view/4538547/app/home'
 
+/** Mixpanel CS boards for lifecycle email delivery and landing. Do not invent extra board URLs. */
+export const MIXPANEL_LIFECYCLE_BOARD_A_URL =
+  'https://mixpanel.com/project/4042294/view/4538547/app/boards#id=11358694'
+export const MIXPANEL_LIFECYCLE_BOARD_B_URL =
+  'https://mixpanel.com/project/4042294/view/4538547/app/boards#id=11358702'
+export const MIXPANEL_LIFECYCLE_BOARD_C_URL =
+  'https://mixpanel.com/project/4042294/view/4538547/app/boards#id=11358761'
+
+/** Resend send log. CS access: ask Adam Kershner on Slack. */
+export const RESEND_EMAILS_URL = 'https://resend.com/emails'
+
+/** Live PMF+NPS output sheet (same source as /nps). */
+export const PMF_NPS_OUTPUT_SHEET_URL =
+  'https://docs.google.com/spreadsheets/d/1v8cJu1f9UXC1JY6XBTtSBlu8rGqVqpEVl6zlB8-pfoA/edit?usp=sharing'
+
 /** Public marketing site repo (kahana.io / about.kahana.io). Not kahana-web. */
 export const MARKETING_SITE_REPO_URL =
   'https://github.com/Kahana-LLC/kahana-homepage-public'
@@ -54,6 +69,13 @@ export const GOOGLE_CHAT_URL = 'https://chat.google.com/app/home'
 
 /** Weekly time log — Tally form submitted every Friday EOD by all teammates. */
 export const TIME_LOG_TALLY_URL = 'https://tally.so/r/w2YdzL'
+
+/** Time log output sheet — HR and PM check Friday fillouts here. */
+export const TIME_LOG_OUTPUT_SHEET_URL =
+  'https://docs.google.com/spreadsheets/d/1xbnItlOXwcaCzoS5EgAhy4CA7QREXm7ATNQgtTnhgt4/edit?gid=0#gid=0'
+
+/** Internal Kahana HQ hub. Members get the Friday time-log reminder email. */
+export const KAHANA_HQ_HUB_URL = 'https://kahana.io/hub/Rzl4UEbzVeym5xqtQ4ZS'
 
 /** Get access to tools & data — preferred emails + whether you contribute to code. */
 export const TOOLS_ACCESS_TALLY_URL = 'https://tally.so/r/2EgxRV'

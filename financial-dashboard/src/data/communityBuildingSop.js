@@ -36,6 +36,7 @@ export const COMMUNITY_BUILDING_SOP = {
     'As of August 12, 2026. The Preview button in the create builder is unreliable — use Create and publish, then check the live club.',
     'The Keeper’s Codex is the click-by-click checklist for founding through first cycle. Use it alongside the sections below.',
     'Coordinate creator outreach so only one person contacts a given author. Honest member counts only.',
+    'A club of SOP 16/17 collab creators (intros, how else we can help) is SOP 18. That is not the same as a host reaching an author for a club title.',
   ],
   sections: [
     {

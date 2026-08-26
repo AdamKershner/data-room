@@ -110,6 +110,12 @@ function App() {
           <Route path="/sops/seo-sitemap" element={<Navigate to="/sops/seo" replace />} />
           <Route path="/sops/ai-seo" element={<Navigate to="/sops/seo" replace />} />
           <Route path="/sops/creator-collaborations-outreach" element={<Navigate to="/sops/creator-prospecting" replace />} />
+          <Route path="/sops/collab-calls" element={<Navigate to="/sops/creator-collab-calls" replace />} />
+          <Route path="/sops/creator-calls" element={<Navigate to="/sops/creator-collab-calls" replace />} />
+          <Route path="/sops/lifecycle-emails-resurrection" element={<Navigate to="/sops/lifecycle-emails-and-tickets" replace />} />
+          <Route path="/sops/handling-user-tickets" element={<Navigate to="/sops/lifecycle-emails-and-tickets" replace />} />
+          <Route path="/sops/pm-time-log" element={<Navigate to="/sops/time-log" replace />} />
+          <Route path="/sops/hr-time-log" element={<Navigate to="/sops/time-log" replace />} />
           <Route path="/sops/keepers-codex/:stepId" element={<KeepersCodexStep />} />
           <Route path="/sops/keepers-codex" element={<KeepersCodexChecklist />} />
           <Route path="/sops/finding-whats-broken/:stepId" element={<FindingWhatsBrokenStep />} />

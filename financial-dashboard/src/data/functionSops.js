@@ -1,11 +1,13 @@
 /**
  * Function-tagged SOPs: department playbooks from SOPS.txt plus the
  * operating-task checklist (Marketing through Legal).
- * Numbered from SOP 17 onward in sopContent.js (SOP 1 Product Hunt, SOP 2 Community Building,
+ * Numbered from SOP 21 onward in sopContent.js (SOP 1 Product Hunt, SOP 2 Community Building,
  * SOP 3 Product Quality, SOP 4 Product Management Playbook, SOP 5 Blogs, SOP 6 Brand Guidelines,
  * SOP 7 Merch, SOP 8 Official Social Media, SOP 9 Author Outreach, SOP 10 Writing a Project Charter,
  * SOP 11 Creating YouTube Videos, SOP 12 SEO, SOP 13 Updating the Marketing Website,
- * SOP 14 Third-Party News and PR, SOP 15 Creator Prospecting, SOP 16 Creator Outreach).
+ * SOP 14 Third-Party News and PR, SOP 15 Creator Prospecting, SOP 16 Creator Outreach,
+ * SOP 17 Creator Collab Calls, SOP 18 Post-Collab Follow-ups, SOP 19 Lifecycle Emails and Tickets,
+ * SOP 20 Time Log).
  */
 
 import {
@@ -16,11 +18,18 @@ import {
   CREATOR_OUTREACH_SHEET_URL,
   GOOGLE_CHAT_URL,
   GOOGLE_SEARCH_CONSOLE_URL,
+  KAHANA_HQ_HUB_URL,
   KAHANA_LIBRARY_URL,
   KAHANA_SITE_URL,
   LINEAR_WORKSPACE_URL,
   MARKETING_SITE_REPO_URL,
+  MIXPANEL_LIFECYCLE_BOARD_A_URL,
+  MIXPANEL_LIFECYCLE_BOARD_B_URL,
+  MIXPANEL_LIFECYCLE_BOARD_C_URL,
   MIXPANEL_URL,
+  PMF_NPS_OUTPUT_SHEET_URL,
+  RESEND_EMAILS_URL,
+  TIME_LOG_OUTPUT_SHEET_URL,
   TIME_LOG_TALLY_URL,
   TOOLS_ACCESS_TALLY_URL,
 } from '../constants/kahanaSite'
@@ -167,6 +176,44 @@ If we collab: you share the vision, make a Kahana account, start a hub, and invi
 Collab partners also get a complimentary Growth plan (large files, unlimited hubs), a success story on our blog and social if you want it, and featured library placement (including featured collections).
 
 If you are open: [calendar URL]`
+const POST_COLLAB_FOLLOWUP_TEMPLATE = `Hi [First Name],
+
+Your hub [Title] has been live on Kahana for [N days / weeks]. Here is what we see on the hub today: [views] views, [purchasers] purchases (or “free hub / no purchases yet”), and [anything else true: Aura, files, Linktree traffic you can actually source].
+
+If those numbers look off, or you want help with another hub, a club, a bio link, or a featured placement we can actually give, reply and we will help.
+
+We are always ready and happy to collaborate this way again: add content, brainstorm, and build hubs with you. If you ever want to do it again, we would love to.
+
+We also run a small Kahana club for creators we collaborate with, so people can meet each other. Opt in and we will invite you. We will not CC your email to anyone else without asking.
+
+Best,
+[YOUR NAME]`
+const POST_COLLAB_INTRO_TEMPLATE = `Hi [Name A] and [Name B],
+
+You both have hubs on Kahana and asked to meet other collab creators. [One sentence on why this intro: same beat, complementary audience, or a club they both opted into.]
+
+[Name A]: [hub title + URL]
+[Name B]: [hub title + URL]
+
+I will leave you two to it. If a three-way call would help, grab a time here: [calendar URL]
+
+Best,
+[YOUR NAME]`
+const CREATOR_COLLAB_CALL_TALKING_POINTS = `Before you join
+- Open their row. Know the Acknowledgment you sent and what they replied.
+- Have the current demo and Amy Wang’s hub ready to screen-share.
+- Know the offer: white-glove hub, complimentary Growth plan, permissioned success story, featured placement.
+
+On the call
+1. Listen first. What is point A: what they make, who it is for, what they want a hub to do.
+2. Share what we can do. Kahana (AKA "The Aura Library") sits alongside TikTok, Instagram, and YouTube. Aura is how work gets discovered. We white-glove the hub: they create an account, start a hub, invite us as collaborators. We build privately. They review, then publish to the library.
+3. If they only do paid collabs or want upfront payment: ask their rates and what they have in mind for a collab in general, paid or not. Write it on the row. If they require payment, we do not proceed now. We may revisit later.
+4. If they are in without a creator fee: help them sign up, create the hub, and invite Kahana as collaborators. Stay with them from point A to point B (a hub on the library, free or paid). Listen. Be helpful. Do not rush publish if the hub is not ready.
+5. Why we do not pay a collab fee: we are helping them create a revenue-generating asset that can live on the library. Creators have earned money this way, including over $20K at times. Do not promise that number to this person.
+
+After
+- Same-day Notes: vision, paid-collab screen (rates / parked / in), account, hub URL even if private, next step.
+- If the hub is public: SOP 18.`
 
 function stepsFrom(items) {
   return items.map((item) => (typeof item === 'string' ? { text: item } : item))
@@ -301,6 +348,16 @@ const PLAYBOOKS = [
             text: 'Send Collab? from the creator database (email via Apps Script, or Instagram / TikTok / YouTube DM when that is the path they published). First Name and Acknowledgment still required.',
             href: '/sops/creator-outreach',
             hrefLabel: 'SOP 16: Creator Outreach',
+          },
+          {
+            text: 'The booked call is SOP 17 (share the offer, listen, help them to a hub on the library). We do not pay a collab fee up front.',
+            href: '/sops/creator-collab-calls',
+            hrefLabel: 'SOP 17: Creator Collab Calls',
+          },
+          {
+            text: 'After the hub is public, monitor results and check in on SOP 18 (hub views and payments, how else we can help, opt-in intros into a collab-creators club).',
+            href: '/sops/post-collab-followups',
+            hrefLabel: 'SOP 18: Post-Collab Follow-ups',
           },
         ],
       },
@@ -564,6 +621,11 @@ const PLAYBOOKS = [
         steps: [
           'Receive → Record → Categorize → Priority → Investigate → Respond → Resolve or escalate → Document → Close.',
           'Categories: question, bug, account, payment, content, feature request, security, complaint.',
+          {
+            text: 'Day-to-day inbox, lifecycle mail, NPS/PMF, and Resend / Mixpanel checks are SOP 19. This playbook is priority and escalation language.',
+            href: '/sops/lifecycle-emails-and-tickets',
+            hrefLabel: 'SOP 19: Lifecycle Emails and Tickets',
+          },
         ],
       },
       {
@@ -829,8 +891,8 @@ export const PRODUCT_HUNT_LAUNCH_SOP = playbook({
           {
             id: 'post-support',
             text: 'Customer support is staffed for new users (kahana.io/support and /contact). Reply fast.',
-            href: '/sops/handling-user-tickets',
-            hrefLabel: 'SOP: Handling Suggestions, Contacts, and Tickets',
+            href: '/sops/lifecycle-emails-and-tickets',
+            hrefLabel: 'SOP 19: Lifecycle Emails and Tickets',
           },
           {
             id: 'post-retention',
@@ -2977,45 +3039,33 @@ export const CREATOR_OUTREACH_SOP = playbook({
     },
     {
       id: 'yes',
-      title: '5. If they say yes: white-glove hub, Growth plan, story, featured',
+      title: '5. If they say yes or book time',
       intro:
-        'The hub stays theirs. We build as collaborators. They publish. We do not post a success story without permission.',
+        'The pitch is done. The meeting (and the white-glove) is SOP 17. Do not promise a creator fee in this thread.',
       steps: [
         {
           id: 'co-replies',
-          text: 'Watch the sending inbox, REPLY_TO, and the official DMs. Log yes / no / parked and the next step in Notes. One short follow-up is enough unless they asked you to wait.',
+          text: 'Watch the sending inbox, REPLY_TO, and the official DMs. Log yes / no / parked / booked and the next step in Notes. One short follow-up is enough unless they asked you to wait.',
           href: CREATOR_OUTREACH_SHEET_URL,
           hrefLabel: 'Creator database (Influencer & Creator Profiles)',
         },
         {
-          id: 'co-vision',
-          text: 'On the call or in the thread: they tell us the vision for the hub (who it is for, what belongs in it, what should stay off it). Write that in Notes. Do not invent a hub they did not describe.',
+          id: 'co-book',
+          text: 'If they said yes but did not book, send Adam’s Calendly (unless Marketing Lead named a different event). If they already booked, put the date on the row.',
+          href: ADAM_CALENDLY_URL,
+          hrefLabel: 'Adam’s Calendly',
         },
         {
-          id: 'co-account',
-          text: 'They create their own Kahana account and start the hub. They invite our team as collaborators (Marketing + CS owners, emails from the Kahana HQ hub collaborator list). Do not create the hub under a Kahana employee login and pretend it is theirs.',
+          id: 'co-paid-thread',
+          text: 'If they say they only do paid collabs or want upfront payment in the thread, do not agree to pay. Still invite them to the call (or take rates here) and follow SOP 17. Do not ghost the row.',
+          href: '/sops/creator-collab-calls',
+          hrefLabel: 'SOP 17: Creator Collab Calls',
         },
         {
-          id: 'co-build',
-          text: 'White-glove: migrate the content they pointed us at, structure the hub, and optimize it while it is still private. They review. When it matches their expectations, they make it public on the library. Then they can put the hub URL in their link in bio or Linktree and tell their audience.',
-          href: KAHANA_LIBRARY_URL,
-          hrefLabel: 'Kahana library',
-        },
-        {
-          id: 'co-growth',
-          text: 'Complimentary Growth plan (large files, unlimited hubs) is part of this collab. Adam (or whoever can grant a comped Growth plan) turns it on after they have an account. Do not send a public coupon or promise a dollar amount we cannot support.',
-        },
-        {
-          id: 'co-story',
-          text: 'If they agree to be a success story: blog via SOP 5, official social via SOP 8. Get permission on name, quotes, and screens before anything public. Legal if the story includes numbers or a named brand.',
-          href: '/sops/blog-publishing',
-          hrefLabel: 'SOP 5: Blogs',
-        },
-        {
-          id: 'co-featured',
-          text: 'Ask Product / Marketing to place the live hub in featured collections (and any other featured library placement we are actually running). Do not promise a homepage slot we cannot give. Log the collection name on the row once it is live.',
-          href: '/sops/official-social-media',
-          hrefLabel: 'SOP 8: Official Social Media',
+          id: 'co-sop17',
+          text: 'Open SOP 17 for the call itself: listen, share the offer, help them set up an account and a hub, invite us as collaborators. White-glove, Growth plan, story, and featured live there, not in this pitch.',
+          href: '/sops/creator-collab-calls',
+          hrefLabel: 'SOP 17: Creator Collab Calls',
         },
       ],
     },
@@ -3023,7 +3073,700 @@ export const CREATOR_OUTREACH_SOP = playbook({
   doneWhen: [
     'Every pitched creator was a Ready row with First Name, a specific Acknowledgment, and a Channel (Email via script, or official DM). Sent At is filled. No shadow list.',
     'The pitch included Kahana links, Amy Wang’s live hub (and a second hub only if named), the current demo, the white-glove hub path, complimentary Growth plan, permissioned story, featured placement, and a calendar link.',
-    'A yes has vision notes, their account and collaborator invite, a private hub they reviewed before publish, Growth granted by Adam, and story/featured work only with permission.',
+    'A yes or booked call is logged on the row and handed to SOP 17. Do not treat the send as the last step.',
+  ],
+})
+
+export const CREATOR_COLLAB_CALLS_ALIASES = {
+  'collab-calls': 'creator-collab-calls',
+  'creator-calls': 'creator-collab-calls',
+}
+
+export const CREATOR_COLLAB_CALLS_SOP = playbook({
+  id: 'creator-collab-calls',
+  title: 'Creator Collab Calls',
+  category: 'Marketing',
+  owner: 'Marketing Lead',
+  who: 'Anyone on the booked collab call (usually Marketing Lead or Adam; intern only if named on the calendar)',
+  when: 'When they book time from SOP 16 (Adam’s Calendly unless Marketing Lead named a different event). Prep the same day. Log the same day.',
+  format: 'checklist',
+  description:
+    'Run the virtual meeting after they book. Share what we can do and the offer, listen, and help them from point A to a hub on the library (free or paid). Screen paid-collab / upfront-payment requests: get rates, document, do not proceed now. Prioritize creators who want to collab without a creator fee.',
+  keywords: [
+    'creator',
+    'collab',
+    'call',
+    'calendly',
+    'meeting',
+    'white-glove',
+    'hub',
+    'account',
+    'collaborator',
+    'paid collab',
+    'rates',
+    'pro bono',
+    'growth plan',
+  ],
+  notes: [
+    'Same creator database as SOP 15 and SOP 16. The call lives on the row, not a new list.',
+    'Point B is a hub on the library, free or paid. The call is for getting them there. It is not a talent-booking negotiation.',
+    'We do not pay creators a collab fee to start. We prioritize people who like Kahana for what it is and see the value in our pro bono hub build. The hub is a revenue-generating asset that can live on the library. Creators have earned money this way, including over $20K at times. Do not promise that number to this person.',
+    'If they require upfront payment, log rates and what they had in mind, park the row, and do not proceed now. We may revisit later. Authors stay SOP 9.',
+  ],
+  sections: [
+    {
+      id: 'prep',
+      title: '1. Prep the same row',
+      intro:
+        'Walk in knowing who they are and what we already offered. If they skipped the calendar and said yes in the thread, still run this SOP there.',
+      steps: [
+        {
+          id: 'cc-sheet',
+          text: 'Open the creator database. Confirm this is a SOP 16 yes or booked call (not an author, not a journalist). Read Acknowledgment, their reply, and any rates already in Notes.',
+          href: CREATOR_OUTREACH_SHEET_URL,
+          hrefLabel: 'Creator database (Influencer & Creator Profiles)',
+        },
+        {
+          id: 'cc-offer',
+          text: 'Have the talking points, current demo, and Amy Wang’s hub ready to screen-share. The offer is still white-glove hub, complimentary Growth plan, permissioned success story, and featured placement.',
+          href: AMY_WANG_HUB_URL,
+          hrefLabel: 'Amy Wang’s hub',
+        },
+        {
+          id: 'cc-demo',
+          text: 'Use the latest product demo on @kahanaHQ. If nothing newer has shipped, use the current default.',
+          href: CREATOR_OUTREACH_DEMO_VIDEO_URL,
+          hrefLabel: 'Current demo video',
+        },
+        {
+          id: 'cc-calendar',
+          text: 'Join on time from the booking link they used (Adam’s Calendly unless Marketing Lead named a different event). Do not move them to a personal Zoom they cannot find.',
+          href: ADAM_CALENDLY_URL,
+          hrefLabel: 'Adam’s Calendly',
+        },
+      ],
+    },
+    {
+      id: 'listen',
+      title: '2. Listen, then share the offer',
+      intro:
+        'This is usually where we share what we can do. Listen first. Then be clear about the collab.',
+      steps: [
+        {
+          id: 'cc-talking',
+          text: 'Keep the talking points next to the call. Fill them with what this creator actually said. No leftover brackets in anything you paste later.',
+          template: CREATOR_COLLAB_CALL_TALKING_POINTS,
+        },
+        {
+          id: 'cc-point-a',
+          text: 'Ask what they make, who it is for, and what they want a hub to hold (and what should stay off it). Write that vision in Notes. Do not invent a hub they did not describe.',
+        },
+        {
+          id: 'cc-alongside',
+          text: 'Kahana (AKA "The Aura Library") sits alongside TikTok, Instagram, and YouTube. We are not a replacement. Aura is the discovery signal, not the product name.',
+          href: KAHANA_SITE_URL,
+          hrefLabel: 'kahana.io',
+        },
+        {
+          id: 'cc-share-offer',
+          text: 'Share the offer in plain language: they create a Kahana account, start a hub, and invite our team as collaborators. We migrate content and build it privately. They review. When it matches, they publish it to the library (free or paid). Then they can put the hub in their link in bio or Linktree.',
+          href: KAHANA_LIBRARY_URL,
+          hrefLabel: 'Kahana library',
+        },
+      ],
+    },
+    {
+      id: 'paid',
+      title: '3. If they require payment or “only do paid collabs”',
+      intro:
+        'Get the facts. Do not agree to a creator fee on the call. We prioritize people who want to collab without one.',
+      steps: [
+        {
+          id: 'cc-ask-once',
+          text: 'If they have not said how they work with brands, ask once: are they open to this collab as offered, or do they only do paid / upfront work? If they are in without a fee, skip the rest of this section and go to section 4.',
+        },
+        {
+          id: 'cc-rates',
+          text: 'Ask their rates and what they have in mind for a collab in general, paid or not. One honest answer is enough. Do not haggle them down on the call.',
+        },
+        {
+          id: 'cc-log-rates',
+          text: 'Same day, put rates, what they wanted, and Paid collab = parked (or similar) in Notes. Leave Outreach Status as parked, not yes. Next person should not have to guess.',
+          href: CREATOR_OUTREACH_SHEET_URL,
+          hrefLabel: 'Creator database (Influencer & Creator Profiles)',
+        },
+        {
+          id: 'cc-no-fee',
+          text: 'If they require upfront payment, we do not proceed right now. Say we may revisit later. Be warm. Do not imply we will pay next quarter unless Marketing Lead said so.',
+        },
+        {
+          id: 'cc-why',
+          text: 'If it comes up: we believe the offer is valuable as it is. We are helping them create a revenue-generating asset that can live on the library. Creators have earned money from hubs they built with us, including over $20K at times. That is why we do not prioritize paying creators up front. Do not promise this person $20K. Do not put that number in a public story without permission and Legal (SOP 5).',
+          href: '/sops/blog-publishing',
+          hrefLabel: 'SOP 5: Blogs',
+        },
+        {
+          id: 'cc-still-in',
+          text: 'If they hear that and still want to collab without a creator fee, continue to section 4. If they do not, thank them, park the row, and stop. Do not keep pitching a paid talent deal.',
+        },
+      ],
+    },
+    {
+      id: 'point-b',
+      title: '4. Help them from point A to point B',
+      intro:
+        'Point B is a hub on the library, free or paid. Stay helpful. The hub stays theirs.',
+      steps: [
+        {
+          id: 'cc-account',
+          text: 'On the call, help them create their own Kahana account and start the hub. They invite our team as collaborators (Marketing + CS owners, emails from the Kahana HQ hub collaborator list). Do not create the hub under a Kahana employee login and pretend it is theirs.',
+          href: KAHANA_SITE_URL,
+          hrefLabel: 'kahana.io',
+        },
+        {
+          id: 'cc-build',
+          text: 'White-glove: migrate the content they pointed us at, structure the hub, and optimize it while it is still private. They review. When it matches their expectations, they make it public on the library. If the call runs out of time, keep building after. Do not rush publish.',
+          href: KAHANA_LIBRARY_URL,
+          hrefLabel: 'Kahana library',
+        },
+        {
+          id: 'cc-growth',
+          text: 'Complimentary Growth plan (large files, unlimited hubs) is part of this collab. Adam (or whoever can grant a comped Growth plan) turns it on after they have an account. Do not send a public coupon or promise a dollar amount we cannot support.',
+        },
+        {
+          id: 'cc-story',
+          text: 'If they agree to be a success story: blog via SOP 5, official social via SOP 8. Get permission on name, quotes, and screens before anything public. Legal if the story includes numbers or a named brand.',
+          href: '/sops/blog-publishing',
+          hrefLabel: 'SOP 5: Blogs',
+        },
+        {
+          id: 'cc-featured',
+          text: 'Ask Product / Marketing to place the live hub in featured collections (and any other featured library placement we are actually running). Do not promise a homepage slot we cannot give. Log the collection name on the row once it is live.',
+          href: '/sops/official-social-media',
+          hrefLabel: 'SOP 8: Official Social Media',
+        },
+      ],
+    },
+    {
+      id: 'after',
+      title: '5. Log the call and hand off',
+      intro:
+        'If it is not on the row, the next person will repeat the call.',
+      steps: [
+        {
+          id: 'cc-notes',
+          text: 'Same day, log: date of call, vision, paid-collab screen (in / parked + rates), account created yes/no, hub URL even if private, Growth granted yes/no/pending, next step.',
+          href: CREATOR_OUTREACH_SHEET_URL,
+          hrefLabel: 'Creator database (Influencer & Creator Profiles)',
+        },
+        {
+          id: 'cc-sop18',
+          text: 'Once the hub is public, open SOP 18. Put the live hub URL on the same row. Do not treat publish as the last step.',
+          href: '/sops/post-collab-followups',
+          hrefLabel: 'SOP 18: Post-Collab Follow-ups',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'The call (or the async yes) is logged on the same creator-database row with vision notes and a paid-collab screen (in, or parked with rates).',
+    'If they required payment, we did not proceed. If they did not, they have (or are getting) their own account, a hub they own, Kahana as collaborators, and a path to a public hub (free or paid). Growth, story, and featured only with the usual rules.',
+    'A public hub hands off to SOP 18. A parked paid-collab row is not marked yes.',
+  ],
+})
+
+export const POST_COLLAB_FOLLOWUPS_SOP = playbook({
+  id: 'post-collab-followups',
+  title: 'Post-Collab Follow-ups',
+  category: 'Marketing',
+  owner: 'Marketing Lead',
+  who: 'Anyone who white-gloved a SOP 17 collab, plus Community when the collab-creators club is live',
+  when: 'The day the hub goes public, then 7 days, 30 days, and quarterly. Sooner if views or payments jump or drop.',
+  format: 'checklist',
+  description:
+    'After a creator collab is live, monitor hub views and payments, send a results check-in, leave the door open to collab again (add content, brainstorm, build hubs), and (with opt-in) introduce collab creators to each other in a Kahana club.',
+  keywords: [
+    'creator',
+    'collab',
+    'follow-up',
+    'hub',
+    'views',
+    'payments',
+    'purchasers',
+    'mixpanel',
+    'community',
+    'intro',
+    'club',
+  ],
+  notes: [
+    'Same creator database as SOP 15, SOP 16, and SOP 17. Follow-up lives on the row, not a new list. Outreach Status should already be a yes with a public hub URL.',
+    'Read numbers from the live hub first (views, purchasers, files). Mixpanel and Stripe only if they add something the hub page does not show. Honest counts only. Do not send purchaser PII to the creator.',
+    'A collab-creators club is SOP 2 mechanics (create, invite, monitor). Intros are opt-in. Do not CC a partner’s email to another creator without asking.',
+  ],
+  sections: [
+    {
+      id: 'row',
+      title: '1. Keep the same row',
+      intro:
+        'If it is not on the sheet, it will not get a check-in.',
+      steps: [
+        {
+          id: 'pc-sheet',
+          text: 'Open the creator database. Confirm Outreach Status is a yes and the hub is public on the library. Put the live hub URL in Notes (or a Hub URL column if you added one). Request access from Marketing Lead or Adam if the sheet is closed to you.',
+          href: CREATOR_OUTREACH_SHEET_URL,
+          hrefLabel: 'Creator database (Influencer & Creator Profiles)',
+        },
+        {
+          id: 'pc-not-authors',
+          text: 'Authors and publishers hosting a paid book for a club stay on SOP 9, then SOP 2 for the club. This SOP is creator collabs from SOP 16 outreach and SOP 17 calls (white-glove hub, Growth plan, featured).',
+          href: '/sops/creator-collab-calls',
+          hrefLabel: 'SOP 17: Creator Collab Calls',
+        },
+        {
+          id: 'pc-amy',
+          text: 'Use Amy Wang’s live hub as the example of what “public” looks like when you are unsure: views and purchasers show on the hub page.',
+          href: AMY_WANG_HUB_URL,
+          hrefLabel: 'Amy Wang’s hub',
+        },
+      ],
+    },
+    {
+      id: 'metrics',
+      title: '2. Read hub results',
+      intro:
+        'Kahana’s hub page is the source of truth for views and purchases. Write the snapshot on the row the same day.',
+      steps: [
+        {
+          id: 'pc-hub-page',
+          text: 'Open the live hub while signed in as a collaborator or on the public page. Record views, purchasers (or that it is free), file count, and Aura if it is shown. Date the snapshot in Notes (for example “2026-08-26: 1200 views, 8 purchasers”).',
+        },
+        {
+          id: 'pc-mixpanel',
+          text: 'In Mixpanel, look for hub or purchase events tied to this hub if Analytics has a board. Prefer those events over a random explore. If nothing exists yet, ask Analytics to pin a collab-hub board rather than guessing.',
+          href: MIXPANEL_URL,
+          hrefLabel: 'Mixpanel Kahana project',
+        },
+        {
+          id: 'pc-stripe',
+          text: 'If the hub is paid, confirm Kahana’s take (5%) with Finance / Stripe for that period. Do not export purchaser names or emails to Slack or to the creator. SOP 12 UTMs only matter if the creator used our tracked links.',
+          href: '/sops/seo',
+          hrefLabel: 'SOP 12: SEO',
+        },
+        {
+          id: 'pc-cadence',
+          text: 'Cadence: day the hub goes public (baseline), day 7, day 30, then quarterly. If views or purchases jump or stall hard, check that week. One dated line on the row each time.',
+        },
+      ],
+    },
+    {
+      id: 'checkin',
+      title: '3. Send the results check-in',
+      intro:
+        'The first follow-up after publish is a results note, an open door to collab again, and “how else can we help,” not a second Collab? pitch.',
+      steps: [
+        {
+          id: 'pc-template',
+          text: 'Use the template. Fill real numbers from this snapshot. Same channel as SOP 16 (email or official DM). No leftover brackets. Do not inflate views or invent Mixpanel stats.',
+          template: POST_COLLAB_FOLLOWUP_TEMPLATE,
+        },
+        {
+          id: 'pc-help',
+          text: 'Say we are always ready and happy to collaborate this way again: add content, brainstorm, and build hubs. If they ever want to do it again, we would love to. Then ask what would help now: another hub, a club, bio / Linktree copy, a featured collection we can give, a Growth plan snag, or a product bug. Route product gaps to Linear. Do not promise a placement or rate we cannot support.',
+          href: LINEAR_WORKSPACE_URL,
+          hrefLabel: 'Linear (Kahana workspace)',
+        },
+        {
+          id: 'pc-log',
+          text: 'Same day, log the send date, channel, numbers you shared, and their reply (or Pending) in Notes. Next check-in date on the row so the next person is not guessing.',
+          href: CREATOR_OUTREACH_SHEET_URL,
+          hrefLabel: 'Creator database (Influencer & Creator Profiles)',
+        },
+      ],
+    },
+    {
+      id: 'community',
+      title: '4. Collab-creators community and intros',
+      intro:
+        'The community is a Kahana club of people who already said yes. Intros are one-to-one and opt-in.',
+      steps: [
+        {
+          id: 'pc-club',
+          text: 'Stand up (or use) a Restricted or invite-link Kahana club for collab creators. Create, invite, and monitor it with SOP 2. Keep it small and active, not a silent dump of every past pitch. Name the club clearly so members know it is partners, not a public book club.',
+          href: '/sops/community-building',
+          hrefLabel: 'SOP 2: Community Building',
+        },
+        {
+          id: 'pc-invite',
+          text: 'Invite only people who opted in on the check-in (or on the original collab call). Do not add them because they have a hub. Log Club = yes / no / pending on the row.',
+        },
+        {
+          id: 'pc-intro',
+          text: 'When two opted-in creators share a beat or ask to meet people, ask each of them first. Then send one intro with why, both hub URLs, and an optional calendar link. Do not make a group thread of everyone.',
+          template: POST_COLLAB_INTRO_TEMPLATE,
+          href: ADAM_CALENDLY_URL,
+          hrefLabel: 'Adam’s Calendly',
+        },
+        {
+          id: 'pc-monitor-club',
+          text: 'Treat the collab club like any other hall: Members count, Feed, events, living vs silent. If it goes quiet, invite or pick a shared topic. Do not use it as a second outreach list for SOP 16.',
+          href: '/sops/community-building',
+          hrefLabel: 'SOP 2: Community Building',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'Every live SOP 17 collab has a hub URL and a dated views / purchasers snapshot on the creator database row.',
+    'A check-in went out with honest numbers, an open invitation to collab again, and a real “how else can we help,” logged with next date. Product asks went to Linear.',
+    'Club invites and intros were opt-in only. No partner emails were shared without asking. The collab club is run with SOP 2.',
+  ],
+})
+
+export const LIFECYCLE_EMAILS_AND_TICKETS_ALIASES = {
+  'lifecycle-emails-resurrection': 'lifecycle-emails-and-tickets',
+  'handling-user-tickets': 'lifecycle-emails-and-tickets',
+}
+
+export const LIFECYCLE_EMAILS_AND_TICKETS_SOP = playbook({
+  id: 'lifecycle-emails-and-tickets',
+  title: 'Lifecycle Emails and Tickets',
+  category: 'Customer Success',
+  owner: 'Customer Success',
+  who: 'Customer Success and anyone covering lifecycle mail, kahana.io/support, /contact, NPS/PMF replies, or feedback',
+  when: 'Daily while sequences are live (Resend + Mixpanel boards). Same day on every inbound ticket, contact form, support request, or survey reply.',
+  format: 'checklist',
+  description:
+    'Monitor Kahana lifecycle and resurrection mail in Mixpanel and Resend so it is actually delivering and landing. Handle PMF, NPS, contact-form fillouts, support requests, suggestions, and feedback. Escalate to Linear. Do not spam suppressed users.',
+  keywords: [
+    'customer success',
+    'lifecycle',
+    'resurrection',
+    'resend',
+    'mixpanel',
+    'nps',
+    'pmf',
+    'ticket',
+    'support',
+    'contact',
+    'feedback',
+    'suggestion',
+  ],
+  notes: [
+    'If you are in Customer Success and need Resend, ask Adam Kershner on Slack. Do not open a personal Resend account for Kahana mail. Do not paste API keys in Slack.',
+    'Customer Success team members are added to the list of people who get email notifications when there is a PMF reply, NPS reply, support request, or contact-form fillout. If you are on CS and those emails are not arriving, ask Adam Kershner on Slack.',
+    'We aim to respond to user and customer requests quickly. They already receive an email receipt that we got their message or request. That receipt is not the reply. CS still writes back.',
+    'Mixpanel source of truth for delivery and landing is the three CS lifecycle boards below, plus a spot-check in Resend. Filter Mixpanel to production unless you are debugging.',
+    'Do not change lifecycle copy or triggers without Engineering and whoever owns Resend. Never re-enable users who bounced or complained.',
+    'Club-host logging of bugs and ideas in the app stays SOP 2. This SOP is CS inbox and mail.',
+  ],
+  sections: [
+    {
+      id: 'access',
+      title: '1. Get Resend and Mixpanel access',
+      intro:
+        'You cannot monitor mail you cannot see.',
+      steps: [
+        {
+          id: 'cs-resend-access',
+          text: 'If you are in Customer Success and do not have Resend, ask Adam Kershner on Slack. Wait until he adds you. Do not share login screenshots in a public channel.',
+        },
+        {
+          id: 'cs-notify-list',
+          text: 'CS members are also added to the email-notification list for PMF replies, NPS replies, support requests, and contact-form fillouts. Confirm those emails reach your Kahana inbox. If they do not, ask Adam Kershner on Slack.',
+        },
+        {
+          id: 'cs-resend',
+          text: 'Open Resend Emails. This is the send log (delivered, bounced, complained, delayed). Bookmark it.',
+          href: RESEND_EMAILS_URL,
+          hrefLabel: 'Resend Emails',
+        },
+        {
+          id: 'cs-mixpanel-home',
+          text: 'Confirm Mixpanel Kahana project access (tools tally / How We Work). Same project as the rest of the company.',
+          href: MIXPANEL_URL,
+          hrefLabel: 'Mixpanel Kahana project',
+        },
+        {
+          id: 'cs-how-we-work',
+          text: 'How We Work explains Mixpanel clusters, including lifecycle email. Use it if you are new. Do not create a new Mixpanel board for this SOP.',
+          href: '/how-we-work',
+          hrefLabel: 'How We Work',
+        },
+      ],
+    },
+    {
+      id: 'monitor',
+      title: '2. Monitor delivery and landing',
+      intro:
+        'Lifecycle mail is not done when someone hit send. Check Mixpanel and Resend the same day sequences run.',
+      steps: [
+        {
+          id: 'cs-board-a',
+          text: 'Open Mixpanel board 11358694. Confirm volume looks like a real send (not zero, not a sudden spike of bounces). Note anything off.',
+          href: MIXPANEL_LIFECYCLE_BOARD_A_URL,
+          hrefLabel: 'Mixpanel board 11358694',
+        },
+        {
+          id: 'cs-board-b',
+          text: 'Open Mixpanel board 11358702. Same check: delivering and landing, not just queued.',
+          href: MIXPANEL_LIFECYCLE_BOARD_B_URL,
+          hrefLabel: 'Mixpanel board 11358702',
+        },
+        {
+          id: 'cs-board-c',
+          text: 'Open Mixpanel board 11358761. Same check. If one board 404s or is empty, ask Analytics before assuming the sequence is dead.',
+          href: MIXPANEL_LIFECYCLE_BOARD_C_URL,
+          hrefLabel: 'Mixpanel board 11358761',
+        },
+        {
+          id: 'cs-resend-spot',
+          text: 'Spot-check the same window in Resend Emails: delivered vs bounced vs complained. If Resend and Mixpanel disagree, write both in Slack to Adam / Engineering. Do not guess which is right.',
+          href: RESEND_EMAILS_URL,
+          hrefLabel: 'Resend Emails',
+        },
+        {
+          id: 'cs-escalate-mail',
+          text: 'If sends stop, bounce or complaint rates jump, or nothing is landing, ping Engineering (and Adam if Resend is the issue) the same day. File Linear if it is a product or functions bug.',
+          href: LINEAR_WORKSPACE_URL,
+          hrefLabel: 'Linear (Kahana workspace)',
+        },
+      ],
+    },
+    {
+      id: 'lifecycle',
+      title: '3. Lifecycle and resurrection',
+      intro:
+        'NPS, PMF, welcome, activation, and resurrection sequences all count as lifecycle mail.',
+      steps: [
+        {
+          id: 'cs-trigger',
+          text: 'Before anyone changes copy or audience, confirm the trigger and Mixpanel events with Engineering. Do not edit firebase-functions from this SOP.',
+        },
+        {
+          id: 'cs-suppress',
+          text: 'Never re-enable users who bounced or complained. Check suppression flags in Resend before a resurrection pass.',
+          href: RESEND_EMAILS_URL,
+          hrefLabel: 'Resend Emails',
+        },
+        {
+          id: 'cs-resurrect',
+          text: 'Resurrection: inactive is defined, there is a real offer, and there is a stop rule. Measure opens, clicks, and whether they came back in Mixpanel (platform=email where that exists). One pass is enough until they act or the stop rule hits.',
+        },
+        {
+          id: 'cs-no-spam',
+          text: 'Do not stack extra “just checking in” mail on top of the sequence. Do not use lifecycle mail as a second SOP 16 creator pitch list.',
+        },
+      ],
+    },
+    {
+      id: 'surveys',
+      title: '4. PMF, NPS, and survey replies',
+      intro:
+        'The surveys ride lifecycle mail. CS is on the notification list when a PMF or NPS reply comes in. CS reads what came back and routes it. Product owns whether the score is a launch decision.',
+      steps: [
+        {
+          id: 'cs-nps-page',
+          text: 'Read current PMF and NPS in the data room. Sample size matters. Do not treat a handful of replies as a company-wide score.',
+          href: '/nps',
+          hrefLabel: 'PMF + NPS (data room)',
+        },
+        {
+          id: 'cs-nps-sheet',
+          text: 'If you need the live output sheet (same source as that page), open it and request access if it is closed to you.',
+          href: PMF_NPS_OUTPUT_SHEET_URL,
+          hrefLabel: 'PMF+NPS output sheet',
+        },
+        {
+          id: 'cs-nps-route',
+          text: 'Route detractors, “very disappointed,” bugs, and feature asks to Linear with the quote and context. Close the loop with the person if they left a way to reply. Legal if a public story will use a quote or a number (SOP 5).',
+          href: LINEAR_WORKSPACE_URL,
+          hrefLabel: 'Linear (Kahana workspace)',
+        },
+        {
+          id: 'cs-nps-copy',
+          text: 'Do not change NPS/PMF questions, timing, or who gets the email without Product. CS monitors that the mail sent and that replies were handled.',
+        },
+      ],
+    },
+    {
+      id: 'tickets',
+      title: '5. Suggestions, contacts, support, and feedback',
+      intro:
+        'Every inbound gets a record, a priority, and a reply or an owned Linear issue. Support and contact fillouts also notify the CS list by email. The user already got an email receipt that we received it. Aim to respond quickly. Use the Customer Support playbook for Critical / High / Medium / Low.',
+      steps: [
+        {
+          id: 'cs-support',
+          text: 'Intake via kahana.io/support. Record, categorize, prioritize, investigate, respond. Same day if it is Critical or High. They already got an email receipt that we received the request. Aim to reply quickly anyway. The receipt is not the answer.',
+          href: SUPPORT_PAGE,
+          hrefLabel: 'kahana.io/support',
+        },
+        {
+          id: 'cs-contact',
+          text: 'Contact-form fillouts (kahana.io/contact) are tickets too. They also get an email receipt. Do not leave them unread because they did not arrive as “support.” Reply quickly.',
+          href: CONTACT_PAGE,
+          hrefLabel: 'kahana.io/contact',
+        },
+        {
+          id: 'cs-feedback',
+          text: 'In-app / improve-survey feedback (bugs, feature ideas, other) is intake. Teammates and hosts can file there. Turn it into Linear when it is a product gap.',
+          href: IMPROVE_SURVEY,
+          hrefLabel: 'Improvement survey',
+        },
+        {
+          id: 'cs-playbook',
+          text: 'Priority and engineering escalation language live in the Customer Support playbook. Reproduce, document expected vs actual, screenshots, severity, impact. Feature requests need the problem and how often it shows up, then Product prioritizes.',
+          href: '/sops/customer-support-operations',
+          hrefLabel: 'Customer Support Operations',
+        },
+        {
+          id: 'cs-clubs',
+          text: 'Club-related logging by a host (What can we improve in the app) is SOP 2. Do not make the host file twice. CS still closes the loop if it landed in this inbox.',
+          href: '/sops/community-building',
+          hrefLabel: 'SOP 2: Community Building',
+        },
+        {
+          id: 'cs-close',
+          text: 'Close the loop with the user quickly. The ticket is not done when it is in Linear, and it is not done because they got a receipt. Reply if they expected one. Recurring questions become help copy or a SOP 11 video / SOP 5 post, not another silent Slack thread.',
+          href: LINEAR_WORKSPACE_URL,
+          hrefLabel: 'Linear (Kahana workspace)',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'Resend and the three Mixpanel lifecycle boards were checked for the period sequences ran. Delivery or landing issues were escalated the same day.',
+    'NPS/PMF replies and inbound tickets (support, contact, suggestions, feedback) are closed or owned in Linear, and the user got a real reply quickly (the receipt is automatic; it is not the CS response).',
+    'Suppressions were honored. No extra resurrection mail after the stop rule. Resend access and the PMF / NPS / support / contact notification list for CS went through Adam on Slack.',
+  ],
+})
+
+export const TIME_LOG_ALIASES = {
+  'pm-time-log': 'time-log',
+  'hr-time-log': 'time-log',
+  'checking-time-log-fillouts': 'time-log',
+}
+
+export const TIME_LOG_SOP = playbook({
+  id: 'time-log',
+  title: 'Time Log',
+  category: 'HR & Talent',
+  owner: 'HR + Project Management',
+  who: 'HR and Project Management check fillouts. Every internal teammate on the Kahana HQ hub submits Friday EOD.',
+  when: 'Friday: reminder email goes out, everyone fills the Tally form by EOD. HR and PM check the output sheet Friday EOD or Monday morning.',
+  format: 'checklist',
+  description:
+    'Kahana HQ hub members get a Friday email reminder to fill the time log. HR and Project Management check the output sheet, then Slack anyone missing to see if there was an emergency, illness, or another reason.',
+  keywords: [
+    'time log',
+    'tally',
+    'friday',
+    'hr',
+    'attendance',
+    'pto',
+    'kahana hq',
+    'slack',
+    'sheet',
+  ],
+  notes: [
+    'The Friday reminder email goes to internal team members who are members of the Kahana HQ hub. Filling the Tally form Friday EOD is still required even if the reminder is late or missed.',
+    'HR and Project Management should have access to the time log output sheet. Request access from HR or Adam if it is closed to you. Do not download a private copy and treat that as the roster.',
+    'If someone has not filled it out, Slack them (DM, not a public call-out). Ask if there has been an emergency, illness, or another reason. Do not assume they are slacking.',
+    'How to write a useful entry is the onboarding Time Log step. This SOP is checking fillouts.',
+  ],
+  sections: [
+    {
+      id: 'who',
+      title: '1. Who fills it and who gets the reminder',
+      intro:
+        'Internal teammates on Kahana HQ get the Friday reminder. The form is still Friday EOD for that roster.',
+      steps: [
+        {
+          id: 'tl-hq',
+          text: 'The reminder list is members of the Kahana HQ hub. Confirm someone is on that hub before you chase them as “internal.” Contractors or guests who are not HQ members are not on this reminder.',
+          href: KAHANA_HQ_HUB_URL,
+          hrefLabel: 'Kahana HQ hub',
+        },
+        {
+          id: 'tl-form',
+          text: 'Everyone on that roster submits the weekly Time Log Tally form Friday EOD. Link the onboarding step if they ask how to write it.',
+          href: TIME_LOG_TALLY_URL,
+          hrefLabel: 'Time Log (Tally form)',
+        },
+        {
+          id: 'tl-onboarding',
+          text: 'New hires learn the Friday ritual in onboarding. Point them there instead of rewriting the examples in Slack.',
+          href: '/onboarding/time-log',
+          hrefLabel: 'Onboarding: Time Log',
+        },
+      ],
+    },
+    {
+      id: 'sheet',
+      title: '2. Get the output sheet',
+      intro:
+        'HR and Project Management check fillouts on the sheet, not by guessing from Slack.',
+      steps: [
+        {
+          id: 'tl-access',
+          text: 'Open the time log output sheet. HR and PM should already have access. If you are on HR or PM and cannot open it, request access from HR or Adam. Do not chase people from a stale export.',
+          href: TIME_LOG_OUTPUT_SHEET_URL,
+          hrefLabel: 'Time log output sheet',
+        },
+        {
+          id: 'tl-week',
+          text: 'Filter or read the current Friday’s week. Match names to Kahana HQ members. One missing row is a person to Slack, not a “participation %” slide.',
+          href: KAHANA_HQ_HUB_URL,
+          hrefLabel: 'Kahana HQ hub',
+        },
+      ],
+    },
+    {
+      id: 'chase',
+      title: '3. Slack anyone who has not filled it out',
+      intro:
+        'The first question is whether they are okay, not whether they forgot the process.',
+      steps: [
+        {
+          id: 'tl-slack',
+          text: 'If they do not appear on the sheet for this Friday, reach out on Slack (DM). Ask if there has been an emergency, illness, or another reason. Give them a chance to fill it or to say they were out.',
+        },
+        {
+          id: 'tl-note',
+          text: 'If they were out (emergency, illness, PTO, or another reason), note that next to the week so payroll and planning are not guessing. Do not put medical detail in a public channel.',
+          href: TIME_LOG_OUTPUT_SHEET_URL,
+          hrefLabel: 'Time log output sheet',
+        },
+        {
+          id: 'tl-still-missing',
+          text: 'If they are working and still have not submitted, remind them of the Tally form and Friday EOD. Chase Monday morning if Friday EOD passed, not in the next retro as a surprise.',
+          href: TIME_LOG_TALLY_URL,
+          hrefLabel: 'Time Log (Tally form)',
+        },
+      ],
+    },
+    {
+      id: 'use',
+      title: '4. Use the log (HR and PM)',
+      intro:
+        'The sheet is for attendance context and for planning against real hours.',
+      steps: [
+        {
+          id: 'tl-hr',
+          text: 'HR: when pay or attendance is in question, reconcile PTO or sick against this week’s log. Do not invent hours. The attendance SOP still owns the PTO register.',
+          href: '/sops/time-attendance-pto',
+          hrefLabel: 'Track Time, Attendance, Sick Days, and Vacation',
+        },
+        {
+          id: 'tl-pm',
+          text: 'PM: roll submitted hours into planning (what actually moved vs what we hoped). Missing logs without a reason are not “they were busy.”',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'This Friday’s Kahana HQ roster is on the output sheet or has an explicit note (emergency, illness, PTO, or other reason).',
+    'Anyone still missing was DMed on Slack. No public call-out. Medical detail stayed private.',
+    'HR and PM who need the sheet have access. Hours used for planning or payroll match the log plus those notes.',
   ],
 })
 
@@ -3407,52 +4150,6 @@ const TASKS = [
     doneWhen: ['Signed (or explicitly declined) terms exist; Finance can explain how money will move.'],
   }),
   task({
-    id: 'lifecycle-emails-resurrection',
-    title: 'Lifecycle Emails / Resurrection',
-    category: 'Customer Success',
-    owner: 'Customer Success',
-    who: 'CS + whoever owns Resend/lifecycle in functions',
-    when: 'Ongoing sequences; after suppression events.',
-    description: 'Run Kahana lifecycle mail (NPS/PMF and later sequences) without spamming suppressed users.',
-    keywords: ['lifecycle', 'resend', 'nps', 'resurrection', 'email'],
-    steps: [
-      'Confirm trigger, audience, and Mixpanel/lifecycle events in firebase-functions docs before changing copy.',
-      'Never re-enable users who bounced or complained. Check suppression flags.',
-      'Resurrection: define inactive, the offer, and a stop rule. Measure opens/clicks in Mixpanel with platform=email.',
-      'After a send, spot-check Resend logs and the Mixpanel lifecycle board.',
-    ],
-    doneWhen: ['The sequence is documented (trigger, copy, stop) and suppressions are honored.'],
-  }),
-  task({
-    id: 'handling-user-tickets',
-    title: 'Handling Suggestions, Contacts, and Tickets',
-    category: 'Customer Success',
-    owner: 'Customer Success',
-    who: 'CS and anyone covering the inbox',
-    when: 'Every inbound from /support, /contact, hub ideas, or content reports.',
-    description: 'Triage Kahana in-app and site tickets into reply, Linear, or Product.',
-    keywords: ['support', 'ticket', 'contact', 'suggestion'],
-    steps: [
-      {
-        text: 'Intake via kahana.io/support or /contact. Use the Customer Support playbook for priority.',
-        href: SUPPORT_PAGE,
-        hrefLabel: 'kahana.io/support',
-      },
-      {
-        text: 'Product bugs and rough edges also go through the improve survey when the reporter is a teammate or host.',
-        href: IMPROVE_SURVEY,
-        hrefLabel: 'Improvement survey',
-      },
-      {
-        text: 'Club-related logging: SOP 2 Community Building (logging section).',
-        href: '/sops/community-building',
-        hrefLabel: 'SOP 2: Community Building',
-      },
-      'Close the loop with the user. Feature requests go to Product with problem + frequency.',
-    ],
-    doneWhen: ['Ticket is closed or owned in Linear, and the user has a reply if they expected one.'],
-  }),
-  task({
     id: 'sending-project-charters',
     title: 'Sending Project Charters to Team Members',
     category: 'Project Management',
@@ -3472,26 +4169,6 @@ const TASKS = [
       'Confirm in the kickoff that everyone can open it (data-room gate / Kahana hub).',
     ],
     doneWhen: ['Owners have acknowledged (emoji or reply) and the link lives on the Linear project.'],
-  }),
-  task({
-    id: 'pm-time-log',
-    title: 'Time Log (Project Management)',
-    category: 'Project Management',
-    owner: 'Nithila',
-    who: 'All teammates (PM reminds)',
-    when: 'Every Friday EOD.',
-    description: 'Friday time log via Tally so planning is based on actual hours.',
-    keywords: ['time log', 'tally', 'friday'],
-    steps: [
-      {
-        text: 'Submit the weekly time log form Friday EOD (a reminder email goes to every Kahana HQ hub member Friday afternoon).',
-        href: TIME_LOG_TALLY_URL,
-        hrefLabel: 'Time log (Tally)',
-      },
-      'PM chases missing submissions Monday morning, not in the next retro as a surprise.',
-      'Roll hours into planning (what actually moved vs what we hoped).',
-    ],
-    doneWhen: ['The week’s roster has a submission or an explicit PTO/exception note.'],
   }),
   task({
     id: 'identifying-cringey-gaps',
@@ -3982,25 +4659,6 @@ const TASKS = [
     doneWhen: ['Each teammate has a dated development note their manager can find.'],
   }),
   task({
-    id: 'hr-time-log',
-    title: 'Time Log (HR)',
-    category: 'HR & Talent',
-    owner: 'HR manager',
-    who: 'All staff',
-    when: 'Friday EOD; HR uses it for attendance and PTO context.',
-    description: 'Same Tally log as Project Management — HR owns exceptions and PTO intersection.',
-    keywords: ['time log', 'attendance', 'pto'],
-    steps: [
-      {
-        text: 'Everyone submits Friday’s time log (Kahana HQ members also get the Friday reminder email).',
-        href: TIME_LOG_TALLY_URL,
-        hrefLabel: 'Time log (Tally)',
-      },
-      'HR reconciles PTO/sick against the log when pay or attendance is in question.',
-    ],
-    doneWhen: ['Missing logs are chased; PTO and the log do not contradict without a note.'],
-  }),
-  task({
     id: 'offboarding',
     title: 'Offboarding',
     category: 'HR & Talent',
@@ -4043,7 +4701,11 @@ const TASKS = [
     keywords: ['pto', 'sick', 'attendance'],
     steps: [
       'People request PTO/sick in the agreed channel. HR records it.',
-      'Before payroll, reconcile requests vs time log vs calendar.',
+      {
+        text: 'Before payroll, reconcile requests vs the time log vs calendar. Checking Friday fillouts is SOP 20.',
+        href: '/sops/time-log',
+        hrefLabel: 'SOP 20: Time Log',
+      },
       'Answer staff questions from that record, not from memory.',
     ],
     doneWhen: ['Payroll’s hours/PTO match HR’s register for the period.'],
@@ -4292,5 +4954,5 @@ const TASKS = [
 
 export const FUNCTION_SOPS = [...PLAYBOOKS, ...TASKS].map((sop, index) => ({
   ...sop,
-  number: 17 + index,
+  number: 21 + index,
 }))
