@@ -11,6 +11,7 @@
  * SOP 24 PII Handling. SOP 25 Platform Governance. SOP 26 Content Moderation.
  * SOP 27 Reporting Cybersecurity Threats.
  * SOP 28 Onboarding as a Manager lives in managerOnboardingSop.js.
+ * SOP 29 Adding and Updating SOPs lives in updatingDataRoomSop.js.
  */
 
 import {
@@ -4282,7 +4283,7 @@ export const KAHANA_CODE_SETUP_SOP = playbook({
     'local',
   ],
   notes: [
-    'This SOP is setup, not shipping. Product frontend work stays in kahana-web. Marketing-site shipping is SOP 13. Never push kahana-web to the Heroku app kahana-public.',
+    'This SOP is setup, not shipping. Product frontend work stays in kahana-web. Marketing-site shipping is SOP 13. Data-room SOP shipping is SOP 29 (AdamKershner/data-room and Vercel), not kahana-web or Heroku. Never push kahana-web to the Heroku app kahana-public.',
     'Request the .env.development file from Manager on Slack. Do not paste it back into Slack, a ticket, or an AI prompt. Do not commit it.',
     'You are not ready to take a Linear card until the product app and the marketing site both load locally.',
   ],

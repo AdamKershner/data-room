@@ -7,7 +7,7 @@
  * SOP 3 Product Quality. SOP 4 Product Management Playbook. SOP 5 Blogs.
  * SOP 6 Brand Guidelines. SOP 7 Merch. SOP 8 Official Social Media.
  * SOP 9 Author Outreach. SOP 10 Writing a Project Charter.
- * SOP 11 Creating YouTube Videos. SOP 12 SEO. SOP 13 Updating the Marketing Website. SOP 14 Third-Party News and PR. SOP 15 Creator Prospecting. SOP 16 Creator Outreach. SOP 17 Creator Collab Calls. SOP 18 Post-Collab Follow-ups. SOP 19 Lifecycle Emails and Tickets. SOP 20 Time Log. SOP 21 Analytics. SOP 22 Getting Set Up with Kahana Code. SOP 23 Penetration Testing. SOP 24 PII Handling. SOP 25 Platform Governance. SOP 26 Content Moderation. SOP 27 Reporting Cybersecurity Threats.
+ * SOP 11 Creating YouTube Videos. SOP 12 SEO. SOP 13 Updating the Marketing Website. SOP 14 Third-Party News and PR. SOP 15 Creator Prospecting. SOP 16 Creator Outreach. SOP 17 Creator Collab Calls. SOP 18 Post-Collab Follow-ups. SOP 19 Lifecycle Emails and Tickets. SOP 20 Time Log. SOP 21 Analytics. SOP 22 Getting Set Up with Kahana Code. SOP 23 Penetration Testing. SOP 24 PII Handling. SOP 25 Platform Governance. SOP 26 Content Moderation. SOP 27 Reporting Cybersecurity Threats. SOP 28 Onboarding as a Manager. SOP 29 Adding and Updating SOPs.
  */
 
 import { keepersCodexSearchBlob } from './keepersCodexSteps'
@@ -58,6 +58,10 @@ import {
   MANAGER_ONBOARDING_ALIASES,
   MANAGER_ONBOARDING_SOP,
 } from './managerOnboardingSop'
+import {
+  UPDATING_DATA_ROOM_ALIASES,
+  UPDATING_DATA_ROOM_SOP,
+} from './updatingDataRoomSop'
 import { flattenSopSteps, normalizeSopDoc } from './sopStepUtils'
 
 export const SOP_PAGE = {
@@ -65,7 +69,7 @@ export const SOP_PAGE = {
 }
 
 /** SOPs 1 through this number are ready for review. */
-export const SOP_READY_THROUGH = 28
+export const SOP_READY_THROUGH = 29
 
 export const SOP_REVIEW_STATUS = {
   ready: 'ready-for-review',
@@ -255,6 +259,7 @@ const SOPS_RAW = [
   { ...CONTENT_MODERATION_SOP, number: 26 },
   { ...REPORTING_CYBER_THREATS_SOP, number: 27 },
   { ...MANAGER_ONBOARDING_SOP, number: 28 },
+  { ...UPDATING_DATA_ROOM_SOP, number: 29 },
 ]
 
 const SOP_SCHEDULE = {
@@ -358,6 +363,9 @@ const SOP_SCHEDULE = {
     cadence: 'Weekly',
     trigger: 'An Executive assigns you a new teammate. Finish in 1 month, ideally 1-2 weeks.',
   },
+  'updating-the-data-room': {
+    trigger: 'A new SOP, a SOP rewrite, or any other data-room page change.',
+  },
 }
 
 export const SOPS = SOPS_RAW.map((sop) => {
@@ -391,6 +399,7 @@ export function resolveSopId(sopId) {
     KAHANA_CODE_SETUP_ALIASES[sopId] ||
     SECURITY_SOP_ALIASES[sopId] ||
     MANAGER_ONBOARDING_ALIASES[sopId] ||
+    UPDATING_DATA_ROOM_ALIASES[sopId] ||
     sopId
   )
 }

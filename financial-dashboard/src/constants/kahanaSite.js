@@ -74,6 +74,15 @@ export const KAHANA_WEB_REPO_URL = 'https://github.com/Kahana-LLC/kahana-web'
 export const FIREBASE_FUNCTIONS_REPO_URL =
   'https://github.com/Kahana-LLC/firebase-functions'
 
+/** Canonical data-room repo (Vercel deploys from this). */
+export const DATA_ROOM_REPO_URL = 'https://github.com/AdamKershner/data-room'
+
+/** Company copy of the data-room repo. Keep in sync with DATA_ROOM_REPO_URL after every ship. */
+export const DATA_ROOM_COMPANY_REPO_URL = 'https://github.com/Kahana-LLC/data-room'
+
+/** Live internal data room (Vercel, financial-dashboard root). */
+export const DATA_ROOM_LIVE_URL = 'https://data-room-two.vercel.app'
+
 /** Firebase consoles. DEV for local/debug; PROD is production. */
 export const FIREBASE_PROD_CONSOLE_URL =
   'https://console.firebase.google.com/u/0/project/kahana-15c2a/overview'

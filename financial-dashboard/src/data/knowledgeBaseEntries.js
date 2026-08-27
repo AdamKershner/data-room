@@ -434,6 +434,23 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     ],
   },
   {
+    path: '/sops/updating-the-data-room',
+    title: 'Adding and Updating SOPs',
+    category: 'SOPs',
+    description:
+      'Engineering SOP: write or enhance a SOP in the data room, run it locally, push AdamKershner/data-room so Vercel deploys, then sync Kahana-LLC/data-room. Not kahana.io (SOP 13) and not product-code setup (SOP 22).',
+    keywords: [
+      'data room',
+      'sop',
+      'github',
+      'vercel',
+      'update',
+      'deploy',
+      'engineering',
+      'checklist',
+    ],
+  },
+  {
     path: '/sops/analytics',
     title: 'Analytics',
     category: 'SOPs',

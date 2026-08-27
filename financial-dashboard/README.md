@@ -6,7 +6,7 @@ A React-based internal data room for Kahana Group Inc. — business plan, team o
 
 **Archived product:** Oasis Browser (consumer + enterprise) — preserved in the archive section for future return.
 
-**Managers:** To clone the repo, run the app locally, and add your own checklist page (e.g. `/firstname-lastname-projects` by copying the Onboarding or SOC2 checklist components), see **[README_MANAGER_CHECKLISTS.md](./README_MANAGER_CHECKLISTS.md)**.
+**Managers:** To clone the repo, run the app locally, and add your own checklist page (e.g. `/firstname-lastname-projects` by copying the Onboarding or SOC2 checklist components), see **[README_MANAGER_CHECKLISTS.md](./README_MANAGER_CHECKLISTS.md)**. Adding or updating a gallery SOP and shipping the live site is SOP 29 (`/sops/updating-the-data-room`).
 
 ## Features
 

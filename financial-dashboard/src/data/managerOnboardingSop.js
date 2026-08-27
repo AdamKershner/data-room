@@ -350,9 +350,9 @@ export const MANAGER_ONBOARDING_SOP = {
           label: 'Edit the SOP the same week, or file Linear if you cannot',
           minutes: 20,
           doneWhen: 'Edit the SOP the same week, or file Linear if you cannot change the page yourself.',
-          text: 'Edit the SOP the same week, or file Linear if you cannot change the page yourself. Put the new-hire quote, the SOP number, and the proposed line on the card. Assign it. A note in your 1-on-1 doc is not a fix. Slack the function owner if the SOP is not yours to edit.',
-          href: LINEAR_WORKSPACE_URL,
-          hrefLabel: 'Linear (Kahana workspace)',
+          text: 'Edit the SOP the same week, or file Linear if you cannot change the page yourself. How to write, commit, and ship the live site is SOP 29. Put the new-hire quote, the SOP number, and the proposed line on the Linear card if you cannot edit. Assign it. A note in your 1-on-1 doc is not a fix. Slack the function owner if the SOP is not yours to edit.',
+          href: '/sops/updating-the-data-room',
+          hrefLabel: 'SOP 29: Adding and Updating SOPs',
         },
         {
           id: 'mo-closing-retro',
