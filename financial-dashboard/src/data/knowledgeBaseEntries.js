@@ -415,6 +415,83 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     ],
   },
   {
+    path: '/sops/analytics',
+    title: 'Analytics',
+    category: 'SOPs',
+    description:
+      'Analytics SOP: support every other function. Reach out first and ask if they need help analyzing data. Then reporting insights, measurement innovation, and teaching them to reuse the Mixpanel answer.',
+    keywords: [
+      'analytics',
+      'insights',
+      'mixpanel',
+      'reporting',
+      'innovation',
+      'support',
+      'outreach',
+      'dashboard',
+      'sop',
+    ],
+  },
+  {
+    path: '/sops/kahana-code-setup',
+    title: 'Getting Set Up with Kahana Code',
+    category: 'SOPs',
+    description:
+      'Engineering SOP: tools form, request .env.development from Adam, clone and run kahana-web, firebase-functions, and kahana-homepage-public locally, then take Linear cards.',
+    keywords: [
+      'github',
+      'setup',
+      'onboarding',
+      'kahana-web',
+      'firebase',
+      'marketing website',
+      'env',
+      'linear',
+      'engineering',
+      'sop',
+    ],
+  },
+  {
+    path: '/sops/penetration-testing',
+    title: 'Penetration Testing',
+    category: 'SOPs',
+    description:
+      'Security SOP: scoped tests with written findings. No dedicated Linear pentest card. KAH-66 (In Review) is related hygiene, not a pentest.',
+    keywords: ['pentest', 'security', 'vulnerability', 'staging', 'sop'],
+  },
+  {
+    path: '/sops/pii-handling',
+    title: 'PII Handling',
+    category: 'SOPs',
+    description:
+      'Security SOP: minimum necessary PII, no Slack dumps. Inventory and deletion path are Linear KAH-86 (Backlog).',
+    keywords: ['pii', 'privacy', 'mixpanel', 'security', 'sop'],
+  },
+  {
+    path: '/sops/platform-governance',
+    title: 'Platform Governance',
+    category: 'SOPs',
+    description:
+      'Security SOP: who can do what on Kahana. The governance pack is Linear KAH-85 (Backlog).',
+    keywords: ['governance', 'admin', 'access', 'audit', 'security', 'sop'],
+  },
+  {
+    path: '/sops/content-moderation',
+    title: 'Content Moderation',
+    category: 'SOPs',
+    description:
+      'Security SOP: handle content reports now. Hugging Face models and review queue are Linear KAH-84 (In Progress).',
+    keywords: ['moderation', 'trust', 'safety', 'report', 'security', 'sop'],
+  },
+  {
+    path: '/sops/reporting-cyber-threats',
+    title: 'Reporting Cybersecurity Threats / Attacks',
+    category: 'SOPs',
+    description:
+      'Security SOP: same-day report of phishing, intrusion, or suspicious admin activity. No dedicated Linear card. Do not poke the attacker.',
+    keywords: ['incident', 'phishing', 'attack', 'threat', 'security', 'sop'],
+  },
+  {
     path: '/sops/writing-a-project-charter',
     title: 'Writing a Project Charter',
     category: 'SOPs',

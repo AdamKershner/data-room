@@ -1,13 +1,15 @@
 /**
  * Function-tagged SOPs: department playbooks from SOPS.txt plus the
  * operating-task checklist (Marketing through Legal).
- * Numbered from SOP 21 onward in sopContent.js (SOP 1 Product Hunt, SOP 2 Community Building,
+ * Numbered from SOP 28 onward in sopContent.js (SOP 1 Product Hunt, SOP 2 Community Building,
  * SOP 3 Product Quality, SOP 4 Product Management Playbook, SOP 5 Blogs, SOP 6 Brand Guidelines,
  * SOP 7 Merch, SOP 8 Official Social Media, SOP 9 Author Outreach, SOP 10 Writing a Project Charter,
  * SOP 11 Creating YouTube Videos, SOP 12 SEO, SOP 13 Updating the Marketing Website,
  * SOP 14 Third-Party News and PR, SOP 15 Creator Prospecting, SOP 16 Creator Outreach,
  * SOP 17 Creator Collab Calls, SOP 18 Post-Collab Follow-ups, SOP 19 Lifecycle Emails and Tickets,
- * SOP 20 Time Log).
+ * SOP 20 Time Log, SOP 21 Analytics, SOP 22 Getting Set Up with Kahana Code,
+ * SOP 23 Penetration Testing, SOP 24 PII Handling, SOP 25 Platform Governance,
+ * SOP 26 Content Moderation, SOP 27 Reporting Cybersecurity Threats).
  */
 
 import {
@@ -17,12 +19,24 @@ import {
   CREATOR_OUTREACH_DEMO_VIDEO_URL,
   CREATOR_OUTREACH_SHEET_URL,
   GOOGLE_CHAT_URL,
+  FIREBASE_DEV_CONSOLE_URL,
+  FIREBASE_FUNCTIONS_REPO_URL,
+  FIREBASE_PROD_CONSOLE_URL,
   GOOGLE_SEARCH_CONSOLE_URL,
   KAHANA_HQ_HUB_URL,
+  KAHANA_WEB_REPO_URL,
   KAHANA_LIBRARY_URL,
   KAHANA_SITE_URL,
+  LINEAR_ALL_ISSUES_URL,
+  LINEAR_KAH_66_URL,
+  LINEAR_KAH_84_URL,
+  LINEAR_KAH_85_URL,
+  LINEAR_KAH_86_URL,
+  LINEAR_KAH_87_URL,
+  LINEAR_KAH_88_URL,
   LINEAR_WORKSPACE_URL,
   MARKETING_SITE_REPO_URL,
+  MIXPANEL_ENGINEERING_BOARD_URL,
   MIXPANEL_LIFECYCLE_BOARD_A_URL,
   MIXPANEL_LIFECYCLE_BOARD_B_URL,
   MIXPANEL_LIFECYCLE_BOARD_C_URL,
@@ -532,6 +546,11 @@ const PLAYBOOKS = [
         title: 'Incident response and monitoring',
         steps: [
           'Detect, assess severity, assign owner, contain, restore, communicate internally, RCA, document, corrective action, verify.',
+          {
+            text: 'How a person reports phishing, intrusion, or suspicious admin activity is SOP 27. This playbook is the engineering incident loop after that ping.',
+            href: '/sops/reporting-cyber-threats',
+            hrefLabel: 'SOP 27: Reporting Cybersecurity Threats',
+          },
           'Monitor availability, performance, errors, infrastructure, security, database, and integrations.',
         ],
       },
@@ -541,6 +560,11 @@ const PLAYBOOKS = [
         steps: [
           'Know backup schedule, owner, verification, recovery procedure, and recovery testing.',
           'Monthly: pick systems, test, document vulnerabilities, severity, owner, deadline, retest, close.',
+          {
+            text: 'A scoped penetration test (written rules of engagement, Linear findings) is SOP 23. Do not treat monthly sampling as a pentest.',
+            href: '/sops/penetration-testing',
+            hrefLabel: 'SOP 23: Penetration Testing',
+          },
         ],
       },
       {
@@ -2476,9 +2500,9 @@ export const MARKETING_WEBSITE_SOP = playbook({
         },
         {
           id: 'mw-not-product',
-          text: 'Product frontend changes stay in kahana-web and follow the Website Code SOP. Mixing the two repos, or deploying the product app to kahana-public, is how the marketing site goes down.',
-          href: '/sops/website-code',
-          hrefLabel: 'Website Code (product app)',
+          text: 'Product frontend changes stay in kahana-web. New engineers set up kahana-web, firebase-functions, and this marketing repo in SOP 22. Mixing the two product/marketing repos, or deploying kahana-web to kahana-public, is how the marketing site goes down.',
+          href: '/sops/kahana-code-setup',
+          hrefLabel: 'SOP 22: Getting Set Up with Kahana Code',
         },
       ],
     },
@@ -2491,8 +2515,8 @@ export const MARKETING_WEBSITE_SOP = playbook({
         {
           id: 'mw-backlog',
           text: 'Log initial website enhancements and bug fixes in the Linear backlog when you notice them. A backlog card is enough until someone starts the work. Do not wait for a campaign brief to file a broken link or a copy error.',
-          href: LINEAR_WORKSPACE_URL,
-          hrefLabel: 'Linear (Kahana workspace)',
+          href: LINEAR_ALL_ISSUES_URL,
+          hrefLabel: 'Linear all issues',
         },
         {
           id: 'mw-card',
@@ -3770,6 +3794,756 @@ export const TIME_LOG_SOP = playbook({
   ],
 })
 
+export const ANALYTICS_ALIASES = {
+  'reporting-insights': 'analytics',
+  'analytics-innovation': 'analytics',
+  'supporting-functions-with-insights': 'analytics',
+  'analytics-insights': 'analytics',
+}
+
+export const ANALYTICS_SOP = playbook({
+  id: 'analytics',
+  title: 'Analytics',
+  category: 'Analytics',
+  owner: 'Analytics',
+  who: 'Analytics team members. Every other function is a customer of this SOP.',
+  when: 'Weekly: reach out to other functions, then report. Deeper monthly. Same week when a function asks, and when a recurring question is still answered by hand.',
+  format: 'checklist',
+  description:
+    'Analytics supports every other function at Kahana. Reach out first: ask if they need help analyzing data or gaining insights. Then work with them on reporting insights, innovation in how we measure, and teaching them to reuse the answer.',
+  keywords: [
+    'analytics',
+    'insights',
+    'mixpanel',
+    'reporting',
+    'innovation',
+    'support',
+    'outreach',
+    'dashboard',
+  ],
+  notes: [
+    'Analytics is not a ticket queue. Do not wait for someone to file a request. Slack people in other functions and ask if they can use help analyzing data or gaining insights to improve their work.',
+    'An insight is one paragraph plus a Mixpanel (or sheet) link, and either a next action or an explicit “no change yet.” Chart dumps are not the job.',
+    'Product Mixpanel events and new boards still need Product and Engineering agreement. Do not invent events or private dashboards. Filter Mixpanel to production unless you are debugging.',
+    'Lifecycle mail delivery and landing is SOP 19. Analytics can help interpret those boards; CS still owns the inbox and Resend.',
+  ],
+  sections: [
+    {
+      id: 'outreach',
+      title: '1. Reach out first',
+      intro:
+        'Analytics exists to improve other functions. The week starts with a question to them, not a dashboard you already like.',
+      steps: [
+        {
+          id: 'an-who',
+          text: 'Pick the functions you will cover this week (Marketing, Product, Customer Success, Sales, Engineering, Finance, Community, HR, and anyone else shipping). You do not need to ping every person every week, but you do need to rotate so no function goes quiet.',
+        },
+        {
+          id: 'an-slack',
+          text: 'Slack them (DM or the smallest relevant thread). Ask if they can use help analyzing data or gaining insights to improve. Offer reporting, a better measurement path, or sitting with them on an existing board. Do not wait for them to invent a ticket.',
+        },
+        {
+          id: 'an-decision',
+          text: 'If they say yes, write down the decision they are trying to make and the deadline. If they say not this week, note it and come back on the next rotation. “We are fine” is a valid answer.',
+        },
+        {
+          id: 'an-mixpanel',
+          text: 'Open Mixpanel Kahana (production unless debugging). How We Work lists the board clusters. Reuse those boards. Do not create a new Mixpanel board for this SOP unless Product agrees it is a named, shared board.',
+          href: MIXPANEL_URL,
+          hrefLabel: 'Mixpanel Kahana project',
+        },
+        {
+          id: 'an-hww',
+          text: 'If you are new, read How We Work for Mixpanel clusters (activity, acquisition, discovery, retention, monetization, email). Then go back to the function’s question.',
+          href: '/how-we-work',
+          hrefLabel: 'How We Work',
+        },
+      ],
+    },
+    {
+      id: 'reporting',
+      title: '2. Reporting insights',
+      intro:
+        'Turn Mixpanel (and other sources) into a decision, not a screenshot pack.',
+      steps: [
+        {
+          id: 'an-question',
+          text: 'Start from a question a function actually has: growth, clubs, paywall, retention, campaign, support volume, or whatever they named in outreach. If there is no decision attached, do not spend the week on a vanity chart.',
+        },
+        {
+          id: 'an-pull',
+          text: 'Pull Mixpanel first. Add finance, CS, or a sheet only if that source answers the same decision. Prefer a named board URL over an export.',
+          href: MIXPANEL_URL,
+          hrefLabel: 'Mixpanel Kahana project',
+        },
+        {
+          id: 'an-write',
+          text: 'Write the insight in one paragraph plus the chart or board link. Say what we should do differently, or that the data cannot support a change yet. Send it to the function that asked (or that you reached out to), not only into a private note.',
+        },
+      ],
+    },
+    {
+      id: 'innovation',
+      title: '3. Innovation',
+      intro:
+        'Improve how Kahana measures, not only how we screenshot Mixpanel.',
+      steps: [
+        {
+          id: 'an-pain',
+          text: 'Name the painful manual step with that function: CSV, screenshot, tribal filter, or a question that still takes a person every Friday. That is the innovation candidate.',
+        },
+        {
+          id: 'an-propose',
+          text: 'Propose a shared board, saved cohort, or event change. Product and Engineering must agree before new tracking. Do not add ad-hoc Mixpanel track() calls or PascalCase events.',
+          href: '/sops/mixpanel-metric-automation',
+          hrefLabel: 'Metric Reporting Automation with Mixpanel',
+        },
+        {
+          id: 'an-ship',
+          text: 'Ship a small version, document the board or event, and retire the manual path. If it is not worth shipping, write off the experiment with a reason and stop repeating the screenshot ritual as if it were a process.',
+          href: '/sops/creating-mixpanel-dashboards',
+          hrefLabel: 'Creating Dashboards in Mixpanel',
+        },
+      ],
+    },
+    {
+      id: 'support',
+      title: '4. Supporting functions with insights',
+      intro:
+        'The goal is that they can re-open the answer next week. Analytics sitting in every meeting is a failure mode.',
+      steps: [
+        {
+          id: 'an-clarify',
+          text: 'Clarify the decision and the deadline. Push back on fishing expeditions (“just show me everything”). Same quality bar as reporting: one insight, one next action or no-change.',
+        },
+        {
+          id: 'an-teach',
+          text: 'Prefer teaching the function to open the existing Mixpanel board over building a snowflake chart. Sit with them once. Bookmark How We Work or the board URL in their Slack thread.',
+          href: '/how-we-work',
+          hrefLabel: 'How We Work',
+        },
+        {
+          id: 'an-shared',
+          text: 'If a new cut is needed, add it to a shared, named board, not a private explore. Product still owns whether a charter KPI gets a new board.',
+          href: '/sops/creating-mixpanel-dashboards',
+          hrefLabel: 'Creating Dashboards in Mixpanel',
+        },
+        {
+          id: 'an-cs',
+          text: 'If the question is lifecycle mail delivery, landing, NPS/PMF replies, or the CS inbox, point them at SOP 19 and help interpret. Do not take over Resend or the ticket queue.',
+          href: '/sops/lifecycle-emails-and-tickets',
+          hrefLabel: 'SOP 19: Lifecycle Emails and Tickets',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'This week’s outreach happened: named people in other functions were asked if they need help analyzing data or gaining insights.',
+    'Each insight they (or you) took on has a written paragraph, a Mixpanel or sheet link, and a next action or an explicit “no change.”',
+    'A painful manual path was replaced, scheduled, or written off. New events or boards went through Product/Engineering.',
+    'The function can re-open the answer next week without Analytics in the room, or a follow-up is on the calendar.',
+  ],
+})
+
+export const KAHANA_CODE_SETUP_ALIASES = {
+  'product-code-access-setup': 'kahana-code-setup',
+  'getting-set-up-with-kahana-code': 'kahana-code-setup',
+  'engineering-setup': 'kahana-code-setup',
+  'kahana-codebases': 'kahana-code-setup',
+}
+
+export const KAHANA_CODE_SETUP_SOP = playbook({
+  id: 'kahana-code-setup',
+  title: 'Getting Set Up with Kahana Code',
+  category: 'Engineering',
+  owner: 'Engineering Lead',
+  who: 'New engineers (and anyone who has never run the product app or marketing site locally)',
+  when: 'First week, after you submit the tools form. Finish this before you take a Linear card.',
+  format: 'checklist',
+  description:
+    'Introductory setup: get GitHub access, request .env.development from Adam, clone and run the product app, backend, and marketing website locally. Then you can take cards on Linear.',
+  keywords: [
+    'github',
+    'onboarding',
+    'env',
+    'setup',
+    'kahana-web',
+    'firebase-functions',
+    'kahana-homepage-public',
+    'linear',
+    'local',
+  ],
+  notes: [
+    'This SOP is setup, not shipping. Product frontend work stays in kahana-web. Marketing-site shipping is SOP 13. Never push kahana-web to the Heroku app kahana-public.',
+    'Request the .env.development file from Adam Kershner on Slack. Do not paste it back into Slack, a ticket, or an AI prompt. Do not commit it.',
+    'You are not ready to take a Linear card until the product app and the marketing site both load locally.',
+  ],
+  sections: [
+    {
+      id: 'access',
+      title: '1. Get GitHub and tools access',
+      intro:
+        'Fill the form. Do not DM Adam for GitHub until you have submitted it.',
+      steps: [
+        {
+          id: 'csu-form',
+          text: 'Submit the Get Access to Tools & Data form. Say you will contribute to code and give the GitHub email you use. Watch that inbox (and spam) for the Kahana-LLC invite, Linear, and Mixpanel. Access usually arrives within 24 hours.',
+          href: TOOLS_ACCESS_TALLY_URL,
+          hrefLabel: 'Get Access to Tools & Data',
+        },
+        {
+          id: 'csu-onboarding',
+          text: 'If you are still in onboarding, the same form is the tools-access step. Submit once. Do not open a second GitHub account for Kahana.',
+          href: '/onboarding/tools-access',
+          hrefLabel: 'Onboarding: tools access',
+        },
+        {
+          id: 'csu-linear-invite',
+          text: 'Confirm you can open the Kahana Linear workspace after the invite. You will pick work here after local setup, not before.',
+          href: LINEAR_WORKSPACE_URL,
+          hrefLabel: 'Linear (Kahana workspace)',
+        },
+        {
+          id: 'csu-mixpanel',
+          text: 'Confirm Mixpanel access. This is the board shared with engineering onboarding. Filter to production unless you are debugging. Do not invent extra Mixpanel boards.',
+          href: MIXPANEL_ENGINEERING_BOARD_URL,
+          hrefLabel: 'Mixpanel board 11355238',
+        },
+      ],
+    },
+    {
+      id: 'env',
+      title: '2. Get .env.development from Adam',
+      intro:
+        'The product app will not run locally without this file.',
+      steps: [
+        {
+          id: 'csu-env-ask',
+          text: 'Slack Adam Kershner and ask for the .env.development file so you can run Kahana locally. Wait until he sends it. Do not copy someone else’s file from a laptop or a chat archive.',
+        },
+        {
+          id: 'csu-env-place',
+          text: 'Put .env.development in the product frontend repo (kahana-web) where the README / scripts/local-dev.md say it belongs. Never commit it. Never paste the contents into Slack, Linear, or an AI prompt.',
+          href: KAHANA_WEB_REPO_URL,
+          hrefLabel: 'kahana-web on GitHub',
+        },
+      ],
+    },
+    {
+      id: 'product',
+      title: '3. Run the product app (kahana-web)',
+      intro:
+        'This is the Kahana library application, not kahana.io marketing pages.',
+      steps: [
+        {
+          id: 'csu-web-clone',
+          text: 'Clone the product frontend. This is kahana-web.',
+          href: KAHANA_WEB_REPO_URL,
+          hrefLabel: 'github.com/Kahana-LLC/kahana-web',
+        },
+        {
+          id: 'csu-web-run',
+          text: 'Follow scripts/local-dev.md in that repo. With .env.development in place, run the app locally (npm start) and open a known page so you know it actually loaded.',
+        },
+        {
+          id: 'csu-web-not-marketing',
+          text: 'Do not use this repo for kahana.io / about.kahana.io. Do not deploy it to Heroku app kahana-public. That took the marketing site down in July 2026.',
+          href: '/sops/marketing-website',
+          hrefLabel: 'SOP 13: Updating the Marketing Website',
+        },
+      ],
+    },
+    {
+      id: 'backend',
+      title: '4. Clone the backend (firebase-functions)',
+      intro:
+        'Product API and functions live here. You need the repo even if you are mostly frontend this week.',
+      steps: [
+        {
+          id: 'csu-fn-clone',
+          text: 'Clone the backend.',
+          href: FIREBASE_FUNCTIONS_REPO_URL,
+          hrefLabel: 'github.com/Kahana-LLC/firebase-functions',
+        },
+        {
+          id: 'csu-fn-dev',
+          text: 'Bookmark Firebase DEV. Use it when you are debugging local or non-prod behavior.',
+          href: FIREBASE_DEV_CONSOLE_URL,
+          hrefLabel: 'Firebase DEV (kahana-dev)',
+        },
+        {
+          id: 'csu-fn-prod',
+          text: 'Bookmark Firebase PROD so you can tell the two projects apart. Opening the console is not permission to ship unreviewed functions to production.',
+          href: FIREBASE_PROD_CONSOLE_URL,
+          hrefLabel: 'Firebase PROD (kahana-15c2a)',
+        },
+      ],
+    },
+    {
+      id: 'marketing',
+      title: '5. Run the marketing website (kahana-homepage-public)',
+      intro:
+        'kahana.io / about.kahana.io is a different repo from the product app.',
+      steps: [
+        {
+          id: 'csu-mkt-clone',
+          text: 'Clone the marketing website. This is kahana-homepage-public. You need it so you can take marketing-site Linear cards later, and so you never mix it up with kahana-web.',
+          href: MARKETING_SITE_REPO_URL,
+          hrefLabel: 'github.com/Kahana-LLC/kahana-homepage-public',
+        },
+        {
+          id: 'csu-mkt-run',
+          text: 'Install dependencies, then run npm run dev (or yarn dev). Open http://localhost:3000 and confirm the homepage loads. Follow SETUP.md in that repo if the README is not enough.',
+          href: MARKETING_SITE_REPO_URL,
+          hrefLabel: 'kahana-homepage-public on GitHub',
+        },
+        {
+          id: 'csu-mkt-ship',
+          text: 'Local run is setup. Shipping a marketing-site change is SOP 13 (Linear card, local test, In Review, Adam or an engineering manager deploys Heroku). You do not deploy kahana-public yourself on day one.',
+          href: '/sops/marketing-website',
+          hrefLabel: 'SOP 13: Updating the Marketing Website',
+        },
+      ],
+    },
+    {
+      id: 'linear',
+      title: '6. Take Linear cards only after local is running',
+      intro:
+        'Setup is done so you can pull real work, not so you can sit on access.',
+      steps: [
+        {
+          id: 'csu-issues',
+          text: 'Open the Linear all-issues view. This is the backlog engineers pick from. Take the highest unassigned ready issue you can actually finish. Assign yourself and move it to In Progress.',
+          href: LINEAR_ALL_ISSUES_URL,
+          hrefLabel: 'Linear all issues',
+        },
+        {
+          id: 'csu-select',
+          text: 'Day-to-day pulling of the next card (WIP, splitting, commenting when blocked) is the Selecting Tasks from Backlog SOP. Do not start a side quest that is not on this view.',
+          href: '/sops/selecting-tasks-from-backlog',
+          hrefLabel: 'Selecting Tasks/Cards from Backlog',
+        },
+        {
+          id: 'csu-which-repo',
+          text: 'Read the card before you branch: product UI is kahana-web, backend is firebase-functions, marketing pages are kahana-homepage-public. If it is unclear, comment on the Linear issue before you clone the wrong repo again.',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'GitHub org invite accepted. kahana-web, firebase-functions, and kahana-homepage-public are cloned.',
+    '.env.development is in place from Adam Kershner. It is not in git, Slack, or a prompt.',
+    'The product app loads locally (kahana-web). The marketing site loads at http://localhost:3000 (kahana-homepage-public).',
+    'You can open Linear all issues and take a card in the matching repo.',
+  ],
+})
+
+export const SECURITY_SOP_ALIASES = {
+  pentest: 'penetration-testing',
+  'pen-testing': 'penetration-testing',
+  'pii': 'pii-handling',
+  governance: 'platform-governance',
+  moderation: 'content-moderation',
+  'reporting-cybersecurity-threats': 'reporting-cyber-threats',
+  'reporting-cybersecurity-threats-attacks': 'reporting-cyber-threats',
+  'cybersecurity-threats': 'reporting-cyber-threats',
+}
+
+export const PENETRATION_TESTING_SOP = playbook({
+  id: 'penetration-testing',
+  title: 'Penetration Testing',
+  category: 'Security',
+  owner: 'Engineering Lead / Security',
+  who: 'Security owner plus contracted testers. Engineers file and close findings.',
+  when: 'On a planned cadence, and before a launch that adds a lot of new surface (auth, payments, admin, uploads).',
+  format: 'checklist',
+  description:
+    'Scoped tests with written findings. Not surprise attacks on production. There is no dedicated Linear pentest card yet; related vibe-coded hygiene is KAH-66 (In Review).',
+  keywords: ['pentest', 'security', 'vulnerability', 'staging'],
+  notes: [
+    'There is no Linear card titled penetration testing. Do not invent one in this SOP. If Engineering wants the next test tracked, file it from Linear all issues and link it here later.',
+    'KAH-66 (In Review) is related engineering hygiene (secrets, IDOR, webhooks, backups). It is not a pentest. Confirm status on the card.',
+    'This SOP does not include exploit steps, payloads, or how to attack Kahana. Scope, rules of engagement, and a written report only.',
+  ],
+  sections: [
+    {
+      id: 'scope',
+      title: '1. Write scope and rules of engagement',
+      intro: 'No test starts until this is written down.',
+      steps: [
+        {
+          id: 'pt-env',
+          text: 'Name the environment. Prefer staging over production. If production is required, Adam and the Engineering Lead sign that in writing first.',
+        },
+        {
+          id: 'pt-scope',
+          text: 'Write what is in scope (apps, APIs, accounts) and what is out (other customers, denial-of-service, social engineering of staff unless named). Name the tester and the Kahana owner.',
+        },
+        {
+          id: 'pt-kah66',
+          text: 'Read KAH-66 before you spend a tester on holes we already know. Confirm it is still In Review or Done. Do not duplicate that card as a pentest.',
+          href: LINEAR_KAH_66_URL,
+          hrefLabel: 'KAH-66 (vibe-coded hygiene)',
+        },
+      ],
+    },
+    {
+      id: 'run',
+      title: '2. Run the test and file findings',
+      intro: 'Findings go to Linear, not a private Slack thread.',
+      steps: [
+        {
+          id: 'pt-run',
+          text: 'The tester runs only what the rules of engagement allow. Kahana staff do not “try the same thing on prod” to see if it works.',
+        },
+        {
+          id: 'pt-file',
+          text: 'File each finding on Linear with severity, owner, deadline, and enough context to reproduce without an exploit write-up in a public channel.',
+          href: LINEAR_ALL_ISSUES_URL,
+          hrefLabel: 'Linear all issues',
+        },
+        {
+          id: 'pt-keys',
+          text: 'If the test found committed or leaked keys, rotate first. That path is the rotating-keys Engineering task, then come back to this report.',
+          href: '/sops/security-rules-rotating-keys',
+          hrefLabel: 'Security Rules — Rotating Keys',
+        },
+      ],
+    },
+    {
+      id: 'close',
+      title: '3. Close or risk-accept',
+      steps: [
+        {
+          id: 'pt-retest',
+          text: 'Retest closures. Do not argue severity only in Slack. The write-up stays with the Linear issue.',
+        },
+        {
+          id: 'pt-store',
+          text: 'Store the report where Engineering Lead and Adam can open it. Risk-accept only with a named person and a date. “We will get to it” is not acceptance.',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'Scope and rules of engagement were written before the test.',
+    'Every finding is a Linear issue that is closed or risk-accepted with a name and date.',
+    'The report is stored. KAH-66 was checked so we did not redo known hygiene as a pentest.',
+  ],
+})
+
+export const PII_HANDLING_SOP = playbook({
+  id: 'pii-handling',
+  title: 'PII Handling',
+  category: 'Security',
+  owner: 'Engineering Lead / Security',
+  who: 'Everyone who touches user data (Engineering, CS, Analytics, Marketing screenshots).',
+  when: 'Always. Extra care on exports, admin tools, Mixpanel, support tickets, and recordings.',
+  format: 'checklist',
+  description:
+    'Minimum necessary PII, no Slack dumps, extra copies deleted. Inventory, deletion path, and log hygiene are on Linear KAH-86 (Backlog), not finished.',
+  keywords: ['pii', 'privacy', 'gdpr', 'data', 'mixpanel'],
+  notes: [
+    'KAH-86 is Backlog: inventory, minimization, access, and deletion. Confirm on the card. Until it ships, this SOP is today’s practice, not the finished map.',
+    'PCI card data is KAH-87 (Backlog). We should never have PAN. Do not treat billing fields as “just PII.”',
+    'Legal owns policy text. Security owns practice. KAH-88 (Backlog) is the compliance map, not this SOP.',
+  ],
+  sections: [
+    {
+      id: 'today',
+      title: '1. What you do today',
+      intro: 'Do not wait for KAH-86 to stop dumping user lists.',
+      steps: [
+        {
+          id: 'pii-no-export',
+          text: 'Do not export production user lists to laptops or group chats. Use admin tools with a ticket. If you needed a list, delete the extra copy when the task is done.',
+        },
+        {
+          id: 'pii-screens',
+          text: 'Screenshots, SOP videos, and marketing must not show other people’s emails, messages, payment data, or age-verification flags.',
+        },
+        {
+          id: 'pii-mixpanel',
+          text: 'Do not put free-text support or survey answers in Mixpanel event properties. That pattern already lives in Firestore. Filter Mixpanel to production unless you are debugging.',
+          href: MIXPANEL_URL,
+          hrefLabel: 'Mixpanel Kahana project',
+        },
+      ],
+    },
+    {
+      id: 'linear',
+      title: '2. What is still on Linear',
+      intro: 'The backlog card is the map. This SOP does not pretend it is done.',
+      steps: [
+        {
+          id: 'pii-kah86',
+          text: 'Open KAH-86. If it is still Backlog, the inventory (Firestore, logs, Resend, Mixpanel, Stripe, localStorage, backups) is not a finished document. Do not invent a second inventory in a spreadsheet of your own and treat that as source of truth.',
+          href: LINEAR_KAH_86_URL,
+          hrefLabel: 'KAH-86 (PII handling, Backlog)',
+        },
+        {
+          id: 'pii-kah87',
+          text: 'Card data stays on Stripe. If you think we are storing PAN, stop and open KAH-87. That is not this SOP.',
+          href: LINEAR_KAH_87_URL,
+          hrefLabel: 'KAH-87 (PCI-DSS / Stripe)',
+        },
+        {
+          id: 'pii-kah88',
+          text: 'GDPR/CCPA “do we apply” lives on KAH-88, not in a Slack opinion. Link evidence to that card if you find a gap.',
+          href: LINEAR_KAH_88_URL,
+          hrefLabel: 'KAH-88 (compliance mapping, Backlog)',
+        },
+      ],
+    },
+    {
+      id: 'access',
+      title: '3. Access and offboarding',
+      steps: [
+        {
+          id: 'pii-access',
+          text: 'Production PII access is logged and ticketed. Joiners get access through SOP 22 and the tools form, not a shared password.',
+          href: '/sops/kahana-code-setup',
+          hrefLabel: 'SOP 22: Getting Set Up with Kahana Code',
+        },
+        {
+          id: 'pii-gov',
+          text: 'Who may see admin dumps is platform governance. If you are adding a new admin power, follow SOP 25 and KAH-85.',
+          href: '/sops/platform-governance',
+          hrefLabel: 'SOP 25: Platform Governance',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'The task that needed PII is done and extra copies are deleted.',
+    'No user list or payment data landed in Slack, a laptop dump, or a marketing screenshot.',
+    'KAH-86 was checked so you did not treat a Backlog inventory as already shipped.',
+  ],
+})
+
+export const PLATFORM_GOVERNANCE_SOP = playbook({
+  id: 'platform-governance',
+  title: 'Platform Governance',
+  category: 'Security',
+  owner: 'Engineering Lead / Security',
+  who: 'Security + Product. Anyone adding admin powers, webhooks, or a new data store.',
+  when: 'When adding admin capabilities, vendors, or after an incident. Quarterly review once KAH-85 exists.',
+  format: 'checklist',
+  description:
+    'Who can do what on Kahana, and how that is reviewed. The governance pack (inventory, access cadence, audit of sensitive actions) is Linear KAH-85 (Backlog).',
+  keywords: ['governance', 'admin', 'rbac', 'access', 'audit'],
+  notes: [
+    'KAH-85 is Backlog: access, audit, and operating ownership. Confirm on the card. Until it ships, document each new admin capability here and remove leftover accounts. Do not wait for the pack to use least privilege.',
+    'This is not KAH-66 (code hygiene) and not the full SOC 2 program (KAH-88).',
+  ],
+  sections: [
+    {
+      id: 'now',
+      title: '1. Before you add a power',
+      steps: [
+        {
+          id: 'pg-doc',
+          text: 'Document the new admin capability and who holds it (Firebase, Heroku, Stripe, Mixpanel, email, in-product admin). Shared logins are not a plan.',
+        },
+        {
+          id: 'pg-least',
+          text: 'Prefer least privilege. Contractors and AI tools get the minimum. Offboard uses the same list as joiners (SOP 22).',
+          href: '/sops/kahana-code-setup',
+          hrefLabel: 'SOP 22: Getting Set Up with Kahana Code',
+        },
+        {
+          id: 'pg-prod',
+          text: 'Who can ship to product prod / kahana-alpha stays named. Marketing Heroku kahana-public is still SOP 13 (Adam or EM only).',
+          href: '/sops/marketing-website',
+          hrefLabel: 'SOP 13: Updating the Marketing Website',
+        },
+      ],
+    },
+    {
+      id: 'linear',
+      title: '2. The Linear pack (not shipped)',
+      steps: [
+        {
+          id: 'pg-kah85',
+          text: 'Open KAH-85. If it is still Backlog, there is no finished inventory of privileged systems, no written quarterly access review, and no complete sensitive-action audit list. Do not invent a shadow spreadsheet as source of truth.',
+          href: LINEAR_KAH_85_URL,
+          hrefLabel: 'KAH-85 (platform governance, Backlog)',
+        },
+        {
+          id: 'pg-related',
+          text: 'Content takedowns overlap SOP 26. Security incidents overlap SOP 27. PII admin dumps overlap SOP 24. Link those SOPs on the Linear card rather than copying policy into three places.',
+          href: '/sops/content-moderation',
+          hrefLabel: 'SOP 26: Content Moderation',
+        },
+      ],
+    },
+    {
+      id: 'review',
+      title: '3. After incidents and leftover accounts',
+      steps: [
+        {
+          id: 'pg-review',
+          text: 'After an incident, review who still has the power that was abused or unused. Remove leftover admin accounts the same week.',
+          href: '/sops/reporting-cyber-threats',
+          hrefLabel: 'SOP 27: Reporting Cybersecurity Threats',
+        },
+        {
+          id: 'pg-legal',
+          text: 'If user rights, terms, or age policy change, loop Legal. KAH-88 is the obligations map (Backlog), not a substitute for counsel.',
+          href: LINEAR_KAH_88_URL,
+          hrefLabel: 'KAH-88 (compliance mapping)',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'The new capability is listed with named owners. Leftover admin accounts are removed.',
+    'KAH-85 was checked so you did not treat the Backlog governance pack as already written.',
+  ],
+})
+
+export const CONTENT_MODERATION_SOP = playbook({
+  id: 'content-moderation',
+  title: 'Content Moderation',
+  category: 'Security',
+  owner: 'Security / Trust & Safety',
+  who: 'Moderation owner and Customer Success. Engineering on the Linear build.',
+  when: 'On every content report, and as a sampled review of public hubs. Automation is In Progress on Linear, not the live path yet.',
+  format: 'checklist',
+  description:
+    'Act on in-app content reports with a consistent reason taxonomy. Hugging Face / open-source models plus a review queue are Linear KAH-84 (In Progress). Handle reports now; do not wait for the model.',
+  keywords: ['moderation', 'report', 'trust', 'safety', 'adult', 'ugc'],
+  notes: [
+    'KAH-84 is In Progress (Hugging Face / open-source models + review queue). Confirm on the card. Until it ships, intake is still user reports. Models will assist; they do not replace 18+ declaration or a human decision.',
+    'Club-host logging of bugs and ideas stays SOP 2. CS inbox and lifecycle mail stay SOP 19. This SOP is trust and safety on hubs, files, profiles, and club posts.',
+    'Do not send private hub text to a third-party API without a PII review (SOP 24 / KAH-86).',
+  ],
+  sections: [
+    {
+      id: 'today',
+      title: '1. Handle reports now',
+      intro: 'Do not leave a report unread because automation is In Progress.',
+      steps: [
+        {
+          id: 'cm-intake',
+          text: 'Intake content_report tickets. Reasons: adult, graphic violence, hate/harassment, harmful, spam/scam, copyright, other. Record, then decide.',
+        },
+        {
+          id: 'cm-decide',
+          text: 'Decide: leave up, restrict (including Not for All Audiences / hide from Library), remove, or escalate to Legal / law enforcement when required. Adult-rated hubs already have a policy path; keep the 18+ declaration.',
+        },
+        {
+          id: 'cm-close',
+          text: 'Record the decision code. Tell the reporter only what you can tell them. Repeat offenders get a named policy path, not a silent skip.',
+        },
+        {
+          id: 'cm-cs',
+          text: 'If the inbound is a support or contact form rather than a content report, that is SOP 19. Do not lose it between queues.',
+          href: '/sops/lifecycle-emails-and-tickets',
+          hrefLabel: 'SOP 19: Lifecycle Emails and Tickets',
+        },
+      ],
+    },
+    {
+      id: 'linear',
+      title: '2. What KAH-84 is building',
+      intro: 'In Progress means work is happening. It is not live until the card says so.',
+      steps: [
+        {
+          id: 'cm-kah84',
+          text: 'Open KAH-84. Confirm it is still In Progress (or moved). The build is automated checks plus a human review queue (ShieldGemma / classifiers on public hub text and covers, then club posts and profiles).',
+          href: LINEAR_KAH_84_URL,
+          hrefLabel: 'KAH-84 (content moderation, In Progress)',
+        },
+        {
+          id: 'cm-assist',
+          text: 'When that ships: models flag, humans decide. Do not turn the queue off because a score looked confident. Do not send all private UGC to a closed vendor by default.',
+        },
+        {
+          id: 'cm-pii',
+          text: 'Private hub content in a third-party model needs SOP 24 / KAH-86 first. KAH-84 already lists that as out of scope without a privacy review.',
+          href: '/sops/pii-handling',
+          hrefLabel: 'SOP 24: PII Handling',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'The report is closed with a decision code, not only “looked at it.”',
+    'KAH-84 was checked so you did not wait on In Progress automation instead of handling the report, and you did not pretend the model is already live.',
+  ],
+})
+
+export const REPORTING_CYBER_THREATS_SOP = playbook({
+  id: 'reporting-cyber-threats',
+  title: 'Reporting Cybersecurity Threats / Attacks',
+  category: 'Security',
+  owner: 'Engineering Lead / Security',
+  who: 'Anyone who notices (phishing, intrusion, ransomware, suspicious admin activity).',
+  when: 'Immediately.',
+  format: 'checklist',
+  description:
+    'Incident-style reporting. There is no dedicated Linear threat-reporting card. Tell Engineering Lead and Adam the same day. Do not poke the attacker.',
+  keywords: ['incident', 'phishing', 'attack', 'threat', 'ransomware'],
+  notes: [
+    'There is no Linear card for this SOP. Do not wait to file one before you tell people. File Linear after containment so the record exists.',
+    'Engineering Operations still has incident language (detect, contain, restore, RCA). This SOP is the human reporting path.',
+    'If user PII may be involved, loop Legal and follow SOP 24. Rotate keys if credentials could have leaked.',
+  ],
+  sections: [
+    {
+      id: 'now',
+      title: '1. Same day',
+      intro: 'Speed first. Curiosity later.',
+      steps: [
+        {
+          id: 'ct-dont',
+          text: 'Do not poke the attacker, click the payload again, or “test if it still works” on production.',
+        },
+        {
+          id: 'ct-evidence',
+          text: 'Capture evidence you already have: headers, URLs, screenshots, account names, timestamps. Do not paste secrets into a public Slack channel.',
+        },
+        {
+          id: 'ct-tell',
+          text: 'Tell the Engineering Lead and Adam the same day. Then contain (lock the account, rotate the key, take the surface offline if that is the instruction).',
+          href: '/sops/security-rules-rotating-keys',
+          hrefLabel: 'Security Rules — Rotating Keys',
+        },
+      ],
+    },
+    {
+      id: 'record',
+      title: '2. Record and follow up',
+      steps: [
+        {
+          id: 'ct-linear',
+          text: 'After the immediate ping, file a Linear issue so the incident is not only a DM. Use the all-issues view. Severity, timeline, containment, owner.',
+          href: LINEAR_ALL_ISSUES_URL,
+          hrefLabel: 'Linear all issues',
+        },
+        {
+          id: 'ct-rca',
+          text: 'Follow Engineering incident steps: restore, communicate internally, RCA, corrective action, verify. A second person should be able to read the timeline.',
+          href: '/sops/engineering-operations',
+          hrefLabel: 'Engineering Operations',
+        },
+        {
+          id: 'ct-pii',
+          text: 'If user PII may be involved, loop Legal and SOP 24. If admin powers were the hole, SOP 25 / KAH-85 is the follow-up, not a silent revert.',
+          href: '/sops/pii-handling',
+          hrefLabel: 'SOP 24: PII Handling',
+        },
+      ],
+    },
+  ],
+  doneWhen: [
+    'Engineering Lead and Adam were told the same day. The attacker was not poked.',
+    'An incident record exists (Linear) with timeline, containment, and follow-up owners.',
+    'Keys rotated if credentials could have leaked. Legal looped if user PII may be involved.',
+  ],
+})
+
 const TASKS = [
   task({
     id: 'linkedin-operating-rhythm',
@@ -4272,6 +5046,11 @@ const TASKS = [
     steps: [
       'Name the decision the metric should inform. If it cannot change a decision, do not instrument it.',
       'Implement through the web mixpanel helpers (or server helpers for email). Include hub_categories as a list when relevant.',
+      {
+        text: 'If Analytics is the one asking for the event, they still go through this Product path. SOP 21 is outreach and insights, not a second instrumentation SOP.',
+        href: '/sops/analytics',
+        hrefLabel: 'SOP 21: Analytics',
+      },
       'Verify in Mixpanel Live View on Kahana Dev before relying on PROD.',
     ],
     doneWhen: ['Event fires in Live View with the documented properties and a Lexicon note exists.'],
@@ -4293,56 +5072,13 @@ const TASKS = [
       },
       'Name the board after the decision (e.g. hub pricing conversion), not after a person.',
       'Pin the same property definitions as AGENTS.md / Mixpanel Lexicon. Share the link in How We Work or the charter.',
+      {
+        text: 'Analytics (SOP 21) is who proactively sits with other functions on these boards. Do not wait for them to screenshot; send them the named URL.',
+        href: '/sops/analytics',
+        hrefLabel: 'SOP 21: Analytics',
+      },
     ],
     doneWhen: ['A named board URL is in the charter or How We Work, and a second person can open it.'],
-  }),
-  task({
-    id: 'reporting-insights',
-    title: 'Reporting Insights',
-    category: 'Analytics',
-    owner: 'Khushmeet',
-    who: 'Analytics',
-    when: 'Weekly pulse; deeper monthly; ad hoc when a function asks.',
-    description: 'Turn Mixpanel (and other sources) into decisions, not chart dumps.',
-    keywords: ['insights', 'khushmeet', 'mixpanel'],
-    steps: [
-      'Start from a question a function actually has (growth, clubs, paywall, retention).',
-      'Pull Mixpanel (and finance/CS if needed). Write the insight in one paragraph plus the chart link.',
-      'Say what we should do differently — or that the data cannot support a change yet.',
-    ],
-    doneWhen: ['The requesting function has a written insight with a next action or an explicit “no change.”'],
-  }),
-  task({
-    id: 'analytics-innovation',
-    title: 'Analytics Innovation',
-    category: 'Analytics',
-    owner: 'Khushmeet',
-    who: 'Analytics',
-    when: 'When a recurring question is still answered by hand, or a new data source appears.',
-    description: 'Improve how Kahana measures, not only how we screenshot Mixpanel.',
-    keywords: ['innovation', 'measurement', 'experiment'],
-    steps: [
-      'Name the painful manual step (CSV, screenshot, tribal filter).',
-      'Propose a board, saved cohort, or event change. Product/Engineering must agree before new tracking.',
-      'Ship a small version, document it, retire the manual path.',
-    ],
-    doneWhen: ['The old manual path is unused, or the experiment is written off with a reason.'],
-  }),
-  task({
-    id: 'supporting-functions-with-insights',
-    title: 'Supporting Functions with Insights',
-    category: 'Analytics',
-    owner: 'Khushmeet',
-    who: 'Analytics',
-    when: 'On request and during planning.',
-    description: 'Office hours for Marketing, Sales, CS, Product — same quality bar as reporting.',
-    keywords: ['support', 'self-serve', 'mixpanel'],
-    steps: [
-      'Clarify the decision and the deadline. Push back on fishing expeditions.',
-      'Prefer teaching the function to open the existing board over building a snowflake chart.',
-      'If a new cut is needed, add it to a shared board, not a private explore.',
-    ],
-    doneWhen: ['The function can re-open the answer next week without Analytics in the room, or a follow-up is scheduled.'],
   }),
   task({
     id: 'checking-backlog',
@@ -4388,34 +5124,23 @@ const TASKS = [
     owner: 'Engineering Lead',
     who: 'Engineers',
     when: 'When you finish a card or start a day.',
-    description: 'Pull from the ordered backlog, assign yourself, and set status.',
+    description: 'Pull from the ordered backlog, assign yourself, and set status. Finish SOP 22 local setup first.',
     keywords: ['linear', 'wip'],
     steps: [
-      'Take the highest unassigned ready issue you can actually finish, not the most fun one.',
+      {
+        text: 'If you cannot run kahana-web and kahana-homepage-public locally yet, stop and finish SOP 22 first.',
+        href: '/sops/kahana-code-setup',
+        hrefLabel: 'SOP 22: Getting Set Up with Kahana Code',
+      },
+      {
+        text: 'Open the Linear all-issues view. Take the highest unassigned ready issue you can actually finish, not the most fun one.',
+        href: LINEAR_ALL_ISSUES_URL,
+        hrefLabel: 'Linear all issues',
+      },
       'Assign yourself, move to In Progress, and keep WIP low (one active shippable card).',
       'If it is bigger than ~2 days, split or flag Product before disappearing.',
     ],
     doneWhen: ['Linear shows you as assignee on exactly the work you are doing.'],
-  }),
-  task({
-    id: 'product-code-access-setup',
-    title: 'Product Code Access & Setup',
-    category: 'Engineering',
-    owner: 'Engineering Lead',
-    who: 'New engineers',
-    when: 'First week, after tools access form.',
-    description: 'Get GitHub, env, and local app running without sharing secrets in Slack.',
-    keywords: ['github', 'onboarding', 'env', 'setup'],
-    steps: [
-      {
-        text: 'Submit the tools access form (GitHub email, Linear, Mixpanel).',
-        href: TOOLS_ACCESS_TALLY_URL,
-        hrefLabel: 'Tools access form',
-      },
-      'Clone kahana-web and firebase-functions as needed. Use .env.development.local — never commit secrets.',
-      'Follow scripts/local-dev.md. Confirm npm start and a known page load.',
-    ],
-    doneWhen: ['You can run the app locally and open a PR against a feature branch.'],
   }),
   task({
     id: 'creating-branches-and-pushing',
@@ -4484,6 +5209,11 @@ const TASKS = [
     description: 'kahana-web is the product app (curio.store / kahana-alpha). Marketing site is a different repo.',
     keywords: ['kahana-web', 'heroku-alpha', 'frontend'],
     steps: [
+      {
+        text: 'If this is your first week, finish SOP 22 so kahana-web actually runs locally before you branch.',
+        href: '/sops/kahana-code-setup',
+        hrefLabel: 'SOP 22: Getting Set Up with Kahana Code',
+      },
       'Work in kahana-web. Staging curio-beta, production kahana-alpha.',
       {
         text: 'Never deploy this repo to kahana-public. Marketing site updates are SOP 13 (kahana-homepage-public).',
@@ -4759,86 +5489,6 @@ const TASKS = [
     doneWhen: ['The person has an explanation or a dated fix, not a shrug.'],
   }),
   task({
-    id: 'penetration-testing',
-    title: 'Penetration Testing',
-    category: 'Security',
-    owner: 'Engineering Lead / Security',
-    who: 'Security owner + contracted testers',
-    when: 'On a planned cadence and before major surface-area launches.',
-    description: 'Scoped tests with written findings — not surprise attacks on prod by interns.',
-    keywords: ['pentest', 'security', 'vulnerability'],
-    steps: [
-      'Define scope, environment (prefer staging), and rules of engagement in writing.',
-      'Run the test. File vulnerabilities with severity, owner, and deadline (Engineering playbook).',
-      'Retest closures. Do not argue severity in Slack without the write-up.',
-    ],
-    doneWhen: ['Report is stored, every finding is closed or risk-accepted with a name and date.'],
-  }),
-  task({
-    id: 'pii-handling',
-    title: 'PII Handling',
-    category: 'Security',
-    owner: 'Engineering Lead / Security',
-    who: 'Everyone who touches user data',
-    when: 'Always.',
-    description: 'Minimum necessary PII, no Slack dumps, production access is logged.',
-    keywords: ['pii', 'privacy', 'gdpr', 'data'],
-    steps: [
-      'Do not export production user lists to laptops or group chats. Use admin tools with a ticket.',
-      'Screenshots and videos for SOPs/marketing must not show other people’s emails, messages, or payment data.',
-      'Access reviews follow Engineering offboarding. Legal owns policy text; Security owns practice.',
-    ],
-    doneWhen: ['The task that needed PII is done and extra copies are deleted.'],
-  }),
-  task({
-    id: 'platform-governance',
-    title: 'Platform Governance',
-    category: 'Security',
-    owner: 'Engineering Lead / Security',
-    who: 'Security + Product',
-    when: 'When adding admin powers, webhooks, or new data stores.',
-    description: 'Who can do what on Kahana, and how that is reviewed.',
-    keywords: ['governance', 'admin', 'rbac'],
-    steps: [
-      'Document new admin capabilities and who holds them.',
-      'Prefer least privilege. Shared logins are not a plan.',
-      'Review after incidents and quarterly with Legal if user rights change.',
-    ],
-    doneWhen: ['The capability is listed with owners; leftover admin accounts are removed.'],
-  }),
-  task({
-    id: 'content-moderation',
-    title: 'Content Moderation',
-    category: 'Security',
-    owner: 'Security / Trust & Safety',
-    who: 'Moderation owner and CS',
-    when: 'On report, and as a sampled review.',
-    description: 'Act on in-app content reports with a consistent reason taxonomy.',
-    keywords: ['moderation', 'report', 'trust', 'safety'],
-    steps: [
-      'Intake content_report tickets (adult, violence, hate, harmful, spam, other).',
-      'Decide: leave up, restrict, remove, or escalate to Legal/law enforcement when required.',
-      'Record the decision and tell the reporter what you can tell them. Repeat offenders get a named policy path.',
-    ],
-    doneWhen: ['The report is closed with a decision code, not only “looked at it.”'],
-  }),
-  task({
-    id: 'reporting-cyber-threats',
-    title: 'Reporting Cybersecurity Threats / Attacks',
-    category: 'Security',
-    owner: 'Engineering Lead / Security',
-    who: 'Anyone who notices',
-    when: 'Immediately.',
-    description: 'Incident-style reporting for phishing, intrusion, ransomware, or suspicious admin activity.',
-    keywords: ['incident', 'phishing', 'attack', 'threat'],
-    steps: [
-      'Do not poke the attacker. Capture evidence (headers, URLs, screenshots) and tell Engineering Lead + founder.',
-      'Follow the Engineering incident steps: contain, restore, RCA.',
-      'If user PII may be involved, loop Legal. Rotate keys if credentials could have leaked.',
-    ],
-    doneWhen: ['Incident doc exists with timeline, containment, and follow-up owners.'],
-  }),
-  task({
     id: 'it-staff-tickets',
     title: 'Handling IT Tickets / Requests from Staff',
     category: 'IT',
@@ -4954,5 +5604,5 @@ const TASKS = [
 
 export const FUNCTION_SOPS = [...PLAYBOOKS, ...TASKS].map((sop, index) => ({
   ...sop,
-  number: 21 + index,
+  number: 28 + index,
 }))

@@ -22,6 +22,24 @@ export const SLACK_INVITE_URL =
 /** Linear workspace — product backlog, bugs, feature requests, sprint prioritization. */
 export const LINEAR_WORKSPACE_URL = 'https://linear.app/kahana'
 
+/** Linear all-issues view for picking engineering work. Do not invent extra Linear board URLs. */
+export const LINEAR_ALL_ISSUES_URL =
+  'https://linear.app/kahana/view/all-issues-03adf5375cb9'
+
+/** Security-related Linear cards. Confirm status on the card; do not invent extra issue URLs. */
+export const LINEAR_KAH_66_URL =
+  'https://linear.app/kahana/issue/KAH-66/address-potential-issues-common-with-vibe-coded-apps'
+export const LINEAR_KAH_84_URL =
+  'https://linear.app/kahana/issue/KAH-84/content-moderation-hugging-face-open-source-models-review-queue'
+export const LINEAR_KAH_85_URL =
+  'https://linear.app/kahana/issue/KAH-85/platform-governance-access-audit-and-operating-ownership'
+export const LINEAR_KAH_86_URL =
+  'https://linear.app/kahana/issue/KAH-86/pii-handling-inventory-minimization-access-and-deletion'
+export const LINEAR_KAH_87_URL =
+  'https://linear.app/kahana/issue/KAH-87/pci-dss-and-stripe-gateway-stay-out-of-cardholder-scope'
+export const LINEAR_KAH_88_URL =
+  'https://linear.app/kahana/issue/KAH-88/compliance-mapping-obligations-vs-what-we-actually-do'
+
 /** Mixpanel — Kahana project home (userbase analytics). */
 export const MIXPANEL_URL =
   'https://mixpanel.com/project/4042294/view/4538547/app/home'
@@ -34,6 +52,10 @@ export const MIXPANEL_LIFECYCLE_BOARD_B_URL =
 export const MIXPANEL_LIFECYCLE_BOARD_C_URL =
   'https://mixpanel.com/project/4042294/view/4538547/app/boards#id=11358761'
 
+/** Mixpanel board shared with engineering onboarding. Do not invent extra board names. */
+export const MIXPANEL_ENGINEERING_BOARD_URL =
+  'https://mixpanel.com/project/4042294/view/4538547/app/boards#id=11355238'
+
 /** Resend send log. CS access: ask Adam Kershner on Slack. */
 export const RESEND_EMAILS_URL = 'https://resend.com/emails'
 
@@ -44,6 +66,19 @@ export const PMF_NPS_OUTPUT_SHEET_URL =
 /** Public marketing site repo (kahana.io / about.kahana.io). Not kahana-web. */
 export const MARKETING_SITE_REPO_URL =
   'https://github.com/Kahana-LLC/kahana-homepage-public'
+
+/** Product frontend (library app). Not the marketing site. */
+export const KAHANA_WEB_REPO_URL = 'https://github.com/Kahana-LLC/kahana-web'
+
+/** Product backend (Cloud Functions). */
+export const FIREBASE_FUNCTIONS_REPO_URL =
+  'https://github.com/Kahana-LLC/firebase-functions'
+
+/** Firebase consoles. DEV for local/debug; PROD is production. */
+export const FIREBASE_PROD_CONSOLE_URL =
+  'https://console.firebase.google.com/u/0/project/kahana-15c2a/overview'
+export const FIREBASE_DEV_CONSOLE_URL =
+  'https://console.firebase.google.com/u/0/project/kahana-dev/overview'
 
 /** Google Search Console — kahana.io domain property (impressions, clicks, sitemaps, indexing). */
 export const GOOGLE_SEARCH_CONSOLE_URL =

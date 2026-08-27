@@ -116,6 +116,12 @@ function App() {
           <Route path="/sops/handling-user-tickets" element={<Navigate to="/sops/lifecycle-emails-and-tickets" replace />} />
           <Route path="/sops/pm-time-log" element={<Navigate to="/sops/time-log" replace />} />
           <Route path="/sops/hr-time-log" element={<Navigate to="/sops/time-log" replace />} />
+          <Route path="/sops/reporting-insights" element={<Navigate to="/sops/analytics" replace />} />
+          <Route path="/sops/analytics-innovation" element={<Navigate to="/sops/analytics" replace />} />
+          <Route path="/sops/supporting-functions-with-insights" element={<Navigate to="/sops/analytics" replace />} />
+          <Route path="/sops/product-code-access-setup" element={<Navigate to="/sops/kahana-code-setup" replace />} />
+          <Route path="/sops/pentest" element={<Navigate to="/sops/penetration-testing" replace />} />
+          <Route path="/sops/reporting-cybersecurity-threats" element={<Navigate to="/sops/reporting-cyber-threats" replace />} />
           <Route path="/sops/keepers-codex/:stepId" element={<KeepersCodexStep />} />
           <Route path="/sops/keepers-codex" element={<KeepersCodexChecklist />} />
           <Route path="/sops/finding-whats-broken/:stepId" element={<FindingWhatsBrokenStep />} />
