@@ -8,6 +8,8 @@ import {
 import { OnboardingIcon } from './onboardingIcons'
 import { SopReviewStatusBadge } from '../components/SopReviewStatusBadge'
 import { SopIntroCallout, SopProgressBar } from './SopProgressBar'
+import { SopMeta } from './SopMeta'
+import { formatSopDuration, sopStepTimeBadge, sumSopMinutes } from '../data/sopStepUtils'
 import { readLocalJson, writeLocalJson } from '../utils/safeStorage'
 import './Page.css'
 import './Onboarding.css'
@@ -62,6 +64,7 @@ function ConfettiBurst({ x, y, onComplete }) {
 }
 
 function CodexChecklistItem({ step, checked, onToggle, lastClickRef, optional = false }) {
+  const timeBadge = sopStepTimeBadge(step)
   return (
     <li className={`onboarding-item${optional ? ' onboarding-item-optional' : ''}`}>
       <div className="onboarding-item-row">
@@ -95,7 +98,7 @@ function CodexChecklistItem({ step, checked, onToggle, lastClickRef, optional = 
           <span className="onboarding-item-text">{step.label}</span>
           <span className="onboarding-item-arrow">→</span>
         </Link>
-        {step.badge && <span className="onboarding-badge">{step.badge}</span>}
+        {timeBadge ? <span className="onboarding-badge">{timeBadge}</span> : null}
       </div>
     </li>
   )
@@ -125,6 +128,7 @@ function KeepersCodexChecklist() {
   const completedCount = requiredSteps.filter((s) => checked[s.id]).length
   const totalCount = requiredSteps.length
   const progressPercent = totalCount ? Math.round((completedCount / totalCount) * 100) : 0
+  const duration = formatSopDuration(sumSopMinutes(requiredSteps))
 
   return (
     <div className="page keepers-codex-page" id="keepers-codex">
@@ -137,6 +141,7 @@ function KeepersCodexChecklist() {
       <SopProgressBar
         done={completedCount}
         total={totalCount}
+        duration={duration}
         completeLabel="All required labours done"
       />
       <div className="page-header">
@@ -146,6 +151,14 @@ function KeepersCodexChecklist() {
         <SopReviewStatusBadge number={KEEPERS_CODEX_META.sopNumber} className="sop-status-badge--detail" />
         <h1>{KEEPERS_CODEX_META.title}</h1>
         <p className="page-subtitle">{KEEPERS_CODEX_META.subtitle}</p>
+        <SopMeta
+          category={KEEPERS_CODEX_META.category}
+          who="Club hosts, intern keepers, and anyone helping grow a hall"
+          cadence="Weekly"
+          trigger="Founding a club, then every cycle after."
+          duration={duration}
+          updatedAt={KEEPERS_CODEX_META.updatedAt}
+        />
         <SopIntroCallout excerpt={KEEPERS_CODEX_META.excerpt} />
         <p className="sop-freshness-note">{KEEPERS_CODEX_META.standing}</p>
         <p className="onboarding-hint">
@@ -153,17 +166,6 @@ function KeepersCodexChecklist() {
           <span className="onboarding-hint-item">→ Open a labour for instructions</span>
         </p>
       </div>
-
-      <section className="content-block project-charter-meta" aria-label="Codex metadata">
-        <dl className="project-charter-meta-list">
-          {KEEPERS_CODEX_META.metaRows.map(([label, value]) => (
-            <div key={label} className="project-charter-meta-row">
-              <dt>{label}</dt>
-              <dd>{value}</dd>
-            </div>
-          ))}
-        </dl>
-      </section>
 
       <section className="onboarding-summary">
         <div className="onboarding-summary-card">

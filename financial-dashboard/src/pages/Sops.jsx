@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { SOP_PAGE, SOP_CATEGORIES, SOPS, sopMatchesQuery, getSopReviewStatus, SOP_REVIEW_STATUS } from '../data/sopContent'
+import { sopTotalDuration } from '../data/sopStepUtils'
 import { formatCardTitle } from '../utils/formatCardTitle'
 import { SopReviewStatusBadge } from '../components/SopReviewStatusBadge'
 import './Page.css'
@@ -133,7 +134,7 @@ function Sops() {
                 </span>
                 <span className="kb-card-desc">{sop.excerpt || sop.description}</span>
                 <span className="sop-card-meta">
-                  {sop.owner ? `Owner: ${sop.owner}` : `Who: ${sop.who}`}
+                  {[sop.cadence || sop.trigger, sopTotalDuration(sop)].filter(Boolean).join(' · ')}
                 </span>
                 {sop.format === 'checklist' && (
                   <span className="sop-card-format">Checklist</span>

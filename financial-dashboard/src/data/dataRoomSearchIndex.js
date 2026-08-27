@@ -410,8 +410,12 @@ function buildOnboardingStepEntries() {
         : step.id === 'tools-access'
           ? ['tools', 'access', 'tally', 'mixpanel', 'linear', 'github', 'developer', 'email']
           : step.id === 'weekly-1on1'
-            ? ['1-on-1', 'calendly', 'weekly', 'adam', 'meeting']
-            : step.id === 'sops'
+            ? ['1-on-1', 'calendly', 'weekly', 'manager', 'meeting']
+            : step.id === 'schedule-1on1'
+              ? ['slack', 'join', 'founder', 'adam', 'dm', 'welcome']
+              : step.id === 'social-media'
+                ? ['socials', 'founder', 'adam', 'linkedin', 'personal brand', 'kahana hq']
+                : step.id === 'sops'
               ? ['phase 2', 'sop', 'sops', 'role', 'processes', 'calendar', 'manager']
               : []
     const extraDescription =
@@ -420,8 +424,12 @@ function buildOnboardingStepEntries() {
         : step.id === 'tools-access'
           ? 'Submit the Get Access to Tools & Data form for Linear, Mixpanel, and (if coding) GitHub email.'
           : step.id === 'weekly-1on1'
-            ? 'Schedule a recurring weekly 1-on-1 with Adam via Calendly.'
-            : step.id === 'sops'
+            ? 'Book a recurring weekly 1-on-1 with Manager via Calendly.'
+            : step.id === 'schedule-1on1'
+              ? 'Join Slack, then DM Adam Kershner (Founder) to introduce yourself. This is a founder welcome, not a Manager request.'
+              : step.id === 'social-media'
+                ? 'Follow Founder Adam on his personal socials first. Kahana company channels are secondary.'
+                : step.id === 'sops'
               ? 'Phase 2 (2 weeks): with your manager, read SOPs for your role until you know your process calendar, tools, and where instructions live.'
             : step.day === 'optional'
               ? `Supplementary onboarding — ${step.category}.`

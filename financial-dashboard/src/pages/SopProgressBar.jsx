@@ -8,6 +8,7 @@ export function SopProgressBar({
   done,
   total,
   completeLabel = 'All done',
+  duration = '',
 }) {
   if (!total) return null
   const percent = sopProgressPercent(done, total)
@@ -19,6 +20,12 @@ export function SopProgressBar({
         </span>
         <span className="sop-progress-sticky-pct">
           {percent === 100 ? completeLabel : `${percent}% complete`}
+          {duration ? (
+            <>
+              {' · '}
+              <span className="sop-progress-sticky-time">{duration}</span>
+            </>
+          ) : null}
         </span>
       </div>
       <div className="onboarding-progress-bar">

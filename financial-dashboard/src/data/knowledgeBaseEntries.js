@@ -415,6 +415,25 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     ],
   },
   {
+    path: '/sops/onboarding-as-a-manager',
+    title: 'Onboarding as a Manager',
+    category: 'SOPs',
+    description:
+      'HR SOP: Managers onboard a new teammate assigned by an Executive. Weekly 1-on-1s on the Manager Calendly, community, role SOPs, tools, a process calendar, a Founder SOP check, and new-hire feedback that makes SOPs easier to follow. Finish within 1 month (ideally 1-2 weeks).',
+    keywords: [
+      'manager',
+      'onboarding',
+      'training',
+      '1-on-1',
+      'calendly',
+      'new hire',
+      'sops',
+      'founder',
+      'hr',
+      'sop',
+    ],
+  },
+  {
     path: '/sops/analytics',
     title: 'Analytics',
     category: 'SOPs',

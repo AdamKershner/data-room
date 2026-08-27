@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { getAdjacentSopSteps, getSopStep } from '../data/sopContent'
+import { sopStepTimeBadge, sopTotalDuration } from '../data/sopStepUtils'
 import { readLocalJson } from '../utils/safeStorage'
 import { OnboardingIcon } from './onboardingIcons'
 import { SopProgressBar } from './SopProgressBar'
@@ -44,11 +45,12 @@ function SopStep() {
       <div className="onboarding-back-banner">
         <Link to={indexHref}>← Back to SOP {sop.number}: {sop.title}</Link>
       </div>
-      <SopProgressBar done={progress.done} total={progress.total} />
+      <SopProgressBar done={progress.done} total={progress.total} duration={sopTotalDuration(sop)} />
       <div className="page-header onboarding-step-header">
         <p className="project-charter-eyebrow">
           SOP {sop.number} · {sop.title}
           {step.sectionTitle ? ` · ${step.sectionTitle}` : ''}
+          {sopStepTimeBadge(step) ? ` · ${sopStepTimeBadge(step)}` : ''}
         </p>
         <h1 className="onboarding-step-title">
           {step.icon && (

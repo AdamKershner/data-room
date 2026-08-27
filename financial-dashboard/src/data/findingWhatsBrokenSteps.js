@@ -1,8 +1,9 @@
 /**
  * Product Quality — checklist SOP (formerly Finding What's Broken).
  * Gallery: /sops/finding-whats-broken · steps: /sops/finding-whats-broken/:stepId
- * Source: Product SOP playbook by Srujana Divya Emmadi (Technical Product Manager).
  */
+
+import { SOP_LAST_UPDATED } from './sopStepUtils'
 
 export const FINDING_WHATS_BROKEN_META = {
   title: 'Product Quality',
@@ -15,9 +16,9 @@ export const FINDING_WHATS_BROKEN_META = {
     'Use the Section V checklist whenever you sit down to do a review. Quality improves every week instead of getting rediscovered by accident.',
   excerpt:
     'Find broken, confusing, or absurd product moments, then log, prioritize, and verify the fix. We do it so quality improves every week instead of getting rediscovered by accident.',
+  updatedAt: SOP_LAST_UPDATED,
   metaRows: [
     ['Playbook', 'Product — find, log, prioritize, and verify fixes'],
-    ['Author', 'Srujana Divya Emmadi — Technical Product Manager'],
     ['Written for', 'Product Managers on a small, fast-moving Kahana team'],
     ['Edition', 'v1.0 — working playbook'],
     ['Standing', 'Open Section V during every review session'],
@@ -76,7 +77,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     label: 'Dogfood it like a brand-new user',
     icon: 'user',
     group: 'finding',
-    badge: 'weekly',
+    badge: '30 min',
     doneWhen:
       'You completed one real task in incognito or a throwaway account and wrote down every hesitation.',
   },
@@ -85,7 +86,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     label: 'Walk every core user journey',
     icon: 'map',
     group: 'finding',
-    badge: 'monthly',
+    badge: '45 min',
     doneWhen:
       'You listed the 5–8 journeys that matter most and walked each on desktop and mobile, in at least two browsers.',
   },
@@ -94,7 +95,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     label: 'Read the data, don’t guess',
     icon: 'chart',
     group: 'finding',
-    badge: 'weekly',
+    badge: '20 min',
     doneWhen:
       'You checked funnel drop-off, dead/rage clicks, zero-result search, and error logs instead of relying on gut feel.',
   },
@@ -103,7 +104,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     label: 'Mine feedback you already have',
     icon: 'message',
     group: 'finding',
-    badge: 'weekly',
+    badge: '15 min',
     doneWhen:
       'You scanned tickets, reviews, founder-call notes, and social mentions for the same complaint showing up twice.',
   },
@@ -112,7 +113,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     label: 'Run a heuristic evaluation',
     icon: 'clipboard',
     group: 'finding',
-    badge: 'monthly',
+    badge: '30 min',
     doneWhen:
       'You scored key screens against Nielsen’s 10 heuristics instead of personal taste.',
   },
@@ -121,7 +122,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     label: 'Benchmark comparable products',
     icon: 'globe',
     group: 'finding',
-    badge: 'monthly',
+    badge: '25 min',
     doneWhen:
       'You did the same core task on 2–3 products users already know and noted where theirs is obviously better.',
   },
@@ -175,7 +176,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     label: 'Use it like a first-time user',
     icon: 'user',
     group: 'session',
-    badge: 'session',
+    badge: '5 min',
     doneWhen: 'This review was done as a stranger, not as an insider who already knows every button.',
   },
   {
@@ -183,7 +184,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     label: 'Same flow on mobile and desktop',
     icon: 'globe',
     group: 'session',
-    badge: 'session',
+    badge: '5 min',
     doneWhen: 'The same flow was tested on mobile and desktop.',
   },
   {
@@ -191,7 +192,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     label: 'Check funnel drop-off and error logs',
     icon: 'chart',
     group: 'session',
-    badge: 'session',
+    badge: '5 min',
     doneWhen: 'Funnel drop-off and error logs were checked — not only click-around.',
   },
   {
@@ -199,7 +200,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     label: 'Check tickets and reviews',
     icon: 'message',
     group: 'session',
-    badge: 'session',
+    badge: '5 min',
     doneWhen: 'Recent support tickets and reviews were scanned for repeat complaints.',
   },
   {
@@ -207,7 +208,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     label: 'Attach evidence to every finding',
     icon: 'clipboard',
     group: 'session',
-    badge: 'session',
+    badge: '5 min',
     doneWhen: 'Every finding has a screenshot, an issue, and a named impact.',
   },
   {
@@ -215,7 +216,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     label: 'Sort into Impact / Effort',
     icon: 'trend',
     group: 'session',
-    badge: 'session',
+    badge: '5 min',
     doneWhen: 'New findings are on the Impact vs Effort grid.',
   },
   {
@@ -223,7 +224,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     label: 'Schedule high-impact / low-effort',
     icon: 'calendar',
     group: 'session',
-    badge: 'session',
+    badge: '5 min',
     doneWhen: 'High Impact / Low Effort items are scheduled this week.',
   },
   {
@@ -231,7 +232,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     label: 'Re-test anything marked fixed',
     icon: 'lock',
     group: 'session',
-    badge: 'session',
+    badge: '5 min',
     doneWhen: 'Anything marked “fixed” was re-run with the original repro steps before closing.',
   },
 ]

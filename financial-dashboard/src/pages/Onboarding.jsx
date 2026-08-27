@@ -188,7 +188,8 @@ function Onboarding() {
               <h3 className="onboarding-day-title">Phase 2 — Own your processes (2 weeks)</h3>
               <p className="onboarding-day-intro">
                 Read the SOPs for your role and responsibilities. Your manager is available to answer
-                questions and guide you. This phase lasts two weeks.
+                questions and guide you. This phase lasts two weeks. Managers follow{' '}
+                <Link to="/sops/onboarding-as-a-manager">SOP 28: Onboarding as a Manager</Link>.
               </p>
               <ul className="onboarding-list">
                 {phase2Steps.map((step) => (

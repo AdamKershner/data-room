@@ -1,11 +1,12 @@
 import React, { useCallback, useMemo, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { getAdjacentSops, getSopById } from '../data/sopContent'
-import { sopStepKey } from '../data/sopStepUtils'
+import { sopStepKey, sopStepTimeBadge, sopTotalDuration } from '../data/sopStepUtils'
 import { readLocalJson, writeLocalJson } from '../utils/safeStorage'
 import { SopReviewStatusBadge } from '../components/SopReviewStatusBadge'
 import { OnboardingIcon } from './onboardingIcons'
 import { SopIntroCallout, SopProgressBar } from './SopProgressBar'
+import { SopMeta } from './SopMeta'
 import './Page.css'
 import './Onboarding.css'
 import './Sops.css'
@@ -36,35 +37,25 @@ function SopDoc({ sop }) {
     [storageKey]
   )
 
+  const duration = useMemo(() => sopTotalDuration(sop), [sop])
+
   return (
     <article className="sop-doc" id={sop.id}>
-      <SopProgressBar done={doneCount} total={totalCount} />
+      <SopProgressBar done={doneCount} total={totalCount} duration={duration} />
       <header className="sop-doc-header">
         <p className="sop-doc-eyebrow">
           SOP {sop.number} · {sop.category} · Checklist
         </p>
         <SopReviewStatusBadge number={sop.number} className="sop-status-badge--detail" />
         <h1 className="sop-detail-title">{sop.title}</h1>
-        <dl className="sop-meta">
-          <div>
-            <dt>Function</dt>
-            <dd>{sop.category}</dd>
-          </div>
-          {sop.owner ? (
-            <div>
-              <dt>Owner</dt>
-              <dd>{sop.owner}</dd>
-            </div>
-          ) : null}
-          <div>
-            <dt>Who</dt>
-            <dd>{sop.who}</dd>
-          </div>
-          <div>
-            <dt>When</dt>
-            <dd>{sop.when}</dd>
-          </div>
-        </dl>
+        <SopMeta
+          category={sop.category}
+          who={sop.who}
+          cadence={sop.cadence}
+          trigger={sop.trigger}
+          duration={duration}
+          updatedAt={sop.updatedAt}
+        />
         <SopIntroCallout excerpt={sop.excerpt} />
         {sop.notes?.length > 0 && (
           <div className="sop-callouts" role="note">
@@ -134,6 +125,9 @@ function SopDoc({ sop }) {
                         <span className="onboarding-item-text">{step.label}</span>
                         <span className="onboarding-item-arrow">→</span>
                       </Link>
+                      {sopStepTimeBadge(step) ? (
+                        <span className="onboarding-badge">{sopStepTimeBadge(step)}</span>
+                      ) : null}
                     </div>
                   </li>
                 )

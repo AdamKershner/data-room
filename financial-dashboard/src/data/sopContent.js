@@ -54,6 +54,10 @@ import {
   PRODUCT_MANAGEMENT_PLAYBOOK_ALIASES,
   PRODUCT_MANAGEMENT_PLAYBOOK_SOP,
 } from './productManagementPlaybookSop'
+import {
+  MANAGER_ONBOARDING_ALIASES,
+  MANAGER_ONBOARDING_SOP,
+} from './managerOnboardingSop'
 import { flattenSopSteps, normalizeSopDoc } from './sopStepUtils'
 
 export const SOP_PAGE = {
@@ -61,7 +65,7 @@ export const SOP_PAGE = {
 }
 
 /** SOPs 1 through this number are ready for review. */
-export const SOP_READY_THROUGH = 27
+export const SOP_READY_THROUGH = 28
 
 export const SOP_REVIEW_STATUS = {
   ready: 'ready-for-review',
@@ -112,9 +116,12 @@ const FOLDED_SOP_ALIASES = {
  * @property {string[]} [keywords]
  * @property {string} who
  * @property {string} when
+ * @property {string} [cadence] - Daily, Weekly, Monthly, Quarterly, Annually
+ * @property {string} [trigger] - Event that starts this SOP
  * @property {string} [format] - 'checklist' for onboarding-style SOP pages
  * @property {string} [href] - Override gallery link (checklist index)
  * @property {string[]} [notes] - Callouts shown under Who/When
+ * @property {string} [updatedAt] - Last updated stamp shown on the SOP
  * @property {{ id: string, title: string, intro?: string, steps: SopStep[] }[]} sections
  * @property {string[]} doneWhen
  */
@@ -134,7 +141,7 @@ const SOP_EXCERPTS = {
   'brand-guidelines':
     'Check every public piece against Kahana brand, naming, and the Aura Library overlay. We do it so the company looks like one product, not a pile of intern drafts.',
   'merch':
-    'Design, print, and fulfill merch for the team, customers, and clubs without breaking brand or budget. We do it so Kahana shows up in the world as something people can wear, not only a tab.',
+    'Design on-brand merch and list it on Printify so community members can buy it. We do it so Kahana earns from merch without stocking a warehouse, and custom pieces are purchased only for named creator collabs.',
   'official-social-media':
     'Request official-account access, then post only after Linear quality review. We do it so Kahana HQ speaks with one voice and Mixpanel can see which posts actually bring people in.',
   'author-outreach':
@@ -197,6 +204,7 @@ const SOPS_RAW = [
       'bug',
       'ux',
       'usability',
+      'quality',
       'heuristic',
       'nielsen',
       'dogfood',
@@ -204,17 +212,16 @@ const SOPS_RAW = [
       'rage click',
       'empty state',
       'checkout',
-      'srujana',
     ],
     who: 'Product Managers',
     when: 'Daily notes, weekly dogfood, bi-weekly triage, monthly journey pass, and before every major launch.',
     notes: [
-      'Working playbook from Srujana Divya Emmadi. Open Section V during every review session.',
+      'Working playbook for Product Managers. Open Section V during every review session.',
     ],
     sections: FINDING_WHATS_BROKEN_STEPS.map((step) => ({
       id: step.id,
       title: step.label,
-      steps: [{ text: step.doneWhen }],
+      steps: [{ ...step, text: step.doneWhen }],
     })),
     doneWhen: [
       'A weekly dogfood session is on the calendar.',
@@ -247,14 +254,121 @@ const SOPS_RAW = [
   { ...PLATFORM_GOVERNANCE_SOP, number: 25 },
   { ...CONTENT_MODERATION_SOP, number: 26 },
   { ...REPORTING_CYBER_THREATS_SOP, number: 27 },
+  { ...MANAGER_ONBOARDING_SOP, number: 28 },
 ]
 
-export const SOPS = SOPS_RAW.map((sop) =>
-  normalizeSopDoc({
+const SOP_SCHEDULE = {
+  'product-hunt-launch': {
+    trigger: 'A Product Hunt launch is scheduled. Day-of work starts at 3 AM EST.',
+  },
+  'community-building': {
+    cadence: 'Weekly',
+    trigger: 'Founding a club, then every cycle after.',
+  },
+  'finding-whats-broken': {
+    cadence: 'Daily, Weekly, Monthly',
+    trigger: 'Before every major launch.',
+  },
+  'product-management-playbook': {
+    cadence: 'Quarterly',
+    trigger: 'First 90 days for a new PM, and after each PM onboarding cycle.',
+  },
+  'blog-publishing': {
+    cadence: 'Weekly',
+    trigger: 'A ship, success story, or landscape comparison is ready to teach.',
+  },
+  'brand-guidelines': {
+    trigger: 'Before every public piece, and again if copy, visuals, or the story changed.',
+  },
+  'merch': {
+    trigger: 'Before each Printify listing. Custom merch when a named creator collab needs it.',
+  },
+  'official-social-media': {
+    trigger: 'Before first login to an official account, and before every official post.',
+  },
+  'author-outreach': {
+    cadence: 'Weekly',
+    trigger: 'Working a batch from the contact list and tracker.',
+  },
+  'writing-a-project-charter': {
+    trigger: 'At the outset of a project with more than two or three people, before work begins.',
+  },
+  'creating-youtube-videos': {
+    trigger: 'After a ship, a repeating question, a use case, or a blog or Help article with no video.',
+  },
+  'seo': {
+    cadence: 'Weekly, Monthly',
+    trigger: 'Before drafting a blog, video, or campaign, and after every public URL or sitemap change.',
+  },
+  'marketing-website': {
+    trigger: 'Any marketing-site enhancement, bug fix, blog publish, or campaign landing change.',
+  },
+  'pr-news': {
+    trigger: 'There is a real scoop worth offering, or inbound press arrives.',
+  },
+  'creator-prospecting': {
+    cadence: 'Weekly',
+    trigger: 'Before hunting email, log the profile in the creator database.',
+  },
+  'creator-outreach': {
+    trigger: 'SOP 15 has Email or a named social or DM path on the row.',
+  },
+  'creator-collab-calls': {
+    trigger: 'They book time from SOP 16. Prep the same day. Log the same day.',
+  },
+  'post-collab-followups': {
+    cadence: 'Weekly, Monthly, Quarterly',
+    trigger: 'The day the hub goes public, then 7 days and 30 days.',
+  },
+  'lifecycle-emails-and-tickets': {
+    cadence: 'Daily',
+    trigger: 'Every inbound ticket, contact form, support request, or survey reply.',
+  },
+  'time-log': {
+    cadence: 'Weekly',
+    trigger: 'Friday EOD. HR and PM check the sheet Friday EOD or Monday morning.',
+  },
+  'analytics': {
+    cadence: 'Weekly, Monthly',
+    trigger: 'A function asks, or a recurring question is still answered by hand.',
+  },
+  'kahana-code-setup': {
+    trigger: 'First week, after the tools form. Finish before you take a Linear card.',
+  },
+  'penetration-testing': {
+    cadence: 'Quarterly',
+    trigger: 'Before a launch that adds a lot of new surface (auth, payments, admin, uploads).',
+  },
+  'pii-handling': {
+    cadence: 'Daily',
+    trigger: 'Exports, admin tools, Mixpanel, support tickets, and recordings.',
+  },
+  'platform-governance': {
+    cadence: 'Quarterly, Annually',
+    trigger: 'Adding admin capabilities or vendors, or after an incident.',
+  },
+  'content-moderation': {
+    cadence: 'Daily',
+    trigger: 'On every content report, and as a sampled review of public hubs.',
+  },
+  'reporting-cyber-threats': {
+    trigger: 'Immediately: phishing, intrusion, or suspicious admin activity.',
+  },
+  'onboarding-as-a-manager': {
+    cadence: 'Weekly',
+    trigger: 'An Executive assigns you a new teammate. Finish in 1 month, ideally 1-2 weeks.',
+  },
+}
+
+export const SOPS = SOPS_RAW.map((sop) => {
+  const schedule = SOP_SCHEDULE[sop.id] || {}
+  return normalizeSopDoc({
     ...sop,
     excerpt: sop.excerpt || SOP_EXCERPTS[sop.id],
+    cadence: sop.cadence || schedule.cadence,
+    trigger: sop.trigger || schedule.trigger,
   })
-)
+})
 
 /** Categories used for gallery filters (order matters). Empty categories are omitted. */
 export const SOP_CATEGORIES = FUNCTION_SOP_CATEGORIES.filter((c) =>
@@ -276,6 +390,7 @@ export function resolveSopId(sopId) {
     ANALYTICS_ALIASES[sopId] ||
     KAHANA_CODE_SETUP_ALIASES[sopId] ||
     SECURITY_SOP_ALIASES[sopId] ||
+    MANAGER_ONBOARDING_ALIASES[sopId] ||
     sopId
   )
 }
@@ -325,6 +440,8 @@ export function sopMatchesQuery(sop, query) {
     sop.excerpt ?? '',
     sop.who,
     sop.when,
+    sop.cadence ?? '',
+    sop.trigger ?? '',
     ...(sop.keywords ?? []),
     ...(sop.notes ?? []),
     ...sop.sections.flatMap((section) => [

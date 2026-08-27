@@ -18,7 +18,7 @@ export const ONBOARDING_STEPS = [
   },
   {
     id: 'weekly-1on1',
-    label: 'Schedule weekly 1-on-1 with Adam',
+    label: 'Weekly 1-on-1 with Manager',
     icon: 'meeting',
     category: 'Admin & Setup',
     day: 1,
@@ -26,7 +26,7 @@ export const ONBOARDING_STEPS = [
   },
   {
     id: 'social-media',
-    label: 'Follow Kahana & Adam on socials',
+    label: 'Follow Founder Adam on socials',
     icon: 'megaphone',
     category: 'External Presence',
     day: 1,

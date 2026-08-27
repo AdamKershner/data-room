@@ -14,13 +14,13 @@ function StepSchedule1on1() {
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
         <strong>✓ Done when:</strong> You&apos;ve joined Kahana Group Slack, installed Slack on your phone with
-        notifications on, and DM&apos;d Adam Kershner to introduce yourself.
+        notifications on, and DM&apos;d Adam Kershner (Founder) to introduce yourself.
       </p>
 
       <h3>1. Join Slack</h3>
       <p>
-        Slack is our primary workspace for day-to-day communication — DMs, channels, and team coordination.
-        Join first so you can reach Adam and the rest of the team.
+        Slack is our primary workspace for day-to-day communication: DMs, channels, and team coordination.
+        Join first so you can reach the rest of the team, then say hello to the Founder.
       </p>
       <a
         href={SLACK_INVITE_URL}
@@ -56,17 +56,22 @@ function StepSchedule1on1() {
         Slack: Configure your notifications →
       </a>
 
-      <h3>3. DM Adam Kershner once you&apos;re in</h3>
+      <h3>3. DM Adam, the Founder, once you&apos;re in</h3>
       <div className="onboarding-note onboarding-note-important">
         <p>
-          As soon as you join Slack, <strong>DM Adam Kershner</strong>. Introduce yourself (name, role /
-          functions you&apos;re joining for). That opens the channel for onboarding questions and tool access.
+          As soon as you join Slack, <strong>DM Adam Kershner</strong>. He is the Founder, and he wants to
+          connect with new team members the day you arrive. Introduce yourself (name, role / functions
+          you&apos;re joining for). This is a founder welcome, not a Manager request. Weekly 1-on-1s and tool
+          access are separate steps.
         </p>
       </div>
 
       <div className="onboarding-note onboarding-note-help">
         <p>
-          Next: <Link to="/onboarding/weekly-1on1" className="onboarding-inline-link">Schedule your weekly 1-on-1</Link>
+          Next:{' '}
+          <Link to="/onboarding/weekly-1on1" className="onboarding-inline-link">
+            Weekly 1-on-1 with Manager
+          </Link>
           {' '}and{' '}
           <Link to="/onboarding/tools-access" className="onboarding-inline-link">request tools access</Link>.
         </p>
@@ -79,12 +84,15 @@ function StepWeekly1on1() {
   return (
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You&apos;ve booked a recurring weekly 1-on-1 with Adam via Calendly.
+        <strong>✓ Done when:</strong> You&apos;ve booked a recurring weekly 1-on-1 with Manager via Calendly.
       </p>
 
       <p>
-        Everyone schedules a <strong>weekly 1-on-1</strong> with Adam. Use the Calendly link below — it puts a
-        meeting on both calendars so you check in every week (join the call or sync over Slack at that time).
+        Everyone schedules a <strong>weekly 1-on-1</strong> with Manager. That is operating cadence, not the
+        founder Slack hello. Use the Calendly link your Manager sent in Slack. It puts a meeting on both
+        calendars so you check in every week (join the call or sync over Slack at that time). If you do not
+        have a link yet, Slack Manager. Do not book Founder Adam for weekly 1-on-1s unless Manager told you
+        to (including when your Manager is the Founder).
       </p>
 
       <a
@@ -93,17 +101,25 @@ function StepWeekly1on1() {
         rel="noopener noreferrer"
         className="onboarding-cta-link onboarding-cta-link-block"
       >
-        Schedule weekly 1-on-1 with Adam → Calendly
+        If Manager is Founder Adam: Weekly 1-on-1 Calendly →
       </a>
+
+      <p>
+        Managers run{' '}
+        <Link to="/sops/onboarding-as-a-manager" className="onboarding-inline-link">
+          SOP 28: Onboarding as a Manager
+        </Link>
+        . They send their own Calendly, not this Founder link, unless they are the Founder.
+      </p>
 
       <h3>FAQs</h3>
       <dl className="onboarding-faq">
         <dt>Frequency</dt>
-        <dd>Weekly — not biweekly. Book the slot; Adam will make it a recurring weekly meeting.</dd>
+        <dd>Weekly — not biweekly. Book the slot; Manager will make it a recurring weekly meeting.</dd>
         <dt>Agenda</dt>
         <dd>Share what you&apos;re focusing on, blockers, and what you&apos;re learning.</dd>
         <dt>Can&apos;t make it?</dt>
-        <dd>Tell Adam in advance on Slack.</dd>
+        <dd>Tell Manager in advance on Slack.</dd>
       </dl>
 
       <div className="onboarding-note onboarding-note-help">
@@ -405,6 +421,8 @@ function StepSops() {
         </li>
         <li>
           Work those procedures over the two weeks. Bring blockers to your manager in 1:1s and Slack.
+          If a SOP is hard to read or follow, click <strong>Feedback</strong> on that page (top right)
+          while the stuck moment is fresh. Your manager uses that to fix the SOP for the next hire.
         </li>
         <li>
           Confirm you have the data and tools those processes need. If anything is missing, finish{' '}
@@ -1223,24 +1241,24 @@ function StepSocialMedia() {
   return (
     <div className="onboarding-step-content">
       <p className="onboarding-step-done onboarding-step-done-top">
-        <strong>✓ Done when:</strong> You&apos;ve followed all Kahana channels, followed Adam on his socials
-        (via his about page), and turned on notifications for each.
+        <strong>✓ Done when:</strong> You&apos;ve followed Adam (Founder) on his personal socials via his about
+        page, followed Kahana company channels, and turned on notifications for each.
       </p>
 
       <p>
-        Follow Kahana social accounts and Adam&apos;s personal channels so you stay up to date on company
-        updates, product news, and founder-led content. More content coming soon — stay tuned!
+        Kahana&apos;s strongest social channel is founder-led. Adam posts from his personal accounts. Follow him
+        first. Company Kahana HQ pages are secondary.
       </p>
 
       <p>
-        When we post new content, like and comment on it — engagement helps us improve in the algorithms and
-        increases our reach.
+        When he or Kahana posts new content, like and comment. Engagement helps the algorithms and increases
+        reach.
       </p>
 
-      <h3>1. Follow Adam on socials</h3>
+      <h3>1. Follow Adam, the Founder</h3>
       <p>
-        Open Adam&apos;s page and follow him on the platforms listed there (LinkedIn, X, Instagram, etc.).
-        Founder-led content is a core GTM channel — see also the{' '}
+        Open Adam&apos;s page and follow him on the platforms listed there (LinkedIn, X, Instagram, and the rest).
+        Founder-led social via a personal account is a core marketing channel. See the{' '}
         <Link to="/founder-personal-brand" className="onboarding-inline-link">
           Founder-led Personal Brand
         </Link>{' '}
@@ -1252,10 +1270,10 @@ function StepSocialMedia() {
         rel="noopener noreferrer"
         className="onboarding-cta-link onboarding-cta-link-block"
       >
-        Follow Adam Kershner → about.kahana.io/adam-kershner
+        Follow Founder Adam Kershner → about.kahana.io/adam-kershner
       </a>
 
-      <h3>2. Follow Kahana company channels</h3>
+      <h3>2. Follow Kahana company channels (secondary)</h3>
       <ul className="onboarding-steps-list">
         {SOCIAL_MEDIA_CHANNELS.map((channel) => (
           <li key={channel.name}>
@@ -1269,9 +1287,8 @@ function StepSocialMedia() {
       <div className="onboarding-note onboarding-note-help">
         <p>
           <strong>Turn on notifications:</strong> For each platform, enable notifications so you&apos;re
-          alerted when we post new content. On LinkedIn, use the bell icon on our company page and on
-          Adam&apos;s profile. On other platforms, check your account or app settings for notification
-          preferences.
+          alerted when new content goes live. On LinkedIn, use the bell on Adam&apos;s profile first, then on
+          the Kahana company page. On other platforms, check your account or app settings.
         </p>
       </div>
 

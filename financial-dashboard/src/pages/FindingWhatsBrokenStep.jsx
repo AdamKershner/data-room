@@ -9,6 +9,7 @@ import {
 import { FINDING_WHATS_BROKEN_CONTENT } from '../data/findingWhatsBrokenContent'
 import { OnboardingIcon } from './onboardingIcons'
 import { SopProgressBar } from './SopProgressBar'
+import { formatSopDuration, sopStepTimeBadge, sumSopMinutes } from '../data/sopStepUtils'
 import { readLocalJson } from '../utils/safeStorage'
 import './Page.css'
 import './Onboarding.css'
@@ -140,6 +141,7 @@ function FindingWhatsBrokenStep() {
   const requiredCount = FINDING_WHATS_BROKEN_STEPS.length
   const checkedMap = readLocalJson('sop-finding-whats-broken-checklist', {})
   const progressDone = FINDING_WHATS_BROKEN_STEPS.filter((s) => checkedMap[s.id]).length
+  const duration = formatSopDuration(sumSopMinutes(FINDING_WHATS_BROKEN_STEPS, { skipOptional: false }))
 
   if (!step) {
     return (
@@ -160,11 +162,17 @@ function FindingWhatsBrokenStep() {
       <div className="onboarding-back-banner">
         <Link to="/sops/finding-whats-broken">← Back to Product Quality</Link>
       </div>
-      <SopProgressBar done={progressDone} total={requiredCount} completeLabel="All checks done" />
+      <SopProgressBar
+        done={progressDone}
+        total={requiredCount}
+        duration={duration}
+        completeLabel="All checks done"
+      />
       <div className="page-header onboarding-step-header">
         <p className="project-charter-eyebrow">
           SOP {FINDING_WHATS_BROKEN_META.sopNumber} · {FINDING_WHATS_BROKEN_META.title}
           {` · ${requiredCount} steps`}
+          {sopStepTimeBadge(step) ? ` · ${sopStepTimeBadge(step)}` : ''}
         </p>
         <h1 title={step.label} aria-label={step.label} className="onboarding-step-title">
           {step.icon && (

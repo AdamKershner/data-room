@@ -125,6 +125,11 @@
   color: #64748b;
 }
 
+.sop-progress-sticky-time {
+  font-weight: 600;
+  color: #334155;
+}
+
 .sop-intro-callout {
   margin: 16px 0 20px;
   padding: 16px 18px 16px 20px;
@@ -191,10 +196,20 @@
 }
 
 .sop-meta {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 12px 24px;
-  margin: 0 0 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 16px 0 8px;
+  max-width: 42rem;
+  text-align: left;
+}
+
+.sop-meta > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
 }
 
 .sop-meta dt {
@@ -203,11 +218,12 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #64748b;
-  margin: 0 0 4px;
+  margin: 0;
 }
 
 .sop-meta dd {
   margin: 0;
+  padding-left: 0.85rem;
   color: #334155;
   line-height: 1.5;
 }

@@ -8,6 +8,8 @@ import {
 import { OnboardingIcon } from './onboardingIcons'
 import { SopReviewStatusBadge } from '../components/SopReviewStatusBadge'
 import { SopIntroCallout, SopProgressBar } from './SopProgressBar'
+import { SopMeta } from './SopMeta'
+import { formatSopDuration, sopStepTimeBadge, sumSopMinutes } from '../data/sopStepUtils'
 import { readLocalJson, writeLocalJson } from '../utils/safeStorage'
 import './Page.css'
 import './Onboarding.css'
@@ -62,6 +64,7 @@ function ConfettiBurst({ x, y, onComplete }) {
 }
 
 function QualityChecklistItem({ step, checked, onToggle, lastClickRef }) {
+  const timeBadge = sopStepTimeBadge(step)
   return (
     <li className="onboarding-item">
       <div className="onboarding-item-row">
@@ -95,7 +98,7 @@ function QualityChecklistItem({ step, checked, onToggle, lastClickRef }) {
           <span className="onboarding-item-text">{step.label}</span>
           <span className="onboarding-item-arrow">→</span>
         </Link>
-        {step.badge && <span className="onboarding-badge">{step.badge}</span>}
+        {timeBadge ? <span className="onboarding-badge">{timeBadge}</span> : null}
       </div>
     </li>
   )
@@ -124,6 +127,7 @@ function FindingWhatsBrokenChecklist() {
   const completedCount = FINDING_WHATS_BROKEN_STEPS.filter((s) => checked[s.id]).length
   const totalCount = FINDING_WHATS_BROKEN_STEPS.length
   const progressPercent = totalCount ? Math.round((completedCount / totalCount) * 100) : 0
+  const duration = formatSopDuration(sumSopMinutes(FINDING_WHATS_BROKEN_STEPS, { skipOptional: false }))
 
   return (
     <div className="page keepers-codex-page" id="finding-whats-broken">
@@ -136,6 +140,7 @@ function FindingWhatsBrokenChecklist() {
       <SopProgressBar
         done={completedCount}
         total={totalCount}
+        duration={duration}
         completeLabel="All checks done"
       />
       <div className="page-header">
@@ -145,6 +150,14 @@ function FindingWhatsBrokenChecklist() {
         <SopReviewStatusBadge number={FINDING_WHATS_BROKEN_META.sopNumber} className="sop-status-badge--detail" />
         <h1>{FINDING_WHATS_BROKEN_META.title}</h1>
         <p className="page-subtitle">{FINDING_WHATS_BROKEN_META.subtitle}</p>
+        <SopMeta
+          category={FINDING_WHATS_BROKEN_META.category}
+          who="Product Managers"
+          cadence="Daily, Weekly, Monthly"
+          trigger="Before every major launch."
+          duration={duration}
+          updatedAt={FINDING_WHATS_BROKEN_META.updatedAt}
+        />
         <SopIntroCallout excerpt={FINDING_WHATS_BROKEN_META.excerpt} />
         <p className="sop-freshness-note">{FINDING_WHATS_BROKEN_META.standing}</p>
         <p className="onboarding-hint">
@@ -152,17 +165,6 @@ function FindingWhatsBrokenChecklist() {
           <span className="onboarding-hint-item">→ Open a step for instructions</span>
         </p>
       </div>
-
-      <section className="content-block project-charter-meta" aria-label="SOP metadata">
-        <dl className="project-charter-meta-list">
-          {FINDING_WHATS_BROKEN_META.metaRows.map(([label, value]) => (
-            <div key={label} className="project-charter-meta-row">
-              <dt>{label}</dt>
-              <dd>{value}</dd>
-            </div>
-          ))}
-        </dl>
-      </section>
 
       <section className="onboarding-summary">
         <div className="onboarding-summary-card">

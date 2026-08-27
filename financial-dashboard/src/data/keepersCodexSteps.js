@@ -3,6 +3,8 @@
  * Index: /sops/keepers-codex · steps: /sops/keepers-codex/:stepId
  */
 
+import { SOP_LAST_UPDATED } from './sopStepUtils'
+
 export const KEEPERS_CODEX_META = {
   title: 'The Keeper’s Codex',
   sopNumber: 2,
@@ -13,10 +15,11 @@ export const KEEPERS_CODEX_META = {
   standing: 'Awaiting the Keeper’s word (Appendix III). Section VI is proposed, not standing.',
   excerpt:
     'The click-by-click checklist for founding, tending, inviting, stocking, and growing a hall. Work it through the first cycle so the club is a living hall, not a name on a list.',
+  updatedAt: SOP_LAST_UPDATED,
   metaRows: [
     ['Codex', 'Clubs — creation, care, invitation, and supply'],
-    ['Keeper of this codex', 'Sriram Reddy Kamatham — Project Management Intern'],
-    ['To be read and approved by', 'Manager (Sponsor) · Nithila (Project Manager)'],
+    ['Keeper of this codex', 'Project Management Intern'],
+    ['To be read and approved by', 'Manager (Sponsor) · Project Manager'],
     ['Edition', 'v1.0 — draft for review'],
     ['Standing', 'Awaiting the Keeper’s word (see Open decisions)'],
   ],

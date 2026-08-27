@@ -2,6 +2,8 @@
  * Shared SOP checklist helpers: short labels, Done when copy, stable step keys.
  */
 
+export const SOP_LAST_UPDATED = 'August 27, 2026, 1:10 PM EST'
+
 const MAX_LABEL_WORDS = 12
 
 const COMMAND_START =
@@ -185,13 +187,74 @@ export function normalizeSopStep(step, sectionId, index, section = {}) {
   const doneWhen = toCommandDoneWhen(rawDone, label, s.text)
   const text = toCommandBody(s.text)
   const icon = s.icon || deriveSopStepIcon({ ...s, label, text }, { id: sectionId, ...section })
-  return { ...s, id, label, doneWhen, icon, text: text || s.text }
+  const minutes = estimateSopStepMinutes({ ...s, label, text, doneWhen })
+  const badge = minutes > 0 ? formatSopDuration(minutes) : s.badge || ''
+  return { ...s, id, label, doneWhen, icon, minutes, badge, text: text || s.text }
+}
+
+export function parseMinutesFromBadge(badge) {
+  const t = String(badge || '').trim()
+  if (!t || /^optional$/i.test(t)) return 0
+  const min = t.match(/(\d+)\s*min/i)
+  if (min) return Number(min[1])
+  const hr = t.match(/(\d+(?:\.\d+)?)\s*hr/i)
+  if (hr) return Math.round(Number(hr[1]) * 60)
+  if (/^weekly$/i.test(t)) return 15
+  if (/^monthly$/i.test(t)) return 20
+  if (/^session$/i.test(t)) return 10
+  return 0
+}
+
+export function estimateSopStepMinutes(step) {
+  if (step?.optional || /^optional$/i.test(step?.badge || '')) return 0
+  if (Number.isFinite(step?.minutes) && step.minutes >= 0) return step.minutes
+  const fromBadge = parseMinutesFromBadge(step?.badge)
+  if (fromBadge) return fromBadge
+  const hay = `${step?.label ?? ''} ${step?.text ?? ''} ${step?.doneWhen ?? ''}`.toLowerCase()
+  if (/record |screen studio|film |overlay music|cut dead/.test(hay)) return 20
+  if (/clone |install depend|\.env|firebase|run locally|npm run/.test(hay)) return 15
+  if (/\bwrite |\bdraft |\bdesign |\bcharter |\bbrief |\boutline |\btemplate/.test(hay)) return 15
+  if (/legal |proofread |brand guidelines|quality review/.test(hay)) return 8
+  if (/photograph |edit |package |thumbnail/.test(hay)) return 10
+  if (/slack |ask |ping |tell |dm /.test(hay)) return 2
+  if (/open |read |check |click |bookmark|confirm mixpanel|confirm you/.test(hay)) return 3
+  if (/do not |never /.test(hay) && hay.length < 220) return 2
+  return 5
+}
+
+export function formatSopDuration(minutes) {
+  const n = Math.round(Number(minutes) || 0)
+  if (n <= 0) return ''
+  if (n < 60) return `${n} min`
+  const h = Math.floor(n / 60)
+  const m = n % 60
+  const hours = h === 1 ? '1 hr' : `${h} hr`
+  return m ? `${hours} ${m} min` : hours
+}
+
+export function sopStepTimeBadge(step) {
+  if (step?.optional || /^optional$/i.test(step?.badge || '')) return 'optional'
+  return formatSopDuration(estimateSopStepMinutes(step))
+}
+
+export function sumSopMinutes(steps, { skipOptional = true } = {}) {
+  return (steps || []).reduce((sum, step) => {
+    if (skipOptional && (step.optional || /^optional$/i.test(step.badge || ''))) return sum
+    return sum + estimateSopStepMinutes(step)
+  }, 0)
+}
+
+export function sopTotalDuration(sop) {
+  return formatSopDuration(sumSopMinutes(flattenSopSteps(sop)))
 }
 
 export function normalizeSopDoc(sop) {
-  if (!sop?.sections) return sop
+  if (!sop?.sections) {
+    return sop ? { ...sop, updatedAt: sop.updatedAt || SOP_LAST_UPDATED } : sop
+  }
   return {
     ...sop,
+    updatedAt: sop.updatedAt || SOP_LAST_UPDATED,
     sections: sop.sections.map((section) => ({
       ...section,
       steps: section.steps.map((step, i) => normalizeSopStep(step, section.id, i, section)),

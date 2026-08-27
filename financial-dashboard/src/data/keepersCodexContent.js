@@ -382,7 +382,7 @@ export const KEEPERS_CODEX_CONTENT = {
           ],
           [
             'A confirmed bug needing engineering time',
-            'Raise to Divya Emmadi for the Linear backlog, stating the reader problem and the KPI it moves',
+            'Raise to the Technical Product Manager for the Linear backlog, stating the reader problem and the KPI it moves',
           ],
         ],
       },
@@ -546,7 +546,7 @@ export const KEEPERS_CODEX_CONTENT = {
           ['Slack', 'Urgency and coordination only — never the sole record. File the form as well.'],
           [
             'Linear',
-            'Engineering-owned work, raised through Divya Emmadi. Not filed directly by GTM.',
+            'Engineering-owned work, raised through Product. Not filed directly by GTM.',
           ],
         ],
       },

@@ -9,6 +9,7 @@ import {
 import { KEEPERS_CODEX_CONTENT } from '../data/keepersCodexContent'
 import { OnboardingIcon } from './onboardingIcons'
 import { SopProgressBar } from './SopProgressBar'
+import { formatSopDuration, sopStepTimeBadge, sumSopMinutes } from '../data/sopStepUtils'
 import { readLocalJson } from '../utils/safeStorage'
 import './Page.css'
 import './Onboarding.css'
@@ -163,6 +164,7 @@ function KeepersCodexStep() {
   const requiredCount = requiredSteps.length
   const checkedMap = readLocalJson('sop-keepers-codex-checklist', {})
   const progressDone = requiredSteps.filter((s) => checkedMap[s.id]).length
+  const duration = formatSopDuration(sumSopMinutes(requiredSteps))
 
   if (!step) {
     return (
@@ -186,12 +188,14 @@ function KeepersCodexStep() {
       <SopProgressBar
         done={progressDone}
         total={requiredCount}
+        duration={duration}
         completeLabel="All required labours done"
       />
       <div className="page-header onboarding-step-header">
         <p className="project-charter-eyebrow">
           SOP {KEEPERS_CODEX_META.sopNumber} · {KEEPERS_CODEX_META.title}
           {step.optional ? ' · Appendix' : ` · ${requiredCount} required labours`}
+          {sopStepTimeBadge(step) ? ` · ${sopStepTimeBadge(step)}` : ''}
         </p>
         <h1 title={step.label} aria-label={step.label} className="onboarding-step-title">
           {step.icon && (
