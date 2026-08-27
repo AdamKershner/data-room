@@ -74,6 +74,7 @@ function Sops() {
                 ))}
               </div>
             </div>
+            {countsByStatus.inProgress > 0 && (
             <div className="kb-filter-group">
               <span className="kb-filter-group-label">Status</span>
               <div className="kb-filter-buttons" role="group" aria-label="Filter by SOP review status">
@@ -100,6 +101,7 @@ function Sops() {
                 </button>
               </div>
             </div>
+            )}
             <div className="kb-filter-group kb-search-group">
               <label htmlFor="sops-search">Search</label>
               <input

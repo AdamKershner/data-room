@@ -7,7 +7,7 @@
  * SOP 3 Product Quality. SOP 4 Product Management Playbook. SOP 5 Blogs.
  * SOP 6 Brand Guidelines. SOP 7 Merch. SOP 8 Official Social Media.
  * SOP 9 Author Outreach. SOP 10 Writing a Project Charter.
- * SOP 11 Creating YouTube Videos. SOP 12 SEO. SOP 13 Updating the Marketing Website. SOP 14 Third-Party News and PR. SOP 15 Creator Prospecting. SOP 16 Creator Outreach. SOP 17 Creator Collab Calls. SOP 18 Post-Collab Follow-ups. SOP 19 Lifecycle Emails and Tickets. SOP 20 Time Log. SOP 21 Analytics. SOP 22 Getting Set Up with Kahana Code. SOP 23 Penetration Testing. SOP 24 PII Handling. SOP 25 Platform Governance. SOP 26 Content Moderation. SOP 27 Reporting Cybersecurity Threats. SOP 28+ function playbooks and operating tasks.
+ * SOP 11 Creating YouTube Videos. SOP 12 SEO. SOP 13 Updating the Marketing Website. SOP 14 Third-Party News and PR. SOP 15 Creator Prospecting. SOP 16 Creator Outreach. SOP 17 Creator Collab Calls. SOP 18 Post-Collab Follow-ups. SOP 19 Lifecycle Emails and Tickets. SOP 20 Time Log. SOP 21 Analytics. SOP 22 Getting Set Up with Kahana Code. SOP 23 Penetration Testing. SOP 24 PII Handling. SOP 25 Platform Governance. SOP 26 Content Moderation. SOP 27 Reporting Cybersecurity Threats.
  */
 
 import { keepersCodexSearchBlob } from './keepersCodexSteps'
@@ -47,7 +47,6 @@ import {
   REPORTING_CYBER_THREATS_SOP,
   SECURITY_SOP_ALIASES,
   FUNCTION_SOP_CATEGORIES,
-  FUNCTION_SOPS,
   PRODUCT_HUNT_LAUNCH_SOP,
 } from './functionSops'
 import { COMMUNITY_BUILDING_ALIASES, COMMUNITY_BUILDING_SOP } from './communityBuildingSop'
@@ -59,12 +58,12 @@ import {
 export const SOP_PAGE = {
   title: 'Standard Operating Procedures',
   subtitle:
-    'Searchable guides tagged by business function. Club and product quality checklists sit alongside department playbooks and day-to-day operating tasks.',
+    'Searchable guides tagged by business function. Twenty-seven procedures ready for review.',
   freshnessNote:
-    'SOP 1–27 are Ready for review. SOP 28+ are labeled Updates in progress (function playbooks from SOPS.txt plus operating tasks, Marketing through Legal). SOP 1 is Product Hunt Launch. SOP 2 Community Building covers clubs (as of August 12, 2026) and The Keeper’s Codex (v1.0 draft). SOP 3 Product Quality is the product quality checklist. SOP 4 is the Product Management Playbook (v1.0). SOP 5 is Blogs. SOP 6 is Brand Guidelines (original PDF plus Aura Library overlay; revamp in progress). SOP 7 is Merch (Canva, Printify, living mood board). SOP 8 is Official Social Media (restricted credentials, brand/proofread, Linear marketing-manager review before schedule or post). SOP 9 is Author Outreach (contact list, tracker, personalized template). SOP 10 is Writing a Project Charter (brief from Adam, draft before every answer, product-verified steps, he circulates). SOP 11 is Creating YouTube Videos (Screen Studio, pauses and music, demo thumbnail, YouTube package, SOP 8 or zip to Adam). SOP 12 is SEO (Search Console, keyword clusters, UTMs, Mixpanel referring domain, product SEO for hubs/profiles/clubs ongoing). SOP 13 is Updating the Marketing Website (kahana-homepage-public, Linear card, local test, In Review, Adam or EM deploys Heroku, then Complete). SOP 14 is Third-Party News and PR (media database, scoops, personalized pitches, legal on claims, archive coverage). SOP 15 is Creator Prospecting (TikTok/Instagram/YouTube → sheet, brand contact, handle@gmail.com checked in Google Chat). SOP 16 is Creator Outreach (email or official DM, white-glove hub, complimentary Growth plan, featured placement). SOP 17 is Creator Collab Calls (booked meeting, listen, offer, paid-collab screen, help them to a hub on the library). SOP 18 is Post-Collab Follow-ups (hub views and payments, how else we can help, opt-in collab-creators club). SOP 19 is Lifecycle Emails and Tickets (Resend + Mixpanel delivery/landing, NPS/PMF, contact, support, feedback). SOP 20 is Time Log (Kahana HQ Friday reminder, HR and PM check the output sheet, Slack missing people). SOP 21 is Analytics (proactive outreach to other functions, reporting insights, measurement innovation, teach them to reuse the answer). SOP 22 is Getting Set Up with Kahana Code (tools form, .env.development from Adam, run kahana-web / firebase-functions / kahana-homepage-public locally, then take Linear cards). SOP 23 is Penetration Testing (scoped tests, no dedicated Linear card; KAH-66 In Review is related hygiene). SOP 24 is PII Handling (today’s practice; KAH-86 Backlog). SOP 25 is Platform Governance (KAH-85 Backlog). SOP 26 is Content Moderation (reports now; KAH-84 In Progress). SOP 27 is Reporting Cybersecurity Threats (same-day ping; no dedicated Linear card). Re-check steps if the product UI has moved on.',
+    'All 27 SOPs are Ready for review. SOP 1 is Product Hunt Launch. SOP 2 Community Building covers clubs (as of August 12, 2026) and The Keeper’s Codex (v1.0 draft). SOP 3 Product Quality is the product quality checklist. SOP 4 is the Product Management Playbook (v1.0). SOP 5 is Blogs. SOP 6 is Brand Guidelines (original PDF plus Aura Library overlay; revamp in progress). SOP 7 is Merch (Canva, Printify, living mood board). SOP 8 is Official Social Media (restricted credentials, brand/proofread, Linear marketing-manager review before schedule or post). SOP 9 is Author Outreach (contact list, tracker, personalized template). SOP 10 is Writing a Project Charter (brief from Adam, draft before every answer, product-verified steps, he circulates). SOP 11 is Creating YouTube Videos (Screen Studio, pauses and music, demo thumbnail, YouTube package, SOP 8 or zip to Adam). SOP 12 is SEO (Search Console, keyword clusters, UTMs, Mixpanel referring domain, product SEO for hubs/profiles/clubs ongoing). SOP 13 is Updating the Marketing Website (kahana-homepage-public, Linear card, local test, In Review, Adam or EM deploys Heroku, then Complete). SOP 14 is Third-Party News and PR (media database, scoops, personalized pitches, legal on claims, archive coverage). SOP 15 is Creator Prospecting (TikTok/Instagram/YouTube → sheet, brand contact, handle@gmail.com checked in Google Chat). SOP 16 is Creator Outreach (email or official DM, white-glove hub, complimentary Growth plan, featured placement). SOP 17 is Creator Collab Calls (booked meeting, listen, offer, paid-collab screen, help them to a hub on the library). SOP 18 is Post-Collab Follow-ups (hub views and payments, how else we can help, opt-in collab-creators club). SOP 19 is Lifecycle Emails and Tickets (Resend + Mixpanel delivery/landing, NPS/PMF, contact, support, feedback). SOP 20 is Time Log (Kahana HQ Friday reminder, HR and PM check the output sheet, Slack missing people). SOP 21 is Analytics (proactive outreach to other functions, reporting insights, measurement innovation, teach them to reuse the answer). SOP 22 is Getting Set Up with Kahana Code (tools form, .env.development from Adam, run kahana-web / firebase-functions / kahana-homepage-public locally, then take Linear cards). SOP 23 is Penetration Testing (scoped tests, no dedicated Linear card; KAH-66 In Review is related hygiene). SOP 24 is PII Handling (today’s practice; KAH-86 Backlog). SOP 25 is Platform Governance (KAH-85 Backlog). SOP 26 is Content Moderation (reports now; KAH-84 In Progress). SOP 27 is Reporting Cybersecurity Threats (same-day ping; no dedicated Linear card). Re-check steps if the product UI has moved on.',
 }
 
-/** SOPs 1 through this number are ready for review; later numbers are still being updated. */
+/** SOPs 1 through this number are ready for review. */
 export const SOP_READY_THROUGH = 27
 
 export const SOP_REVIEW_STATUS = {
@@ -86,8 +85,21 @@ export function getSopReviewStatusLabel(sopOrNumber) {
   return SOP_REVIEW_STATUS_LABEL[getSopReviewStatus(sopOrNumber)]
 }
 
-/** Categories used for gallery filters (order matters). */
-export const SOP_CATEGORIES = [...FUNCTION_SOP_CATEGORIES]
+/** Folded operating-task URLs that now live inside a named SOP. */
+const FOLDED_SOP_ALIASES = {
+  'content-guidelines-quality': 'brand-guidelines',
+  'marketing-inputs': 'blog-publishing',
+  'mood-board-collaboration': 'merch',
+  'instagram-publishing': 'official-social-media',
+  'book-club-management': 'community-building',
+  'sending-project-charters': 'writing-a-project-charter',
+  'customer-support-operations': 'lifecycle-emails-and-tickets',
+  'time-attendance-pto': 'time-log',
+  'mixpanel-metric-automation': 'analytics',
+  'creating-mixpanel-dashboards': 'analytics',
+  'selecting-tasks-from-backlog': 'kahana-code-setup',
+  'security-rules-rotating-keys': 'reporting-cyber-threats',
+}
 
 /** @typedef {{ id?: string, text: string, note?: string, href?: string, hrefLabel?: string, template?: string, code?: boolean }} SopStep */
 
@@ -179,11 +191,16 @@ export const SOPS = [
   { ...PLATFORM_GOVERNANCE_SOP, number: 25 },
   { ...CONTENT_MODERATION_SOP, number: 26 },
   { ...REPORTING_CYBER_THREATS_SOP, number: 27 },
-  ...FUNCTION_SOPS,
 ]
+
+/** Categories used for gallery filters (order matters). Empty categories are omitted. */
+export const SOP_CATEGORIES = FUNCTION_SOP_CATEGORIES.filter((c) =>
+  SOPS.some((s) => s.category === c)
+)
 
 export function resolveSopId(sopId) {
   return (
+    FOLDED_SOP_ALIASES[sopId] ||
     COMMUNITY_BUILDING_ALIASES[sopId] ||
     PRODUCT_MANAGEMENT_PLAYBOOK_ALIASES[sopId] ||
     WRITING_PROJECT_CHARTER_ALIASES[sopId] ||

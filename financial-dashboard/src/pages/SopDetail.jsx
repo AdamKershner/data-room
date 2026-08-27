@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import { getAdjacentSops, getSopById } from '../data/sopContent'
 import { readLocalJson, writeLocalJson } from '../utils/safeStorage'
 import { SopReviewStatusBadge } from '../components/SopReviewStatusBadge'
@@ -191,17 +191,7 @@ function SopDetail() {
   const { prev, next } = getAdjacentSops(sopId)
 
   if (!sop) {
-    return (
-      <div className="page sops-page" id="sop-detail">
-        <div className="sop-back-banner">
-          <Link to="/sops">← Back to SOPs</Link>
-        </div>
-        <div className="page-header">
-          <h1>SOP not found</h1>
-          <p className="page-subtitle">This procedure doesn&apos;t exist yet.</p>
-        </div>
-      </div>
-    )
+    return <Navigate to="/sops" replace />
   }
 
   return (

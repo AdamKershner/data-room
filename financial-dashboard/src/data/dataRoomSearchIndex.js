@@ -185,7 +185,7 @@ const EXTRA_SEARCH_ENTRIES = [
     title: 'SOPs',
     businessFunction: 'SOPs',
     description:
-      'Function-tagged operating procedures: club checklists, department playbooks from SOPS.txt, and day-to-day tasks from Marketing through Legal.',
+      'Function-tagged operating procedures: twenty-seven named SOPs ready for review, including club checklists, marketing playbooks, and security.',
     keywords: [
       'sop',
       'sops',

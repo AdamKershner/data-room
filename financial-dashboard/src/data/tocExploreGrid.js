@@ -68,7 +68,7 @@ export const TOC_EXPLORE_ITEMS = [
     path: '/sops',
     title: 'SOPs',
     description:
-      'Function-tagged operating procedures: club checklists, department playbooks, and day-to-day tasks from Marketing through Legal.',
+      'Function-tagged operating procedures: twenty-seven named SOPs ready for review, including club checklists, marketing playbooks, and security.',
   },
   {
     path: '/project-charter',

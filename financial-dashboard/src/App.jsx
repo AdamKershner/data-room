@@ -98,6 +98,7 @@ function App() {
           <Route path="/how-we-work" element={<OperatingSystem />} />
           <Route path="/operating-system" element={<Navigate to="/how-we-work" replace />} />
           <Route path="/sops" element={<Sops />} />
+          <Route path="/sops/linkedin-operating-rhythm" element={<Navigate to="/linkedin-guide" replace />} />
           <Route path="/sops/running-a-book-or-video-club" element={<Navigate to="/sops/community-building" replace />} />
           <Route path="/sops/inviting-members-to-a-club" element={<Navigate to="/sops/community-building" replace />} />
           <Route path="/sops/choosing-what-the-club-reads" element={<Navigate to="/sops/community-building" replace />} />

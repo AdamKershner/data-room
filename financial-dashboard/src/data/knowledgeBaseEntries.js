@@ -135,7 +135,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'SOPs',
     category: 'SOPs',
     description:
-      'Searchable SOPs tagged by function — club checklists, SOPS.txt department playbooks, and operating tasks (Marketing through Legal). Filter by function on /sops.',
+      'Searchable SOPs tagged by function. Twenty-seven procedures ready for review, including club checklists, marketing playbooks, and security. Filter by function on /sops.',
     keywords: [
       'sop',
       'sops',
