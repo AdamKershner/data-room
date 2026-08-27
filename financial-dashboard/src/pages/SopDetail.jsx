@@ -1,65 +1,26 @@
 import React, { useCallback, useMemo, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { getAdjacentSops, getSopById } from '../data/sopContent'
+import { sopStepKey } from '../data/sopStepUtils'
 import { readLocalJson, writeLocalJson } from '../utils/safeStorage'
 import { SopReviewStatusBadge } from '../components/SopReviewStatusBadge'
+import { OnboardingIcon } from './onboardingIcons'
+import { SopIntroCallout, SopProgressBar } from './SopProgressBar'
 import './Page.css'
+import './Onboarding.css'
 import './Sops.css'
 
-function isInternalHref(href) {
-  return href.startsWith('/') && !href.startsWith('//')
-}
-
-function SopStepLink({ href, label }) {
-  const text = label || href
-  if (isInternalHref(href)) {
-    return (
-      <p className="sop-step-link">
-        <Link to={href}>{text} →</Link>
-      </p>
-    )
-  }
-  return (
-    <p className="sop-step-link">
-      <a href={href} target="_blank" rel="noopener noreferrer">
-        {text} →
-      </a>
-    </p>
-  )
-}
-
-function stepKey(sectionId, step, index) {
-  return step.id || `${sectionId}-${index}`
-}
-
-function SopStepBody({ step }) {
-  return (
-    <>
-      <p>{step.text}</p>
-      {step.template && (
-        <pre className={step.code ? 'sop-template-block sop-template-block--code' : 'sop-template-block'}>
-          {step.template}
-        </pre>
-      )}
-      {step.href && <SopStepLink href={step.href} label={step.hrefLabel} />}
-      {step.note && <p className="sop-step-note">{step.note}</p>}
-    </>
-  )
-}
-
 function SopDoc({ sop }) {
-  const isChecklist = sop.format === 'checklist'
   const storageKey = `sop-checklist-${sop.id}`
-  const [checked, setChecked] = useState(() =>
-    isChecklist ? readLocalJson(storageKey, {}) : {}
-  )
+  const [checked, setChecked] = useState(() => readLocalJson(storageKey, {}))
 
-  const allKeys = useMemo(() => {
-    if (!isChecklist) return []
-    return sop.sections.flatMap((section) =>
-      section.steps.map((step, i) => stepKey(section.id, step, i))
-    )
-  }, [isChecklist, sop.sections])
+  const allKeys = useMemo(
+    () =>
+      sop.sections.flatMap((section) =>
+        section.steps.map((step, i) => sopStepKey(section.id, step, i))
+      ),
+    [sop.sections]
+  )
 
   const doneCount = allKeys.filter((key) => checked[key]).length
   const totalCount = allKeys.length
@@ -77,10 +38,10 @@ function SopDoc({ sop }) {
 
   return (
     <article className="sop-doc" id={sop.id}>
+      <SopProgressBar done={doneCount} total={totalCount} />
       <header className="sop-doc-header">
         <p className="sop-doc-eyebrow">
-          SOP {sop.number} · {sop.category}
-          {isChecklist ? ' · Checklist' : ''}
+          SOP {sop.number} · {sop.category} · Checklist
         </p>
         <SopReviewStatusBadge number={sop.number} className="sop-status-badge--detail" />
         <h1 className="sop-detail-title">{sop.title}</h1>
@@ -104,6 +65,7 @@ function SopDoc({ sop }) {
             <dd>{sop.when}</dd>
           </div>
         </dl>
+        <SopIntroCallout excerpt={sop.excerpt} />
         {sop.notes?.length > 0 && (
           <div className="sop-callouts" role="note">
             {sop.notes.map((note) => (
@@ -113,11 +75,11 @@ function SopDoc({ sop }) {
             ))}
           </div>
         )}
-        {isChecklist && totalCount > 0 && (
+        {totalCount > 0 && (
           <p className="sop-checklist-progress" aria-live="polite">
             {doneCount} / {totalCount} items complete
             {sop.sections.map((section) => {
-              const keys = section.steps.map((step, i) => stepKey(section.id, step, i))
+              const keys = section.steps.map((step, i) => sopStepKey(section.id, step, i))
               const done = keys.filter((key) => checked[key]).length
               return (
                 <span key={section.id} className="sop-checklist-progress-phase">
@@ -127,51 +89,59 @@ function SopDoc({ sop }) {
             })}
           </p>
         )}
+        <p className="onboarding-hint">
+          <span className="onboarding-hint-item">☐ Mark done</span>
+          <span className="onboarding-hint-item">→ Open a step for how-to and Done when</span>
+        </p>
       </header>
 
-      {sop.sections.map((section) => (
-        <section key={section.id} className="sop-section" id={`${sop.id}-${section.id}`}>
-          <h2>{section.title}</h2>
-          {section.intro && <p className="sop-section-intro">{section.intro}</p>}
-          {isChecklist ? (
-            <ul className="sop-checklist">
+      <div className="onboarding-checklist">
+        {sop.sections.map((section) => (
+          <div key={section.id} className="onboarding-day-section" id={`${sop.id}-${section.id}`}>
+            <h2 className="onboarding-day-title">{section.title}</h2>
+            {section.intro && <p className="onboarding-day-intro">{section.intro}</p>}
+            <ul className="onboarding-list">
               {section.steps.map((step, i) => {
-                const key = stepKey(section.id, step, i)
+                const key = sopStepKey(section.id, step, i)
                 const isDone = !!checked[key]
                 return (
                   <li
                     key={key}
-                    className={isDone ? 'sop-checklist-item is-done' : 'sop-checklist-item'}
+                    className={isDone ? 'onboarding-item is-done' : 'onboarding-item'}
                   >
-                    <div className="sop-checklist-row">
-                      <label className="sop-checklist-label">
+                    <div className="onboarding-item-row">
+                      <label className="onboarding-checkbox-wrapper" title="Mark complete">
                         <input
                           type="checkbox"
                           checked={isDone}
                           onChange={() => toggle(key)}
+                          className="onboarding-checkbox"
                         />
-                        <span className="sop-checklist-box" aria-hidden="true" />
-                        <span className="sop-checklist-mark">Mark done</span>
+                        <span className="onboarding-checkbox-custom" />
+                        <span className="onboarding-checkbox-label">Done</span>
                       </label>
-                      <div className="sop-checklist-body">
-                        <SopStepBody step={step} />
-                      </div>
+                      <Link
+                        to={`/sops/${sop.id}/${key}`}
+                        className="onboarding-item-link"
+                        title={step.label}
+                        aria-label={`${step.label}. Open instructions`}
+                      >
+                        {step.icon && (
+                          <span className="onboarding-item-icon" aria-hidden="true">
+                            <OnboardingIcon name={step.icon} />
+                          </span>
+                        )}
+                        <span className="onboarding-item-text">{step.label}</span>
+                        <span className="onboarding-item-arrow">→</span>
+                      </Link>
                     </div>
                   </li>
                 )
               })}
             </ul>
-          ) : (
-            <ol className="sop-steps">
-              {section.steps.map((step, i) => (
-                <li key={`${section.id}-${i}`}>
-                  <SopStepBody step={step} />
-                </li>
-              ))}
-            </ol>
-          )}
-        </section>
-      ))}
+          </div>
+        ))}
+      </div>
 
       <section className="sop-done-when" id={`${sop.id}-done-when`}>
         <h2>Done when</h2>
@@ -192,6 +162,10 @@ function SopDetail() {
 
   if (!sop) {
     return <Navigate to="/sops" replace />
+  }
+
+  if (sop.href) {
+    return <Navigate to={sop.href} replace />
   }
 
   return (

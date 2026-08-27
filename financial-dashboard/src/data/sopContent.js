@@ -54,13 +54,10 @@ import {
   PRODUCT_MANAGEMENT_PLAYBOOK_ALIASES,
   PRODUCT_MANAGEMENT_PLAYBOOK_SOP,
 } from './productManagementPlaybookSop'
+import { flattenSopSteps, normalizeSopDoc } from './sopStepUtils'
 
 export const SOP_PAGE = {
   title: 'Standard Operating Procedures',
-  subtitle:
-    'Searchable guides tagged by business function. Twenty-seven procedures ready for review.',
-  freshnessNote:
-    'All 27 SOPs are Ready for review. SOP 1 is Product Hunt Launch. SOP 2 Community Building covers clubs (as of August 12, 2026) and The Keeper’s Codex (v1.0 draft). SOP 3 Product Quality is the product quality checklist. SOP 4 is the Product Management Playbook (v1.0). SOP 5 is Blogs. SOP 6 is Brand Guidelines (original PDF plus Aura Library overlay; revamp in progress). SOP 7 is Merch (Canva, Printify, living mood board). SOP 8 is Official Social Media (restricted credentials, brand/proofread, Linear marketing-manager review before schedule or post). SOP 9 is Author Outreach (contact list, tracker, personalized template). SOP 10 is Writing a Project Charter (brief from Adam, draft before every answer, product-verified steps, he circulates). SOP 11 is Creating YouTube Videos (Screen Studio, pauses and music, demo thumbnail, YouTube package, SOP 8 or zip to Adam). SOP 12 is SEO (Search Console, keyword clusters, UTMs, Mixpanel referring domain, product SEO for hubs/profiles/clubs ongoing). SOP 13 is Updating the Marketing Website (kahana-homepage-public, Linear card, local test, In Review, Adam or EM deploys Heroku, then Complete). SOP 14 is Third-Party News and PR (media database, scoops, personalized pitches, legal on claims, archive coverage). SOP 15 is Creator Prospecting (TikTok/Instagram/YouTube → sheet, brand contact, handle@gmail.com checked in Google Chat). SOP 16 is Creator Outreach (email or official DM, white-glove hub, complimentary Growth plan, featured placement). SOP 17 is Creator Collab Calls (booked meeting, listen, offer, paid-collab screen, help them to a hub on the library). SOP 18 is Post-Collab Follow-ups (hub views and payments, how else we can help, opt-in collab-creators club). SOP 19 is Lifecycle Emails and Tickets (Resend + Mixpanel delivery/landing, NPS/PMF, contact, support, feedback). SOP 20 is Time Log (Kahana HQ Friday reminder, HR and PM check the output sheet, Slack missing people). SOP 21 is Analytics (proactive outreach to other functions, reporting insights, measurement innovation, teach them to reuse the answer). SOP 22 is Getting Set Up with Kahana Code (tools form, .env.development from Adam, run kahana-web / firebase-functions / kahana-homepage-public locally, then take Linear cards). SOP 23 is Penetration Testing (scoped tests, no dedicated Linear card; KAH-66 In Review is related hygiene). SOP 24 is PII Handling (today’s practice; KAH-86 Backlog). SOP 25 is Platform Governance (KAH-85 Backlog). SOP 26 is Content Moderation (reports now; KAH-84 In Progress). SOP 27 is Reporting Cybersecurity Threats (same-day ping; no dedicated Linear card). Re-check steps if the product UI has moved on.',
 }
 
 /** SOPs 1 through this number are ready for review. */
@@ -101,7 +98,7 @@ const FOLDED_SOP_ALIASES = {
   'security-rules-rotating-keys': 'reporting-cyber-threats',
 }
 
-/** @typedef {{ id?: string, text: string, note?: string, href?: string, hrefLabel?: string, template?: string, code?: boolean }} SopStep */
+/** @typedef {{ id?: string, label?: string, doneWhen?: string, text: string, note?: string, href?: string, hrefLabel?: string, template?: string, code?: boolean }} SopStep */
 
 /**
  * @typedef {object} SopDoc
@@ -111,6 +108,7 @@ const FOLDED_SOP_ALIASES = {
  * @property {string} category
  * @property {string} [owner] - Function owner / accountable role
  * @property {string} description
+ * @property {string} [excerpt] - Gallery + What this is callout (what it is, why we do it)
  * @property {string[]} [keywords]
  * @property {string} who
  * @property {string} when
@@ -121,8 +119,66 @@ const FOLDED_SOP_ALIASES = {
  * @property {string[]} doneWhen
  */
 
+/** Two-sentence what + why for gallery cards and the SOP intro callout. */
+const SOP_EXCERPTS = {
+  'product-hunt-launch':
+    'Run the Product Hunt launch as a three-phase checklist: community and town halls first, 3 AM EST posts on the day, then Mixpanel and support. We do it so a #1 day is earned with real testimonials, not a last-minute upvote dump.',
+  'community-building':
+    'Stand up and run Kahana clubs: publish, invite, pick titles, reach creators, and watch whether the hall is living. We do it so Aura (the discovery signal) and honest member counts grow a real community, not a silent list.',
+  'finding-whats-broken':
+    'Find broken, confusing, or absurd product moments, then log, prioritize, and verify the fix. We do it so quality improves every week instead of getting rediscovered by accident.',
+  'product-management-playbook':
+    'This is how Kahana PMs observe, frame, ship, and learn, including the 90-day launchpad. We do it so product work makes a customer workflow better and we can prove that it did.',
+  'blog-publishing':
+    'Write comparison, success-story, and how-to posts so creators and viewers can see how Kahana sits next to tools they already use. We do it so the library shows up in search and in someone’s stack, not as a silent replacement.',
+  'brand-guidelines':
+    'Check every public piece against Kahana brand, naming, and the Aura Library overlay. We do it so the company looks like one product, not a pile of intern drafts.',
+  'merch':
+    'Design, print, and fulfill merch for the team, customers, and clubs without breaking brand or budget. We do it so Kahana shows up in the world as something people can wear, not only a tab.',
+  'official-social-media':
+    'Request official-account access, then post only after Linear quality review. We do it so Kahana HQ speaks with one voice and Mixpanel can see which posts actually bring people in.',
+  'author-outreach':
+    'Research an author, send a personal ask, and log every touch on the tracker. We do it so clubs get titles people actually want, with one honest sender per creator.',
+  'writing-a-project-charter':
+    'Turn a verbal brief into a charter a Manager can circulate: capture, draft, question, amend, hand off. We do it so work starts with a shared problem, not a Slack thread nobody owns.',
+  'creating-youtube-videos':
+    'Record Kahana how-tos in Screen Studio, then package title, description, and thumbnail for YouTube. We do it so someone can watch a job get done, then try it on Kahana (AKA “The Aura Library”).',
+  'seo':
+    'Build keyword clusters, UTM links, and Search Console indexing for kahana.io and the product. We do it so people find the library for the job they already have, not for a brand they have never heard.',
+  'marketing-website':
+    'Ship kahana.io changes from a Linear card through local test, review, and Heroku deploy. We do it so the public site stays accurate without taking production down.',
+  'pr-news':
+    'Pitch Kahana to third-party writers with a fair, sourced story, then amplify what actually runs. We do it so coverage is earned and true, not a press dump we wrote about ourselves.',
+  'creator-prospecting':
+    'Find creators who already make work our members would board, then add them to the outreach sheet. We do it so SOP 16 starts with a real list, not a guess.',
+  'creator-outreach':
+    'Send a personal collab ask from the official account and log every reply on the row. We do it so creators hear one Kahana, with honest numbers and no duplicate DMs.',
+  'creator-collab-calls':
+    'Run the collab call: listen, show the hub, help them sign up, write notes the same day. We do it so a yes becomes a hub on the library, not a calendar invite that dies.',
+  'post-collab-followups':
+    'After a public hub, thank them, offer intros, and keep the door open without a second pitch. We do it so collab creators stay in the Kahana club and we learn what else they need.',
+  'lifecycle-emails-and-tickets':
+    'Watch Resend and Mixpanel so lifecycle mail actually lands, and reply to every inbound ticket. We do it so users hear from a person, not only an auto-receipt, and suppressions stay honored.',
+  'time-log':
+    'Submit the Friday time log and chase anyone missing before the week closes. We do it so intern hours are honest, billable, and visible without a spreadsheet chase on Monday.',
+  'analytics':
+    'Read Mixpanel boards first, then ship a small cut or escalate a real gap. We do it so decisions use production data, not a new dashboard invented for the slide.',
+  'kahana-code-setup':
+    'Get GitHub, .env.development, and local runs of kahana-web, functions, and the marketing site. We do it so you can take a Linear card without breaking production on day one.',
+  'penetration-testing':
+    'Name the environment, run the agreed test, log findings, and retest closures. We do it so we find holes before someone else does, without testing production as a surprise.',
+  'pii-handling':
+    'Minimize, lock down, and report personal data the same way every time. We do it so a screenshot dump or Slack paste does not become a PII incident.',
+  'platform-governance':
+    'Document who holds admin power and what changes after an incident. We do it so access is granted on purpose, not inherited from a shared login.',
+  'content-moderation':
+    'Decide leave-up, limit, or take down, then log the call. We do it so the library stays safe without turning keepers into an unaccountable delete squad.',
+  'reporting-cyber-threats':
+    'Report the threat the same day, rotate what leaked, and loop Legal when PII is involved. We do it so an attack is a record and a fix, not a rumor in Slack.',
+}
+
 /** @type {SopDoc[]} */
-export const SOPS = [
+const SOPS_RAW = [
   { ...PRODUCT_HUNT_LAUNCH_SOP, number: 1 },
   { ...COMMUNITY_BUILDING_SOP, number: 2 },
   {
@@ -193,6 +249,13 @@ export const SOPS = [
   { ...REPORTING_CYBER_THREATS_SOP, number: 27 },
 ]
 
+export const SOPS = SOPS_RAW.map((sop) =>
+  normalizeSopDoc({
+    ...sop,
+    excerpt: sop.excerpt || SOP_EXCERPTS[sop.id],
+  })
+)
+
 /** Categories used for gallery filters (order matters). Empty categories are omitted. */
 export const SOP_CATEGORIES = FUNCTION_SOP_CATEGORIES.filter((c) =>
   SOPS.some((s) => s.category === c)
@@ -221,6 +284,24 @@ export function getSopById(sopId) {
   return SOPS.find((s) => s.id === resolveSopId(sopId)) ?? null
 }
 
+export function getSopStep(sopId, stepId) {
+  const sop = getSopById(sopId)
+  if (!sop || sop.href) return { sop, step: null, steps: [] }
+  const steps = flattenSopSteps(sop)
+  const step = steps.find((s) => s.key === stepId || s.id === stepId) ?? null
+  return { sop, step, steps }
+}
+
+export function getAdjacentSopSteps(sopId, stepId) {
+  const { steps } = getSopStep(sopId, stepId)
+  const index = steps.findIndex((s) => s.key === stepId || s.id === stepId)
+  if (index < 0) return { prev: null, next: null }
+  return {
+    prev: index > 0 ? steps[index - 1] : null,
+    next: index < steps.length - 1 ? steps[index + 1] : null,
+  }
+}
+
 export function getAdjacentSops(sopId) {
   const index = SOPS.findIndex((s) => s.id === resolveSopId(sopId))
   if (index < 0) return { prev: null, next: null }
@@ -241,6 +322,7 @@ export function sopMatchesQuery(sop, query) {
     sop.format ?? '',
     getSopReviewStatusLabel(sop),
     sop.description,
+    sop.excerpt ?? '',
     sop.who,
     sop.when,
     ...(sop.keywords ?? []),
@@ -248,7 +330,10 @@ export function sopMatchesQuery(sop, query) {
     ...sop.sections.flatMap((section) => [
       section.title,
       section.intro ?? '',
-      ...section.steps.map((step) => `${step.text} ${step.note ?? ''} ${step.template ?? ''} ${step.href ?? ''}`),
+      ...section.steps.map(
+        (step) =>
+          `${step.label ?? ''} ${step.doneWhen ?? ''} ${step.text} ${step.note ?? ''} ${step.template ?? ''} ${step.href ?? ''}`
+      ),
     ]),
     ...sop.doneWhen,
     sop.id === 'community-building' ? keepersCodexSearchBlob() : '',

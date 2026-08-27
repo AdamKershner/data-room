@@ -7,6 +7,7 @@ import {
 } from '../data/keepersCodexSteps'
 import { OnboardingIcon } from './onboardingIcons'
 import { SopReviewStatusBadge } from '../components/SopReviewStatusBadge'
+import { SopIntroCallout, SopProgressBar } from './SopProgressBar'
 import { readLocalJson, writeLocalJson } from '../utils/safeStorage'
 import './Page.css'
 import './Onboarding.css'
@@ -133,6 +134,11 @@ function KeepersCodexChecklist() {
       <div className="sop-back-banner">
         <Link to="/sops/community-building">← SOP 2: Community Building</Link>
       </div>
+      <SopProgressBar
+        done={completedCount}
+        total={totalCount}
+        completeLabel="All required labours done"
+      />
       <div className="page-header">
         <p className="project-charter-eyebrow">
           SOP {KEEPERS_CODEX_META.sopNumber} · {KEEPERS_CODEX_META.category}
@@ -140,6 +146,7 @@ function KeepersCodexChecklist() {
         <SopReviewStatusBadge number={KEEPERS_CODEX_META.sopNumber} className="sop-status-badge--detail" />
         <h1>{KEEPERS_CODEX_META.title}</h1>
         <p className="page-subtitle">{KEEPERS_CODEX_META.subtitle}</p>
+        <SopIntroCallout excerpt={KEEPERS_CODEX_META.excerpt} />
         <p className="sop-freshness-note">{KEEPERS_CODEX_META.standing}</p>
         <p className="onboarding-hint">
           <span className="onboarding-hint-item">☐ Check Done</span>
@@ -168,20 +175,6 @@ function KeepersCodexChecklist() {
         <div className="onboarding-summary-card">
           <div className="onboarding-summary-value">{progressPercent}%</div>
           <div className="onboarding-summary-label">Progress</div>
-        </div>
-      </section>
-
-      <section className="onboarding-progress-section">
-        <div className="onboarding-progress-bar">
-          <div
-            className="onboarding-progress-fill"
-            style={{ width: `${progressPercent}%` }}
-          />
-        </div>
-        <div className="onboarding-progress-label">
-          {progressPercent === 100
-            ? 'All required labours done — the hall is ready.'
-            : `${progressPercent}% complete`}
         </div>
       </section>
 

@@ -56,7 +56,7 @@ export const MIXPANEL_LIFECYCLE_BOARD_C_URL =
 export const MIXPANEL_ENGINEERING_BOARD_URL =
   'https://mixpanel.com/project/4042294/view/4538547/app/boards#id=11355238'
 
-/** Resend send log. CS access: ask Adam Kershner on Slack. */
+/** Resend send log. CS access: ask a Manager on Slack. */
 export const RESEND_EMAILS_URL = 'https://resend.com/emails'
 
 /** Live PMF+NPS output sheet (same source as /nps). */

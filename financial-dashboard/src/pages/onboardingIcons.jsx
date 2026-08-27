@@ -115,6 +115,43 @@ export const ONBOARDING_ICONS = {
       <path d="M8 11V8a4 4 0 0 1 8 0v3" />
     </Icon>
   ),
+  mail: (
+    <Icon>
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="M3 7l9 6 9-6" />
+    </Icon>
+  ),
+  code: (
+    <Icon>
+      <path d="M8 8l-4 4 4 4" />
+      <path d="M16 8l4 4-4 4" />
+      <path d="M14 6l-4 12" />
+    </Icon>
+  ),
+  shield: (
+    <Icon>
+      <path d="M12 3l8 4v6c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7l8-4z" />
+    </Icon>
+  ),
+  camera: (
+    <Icon>
+      <path d="M4 8h3l2-2h6l2 2h3v11H4V8z" />
+      <circle cx="12" cy="13" r="3.5" />
+    </Icon>
+  ),
+  link: (
+    <Icon>
+      <path d="M10 13a5 5 0 0 0 7.5.1l1.4-1.4a5 5 0 0 0-7.1-7.1L10.5 6" />
+      <path d="M14 11a5 5 0 0 0-7.5-.1L5.1 12.3a5 5 0 0 0 7.1 7.1L13.5 18" />
+    </Icon>
+  ),
+  alert: (
+    <Icon>
+      <path d="M12 3l9 16H3L12 3z" />
+      <path d="M12 10v4" />
+      <path d="M12 17h.01" />
+    </Icon>
+  ),
 }
 
 export function OnboardingIcon({ name }) {

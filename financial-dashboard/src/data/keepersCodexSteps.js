@@ -11,10 +11,12 @@ export const KEEPERS_CODEX_META = {
     'Part of SOP 2 Community Building. Check Done as you complete each labour; open a row for the exact clicks.',
   edition: 'v1.0 — draft for review',
   standing: 'Awaiting the Keeper’s word (Appendix III). Section VI is proposed, not standing.',
+  excerpt:
+    'The click-by-click checklist for founding, tending, inviting, stocking, and growing a hall. Work it through the first cycle so the club is a living hall, not a name on a list.',
   metaRows: [
     ['Codex', 'Clubs — creation, care, invitation, and supply'],
     ['Keeper of this codex', 'Sriram Reddy Kamatham — Project Management Intern'],
-    ['To be read and approved by', 'Adam Kershner (Sponsor) · Nithila (Project Manager)'],
+    ['To be read and approved by', 'Manager (Sponsor) · Nithila (Project Manager)'],
     ['Edition', 'v1.0 — draft for review'],
     ['Standing', 'Awaiting the Keeper’s word (see Open decisions)'],
   ],
@@ -162,7 +164,7 @@ export const KEEPERS_CODEX_STEPS = [
   },
   {
     id: 'templates',
-    label: 'Copy-ready templates',
+    label: 'Use the copy-ready templates',
     icon: 'clipboard',
     group: 'appendix',
     badge: 'optional',
@@ -180,7 +182,7 @@ export const KEEPERS_CODEX_STEPS = [
   },
   {
     id: 'open-decisions',
-    label: 'Open decisions',
+    label: 'Record the open decisions',
     icon: 'lock',
     group: 'appendix',
     badge: 'optional',

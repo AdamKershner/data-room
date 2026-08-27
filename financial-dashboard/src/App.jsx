@@ -22,6 +22,7 @@ import OasisSprintsArchive from './pages/OasisSprintsArchive'
 import OperatingSystem from './pages/OperatingSystem'
 import Sops from './pages/Sops'
 import SopDetail from './pages/SopDetail'
+import SopStep from './pages/SopStep'
 import KeepersCodexChecklist from './pages/KeepersCodexChecklist'
 import KeepersCodexStep from './pages/KeepersCodexStep'
 import FindingWhatsBrokenChecklist from './pages/FindingWhatsBrokenChecklist'
@@ -127,6 +128,7 @@ function App() {
           <Route path="/sops/keepers-codex" element={<KeepersCodexChecklist />} />
           <Route path="/sops/finding-whats-broken/:stepId" element={<FindingWhatsBrokenStep />} />
           <Route path="/sops/finding-whats-broken" element={<FindingWhatsBrokenChecklist />} />
+          <Route path="/sops/:sopId/:stepId" element={<SopStep />} />
           <Route path="/sops/:sopId" element={<SopDetail />} />
           <Route path="/technical-roadmap" element={<Navigate to="/" replace />} />
           <Route path="/kahana-competitors" element={<Navigate to="/company-landscape" replace />} />

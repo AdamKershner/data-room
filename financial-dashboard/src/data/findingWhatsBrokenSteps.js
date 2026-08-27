@@ -13,6 +13,8 @@ export const FINDING_WHATS_BROKEN_META = {
   edition: 'v1.0 — working playbook',
   standing:
     'Use the Section V checklist whenever you sit down to do a review. Quality improves every week instead of getting rediscovered by accident.',
+  excerpt:
+    'Find broken, confusing, or absurd product moments, then log, prioritize, and verify the fix. We do it so quality improves every week instead of getting rediscovered by accident.',
   metaRows: [
     ['Playbook', 'Product — find, log, prioritize, and verify fixes'],
     ['Author', 'Srujana Divya Emmadi — Technical Product Manager'],
@@ -125,7 +127,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
   },
   {
     id: 'absurd-patterns',
-    label: 'What “absurd” usually looks like',
+    label: 'Spot what absurd usually looks like',
     icon: 'sparkles',
     group: 'calling-out',
     badge: '5 min',
@@ -134,7 +136,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
   },
   {
     id: 'document-a-finding',
-    label: 'How to document a finding',
+    label: 'Document each finding in one log entry',
     icon: 'clipboard',
     group: 'calling-out',
     badge: '5 min',
@@ -143,7 +145,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
   },
   {
     id: 'prioritize',
-    label: 'How to prioritize',
+    label: 'Place the finding on Impact vs Effort',
     icon: 'trend',
     group: 'calling-out',
     badge: '5 min',
@@ -152,7 +154,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
   },
   {
     id: 'finding-to-fix',
-    label: 'From finding to verified fix',
+    label: 'Take the finding to a verified fix',
     icon: 'key',
     group: 'loop',
     badge: '10 min',
@@ -161,7 +163,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
   },
   {
     id: 'cadence',
-    label: 'Cadence',
+    label: 'Run the review on a weekly cadence',
     icon: 'calendar',
     group: 'loop',
     badge: '3 min',
@@ -202,7 +204,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
   },
   {
     id: 'session-evidence',
-    label: 'Every finding has evidence',
+    label: 'Attach evidence to every finding',
     icon: 'clipboard',
     group: 'session',
     badge: 'session',

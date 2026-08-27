@@ -43,10 +43,6 @@ function Sops() {
     <div className="page sops-page" id="sops">
       <div className="page-header">
         <h1>{SOP_PAGE.title}</h1>
-        <p className="page-subtitle">{SOP_PAGE.subtitle}</p>
-        {SOP_PAGE.freshnessNote && (
-          <p className="sop-freshness-note">{SOP_PAGE.freshnessNote}</p>
-        )}
       </div>
 
       <section className="page-section kb-filters">
@@ -135,7 +131,7 @@ function Sops() {
                 <span className="kb-card-title" title={sop.title}>
                   {formatCardTitle(`SOP ${sop.number}: ${sop.title}`)}
                 </span>
-                <span className="kb-card-desc">{sop.description}</span>
+                <span className="kb-card-desc">{sop.excerpt || sop.description}</span>
                 <span className="sop-card-meta">
                   {sop.owner ? `Owner: ${sop.owner}` : `Who: ${sop.who}`}
                 </span>

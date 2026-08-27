@@ -9,6 +9,7 @@ import { ONBOARDING_STEPS } from '../pages/onboardingSteps'
 import { KEEPERS_CODEX_STEPS } from './keepersCodexSteps'
 import { FINDING_WHATS_BROKEN_STEPS } from './findingWhatsBrokenSteps'
 import { SOPS, getSopReviewStatusLabel } from './sopContent'
+import { flattenSopSteps } from './sopStepUtils'
 
 /** Display order for Executive Summary business-function grid */
 export const BUSINESS_FUNCTIONS = ['Marketing', 'Sales', 'Product', 'HR', 'Technical', 'Finance']
@@ -518,6 +519,32 @@ function normalizeTocItem(item) {
   }
 }
 
+function buildNamedSopStepEntries() {
+  const entries = []
+  for (const sop of SOPS) {
+    if (sop.href) continue
+    for (const step of flattenSopSteps(sop)) {
+      entries.push({
+        path: `/sops/${sop.id}/${step.key}`,
+        title: `SOP ${sop.number}: ${step.label}`,
+        businessFunction: mapSopCategoryToBusinessFunction(sop.category),
+        description: step.doneWhen,
+        keywords: [
+          'sop',
+          sop.title.toLowerCase(),
+          sop.category,
+          step.id.replace(/-/g, ' '),
+          step.label.toLowerCase(),
+          step.doneWhen.toLowerCase(),
+        ],
+        nlHints: [sop.title.toLowerCase(), step.label.toLowerCase()],
+        source: 'sop-step',
+      })
+    }
+  }
+  return entries
+}
+
 function buildKeepersCodexStepEntries() {
   return KEEPERS_CODEX_STEPS.map((step) => ({
     path: `/sops/keepers-codex/${step.id}`,
@@ -592,6 +619,10 @@ function buildRawList() {
   }
 
   for (const e of buildFindingWhatsBrokenStepEntries()) {
+    raw.push(e)
+  }
+
+  for (const e of buildNamedSopStepEntries()) {
     raw.push(e)
   }
 

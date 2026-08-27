@@ -8,6 +8,8 @@ import {
 } from '../data/keepersCodexSteps'
 import { KEEPERS_CODEX_CONTENT } from '../data/keepersCodexContent'
 import { OnboardingIcon } from './onboardingIcons'
+import { SopProgressBar } from './SopProgressBar'
+import { readLocalJson } from '../utils/safeStorage'
 import './Page.css'
 import './Onboarding.css'
 import './ProjectCharter.css'
@@ -157,7 +159,10 @@ function KeepersCodexStep() {
   const step = getKeepersCodexStep(stepId)
   const { prev, next } = getAdjacentKeepersCodexSteps(stepId)
   const content = KEEPERS_CODEX_CONTENT[stepId]
-  const requiredCount = KEEPERS_CODEX_STEPS.filter((s) => !s.optional).length
+  const requiredSteps = KEEPERS_CODEX_STEPS.filter((s) => !s.optional)
+  const requiredCount = requiredSteps.length
+  const checkedMap = readLocalJson('sop-keepers-codex-checklist', {})
+  const progressDone = requiredSteps.filter((s) => checkedMap[s.id]).length
 
   if (!step) {
     return (
@@ -178,6 +183,11 @@ function KeepersCodexStep() {
       <div className="onboarding-back-banner">
         <Link to="/sops/keepers-codex">← Back to The Keeper’s Codex</Link>
       </div>
+      <SopProgressBar
+        done={progressDone}
+        total={requiredCount}
+        completeLabel="All required labours done"
+      />
       <div className="page-header onboarding-step-header">
         <p className="project-charter-eyebrow">
           SOP {KEEPERS_CODEX_META.sopNumber} · {KEEPERS_CODEX_META.title}

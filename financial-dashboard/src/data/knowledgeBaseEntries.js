@@ -223,7 +223,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'Creating YouTube Videos',
     category: 'SOPs',
     description:
-      'Marketing SOP: pick a job from completed Linear issues, contact/support, a use case, a feature, or a blog/help article with no video; record in Screen Studio; cut pauses; overlay music; demo thumbnail; YouTube title, description, tags, hashtags, timestamps; then SOP 8 or zip to Adam.',
+      'Marketing SOP: pick a job from completed Linear issues, contact/support, a use case, a feature, or a blog/help article with no video; record in Screen Studio; cut pauses; overlay music; demo thumbnail; YouTube title, description, tags, hashtags, timestamps; then SOP 8 or zip to Manager.',
     keywords: [
       'youtube',
       'video',
@@ -259,7 +259,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'Updating the Marketing Website',
     category: 'SOPs',
     description:
-      'Marketing SOP: edit kahana-homepage-public (GitHub), track the change on a Linear card, test locally, move In Review for quality review, then Adam or an engineering manager deploys to Heroku. Verify on production and mark Complete.',
+      'Marketing SOP: edit kahana-homepage-public (GitHub), track the change on a Linear card, test locally, move In Review for quality review, then a Manager or an engineering manager deploys to Heroku. Verify on production and mark Complete.',
     keywords: [
       'marketing website',
       'kahana.io',
@@ -380,7 +380,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'Lifecycle Emails and Tickets',
     category: 'SOPs',
     description:
-      'Customer Success SOP: monitor lifecycle and resurrection mail in Mixpanel and Resend, handle PMF/NPS replies, contact-form fillouts, support requests, suggestions, and feedback. Resend access via Adam on Slack.',
+      'Customer Success SOP: monitor lifecycle and resurrection mail in Mixpanel and Resend, handle PMF/NPS replies, contact-form fillouts, support requests, suggestions, and feedback. Resend access via Manager on Slack.',
     keywords: [
       'customer success',
       'lifecycle',
@@ -437,7 +437,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'Getting Set Up with Kahana Code',
     category: 'SOPs',
     description:
-      'Engineering SOP: tools form, request .env.development from Adam, clone and run kahana-web, firebase-functions, and kahana-homepage-public locally, then take Linear cards.',
+      'Engineering SOP: tools form, request .env.development from Manager, clone and run kahana-web, firebase-functions, and kahana-homepage-public locally, then take Linear cards.',
     keywords: [
       'github',
       'setup',
@@ -496,7 +496,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'Writing a Project Charter',
     category: 'SOPs',
     description:
-      'Project Management SOP: take the brief from Adam, draft before every answer exists, verify steps in the product, assign owners from Kahana HQ collaborators and the Notion directory, keep risks, then hand off for him to circulate.',
+      'Project Management SOP: take the brief from a Manager, draft before every answer exists, verify steps in the product, assign owners from Kahana HQ collaborators and the Notion directory, keep risks, then hand off for them to circulate.',
     keywords: [
       'project charter',
       'charter',

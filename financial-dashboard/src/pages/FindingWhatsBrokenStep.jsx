@@ -8,6 +8,8 @@ import {
 } from '../data/findingWhatsBrokenSteps'
 import { FINDING_WHATS_BROKEN_CONTENT } from '../data/findingWhatsBrokenContent'
 import { OnboardingIcon } from './onboardingIcons'
+import { SopProgressBar } from './SopProgressBar'
+import { readLocalJson } from '../utils/safeStorage'
 import './Page.css'
 import './Onboarding.css'
 import './ProjectCharter.css'
@@ -136,6 +138,8 @@ function FindingWhatsBrokenStep() {
   const { prev, next } = getAdjacentFindingWhatsBrokenSteps(stepId)
   const content = FINDING_WHATS_BROKEN_CONTENT[stepId]
   const requiredCount = FINDING_WHATS_BROKEN_STEPS.length
+  const checkedMap = readLocalJson('sop-finding-whats-broken-checklist', {})
+  const progressDone = FINDING_WHATS_BROKEN_STEPS.filter((s) => checkedMap[s.id]).length
 
   if (!step) {
     return (
@@ -156,6 +160,7 @@ function FindingWhatsBrokenStep() {
       <div className="onboarding-back-banner">
         <Link to="/sops/finding-whats-broken">← Back to Product Quality</Link>
       </div>
+      <SopProgressBar done={progressDone} total={requiredCount} completeLabel="All checks done" />
       <div className="page-header onboarding-step-header">
         <p className="project-charter-eyebrow">
           SOP {FINDING_WHATS_BROKEN_META.sopNumber} · {FINDING_WHATS_BROKEN_META.title}
