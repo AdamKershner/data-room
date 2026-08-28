@@ -178,6 +178,14 @@ If you are open to it, grab a time here: [calendar URL]
 
 Best,
 [YOUR NAME]`
+const CREATOR_OUTREACH_EMAIL_SHORT_TEMPLATE = `Subject: Collab?
+
+Hey [CREATOR NAME],
+
+I've been loving your content lately. It's awesome. I was wondering if you'd potentially be open to collaborating. I'm building Kahana, which is a platform where creators and experts can share digital products and artifacts and charge other people to access. I feel like you could definitely share some great tips, resources, materials on Kahana and people would love it. If you're interested, then please feel free to write me back or set up some time on my calendar: [calendar URL]
+
+Cheers,
+[YOUR NAME]`
 const CREATOR_OUTREACH_DM_TEMPLATE = `Collab?
 
 [One or two sentences only true of this creator's work.]
@@ -3024,6 +3032,7 @@ export const CREATOR_OUTREACH_SOP = playbook({
   notes: [
     'Same sheet as SOP 15. Channel = Email goes through Apps Script. Channel = Instagram DM, TikTok DM, or YouTube uses the DM template from the official Kahana account (SOP 8 access). Do not DM from a personal intern account unless Marketing Lead named you.',
     'Named proof of a past creator collab: Amy Wang’s hub The Ultimate Guide to getting Internship/Research Opportunities (https://kahana.io/hub/UMKtgp76MN1MvZuD6p7W). YouTube: https://www.youtube.com/@wamyy5. Lead HUB_PROOF with her. Add a second live hub only if Marketing Lead named one you are allowed to cite.',
+    'Two email templates: the long Collab? body is what Apps Script sends. The short Collab? body is a hand-sent alternate (founder voice). Do not paste the short body into Apps Script unless Marketing Lead swaps the script.',
     'Authors and publishers (paid book + club) are SOP 9. Journalists are SOP 14. A Linktree or form with no DM and no Email is not Ready; pitch that form by hand and log it.',
   ],
   sections: [
@@ -3149,6 +3158,13 @@ export const CREATOR_OUTREACH_SOP = playbook({
           doneWhen: 'Confirm this is the email the script sends.',
           text: 'This is the email the script sends. Row fields fill First Name and the acknowledgment. Config fills links, hubs, demo, and calendar. A leftover bracket in Acknowledgment blocks that row.',
           template: CREATOR_OUTREACH_EMAIL_TEMPLATE,
+        },
+        {
+          id: 'co-template-short',
+          label: 'Optional short Collab? email for hand-sent mail',
+          doneWhen: 'Know when to use the short Collab? template instead of the script body.',
+          text: 'Hand-sent alternate (your inbox, not Apps Script unless Marketing Lead swapped the script). Subject is Collab? Fill [CREATOR NAME], [calendar URL] (Config CALENDAR_URL / Manager’s Calendly), and [YOUR NAME]. Reply-plus-calendar is enough; do not also DM the same person the same day.',
+          template: CREATOR_OUTREACH_EMAIL_SHORT_TEMPLATE,
         },
         {
           id: 'co-test',
