@@ -12,6 +12,7 @@
  * SOP 27 Reporting Cybersecurity Threats.
  * SOP 28 Onboarding as a Manager lives in managerOnboardingSop.js.
  * SOP 29 Adding and Updating SOPs lives in updatingDataRoomSop.js.
+ * SOP 30 Search Console and branded search lives in searchConsoleSeoSop.js.
  */
 
 import {
@@ -2226,7 +2227,7 @@ export const SEO_SOP = playbook({
   when: 'Before drafting a blog, video, or campaign; after every public website or sitemap change; and on a regular Search Console and Mixpanel pass.',
   format: 'checklist',
   description:
-    'Find keyword clusters, ship tagged content, submit sitemaps in Google Search Console, and measure search, social, and Mixpanel sign-up source. Product SEO for hubs, profiles, and clubs is an ongoing effort.',
+    'Find keyword clusters, ship tagged content, index marketing URLs, and measure search, social, and Mixpanel sign-up source. Library and hub Search Console health is SOP 30.',
   keywords: [
     'seo',
     'search console',
@@ -2249,7 +2250,7 @@ export const SEO_SOP = playbook({
   notes: [
     'Google Search Console is the kahana.io domain property. Request access (your Google account invited) from Marketing Lead or a Manager. Do not assume you already have it.',
     'UTM parameters on marketing links are how Mixpanel attributes new sign-ups to a video, post, or blog. Untagged links still show a referring domain, but not which asset.',
-    'Product SEO (hubs, user profiles, clubs in Google and AI search) is in progress with Product and Engineering. A blog sitemap submit does not finish that work.',
+    'Product SEO (hubs, user profiles, clubs in Google and AI search) is in progress with Product and Engineering. A blog sitemap submit does not finish that work. Work SOP 30 for Library and hub Search Console checks.',
   ],
   sections: [
     {
@@ -2365,11 +2366,11 @@ export const SEO_SOP = playbook({
         },
         {
           id: 'seo-gsc-sitemap',
-          label: 'Resubmit the kahana.io sitemap in Search Console',
-          doneWhen: 'Resubmit the kahana.io sitemap in Search Console.',
-          text: 'In Google Search Console, add or resubmit the sitemap for the kahana.io property. Then open URL Inspection on the new or changed URLs and request indexing (Google’s review of those pages).',
-          href: GOOGLE_SEARCH_CONSOLE_URL,
-          hrefLabel: 'Google Search Console (kahana.io)',
+          label: 'Request indexing for the new blog or marketing URL',
+          doneWhen: 'Request indexing for the new blog or marketing URL in Search Console.',
+          text: 'This section is for blog and marketing URLs after SOP 13. Open URL Inspection on the new or changed page and request indexing. For the product sitemap ping (Add a new sitemap on the Sitemaps list, because GSC has no Resubmit button), work SOP 30. Do not click Remove sitemap.',
+          href: '/sops/search-console-seo',
+          hrefLabel: 'SOP 30: Search Console and branded search',
         },
         {
           id: 'seo-coverage',
@@ -2423,8 +2424,16 @@ export const SEO_SOP = playbook({
       id: 'product-seo',
       title: '6. Product SEO (ongoing)',
       intro:
-        'Marketing-site SEO is not the whole job. Hubs, user profiles, and clubs should be discoverable in search rankings and in AI search. That work is in progress.',
+        'Marketing-site SEO is not the whole job. Hubs, user profiles, and clubs should be discoverable in search rankings and in AI search. Library and hub Search Console checks are SOP 30.',
       steps: [
+        {
+          id: 'seo-product-gsc',
+          label: 'Work SOP 30 after a Library, hub, or sitemap ship',
+          doneWhen: 'Work SOP 30 after a Library, hub sitemap, or robots ship: inspect Library, Test live URL, ping the product sitemap.',
+          text: 'Work SOP 30 after Library HTML, robots.txt, the nginx bot proxy, or app.kahana.io/sitemap.xml changes. Inspect Library and one hub, run Test live URL, and ping the product sitemap from the Sitemaps list. Do not mark this SOP done because a blog was indexed.',
+          href: '/sops/search-console-seo',
+          hrefLabel: 'SOP 30: Search Console and branded search',
+        },
         {
           id: 'seo-product-surfaces',
           label: 'Treat public hubs, user profiles, and clubs as indexable product surfaces: real',
@@ -2456,9 +2465,9 @@ export const SEO_SOP = playbook({
     'You can open the kahana.io property in Google Search Console.',
     'The asset has a filed keyword cluster (primary plus secondaries) from Exploding Topics, Google Trends, and Google/YouTube suggested and related searches.',
     'Public kahana.io CTAs use UTM parameters.',
-    'After a website update, the sitemap was updated and indexing was requested in Search Console.',
+    'After a marketing-site update, the new URL was listed and indexing was requested. Product sitemap ping is SOP 30.',
     'Measurement used Search Console (impressions and clicks), native social analytics, and Mixpanel (UTM plus initial referring domain on new sign-ups).',
-    'Product SEO gaps on hubs, profiles, or clubs were filed in Linear rather than assumed finished.',
+    'Product SEO gaps on hubs, profiles, or clubs were filed in Linear rather than assumed finished. Library and hub inspects used SOP 30.',
   ],
 })
 

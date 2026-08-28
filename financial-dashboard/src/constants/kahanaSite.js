@@ -39,6 +39,8 @@ export const LINEAR_KAH_87_URL =
   'https://linear.app/kahana/issue/KAH-87/pci-dss-and-stripe-gateway-stay-out-of-cardholder-scope'
 export const LINEAR_KAH_88_URL =
   'https://linear.app/kahana/issue/KAH-88/compliance-mapping-obligations-vs-what-we-actually-do'
+export const LINEAR_KAH_94_URL =
+  'https://linear.app/kahana/issue/KAH-94/rank-kahanaio-1-for-branded-search-kahana-creator-google-after'
 
 /** Mixpanel — Kahana project home (userbase analytics). */
 export const MIXPANEL_URL =

@@ -111,6 +111,10 @@ function App() {
           <Route path="/sops/youtube-publishing" element={<Navigate to="/sops/creating-youtube-videos" replace />} />
           <Route path="/sops/seo-sitemap" element={<Navigate to="/sops/seo" replace />} />
           <Route path="/sops/ai-seo" element={<Navigate to="/sops/seo" replace />} />
+          <Route path="/sops/gsc" element={<Navigate to="/sops/search-console-seo" replace />} />
+          <Route path="/sops/search-console" element={<Navigate to="/sops/search-console-seo" replace />} />
+          <Route path="/sops/branded-search" element={<Navigate to="/sops/search-console-seo" replace />} />
+          <Route path="/sops/url-inspection" element={<Navigate to="/sops/search-console-seo" replace />} />
           <Route path="/sops/creator-collaborations-outreach" element={<Navigate to="/sops/creator-prospecting" replace />} />
           <Route path="/sops/collab-calls" element={<Navigate to="/sops/creator-collab-calls" replace />} />
           <Route path="/sops/creator-calls" element={<Navigate to="/sops/creator-collab-calls" replace />} />

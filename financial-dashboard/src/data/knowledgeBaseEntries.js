@@ -241,7 +241,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'SEO',
     category: 'SOPs',
     description:
-      'Marketing SOP: Google Search Console for sitemaps and indexing, keyword clusters from Exploding Topics and Google Trends, UTM parameters on content, Mixpanel initial referring domain on sign-ups, and ongoing product SEO for hubs, profiles, and clubs.',
+      'Marketing SOP: keyword clusters from Exploding Topics and Google Trends, UTM parameters on content, Mixpanel initial referring domain on sign-ups. Search Console health for Library and hubs is SOP 30.',
     keywords: [
       'seo',
       'search console',
@@ -251,6 +251,25 @@ export const KNOWLEDGE_BASE_ENTRIES = [
       'keywords',
       'exploding topics',
       'google trends',
+      'sop',
+    ],
+  },
+  {
+    path: '/sops/search-console-seo',
+    title: 'Search Console and branded search',
+    category: 'SOPs',
+    description:
+      'Marketing SOP: inspect Library and one public hub in Google Search Console, run Test live URL, ping the product sitemap from the Sitemaps list, and save a monthly kahana query readout. Content SEO stays SOP 12.',
+    keywords: [
+      'search console',
+      'gsc',
+      'sitemap',
+      'library',
+      'googlebot',
+      'branded search',
+      'indexing',
+      'live test',
+      'kahana',
       'sop',
     ],
   },

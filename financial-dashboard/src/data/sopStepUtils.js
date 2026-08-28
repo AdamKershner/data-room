@@ -2,7 +2,7 @@
  * Shared SOP checklist helpers: short labels, Done when copy, stable step keys.
  */
 
-export const SOP_LAST_UPDATED = 'August 27, 2026, 3:15 PM EST'
+export const SOP_LAST_UPDATED = 'August 28, 2026, 9:45 AM EST'
 
 const MAX_LABEL_WORDS = 12
 

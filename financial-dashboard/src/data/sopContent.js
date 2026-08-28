@@ -7,7 +7,7 @@
  * SOP 3 Product Quality. SOP 4 Product Management Playbook. SOP 5 Blogs.
  * SOP 6 Brand Guidelines. SOP 7 Merch. SOP 8 Official Social Media.
  * SOP 9 Author Outreach. SOP 10 Writing a Project Charter.
- * SOP 11 Creating YouTube Videos. SOP 12 SEO. SOP 13 Updating the Marketing Website. SOP 14 Third-Party News and PR. SOP 15 Creator Prospecting. SOP 16 Creator Outreach. SOP 17 Creator Collab Calls. SOP 18 Post-Collab Follow-ups. SOP 19 Lifecycle Emails and Tickets. SOP 20 Time Log. SOP 21 Analytics. SOP 22 Getting Set Up with Kahana Code. SOP 23 Penetration Testing. SOP 24 PII Handling. SOP 25 Platform Governance. SOP 26 Content Moderation. SOP 27 Reporting Cybersecurity Threats. SOP 28 Onboarding as a Manager. SOP 29 Adding and Updating SOPs.
+ * SOP 11 Creating YouTube Videos. SOP 12 SEO. SOP 13 Updating the Marketing Website. SOP 14 Third-Party News and PR. SOP 15 Creator Prospecting. SOP 16 Creator Outreach. SOP 17 Creator Collab Calls. SOP 18 Post-Collab Follow-ups. SOP 19 Lifecycle Emails and Tickets. SOP 20 Time Log. SOP 21 Analytics. SOP 22 Getting Set Up with Kahana Code. SOP 23 Penetration Testing. SOP 24 PII Handling. SOP 25 Platform Governance. SOP 26 Content Moderation. SOP 27 Reporting Cybersecurity Threats. SOP 28 Onboarding as a Manager. SOP 29 Adding and Updating SOPs. SOP 30 Search Console and branded search.
  */
 
 import { keepersCodexSearchBlob } from './keepersCodexSteps'
@@ -62,6 +62,10 @@ import {
   UPDATING_DATA_ROOM_ALIASES,
   UPDATING_DATA_ROOM_SOP,
 } from './updatingDataRoomSop'
+import {
+  SEARCH_CONSOLE_SEO_ALIASES,
+  SEARCH_CONSOLE_SEO_SOP,
+} from './searchConsoleSeoSop'
 import { flattenSopSteps, normalizeSopDoc } from './sopStepUtils'
 
 export const SOP_PAGE = {
@@ -69,7 +73,7 @@ export const SOP_PAGE = {
 }
 
 /** SOPs 1 through this number are ready for review. */
-export const SOP_READY_THROUGH = 29
+export const SOP_READY_THROUGH = 30
 
 export const SOP_REVIEW_STATUS = {
   ready: 'ready-for-review',
@@ -155,7 +159,9 @@ const SOP_EXCERPTS = {
   'creating-youtube-videos':
     'Record Kahana how-tos in Screen Studio, then package title, description, and thumbnail for YouTube. We do it so someone can watch a job get done, then try it on Kahana (AKA “The Aura Library”).',
   'seo':
-    'Build keyword clusters, UTM links, and Search Console indexing for kahana.io and the product. We do it so people find the library for the job they already have, not for a brand they have never heard.',
+    'Build keyword clusters, UTM links, and blog indexing for kahana.io. We do it so people find the library for the job they already have. Search Console health for Library and hubs is SOP 30.',
+  'search-console-seo':
+    'Inspect Library and one hub in Search Console, run Test live URL, ping the product sitemap, and save a monthly kahana query readout. We do it so Googlebot sees Library HTML and branded rank is a tracked number.',
   'marketing-website':
     'Ship kahana.io changes from a Linear card through local test, review, and Heroku deploy. We do it so the public site stays accurate without taking production down.',
   'pr-news':
@@ -260,6 +266,7 @@ const SOPS_RAW = [
   { ...REPORTING_CYBER_THREATS_SOP, number: 27 },
   { ...MANAGER_ONBOARDING_SOP, number: 28 },
   { ...UPDATING_DATA_ROOM_SOP, number: 29 },
+  { ...SEARCH_CONSOLE_SEO_SOP, number: 30 },
 ]
 
 const SOP_SCHEDULE = {
@@ -366,6 +373,10 @@ const SOP_SCHEDULE = {
   'updating-the-data-room': {
     trigger: 'A new SOP, a SOP rewrite, or any other data-room page change.',
   },
+  'search-console-seo': {
+    cadence: 'Monthly',
+    trigger: 'After a product SEO, sitemap, robots, or nginx bot-proxy ship.',
+  },
 }
 
 export const SOPS = SOPS_RAW.map((sop) => {
@@ -400,6 +411,7 @@ export function resolveSopId(sopId) {
     SECURITY_SOP_ALIASES[sopId] ||
     MANAGER_ONBOARDING_ALIASES[sopId] ||
     UPDATING_DATA_ROOM_ALIASES[sopId] ||
+    SEARCH_CONSOLE_SEO_ALIASES[sopId] ||
     sopId
   )
 }
