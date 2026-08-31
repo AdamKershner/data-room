@@ -49,6 +49,26 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     ],
   },
   {
+    path: '/financial-projections',
+    title: 'Financial Projections',
+    category: 'Finance',
+    description:
+      'Interactive Kahana model — change drivers, compare top-down vs YAU cases, and run sensitivity for teammates and investors.',
+    keywords: [
+      'financial projections',
+      'pro forma',
+      'income statement',
+      'sensitivity',
+      'top-down',
+      'yau',
+      'seed',
+      'forecast',
+      'resurrection',
+      'virality',
+      'k-factor',
+    ],
+  },
+  {
     path: '/glossary',
     title: 'Glossary',
     category: 'Marketing',

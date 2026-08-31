@@ -9,6 +9,7 @@ export const PRIMARY_NAV_LINKS = [
   { path: '/company-landscape', id: 'company-landscape', label: 'Company Landscape' },
   { path: '/glossary', id: 'glossary', label: 'Glossary' },
   { path: '/fragment-capture', id: 'fragment-capture', label: 'Market Map' },
+  { path: '/financial-projections', id: 'financial-projections', label: 'Financial Projections' },
   { path: '/team-execution', id: 'team-execution', label: 'Team Directory' },
   { path: '/weekly-reports', id: 'weekly-reports', label: 'Weekly Reports' },
   { path: '/how-we-work', id: 'how-we-work', label: 'How We Work' },
@@ -46,6 +47,12 @@ export const TOC_EXPLORE_ITEMS = [
     title: 'Market Map',
     description:
       'Directional content and creator-ops categories sized by mid TAM — glossary and build notes included. Company facts on Company Landscape.',
+  },
+  {
+    path: '/financial-projections',
+    title: 'Financial Projections',
+    description:
+      'Interactive Kahana model — change drivers, compare top-down vs YAU cases, and run sensitivity for teammates and investors.',
   },
   {
     path: '/team-execution',

@@ -166,4 +166,5 @@ export const GO_DEEPER_LINKS = [
   { to: NARRATIVE_PAGE_PATH, label: 'Kahana story / narrative' },
   { to: FRAGMENT_MAP_PATH, label: 'Market Map' },
   { to: COMPETITORS_PAGE_PATH, label: 'Company Landscape' },
+  { to: '/financial-projections', label: 'Financial Projections' },
 ]

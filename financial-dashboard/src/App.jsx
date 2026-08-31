@@ -51,6 +51,7 @@ import FounderPersonalBrand from './pages/FounderPersonalBrand'
 import Battlecards from './pages/Battlecards'
 import Glossary from './pages/Glossary'
 import FragmentCapture from './pages/FragmentCapture'
+import FinancialProjections from './pages/FinancialProjections'
 import ProjectCharterChecklist from './pages/ProjectCharterChecklist'
 import ProjectCharterSection from './pages/ProjectCharterSection'
 import Access from './pages/Access'
@@ -73,7 +74,8 @@ function App() {
           <Route path="/archive/oasis-sprints" element={<OasisSprintsArchive />} />
           <Route path="/knowledge-base" element={<KnowledgeBase />} />
           <Route path="/kahana" element={<Navigate to="/" replace />} />
-          <Route path="/pro-forma" element={<Navigate to="/" replace />} />
+          <Route path="/pro-forma" element={<Navigate to="/financial-projections" replace />} />
+          <Route path="/financial-projections" element={<FinancialProjections />} />
           <Route path="/company-landscape" element={<Battlecards />} />
           <Route path="/glossary" element={<Glossary />} />
           <Route path="/battlecards" element={<Navigate to="/company-landscape" replace />} />
