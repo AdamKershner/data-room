@@ -261,7 +261,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'SEO',
     category: 'SOPs',
     description:
-      'Marketing SOP: keyword clusters from Exploding Topics and Google Trends, UTM parameters on content, Mixpanel initial referring domain on sign-ups. Search Console health for Library and hubs is SOP 30.',
+      'Marketing SOP: keyword clusters from Exploding Topics and Google Trends, UTM parameters on content, Mixpanel initial referring domain on sign-ups. Search Console health for Library and hubs is in the later sections of this SOP (gallery card 30 is an alias).',
     keywords: [
       'seo',
       'search console',
@@ -279,7 +279,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'Search Console and branded search',
     category: 'SOPs',
     description:
-      'Marketing SOP: inspect Library and one public hub in Google Search Console, run Test live URL, ping the product sitemap from the Sitemaps list, and save a monthly kahana query readout. Content SEO stays SOP 12.',
+      'Search Console health for Library and hubs now lives in SOP 12 (sections 7–10). This gallery card and URL alias still open those sections. Content clusters, UTMs, and Mixpanel stay in the earlier SOP 12 sections.',
     keywords: [
       'search console',
       'gsc',

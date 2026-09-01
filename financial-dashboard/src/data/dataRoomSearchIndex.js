@@ -564,7 +564,7 @@ function buildNamedSopStepEntries() {
     if (sop.href) continue
     for (const step of flattenSopSteps(sop)) {
       entries.push({
-        path: `/sops/${sop.id}/${step.key}`,
+        path: `/sops/${sop.id}/${step.sectionId}#${step.key}`,
         title: `SOP ${sop.number}: ${step.label}`,
         businessFunction: mapSopCategoryToBusinessFunction(sop.category),
         description: step.doneWhen,

@@ -50,6 +50,7 @@ import {
   TIME_LOG_TALLY_URL,
   TOOLS_ACCESS_TALLY_URL,
 } from '../constants/kahanaSite'
+import { SEARCH_CONSOLE_SEO_SOP } from './searchConsoleSeoSop'
 import { NOTION_TEAM_DIRECTORY_APP_URL } from '../constants/notionTeamDirectory'
 import { CREATOR_OUTREACH_APPS_SCRIPT } from './creatorOutreachAppsScript'
 import { normalizeSopStep } from './sopStepUtils'
@@ -108,8 +109,10 @@ const SALES_HERO_JOURNEY_URL =
   'https://storytellingedge.substack.com/p/a-6-step-framework-for-incredible'
 const KAHANA_BRAND_GUIDE_URL =
   'https://drive.google.com/file/d/1t0m-qmNqf-BdnrA6ytxyYPkRh5EdaDEI/view?usp=sharing'
+const PRINTIFY_STORE_URL = 'https://printify.com/app'
 const PRINTIFY_PRODUCTS_URL = 'https://printify.com/app/products'
-const CANVA_URL = 'https://www.canva.com/'
+const CANVA_BRAND_FOLDER_URL = 'https://www.canva.com/'
+const FIGMA_URL = 'https://www.figma.com/'
 const SOCIAL_ACCOUNTS_CREDENTIALS_DOC =
   'https://docs.google.com/document/d/1Livnd-dsmFV33N_XZXP2kLf15JYd2TVxz1Duz-8RrWg/edit?tab=t.0'
 const IMPROVE_SURVEY = 'https://kahana.io/survey/improve?source=support_panel'
@@ -257,8 +260,10 @@ function playbook({
   keywords = [],
   notes,
   format = 'checklist',
+  layout,
   sections,
   doneWhen,
+  ...rest
 }) {
   return {
     id,
@@ -272,6 +277,8 @@ function playbook({
     keywords,
     notes,
     format,
+    layout,
+    ...rest,
     sections: sections.map((section) => ({
       ...section,
       steps: stepsFrom(section.steps, section.id),
@@ -364,22 +371,10 @@ export const PRODUCT_HUNT_LAUNCH_SOP = playbook({
             text: 'Entire team used Kahana (AKA The Aura Library) for real — hubs, club, Aura, a new-user path. No invented reviews.',
           },
           {
-            id: 'pre-team-testimonials',
-            label: 'Collect four-part testimonials from every teammate',
-            doneWhen: 'Collect a true four-part testimonial from every teammate days in advance.',
-            text: 'Every teammate wrote a true four-part testimonial days in advance: what they like, what they do not like, what to improve, and what they are most hopeful to do next. Hype-only blurbs do not count.',
-          },
-          {
-            id: 'pre-community-testimonials',
-            label: 'Collect four-part testimonials from community supporters',
-            doneWhen: 'Collect the same four-part testimonials from every community member who agreed to support.',
-            text: 'Same four-part testimonials collected from every community member who agreed to support, as completely as we can. Chase until confirmed or they drop off.',
-          },
-          {
-            id: 'pre-tally-40',
-            label: 'Confirm the tally is at least 40 people',
-            doneWhen: 'Confirm the tally is at least 40 confirmed people.',
-            text: 'Tally is at least 40 confirmed people. Confirmed = used the product + four-part draft + Product Hunt login + committed to post at 3 AM EST. Under 40: slip the date.',
+            id: 'pre-testimonials',
+            label: 'Collect four-part testimonials from teammates and community supporters',
+            doneWhen: 'Collect four-part testimonials from teammates and community supporters, and confirm the tally is at least 40 people.',
+            text: 'One job, two audiences. Every teammate writes a true four-part testimonial days in advance: what they like, what they do not like, what to improve, and what they are most hopeful to do next. Collect the same four-part testimonials from every community member who agreed to support. Confirmed on the tally = used the product + four-part draft + Product Hunt login + committed to post at 3 AM EST. Under 40 confirmed people: slip the date. Hype-only blurbs do not count.',
             href: PRODUCT_HUNT_ACCOUNTS_SHEET,
             hrefLabel: 'Product Hunt community / accounts sheet',
           },
@@ -419,22 +414,10 @@ export const PRODUCT_HUNT_LAUNCH_SOP = playbook({
             hrefLabel: 'Kahana Story',
           },
           {
-            id: 'pre-townhall-booked',
-            label: 'Book three consecutive town halls before launch',
-            doneWhen: 'Book three consecutive 30-minute town halls: Tuesday, Wednesday, Thursday.',
-            text: 'Three consecutive 30-minute town halls booked: Tuesday, Wednesday, Thursday (week before launch, or the three days immediately before). Same agenda each day.',
-          },
-          {
-            id: 'pre-townhall-rsvp',
-            label: 'Confirm every teammate signed up for a town hall',
-            doneWhen: 'Confirm every teammate is signed up for at least one town hall.',
-            text: 'Every teammate is signed up for at least one town hall. Chase anyone without a slot before Tuesday. Missing all three is not allowed.',
-          },
-          {
-            id: 'pre-townhall-ran',
-            label: 'Run all three town halls',
-            doneWhen: 'Run all three town halls.',
-            text: 'All three town halls ran. Drill: 3 AM EST login → paste four-part testimonial on the launch discussion → upvote → makers reply → share socials and text chats all day. Rehearse the first-15-minute ping list.',
+            id: 'pre-townhalls',
+            label: 'Book, fill, and run three consecutive town halls',
+            doneWhen: 'Book three consecutive 30-minute town halls (Tuesday, Wednesday, Thursday), confirm every teammate is signed up for at least one, and run all three.',
+            text: 'Book three consecutive 30-minute town halls: Tuesday, Wednesday, Thursday (week before launch, or the three days immediately before). Same agenda each day. Every teammate is signed up for at least one; chase anyone without a slot before Tuesday. Then run all three. Drill: 3 AM EST login → paste four-part testimonial on the launch discussion → upvote → makers reply → share socials and text chats all day. Rehearse the first-15-minute ping list.',
           },
           {
             id: 'pre-townhall-roles',
@@ -690,7 +673,7 @@ export const BLOG_PUBLISHING_SOP = playbook({
         },
         {
           id: 'use-case-guide-a-click-by-click-or-week-',
-          label: 'Use-case guide: a click-by-click or week-by-week workflow (start a book club, add',
+          label: 'Use-case guide: a click-by-click or week-by-week workflow (start a book club, add a YouTube curriculum)',
           doneWhen: 'Use-case guide: a click-by-click or week-by-week workflow (start a book club, add a YouTube curriculum, pin a hub in Discord, run a course discussion alongside Teachable).',
           text: 'Use-case guide: a click-by-click or week-by-week workflow (start a book club, add a YouTube curriculum, pin a hub in Discord, run a course discussion alongside Teachable).',
         },
@@ -814,7 +797,8 @@ export const BLOG_PUBLISHING_SOP = playbook({
           doneWhen: 'Publish on the Kahana HQ YouTube channel, then paste the embed so watch time stays on YouTube.',
           text: 'Publish on the Kahana HQ YouTube channel, then paste the embed so watch time stays on YouTube.',
           href: 'https://www.youtube.com/@kahanaHQ',
-          hrefLabel: 'YouTube @kahanaHQ',
+          hrefLabel: 'YouTube @kahanaHQ (must be Public)',
+          note: 'If the channel page is unavailable, that is a YouTube visibility or indexing setting, not a wrong URL. Marketing Lead should confirm the channel is Public.',
         },
         {
           id: 'if-a-video-is-not-ready',
@@ -1018,7 +1002,7 @@ export const BRAND_GUIDELINES_SOP = playbook({
       steps: [
         {
           id: 'bg-manifesto',
-          label: 'Keep the manifesto in earshot: “If I was imprisoned alone between four',
+          label: 'Keep the manifesto in earshot: “If I was imprisoned alone between four blank walls with nothing but time, I would sing.”',
           doneWhen: 'Keep the manifesto in earshot: “If I was imprisoned alone between four blank walls with nothing but time, I would sing.',
           text: 'Keep the manifesto in earshot: “If I was imprisoned alone between four blank walls with nothing but time, I would sing.” Creation gives meaning. The goal is a seamless, immersive creative experience, not a lecture.',
           href: KAHANA_BRAND_GUIDE_URL,
@@ -1058,9 +1042,9 @@ export const BRAND_GUIDELINES_SOP = playbook({
         },
         {
           id: 'bg-personality',
-          label: 'Check the six personality notes from the original guide: Exhilarating Exploration, Killer',
-          doneWhen: 'Check the six personality notes from the original guide: Exhilarating Exploration, Killer Cuteness, Comic Spontaneity, Nighttime Intelligence, Aesthetic Appreciation, Power & Activism.',
-          text: 'Check the six personality notes from the original guide: Exhilarating Exploration, Killer Cuteness, Comic Spontaneity, Nighttime Intelligence, Aesthetic Appreciation, Power & Activism. A piece can lean on two or three. It should not feel like generic SaaS beige or rage-bait.',
+          label: 'Check the six personality notes from the original guide',
+          doneWhen: 'Check the six personality notes from the original guide.',
+          text: 'Check the six personality notes from the original guide. A piece can lean on two or three. It should not feel like generic SaaS beige or rage-bait. Exhilarating Exploration: a club night that feels like discovering a new aisle, not a webinar. Killer Cuteness: warmth and delight without talking down (a keeper illustration, not a mascot dunk). Comic Spontaneity: a wry line in a caption, not a bit that punches the reader. Nighttime Intelligence: late-hour reading energy, serious without being stiff. Aesthetic Appreciation: the mock, thumbnail, or page looks considered. Power & Activism: creators as people who change things, not as inventory.',
         },
         {
           id: 'bg-no-emdash',
@@ -1131,7 +1115,7 @@ export const BRAND_GUIDELINES_SOP = playbook({
         },
         {
           id: 'bg-no-obsolete',
-          label: 'Do not ship obsolete claims as if they are current: “start research',
+          label: 'Do not ship obsolete claims as if they are current',
           doneWhen: 'Do not ship obsolete claims as if they are current: “start research here instead of Google,” “open source verification” as the headline, or kahana.',
           text: 'Do not ship obsolete claims as if they are current: “start research here instead of Google,” “open source verification” as the headline, or kahana.co in CTAs. If you quote the original About for history, label it as heritage, not as today’s product.',
         },
@@ -1183,6 +1167,7 @@ export const MERCH_SOP = playbook({
     'Printify is the catalog and storefront (tees, bags, bottles, and the rest of their product list). Canva is the default design tool.',
     'Keep a merch mood board of ideas and concepts on an ongoing basis, not only when a listing is already approved.',
     'Every design runs SOP 6 Brand Guidelines before it is listed. Kahana (AKA "The Aura Library"); Aura is the signal, not the product name.',
+    'Canva and Figma links should open the Kahana brand folder / merch board. If they land on the vendor homepage, sign in and open the team files Marketing Lead shared.',
   ],
   sections: [
     {
@@ -1195,6 +1180,8 @@ export const MERCH_SOP = playbook({
           label: 'Maintain an ongoing merch mood board for ideas',
           doneWhen: 'Maintain an ongoing merch mood board (Canva, FigJam, or Figma) for ideas and concepts: phrases, colorways, mockups, references, and “not this.”',
           text: 'Maintain an ongoing merch mood board (Canva, FigJam, or Figma) for ideas and concepts: phrases, colorways, mockups, references, and “not this.” Tag each idea as catalog (Printify store) or collab custom.',
+          href: FIGMA_URL,
+          hrefLabel: 'Kahana merch board (Figma)',
         },
         {
           id: 'merch-board-cadence',
@@ -1220,8 +1207,8 @@ export const MERCH_SOP = playbook({
           label: 'Design (or refine) the artwork in Canva',
           doneWhen: 'Design (or refine) the artwork in Canva.',
           text: 'Design (or refine) the artwork in Canva. Export print-ready files at Printify’s required DPI and color mode. Keep a source file on the board.',
-          href: CANVA_URL,
-          hrefLabel: 'Canva',
+          href: CANVA_BRAND_FOLDER_URL,
+          hrefLabel: 'Kahana brand folder in Canva',
         },
         {
           id: 'merch-brand',
@@ -1263,8 +1250,8 @@ export const MERCH_SOP = playbook({
           label: 'Publish the product on the Kahana Printify store',
           doneWhen: 'Publish the product on the Kahana Printify store with a price so Kahana earns.',
           text: 'Publish the product on the Kahana Printify store. Set a price so Kahana earns after Printify’s cost. Confirm the storefront and checkout are branded Kahana, not a raw Printify URL in community-facing copy.',
-          href: PRINTIFY_PRODUCTS_URL,
-          hrefLabel: 'Printify',
+          href: PRINTIFY_STORE_URL,
+          hrefLabel: 'Kahana Printify store',
         },
         {
           id: 'merch-printify-share',
@@ -1580,20 +1567,13 @@ export const AUTHOR_OUTREACH_SOP = playbook({
         'Open both. Pick from the contact list (or add a sourced indie to the tracker). Every send gets a tracker row first.',
       steps: [
         {
-          id: 'ao-contact-list',
-          label: 'Open the author contact list (Authors Contact Details)',
-          doneWhen: 'Open the author contact list (Authors Contact Details).',
-          text: 'Open the author contact list (Authors Contact Details). This is the candidate shelf: Founders & Builders, product/engineering, Money, Mind & Growth, Myths & Fantasy, Thrills, Literary picks. Confirm the current title and year before you name the book in email.',
+          id: 'ao-sheets',
+          label: 'Open the contact list and the outreach tracker',
+          doneWhen: 'Open the author contact list and the Author Outreach Tracker.',
+          text: 'Open both sheets (two tabs / two jobs, one sitting). The contact list is the candidate shelf: Founders & Builders, product/engineering, Money, Mind & Growth, Myths & Fantasy, Thrills, Literary picks. Confirm the current title and year before you name the book in email. The tracker is the pipeline. Columns to fill: Author Name, Book Title, Segment, Source Found, Contact Info, Contact Channel Used, Date Touch 1 / 2 / 3, Message/Template Used, Response (Y/N/Pending), Time to Respond (days), Outcome / Status, What Worked / Didn\'t, Owner. Use Legend & Instructions and Summary when you are unsure.',
           href: AUTHOR_CONTACT_LIST_URL,
           hrefLabel: 'Author contact list',
-        },
-        {
-          id: 'ao-tracker',
-          label: 'Open the Author Outreach Tracker (Outreach Log tab)',
-          doneWhen: 'Open the Author Outreach Tracker (Outreach Log tab).',
-          text: 'Open the Author Outreach Tracker (Outreach Log tab). Columns to fill: Author Name, Book Title, Segment, Source Found, Contact Info, Contact Channel Used, Date Touch 1 / 2 / 3, Message/Template Used, Response (Y/N/Pending), Time to Respond (days), Outcome / Status, What Worked / Didn\'t, Owner. Use Legend & Instructions and Summary when you are unsure.',
-          href: AUTHOR_OUTREACH_TRACKER_URL,
-          hrefLabel: 'Author outreach tracker',
+          note: `Tracker (Outreach Log): ${AUTHOR_OUTREACH_TRACKER_URL}`,
         },
         {
           id: 'ao-claim',
@@ -1731,6 +1711,7 @@ export const WRITING_PROJECT_CHARTER_SOP = playbook({
   who: 'Whoever is running the project (project manager, intern, or team lead)',
   when: 'At the outset of any project involving more than two or three people, before work begins.',
   format: 'checklist',
+  layout: 'inline',
   description:
     'Write the charter at the start and revise it as decisions land. Most of the work is establishing facts with the person commissioning the project (today: a Manager), not polishing prose.',
   keywords: [
@@ -1747,6 +1728,7 @@ export const WRITING_PROJECT_CHARTER_SOP = playbook({
     'directory',
   ],
   notes: [
+    'Write the charter as one document. Use the live Project Charter template in this data room for the fields; this SOP explains what each field is for.',
     'Aim for three to six pages. Write the full document, including sections you are still uncertain about.',
     'Keep assumptions and risks in the final document. Removing them to look more confident hides problems participants could plan around.',
     'Anticipate one or two review rounds. The first draft exists to be corrected. A project’s shape commonly changes once the stakeholder sees it written down; that is the charter working.',
@@ -1765,6 +1747,8 @@ export const WRITING_PROJECT_CHARTER_SOP = playbook({
           label: 'Capture new projects a Manager raises in the weekly 1:1',
           doneWhen: 'Capture new projects a Manager raises in the weekly 1:1.',
           text: 'New projects are generally raised by a Manager in the weekly 1:1 or over Slack. Treat that first conversation as the main chance to establish what the project involves. Written follow-up is slower and less complete than asking while you have their attention.',
+          href: '/project-charter',
+          hrefLabel: 'Live project charter template',
         },
       ],
     },
@@ -1988,19 +1972,11 @@ export const CREATING_YOUTUBE_VIDEOS_SOP = playbook({
         },
         {
           id: 'yt-questions',
-          label: 'Scan questions from users and customers',
-          doneWhen: 'Scan questions from users and customers.',
-          text: 'Scan questions from users and customers. Contact and support forms are the first input. Repeat questions (how do I start a club, where does Aura show up, how do I add a YouTube video) are better topics than a feature dump.',
+          label: 'Scan questions from users, customers, tickets, and support threads',
+          doneWhen: 'Scan contact, support, and tickets for the same question showing up twice.',
+          text: 'Scan questions from users and customers. Contact and support forms are the first input. Read open tickets and support threads for the same patterns. Repeat questions (how do I start a club, where does Aura show up, how do I add a YouTube video) are better topics than a feature dump. If several people asked it, the video should answer it on screen.',
           href: CONTACT_PAGE,
           hrefLabel: 'kahana.io/contact',
-        },
-        {
-          id: 'yt-support',
-          label: 'Read open tickets and support threads for the same patterns',
-          doneWhen: 'Read open tickets and support threads for the same patterns.',
-          text: 'Read open tickets and support threads for the same patterns. If several people asked it, the video should answer it on screen.',
-          href: SUPPORT_PAGE,
-          hrefLabel: 'kahana.io/support',
         },
         {
           id: 'yt-use-cases',
@@ -2126,7 +2102,7 @@ export const CREATING_YOUTUBE_VIDEOS_SOP = playbook({
     },
     {
       id: 'metadata',
-      title: '6. Title, description, tags, hashtags, timestamps',
+      title: '6. Title, tags, hashtags, timestamps',
       intro: 'A file is not ready to upload until the YouTube package is written.',
       steps: [
         {
@@ -2136,17 +2112,8 @@ export const CREATING_YOUTUBE_VIDEOS_SOP = playbook({
           text: 'Write a proper title: the job or feature in plain language (tutorial, use case, or what’s new). No em dashes. Kahana spelled correctly. The viewer should know what they will be able to do.',
         },
         {
-          id: 'yt-description',
-          label: 'Write the YouTube description from the template',
-          doneWhen: 'Write the description from the template: one-sentence job, chapter timestamps, kahana.io CTA with UTM, Help and Blog links, hashtags.',
-          text: 'Write the description from the template: one-sentence job, chapter timestamps, kahana.io CTA with UTM (SOP 12), Help and Blog links, hashtags. Proofread. Do not paste raw AI.',
-          href: '/sops/seo',
-          hrefLabel: 'SOP 12: SEO',
-          template: YOUTUBE_DESCRIPTION_TEMPLATE,
-        },
-        {
           id: 'yt-tags',
-          label: 'Add tags and hashtags from a SOP 12 keyword cluster (primary plus',
+          label: 'Add tags and hashtags from a SOP 12 keyword cluster (primary plus secondaries)',
           doneWhen: 'Add tags and hashtags from a SOP 12 keyword cluster (primary plus secondaries).',
           text: 'Add tags and hashtags from a SOP 12 keyword cluster (primary plus secondaries). Match the video. Do not keyword-stuff unrelated terms.',
           href: '/sops/seo',
@@ -2161,8 +2128,24 @@ export const CREATING_YOUTUBE_VIDEOS_SOP = playbook({
       ],
     },
     {
+      id: 'description',
+      title: '7. YouTube description template',
+      intro: 'Keep this page: it is the reusable description the team fills for every upload.',
+      steps: [
+        {
+          id: 'yt-description',
+          label: 'Write the YouTube description from the template',
+          doneWhen: 'Write the description from the template: one-sentence job, chapter timestamps, kahana.io CTA with UTM, Help and Blog links, hashtags.',
+          text: 'Write the description from the template: one-sentence job, chapter timestamps, kahana.io CTA with UTM (SOP 12), Help and Blog links, hashtags. Proofread. Do not paste raw AI.',
+          href: '/sops/seo',
+          hrefLabel: 'SOP 12: SEO',
+          template: YOUTUBE_DESCRIPTION_TEMPLATE,
+        },
+      ],
+    },
+    {
       id: 'publish',
-      title: '7. Review, then upload or hand off',
+      title: '8. Review, then upload or hand off',
       steps: [
         {
           id: 'yt-sop8',
@@ -2235,7 +2218,7 @@ export const SEO_SOP = playbook({
   when: 'Before drafting a blog, video, or campaign; after every public website or sitemap change; and on a regular Search Console and Mixpanel pass.',
   format: 'checklist',
   description:
-    'Find keyword clusters, ship tagged content, index marketing URLs, and measure search, social, and Mixpanel sign-up source. Library and hub Search Console health is SOP 30.',
+    'Find keyword clusters, ship tagged content, index marketing URLs, inspect Library and hubs in Search Console, and measure search, social, and Mixpanel sign-up source.',
   keywords: [
     'seo',
     'search console',
@@ -2258,7 +2241,7 @@ export const SEO_SOP = playbook({
   notes: [
     'Google Search Console is the kahana.io domain property. Request access (your Google account invited) from Marketing Lead or a Manager. Do not assume you already have it.',
     'UTM parameters on marketing links are how Mixpanel attributes new sign-ups to a video, post, or blog. Untagged links still show a referring domain, but not which asset.',
-    'Product SEO (hubs, user profiles, clubs in Google and AI search) is in progress with Product and Engineering. A blog sitemap submit does not finish that work. Work SOP 30 for Library and hub Search Console checks.',
+    'Library and hub Search Console checks are the later sections of this SOP (open the Search Console property, inspect after a ship, monthly branded readout).',
   ],
   sections: [
     {
@@ -2315,7 +2298,7 @@ export const SEO_SOP = playbook({
         },
         {
           id: 'seo-cluster',
-          label: 'Form the cluster: one primary keyword (the job of the page',
+          label: 'Form the cluster: one primary keyword (the job of the page or video) and a short list of secondaries',
           doneWhen: 'Form the cluster: one primary keyword (the job of the page or video) and a short list of secondaries (related searches you will cover in headings, description, tags, or body).',
           text: 'Form the cluster: one primary keyword (the job of the page or video) and a short list of secondaries (related searches you will cover in headings, description, tags, or body). File primary + secondaries in the content brief before draft.',
         },
@@ -2376,9 +2359,9 @@ export const SEO_SOP = playbook({
           id: 'seo-gsc-sitemap',
           label: 'Request indexing for the new blog or marketing URL',
           doneWhen: 'Request indexing for the new blog or marketing URL in Search Console.',
-          text: 'This section is for blog and marketing URLs after SOP 13. Open URL Inspection on the new or changed page and request indexing. For the product sitemap ping (Add a new sitemap on the Sitemaps list, because GSC has no Resubmit button), work SOP 30. Do not click Remove sitemap.',
-          href: '/sops/search-console-seo',
-          hrefLabel: 'SOP 30: Search Console and branded search',
+          text: 'This section is for blog and marketing URLs after SOP 13. Open URL Inspection on the new or changed page and request indexing. For the product sitemap ping (Add a new sitemap on the Sitemaps list, because GSC has no Resubmit button), use the After a product SEO ship section below. Do not click Remove sitemap.',
+          href: '/sops/seo/after-ship',
+          hrefLabel: 'After a product SEO ship (this SOP)',
         },
         {
           id: 'seo-coverage',
@@ -2432,15 +2415,15 @@ export const SEO_SOP = playbook({
       id: 'product-seo',
       title: '6. Product SEO (ongoing)',
       intro:
-        'Marketing-site SEO is not the whole job. Hubs, user profiles, and clubs should be discoverable in search rankings and in AI search. Library and hub Search Console checks are SOP 30.',
+        'Marketing-site SEO is not the whole job. Hubs, user profiles, and clubs should be discoverable in search rankings and in AI search. Library and hub inspects are the Search Console sections below.',
       steps: [
         {
           id: 'seo-product-gsc',
-          label: 'Work SOP 30 after a Library, hub, or sitemap ship',
-          doneWhen: 'Work SOP 30 after a Library, hub sitemap, or robots ship: inspect Library, Test live URL, ping the product sitemap.',
-          text: 'Work SOP 30 after Library HTML, robots.txt, the nginx bot proxy, or app.kahana.io/sitemap.xml changes. Inspect Library and one hub, run Test live URL, and ping the product sitemap from the Sitemaps list. Do not mark this SOP done because a blog was indexed.',
-          href: '/sops/search-console-seo',
-          hrefLabel: 'SOP 30: Search Console and branded search',
+          label: 'Run the Search Console sections after a Library, hub, or sitemap ship',
+          doneWhen: 'Inspect Library, Test live URL, and ping the product sitemap after a Library, hub sitemap, or robots ship.',
+          text: 'After Library HTML, robots.txt, the nginx bot proxy, or app.kahana.io/sitemap.xml changes, run the Search Console sections below: inspect Library and one hub, Test live URL, and ping the product sitemap from the Sitemaps list. Do not mark this SOP done because a blog was indexed.',
+          href: '/sops/seo/after-ship',
+          hrefLabel: 'After a product SEO ship (this SOP)',
         },
         {
           id: 'seo-product-surfaces',
@@ -2468,14 +2451,15 @@ export const SEO_SOP = playbook({
         },
       ],
     },
+    ...SEARCH_CONSOLE_SEO_SOP.sections,
   ],
   doneWhen: [
     'You can open the kahana.io property in Google Search Console.',
     'The asset has a filed keyword cluster (primary plus secondaries) from Exploding Topics, Google Trends, and Google/YouTube suggested and related searches.',
     'Public kahana.io CTAs use UTM parameters.',
-    'After a marketing-site update, the new URL was listed and indexing was requested. Product sitemap ping is SOP 30.',
+    'After a marketing-site update, the new URL was listed and indexing was requested. Product sitemap ping used the Search Console sections in this SOP.',
     'Measurement used Search Console (impressions and clicks), native social analytics, and Mixpanel (UTM plus initial referring domain on new sign-ups).',
-    'Product SEO gaps on hubs, profiles, or clubs were filed in Linear rather than assumed finished. Library and hub inspects used SOP 30.',
+    'Product SEO gaps on hubs, profiles, or clubs were filed in Linear rather than assumed finished. Library and hub inspects used the Search Console sections in this SOP.',
   ],
 })
 
@@ -2903,7 +2887,7 @@ export const CREATOR_PROSPECTING_SOP = playbook({
       id: 'sheet',
       title: '2. Add the profile to the creator database',
       intro:
-        'If it is not in the database, it is not in the pipeline.',
+        'If it is not in the database, it is not in the pipeline. Authors and publishers stay on SOP 9; journalists stay on SOP 14.',
       steps: [
         {
           id: 'cp-sheet',
@@ -2912,14 +2896,6 @@ export const CREATOR_PROSPECTING_SOP = playbook({
           text: 'Open the creator database (Influencer & Creator Profiles). Add a new row. Put profile URLs in the matching columns: Instagram Link, YouTube Link, TikTok Link. Linktree, media kit, or a form goes in Other Link. Beat and why they fit go in Notes. Request access from Marketing Lead or a Manager if the link is closed to you. Do not keep a private shadow list.',
           href: CREATOR_OUTREACH_SHEET_URL,
           hrefLabel: 'Creator database (Influencer & Creator Profiles)',
-        },
-        {
-          id: 'cp-not-authors',
-          label: 'Use SOP 9 for authors instead of this database',
-          doneWhen: 'Use SOP 9 instead of this database when the person is an author or publisher you want as a paid book and club title.',
-          text: 'Use SOP 9 instead of this database when the person is an author or publisher you want on Kahana as a paid book and club title. Journalists and outlets are SOP 14.',
-          href: '/sops/author-outreach',
-          hrefLabel: 'SOP 9: Author Outreach',
         },
       ],
     },
@@ -3116,7 +3092,7 @@ export const CREATOR_OUTREACH_SOP = playbook({
         },
         {
           id: 'co-hubs',
-          label: 'Lead HUB_PROOF with Amy Wang (past collab): The Ultimate Guide to getting',
+          label: 'Lead HUB_PROOF with a live example hub (Amy Wang is the current example)',
           doneWhen: 'Lead HUB_PROOF with Amy Wang (past collab): The Ultimate Guide to getting Internship/Research Opportunities.',
           text: 'Lead HUB_PROOF with Amy Wang (past collab): The Ultimate Guide to getting Internship/Research Opportunities. Add a second public hub only if Marketing Lead named one. The email script will not send while HUB_PROOF still says “replace this”.',
           href: AMY_WANG_HUB_URL,
@@ -3124,9 +3100,9 @@ export const CREATOR_OUTREACH_SOP = playbook({
         },
         {
           id: 'co-amy-yt',
-          label: 'Link Amy Wang’s YouTube as @wamyy5',
-          doneWhen: 'Link Amy Wang’s YouTube as @wamyy5.',
-          text: 'Her YouTube is @wamyy5. Use that if you need a public creator channel next to the hub URL. Do not invent a second named collab.',
+          label: 'Example: Amy Wang’s YouTube is @wamyy5',
+          doneWhen: 'If you need a public creator channel next to the hub URL, use the named example (currently @wamyy5), not a second invented collab.',
+          text: 'Example only, not a standing task for every send: Amy Wang’s YouTube is @wamyy5. Use that if you need a public creator channel next to the hub URL. Do not invent a second named collab. Swap this example when Marketing Lead names a newer public hub.',
           href: AMY_WANG_YOUTUBE_URL,
           hrefLabel: 'Amy Wang on YouTube (@wamyy5)',
         },
@@ -3332,7 +3308,7 @@ export const CREATOR_COLLAB_CALLS_SOP = playbook({
         },
         {
           id: 'cc-calendar',
-          label: 'Join on time from the booking link they used (the Manager’s Calendly unless',
+          label: 'Join on time from the booking link they used (the Manager’s Calendly unless Marketing Lead named a different event)',
           doneWhen: 'Join on time from the booking link they used (the Manager’s Calendly unless Marketing Lead named a different event).',
           text: 'Join on time from the booking link they used (the Manager’s Calendly unless Marketing Lead named a different event). Do not move them to a personal Zoom they cannot find.',
           href: ADAM_CALENDLY_URL,
@@ -3369,7 +3345,7 @@ export const CREATOR_COLLAB_CALLS_SOP = playbook({
         },
         {
           id: 'cc-share-offer',
-          label: 'Share the offer in plain language: they create a Kahana account, start',
+          label: 'Share the offer in plain language: they create a Kahana account, start a hub, and invite our team as collaborators',
           doneWhen: 'Share the offer in plain language: they create a Kahana account, start a hub, and invite our team as collaborators.',
           text: 'Share the offer in plain language: they create a Kahana account, start a hub, and invite our team as collaborators. We migrate content and build it privately. They review. When it matches, they publish it to the library (free or paid). Then they can put the hub in their link in bio or Linktree.',
           href: KAHANA_LIBRARY_URL,
@@ -3379,7 +3355,11 @@ export const CREATOR_COLLAB_CALLS_SOP = playbook({
     },
     {
       id: 'paid',
-      title: '3. If they require payment or “only do paid collabs”',
+      part: 'call-path',
+      partTitle: 'Choose a path',
+      path: 'paid',
+      pathTitle: 'If they want paying',
+      title: 'If they require payment or “only do paid collabs”',
       intro:
         'Get the facts. Do not agree to a creator fee on the call. We prioritize people who want to collab without one.',
       steps: [
@@ -3387,7 +3367,7 @@ export const CREATOR_COLLAB_CALLS_SOP = playbook({
           id: 'cc-ask-once',
           label: 'Ask once whether they collab as offered or paid-only',
           doneWhen: 'Ask once: are they open to this collab as offered, or do they only do paid / upfront work.',
-          text: 'Ask once whether they are open to this collab as offered, or only do paid / upfront work, if they have not said how they work with brands. If they are in without a fee, skip the rest of this section and go to section 4.',
+          text: 'Ask once whether they are open to this collab as offered, or only do paid / upfront work, if they have not said how they work with brands. If they are in without a fee, skip this path and open “If they collab without a fee.”',
         },
         {
           id: 'cc-rates',
@@ -3417,17 +3397,15 @@ export const CREATOR_COLLAB_CALLS_SOP = playbook({
           href: '/sops/blog-publishing',
           hrefLabel: 'SOP 5: Blogs',
         },
-        {
-          id: 'cc-still-in',
-          label: 'Continue to section 4 if they collab without a fee',
-          doneWhen: 'Continue to section 4 if they still want to collab without a creator fee. Otherwise thank them and park the row.',
-          text: 'Continue to section 4 if they hear that and still want to collab without a creator fee. If they do not, thank them, park the row, and stop. Do not keep pitching a paid talent deal.',
-        },
       ],
     },
     {
       id: 'point-b',
-      title: '4. Help them from point A to point B',
+      part: 'call-path',
+      partTitle: 'Choose a path',
+      path: 'unpaid',
+      pathTitle: 'If they collab without a fee',
+      title: 'Help them from point A to point B',
       intro:
         'Point B is a hub on the library, free or paid. Stay helpful. The hub stays theirs.',
       steps: [
@@ -3608,9 +3586,9 @@ export const POST_COLLAB_FOLLOWUPS_SOP = playbook({
       steps: [
         {
           id: 'pc-template',
-          label: 'Use the template',
-          doneWhen: 'Use the template.',
-          text: 'Use the template. Fill real numbers from this snapshot. Same channel as SOP 16 (email or official DM). No leftover brackets. Do not inflate views or invent Mixpanel stats.',
+          label: 'Use the post-collab results check-in template',
+          doneWhen: 'Use the post-collab results check-in template.',
+          text: 'Use the post-collab results check-in template below. Fill real numbers from this snapshot. Same channel as SOP 16 (email or official DM). No leftover brackets. Do not inflate views or invent Mixpanel stats.',
           template: POST_COLLAB_FOLLOWUP_TEMPLATE,
         },
         {
@@ -3978,31 +3956,24 @@ export const TIME_LOG_SOP = playbook({
     'sheet',
   ],
   notes: [
-    'The Friday reminder email goes to internal team members who are members of the Kahana HQ hub. Filling the Tally form Friday EOD is still required even if the reminder is late or missed.',
+    'Missing the Friday form has pay and planning consequences. Hours on the log are what HR and PM use for payroll and staffing. Fill it Friday EOD even if the reminder email is late or missed.',
+    'The Friday reminder email goes to internal team members who are members of the Kahana HQ hub.',
     'HR and Project Management should have access to the time log output sheet. Request access from HR or a Manager if it is closed to you. Do not download a private copy and treat that as the roster.',
     'If someone has not filled it out, Slack them (DM, not a public call-out). Ask if there has been an emergency, illness, or another reason. Do not assume they are slacking.',
-    'How to write a useful entry is the onboarding Time Log step. This SOP is checking fillouts.',
+    'How to write a useful entry is the onboarding Time Log step.',
   ],
   sections: [
     {
-      id: 'who',
-      title: '1. Who fills it and who gets the reminder',
+      id: 'fill',
+      title: '1. Everyone on Kahana HQ: fill the Friday form',
       intro:
-        'Internal teammates on Kahana HQ get the Friday reminder. The form is still Friday EOD for that roster.',
+        'If you are on the Kahana HQ hub, this section is yours. Missing Friday EOD has payroll and planning consequences.',
       steps: [
-        {
-          id: 'tl-hq',
-          label: 'Confirm the reminder list is Kahana HQ hub members',
-          doneWhen: 'Confirm the reminder list is members of the Kahana HQ hub.',
-          text: 'Confirm the reminder list is members of the Kahana HQ hub. Confirm someone is on that hub before you chase them as “internal.” Contractors or guests who are not HQ members are not on this reminder.',
-          href: KAHANA_HQ_HUB_URL,
-          hrefLabel: 'Kahana HQ hub',
-        },
         {
           id: 'tl-form',
           label: 'Submit the weekly Time Log Tally form Friday EOD',
           doneWhen: 'Submit the weekly Time Log Tally form Friday EOD if you are on that roster.',
-          text: 'Everyone on that roster submits the weekly Time Log Tally form Friday EOD. Link the onboarding step if they ask how to write it.',
+          text: 'Everyone on the Kahana HQ roster submits the weekly Time Log Tally form Friday EOD, even if the reminder email is late. Hours on this form are what HR and PM use for payroll and staffing. Link the onboarding step if you need examples of how to write it.',
           href: TIME_LOG_TALLY_URL,
           hrefLabel: 'Time Log (Tally form)',
         },
@@ -4018,10 +3989,18 @@ export const TIME_LOG_SOP = playbook({
     },
     {
       id: 'sheet',
-      title: '2. Get the output sheet',
+      title: '2. HR and PM: check fillouts',
       intro:
         'HR and Project Management check fillouts on the sheet, not by guessing from Slack.',
       steps: [
+        {
+          id: 'tl-hq',
+          label: 'Confirm the reminder list is Kahana HQ hub members',
+          doneWhen: 'Confirm the reminder list is members of the Kahana HQ hub.',
+          text: 'Confirm the reminder list is members of the Kahana HQ hub. Confirm someone is on that hub before you chase them as “internal.” Contractors or guests who are not HQ members are not on this reminder.',
+          href: KAHANA_HQ_HUB_URL,
+          hrefLabel: 'Kahana HQ hub',
+        },
         {
           id: 'tl-access',
           label: 'Open the time log output sheet',
@@ -4042,7 +4021,7 @@ export const TIME_LOG_SOP = playbook({
     },
     {
       id: 'chase',
-      title: '3. Slack anyone who has not filled it out',
+      title: '3. HR and PM: follow up with anyone missing',
       intro:
         'The first question is whether they are okay, not whether they forgot the process.',
       steps: [
@@ -4092,7 +4071,7 @@ export const TIME_LOG_SOP = playbook({
     },
   ],
   doneWhen: [
-    'This Friday’s Kahana HQ roster is on the output sheet or has an explicit note (emergency, illness, PTO, or other reason).',
+    'Everyone on Kahana HQ submitted the Friday Tally form, or has an explicit note (emergency, illness, PTO, or other reason). Missing the form has payroll consequences.',
     'Anyone still missing was DMed on Slack. No public call-out. Medical detail stayed private.',
     'HR and PM who need the sheet have access. Hours used for planning or payroll match the log plus those notes.',
   ],
@@ -4126,10 +4105,8 @@ export const ANALYTICS_SOP = playbook({
     'dashboard',
   ],
   notes: [
-    'Analytics is not a ticket queue. Do not wait for someone to file a request. Slack people in other functions and ask if they can use help analyzing data or gaining insights to improve their work.',
-    'An insight is one paragraph plus a Mixpanel (or sheet) link, and either a next action or an explicit “no change yet.” Chart dumps are not the job.',
-    'Product Mixpanel events and new boards still need Product and Engineering agreement. Do not invent events or private dashboards. Filter Mixpanel to production unless you are debugging.',
-    'Lifecycle mail delivery and landing is SOP 19. Analytics can help interpret those boards; CS still owns the inbox and Resend.',
+    'Analytics is not a ticket queue. Slack other functions and ask if they can use help analyzing data. Lifecycle mail delivery is SOP 19; CS still owns the inbox.',
+    'An insight is one paragraph plus a Mixpanel (or sheet) link, and either a next action or an explicit “no change yet.” Chart dumps are not the job. Product Mixpanel events still need Product and Engineering agreement.',
   ],
   sections: [
     {
@@ -4224,7 +4201,7 @@ export const ANALYTICS_SOP = playbook({
         },
         {
           id: 'an-ship',
-          label: 'Ship a small version, document the board or event on How We',
+          label: 'Ship a small version, document the board or event on How We Work',
           doneWhen: 'Ship a small version, document the board or event on How We Work, and retire the manual path.',
           text: 'Ship a small version, document the board or event on How We Work, and retire the manual path. If it is not worth shipping, write off the experiment with a reason and stop repeating the screenshot ritual as if it were a process.',
           href: '/how-we-work',
@@ -4397,6 +4374,7 @@ export const KAHANA_CODE_SETUP_SOP = playbook({
         },
         {
           id: 'csu-web-not-marketing',
+          kind: 'rule',
           label: 'Do not use kahana-web for kahana.io marketing',
           doneWhen: 'Do not use this repo for kahana.io / about.kahana.io. Do not deploy it to Heroku app kahana-public.',
           text: 'Do not use this repo for kahana.io / about.kahana.io. Do not deploy it to Heroku app kahana-public. That took the marketing site down in July 2026.',
@@ -4640,18 +4618,21 @@ export const PII_HANDLING_SOP = playbook({
       steps: [
         {
           id: 'pii-no-export',
+          kind: 'rule',
           label: 'Do not export production user lists to laptops or group chats',
           doneWhen: 'Do not export production user lists to laptops or group chats.',
           text: 'Do not export production user lists to laptops or group chats. Use admin tools with a ticket. If you needed a list, delete the extra copy when the task is done.',
         },
         {
           id: 'pii-screens',
+          kind: 'rule',
           label: 'Keep other people’s emails and messages out of screenshots',
           doneWhen: 'Keep other people’s emails, messages, and PII out of screenshots, SOP videos, and marketing.',
           text: 'Screenshots, SOP videos, and marketing must not show other people’s emails, messages, payment data, or age-verification flags.',
         },
         {
           id: 'pii-mixpanel',
+          kind: 'rule',
           label: 'Do not put free-text support or survey answers in Mixpanel event properties',
           doneWhen: 'Do not put free-text support or survey answers in Mixpanel event properties.',
           text: 'Do not put free-text support or survey answers in Mixpanel event properties. That pattern already lives in Firestore. Filter Mixpanel to production unless you are debugging.',
@@ -4824,6 +4805,7 @@ export const CONTENT_MODERATION_SOP = playbook({
   who: 'Moderation owner and Customer Success. Engineering on the Linear build.',
   when: 'On every content report, and as a sampled review of public hubs. Automation is In Progress on Linear, not the live path yet.',
   format: 'checklist',
+  layout: 'inline',
   description:
     'Act on in-app content reports with a consistent reason taxonomy. Hugging Face / open-source models plus a review queue are Linear KAH-84 (In Progress). Handle reports now; do not wait for the model.',
   keywords: ['moderation', 'report', 'trust', 'safety', 'adult', 'ugc'],
@@ -4846,15 +4828,15 @@ export const CONTENT_MODERATION_SOP = playbook({
         },
         {
           id: 'cm-decide',
-          label: 'Decide: leave up, restrict (including Not for All Audiences / hide',
+          label: 'Decide: leave up, restrict, remove, or escalate',
           doneWhen: 'Decide: leave up, restrict (including Not for All Audiences / hide from Library), remove, or escalate to Legal / law enforcement when required.',
-          text: 'Decide: leave up, restrict (including Not for All Audiences / hide from Library), remove, or escalate to Legal / law enforcement when required. Adult-rated hubs already have a policy path; keep the 18+ declaration.',
+          text: 'Decide what happens to the content. Decision codes: leave_up, restrict (including Not for All Audiences / hide from Library), remove, or escalate (Legal / law enforcement when required). Adult-rated hubs already have a policy path; keep the 18+ declaration.',
         },
         {
           id: 'cm-close',
           label: 'Record the decision code',
-          doneWhen: 'Record the decision code.',
-          text: 'Record the decision code. Tell the reporter only what you can tell them. Repeat offenders get a named policy path, not a silent skip.',
+          doneWhen: 'Record the decision code (leave_up, restrict, remove, or escalate).',
+          text: 'Record the decision code: leave_up, restrict, remove, or escalate. That is what you decided, not why it was reported. Reason codes stay on the intake step (adult, graphic violence, hate/harassment, harmful, spam/scam, copyright, other). Tell the reporter only what you can tell them. Repeat offenders get a named policy path, not a silent skip.',
         },
         {
           id: 'cm-cs',
@@ -4910,6 +4892,7 @@ export const REPORTING_CYBER_THREATS_SOP = playbook({
   who: 'Anyone who notices (phishing, intrusion, ransomware, suspicious admin activity).',
   when: 'Immediately.',
   format: 'checklist',
+  layout: 'inline',
   description:
     'Incident-style reporting. There is no dedicated Linear threat-reporting card. Tell Engineering Lead and a Manager the same day. Do not poke the attacker.',
   keywords: ['incident', 'phishing', 'attack', 'threat', 'ransomware'],
@@ -4926,7 +4909,8 @@ export const REPORTING_CYBER_THREATS_SOP = playbook({
       steps: [
         {
           id: 'ct-dont',
-          label: 'Do not poke the attacker, click the payload again, or “test if',
+          kind: 'rule',
+          label: 'Do not poke the attacker, click the payload again, or “test if it still works” on production',
           doneWhen: 'Do not poke the attacker, click the payload again, or “test if it still works” on production.',
           text: 'Do not poke the attacker, click the payload again, or “test if it still works” on production.',
         },

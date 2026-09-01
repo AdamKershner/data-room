@@ -159,7 +159,7 @@ const SOP_EXCERPTS = {
   'creating-youtube-videos':
     'Record Kahana how-tos in Screen Studio, then package title, description, and thumbnail for YouTube. We do it so someone can watch a job get done, then try it on Kahana (AKA “The Aura Library”).',
   'seo':
-    'Build keyword clusters, UTM links, and blog indexing for kahana.io. We do it so people find the library for the job they already have. Search Console health for Library and hubs is SOP 30.',
+    'Build keyword clusters, UTM links, and blog indexing for kahana.io. We do it so people find the library for the job they already have. Library and hub Search Console checks are in this SOP.',
   'search-console-seo':
     'Inspect Library and one hub in Search Console, run Test live URL, ping the product sitemap, and save a monthly kahana query readout. We do it so Googlebot sees Library HTML and branded rank is a tracked number.',
   'marketing-website':
@@ -426,6 +426,36 @@ export function getSopStep(sopId, stepId) {
   const steps = flattenSopSteps(sop)
   const step = steps.find((s) => s.key === stepId || s.id === stepId) ?? null
   return { sop, step, steps }
+}
+
+export function getSopSectionByParam(sopId, param) {
+  const sop = getSopById(sopId)
+  if (!sop?.sections?.length) return { sop, section: null, sectionIndex: -1, stepKey: null }
+  const bySection = sop.sections.findIndex((section) => section.id === param)
+  if (bySection >= 0) {
+    return { sop, section: sop.sections[bySection], sectionIndex: bySection, stepKey: null }
+  }
+  const steps = flattenSopSteps(sop)
+  const step = steps.find((s) => s.key === param || s.id === param)
+  if (!step) return { sop, section: null, sectionIndex: -1, stepKey: null }
+  const sectionIndex = sop.sections.findIndex((section) => section.id === step.sectionId)
+  return {
+    sop,
+    section: sop.sections[sectionIndex] ?? null,
+    sectionIndex,
+    stepKey: step.key,
+  }
+}
+
+export function getAdjacentSopSections(sopId, sectionId) {
+  const sop = getSopById(sopId)
+  if (!sop?.sections?.length) return { prev: null, next: null }
+  const index = sop.sections.findIndex((section) => section.id === sectionId)
+  if (index < 0) return { prev: null, next: null }
+  return {
+    prev: index > 0 ? sop.sections[index - 1] : null,
+    next: index < sop.sections.length - 1 ? sop.sections[index + 1] : null,
+  }
 }
 
 export function getAdjacentSopSteps(sopId, stepId) {

@@ -106,7 +106,7 @@ function App() {
           <Route path="/sops/inviting-members-to-a-club" element={<Navigate to="/sops/community-building" replace />} />
           <Route path="/sops/choosing-what-the-club-reads" element={<Navigate to="/sops/community-building" replace />} />
           <Route path="/sops/outreach-to-creators-for-a-club" element={<Navigate to="/sops/community-building" replace />} />
-          <Route path="/sops/logging-feedback-and-issues" element={<Navigate to="/sops/community-building" replace />} />
+          <Route path="/sops/logging-feedback-and-issues" element={<Navigate to="/sops/community-building/log-feedback" replace />} />
           <Route path="/sops/product-management-operations" element={<Navigate to="/sops/product-management-playbook" replace />} />
           <Route path="/sops/creating-project-charters" element={<Navigate to="/sops/writing-a-project-charter" replace />} />
           <Route path="/sops/use-case-feature-videos" element={<Navigate to="/sops/creating-youtube-videos" replace />} />

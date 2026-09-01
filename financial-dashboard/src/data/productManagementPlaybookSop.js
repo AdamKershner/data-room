@@ -37,6 +37,8 @@ export const PRODUCT_MANAGEMENT_PLAYBOOK_SOP = {
   sections: [
     {
       id: 'standard',
+      part: 'practices',
+      partTitle: 'C. How we work',
       title: '01 — The Kahana Product Standard',
       intro:
         'Product management turns real customer workflows into durable, scalable product value. We stay close to implementation and customer reality, but a loud request is not a roadmap priority and a one-off workaround is not a strategy.',
@@ -61,7 +63,7 @@ export const PRODUCT_MANAGEMENT_PLAYBOOK_SOP = {
         },
         {
           id: 'pm-great-write',
-          label: 'Convert ambiguity into a written problem, a testable bet, a scoped plan,',
+          label: 'Convert ambiguity into a written problem, a testable bet, a scoped plan, and a measurable outcome',
           doneWhen: 'Convert ambiguity into a written problem, a testable bet, a scoped plan, and a measurable outcome.',
           text: 'Convert ambiguity into a written problem, a testable bet, a scoped plan, and a measurable outcome.',
         },
@@ -102,6 +104,8 @@ export const PRODUCT_MANAGEMENT_PLAYBOOK_SOP = {
     },
     {
       id: 'principles',
+      part: 'practices',
+      partTitle: 'C. How we work',
       title: '02 — PM Principles',
       intro: 'Eight beliefs that decide what we build, and what we refuse to build. If a principle is slipping, stop and re-frame.',
       steps: [
@@ -165,6 +169,8 @@ export const PRODUCT_MANAGEMENT_PLAYBOOK_SOP = {
     },
     {
       id: 'contract',
+      part: 'ownership',
+      partTitle: 'A. Who owns what',
       title: '03 — Product Team Contract',
       intro: 'Who owns what, so nothing falls between PM, Engineering, Design, and the field.',
       steps: [
@@ -220,6 +226,8 @@ export const PRODUCT_MANAGEMENT_PLAYBOOK_SOP = {
     },
     {
       id: 'launchpad-setup',
+      part: 'launchpad',
+      partTitle: 'B. 90-day launchpad',
       title: '04 — 90-Day Launchpad: before Day 1 and Day 1',
       intro:
         'By Day 90 a new PM independently owns a bounded product area from evidence to decision, delivery, launch, and learning. Setup is a leadership job.',
@@ -254,6 +262,8 @@ export const PRODUCT_MANAGEMENT_PLAYBOOK_SOP = {
     },
     {
       id: 'launchpad-month1',
+      part: 'launchpad',
+      partTitle: 'B. 90-day launchpad',
       title: '04 — 90-Day Launchpad: Week 1 through Day 30',
       steps: [
         {
@@ -290,6 +300,8 @@ export const PRODUCT_MANAGEMENT_PLAYBOOK_SOP = {
     },
     {
       id: 'launchpad-60-90',
+      part: 'launchpad',
+      partTitle: 'B. 90-day launchpad',
       title: '04 — 90-Day Launchpad: Days 31–90',
       steps: [
         {
@@ -326,6 +338,8 @@ export const PRODUCT_MANAGEMENT_PLAYBOOK_SOP = {
     },
     {
       id: 'decide',
+      part: 'practices',
+      partTitle: 'C. How we work',
       title: '05 — How We Decide',
       intro: 'Every opportunity clears this test in writing before it earns product capacity.',
       steps: [
@@ -399,6 +413,8 @@ export const PRODUCT_MANAGEMENT_PLAYBOOK_SOP = {
     },
     {
       id: 'artifacts',
+      part: 'practices',
+      partTitle: 'C. How we work',
       title: '06 — Craft: artifacts that move work',
       intro:
         'Six templates that turn thinking into executable work. Use the smallest document that creates shared understanding. Add detail only where risk warrants it.',
@@ -448,6 +464,8 @@ export const PRODUCT_MANAGEMENT_PLAYBOOK_SOP = {
     },
     {
       id: 'quality-gates',
+      part: 'practices',
+      partTitle: 'C. How we work',
       title: '07 — Product Quality Gates',
       intro: 'The bar to clear at discovery, at shaping, and at launch. Dogfood and UX review still run through SOP 3.',
       steps: [
@@ -481,6 +499,8 @@ export const PRODUCT_MANAGEMENT_PLAYBOOK_SOP = {
     },
     {
       id: 'ai-readiness',
+      part: 'practices',
+      partTitle: 'C. How we work',
       title: '08 — AI Product Readiness',
       intro: 'A compelling demo is not enough. AI-powered features require extra product craft before they reach a customer.',
       steps: [
@@ -524,6 +544,8 @@ export const PRODUCT_MANAGEMENT_PLAYBOOK_SOP = {
     },
     {
       id: 'rituals',
+      part: 'practices',
+      partTitle: 'C. How we work',
       title: '09 — Product Rituals',
       intro: 'The weekly rhythm that keeps decisions fast, written, and visible.',
       steps: [
@@ -585,6 +607,8 @@ export const PRODUCT_MANAGEMENT_PLAYBOOK_SOP = {
     },
     {
       id: 'requests',
+      part: 'practices',
+      partTitle: 'C. How we work',
       title: '10 — Requests and Boundaries',
       intro: 'Every customer request deserves a response. It does not automatically deserve roadmap capacity.',
       steps: [
@@ -634,6 +658,8 @@ export const PRODUCT_MANAGEMENT_PLAYBOOK_SOP = {
     },
     {
       id: 'scorecards',
+      part: 'practices',
+      partTitle: 'C. How we work',
       title: '11 — Scorecards',
       intro: 'Measure onboarding health and product health. Pick metrics that match the workflow — do not copy generic SaaS dashboards.',
       steps: [
@@ -677,6 +703,8 @@ export const PRODUCT_MANAGEMENT_PLAYBOOK_SOP = {
     },
     {
       id: 'pm-bar',
+      part: 'practices',
+      partTitle: 'C. How we work',
       title: '12 — The PM Bar',
       intro: 'You are ready for normal, unsupervised ownership when you can do all of the following.',
       steps: [
@@ -732,6 +760,8 @@ export const PRODUCT_MANAGEMENT_PLAYBOOK_SOP = {
     },
     {
       id: 'reading-list',
+      part: 'practices',
+      partTitle: 'C. How we work',
       title: 'Appendix — First 30 days reading list',
       intro: 'The hiring manager owns a current set of links for the product area. Every new PM works this list in the first 30 days.',
       steps: [

@@ -22,12 +22,17 @@ export const SEARCH_CONSOLE_SEO_ALIASES = {
   'url-inspection': 'search-console-seo',
 }
 
+export const SEARCH_CONSOLE_FOLD_SECTIONS = ['gsc-property', 'after-ship', 'monthly', 'fail']
+
 export const SEARCH_CONSOLE_SEO_SOP = {
   id: 'search-console-seo',
   title: 'Search Console and branded search',
   category: 'Marketing',
   owner: 'Marketing Lead',
   format: 'checklist',
+  href: '/sops/seo/gsc-property',
+  foldInto: 'seo',
+  foldSections: SEARCH_CONSOLE_FOLD_SECTIONS,
   description:
     'Inspect Library and one public hub in Google Search Console, run Test live URL against the crawled copy, ping the product sitemap from the Sitemaps list, and save a monthly kahana query readout. Content clusters, UTMs, and Mixpanel referrer stay SOP 12.',
   excerpt:
@@ -54,14 +59,14 @@ export const SEARCH_CONSOLE_SEO_SOP = {
     'Do not Request indexing again on a URL already queued or already on Google unless VIEW CRAWLED PAGE is the old SPA and TEST LIVE URL is the new bot HTML (Page changed?).',
     'Never push kahana-web to Heroku kahana-public.',
     'Copy hub IDs from the sitemap loc. Use the digit 0, not the letter O. A mistyped id 404s.',
-    'Keyword clusters, UTMs, and Mixpanel sign-up source are SOP 12. This SOP is Search Console health.',
+    'This work now lives in SOP 12 (Search Console sections). Keyword clusters, UTMs, and Mixpanel stay in the earlier SOP 12 sections.',
   ],
   sections: [
     {
-      id: 'access',
-      title: '1. Open the right property',
+      id: 'gsc-property',
+      title: '7. Open the kahana.io Search Console property',
       intro:
-        'Work in the kahana.io domain property. Mixpanel is SOP 12 and SOP 21, not this checklist.',
+        'Work in the kahana.io domain property. Mixpanel and UTMs are the earlier sections of this SOP.',
       steps: [
         {
           id: 'gsc-open',
@@ -81,20 +86,11 @@ export const SEARCH_CONSOLE_SEO_SOP = {
           href: TOOLS_ACCESS_TALLY_URL,
           hrefLabel: 'Get Access to Tools and Data',
         },
-        {
-          id: 'gsc-not-mixpanel',
-          label: 'Leave Mixpanel for SOP 12 and SOP 21',
-          minutes: 2,
-          doneWhen: 'Leave Mixpanel for SOP 12 and SOP 21. This SOP is Search Console only.',
-          text: 'Leave Mixpanel for SOP 12 (UTMs and referring domain on sign-ups) and SOP 21 (boards). This SOP does not ask you to open Mixpanel.',
-          href: '/sops/seo',
-          hrefLabel: 'SOP 12: SEO',
-        },
       ],
     },
     {
       id: 'after-ship',
-      title: '2. After a product SEO ship',
+      title: '8. After a product SEO ship',
       intro:
         'Run this when Library HTML, robots.txt, the nginx bot proxy, or app.kahana.io/sitemap.xml changed. Confirm the live sitemap, then inspect Library and one hub.',
       steps: [
@@ -161,7 +157,7 @@ export const SEARCH_CONSOLE_SEO_SOP = {
     },
     {
       id: 'monthly',
-      title: '3. Monthly branded readout',
+      title: '9. Monthly branded readout',
       intro:
         'North star is exact kahana in Search Console: impressions, clicks, CTR, and average position. A live-test pass the same day is not rank.',
       steps: [
@@ -201,7 +197,7 @@ export const SEARCH_CONSOLE_SEO_SOP = {
     },
     {
       id: 'fail',
-      title: '4. If a live test fails',
+      title: '10. If a live test fails',
       intro:
         'Stop requesting indexing. File Linear. Engineering fetches with a Googlebot user agent, not a logged-in browser.',
       steps: [

@@ -2,12 +2,12 @@
  * Shared SOP checklist helpers: short labels, Done when copy, stable step keys.
  */
 
-export const SOP_LAST_UPDATED = 'August 28, 2026, 9:45 AM EST'
+export const SOP_LAST_UPDATED = 'September 1, 2026, 6:00 PM EST'
 
-const MAX_LABEL_WORDS = 12
+const RULE_LABEL_START = /^(do not|don't|never)\b/i
 
 const COMMAND_START =
-  /^(do not|don't|never|always|open|submit|read|write|confirm|check|create|clone|follow|put|ask|file|log|send|track|staff|share|run|book|recruit|study|give|add|choose|complete|click|build|set|use|encourage|invite|tell|aim|watch|gather|let|agree|make|offer|close|be |only |personalize|describe|publish|promote|measure|form |include|proofread|name |keep |end |start|cite|compare|scan|record|cut |tag |review|upload|request|filter|update|bookmark|install|take |document|rotate|report|escalate|decide|leave|flag|route|intake|treat|wait|get |fill|capture|draft|walk|work |amend|batch|reread|list |allocate|hand |pick|outline|edit|package|test |push|move|verify|tailor|pitch|find |copy |research|screen|stay|help|monitor|handle|note |pull|ship|retest|meet|seed|schedule|stock|dogfood|mine|benchmark|sort|re-test|mark |join|protect|convert|spend|earn|own |hire|slack|return|paste|reply|upvote|lock |date |hype |brief |chase |collect |post |ping |retain|drill|sign |attend|finish|attach|assign|approve|drop |zip |intro |thank |honor |suppress|pass |score |link |design |prefer |claim |replace |listen |compile |photograph |maintain |stage |pack |ban |overlay |spot-check |qualify |stand |define |reproduce |roll |point |store |align |present |distinguish |frame |lead |communicate |improve |assess |triage |acknowledge |bring |clear |trust |guess |amplify |hold |continue |explain |turn |white-glove |park |loop |place |spot )/i
+  /^(do not|don't|never|always|open|submit|read|write|confirm|check|create|clone|follow|put|ask|file|log|send|track|staff|share|run|book|recruit|study|give|add|choose|complete|click|build|set|use|encourage|invite|tell|aim|watch|gather|let|agree|make|offer|close|be |only |personalize|describe|publish|promote|measure|form |include|proofread|name |keep |end |start|cite|compare|scan|record|cut |tag |review|upload|request|filter|update|bookmark|install|take |document|rotate|report|escalate|decide|leave|flag|route|intake|treat|wait|get |fill|capture|draft|walk|work |amend|batch|reread|list |allocate|hand |pick|outline|edit|package|test |push|move|verify|tailor|pitch|find |copy |research|screen|stay|help|monitor|handle|note |pull|ship|retest|meet|seed|schedule|stock|dogfood|mine|benchmark|sort|re-test|mark |join|protect|convert|spend|earn|own |hire|slack|return|paste|reply|upvote|lock |date |hype |brief |chase |collect |post |ping |retain|drill|sign |attend|finish|attach|assign|approve|drop |zip |intro |thank |honor |suppress|pass |score |link |design |prefer |claim |replace |listen |compile |photograph |maintain |stage |pack |ban |overlay |spot-check |qualify |stand |define |reproduce |roll |point |store |align |present |distinguish |frame |lead |communicate |improve |assess |triage |acknowledge |bring |clear |trust |guess |amplify |hold |continue |explain |turn |white-glove |park |loop |place |spot |type |clarify )/i
 
 function capFirst(s) {
   const t = String(s || '').trim()
@@ -58,7 +58,6 @@ export function toCommandLabel(label, doneWhen = '', text = '') {
     t = extractCommandFromConditional(t, doneWhen, text)
   }
   t = t.replace(/[.!?]$/, '')
-  t = trimWords(t, MAX_LABEL_WORDS)
   if (COMMAND_START.test(t)) return capFirst(t)
   if (/^(path [abc]|success story|use-case|tips,|legal review|internal review)/i.test(t)) {
     if (/^path a/i.test(t)) return 'Ship the draft yourself in the marketing-site repo'
@@ -84,10 +83,31 @@ export function toCommandDoneWhen(doneWhen, label, text = '') {
     t = extractCommandFromConditional(label, doneWhen, text)
   }
   t = t.replace(/[.!?]$/, '')
-  if (COMMAND_START.test(t)) return `${t}.`
-  if (label && COMMAND_START.test(label)) return `${label.replace(/[.!?]$/, '')}.`
-  if (t) return `Confirm ${t.charAt(0).toLowerCase()}${t.slice(1)}.`
-  return `${label || 'Complete this step'}.`
+  if (!t) t = String(label || '').replace(/[.!?]$/, '')
+  if (!t) return 'Complete this step.'
+  if (COMMAND_START.test(t) || /^[A-Z]/.test(t)) return `${t}.`
+  if (label && COMMAND_START.test(label)) return `${String(label).replace(/[.!?]$/, '')}.`
+  if (/\b(is|are|was|were|has|have)\b/i.test(t)) {
+    return `Confirm ${t.charAt(0).toLowerCase()}${t.slice(1)}.`
+  }
+  return `${capFirst(t)}.`
+}
+
+function normalizeComparable(s) {
+  return String(s || '')
+    .replace(/[.!?]$/, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase()
+}
+
+export function isDoneWhenRedundant(step) {
+  return Boolean(step?.label && step?.doneWhen && normalizeComparable(step.doneWhen) === normalizeComparable(step.label))
+}
+
+export function isSopStepRule(step) {
+  if (step?.kind === 'rule') return true
+  return RULE_LABEL_START.test(String(step?.label || '').trim())
 }
 
 export function toCommandBody(text) {
@@ -129,10 +149,8 @@ export function deriveSopStepLabel(step) {
   if (!sentence) return 'Open this step'
   const comma = sentence.split(',')[0].trim()
   const commaWords = wordList(comma)
-  if (commaWords.length >= 5 && commaWords.length <= MAX_LABEL_WORDS) return comma
-  const words = wordList(sentence)
-  if (words.length <= MAX_LABEL_WORDS) return sentence
-  return words.slice(0, 10).join(' ')
+  if (commaWords.length >= 5) return comma
+  return sentence
 }
 
 export function deriveSopStepDoneWhen(step) {
@@ -184,12 +202,13 @@ export function normalizeSopStep(step, sectionId, index, section = {}) {
   const rawLabel = s.label || deriveSopStepLabel(s)
   const rawDone = s.doneWhen || deriveSopStepDoneWhen({ ...s, label: rawLabel })
   const label = toCommandLabel(rawLabel, rawDone, s.text)
-  const doneWhen = toCommandDoneWhen(rawDone, label, s.text)
+  const kind = s.kind || (isSopStepRule({ ...s, label: rawLabel }) ? 'rule' : undefined)
+  const doneWhen = kind === 'rule' ? '' : toCommandDoneWhen(rawDone, label, s.text)
   const text = toCommandBody(s.text)
   const icon = s.icon || deriveSopStepIcon({ ...s, label, text }, { id: sectionId, ...section })
-  const minutes = estimateSopStepMinutes({ ...s, label, text, doneWhen })
+  const minutes = kind === 'rule' ? 0 : estimateSopStepMinutes({ ...s, label, text, doneWhen })
   const badge = minutes > 0 ? formatSopDuration(minutes) : s.badge || ''
-  return { ...s, id, label, doneWhen, icon, minutes, badge, text: text || s.text }
+  return { ...s, id, kind, label, doneWhen, icon, minutes, badge, text: text || s.text }
 }
 
 export function parseMinutesFromBadge(badge) {
@@ -206,6 +225,7 @@ export function parseMinutesFromBadge(badge) {
 }
 
 export function estimateSopStepMinutes(step) {
+  if (isSopStepRule(step)) return 0
   if (step?.optional || /^optional$/i.test(step?.badge || '')) return 0
   if (Number.isFinite(step?.minutes) && step.minutes >= 0) return step.minutes
   const fromBadge = parseMinutesFromBadge(step?.badge)
@@ -233,6 +253,7 @@ export function formatSopDuration(minutes) {
 }
 
 export function sopStepTimeBadge(step) {
+  if (isSopStepRule(step)) return ''
   if (step?.optional || /^optional$/i.test(step?.badge || '')) return 'optional'
   return formatSopDuration(estimateSopStepMinutes(step))
 }
@@ -245,7 +266,7 @@ export function sumSopMinutes(steps, { skipOptional = true } = {}) {
 }
 
 export function sopTotalDuration(sop) {
-  return formatSopDuration(sumSopMinutes(flattenSopSteps(sop)))
+  return formatSopDuration(sumSopMinutes(flattenSopActionSteps(sop)))
 }
 
 export function normalizeSopDoc(sop) {
@@ -272,4 +293,36 @@ export function flattenSopSteps(sop) {
       sectionTitle: section.title,
     }))
   )
+}
+
+export function flattenSopActionSteps(sop) {
+  return flattenSopSteps(sop).filter((step) => !isSopStepRule(step))
+}
+
+export function groupSopSections(sections) {
+  const order = []
+  const map = new Map()
+  for (const section of sections || []) {
+    const key = section.part || `__solo_${section.id}`
+    if (!map.has(key)) {
+      map.set(key, {
+        part: section.part || '',
+        title: section.partTitle || '',
+        path: section.path || '',
+        pathTitle: section.pathTitle || '',
+        sections: [],
+      })
+      order.push(key)
+    }
+    map.get(key).sections.push(section)
+  }
+  const PART_ORDER = { ownership: 1, launchpad: 2, practices: 3, 'call-path': 4 }
+  return order
+    .map((key) => map.get(key))
+    .sort((a, b) => {
+      const ao = a.part ? PART_ORDER[a.part] : null
+      const bo = b.part ? PART_ORDER[b.part] : null
+      if (ao == null || bo == null) return 0
+      return ao - bo
+    })
 }

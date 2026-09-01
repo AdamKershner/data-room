@@ -502,3 +502,162 @@
 .sop-doc .onboarding-checklist {
   margin-top: 8px;
 }
+
+.sop-toc {
+  margin-top: 8px;
+}
+
+.sop-toc-part {
+  margin: 28px 0 12px;
+  font-size: 1.2rem;
+  color: var(--oasis-green-dark, #495800);
+}
+
+.sop-toc-group:first-child .sop-toc-part {
+  margin-top: 0;
+}
+
+.sop-toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sop-toc-item {
+  margin: 0 0 14px;
+  padding: 0 0 14px;
+  border-bottom: 1px solid #e8eee9;
+}
+
+.sop-toc-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.sop-toc-link {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.sop-toc-title {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #1e293b;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.sop-toc-link:hover .sop-toc-title {
+  color: var(--oasis-green-medium, #0d9488);
+}
+
+.sop-toc-count {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.sop-toc-arrow {
+  margin-left: auto;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.sop-toc-intro {
+  margin: 6px 0 0;
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.sop-path-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.sop-path-card {
+  padding: 16px 18px;
+  border: 1px solid #d4e8dc;
+  border-radius: 10px;
+  background: #f7faf3;
+}
+
+.sop-path-title {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  color: var(--oasis-green-dark, #495800);
+}
+
+.sop-rules-block {
+  margin: 0 0 20px;
+  padding: 16px 18px;
+  border-radius: 10px;
+  border: 1px solid #fde68a;
+  background: #fffbeb;
+}
+
+.sop-rules-title {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  color: #92400e;
+}
+
+.sop-rules-intro {
+  margin: 0 0 12px;
+  font-size: 0.9rem;
+  color: #78350f;
+}
+
+.sop-rules-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #334155;
+}
+
+.sop-rules-item {
+  margin-bottom: 12px;
+}
+
+.sop-rules-item:last-child {
+  margin-bottom: 0;
+}
+
+.sop-rules-label {
+  margin: 0;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.sop-checklist-step-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 0 0 8px !important;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.onboarding-step-done-inline {
+  margin: 0 0 8px;
+  font-size: 0.92rem;
+  color: #166534;
+}
+
+.sop-inline-doc {
+  margin-top: 12px;
+}
+
+@media (max-width: 640px) {
+  .sop-path-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

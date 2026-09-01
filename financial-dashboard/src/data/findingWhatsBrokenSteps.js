@@ -10,7 +10,7 @@ export const FINDING_WHATS_BROKEN_META = {
   sopNumber: 3,
   category: 'Product',
   subtitle:
-    'A working playbook for noticing broken, confusing, or absurd product moments, deciding what to fix first, and closing the loop. Check Done as you complete each step; open a row for the exact method.',
+    'A working playbook for noticing broken, confusing, or absurd product moments, deciding what to fix first, and closing the loop. Open a heading for the full checklist.',
   edition: 'v1.0 — working playbook',
   standing:
     'Use the Section V checklist whenever you sit down to do a review. Quality improves every week instead of getting rediscovered by accident.',
@@ -239,6 +239,27 @@ export const FINDING_WHATS_BROKEN_STEPS = [
 
 export function getFindingWhatsBrokenStep(id) {
   return FINDING_WHATS_BROKEN_STEPS.find((s) => s.id === id)
+}
+
+export function getFindingWhatsBrokenGroup(id) {
+  return FINDING_WHATS_BROKEN_GROUPS.find((g) => g.id === id) ?? null
+}
+
+export function getFindingWhatsBrokenParam(param) {
+  const group = getFindingWhatsBrokenGroup(param)
+  if (group) return { group, stepId: null }
+  const step = getFindingWhatsBrokenStep(param)
+  if (step) return { group: getFindingWhatsBrokenGroup(step.group), stepId: step.id }
+  return { group: null, stepId: null }
+}
+
+export function getAdjacentFindingWhatsBrokenGroups(groupId) {
+  const i = FINDING_WHATS_BROKEN_GROUPS.findIndex((g) => g.id === groupId)
+  if (i < 0) return { prev: null, next: null }
+  return {
+    prev: i > 0 ? FINDING_WHATS_BROKEN_GROUPS[i - 1] : null,
+    next: i < FINDING_WHATS_BROKEN_GROUPS.length - 1 ? FINDING_WHATS_BROKEN_GROUPS[i + 1] : null,
+  }
 }
 
 export function getAdjacentFindingWhatsBrokenSteps(id) {

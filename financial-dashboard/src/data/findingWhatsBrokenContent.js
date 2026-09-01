@@ -140,8 +140,8 @@ export const FINDING_WHATS_BROKEN_CONTENT = {
       },
       {
         type: 'link',
-        to: '/sops/community-building',
-        label: 'SOP 2 — Community Building (logging) →',
+        to: '/sops/community-building/log-feedback',
+        label: 'Refer to Logging feedback and issues in SOP 2 →',
       },
     ],
   },
@@ -236,8 +236,8 @@ export const FINDING_WHATS_BROKEN_CONTENT = {
       },
       {
         type: 'link',
-        to: '/sops/community-building',
-        label: 'SOP 2 — Community Building (logging) →',
+        to: '/sops/community-building/log-feedback',
+        label: 'Refer to Logging feedback and issues in SOP 2 →',
       },
     ],
   },
