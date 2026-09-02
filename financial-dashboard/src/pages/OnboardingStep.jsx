@@ -443,15 +443,15 @@ function StepSops() {
           <Link to="/sops/keepers-codex" className="onboarding-inline-link">
             The Keeper’s Codex
           </Link>{' '}
-          (inside SOP 2). Product Managers work{' '}
-          <Link to="/sops/product-management-playbook" className="onboarding-inline-link">
-            SOP 4: Product Management Playbook
-          </Link>{' '}
-          and{' '}
+          (inside SOP 2). Product Managers work the{' '}
+          <Link to="/sops/product-management-playbook/launchpad-first-loop" className="onboarding-inline-link">
+            SOP 4 90-day launchpad (days 1–10 first loop)
+          </Link>
+          , using{' '}
           <Link to="/sops/finding-whats-broken" className="onboarding-inline-link">
             SOP 3: Product Quality
-          </Link>
-          . Other roles will have different cards. Let your manager point you at the right ones.
+          </Link>{' '}
+          as the review method. Other roles will have different cards. Let your manager point you at the right ones.
         </p>
       </div>
 

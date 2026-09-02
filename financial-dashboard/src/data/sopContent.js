@@ -143,7 +143,7 @@ const SOP_EXCERPTS = {
   'finding-whats-broken':
     'Find broken, confusing, or absurd product moments, then log, prioritize, and verify the fix. We do it so quality improves every week instead of getting rediscovered by accident.',
   'product-management-playbook':
-    'This is how Kahana PMs observe, frame, ship, and learn, including the 90-day launchpad. We do it so product work makes a customer workflow better and we can prove that it did.',
+    'This is how Kahana PMs observe, frame, ship, and learn, including the 90-day launchpad. Incoming PMs run the days 1–10 first loop before week 3. We do it so product work makes a customer workflow better and we can prove that it did.',
   'blog-publishing':
     'Write comparison, success-story, and how-to posts so creators and viewers can see how Kahana sits next to tools they already use. We do it so the library shows up in search and in someone’s stack, not as a silent replacement.',
   'brand-guidelines':

@@ -226,7 +226,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'Product Management Playbook',
     category: 'SOPs',
     description:
-      'Kahana’s product operating system: 90-day launchpad, opportunity test, artifacts, quality gates, and AI readiness.',
+      'Kahana’s product operating system: 90-day launchpad (days 1–10 first loop, then 90 days), opportunity test, artifacts, quality gates, and AI readiness.',
     keywords: [
       'product management',
       'playbook',
@@ -458,7 +458,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'Onboarding as a Manager',
     category: 'SOPs',
     description:
-      'HR SOP: Managers onboard a new teammate assigned by an Executive. Weekly 1-on-1s on the Manager Calendly, community, role SOPs, tools, a process calendar, a Founder SOP check, and new-hire feedback that makes SOPs easier to follow. Finish within 1 month (ideally 1-2 weeks).',
+      'HR SOP: Managers onboard a new teammate assigned by an Executive. Incoming PMs ramp on SOP 4, not this SOP. A PM later works this SOP if they will onboard others. Weekly 1-on-1s, role SOPs, tools, process calendar, Founder SOP check. Finish within 1 month (ideally 1-2 weeks).',
     keywords: [
       'manager',
       'onboarding',

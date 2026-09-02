@@ -26,9 +26,9 @@ export const MANAGER_ONBOARDING_SOP = {
   owner: 'Manager',
   format: 'checklist',
   description:
-    'Train as a Manager, then onboard a teammate an Executive assigned to you: weekly 1-on-1s on your Calendly, community, role SOPs, tools, a process calendar, a Founder SOP check, and new-hire feedback that makes SOPs easier to follow. Finish in 1 month, ideally 1-2 weeks.',
+    'Train as a Manager, then onboard a teammate an Executive assigned to you: weekly 1-on-1s on your Calendly, community, role SOPs, tools, a process calendar, a Founder SOP check, and new-hire feedback that makes SOPs easier to follow. Finish in 1 month, ideally 1-2 weeks. This is not the Product Manager ramp — incoming PMs work SOP 4. A PM later works this SOP if they will onboard others.',
   excerpt:
-    'This is how Managers onboard a new teammate: weekly 1-on-1s, community, role SOPs, tools, a process calendar, a Founder SOP check, and feedback that makes SOPs easier to read and follow. We do it so the new person can run their job in 1-2 weeks, and the next hire does not hit the same wall.',
+    'This is how Managers onboard a new teammate: weekly 1-on-1s, community, role SOPs, tools, a process calendar, a Founder SOP check, and feedback that makes SOPs easier to read and follow. Incoming PMs ramp on SOP 4. A PM works this SOP later if they will onboard others.',
   keywords: [
     'manager',
     'onboarding',
@@ -46,11 +46,11 @@ export const MANAGER_ONBOARDING_SOP = {
     'feedback',
     'readability',
   ],
-  who: 'Managers assigned a new teammate by an Executive. Founder Adam runs the SOP check at the end.',
+  who: 'Managers assigned a new teammate by an Executive. Incoming Product Managers work SOP 4, not this SOP. A PM later works this SOP if they will onboard others. Founder Adam runs the SOP check at the end.',
   when:
     'Each new hire. Finish within 1 month. Aim for 1-2 weeks. Weekly 1-on-1s run for the whole window.',
   notes: [
-    'This SOP is the Manager training. Work it before you onboard someone, or work it in parallel on your first hire with extra care.',
+    'This SOP is Manager training for anyone assigned to onboard a teammate. Incoming Product Managers work the SOP 4 90-day launchpad (days 1–10 first loop, then the rest of 90 days). A PM later works this SOP if they will onboard others.',
     'The new hire works the Onboarding checklist in this data room. This SOP is your job. Their job ends when they can run their processes. Your job ends when they have done that and passed the Founder SOP check.',
     'Do not onboard someone an Executive did not assign to you. Do not send Founder Adam’s Calendly for weekly 1-on-1s unless you are the Founder.',
     'New-hire confusion is SOP debt. If they cannot follow a page, fix the page. Do not only explain it in Slack.',
@@ -106,9 +106,9 @@ export const MANAGER_ONBOARDING_SOP = {
           label: 'Write the SOP list for their role before they ask',
           minutes: 20,
           doneWhen: 'Write the SOP list for their role with the Executive if the role is unclear.',
-          text: 'Write the SOP list for their role before they ask. Filter the gallery by function. Examples: club hosts get SOP 2 and The Keeper’s Codex; Product Managers get SOP 3 and SOP 4 (use the 90-day launchpad in SOP 4 instead of restating week 1–4 here); engineers get SOP 22 plus How We Work; everyone gets SOP 20 Time Log and Day 1 onboarding. Ask the Executive if the mix is unclear. Do not send every card.',
-          href: '/sops/product-management-playbook/launchpad-setup',
-          hrefLabel: 'SOP 4: 90-day launchpad',
+          text: 'Write the SOP list for their role before they ask. Filter the gallery by function. Examples: club hosts get SOP 2 and The Keeper’s Codex; Product Managers get SOP 4’s 90-day launchpad (start at the days 1–10 first loop) plus SOP 3 as the method — do not restate weeks 1–10 here; engineers get SOP 22 plus How We Work; everyone gets SOP 20 Time Log and Day 1 onboarding. Ask the Executive if the mix is unclear. Do not send every card.',
+          href: '/sops/product-management-playbook/launchpad-first-loop',
+          hrefLabel: 'SOP 4: days 1–10 first loop',
         },
       ],
     },
