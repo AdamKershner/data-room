@@ -52,7 +52,7 @@ export const TOC_EXPLORE_ITEMS = [
     path: '/financial-projections',
     title: 'Financial Projections',
     description:
-      'Interactive Kahana model — change drivers, compare top-down vs YAU cases, and run sensitivity for teammates and investors.',
+      'Interactive Kahana model from pro forma v2 — creator-engine bottom-up vs top-down share, P&L through 2031F, and sensitivity.',
   },
   {
     path: '/team-execution',

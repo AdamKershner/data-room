@@ -1,32 +1,19 @@
 /**
- * Kahana Financial Projections engine — ports Revenue_T, Revenue_B, Expenses_Y, Assumptions.
+ * Kahana Financial Projections engine — ports Revenue_T, Revenue_B, Expenses_Y from v2.
  */
 
 import {
   BASE_YEAR,
-  BOTTOM_UP_HISTORY,
-  HIRING_PLAN,
+  HISTORY,
   IS_YEARS,
-  ROLE_COMP,
   SENSITIVITY_CAGR_PCTS,
   SENSITIVITY_SHARE_PCTS,
-  TECH_EXPENSE,
   TORNADO_DRIVERS,
   WORKBOOK_INPUTS,
-  growthAnnualArpu,
-  effectiveGmvPerSeller,
-  effectiveGrowthConvertPct,
-  productMaturityPct,
-  hubDemandSpillover,
-  planOutreachYear,
 } from './financialProjectionsData'
 
 export function cloneInputs(inputs = WORKBOOK_INPUTS) {
   return { ...inputs }
-}
-
-export function totalTaxRate(inputs) {
-  return (Number(inputs.federalTaxPct) + Number(inputs.stateTaxPct)) / 100
 }
 
 function n(value) {
@@ -34,79 +21,138 @@ function n(value) {
   return Number.isFinite(x) ? x : 0
 }
 
-/** Sequential hiring: each role funds only if seed clears its threshold AND the prior role funded. */
-export function resolveHiring(inputs) {
-  const seed = n(inputs.seedRaise)
-  const fundingYear = n(inputs.fundingYear) || BASE_YEAR
-  const funded = []
-  let priorYes = true
-  for (const row of HIRING_PLAN) {
-    const yes = priorYes && seed >= row.minRaise
-    const hireYear = yes ? fundingYear : null
-    const comp = ROLE_COMP[row.role]
-    funded.push({
-      ...row,
-      funded: yes,
-      hireYear,
-      salary: comp.salary,
-      raisePct: comp.raisePct,
-    })
-    priorYes = yes
-  }
-  return funded
+export function totalTaxRate(inputs) {
+  return (n(inputs.federalTaxPct) + n(inputs.stateTaxPct)) / 100
 }
 
-function headcountForYear(plan, year) {
-  const byRole = { CEO: 0, Engineers: 0, 'Chief of Staff': 0, 'Product Manager': 0 }
-  for (const row of plan) {
-    if (!row.funded || row.hireYear == null || year < row.hireYear) continue
-    if (row.role === 'Engineer') byRole.Engineers += row.hires
-    else byRole[row.role] += row.hires
-  }
-  const total = byRole.CEO + byRole.Engineers + byRole['Chief of Staff'] + byRole['Product Manager']
-  return { ...byRole, total }
+function isForecastCol(col) {
+  return col.kind === 'stub' || col.kind === 'forecast'
 }
 
-function cashCompForYear(plan, year) {
-  let ceo = 0
-  let engineers = 0
-  let cos = 0
-  let pm = 0
-  for (const row of plan) {
-    if (!row.funded || row.hireYear == null || year < row.hireYear) continue
-    const yearsInSeat = year - row.hireYear
-    const dollars = row.hires * row.salary * (1 + row.raisePct) ** yearsInSeat
-    if (row.role === 'CEO') ceo += dollars
-    else if (row.role === 'Engineer') engineers += dollars
-    else if (row.role === 'Chief of Staff') cos += dollars
-    else if (row.role === 'Product Manager') pm += dollars
-  }
-  return { CEO: ceo, Engineers: engineers, 'Chief of Staff': cos, 'Product Manager': pm, total: ceo + engineers + cos + pm }
+function internFte(col, inputs) {
+  if (!isForecastCol(col)) return 0
+  const start = n(inputs.internFte2026)
+  const rate = n(inputs.internHireRatePct) / 100
+  const t = col.year - BASE_YEAR
+  return start * (1 + rate) ** t
 }
 
-export function computeHiringSchedule(inputs, years = IS_YEARS) {
-  const plan = resolveHiring(inputs)
-  const byYear = {}
+function roleFte(col, hireYear, fte) {
+  if (!isForecastCol(col)) return 0
+  if (col.year < n(hireYear)) return 0
+  return n(fte)
+}
+
+function cashFor(fte, salary, months) {
+  return fte * n(salary) * (months / 12)
+}
+
+function satLift(spend, maxLift, halfSat) {
+  const s = n(spend)
+  const cap = n(maxLift)
+  const half = n(halfSat)
+  if (s + half === 0) return 0
+  return cap * (s / (s + half))
+}
+
+function smForYear(year, inputs) {
+  return {
+    outreach: year === 2026 ? n(inputs.smOutreachInfra2026) : 0,
+    referral: year === 2027 ? n(inputs.smReferralBonus2027) : 0,
+    influencer: year === 2028 ? n(inputs.smInfluencer2028) : 0,
+    brand: year === 2029 ? n(inputs.smBrand2029) : 0,
+    other: year === 2030 ? n(inputs.smOther2030) : 0,
+  }
+}
+
+export function computeExpenses(inputs, years = IS_YEARS) {
+  const byId = {}
   for (const col of years) {
-    if (col.kind === 'ytd' && col.year === BASE_YEAR) {
-      byYear[col.id] = {
-        headcount: headcountForYear(plan, col.year),
-        cash: cashCompForYear(plan, col.year),
+    if (col.kind === 'actual') {
+      const h = HISTORY[col.year]
+      byId[col.id] = {
+        internFte: 0,
+        ceoFte: 0,
+        engFte: 0,
+        productFte: 0,
+        cosFte: 0,
+        internCash: 0,
+        ceoCash: 0,
+        engCash: 0,
+        productCash: 0,
+        cosCash: 0,
+        personnel: h.personnel,
+        tech: h.tech,
+        sales: h.sales,
+        ga: h.ga,
+        cogs: 0,
+        opex: h.personnel + h.tech + h.sales + h.ga,
+        sm: { outreach: 0, referral: 0, influencer: 0, brand: 0, other: 0 },
       }
       continue
     }
-    byYear[col.id] = {
-      headcount: headcountForYear(plan, col.year),
-      cash: cashCompForYear(plan, col.year),
+    if (col.kind === 'ytd') {
+      const h = HISTORY['2026Ytd']
+      byId[col.id] = {
+        internFte: 0,
+        ceoFte: 0,
+        engFte: 0,
+        productFte: 0,
+        cosFte: 0,
+        internCash: 0,
+        ceoCash: 0,
+        engCash: 0,
+        productCash: 0,
+        cosCash: 0,
+        personnel: h.personnel,
+        tech: h.tech,
+        sales: h.sales,
+        ga: h.ga,
+        cogs: 0,
+        opex: h.personnel + h.tech + h.sales + h.ga,
+        sm: { outreach: 0, referral: 0, influencer: 0, brand: 0, other: 0 },
+      }
+      continue
+    }
+
+    const intern = internFte(col, inputs)
+    const ceo = roleFte(col, inputs.ceoHireYear, inputs.ceoFte)
+    const eng = roleFte(col, inputs.engHireYear, inputs.engFte)
+    const product = roleFte(col, inputs.productHireYear, inputs.productFte)
+    const cos = roleFte(col, inputs.cosHireYear, inputs.cosFte)
+    const internCash = cashFor(intern, inputs.internSalary, col.months)
+    const ceoCash = cashFor(ceo, inputs.ceoSalary, col.months)
+    const engCash = cashFor(eng, inputs.engSalary, col.months)
+    const productCash = cashFor(product, inputs.productSalary, col.months)
+    const cosCash = cashFor(cos, inputs.cosSalary, col.months)
+    const cash = internCash + ceoCash + engCash + productCash + cosCash
+    const benefits = cash * (n(inputs.payrollBenefitsPct) / 100)
+    const personnel = cash + benefits
+    const sm = smForYear(col.year, inputs)
+    const sales = sm.outreach + sm.referral + sm.influencer + sm.brand + sm.other
+    byId[col.id] = {
+      internFte: intern,
+      ceoFte: ceo,
+      engFte: eng,
+      productFte: product,
+      cosFte: cos,
+      internCash,
+      ceoCash,
+      engCash,
+      productCash,
+      cosCash,
+      personnel,
+      tech: 0,
+      sales,
+      ga: 0,
+      cogs: 0,
+      opex: personnel + sales,
+      sm,
     }
   }
-  return { plan, byYear }
+  return { byId }
 }
 
-/**
- * Top-down: market grows at CAGR; share ramps from 2026 implied share to target at horizon end.
- * t = 0 is 2026. Revenue in dollars.
- */
 export function computeTopDown(inputs) {
   const horizon = Math.max(1, Math.round(n(inputs.horizonYears)))
   const endYear = BASE_YEAR + horizon
@@ -118,7 +164,6 @@ export function computeTopDown(inputs) {
 
   const relevantMm0 = marketBn0 * 1000 * relevantPct
   const share0 = relevantMm0 > 0 ? rev2026 / 1e6 / relevantMm0 : 0
-  // 0 (or below today's implied share) = hold 2026 implied share. Conservative plan: no ramp to 1%.
   const holdShare = targetShareRaw <= 0 || (share0 > 0 && targetShareRaw <= share0)
   const targetShare = holdShare ? share0 : targetShareRaw
   const shareCagr =
@@ -157,306 +202,174 @@ export function computeTopDown(inputs) {
   }
 }
 
-export function newRegisteredUsersForYear(year, inputs) {
-  const base = n(inputs.newRegisteredUsers)
-  const growth = n(inputs.newUserGrowthPct) / 100
-  const t = year - 2027
-  if (t <= 0) return base
-  return base * (1 + growth) ** t
-}
-
-/** One-time 2027 lift from the existing registered list. Not applied in later years. */
-export function resurrectedUsersForYear(year, inputs) {
-  if (year !== 2027) return 0
-  const registered = BOTTOM_UP_HISTORY[2026]?.endingUsers ?? 0
-  const dormant = Math.max(0, registered - n(inputs.startingYau))
-  return dormant * (n(inputs.resurrectionPct) / 100)
-}
-
-/** Outreach new accounts = published hubs × (1 + extras). Extras = pay-intent + savers + aspiring sellers. */
-function outreachPublishersFromAdd(outreachNew, inputs) {
-  const extra = hubDemandSpillover(inputs).extraSignupsPerCollab
-  const denom = 1 + extra
-  return denom > 0 ? outreachNew / denom : outreachNew
-}
-
-/** Extras minted by published hubs (pay-intent + savers + aspiring). Does not include the publisher. */
-function extrasFromPublishedHubs(hubs, spill) {
+function networkFactors(year, inputs) {
+  if (year < 2027) {
+    return { premOnPrem: 0, premOnNormal: 0, normalOnPrem: 0, normalOnNormal: 0 }
+  }
+  const decay = n(inputs.referralDecayPct) / 100
+  const k = (1 - decay) ** (year - 2027)
+  const m = n(inputs.networkMultiplier)
   return {
-    newUsers: hubs * spill.extraSignupsPerCollab,
-    newBuyers: hubs * spill.extraBuyersPerHub,
-    newCompletedBuyers: hubs * spill.completedBuyersPerHub,
-    newSaversThis: hubs * spill.extraSaversThisHub,
-    newSaversOther: hubs * spill.extraSaversOtherHub,
-    newAspiring: hubs * spill.extraAspiringSellersPerHub,
+    premOnPrem: n(inputs.premOnPrem) * k * m,
+    premOnNormal: n(inputs.premOnNormal) * k * m,
+    normalOnPrem: n(inputs.normalOnPrem) * k * m,
+    normalOnNormal: n(inputs.normalOnNormal) * k * m,
   }
 }
 
-function extrasNewlyActive(ex, activation) {
-  const incomplete = ex.newBuyers - ex.newCompletedBuyers
-  return (
-    ex.newCompletedBuyers +
-    (incomplete + ex.newSaversThis + ex.newSaversOther + ex.newAspiring) * activation
-  )
-}
-
-function extrasFromSignupCount(count, spill) {
-  const extra = spill.extraSignupsPerCollab
-  const hubs = extra > 0 ? count / extra : 0
-  return extrasFromPublishedHubs(hubs, spill)
-}
-
-function forecastBottomUpYear(
-  priorEnding,
-  priorYau,
-  priorInternPublishers,
-  priorSelfServePublishers,
-  priorNewUsers,
-  inputs,
-  year,
-) {
-  const priorPublishers = priorInternPublishers + priorSelfServePublishers
-  const outreachNew = newRegisteredUsersForYear(year, inputs)
-  const k = n(inputs.viralK)
-  const kNewPublishers = priorPublishers * k
-  const spill = hubDemandSpillover(inputs)
-  const outreachPublishers = outreachPublishersFromAdd(outreachNew, inputs)
-  const internExtras = extrasFromPublishedHubs(outreachPublishers, spill)
-
-  const resurrected = resurrectedUsersForYear(year, inputs)
-  const resurrectionPublishers = resurrected * (n(inputs.resurrectionPublishPct) / 100)
-  const resurrectionSavers = resurrected * (n(inputs.resurrectionSavePct) / 100)
-  const resurrectionExtras = extrasFromPublishedHubs(resurrectionPublishers, spill)
-
-  const kExtras = extrasFromPublishedHubs(kNewPublishers, spill)
-  const maturityPct = productMaturityPct(year, inputs)
-  const maturity = maturityPct / 100
-  const catalogPer = n(inputs.catalogSignupsPerPublisher) * maturity
-  const extraEach = spill.extraSignupsPerCollab
-  const catalogEquivHubs = extraEach > 0 ? (priorPublishers * catalogPer) / extraEach : 0
-  const catalogExtras = extrasFromPublishedHubs(catalogEquivHubs, spill)
-  const viralNew = priorNewUsers * n(inputs.signupViralK) * maturity
-  const viralExtras = extrasFromSignupCount(viralNew, spill)
-
-  // Intern add already includes that year’s launch extras. k publishers are usually already registered.
-  const newUsers =
-    outreachNew +
-    resurrectionExtras.newUsers +
-    kExtras.newUsers +
-    catalogExtras.newUsers +
-    viralNew
-  const endingUsers = priorEnding + newUsers
-  const retention = n(inputs.yauRetentionPct) / 100
-  const activation = n(inputs.newUserActivationPct) / 100
-  const retained = priorYau * retention
-  const newlyActive =
-    outreachPublishers +
-    extrasNewlyActive(internExtras, activation) +
-    extrasNewlyActive(resurrectionExtras, activation) +
-    extrasNewlyActive(kExtras, activation) +
-    extrasNewlyActive(catalogExtras, activation) +
-    extrasNewlyActive(viralExtras, activation) +
-    kNewPublishers
-  const yau = retained + newlyActive + resurrected
-  const internPublishers = outreachPublishers
-  const selfServePublishers =
-    priorPublishers * retention + resurrectionPublishers + kNewPublishers
-  const publishers = internPublishers + selfServePublishers
-  const monetization = n(inputs.monetizationRatePct) / 100
-  const monetizingUsers = publishers * monetization
-  const convertPct = effectiveGrowthConvertPct(year, inputs)
-  const gmvEach = effectiveGmvPerSeller(year, inputs)
-  const gmv = monetizingUsers * gmvEach
-  const take = n(inputs.takeRatePct) / 100
-  const takeRevenue = gmv * take
-  const growthArpu = growthAnnualArpu(inputs)
-  const growthSubs = selfServePublishers * (convertPct / 100)
-  const growthRevenue = growthSubs * growthArpu
-  const platformRevenue = takeRevenue + growthRevenue
-  const txEach = n(inputs.txPerMonetizingUser)
-  const transactions = txEach > 0 ? monetizingUsers * txEach : 0
-  const aov = transactions > 0 ? gmv / transactions : null
-  return {
-    beginningUsers: priorEnding,
-    newUsers,
-    endingUsers,
-    yau,
-    yauRetention: retention,
-    newlyActive,
-    resurrected,
-    resurrectionPublishers,
-    resurrectionSavers,
-    resurrectionNewUsers: resurrectionExtras.newUsers,
-    catalogNewUsers: catalogExtras.newUsers,
-    kExtraNewUsers: kExtras.newUsers,
-    viralNewUsers: viralNew,
-    retained,
-    kNewPublishers,
-    outreachPublishers,
-    internPublishers,
-    selfServePublishers,
-    newBuyers:
-      internExtras.newBuyers +
-      resurrectionExtras.newBuyers +
-      kExtras.newBuyers +
-      catalogExtras.newBuyers +
-      viralExtras.newBuyers,
-    newCompletedBuyers:
-      internExtras.newCompletedBuyers +
-      resurrectionExtras.newCompletedBuyers +
-      kExtras.newCompletedBuyers +
-      catalogExtras.newCompletedBuyers +
-      viralExtras.newCompletedBuyers,
-    newSavers:
-      internExtras.newSaversThis +
-      internExtras.newSaversOther +
-      resurrectionExtras.newSaversThis +
-      resurrectionExtras.newSaversOther +
-      kExtras.newSaversThis +
-      kExtras.newSaversOther +
-      catalogExtras.newSaversThis +
-      catalogExtras.newSaversOther +
-      viralExtras.newSaversThis +
-      viralExtras.newSaversOther,
-    newSaversThis:
-      internExtras.newSaversThis +
-      resurrectionExtras.newSaversThis +
-      kExtras.newSaversThis +
-      catalogExtras.newSaversThis +
-      viralExtras.newSaversThis,
-    newSaversOther:
-      internExtras.newSaversOther +
-      resurrectionExtras.newSaversOther +
-      kExtras.newSaversOther +
-      catalogExtras.newSaversOther +
-      viralExtras.newSaversOther,
-    newAspiring:
-      internExtras.newAspiring +
-      resurrectionExtras.newAspiring +
-      kExtras.newAspiring +
-      catalogExtras.newAspiring +
-      viralExtras.newAspiring,
-    publishers,
-    monetizationRate: monetization,
-    monetizingUsers,
-    gmvPerMonetizingUser: gmvEach,
-    gmv,
-    takeRate: take,
-    takeRevenue,
-    growthArpu,
-    growthSubs,
-    growthRevenue,
-    growthConvertEffectivePct: convertPct,
-    productMaturityPct: maturityPct,
-    platformRevenue,
-    transactions,
-    aov,
-    outreachNewUsers: outreachNew,
-    isForecast: true,
-  }
-}
-
-export function computeBottomUp(inputs, isYears = IS_YEARS) {
+export function computeBottomUp(inputs, years = IS_YEARS, expenses) {
+  const exp = expenses ?? computeExpenses(inputs, years)
   const byId = {}
-  let priorEnding = BOTTOM_UP_HISTORY[2025]?.endingUsers ?? 0
-  // Workbook never recorded YAU. Use the inferred starting YAU unless a historical year has one.
-  let priorYau = n(inputs.startingYau)
-  let priorInternPublishers = 0
-  let priorSelfServePublishers = BOTTOM_UP_HISTORY[2025]?.monetizingUsers ?? 0
-  let priorNewUsers = BOTTOM_UP_HISTORY[2025]?.newUsers ?? 0
+  let prevPremium = 0
+  let prevNormal = 0
 
-  for (const col of isYears) {
-    if (col.kind !== 'forecast') {
-      const hist = BOTTOM_UP_HISTORY[col.year]
-      if (!hist) continue
-      const takeRate = hist.gmv ? hist.platformRevenue / hist.gmv : 0
-      const gmvEach = hist.monetizingUsers ? hist.gmv / hist.monetizingUsers : 0
+  for (const col of years) {
+    if (col.kind === 'actual') {
+      const h = HISTORY[col.year]
+      prevPremium = h.endingPremium
+      prevNormal = h.endingNormal
       byId[col.id] = {
-        ...hist,
-        takeRate,
-        gmvPerMonetizingUser: gmvEach,
-        monetizationRate: hist.yau ? hist.monetizingUsers / hist.yau : 0,
-        aov: hist.transactions ? hist.gmv / hist.transactions : null,
-        resurrected: 0,
-        kNewPublishers: 0,
-        publishers: hist.monetizingUsers || 0,
-        internPublishers: 0,
-        selfServePublishers: hist.monetizingUsers || 0,
-        takeRevenue: hist.platformRevenue,
-        growthSubs: 0,
-        growthRevenue: 0,
-        isForecast: false,
+        endingPremium: h.endingPremium,
+        endingNormal: h.endingNormal,
+        endingTotal: h.endingPremium + h.endingNormal,
+        subscriptionRevenue: null,
+        takeRevenue: h.revenue,
+        gmv: h.gmv,
+        platformRevenue: h.revenue,
+        marketingSpend: 0,
       }
-      priorEnding = hist.endingUsers
-      if (hist.yau) priorYau = hist.yau
-      if (hist.monetizingUsers) priorSelfServePublishers = hist.monetizingUsers
-      priorInternPublishers = 0
-      priorNewUsers = hist.newUsers ?? 0
+      continue
+    }
+    if (col.kind === 'ytd') {
+      const h = HISTORY['2026Ytd']
+      prevPremium = h.endingPremium
+      prevNormal = h.endingNormal
+      byId[col.id] = {
+        endingPremium: h.endingPremium,
+        endingNormal: h.endingNormal,
+        endingTotal: h.endingPremium + h.endingNormal,
+        subscriptionRevenue: null,
+        takeRevenue: h.revenue,
+        gmv: h.gmv,
+        platformRevenue: h.revenue,
+        marketingSpend: 0,
+      }
       continue
     }
 
-    const row = forecastBottomUpYear(
-      priorEnding,
-      priorYau,
-      priorInternPublishers,
-      priorSelfServePublishers,
-      priorNewUsers,
-      inputs,
-      col.year,
-    )
+    const e = exp.byId[col.id]
+    const months = col.months
+    const capacityEffective =
+      n(inputs.internCapacityBase) + n(inputs.internSalary) * n(inputs.internIncentivePerDollar)
+    const contactsHeadcount = e.internFte * capacityEffective * months
+    const contactsInfraBase = n(inputs.infraContactsBase)
+    const contactsInfra = contactsInfraBase + e.sm.outreach * n(inputs.infraSpendFactor)
+    const contacted = contactsHeadcount + contactsInfra
+
+    const personalSpend = e.ceoCash * (n(inputs.ceoTimeOutreachPct) / 100)
+    const platformSpend = (e.engCash + e.productCash) * (n(inputs.pmEngTimePlatformPct) / 100)
+    const personalLift = satLift(personalSpend, n(inputs.personalTouchMaxLiftPct) / 100, inputs.personalTouchHalfSat)
+    const platformLift = satLift(platformSpend, n(inputs.platformMaxLiftPct) / 100, inputs.platformHalfSat)
+    const conversion = Math.min(1, n(inputs.baseConversionPct) / 100 + personalLift + platformLift)
+    const funnelNew = contacted * conversion
+
+    const referralNew = e.sm.referral * n(inputs.referralCreatorsPerDollar)
+    const influencerNew = e.sm.influencer * n(inputs.influencerCreatorsPerDollar)
+    const cpaNew = referralNew + influencerNew
+    const marketingNew = funnelNew + cpaNew
+    const premiumMix = n(inputs.premiumShareOfNewPct) / 100
+    const mktPremium = marketingNew * premiumMix
+    const mktNormal = marketingNew * (1 - premiumMix)
+
+    const beginningPremium = col.id === '2026F' ? n(inputs.beginningPremium2026F) : prevPremium
+    const beginningNormal = col.id === '2026F' ? n(inputs.beginningNormal2026F) : prevNormal
+
+    const nf = networkFactors(col.year, inputs)
+    const netPremFromPrem = beginningPremium * nf.premOnPrem
+    const netNormFromPrem = beginningPremium * nf.premOnNormal
+    const netPremFromNorm = beginningNormal * nf.normalOnPrem
+    const netNormFromNorm = beginningNormal * nf.normalOnNormal
+    const netPremium = netPremFromPrem + netPremFromNorm
+    const netNormal = netNormFromPrem + netNormFromNorm
+
+    const newPremium = mktPremium + netPremium
+    const newNormal = mktNormal + netNormal
+    const frac = months / 12
+    const attritPremium = beginningPremium * (n(inputs.premiumChurnPct) / 100) * frac
+    const attritNormal = beginningNormal * (n(inputs.normalChurnPct) / 100) * frac
+    const endingPremium = beginningPremium + newPremium - attritPremium
+    const endingNormal = beginningNormal + newNormal - attritNormal
+
+    const premPaidHubs = endingPremium * n(inputs.hubsPerPremium) * (n(inputs.premiumPaidHubPct) / 100)
+    const premFreeHubs = endingPremium * n(inputs.hubsPerPremium) * (1 - n(inputs.premiumPaidHubPct) / 100)
+    const normPaidHubs = endingNormal * n(inputs.hubsPerNormal) * (n(inputs.normalPaidHubPct) / 100)
+    const normFreeHubs = endingNormal * n(inputs.hubsPerNormal) * (1 - n(inputs.normalPaidHubPct) / 100)
+
+    const premPaidGmv = premPaidHubs * n(inputs.premPaidPurchases) * n(inputs.premPaidValue) * frac
+    const premFreeGmv = premFreeHubs * n(inputs.premFreeAcq) * n(inputs.premFreeValue) * frac
+    const normPaidGmv = normPaidHubs * n(inputs.normalPaidPurchases) * n(inputs.normalPaidValue) * frac
+    const normFreeGmv = normFreeHubs * n(inputs.normalFreeAcq) * n(inputs.normalFreeValue) * frac
+    const gmv = premPaidGmv + premFreeGmv + normPaidGmv + normFreeGmv
+    const take = gmv * (n(inputs.takeRatePct) / 100)
+    const subscription =
+      endingPremium * n(inputs.premiumFeeMonthly) * months +
+      endingNormal * n(inputs.normalFeeMonthly) * months
+    const engine1Spend = e.internCash + e.sm.outreach
+    const engine2Spend = personalSpend + platformSpend
+    const engine3Spend = e.sm.referral + e.sm.influencer
+    const marketingSpend = engine1Spend + engine2Spend + engine3Spend
+
+    const row = {
+      internFte: e.internFte,
+      capacityEffective,
+      contacted,
+      contactsHeadcount,
+      contactsInfra,
+      conversion,
+      funnelNew,
+      cpaNew,
+      marketingNew,
+      mktPremium,
+      mktNormal,
+      beginningPremium,
+      beginningNormal,
+      netPremium,
+      netNormal,
+      newPremium,
+      newNormal,
+      attritPremium,
+      attritNormal,
+      endingPremium,
+      endingNormal,
+      endingTotal: endingPremium + endingNormal,
+      premPaidHubs,
+      premFreeHubs,
+      normPaidHubs,
+      normFreeHubs,
+      gmv,
+      subscriptionRevenue: subscription,
+      takeRevenue: take,
+      platformRevenue: subscription + take,
+      engine1Spend,
+      engine2Spend,
+      engine3Spend,
+      marketingSpend,
+      blendedCac: marketingNew > 0 ? marketingSpend / marketingNew : null,
+    }
     byId[col.id] = row
-    priorEnding = row.endingUsers
-    priorYau = row.yau
-    priorInternPublishers = row.internPublishers
-    priorSelfServePublishers = row.selfServePublishers
-    priorNewUsers = row.newUsers
+    prevPremium = endingPremium
+    prevNormal = endingNormal
   }
 
   return { byId }
 }
 
-export function expenseForColumn(col, inputs, hiring) {
-  const tech =
-    col.kind === 'forecast' ? n(TECH_EXPENSE.forecastAnnual) : n(TECH_EXPENSE[col.year])
-  const cash = hiring.byYear[col.id]?.cash.total ?? 0
-  const personnel = cash * (1 + n(inputs.payrollBenefitsPct) / 100)
-  const sales =
-    n(inputs.paidMarketingAnnual) +
-    n(inputs.creatorPartnershipsAnnual) +
-    n(inputs.brandContentAnnual)
-  const ga = n(inputs.legalAnnual) + n(inputs.accountingAnnual) + n(inputs.insuranceAnnual)
-  const cogs = n(inputs.paymentProcessingAnnual) + n(inputs.otherVariablePlatformAnnual)
-
-  // Historical / YTD: keep workbook tech; do not apply forecast opex inputs to actuals.
-  if (col.kind !== 'forecast') {
-    return {
-      personnel: 0,
-      tech,
-      sales: 0,
-      ga: 0,
-      cogs: 0,
-      opex: tech,
-    }
-  }
-
-  return {
-    personnel,
-    tech,
-    sales,
-    ga,
-    cogs,
-    opex: personnel + tech + sales + ga,
-  }
-}
-
-function pnlFromRevenue(revenue, exp, taxRate) {
-  if (revenue == null || revenue === '') {
-    return null
-  }
-  const cogs = exp.cogs
+function pnlFrom(revenue, exp, gmv, inputs, taxRate) {
+  const cogs = n(gmv) * (n(inputs.paymentProcessingPct) / 100)
   const gross = revenue - cogs
-  const opInc = gross - exp.opex
-  const tax = Math.max(0, opInc * taxRate)
+  const opex = n(exp.personnel) + n(exp.tech) + n(exp.sales) + n(exp.ga)
+  const opInc = gross - opex
+  const tax = opInc > 0 ? opInc * taxRate : 0
   const net = opInc - tax
   return {
     revenue,
@@ -467,7 +380,7 @@ function pnlFromRevenue(revenue, exp, taxRate) {
     tech: exp.tech,
     sales: exp.sales,
     ga: exp.ga,
-    opex: exp.opex,
+    opex,
     opInc,
     opMargin: revenue ? opInc / revenue : null,
     tax,
@@ -478,84 +391,87 @@ function pnlFromRevenue(revenue, exp, taxRate) {
 
 export function computeModel(inputs) {
   const taxRate = totalTaxRate(inputs)
-  const hiring = computeHiringSchedule(inputs)
+  const expenses = computeExpenses(inputs)
   const topDown = computeTopDown(inputs)
-  const bottomUp = computeBottomUp(inputs)
+  const bottomUp = computeBottomUp(inputs, IS_YEARS, expenses)
 
   const isRows = IS_YEARS.map((col) => {
-    const exp = expenseForColumn(col, inputs, hiring)
-    const buRev = bottomUp.byId[col.id]?.platformRevenue
+    const bu = bottomUp.byId[col.id]
+    const exp = expenses.byId[col.id]
     const tdYear = topDown.byYear[col.year]
-    // Top-down IS begins 2027F (workbook note).
     const topDownPnl =
-      col.kind === 'forecast' ? pnlFromRevenue(tdYear?.revenue ?? 0, exp, taxRate) : null
-    const hasBu = buRev != null && buRev !== ''
-    const bottomUpPnl = hasBu ? pnlFromRevenue(buRev, exp, taxRate) : null
+      col.kind === 'forecast' && tdYear ? pnlFrom(tdYear.revenue, exp, 0, inputs, taxRate) : null
+    const bottomUpPnl =
+      bu?.platformRevenue != null
+        ? pnlFrom(bu.platformRevenue, exp, bu.gmv ?? 0, inputs, taxRate)
+        : null
+    if (bottomUpPnl && bu) {
+      bottomUpPnl.subscription = bu.subscriptionRevenue
+      bottomUpPnl.take = bu.takeRevenue
+      bottomUpPnl.gmv = bu.gmv
+    }
     return {
       col,
       exp,
-      hiring: hiring.byYear[col.id],
-      bottomUp: bottomUp.byId[col.id] ?? null,
+      bottomUp: bu ?? null,
       topDown: tdYear ?? null,
       bottomUpPnl,
       topDownPnl,
     }
   })
 
-  const y2031 = isRows.find((r) => r.col.id === '2031F')
-  const endTd = topDown.years[topDown.years.length - 1]
-  const bu2031 = y2031?.bottomUp
+  const y26f = isRows.find((r) => r.col.id === '2026F')
+  const y27 = isRows.find((r) => r.col.id === '2027F')
+  const y31 = isRows.find((r) => r.col.id === '2031F')
+  const endTd = topDown.years.find((y) => y.year === FORECAST_END_SAFE(inputs)) ?? topDown.years[topDown.years.length - 1]
 
   return {
     inputs,
     taxRate,
-    hiring,
+    expenses,
     topDown,
     bottomUp,
     isRows,
     kpis: {
-      td2031Revenue: y2031?.topDownPnl?.revenue ?? null,
-      td2031Net: y2031?.topDownPnl?.net ?? null,
-      bu2031Revenue: y2031?.bottomUpPnl?.revenue ?? null,
-      bu2031Net: y2031?.bottomUpPnl?.net ?? null,
-      bu2031Gmv: bu2031?.gmv ?? null,
-      bu2031Yau: bu2031?.yau ?? null,
-      bu2031Monetizing: bu2031?.monetizingUsers ?? null,
-      endYear: topDown.endYear,
-      endRevenue: endTd?.revenue ?? null,
-      endShare: endTd?.share ?? null,
-      headcount2031: y2031?.hiring?.headcount.total ?? 0,
-      shareCagr: topDown.shareCagr,
-      holdShare: topDown.holdShare,
+      tdEndRevenue: endTd?.revenue ?? null,
+      tdEndNet: null,
+      bu2026FRevenue: y26f?.bottomUpPnl?.revenue ?? null,
+      bu2027Revenue: y27?.bottomUpPnl?.revenue ?? null,
+      bu2031Revenue: y31?.bottomUpPnl?.revenue ?? null,
+      bu2031Net: y31?.bottomUpPnl?.net ?? null,
+      creators2026F: y26f?.bottomUp?.endingTotal ?? null,
+      creators2031: y31?.bottomUp?.endingTotal ?? null,
+      endYear: 2031,
     },
   }
 }
 
-export function computeMarketingFunnel(funnel, funded) {
-  return planOutreachYear(funnel, funded)
+function FORECAST_END_SAFE(inputs) {
+  return BASE_YEAR + Math.max(1, Math.round(n(inputs.horizonYears)))
 }
 
 export function computeTornado(baseInputs, shockPct = 0.2) {
   const base = computeModel(baseInputs)
-  const baseVal = base.kpis.td2031Revenue ?? 0
-  return TORNADO_DRIVERS.map((driver) => {
-    const lowIn = { ...baseInputs, [driver.key]: n(baseInputs[driver.key]) * (1 - shockPct) }
-    const highIn = { ...baseInputs, [driver.key]: n(baseInputs[driver.key]) * (1 + shockPct) }
-    if (driver.key === 'horizonYears') {
-      lowIn.horizonYears = Math.max(1, Math.round(n(baseInputs.horizonYears) - 2))
-      highIn.horizonYears = Math.max(1, Math.round(n(baseInputs.horizonYears) + 2))
+  const baseVal = base.kpis.bu2031Revenue ?? 0
+  return TORNADO_DRIVERS.map((d) => {
+    const cur = n(baseInputs[d.key])
+    let lowV = cur * (1 - shockPct)
+    let highV = cur * (1 + shockPct)
+    if (d.kind === 'years') {
+      lowV = Math.max(1, Math.round(cur - 2))
+      highV = Math.round(cur + 2)
     }
-    const low = computeModel(lowIn).kpis.td2031Revenue ?? 0
-    const high = computeModel(highIn).kpis.td2031Revenue ?? 0
+    const low = computeModel({ ...baseInputs, [d.key]: lowV }).kpis.bu2031Revenue
+    const high = computeModel({ ...baseInputs, [d.key]: highV }).kpis.bu2031Revenue
     return {
-      ...driver,
+      key: d.key,
+      label: d.label,
       low,
       high,
-      lowDelta: low - baseVal,
-      highDelta: high - baseVal,
-      swing: Math.abs(high - low),
+      lowDelta: (low ?? 0) - baseVal,
+      highDelta: (high ?? 0) - baseVal,
     }
-  }).sort((a, b) => b.swing - a.swing)
+  })
 }
 
 export function computeShareCagrGrid(baseInputs) {
@@ -567,10 +483,11 @@ export function computeShareCagrGrid(baseInputs) {
         marketCagrPct: cagr,
         targetSharePct: share,
       })
+      const td = model.topDown.byYear[2031]
       return {
         share,
-        revenue: model.kpis.td2031Revenue,
-        net: model.kpis.td2031Net,
+        revenue: td?.revenue ?? null,
+        net: null,
       }
     }),
   }))
@@ -582,16 +499,16 @@ export function formatUsd(value, digits = 0) {
   const sign = value < 0 ? '-' : ''
   if (abs >= 1e9) return `${sign}$${(abs / 1e9).toFixed(2)}B`
   if (abs >= 1e6) return `${sign}$${(abs / 1e6).toFixed(2)}M`
-  if (abs >= 1e4) return `${sign}$${(abs / 1e3).toFixed(1)}k`
-  return `${sign}$${abs.toLocaleString('en-US', { maximumFractionDigits: digits })}`
+  return `${sign}$${abs.toLocaleString('en-US', {
+    maximumFractionDigits: abs >= 1000 ? 0 : Math.max(digits, abs < 1 && abs > 0 ? 2 : digits),
+    minimumFractionDigits: 0,
+  })}`
 }
 
 export function formatPct(value, digits = 1) {
   if (value == null || Number.isNaN(value)) return '—'
   const pct = value * 100
-  if (pct !== 0 && Math.abs(pct) < 0.01) {
-    return `${pct.toExponential(2)}%`
-  }
+  if (pct !== 0 && Math.abs(pct) < 0.01) return `${pct.toExponential(2)}%`
   return `${pct.toFixed(digits)}%`
 }
 

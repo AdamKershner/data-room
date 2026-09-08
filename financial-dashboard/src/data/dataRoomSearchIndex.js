@@ -113,7 +113,7 @@ const EXTRA_SEARCH_ENTRIES = [
     title: 'Financial Projections',
     businessFunction: 'Finance',
     description:
-      'Interactive Kahana model — change drivers, compare top-down vs YAU cases, and run sensitivity.',
+      'Interactive Kahana model from pro forma v2 — creator-engine bottom-up vs top-down share, P&L through 2031F, and sensitivity.',
     keywords: [
       'financial projections',
       'pro forma',
@@ -122,14 +122,13 @@ const EXTRA_SEARCH_ENTRIES = [
       'sensitivity',
       'top-down',
       'bottom-up',
-      'yau',
+      'creator engine',
       'take rate',
       'seed',
       'hiring',
       'forecast',
-      'resurrection',
-      'virality',
-      'k-factor',
+      'intern',
+      'network effects',
     ],
     nlHints: [
       'financial projections',
