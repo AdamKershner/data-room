@@ -222,6 +222,9 @@ const SOPS_RAW = [
       'rage click',
       'empty state',
       'checkout',
+      'discovery',
+      'retention',
+      'principle',
     ],
     who: 'Product Managers',
     when: 'Daily notes, weekly dogfood, bi-weekly triage, monthly journey pass, and before every major launch.',
@@ -235,7 +238,7 @@ const SOPS_RAW = [
     })),
     doneWhen: [
       'A weekly dogfood session is on the calendar.',
-      'Findings are logged with screenshot, issue, and named impact.',
+      'Findings are logged with screenshot, issue, named impact, and trade-off.',
       'High impact / low effort items ship the same week.',
       'Fixes are re-tested before the log is closed.',
     ],

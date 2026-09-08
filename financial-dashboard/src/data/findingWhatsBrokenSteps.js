@@ -29,7 +29,7 @@ export const FINDING_WHATS_BROKEN_GROUPS = [
   {
     id: 'standing',
     title: 'I. Standing orders',
-    intro: 'Why this matters at Kahana, and the five principles that keep a review honest.',
+    intro: 'Why this matters at Kahana, and the six principles that keep a review honest.',
   },
   {
     id: 'finding',
@@ -70,7 +70,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     group: 'standing',
     badge: '4 min',
     doneWhen:
-      'You review like a stranger, name the so-what, prefer small shipped fixes, pair data with users, and close the loop.',
+      'You review like a stranger, name the so-what, write Observation → problem → why → options, prefer small shipped fixes, pair data with users, and close the loop.',
   },
   {
     id: 'dogfood',
@@ -79,7 +79,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     group: 'finding',
     badge: '30 min',
     doneWhen:
-      'You completed one real task in incognito or a throwaway account and wrote down every hesitation.',
+      'You completed one real task in incognito or a throwaway account before learning the “correct” flow, wrote down every hesitation, and screen-shared if this was first-time-user validation.',
   },
   {
     id: 'walk-journeys',
@@ -88,7 +88,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     group: 'finding',
     badge: '45 min',
     doneWhen:
-      'You listed the 5–8 journeys that matter most and walked each on desktop and mobile, in at least two browsers.',
+      'You listed the 5–8 journeys that matter most, mapped findings to a journey stage, walked each on desktop and mobile in at least two browsers, and tested overlapping features on the same surface.',
   },
   {
     id: 'read-the-data',
@@ -124,7 +124,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     group: 'finding',
     badge: '25 min',
     doneWhen:
-      'You did the same core task on 2–3 products users already know and noted where theirs is obviously better.',
+      'You did the same core task on 2–3 products, extracted the user problem and principle (not the UI), and wrote how that principle would adapt on Kahana.',
   },
   {
     id: 'absurd-patterns',
@@ -142,7 +142,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     group: 'calling-out',
     badge: '5 min',
     doneWhen:
-      'One finding is one log entry with title, screenshot, issue, impact, proposed fix, and High/Medium/Low.',
+      'One finding is one log entry with title, screenshot, issue, impact, trade-off, proposed fix, and High/Medium/Low.',
   },
   {
     id: 'prioritize',
@@ -177,7 +177,8 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     icon: 'user',
     group: 'session',
     badge: '5 min',
-    doneWhen: 'This review was done as a stranger, not as an insider who already knows every button.',
+    doneWhen:
+      'This review was a naive first run as a stranger — not as an insider who already knows every button — and was screen-shared if it was first-time-user validation.',
   },
   {
     id: 'session-devices',
@@ -209,7 +210,7 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     icon: 'clipboard',
     group: 'session',
     badge: '5 min',
-    doneWhen: 'Every finding has a screenshot, an issue, and a named impact.',
+    doneWhen: 'Every finding has a screenshot, an issue, a named impact, and a trade-off.',
   },
   {
     id: 'session-grid',
@@ -226,6 +227,15 @@ export const FINDING_WHATS_BROKEN_STEPS = [
     group: 'session',
     badge: '5 min',
     doneWhen: 'High Impact / Low Effort items are scheduled this week.',
+  },
+  {
+    id: 'session-collisions',
+    label: 'Test overlapping features on the same surface',
+    icon: 'sparkles',
+    group: 'session',
+    badge: '5 min',
+    doneWhen:
+      'Overlapping features on the same surface were tested, and competing interactions have two options written.',
   },
   {
     id: 'session-retest',
@@ -286,5 +296,8 @@ export function findingWhatsBrokenSearchBlob() {
     'ux',
     'nielsen',
     'srujana',
+    'discovery',
+    'retention',
+    'principle',
   ].join(' ')
 }

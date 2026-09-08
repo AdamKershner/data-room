@@ -26,7 +26,7 @@ export const FINDING_WHATS_BROKEN_CONTENT = {
   },
 
   'core-principles': {
-    intro: 'Five standing orders. If a review violates one of these, it is not a real review.',
+    intro: 'Six standing orders. If a review violates one of these, it is not a real review.',
     blocks: [
       {
         type: 'ol',
@@ -38,6 +38,10 @@ export const FINDING_WHATS_BROKEN_CONTENT = {
           {
             text: 'Every finding needs a “so what.”',
             note: 'Do not log “this looks off.” Log what it costs — a lost signup, a confused creator, a failed search — so it can be prioritized honestly.',
+          },
+          {
+            text: 'Write Observation → User problem → Why it matters → Options. Do not start with “add feature X.”',
+            note: 'A recommendation is a user problem with options, not a personal preference dressed as a backlog item.',
           },
           {
             text: 'Small and shipped beats big and perfect.',
@@ -68,8 +72,10 @@ export const FINDING_WHATS_BROKEN_CONTENT = {
         type: 'ul',
         items: [
           'Incognito or a fresh account — not your admin session.',
+          'Do the first pass before anyone teaches the “correct” flow. Confusion on a naive first run is the research.',
           'One real task, start to finish.',
           'Note hesitation, re-reading, and “what do I click?” moments.',
+          'When the review is first-time-user validation, screen-share so hesitation is observed, not retold.',
         ],
       },
       {
@@ -87,13 +93,17 @@ export const FINDING_WHATS_BROKEN_CONTENT = {
     blocks: [
       {
         type: 'p',
-        text: 'Examples: a new visitor searches and finds nothing; a creator uploads and prices a hub; a buyer completes checkout; a user sets up payouts.',
+        text: 'Map each finding to a stage: Entry → Discovery → Search → Evaluation → Consumption → Engagement → Return. Discovery (help someone who does not yet know what they want) and search (help someone who already has intent) are related but not the same job. Do not treat them as one surface.',
+      },
+      {
+        type: 'p',
+        text: 'Library examples: search (broad, specific, and imperfect queries); browse collections; preview and enter a Hub; create a Hub; upload; sections and folders; tags; Aura; return to previously viewed content. Other examples still count: a new visitor searches and finds nothing; a creator uploads and prices a hub; a buyer completes checkout; a user sets up payouts.',
       },
       {
         type: 'callout',
         kind: 'important',
-        title: 'Seams are where absurd lives.',
-        text: 'The step right after a redirect. A modal that opens over another modal. The back button after a payment.',
+        title: 'Seams and collisions.',
+        text: 'The step right after a redirect. A modal that opens over another modal. The back button after a payment. Overlapping features on the same surface — for example suggested search covering curated collections. When two live features fight, write two options rather than deleting one.',
       },
       {
         type: 'ul',
@@ -101,6 +111,8 @@ export const FINDING_WHATS_BROKEN_CONTENT = {
           'Name 5–8 journeys that actually move the business.',
           'Walk each on desktop and mobile.',
           'Use at least two browsers.',
+          'Place each finding on a journey stage. Keep discovery and search separate.',
+          'Test overlapping features on the same surface; write two options when they collide.',
         ],
       },
     ],
@@ -176,11 +188,23 @@ export const FINDING_WHATS_BROKEN_CONTENT = {
 
   benchmark: {
     intro:
-      'Use 2–3 products your users already know (marketplaces, creator platforms, or direct competitors) and do the same core task there.',
+      'Use 2–3 products that solve a similar user-behavior problem — even if they are not direct competitors — and do the same core task there.',
     blocks: [
       {
         type: 'p',
-        text: 'If their empty state, pricing display, or search feels obviously better, that is a concrete, arguable case for change — not just an opinion.',
+        text: 'Do not copy the interface. Extract the principle: what feature are you observing, what user problem does it solve, why does it reduce friction or increase engagement, is that problem present on Kahana, and how would the principle adapt here.',
+      },
+      {
+        type: 'p',
+        text: 'Example: “because you watched X → similar shows” is previous-engagement signals reducing discovery effort. On Kahana that might become “because you gave Aura to Leadership books → Leadership collection.” Entertainment products can be a principle source. They are not a required competitor and their UI is not the brief.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Same core task on 2–3 products users already know, or that solve the same behavior problem.',
+          'Write the user problem and the principle — not a screenshot of their layout to reproduce.',
+          'Only argue for a change if Kahana has the same user problem.',
+        ],
       },
       {
         type: 'link',
@@ -223,8 +247,12 @@ export const FINDING_WHATS_BROKEN_CONTENT = {
           ['Title', 'Short and specific (“Share button doesn’t open,” not “sharing is broken”)'],
           ['Screenshot', 'Still or a short screen recording'],
           ['Issue', 'Exactly what happens, in one or two sentences'],
-          ['Impact', 'What this costs — lost signup, confused creator, abandoned checkout'],
-          ['Fix', 'The concrete change being proposed'],
+          [
+            'Impact',
+            'What this costs — lost signup, confused creator, abandoned checkout. For discovery or library findings: why would this make someone come back?',
+          ],
+          ['Trade-off', 'Benefit of the proposed fix, and what it might cost (distraction, extra steps, notification fatigue)'],
+          ['Fix', 'The concrete change being proposed — options, not a single prescribed UI, when Eng could solve it another way'],
           ['Priority', 'High / Medium / Low — see How to prioritize'],
         ],
       },
@@ -316,7 +344,7 @@ export const FINDING_WHATS_BROKEN_CONTENT = {
     blocks: [
       {
         type: 'p',
-        text: 'Incognito or a throwaway account. One real task. Write down hesitation. If you skipped a step because “everyone knows that’s over there,” you failed this check.',
+        text: 'Incognito or a throwaway account. Naive first run — do not learn the “correct” flow first. One real task. Write down hesitation. If this is first-time-user validation, screen-share so the product owner sees where you paused. If you skipped a step because “everyone knows that’s over there,” you failed this check.',
       },
     ],
   },
@@ -352,11 +380,11 @@ export const FINDING_WHATS_BROKEN_CONTENT = {
   },
 
   'session-evidence': {
-    intro: 'Does every finding have a screenshot, an issue, and a named impact?',
+    intro: 'Does every finding have a screenshot, an issue, a named impact, and a trade-off?',
     blocks: [
       {
         type: 'p',
-        text: 'Title, screenshot, what happens, what it costs. If impact is missing, it cannot be prioritized honestly.',
+        text: 'Title, screenshot, what happens, what it costs, what the fix might cost. Discovery and library findings must answer why someone would come back. If impact is missing, it cannot be prioritized honestly.',
       },
     ],
   },
@@ -377,6 +405,16 @@ export const FINDING_WHATS_BROKEN_CONTENT = {
       {
         type: 'p',
         text: 'Those are the “fix immediately” cell. If they are still sitting in the log, the review did not convert into work.',
+      },
+    ],
+  },
+
+  'session-collisions': {
+    intro: 'Did overlapping features on the same surface get tested, with two options written when they compete?',
+    blocks: [
+      {
+        type: 'p',
+        text: 'Suggested search covering curated collections is the pattern: two live features, one hides the other. Do not delete one by default. Write two options that could resolve the collision, then pick with Eng and Design.',
       },
     ],
   },

@@ -194,7 +194,7 @@ export const PRODUCT_MANAGEMENT_PLAYBOOK_SOP = {
           id: 'design-owns',
           label: 'Own experience quality as Design',
           doneWhen: 'Own experience quality, interaction design, accessibility, research craft, design-system stewardship, and validation of usability assumptions.',
-          text: 'Design owns: experience quality, interaction design, accessibility, research craft, design-system stewardship, and validation of usability assumptions. Bring Design in during shaping, not after scope is treated as fixed.',
+          text: 'Design owns: experience quality, interaction design, accessibility, research craft, design-system stewardship, and validation of usability assumptions. Bring Design in during shaping, not after scope is treated as fixed. A PM sketch is allowed when words fail; it is not a substitute for Design in shaping.',
         },
         {
           id: 'field-owns',
@@ -514,7 +514,7 @@ export const PRODUCT_MANAGEMENT_PLAYBOOK_SOP = {
           label: 'Write the Problem Brief: title, owner, status, problem, user, workflow, evidence, impact,',
           doneWhen: 'Write the Problem Brief: title, owner, status, problem, user, workflow, evidence, impact, why now, constraints, outcome, metrics, non-goals, questions, decision needed.',
           text: 'Problem Brief: title, owner, status, problem statement, user/segment, workflow trigger and workaround, evidence, impact if unsolved, why now, constraints, desired outcome, success metrics (baseline, target, owner, review date), non-goals, open questions, decision needed.',
-          note: 'The metric must be fail-able: baseline, target, date, named owner. A metric missing any of those cannot be learned from. Briefs that end in “thoughts?” move nothing.',
+          note: 'The metric must be fail-able: baseline, target, date, named owner. A metric missing any of those cannot be learned from. Briefs that end in “thoughts?” move nothing. Before the brief: what user problem did we observe; what evidence or product principle supports it; what change are we proposing; what trade-offs should we consider; what user behavior or KPI should improve if we are right.',
         },
         {
           id: 'pm-delivery-spec',
@@ -558,6 +558,7 @@ export const PRODUCT_MANAGEMENT_PLAYBOOK_SOP = {
           label: 'Clear the discovery gate before you prioritize',
           doneWhen: 'Clear discovery: user, workflow, and problem stated; evidence linked; workaround and impact understood; alternatives including no action considered; Eng and Design consulted for material risk; a measurable outcome defined.',
           text: 'Discovery — ready to prioritize: user, workflow, and problem clearly stated; evidence linked and stronger than a single anecdote when feasible; workaround and impact understood; alternatives including no action considered; Eng and Design consulted for material risk; a measurable or observable outcome defined.',
+          note: 'UX rec bar before this gate: What user problem did we observe? What evidence or product principle supports it? What change are we proposing? What trade-offs should we consider? What user behavior or KPI should improve if we are right? If the rec is a notification, name the surface (homepage, search, in-app, push, or email) and why the others are the wrong place.',
         },
         {
           id: 'pm-gate-shaping',
@@ -573,9 +574,9 @@ export const PRODUCT_MANAGEMENT_PLAYBOOK_SOP = {
         },
         {
           id: 'pm-gate-sop3',
-          label: 'Dogfood like a stranger, log findings with screenshot and impact, and verify',
-          doneWhen: 'Dogfood like a stranger, log findings with screenshot and impact, and verify the fix using SOP 3 Product Quality.',
-          text: 'Dogfood like a stranger, log findings with screenshot and impact, and verify the fix using SOP 3 Product Quality.',
+          label: 'Dogfood like a stranger, log findings with screenshot, impact, and trade-off, and verify',
+          doneWhen: 'Dogfood like a stranger, log findings with screenshot, impact, and trade-off, map recs to journey stages, extract principles from comparable products, and verify the fix using SOP 3 Product Quality.',
+          text: 'Dogfood like a stranger, log findings with screenshot, impact, and trade-off, map recs to journey stages, extract principles from comparable products, and verify the fix using SOP 3 Product Quality.',
           href: '/sops/finding-whats-broken',
           hrefLabel: 'SOP 3: Product Quality',
         },
