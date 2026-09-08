@@ -5,10 +5,17 @@
 
 export const FINANCIAL_PROJECTIONS_PATH = '/financial-projections'
 
+export const WEEKS_PER_MONTH = 52 / 12
+const STUB_WEEKS_2026F = 4 * WEEKS_PER_MONTH
+const STUB_CONTACTED_2026F = 1850
+const STUB_COLLAB_YES_2026F = 185
+const STUB_GMV_2026F = 13352.5
+const STUB_ENDING_CREATORS_2026F = 239
+
 export const FINANCIAL_PROJECTIONS_PAGE = {
   title: 'Financial Projections',
   subtitle:
-    'Creator-engine forecast from the v2 pro forma: intern/BDR outreach, conversion, CPA, then unpaid network effects. Bottom-up vs top-down share the same expense book.',
+    'Bottom-up is the intern collab funnel: hours, emails, yes/no, public hubs, then a network multiplier after a hub is live. Top-down is still market × share. Same expense book.',
 }
 
 export const WORKBOOK_SOURCE = {
@@ -87,6 +94,18 @@ export const WORKBOOK_INPUTS = {
   seedSoftwarePct: 5,
   seedHiringPct: 80,
   seedMarketingPct: 15,
+
+  internOutreachHoursPerWeek: 200,
+  hoursPerInternWeek: 20,
+  emailsCollectedPerWeek: Number((STUB_CONTACTED_2026F / STUB_WEEKS_2026F).toFixed(2)),
+  emailsSentPerWeek: Number((STUB_CONTACTED_2026F / STUB_WEEKS_2026F).toFixed(2)),
+  collabYesPerWeek: Number((STUB_COLLAB_YES_2026F / STUB_WEEKS_2026F).toFixed(2)),
+  collabNoPerWeek: 0,
+  publicHubsPerWeek: Number((STUB_COLLAB_YES_2026F / STUB_WEEKS_2026F).toFixed(2)),
+  paidCollabUnlockPct: 0,
+  networkFromCollab: 3,
+  monthsToFirstHub: 0,
+  avgCreatorGmvYear: Number((STUB_GMV_2026F / (STUB_ENDING_CREATORS_2026F * (4 / 12))).toFixed(0)),
 
   internFte2026: 10,
   internHireRatePct: 10,
@@ -168,10 +187,17 @@ export const PRESETS = [
   {
     id: 'conservative',
     label: 'Conservative',
-    hint: '5% conversion, slower network, 8 interns',
+    hint: '160 outreach hours, fewer yeses, 1.5× hub network',
     inputs: {
       ...WORKBOOK_INPUTS,
+      internOutreachHoursPerWeek: 160,
       internFte2026: 8,
+      emailsCollectedPerWeek: (STUB_CONTACTED_2026F / STUB_WEEKS_2026F) * 0.8,
+      emailsSentPerWeek: (STUB_CONTACTED_2026F / STUB_WEEKS_2026F) * 0.8,
+      collabYesPerWeek: (STUB_COLLAB_YES_2026F / STUB_WEEKS_2026F) * 0.5,
+      publicHubsPerWeek: (STUB_COLLAB_YES_2026F / STUB_WEEKS_2026F) * 0.5,
+      networkFromCollab: 1.5,
+      avgCreatorGmvYear: (STUB_GMV_2026F / (STUB_ENDING_CREATORS_2026F * (4 / 12))) * 0.8,
       baseConversionPct: 5,
       networkMultiplier: 0.5,
       premiumShareOfNewPct: 3,
@@ -180,10 +206,17 @@ export const PRESETS = [
   {
     id: 'aggressive',
     label: 'Aggressive',
-    hint: '15% conversion, stronger network, 12 interns',
+    hint: '240 outreach hours, more yeses, 4.5× hub network',
     inputs: {
       ...WORKBOOK_INPUTS,
+      internOutreachHoursPerWeek: 240,
       internFte2026: 12,
+      emailsCollectedPerWeek: (STUB_CONTACTED_2026F / STUB_WEEKS_2026F) * 1.2,
+      emailsSentPerWeek: (STUB_CONTACTED_2026F / STUB_WEEKS_2026F) * 1.2,
+      collabYesPerWeek: (STUB_COLLAB_YES_2026F / STUB_WEEKS_2026F) * 1.5,
+      publicHubsPerWeek: (STUB_COLLAB_YES_2026F / STUB_WEEKS_2026F) * 1.5,
+      networkFromCollab: 4.5,
+      avgCreatorGmvYear: (STUB_GMV_2026F / (STUB_ENDING_CREATORS_2026F * (4 / 12))) * 1.25,
       baseConversionPct: 15,
       networkMultiplier: 1.5,
       premiumShareOfNewPct: 8,
@@ -195,13 +228,13 @@ export const SENSITIVITY_SHARE_PCTS = [0.1, 0.5, 1, 2, 5]
 export const SENSITIVITY_CAGR_PCTS = [6, 8, 11.4, 15, 22.3]
 
 export const TORNADO_DRIVERS = [
-  { key: 'baseConversionPct', label: 'Base conversion', kind: 'pct' },
-  { key: 'internFte2026', label: '2026F intern / BDR FTE', kind: 'count' },
-  { key: 'internCapacityBase', label: 'Contacts / intern / month', kind: 'count' },
-  { key: 'networkMultiplier', label: 'Network multiplier', kind: 'count' },
-  { key: 'premiumShareOfNewPct', label: 'Premium share of new', kind: 'pct' },
-  { key: 'normalChurnPct', label: 'Normal churn', kind: 'pct' },
-  { key: 'takeRatePct', label: 'Take rate', kind: 'pct' },
+  { key: 'collabYesPerWeek', label: 'Collab yes / week', kind: 'count' },
+  { key: 'collabNoPerWeek', label: 'Collab no (paid-blocked) / week', kind: 'count' },
+  { key: 'publicHubsPerWeek', label: 'Public hubs from collabs / week', kind: 'count' },
+  { key: 'networkFromCollab', label: 'Network creators per collab hub', kind: 'count' },
+  { key: 'monthsToFirstHub', label: 'Months to first hub', kind: 'count' },
+  { key: 'avgCreatorGmvYear', label: 'Avg hub GMV / creator / year', kind: 'count' },
+  { key: 'paidCollabUnlockPct', label: 'Paid-collab unlock', kind: 'pct' },
 ]
 
 export const SEED_RAISE_PLAN = {
@@ -301,35 +334,32 @@ export const COMPARABLES = [
 ]
 
 export const METHOD_NOTES = [
-  'Revenue_B and Revenue_T are alternative revenue scenarios and are not added together.',
-  'The Bottom-Up case uses Revenue_B platform revenue and the shared Expenses_Y forecast.',
-  'Top-down P&L begins in 2027F. Revenue_T has a 2026 annual base with no YTD/forecast split, so a 2026 top-down income statement would not be period-comparable.',
-  '2026 YTD is eight months (Jan–Aug). 2026F is the four-month Sep–Dec tail. Acquisition, churn, hubs, GMV, and intern cash use months in the column.',
-  'Engine 1 contacts = intern/BDR FTE × effective monthly capacity × months, plus contacts from outreach infra spend.',
-  'Engine 2 conversion = base rate plus personal-touch and platform-improvement lifts (diminishing returns), capped at 100%.',
-  'Engine 3 adds direct CPA creators from referral bonuses and influencer funding.',
-  'Network effects start in 2027 using 2027 correlation rates, then decay 15% per year by default. They apply to beginning-of-year creator stock.',
-  'Subscription revenue = ending creators × monthly fee × months in period. GMV uses annual purchases per hub, prorated by months/12.',
-  'Expenses_Y is decoupled from the Seed Raise Plan. Headcount and compensation are entered directly on that tab.',
-  'Sales & marketing on the P&L excludes creator-acquisition salary already in personnel (intern/BDR cash).',
-  'Taxes apply only to positive pre-tax income. No NOL carryforward. Pre-tax equals operating income (no interest modeled).',
+  'Weekly collab rates are a 2026F run-rate. Later years scale with intern FTE growth (hiring rate), not with a change in hours-per-intern productivity.',
+  'Intern FTE = outreach hours per week ÷ hours per intern FTE (default 20). Hours change payroll; emails and yeses are separate volume inputs.',
+  'Creators reached = emails collected. Emails sent is the collab ask. Yes / sent is the free-collab conversion rate.',
+  'A collab “no” is a paid-blocked yes: they would join if we funded the collab. Paid-collab unlock is the share of those nos that convert (0% matches the workbook).',
+  'Public hubs from collab outreach can be lower than yeses. Network new creators in year t = last year’s collab hubs × the network multiplier, starting 2027F. Example: 1 hub → 3 creators over the next year.',
+  'Months to first hub delays GMV for new hubs in the same period. If the lag is more than 12 months, network is booked from hubs two years prior.',
+  'GMV = live-hub stock × average creator hub earnings per year × months/12. Take rate still applies. Subscriptions still use the advanced premium mix and monthly fee.',
+  'Top-down P&L begins in 2027F. 2026 YTD is eight months (Jan–Aug). 2026F is the four-month Sep–Dec tail.',
+  'Expenses_Y is decoupled from the Seed Raise Plan. Taxes apply only to positive pre-tax income. No NOL carryforward.',
 ]
 
 export const GLOSSARY = [
   {
-    term: 'Bottom-up / creator engine',
+    term: 'Collab funnel',
     definition:
-      'Intern/BDR outreach and conversion (Engine 1–2), plus CPA (Engine 3), plus unpaid network effects between premium and normal creators. Revenue is Growth-like subscriptions plus 5% take on paid GMV.',
+      'Intern hours → emails collected → emails sent → yes/no → public hub. Yes is a free collab. No is a creator who would say yes if we paid. Network creators join after seeing a live hub.',
+  },
+  {
+    term: 'Network multiplier',
+    definition:
+      'Extra creators who join over the next year for each public hub created from a collab. Default 3: one collab hub, three more creators.',
   },
   {
     term: 'Top-down',
     definition:
       'Global creatorplaces market × Kahana-relevant segment (7.5%) × share ramping from 2026 implied share to the 1% target in the chosen horizon year (workbook default: 2033).',
-  },
-  {
-    term: 'Premium vs normal',
-    definition:
-      'Premium creators pay $10/month and run 90% paid hubs. Normal creators pay $0 and run 40% paid hubs. New marketing-led creators are 5% premium by default.',
   },
   {
     term: '2026F',
@@ -344,37 +374,73 @@ export const GLOSSARY = [
 ]
 
 export const TERM_HELP = {
+  internOutreachHoursPerWeek: {
+    title: 'Intern outreach hours',
+    body: 'Total intern hours on creator outreach each week in 2026F. Divided by hours per intern FTE (20) to set intern headcount and payroll.',
+  },
+  emailsCollectedPerWeek: {
+    title: 'Emails collected',
+    body: 'Creators reached — new contacts added to the outreach list each week.',
+  },
+  emailsSentPerWeek: {
+    title: 'Emails sent',
+    body: 'Collab-ask emails actually sent each week. Yes ÷ sent is the free-collab conversion rate.',
+  },
+  collabYesPerWeek: {
+    title: 'Collab yes',
+    body: 'Free collabs closed per week. These become new creators in the period.',
+  },
+  collabNoPerWeek: {
+    title: 'Collab no',
+    body: 'Creators who declined unless we pay. They convert only if paid-collab unlock is above 0%.',
+  },
+  publicHubsPerWeek: {
+    title: 'Public hubs from collabs',
+    body: 'Hubs published from collab outreach each week. Next year’s network new creators = this count × the network multiplier.',
+  },
+  networkFromCollab: {
+    title: 'Network multiplier',
+    body: 'Creators who join over the next year after seeing one collab hub. 3 means one hub, three more creators.',
+  },
+  monthsToFirstHub: {
+    title: 'Months to first hub',
+    body: 'Delay from collab yes to a live public hub. New-hub GMV in the same period is prorated. 0 means they publish as they join.',
+  },
+  avgCreatorGmvYear: {
+    title: 'Hub GMV / creator / year',
+    body: 'What an average creator with a live hub sells through Kahana in a year, before take rate.',
+  },
+  paidCollabUnlockPct: {
+    title: 'Paid-collab unlock',
+    body: 'Share of collab “no” that become yeses if we fund paid collabs. 0% leaves them as upside only.',
+  },
   internFte2026: {
     title: 'Intern / BDR FTE',
-    body: 'Starting 2026F headcount. Later years grow at the intern hiring rate. Pay is prorated by months in the column.',
+    body: 'Starting 2026F headcount. Synced from outreach hours ÷ hours per intern. Later years grow at the intern hiring rate.',
   },
   internHireRatePct: {
     title: 'Intern hiring rate',
-    body: 'Net growth after attrition. 10% means 10 → 11 → 12.1 FTE.',
+    body: 'Net growth after attrition. 10% means 10 → 11 → 12.1 FTE, and weekly email/collab volume scales with that.',
   },
   internCapacityBase: {
     title: 'Base capacity',
-    body: 'Contacts per intern per month before the salary incentive.',
-  },
-  internIncentivePerDollar: {
-    title: 'Salary incentive',
-    body: 'Extra contacts per intern per month per dollar of annual salary. $10,000 × 0.001 = +10 contacts.',
+    body: 'Legacy workbook contacts per intern per month. Not used while the collab funnel is on.',
   },
   baseConversionPct: {
     title: 'Base conversion',
-    body: 'Share of contacted people who become new creators, before personal-touch and platform lifts.',
+    body: 'Legacy workbook conversion. Collab yes / emails sent replaces this on the main funnel.',
   },
   networkMultiplier: {
-    title: 'Network multiplier',
-    body: 'Scales all four unpaid correlations (premium→premium, premium→normal, and the two normal-origin rates). Workbook default 1.0.',
+    title: 'Legacy network scaler',
+    body: 'Old premium/normal correlation scaler. The collab funnel uses “network creators per collab hub” instead.',
   },
   premiumShareOfNewPct: {
     title: 'Premium mix',
-    body: 'Share of marketing-led new creators who enter as premium (paying) rather than normal.',
+    body: 'Share of new creators who enter as premium (paying) rather than normal.',
   },
   takeRatePct: {
     title: 'Take rate',
-    body: 'Platform fee on paid GMV. Free-hub acquisitions have $0 value in the workbook, so they do not generate take.',
+    body: 'Platform fee on hub GMV.',
   },
   targetSharePct: {
     title: 'Target share',
@@ -384,9 +450,9 @@ export const TERM_HELP = {
     title: 'Market CAGR',
     body: '11.4% is the selectable workbook assumption. 22.3% is the Creatorplaces research proxy cited on Revenue_T.',
   },
-  pnlRevenue: { title: 'Platform revenue', body: 'Subscriptions plus take-rate on paid GMV (bottom-up), or market × share (top-down).' },
+  pnlRevenue: { title: 'Platform revenue', body: 'Subscriptions plus take-rate on hub GMV (bottom-up), or market × share (top-down).' },
   pnlCogs: { title: 'Transaction costs', body: 'GMV × payment-processing rate. Currently 0% pending a validated assumption.' },
-  pnlPersonnel: { title: 'Personnel', body: 'CEO, engineering, product, CoS, and intern/BDR cash from Expenses_Y. Benefits currently 0%.' },
+  pnlPersonnel: { title: 'Personnel', body: 'CEO, engineering, product, CoS, and intern/BDR cash from Expenses_Y. Intern cash follows outreach hours.' },
   pnlSales: { title: 'Sales & marketing', body: 'Outreach infra, referral, influencer, brand, other — not intern salary (that sits in personnel).' },
 }
 

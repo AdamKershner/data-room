@@ -625,6 +625,64 @@
   max-width: 52rem;
 }
 
+.fp-key-board {
+  list-style: none;
+  counter-reset: collab;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.fp-key-board li {
+  counter-increment: collab;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 0;
+  border: 1px solid #d5ddd7;
+  background: #fff;
+  padding: 12px 14px 14px;
+}
+
+.fp-key-board li::before {
+  content: counter(collab);
+  flex: 0 0 1.55rem;
+  width: 1.55rem;
+  height: 1.55rem;
+  margin-top: 2px;
+  border: 1px solid #1f4d38;
+  color: #1f4d38;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+  text-align: center;
+}
+
+.fp-key-board .fp-field {
+  flex: 1;
+  min-width: 0;
+}
+
+.fp-key-readout {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.fp-advanced {
+  margin-top: 20px;
+}
+
+.fp-advanced-note {
+  margin: 0;
+  padding: 0 16px 12px;
+  color: #445;
+}
+
+.fp-advanced .fp-driver-grid {
+  padding: 0 16px 16px;
+}
+
 .fp-driver-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -689,7 +747,9 @@
     grid-template-columns: 1fr;
   }
 
-  .fp-driver-grid {
+  .fp-driver-grid,
+  .fp-key-board,
+  .fp-key-readout {
     grid-template-columns: 1fr;
   }
 

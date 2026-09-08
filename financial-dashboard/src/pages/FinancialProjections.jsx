@@ -276,6 +276,26 @@ function FinancialProjections() {
     setInputs((prev) => ({ ...prev, [key]: value }))
   }
 
+  const setHours = (hours) => {
+    const per = Number(inputs.hoursPerInternWeek) || 20
+    setPresetId('custom')
+    setInputs((prev) => ({
+      ...prev,
+      internOutreachHoursPerWeek: hours,
+      internFte2026: per ? hours / per : prev.internFte2026,
+    }))
+  }
+
+  const setInternFte = (fte) => {
+    const per = Number(inputs.hoursPerInternWeek) || 20
+    setPresetId('custom')
+    setInputs((prev) => ({
+      ...prev,
+      internFte2026: fte,
+      internOutreachHoursPerWeek: fte * per,
+    }))
+  }
+
   const applyPreset = (preset) => {
     setPresetId(preset.id)
     setInputs(cloneInputs(preset.inputs))
@@ -325,6 +345,8 @@ function FinancialProjections() {
             Download {WORKBOOK_SOURCE.fileName}
           </a>
           {' · '}
+          <a href="#drivers">Collab engine</a>
+          {' · '}
           <Link to="/fragment-capture">Market Map</Link>
           {' · '}
           <Link to="/company-landscape">Company Landscape</Link>
@@ -335,14 +357,13 @@ function FinancialProjections() {
         <h2>How to read this</h2>
         <div className="content-block">
           <p>
-            Two revenue cases share one expense book. <strong>Bottom-up</strong> is a creator
-            marketing engine: intern/BDR reach, a conversion rate, optional CPA, then unpaid network
-            effects between premium and normal creators. Cash is subscriptions plus a{' '}
-            {formatPct(inputs.takeRatePct / 100)} take on paid GMV.{' '}
-            <strong>Top-down</strong> is market × relevant segment × share, ramping to{' '}
-            {inputs.targetSharePct}% by {2026 + Number(inputs.horizonYears)}. Top-down P&amp;L
-            starts in 2027F so it is period-comparable with Expenses_Y. 2026 YTD is eight months of
-            actuals; 2026F is the Sep–Dec tail.
+            <strong>Bottom-up</strong> is the intern collab funnel you run: hours on outreach, emails
+            collected, emails sent, free yeses, paid-blocked nos, and public hubs. After a hub is
+            live, a network multiplier brings more creators over the next year (default: one hub, three
+            more people). Cash is subscriptions plus a {formatPct(inputs.takeRatePct / 100)} take on
+            hub GMV. <strong>Top-down</strong> is still market × share, ramping to{' '}
+            {inputs.targetSharePct}% by {2026 + Number(inputs.horizonYears)}. 2026 YTD is eight months
+            of actuals; 2026F is the Sep–Dec tail.
           </p>
         </div>
         <div className="fp-collapsibles">
@@ -413,7 +434,7 @@ function FinancialProjections() {
             <p className="fp-kpi-value">
               {formatUsd(model.isRows.find((r) => r.col.id === '2027F')?.bottomUpPnl?.revenue)}
             </p>
-            <p className="fp-kpi-sub">First full year of network effects</p>
+            <p className="fp-kpi-sub">First full year of hub-driven network</p>
           </article>
           <article>
             <p className="fp-kpi-label">2031F platform revenue</p>
@@ -473,23 +494,203 @@ function FinancialProjections() {
       </section>
 
       <section className="page-section" id="drivers">
-        <h2>Drivers</h2>
+        <h2>Collab engine</h2>
         <p className="content-block">
-          Yellow cells in the workbook. Changing a field marks the case Custom. Intern pay and
-          outreach infra feed Engine 1; conversion lifts are off in the workbook because CEO and
-          PM/Eng time on outreach is 0%.
+          2026F weekly run-rate. Later years scale with intern hiring. A collab <em>no</em> is someone
+          who would have said yes if we paid. Network new creators land in the following year from
+          last year’s collab hubs.
         </p>
-        <div className="fp-driver-grid">
+        <ol className="fp-key-board">
+          <li>
+            <NumberField
+              label="Intern outreach hours / week"
+              hint="All interns, 2026F. 20 hours = 1 FTE."
+              tipKey="internOutreachHoursPerWeek"
+              value={inputs.internOutreachHoursPerWeek}
+              onChange={setHours}
+              step={5}
+              min={0}
+            />
+          </li>
+          <li>
+            <NumberField
+              label="Creators reached / week"
+              hint="Emails collected"
+              tipKey="emailsCollectedPerWeek"
+              value={inputs.emailsCollectedPerWeek}
+              onChange={(v) => setField('emailsCollectedPerWeek', v)}
+              step={1}
+              min={0}
+            />
+          </li>
+          <li>
+            <NumberField
+              label="Emails sent / week"
+              hint="Collab asks actually sent"
+              tipKey="emailsSentPerWeek"
+              value={inputs.emailsSentPerWeek}
+              onChange={(v) => setField('emailsSentPerWeek', v)}
+              step={1}
+              min={0}
+            />
+          </li>
+          <li>
+            <NumberField
+              label="Collab yes / week"
+              hint="Free collabs"
+              tipKey="collabYesPerWeek"
+              value={inputs.collabYesPerWeek}
+              onChange={(v) => setField('collabYesPerWeek', v)}
+              step={0.5}
+              min={0}
+            />
+          </li>
+          <li>
+            <NumberField
+              label="Collab no / week"
+              hint="Would be yes with paid-collab budget"
+              tipKey="collabNoPerWeek"
+              value={inputs.collabNoPerWeek}
+              onChange={(v) => setField('collabNoPerWeek', v)}
+              step={0.5}
+              min={0}
+            />
+          </li>
+          <li>
+            <NumberField
+              label="Public hubs from collabs / week"
+              tipKey="publicHubsPerWeek"
+              value={inputs.publicHubsPerWeek}
+              onChange={(v) => setField('publicHubsPerWeek', v)}
+              step={0.5}
+              min={0}
+            />
+          </li>
+          <li>
+            <NumberField
+              label="Network creators per collab hub"
+              hint="1 hub → this many join over the next year"
+              tipKey="networkFromCollab"
+              value={inputs.networkFromCollab}
+              onChange={(v) => setField('networkFromCollab', v)}
+              step={0.5}
+              min={0}
+            />
+          </li>
+          <li>
+            <NumberField
+              label="Months to first hub"
+              hint="0 = they publish as they join"
+              tipKey="monthsToFirstHub"
+              value={inputs.monthsToFirstHub}
+              onChange={(v) => setField('monthsToFirstHub', v)}
+              step={1}
+              min={0}
+            />
+          </li>
+          <li>
+            <NumberField
+              label="Avg hub sales / creator / year"
+              hint="GMV before take rate"
+              tipKey="avgCreatorGmvYear"
+              prefix="$"
+              value={inputs.avgCreatorGmvYear}
+              onChange={(v) => setField('avgCreatorGmvYear', v)}
+              step={10}
+              min={0}
+            />
+          </li>
+          <li>
+            <NumberField
+              label="Paid-collab unlock"
+              hint="% of nos that convert if we pay"
+              tipKey="paidCollabUnlockPct"
+              suffix="%"
+              value={inputs.paidCollabUnlockPct}
+              onChange={(v) => setField('paidCollabUnlockPct', v)}
+              step={5}
+              min={0}
+            />
+          </li>
+        </ol>
+        <ul className="fp-funnel-out fp-key-readout">
+          <li>
+            <span>Yes rate on emails sent</span>
+            <strong>
+              {inputs.emailsSentPerWeek > 0
+                ? formatPct(inputs.collabYesPerWeek / inputs.emailsSentPerWeek)
+                : '—'}
+            </strong>
+          </li>
+          <li>
+            <span>Emails sent per outreach hour</span>
+            <strong>
+              {inputs.internOutreachHoursPerWeek > 0
+                ? formatCount(inputs.emailsSentPerWeek / inputs.internOutreachHoursPerWeek, 2)
+                : '—'}
+            </strong>
+          </li>
+          <li>
+            <span>2026F intern FTE from hours</span>
+            <strong>{formatCount((inputs.internOutreachHoursPerWeek || 0) / (inputs.hoursPerInternWeek || 20), 1)}</strong>
+          </li>
+          <li>
+            <span>Paid-collab upside / week</span>
+            <strong>
+              {formatCount(
+                inputs.collabNoPerWeek * (1 - (inputs.paidCollabUnlockPct || 0) / 100),
+                1,
+              )}
+            </strong>
+          </li>
+          <li>
+            <span>2026F collab yeses (4 mo)</span>
+            <strong>{formatCount(y26f?.bottomUp?.collabYes, 0)}</strong>
+          </li>
+          <li>
+            <span>2027F network new</span>
+            <strong>
+              {formatCount(
+                model.isRows.find((r) => r.col.id === '2027F')?.bottomUp?.networkNew,
+                0,
+              )}
+            </strong>
+          </li>
+        </ul>
+        <details className="fp-details fp-advanced">
+          <summary>
+            Advanced workbook inputs
+            <span>Headcount, churn, take rate, market, seed</span>
+          </summary>
+          <p className="fp-advanced-note">
+            Outreach volume and GMV come from the collab board above. These cells still set intern
+            pay, hiring mix, churn, subscriptions, take rate, and the top-down case.
+          </p>
+          <div className="fp-driver-grid">
           <fieldset>
-            <legend>Engine 1 — Reach</legend>
+            <legend>Interns &amp; hiring</legend>
             <div className="fp-funnel">
               <NumberField
                 label="2026F intern / BDR FTE"
                 tipKey="internFte2026"
                 value={inputs.internFte2026}
-                onChange={(v) => setField('internFte2026', v)}
+                onChange={setInternFte}
                 step={1}
                 min={0}
+              />
+              <NumberField
+                label="Hours per intern FTE / week"
+                value={inputs.hoursPerInternWeek}
+                onChange={(v) => {
+                  setPresetId('custom')
+                  setInputs((prev) => ({
+                    ...prev,
+                    hoursPerInternWeek: v,
+                    internFte2026: v ? prev.internOutreachHoursPerWeek / v : prev.internFte2026,
+                  }))
+                }}
+                step={1}
+                min={1}
               />
               <NumberField
                 label="Intern hiring rate"
@@ -509,14 +710,6 @@ function FinancialProjections() {
                 min={0}
               />
               <NumberField
-                label="Contacts / intern / month"
-                tipKey="internCapacityBase"
-                value={inputs.internCapacityBase}
-                onChange={(v) => setField('internCapacityBase', v)}
-                step={1}
-                min={0}
-              />
-              <NumberField
                 label="2026F outreach infra"
                 prefix="$"
                 value={inputs.smOutreachInfra2026}
@@ -524,19 +717,10 @@ function FinancialProjections() {
                 step={500}
                 min={0}
               />
-              <NumberField
-                label="Base conversion"
-                tipKey="baseConversionPct"
-                suffix="%"
-                value={inputs.baseConversionPct}
-                onChange={(v) => setField('baseConversionPct', v)}
-                step={1}
-                min={0}
-              />
             </div>
           </fieldset>
           <fieldset>
-            <legend>Creators & network</legend>
+            <legend>Creators &amp; churn</legend>
             <div className="fp-funnel">
               <NumberField
                 label="Premium share of new"
@@ -544,22 +728,6 @@ function FinancialProjections() {
                 suffix="%"
                 value={inputs.premiumShareOfNewPct}
                 onChange={(v) => setField('premiumShareOfNewPct', v)}
-                step={1}
-                min={0}
-              />
-              <NumberField
-                label="Network multiplier"
-                tipKey="networkMultiplier"
-                value={inputs.networkMultiplier}
-                onChange={(v) => setField('networkMultiplier', v)}
-                step={0.1}
-                min={0.1}
-              />
-              <NumberField
-                label="Network decay"
-                suffix="%"
-                value={inputs.referralDecayPct}
-                onChange={(v) => setField('referralDecayPct', v)}
                 step={1}
                 min={0}
               />
@@ -606,36 +774,6 @@ function FinancialProjections() {
                 value={inputs.takeRatePct}
                 onChange={(v) => setField('takeRatePct', v)}
                 step={0.5}
-                min={0}
-              />
-              <NumberField
-                label="Premium paid-hub %"
-                suffix="%"
-                value={inputs.premiumPaidHubPct}
-                onChange={(v) => setField('premiumPaidHubPct', v)}
-                step={1}
-                min={0}
-              />
-              <NumberField
-                label="Normal paid-hub %"
-                suffix="%"
-                value={inputs.normalPaidHubPct}
-                onChange={(v) => setField('normalPaidHubPct', v)}
-                step={1}
-                min={0}
-              />
-              <NumberField
-                label="Premium paid purchases / hub / year"
-                value={inputs.premPaidPurchases}
-                onChange={(v) => setField('premPaidPurchases', v)}
-                step={1}
-                min={0}
-              />
-              <NumberField
-                label="Normal paid purchases / hub / year"
-                value={inputs.normalPaidPurchases}
-                onChange={(v) => setField('normalPaidPurchases', v)}
-                step={1}
                 min={0}
               />
             </div>
@@ -702,7 +840,8 @@ function FinancialProjections() {
               />
             </div>
           </fieldset>
-        </div>
+          </div>
+        </details>
       </section>
 
       <section className="page-section" id="creators">
@@ -725,24 +864,36 @@ function FinancialProjections() {
                 digits={2}
               />
               <BuildRow
-                label="Total contacted"
+                label="Emails collected"
                 rows={model.isRows}
-                cell={(r) => r.bottomUp?.contacted}
+                cell={(r) => r.bottomUp?.emailsCollected}
                 digits={0}
               />
               <BuildRow
-                label="Marketing-led new creators"
+                label="Emails sent"
                 rows={model.isRows}
-                cell={(r) => r.bottomUp?.marketingNew}
+                cell={(r) => r.bottomUp?.emailsSent}
+                digits={0}
+              />
+              <BuildRow
+                label="Collab yes"
+                rows={model.isRows}
+                cell={(r) => r.bottomUp?.collabYes}
+              />
+              <BuildRow
+                label="Collab no (paid-blocked)"
+                rows={model.isRows}
+                cell={(r) => r.bottomUp?.collabNo}
+              />
+              <BuildRow
+                label="Public hubs from collabs"
+                rows={model.isRows}
+                cell={(r) => r.bottomUp?.collabHubs}
               />
               <BuildRow
                 label="Network new creators"
                 rows={model.isRows}
-                cell={(r) =>
-                  r.bottomUp?.netPremium != null
-                    ? r.bottomUp.netPremium + r.bottomUp.netNormal
-                    : null
-                }
+                cell={(r) => r.bottomUp?.networkNew}
               />
               <BuildRow
                 label="Ending premium"
@@ -777,7 +928,8 @@ function FinancialProjections() {
         </div>
         <p className="fp-chart-caption">
           2023A–2025A only carry ending creator counts where the workbook had them (2025 ending
-          normal = 48). Network effects start in 2027F.
+          normal = 48). Network new creators start in 2027F = prior year’s collab hubs × the
+          network multiplier.
         </p>
       </section>
 

@@ -29,12 +29,32 @@ function isForecastCol(col) {
   return col.kind === 'stub' || col.kind === 'forecast'
 }
 
+export function weeksIn(months) {
+  return n(months) * (52 / 12)
+}
+
+export function internFteStart(inputs) {
+  const per = n(inputs.hoursPerInternWeek) || 20
+  const hours = n(inputs.internOutreachHoursPerWeek)
+  if (hours > 0 && per > 0) return hours / per
+  return n(inputs.internFte2026)
+}
+
 function internFte(col, inputs) {
   if (!isForecastCol(col)) return 0
-  const start = n(inputs.internFte2026)
+  const start = internFteStart(inputs)
   const rate = n(inputs.internHireRatePct) / 100
   const t = col.year - BASE_YEAR
   return start * (1 + rate) ** t
+}
+
+function hubLiveShare(monthsToHub, months) {
+  const lag = n(monthsToHub)
+  const m = n(months)
+  if (lag <= 0) return 1
+  if (m <= 0) return 0
+  if (lag >= m) return 0
+  return (m - lag) / m
 }
 
 function roleFte(col, hireYear, fte) {
@@ -45,14 +65,6 @@ function roleFte(col, hireYear, fte) {
 
 function cashFor(fte, salary, months) {
   return fte * n(salary) * (months / 12)
-}
-
-function satLift(spend, maxLift, halfSat) {
-  const s = n(spend)
-  const cap = n(maxLift)
-  const half = n(halfSat)
-  if (s + half === 0) return 0
-  return cap * (s / (s + half))
 }
 
 function smForYear(year, inputs) {
@@ -202,32 +214,22 @@ export function computeTopDown(inputs) {
   }
 }
 
-function networkFactors(year, inputs) {
-  if (year < 2027) {
-    return { premOnPrem: 0, premOnNormal: 0, normalOnPrem: 0, normalOnNormal: 0 }
-  }
-  const decay = n(inputs.referralDecayPct) / 100
-  const k = (1 - decay) ** (year - 2027)
-  const m = n(inputs.networkMultiplier)
-  return {
-    premOnPrem: n(inputs.premOnPrem) * k * m,
-    premOnNormal: n(inputs.premOnNormal) * k * m,
-    normalOnPrem: n(inputs.normalOnPrem) * k * m,
-    normalOnNormal: n(inputs.normalOnNormal) * k * m,
-  }
-}
-
 export function computeBottomUp(inputs, years = IS_YEARS, expenses) {
   const exp = expenses ?? computeExpenses(inputs, years)
   const byId = {}
   let prevPremium = 0
   let prevNormal = 0
+  let prevLiveHubs = 0
+  let prevCollabHubs = 0
+  let prevPrevCollabHubs = 0
+  const fte0 = internFteStart(inputs)
 
   for (const col of years) {
     if (col.kind === 'actual') {
       const h = HISTORY[col.year]
       prevPremium = h.endingPremium
       prevNormal = h.endingNormal
+      prevLiveHubs = h.endingPremium + h.endingNormal
       byId[col.id] = {
         endingPremium: h.endingPremium,
         endingNormal: h.endingNormal,
@@ -244,6 +246,7 @@ export function computeBottomUp(inputs, years = IS_YEARS, expenses) {
       const h = HISTORY['2026Ytd']
       prevPremium = h.endingPremium
       prevNormal = h.endingNormal
+      prevLiveHubs = h.endingPremium + h.endingNormal
       byId[col.id] = {
         endingPremium: h.endingPremium,
         endingNormal: h.endingNormal,
@@ -259,38 +262,33 @@ export function computeBottomUp(inputs, years = IS_YEARS, expenses) {
 
     const e = exp.byId[col.id]
     const months = col.months
-    const capacityEffective =
-      n(inputs.internCapacityBase) + n(inputs.internSalary) * n(inputs.internIncentivePerDollar)
-    const contactsHeadcount = e.internFte * capacityEffective * months
-    const contactsInfraBase = n(inputs.infraContactsBase)
-    const contactsInfra = contactsInfraBase + e.sm.outreach * n(inputs.infraSpendFactor)
-    const contacted = contactsHeadcount + contactsInfra
+    const weeks = weeksIn(months)
+    const scale = fte0 > 0 ? e.internFte / fte0 : 1
+    const emailsCollected = n(inputs.emailsCollectedPerWeek) * weeks * scale
+    const emailsSent = n(inputs.emailsSentPerWeek) * weeks * scale
+    const collabYes = n(inputs.collabYesPerWeek) * weeks * scale
+    const collabNo = n(inputs.collabNoPerWeek) * weeks * scale
+    const paidNew = collabNo * (n(inputs.paidCollabUnlockPct) / 100)
+    const collabNew = collabYes + paidNew
+    const collabHubs = n(inputs.publicHubsPerWeek) * weeks * scale
+    const conversion = emailsSent > 0 ? collabYes / emailsSent : 0
+    const networkBase = n(inputs.monthsToFirstHub) > 12 ? prevPrevCollabHubs : prevCollabHubs
+    const networkNew = col.year >= 2027 ? networkBase * n(inputs.networkFromCollab) : 0
 
     const personalSpend = e.ceoCash * (n(inputs.ceoTimeOutreachPct) / 100)
     const platformSpend = (e.engCash + e.productCash) * (n(inputs.pmEngTimePlatformPct) / 100)
-    const personalLift = satLift(personalSpend, n(inputs.personalTouchMaxLiftPct) / 100, inputs.personalTouchHalfSat)
-    const platformLift = satLift(platformSpend, n(inputs.platformMaxLiftPct) / 100, inputs.platformHalfSat)
-    const conversion = Math.min(1, n(inputs.baseConversionPct) / 100 + personalLift + platformLift)
-    const funnelNew = contacted * conversion
 
-    const referralNew = e.sm.referral * n(inputs.referralCreatorsPerDollar)
-    const influencerNew = e.sm.influencer * n(inputs.influencerCreatorsPerDollar)
-    const cpaNew = referralNew + influencerNew
-    const marketingNew = funnelNew + cpaNew
+    const marketingNew = collabNew
     const premiumMix = n(inputs.premiumShareOfNewPct) / 100
     const mktPremium = marketingNew * premiumMix
     const mktNormal = marketingNew * (1 - premiumMix)
+    const netPremium = networkNew * premiumMix
+    const netNormal = networkNew * (1 - premiumMix)
 
     const beginningPremium = col.id === '2026F' ? n(inputs.beginningPremium2026F) : prevPremium
     const beginningNormal = col.id === '2026F' ? n(inputs.beginningNormal2026F) : prevNormal
-
-    const nf = networkFactors(col.year, inputs)
-    const netPremFromPrem = beginningPremium * nf.premOnPrem
-    const netNormFromPrem = beginningPremium * nf.premOnNormal
-    const netPremFromNorm = beginningNormal * nf.normalOnPrem
-    const netNormFromNorm = beginningNormal * nf.normalOnNormal
-    const netPremium = netPremFromPrem + netPremFromNorm
-    const netNormal = netNormFromPrem + netNormFromNorm
+    const beginningTotal = beginningPremium + beginningNormal
+    const beginningLive = col.id === '2026F' ? beginningTotal : prevLiveHubs
 
     const newPremium = mktPremium + netPremium
     const newNormal = mktNormal + netNormal
@@ -299,17 +297,14 @@ export function computeBottomUp(inputs, years = IS_YEARS, expenses) {
     const attritNormal = beginningNormal * (n(inputs.normalChurnPct) / 100) * frac
     const endingPremium = beginningPremium + newPremium - attritPremium
     const endingNormal = beginningNormal + newNormal - attritNormal
+    const attritTotal = attritPremium + attritNormal
+    const attritLive = beginningTotal > 0 ? beginningLive * (attritTotal / beginningTotal) : 0
+    const liveShare = hubLiveShare(inputs.monthsToFirstHub, months)
+    const newLiveHubs = collabHubs * liveShare + networkNew * liveShare
+    const gmvHubs = beginningLive - attritLive + newLiveHubs
+    const liveHubs = beginningLive - attritLive + collabHubs + networkNew
 
-    const premPaidHubs = endingPremium * n(inputs.hubsPerPremium) * (n(inputs.premiumPaidHubPct) / 100)
-    const premFreeHubs = endingPremium * n(inputs.hubsPerPremium) * (1 - n(inputs.premiumPaidHubPct) / 100)
-    const normPaidHubs = endingNormal * n(inputs.hubsPerNormal) * (n(inputs.normalPaidHubPct) / 100)
-    const normFreeHubs = endingNormal * n(inputs.hubsPerNormal) * (1 - n(inputs.normalPaidHubPct) / 100)
-
-    const premPaidGmv = premPaidHubs * n(inputs.premPaidPurchases) * n(inputs.premPaidValue) * frac
-    const premFreeGmv = premFreeHubs * n(inputs.premFreeAcq) * n(inputs.premFreeValue) * frac
-    const normPaidGmv = normPaidHubs * n(inputs.normalPaidPurchases) * n(inputs.normalPaidValue) * frac
-    const normFreeGmv = normFreeHubs * n(inputs.normalFreeAcq) * n(inputs.normalFreeValue) * frac
-    const gmv = premPaidGmv + premFreeGmv + normPaidGmv + normFreeGmv
+    const gmv = Math.max(0, gmvHubs) * n(inputs.avgCreatorGmvYear) * frac
     const take = gmv * (n(inputs.takeRatePct) / 100)
     const subscription =
       endingPremium * n(inputs.premiumFeeMonthly) * months +
@@ -321,13 +316,18 @@ export function computeBottomUp(inputs, years = IS_YEARS, expenses) {
 
     const row = {
       internFte: e.internFte,
-      capacityEffective,
-      contacted,
-      contactsHeadcount,
-      contactsInfra,
+      weeks,
+      scale,
+      emailsCollected,
+      emailsSent,
+      collabYes,
+      collabNo,
+      paidNew,
+      collabHubs,
+      contacted: emailsCollected,
       conversion,
-      funnelNew,
-      cpaNew,
+      funnelNew: collabYes,
+      cpaNew: paidNew,
       marketingNew,
       mktPremium,
       mktNormal,
@@ -335,6 +335,7 @@ export function computeBottomUp(inputs, years = IS_YEARS, expenses) {
       beginningNormal,
       netPremium,
       netNormal,
+      networkNew,
       newPremium,
       newNormal,
       attritPremium,
@@ -342,10 +343,8 @@ export function computeBottomUp(inputs, years = IS_YEARS, expenses) {
       endingPremium,
       endingNormal,
       endingTotal: endingPremium + endingNormal,
-      premPaidHubs,
-      premFreeHubs,
-      normPaidHubs,
-      normFreeHubs,
+      liveHubs,
+      gmvHubs,
       gmv,
       subscriptionRevenue: subscription,
       takeRevenue: take,
@@ -354,11 +353,15 @@ export function computeBottomUp(inputs, years = IS_YEARS, expenses) {
       engine2Spend,
       engine3Spend,
       marketingSpend,
-      blendedCac: marketingNew > 0 ? marketingSpend / marketingNew : null,
+      blendedCac: marketingNew + networkNew > 0 ? marketingSpend / (marketingNew + networkNew) : null,
+      paidUpside: collabNo * (1 - n(inputs.paidCollabUnlockPct) / 100),
     }
     byId[col.id] = row
     prevPremium = endingPremium
     prevNormal = endingNormal
+    prevLiveHubs = liveHubs
+    prevPrevCollabHubs = prevCollabHubs
+    prevCollabHubs = collabHubs
   }
 
   return { byId }
@@ -460,6 +463,10 @@ export function computeTornado(baseInputs, shockPct = 0.2) {
     if (d.kind === 'years') {
       lowV = Math.max(1, Math.round(cur - 2))
       highV = Math.round(cur + 2)
+    }
+    if (cur === 0) {
+      lowV = 0
+      highV = d.key === 'monthsToFirstHub' ? 3 : d.key === 'collabNoPerWeek' ? 5 : 1
     }
     const low = computeModel({ ...baseInputs, [d.key]: lowV }).kpis.bu2031Revenue
     const high = computeModel({ ...baseInputs, [d.key]: highV }).kpis.bu2031Revenue
