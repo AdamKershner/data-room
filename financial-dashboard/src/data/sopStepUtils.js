@@ -271,10 +271,11 @@ export function sopTotalDuration(sop) {
 
 export function normalizeSopDoc(sop) {
   if (!sop?.sections) {
-    return sop ? { ...sop, updatedAt: sop.updatedAt || SOP_LAST_UPDATED } : sop
+    return sop ? { ...sop, layout: sop.layout || 'onboarding', updatedAt: sop.updatedAt || SOP_LAST_UPDATED } : sop
   }
   return {
     ...sop,
+    layout: sop.layout || 'onboarding',
     updatedAt: sop.updatedAt || SOP_LAST_UPDATED,
     sections: sop.sections.map((section) => ({
       ...section,

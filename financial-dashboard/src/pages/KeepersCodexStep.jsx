@@ -3,14 +3,9 @@ import { Link, useParams } from 'react-router-dom'
 import {
   getKeepersCodexStep,
   getAdjacentKeepersCodexSteps,
-  KEEPERS_CODEX_META,
-  KEEPERS_CODEX_STEPS,
 } from '../data/keepersCodexSteps'
 import { KEEPERS_CODEX_CONTENT } from '../data/keepersCodexContent'
 import { OnboardingIcon } from './onboardingIcons'
-import { SopProgressBar } from './SopProgressBar'
-import { formatSopDuration, sopStepTimeBadge, sumSopMinutes } from '../data/sopStepUtils'
-import { readLocalJson } from '../utils/safeStorage'
 import './Page.css'
 import './Onboarding.css'
 import './ProjectCharter.css'
@@ -160,11 +155,6 @@ function KeepersCodexStep() {
   const step = getKeepersCodexStep(stepId)
   const { prev, next } = getAdjacentKeepersCodexSteps(stepId)
   const content = KEEPERS_CODEX_CONTENT[stepId]
-  const requiredSteps = KEEPERS_CODEX_STEPS.filter((s) => !s.optional)
-  const requiredCount = requiredSteps.length
-  const checkedMap = readLocalJson('sop-keepers-codex-checklist', {})
-  const progressDone = requiredSteps.filter((s) => checkedMap[s.id]).length
-  const duration = formatSopDuration(sumSopMinutes(requiredSteps))
 
   if (!step) {
     return (
@@ -185,18 +175,7 @@ function KeepersCodexStep() {
       <div className="onboarding-back-banner">
         <Link to="/sops/keepers-codex">← Back to The Keeper’s Codex</Link>
       </div>
-      <SopProgressBar
-        done={progressDone}
-        total={requiredCount}
-        duration={duration}
-        completeLabel="All required labours done"
-      />
       <div className="page-header onboarding-step-header">
-        <p className="project-charter-eyebrow">
-          SOP {KEEPERS_CODEX_META.sopNumber} · {KEEPERS_CODEX_META.title}
-          {step.optional ? ' · Appendix' : ` · ${requiredCount} required labours`}
-          {sopStepTimeBadge(step) ? ` · ${sopStepTimeBadge(step)}` : ''}
-        </p>
         <h1 title={step.label} aria-label={step.label} className="onboarding-step-title">
           {step.icon && (
             <span className="onboarding-step-title-icon" aria-hidden="true">

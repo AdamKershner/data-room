@@ -1711,7 +1711,6 @@ export const WRITING_PROJECT_CHARTER_SOP = playbook({
   who: 'Whoever is running the project (project manager, intern, or team lead)',
   when: 'At the outset of any project involving more than two or three people, before work begins.',
   format: 'checklist',
-  layout: 'inline',
   description:
     'Write the charter at the start and revise it as decisions land. Most of the work is establishing facts with the person commissioning the project (today: a Manager), not polishing prose.',
   keywords: [
@@ -4805,7 +4804,6 @@ export const CONTENT_MODERATION_SOP = playbook({
   who: 'Moderation owner and Customer Success. Engineering on the Linear build.',
   when: 'On every content report, and as a sampled review of public hubs. Automation is In Progress on Linear, not the live path yet.',
   format: 'checklist',
-  layout: 'inline',
   description:
     'Act on in-app content reports with a consistent reason taxonomy. Hugging Face / open-source models plus a review queue are Linear KAH-84 (In Progress). Handle reports now; do not wait for the model.',
   keywords: ['moderation', 'report', 'trust', 'safety', 'adult', 'ugc'],
@@ -4892,7 +4890,6 @@ export const REPORTING_CYBER_THREATS_SOP = playbook({
   who: 'Anyone who notices (phishing, intrusion, ransomware, suspicious admin activity).',
   when: 'Immediately.',
   format: 'checklist',
-  layout: 'inline',
   description:
     'Incident-style reporting. There is no dedicated Linear threat-reporting card. Tell Engineering Lead and a Manager the same day. Do not poke the attacker.',
   keywords: ['incident', 'phishing', 'attack', 'threat', 'ransomware'],

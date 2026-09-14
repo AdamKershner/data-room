@@ -66,7 +66,7 @@ import {
   SEARCH_CONSOLE_SEO_ALIASES,
   SEARCH_CONSOLE_SEO_SOP,
 } from './searchConsoleSeoSop'
-import { flattenSopSteps, normalizeSopDoc } from './sopStepUtils'
+import { flattenSopActionSteps, flattenSopSteps, normalizeSopDoc } from './sopStepUtils'
 
 export const SOP_PAGE = {
   title: 'Standard Operating Procedures',
@@ -462,7 +462,8 @@ export function getAdjacentSopSections(sopId, sectionId) {
 }
 
 export function getAdjacentSopSteps(sopId, stepId) {
-  const { steps } = getSopStep(sopId, stepId)
+  const sop = getSopById(sopId)
+  const steps = sop ? flattenSopActionSteps(sop) : []
   const index = steps.findIndex((s) => s.key === stepId || s.id === stepId)
   if (index < 0) return { prev: null, next: null }
   return {

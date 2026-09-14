@@ -1,25 +1,17 @@
-import React, { useCallback, useState } from 'react'
+import React from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import {
-  getFindingWhatsBrokenParam,
-  getAdjacentFindingWhatsBrokenGroups,
-  FINDING_WHATS_BROKEN_META,
-  FINDING_WHATS_BROKEN_STEPS,
+  getFindingWhatsBrokenGroup,
+  getFindingWhatsBrokenStep,
+  getAdjacentFindingWhatsBrokenSteps,
 } from '../data/findingWhatsBrokenSteps'
 import { FINDING_WHATS_BROKEN_CONTENT } from '../data/findingWhatsBrokenContent'
 import { OnboardingIcon } from './onboardingIcons'
-import { SopProgressBar } from './SopProgressBar'
-import { SopAdjacentNav } from './SopAdjacentNav'
-import { formatSopDuration, sopStepTimeBadge, sumSopMinutes, isDoneWhenRedundant } from '../data/sopStepUtils'
-import { readLocalJson, writeLocalJson } from '../utils/safeStorage'
-import { useSopHashScroll } from './sopChecklistRender'
 import './Page.css'
 import './Onboarding.css'
 import './ProjectCharter.css'
 import './Sops.css'
 import './KeepersCodex.css'
-
-const STORAGE_KEY = 'sop-finding-whats-broken-checklist'
 
 function QualityTable({ rows }) {
   if (!rows?.length) return null
@@ -139,113 +131,67 @@ function QualityBlocks({ blocks }) {
 
 function FindingWhatsBrokenStep() {
   const { stepId } = useParams()
-  const { group, stepId: nestedStepId } = getFindingWhatsBrokenParam(stepId)
-  const { prev, next } = getAdjacentFindingWhatsBrokenGroups(group?.id)
-  const requiredCount = FINDING_WHATS_BROKEN_STEPS.length
-  const [checked, setChecked] = useState(() => readLocalJson(STORAGE_KEY, {}))
-  const progressDone = FINDING_WHATS_BROKEN_STEPS.filter((s) => checked[s.id]).length
-  const duration = formatSopDuration(sumSopMinutes(FINDING_WHATS_BROKEN_STEPS, { skipOptional: false }))
-  useSopHashScroll()
-
-  const toggle = useCallback((id) => {
-    setChecked((prevChecked) => {
-      const nextChecked = { ...prevChecked, [id]: !prevChecked[id] }
-      writeLocalJson(STORAGE_KEY, nextChecked)
-      return nextChecked
-    })
-  }, [])
-
-  if (nestedStepId && group && stepId !== group.id) {
-    return <Navigate to={`/sops/finding-whats-broken/${group.id}#${nestedStepId}`} replace />
+  const groupMatch = getFindingWhatsBrokenGroup(stepId)
+  if (groupMatch) {
+    return <Navigate to={`/sops/finding-whats-broken#${groupMatch.id}`} replace />
   }
 
-  if (!group) {
+  const step = getFindingWhatsBrokenStep(stepId)
+  const { prev, next } = getAdjacentFindingWhatsBrokenSteps(stepId)
+  const content = FINDING_WHATS_BROKEN_CONTENT[stepId]
+  const group = step ? getFindingWhatsBrokenGroup(step.group) : null
+
+  if (!step) {
     return (
       <div className="page onboarding-step-page">
         <div className="onboarding-back-banner">
           <Link to="/sops/finding-whats-broken">← Back to Product Quality</Link>
         </div>
         <div className="page-header onboarding-step-header">
-          <h1>Section not found</h1>
-          <p className="page-subtitle">This step does not exist.</p>
+          <h1>Step not found</h1>
+          <p className="page-subtitle">This Product Quality step does not exist.</p>
         </div>
       </div>
     )
   }
-
-  const steps = FINDING_WHATS_BROKEN_STEPS.filter((s) => s.group === group.id)
 
   return (
     <div className="page onboarding-step-page keepers-codex-step" id="finding-whats-broken-step">
       <div className="onboarding-back-banner">
         <Link to="/sops/finding-whats-broken">← Back to Product Quality</Link>
       </div>
-      <SopProgressBar
-        done={progressDone}
-        total={requiredCount}
-        duration={duration}
-        completeLabel="All checks done"
-      />
       <div className="page-header onboarding-step-header">
-        <p className="project-charter-eyebrow">
-          SOP {FINDING_WHATS_BROKEN_META.sopNumber} · {FINDING_WHATS_BROKEN_META.title}
-        </p>
-        <h1 className="onboarding-step-title">{group.title}</h1>
-        {group.intro ? <p className="page-subtitle">{group.intro}</p> : null}
+        <h1 title={step.label} aria-label={step.label} className="onboarding-step-title">
+          {step.icon ? (
+            <span className="onboarding-step-title-icon" aria-hidden="true">
+              <OnboardingIcon name={step.icon} />
+            </span>
+          ) : null}
+          {step.label}
+        </h1>
+        {group?.title ? (
+          <p className="page-subtitle" style={{ marginTop: '8px' }}>{group.title}</p>
+        ) : null}
       </div>
 
       <section className="page-section">
-        <ul className="sop-checklist">
-          {steps.map((step) => {
-            const content = FINDING_WHATS_BROKEN_CONTENT[step.id]
-            const isDone = !!checked[step.id]
-            const timeBadge = sopStepTimeBadge(step)
-            return (
-              <li
-                key={step.id}
-                id={step.id}
-                className={isDone ? 'sop-checklist-item is-done' : 'sop-checklist-item'}
-              >
-                <div className="sop-checklist-row">
-                  <label className="onboarding-checkbox-wrapper sop-checklist-label" title="Mark complete">
-                    <input
-                      type="checkbox"
-                      checked={isDone}
-                      onChange={() => toggle(step.id)}
-                      className="onboarding-checkbox"
-                    />
-                    <span className="onboarding-checkbox-custom" />
-                    <span className="onboarding-checkbox-label">Done</span>
-                  </label>
-                  <div className="sop-checklist-body">
-                    <p className="sop-checklist-step-title">
-                      {step.icon ? (
-                        <span className="onboarding-item-icon" aria-hidden="true">
-                          <OnboardingIcon name={step.icon} />
-                        </span>
-                      ) : null}
-                      <span>{step.label}</span>
-                      {timeBadge ? <span className="onboarding-badge">{timeBadge}</span> : null}
-                    </p>
-                    {!isDoneWhenRedundant(step) && step.doneWhen ? (
-                      <p className="onboarding-step-done onboarding-step-done-inline">
-                        <strong>Done when:</strong> {step.doneWhen}
-                      </p>
-                    ) : null}
-                    {content?.intro ? <p className="sop-section-intro">{content.intro}</p> : null}
-                    <QualityBlocks blocks={content?.blocks} />
-                  </div>
-                </div>
-              </li>
-            )
-          })}
-        </ul>
+        <div className="content-block">
+          <div className="onboarding-step-content">
+            {step.doneWhen ? (
+              <p className="onboarding-step-done onboarding-step-done-top">
+                <strong>✓ Done when:</strong> {step.doneWhen}
+              </p>
+            ) : null}
+            {content?.intro ? <p>{content.intro}</p> : null}
+            <QualityBlocks blocks={content?.blocks} />
+          </div>
+        </div>
       </section>
 
-      <nav className="project-charter-nav" aria-label="SOP navigation">
+      <nav className="project-charter-nav" aria-label="SOP step navigation">
         {prev ? (
           <Link to={`/sops/finding-whats-broken/${prev.id}`} className="project-charter-nav-link">
-            ← {prev.title}
+            ← {prev.label}
           </Link>
         ) : (
           <span />
@@ -255,7 +201,7 @@ function FindingWhatsBrokenStep() {
             to={`/sops/finding-whats-broken/${next.id}`}
             className="project-charter-nav-link project-charter-nav-link--next"
           >
-            {next.title} →
+            {next.label} →
           </Link>
         ) : (
           <Link
@@ -266,7 +212,6 @@ function FindingWhatsBrokenStep() {
           </Link>
         )}
       </nav>
-      <SopAdjacentNav sopId="finding-whats-broken" />
     </div>
   )
 }
