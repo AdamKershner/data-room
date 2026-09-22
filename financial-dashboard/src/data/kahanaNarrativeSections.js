@@ -135,6 +135,8 @@ export const RELATED_LINKS = [
   { path: '/glossary', title: 'Glossary', description: 'How Kahana relates to the creator stack' },
   { path: COMPETITORS_PAGE_PATH, title: 'Company Landscape', description: 'Peer research cards aligned with Market Map' },
   { path: '/fragment-capture', title: 'Market Map', description: 'Content categories sized by directional mid TAM' },
+  { path: '/user-personas', title: 'User Personas', description: 'Named creator and buyer cards we design for' },
+  { path: '/mood-board', title: 'Mood Board', description: 'Campaign language, four lanes, and backlog sparks' },
   { path: '/b2c-strategic-narrative', title: 'Oasis Browser narrative (archived)', description: 'Separate product — browser privacy story' },
 ]
 

@@ -28,6 +28,8 @@ import KeepersCodexStep from './pages/KeepersCodexStep'
 import FindingWhatsBrokenChecklist from './pages/FindingWhatsBrokenChecklist'
 import FindingWhatsBrokenStep from './pages/FindingWhatsBrokenStep'
 import KahanaNarrative from './pages/KahanaNarrative'
+import MoodBoard from './pages/MoodBoard'
+import UserPersonas from './pages/UserPersonas'
 import MarketSize from './pages/MarketSize'
 import WeeklyReports from './pages/WeeklyReports'
 import ContentPipeline from './pages/ContentPipeline'
@@ -139,6 +141,8 @@ function App() {
           <Route path="/technical-roadmap" element={<Navigate to="/" replace />} />
           <Route path="/kahana-competitors" element={<Navigate to="/company-landscape" replace />} />
           <Route path="/kahana-narrative" element={<KahanaNarrative />} />
+          <Route path="/mood-board" element={<MoodBoard />} />
+          <Route path="/user-personas" element={<UserPersonas />} />
           <Route path="/market-size" element={<MarketSize />} />
           <Route path="/weekly-reports" element={<WeeklyReports />} />
           <Route path="/content-pipeline" element={<ContentPipeline />} />

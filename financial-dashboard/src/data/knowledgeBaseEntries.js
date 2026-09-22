@@ -22,6 +22,40 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     keywords: ['narrative', 'story', 'positioning', 'ai slop', 'wan shi tong', 'promised land', 'magic gifts'],
   },
   {
+    path: '/mood-board',
+    title: 'Mood Board',
+    category: 'Marketing',
+    description:
+      'Brainstorming ground for social, ads, and website copy — Intentional Internet, launch audience, and four locked campaigns.',
+    keywords: [
+      'mood board',
+      'marketing',
+      'intentional internet',
+      'product hunt',
+      'campaign',
+      'social',
+      'ads',
+      'feed ends here',
+      'aura',
+    ],
+  },
+  {
+    path: '/user-personas',
+    title: 'User Personas',
+    category: 'Product',
+    description:
+      'Named creator and buyer personas. Starts with Dhruthi Prakash — motivations, challenges, goals, and what she needs from Kahana.',
+    keywords: [
+      'persona',
+      'user persona',
+      'creator',
+      'buyer',
+      'dhruthi',
+      'motivations',
+      'audience',
+    ],
+  },
+  {
     path: '/company-landscape',
     title: 'Company Landscape',
     category: 'Marketing',
@@ -291,6 +325,37 @@ export const KNOWLEDGE_BASE_ENTRIES = [
       'indexing',
       'live test',
       'kahana',
+      'sop',
+    ],
+  },
+  {
+    path: '/sops/marketing-mood-board',
+    title: 'Marketing Mood Board',
+    category: 'SOPs',
+    description:
+      'Marketing SOP: open the Mood Board before drafting campaigns, official posts, Product Hunt lines, or ads. Stay on the launch audience and the four locked campaign lanes.',
+    keywords: [
+      'mood board',
+      'intentional internet',
+      'campaign',
+      'product hunt',
+      'social',
+      'ads',
+      'sop',
+    ],
+  },
+  {
+    path: '/sops/user-personas',
+    title: 'User Personas',
+    category: 'SOPs',
+    description:
+      'Product SOP: add a named creator or buyer persona using the Dhruthi card as the template. File it in userPersonasContent.js, then use the name in charters and campaigns.',
+    keywords: [
+      'persona',
+      'user persona',
+      'creator',
+      'buyer',
+      'dhruthi',
       'sop',
     ],
   },

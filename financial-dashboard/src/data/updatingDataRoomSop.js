@@ -149,7 +149,7 @@ export const UPDATING_DATA_ROOM_SOP = {
           label: 'Register it in sopContent.js with the next number',
           minutes: 15,
           doneWhen: 'Register it in sopContent.js: import, SOPS_RAW with the next number, SOP_READY_THROUGH, SOP_SCHEDULE, aliases.',
-          text: 'Register it in sopContent.js: import the SOP and aliases, add { ...YOUR_SOP, number: N } to SOPS_RAW, set SOP_READY_THROUGH to N when it is ready for review, add SOP_SCHEDULE (cadence and/or trigger), and include the aliases in resolveSopId. The next new SOP after this one is 31.',
+          text: 'Register it in sopContent.js: import the SOP and aliases, add { ...YOUR_SOP, number: N } to SOPS_RAW, set SOP_READY_THROUGH to N when it is ready for review, add SOP_SCHEDULE (cadence and/or trigger), and include the aliases in resolveSopId. The next new SOP after this one is 33.',
           href: '/sops',
           hrefLabel: 'SOP gallery',
         },
@@ -173,7 +173,7 @@ export const UPDATING_DATA_ROOM_SOP = {
           label: 'Edit the source file that already owns that SOP',
           minutes: 20,
           doneWhen: 'Edit the source file that already owns that SOP (functionSops.js, a dedicated *Sop.js, or Codex/Quality step files).',
-          text: 'Edit the source file that already owns that SOP. Most live in functionSops.js. Dedicated files include communityBuildingSop.js, productManagementPlaybookSop.js, managerOnboardingSop.js, searchConsoleSeoSop.js, and this file. Codex and Product Quality have their own step files. Keep step id values stable so saved checkboxes still match.',
+          text: 'Edit the source file that already owns that SOP. Most live in functionSops.js. Dedicated files include communityBuildingSop.js, productManagementPlaybookSop.js, managerOnboardingSop.js, searchConsoleSeoSop.js, marketingMoodBoardSop.js, userPersonasSop.js, and this file. Codex and Product Quality have their own step files. Keep step id values stable so saved checkboxes still match.',
         },
         {
           id: 'ud-stamp',

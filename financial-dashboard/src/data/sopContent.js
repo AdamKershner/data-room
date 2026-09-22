@@ -7,7 +7,7 @@
  * SOP 3 Product Quality. SOP 4 Product Management Playbook. SOP 5 Blogs.
  * SOP 6 Brand Guidelines. SOP 7 Merch. SOP 8 Official Social Media.
  * SOP 9 Author Outreach. SOP 10 Writing a Project Charter.
- * SOP 11 Creating YouTube Videos. SOP 12 SEO. SOP 13 Updating the Marketing Website. SOP 14 Third-Party News and PR. SOP 15 Creator Prospecting. SOP 16 Creator Outreach. SOP 17 Creator Collab Calls. SOP 18 Post-Collab Follow-ups. SOP 19 Lifecycle Emails and Tickets. SOP 20 Time Log. SOP 21 Analytics. SOP 22 Getting Set Up with Kahana Code. SOP 23 Penetration Testing. SOP 24 PII Handling. SOP 25 Platform Governance. SOP 26 Content Moderation. SOP 27 Reporting Cybersecurity Threats. SOP 28 Onboarding as a Manager. SOP 29 Adding and Updating SOPs. SOP 30 Search Console and branded search.
+ * SOP 11 Creating YouTube Videos. SOP 12 SEO. SOP 13 Updating the Marketing Website. SOP 14 Third-Party News and PR. SOP 15 Creator Prospecting. SOP 16 Creator Outreach. SOP 17 Creator Collab Calls. SOP 18 Post-Collab Follow-ups. SOP 19 Lifecycle Emails and Tickets. SOP 20 Time Log. SOP 21 Analytics. SOP 22 Getting Set Up with Kahana Code. SOP 23 Penetration Testing. SOP 24 PII Handling. SOP 25 Platform Governance. SOP 26 Content Moderation. SOP 27 Reporting Cybersecurity Threats. SOP 28 Onboarding as a Manager. SOP 29 Adding and Updating SOPs. SOP 30 Search Console and branded search. SOP 31 Marketing Mood Board. SOP 32 User Personas.
  */
 
 import { keepersCodexSearchBlob } from './keepersCodexSteps'
@@ -66,6 +66,14 @@ import {
   SEARCH_CONSOLE_SEO_ALIASES,
   SEARCH_CONSOLE_SEO_SOP,
 } from './searchConsoleSeoSop'
+import {
+  MARKETING_MOOD_BOARD_ALIASES,
+  MARKETING_MOOD_BOARD_SOP,
+} from './marketingMoodBoardSop'
+import {
+  USER_PERSONAS_ALIASES,
+  USER_PERSONAS_SOP,
+} from './userPersonasSop'
 import { flattenSopActionSteps, flattenSopSteps, normalizeSopDoc } from './sopStepUtils'
 
 export const SOP_PAGE = {
@@ -73,7 +81,7 @@ export const SOP_PAGE = {
 }
 
 /** SOPs 1 through this number are ready for review. */
-export const SOP_READY_THROUGH = 30
+export const SOP_READY_THROUGH = 32
 
 export const SOP_REVIEW_STATUS = {
   ready: 'ready-for-review',
@@ -162,6 +170,10 @@ const SOP_EXCERPTS = {
     'Build keyword clusters, UTM links, and blog indexing for kahana.io. We do it so people find the library for the job they already have. Library and hub Search Console checks are in this SOP.',
   'search-console-seo':
     'Inspect Library and one hub in Search Console, run Test live URL, ping the product sitemap, and save a monthly kahana query readout. We do it so Googlebot sees Library HTML and branded rank is a tracked number.',
+  'marketing-mood-board':
+    'Open the Mood Board before you draft a campaign, official post, Product Hunt line, or ad. We do it so Kahana speaks as a living library, not another feed, and slogans stay on the four locked campaigns.',
+  'user-personas':
+    'Add a named creator or buyer persona using the Dhruthi card as the template. We do it so product and marketing share one person — motivations, challenges, goals — instead of everyone interested in content.',
   'marketing-website':
     'Ship kahana.io changes from a Linear card through local test, review, and Heroku deploy. We do it so the public site stays accurate without taking production down.',
   'pr-news':
@@ -270,6 +282,8 @@ const SOPS_RAW = [
   { ...MANAGER_ONBOARDING_SOP, number: 28 },
   { ...UPDATING_DATA_ROOM_SOP, number: 29 },
   { ...SEARCH_CONSOLE_SEO_SOP, number: 30 },
+  { ...MARKETING_MOOD_BOARD_SOP, number: 31 },
+  { ...USER_PERSONAS_SOP, number: 32 },
 ]
 
 const SOP_SCHEDULE = {
@@ -380,6 +394,12 @@ const SOP_SCHEDULE = {
     cadence: 'Monthly',
     trigger: 'After a product SEO, sitemap, robots, or nginx bot-proxy ship.',
   },
+  'marketing-mood-board': {
+    trigger: 'Before drafting official posts, campaigns, Product Hunt copy, or ads.',
+  },
+  'user-personas': {
+    trigger: 'When a new segment is real enough to name, or an existing persona card is wrong.',
+  },
 }
 
 export const SOPS = SOPS_RAW.map((sop) => {
@@ -415,6 +435,8 @@ export function resolveSopId(sopId) {
     MANAGER_ONBOARDING_ALIASES[sopId] ||
     UPDATING_DATA_ROOM_ALIASES[sopId] ||
     SEARCH_CONSOLE_SEO_ALIASES[sopId] ||
+    MARKETING_MOOD_BOARD_ALIASES[sopId] ||
+    USER_PERSONAS_ALIASES[sopId] ||
     sopId
   )
 }
