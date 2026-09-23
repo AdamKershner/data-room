@@ -58,7 +58,7 @@ function setupSheet() {
       ['SENDER_NAME', ''],
       ['TEST_EMAIL', Session.getActiveUser().getEmail()],
       ['DEMO_VIDEO', 'https://youtu.be/YUKRcYzdAm4'],
-      ['CALENDAR_URL', 'https://calendly.com/adam-kahana-s5hl/30min'],
+      ['CALENDAR_URL', 'https://calendly.com/adam-kahana-s5hl/kahana-collab-intro-15-min'],
       ['ABOUT_URL', 'https://about.kahana.io/?utm_source=email&utm_medium=creator_outreach&utm_campaign=collab'],
       ['SITE_URL', 'https://kahana.io/?utm_source=email&utm_medium=creator_outreach&utm_campaign=collab'],
       ['HUB_PROOF', 'Amy Wang’s hub The Ultimate Guide to getting Internship/Research Opportunities (https://kahana.io/hub/UMKtgp76MN1MvZuD6p7W)'],

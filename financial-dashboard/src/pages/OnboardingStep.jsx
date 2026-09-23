@@ -101,7 +101,7 @@ function StepWeekly1on1() {
         rel="noopener noreferrer"
         className="onboarding-cta-link onboarding-cta-link-block"
       >
-        If Manager is Founder Adam: Weekly 1-on-1 Calendly →
+        If Manager is Founder Adam: 15-min 1-on-1 Calendly →
       </a>
 
       <p>

@@ -127,8 +127,9 @@ export const KAHANA_HQ_HUB_URL = 'https://kahana.io/hub/Rzl4UEbzVeym5xqtQ4ZS'
 export const TOOLS_ACCESS_TALLY_URL = 'https://tally.so/r/2EgxRV'
 export const TOOLS_ACCESS_TALLY_EMBED_URL = 'https://tally.so/embed/2EgxRV'
 
-/** Adam Kershner Calendly — schedule weekly 1-on-1. */
-export const ADAM_CALENDLY_URL = 'https://calendly.com/adam-kahana-s5hl/30min'
+/** Adam Kershner Calendly — 15-min 1-on-1 (creators + internal). Single paid event. */
+export const ADAM_CALENDLY_URL =
+  'https://calendly.com/adam-kahana-s5hl/kahana-collab-intro-15-min'
 /** @deprecated Use ADAM_CALENDLY_URL */
 export const ADAM_ONCEHUB_URL = ADAM_CALENDLY_URL
 

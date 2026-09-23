@@ -123,7 +123,7 @@ export const MANAGER_ONBOARDING_SOP = {
           label: 'Set up your Calendly for weekly 1-on-1s before Day 1',
           minutes: 15,
           doneWhen: 'Set up your Calendly for weekly 1-on-1s, or confirm the link you already use.',
-          text: 'Set up your Calendly for a 30-minute weekly 1-on-1, or confirm the link you already use. Send that link, not Founder Adam’s, unless you are the Founder. Create the event as weekly recurring once they book the first slot. Early, while the company is small, Adam may still hold the weekly 1:1 himself. As headcount grows, the category head holds weekly 1:1s for roughly the first two months. After that is not decided — keep weekly until an Executive says otherwise.',
+          text: 'Set up your Calendly for a weekly 1-on-1, or confirm the link you already use. Other managers: 30 minutes is fine. If you are the Founder, use the shared 15-minute Kahana.io link (same event as creator coffee chats) so we do not pay for extra Calendly types. Send that link, not Founder Adam’s, unless you are the Founder. Create the event as weekly recurring once they book the first slot. Early, while the company is small, Adam may still hold the weekly 1:1 himself. As headcount grows, the category head holds weekly 1:1s for roughly the first two months. After that is not decided — keep weekly until an Executive says otherwise.',
         },
         {
           id: 'mo-role-sops',
