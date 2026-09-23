@@ -6,7 +6,7 @@ export const MOOD_BOARD_PATH = '/mood-board'
 export const MOOD_BOARD_PAGE = {
   title: 'Mood Board',
   subtitle:
-    'Backlog of ideas, images, videos, and writings for Kahana social, ads, and website copy.',
+    'Backlog of ideas, images, videos, writings, and channel drafts for Kahana social, ads, and website copy.',
 }
 
 export const ONE_LINER =

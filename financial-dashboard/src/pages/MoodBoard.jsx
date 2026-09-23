@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   ADS,
@@ -15,8 +15,89 @@ import {
   WORKSPACE_LINKS,
   WRITINGS,
 } from '../data/moodBoardContent'
+import {
+  CHANNELS,
+  NARRATIVE_BEATS,
+  POST_DRAFTS,
+} from '../data/moodBoardChannelArchive'
 import './Page.css'
 import './MoodBoard.css'
+
+function ChannelArchive() {
+  const [channelId, setChannelId] = useState('linkedin')
+  const channel = CHANNELS.find((c) => c.id === channelId) || CHANNELS[0]
+  const drafts = useMemo(
+    () => POST_DRAFTS.filter((p) => p.channel === channelId),
+    [channelId]
+  )
+
+  return (
+    <section className="page-section" id="channel-archive">
+      <h2>Channel archive</h2>
+      <p className="mb-lede">
+        Drafts and examples by outlet. LinkedIn is the first filled channel: five narrative beats,
+        company page vs Adam’s personal page. These show what a good post is supposed to do. Official
+        Kahana posts still go through{' '}
+        <Link to="/sops/official-social-media">SOP 8</Link>. Adam’s personal posts follow founder brand,
+        not the company login.
+      </p>
+      <div className="mb-channel-tabs" role="tablist" aria-label="Social channels">
+        {CHANNELS.map((c) => (
+          <button
+            key={c.id}
+            type="button"
+            role="tab"
+            aria-selected={c.id === channelId}
+            className={c.id === channelId ? 'mb-channel-tab is-active' : 'mb-channel-tab'}
+            onClick={() => setChannelId(c.id)}
+          >
+            {c.title}
+          </button>
+        ))}
+      </div>
+      <p className="mb-lede">{channel.blurb}</p>
+
+      {drafts.length === 0 ? (
+        <p className="mb-empty">No drafts for {channel.title} yet. Add them in moodBoardChannelArchive.js.</p>
+      ) : (
+        NARRATIVE_BEATS.map((beat) => {
+          const pair = drafts.filter((p) => p.beat === beat.id)
+          if (pair.length === 0) return null
+          return (
+            <article className="mb-beat" key={beat.id} id={`beat-${beat.id}`}>
+              <span className="mb-kicker">
+                Post {beat.number} · {beat.title}
+              </span>
+              <h3>{beat.job}</h3>
+              <p className="mb-card-note">{beat.whyGood}</p>
+              <div className="mb-split mb-post-pair">
+                {pair.map((post) => (
+                  <div className="mb-post" key={post.id}>
+                    <div className="mb-post-meta">
+                      <strong>{post.voiceLabel}</strong>
+                      <span>{post.status}</span>
+                    </div>
+                    <pre className="mb-post-body">{post.body}</pre>
+                    {post.hashtags?.length ? (
+                      <p className="mb-card-note">#{post.hashtags.join(' #')}</p>
+                    ) : null}
+                    {post.research?.length
+                      ? post.research.map((r) => (
+                          <p className="mb-card-note" key={r.label}>
+                            <strong>Research — {r.label}:</strong> {r.note}
+                          </p>
+                        ))
+                      : null}
+                  </div>
+                ))}
+              </div>
+            </article>
+          )
+        })
+      )}
+    </section>
+  )
+}
 
 function MoodBoard() {
   return (
@@ -31,7 +112,9 @@ function MoodBoard() {
         <p className="mb-lede">{PRODUCT_DEFINITION}</p>
         <p className="mb-lede">
           Use this page as the brainstorming ground. Official posts still go through{' '}
-          <Link to="/sops/marketing-mood-board">SOP 31</Link>, then brand and the channel SOP.
+          <Link to="/sops/marketing-mood-board">SOP 31</Link>, then brand and the channel SOP. LinkedIn
+          examples live in the{' '}
+          <a href="#channel-archive">channel archive</a>.
         </p>
       </section>
 
@@ -118,6 +201,8 @@ function MoodBoard() {
           ))}
         </div>
       </section>
+
+      <ChannelArchive />
 
       <section className="page-section" id="writings">
         <h2>Writings</h2>
