@@ -9,6 +9,8 @@ export const PRIMARY_NAV_LINKS = [
   { path: '/company-landscape', id: 'company-landscape', label: 'Company Landscape' },
   { path: '/glossary', id: 'glossary', label: 'Glossary' },
   { path: '/fragment-capture', id: 'fragment-capture', label: 'Market Map' },
+  { path: '/mood-board', id: 'mood-board', label: 'Mood Board' },
+  { path: '/user-personas', id: 'user-personas', label: 'User Personas' },
   { path: '/financial-projections', id: 'financial-projections', label: 'Financial Projections' },
   { path: '/team-execution', id: 'team-execution', label: 'Team Directory' },
   { path: '/weekly-reports', id: 'weekly-reports', label: 'Weekly Reports' },
@@ -47,6 +49,18 @@ export const TOC_EXPLORE_ITEMS = [
     title: 'Market Map',
     description:
       'Directional content and creator-ops categories sized by mid TAM — glossary and build notes included. Company facts on Company Landscape.',
+  },
+  {
+    path: '/mood-board',
+    title: 'Mood Board',
+    description:
+      'Campaign language for social, ads, and kahana.io — Intentional Internet, launch audience, and four locked campaigns.',
+  },
+  {
+    path: '/user-personas',
+    title: 'User Personas',
+    description:
+      'Named creator and buyer cards we design for. Starts with Dhruthi Prakash — motivations, challenges, and Kahana needs.',
   },
   {
     path: '/financial-projections',

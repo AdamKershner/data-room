@@ -8,7 +8,11 @@ import './Navigation.css'
 
 /** Paths that keep "Knowledge base" highlighted; excludes top-level TOC / HR hub duplicates. */
 const KNOWLEDGE_BASE_PATHS_FOR_NAV_ACTIVE = KNOWLEDGE_BASE_PATHS.filter(
-  (p) => p !== '/onboarding' && p !== '/team-execution'
+  (p) =>
+    p !== '/onboarding' &&
+    p !== '/team-execution' &&
+    p !== '/mood-board' &&
+    p !== '/user-personas'
 )
 
 const archiveContentPaths = [...OASIS_ARCHIVE_PATHS, ...HISTORICAL_ARCHIVE_PATHS]
