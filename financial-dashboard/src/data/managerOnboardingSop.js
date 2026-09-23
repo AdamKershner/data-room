@@ -1,7 +1,9 @@
 /**
  * SOP 28 — Onboarding as a Manager.
- * This is the manager training: how you take a new teammate from assignment
- * to a working calendar, tools, role SOPs, and the Founder SOP check.
+ * Manager training for The Welcoming (Keeper’s Codex): take a new teammate
+ * from assignment through weekly 1:1s, tools, role SOPs, the seven
+ * confirmations, and SOP feedback. Stages I–IV are Adam’s until Slack DM
+ * and HQ are done. You start at V.
  */
 
 import {
@@ -17,6 +19,8 @@ export const MANAGER_ONBOARDING_ALIASES = {
   'onboarding-managers': 'onboarding-as-a-manager',
   'manager-onboarding': 'onboarding-as-a-manager',
   'onboard-others': 'onboarding-as-a-manager',
+  'the-welcoming': 'onboarding-as-a-manager',
+  'keepers-welcoming': 'onboarding-as-a-manager',
 }
 
 export const MANAGER_ONBOARDING_SOP = {
@@ -26,41 +30,47 @@ export const MANAGER_ONBOARDING_SOP = {
   owner: 'Manager',
   format: 'checklist',
   description:
-    'Train as a Manager, then onboard a teammate an Executive assigned to you: weekly 1-on-1s on your Calendly, community, role SOPs, tools, a process calendar, a Founder SOP check, and new-hire feedback that makes SOPs easier to follow. Finish in 1 month, ideally 1-2 weeks. This is not the Product Manager ramp — incoming PMs work SOP 4. A PM later works this SOP if they will onboard others.',
+    'Train as a Manager for The Welcoming: wait until Slack DM and Kahana HQ are done, then run weekly 1-on-1s, community, role SOPs, tools, a process calendar, a three-person Final Word (seven confirmations), and SOP feedback. Finish in 1 month, ideally 1-2 weeks. Incoming PMs work SOP 4. A PM later works this SOP if they will onboard others.',
   excerpt:
-    'This is how Managers onboard a new teammate: weekly 1-on-1s, community, role SOPs, tools, a process calendar, a Founder SOP check, and feedback that makes SOPs easier to read and follow. Incoming PMs ramp on SOP 4. A PM works this SOP later if they will onboard others.',
+    'This is how Managers onboard a new teammate (The Welcoming). Stages I–IV are Adam’s. You start at V: weekly 1-on-1s, community, role SOPs, tools, calendar, seven confirmations with Adam in the room, then SOP feedback. Incoming PMs ramp on SOP 4.',
   keywords: [
     'manager',
     'onboarding',
     'training',
+    'welcoming',
+    'keeper',
     '1-on-1',
     'calendly',
     'new hire',
     'tools access',
     'sops',
     'founder check',
+    'seven confirmations',
     'process calendar',
     'hubs',
     'clubs',
     'executive',
     'feedback',
-    'readability',
+    'readiness review',
   ],
-  who: 'Managers assigned a new teammate by an Executive. Incoming Product Managers work SOP 4, not this SOP. A PM later works this SOP if they will onboard others. Founder Adam runs the SOP check at the end.',
+  who: 'Managers who will onboard a teammate. Incoming Product Managers work SOP 4, not this SOP. A PM later works this SOP if they will onboard others. Founder Adam runs Choosing, Offer, Slack welcome, and HQ invite, then sits the Final Word with you.',
   when:
-    'Each new hire. Finish within 1 month. Aim for 1-2 weeks. Weekly 1-on-1s run for the whole window.',
+    'Each new hire, after their Slack DM to Adam and Kahana HQ invite are done. Finish within 1 month. Aim for 1-2 weeks. Weekly 1-on-1s run for the whole window, then stay as operating cadence.',
   notes: [
-    'This SOP is Manager training for anyone assigned to onboard a teammate. Incoming Product Managers work the SOP 4 90-day launchpad (days 1–10 first loop, then the rest of 90 days). A PM later works this SOP if they will onboard others.',
-    'The new hire works the Onboarding checklist in this data room. This SOP is your job. Their job ends when they can run their processes. Your job ends when they have done that and passed the Founder SOP check.',
-    'Do not onboard someone an Executive did not assign to you. Do not send Founder Adam’s Calendly for weekly 1-on-1s unless you are the Founder.',
+    'This SOP is The Welcoming for Managers. A library is not its shelves. It is the people who keep them. A keeper is ready when they say so, not when the list runs out.',
+    'Seven stages: I Choosing (Adam), II Offer and NDA (Adam), III Slack then DM Adam (new hire), IV Kahana HQ and checklist (Adam → hire), V Guiding Hand (you), VI Final Word (Adam + you + hire), VII weekly time log. Do not start V until III and IV are true.',
+    'The new hire works /onboarding. This SOP is your job. Their job ends when they can run their processes. Your job ends when they have said all seven confirmations and you have filed SOP friction.',
+    'Do not onboard someone you do not own. Managers may self-assign among themselves; an Executive may also assign. Name the owner in Slack.',
+    'Do not send Founder Adam’s Calendly for weekly 1-on-1s unless you are the Founder. Do send him (and sit in) for the Final Word.',
     'New-hire confusion is SOP debt. If they cannot follow a page, fix the page. Do not only explain it in Slack.',
+    'Incoming Product Managers work the SOP 4 90-day launchpad. A PM later works this SOP if they will onboard others.',
   ],
   sections: [
     {
       id: 'ready',
-      title: '1. Get ready to onboard',
+      title: '1. Get ready — know The Welcoming',
       intro:
-        'You cannot run someone else’s onboarding if you cannot find the SOPs yourself. Finish this training, then wait for an Executive assignment.',
+        'You cannot run Stage V if you cannot find the SOPs, and you cannot start V before Adam finishes I–IV.',
       steps: [
         {
           id: 'mo-train',
@@ -68,6 +78,20 @@ export const MANAGER_ONBOARDING_SOP = {
           minutes: 15,
           doneWhen: 'Work this SOP as Manager training before you take a hire, or in parallel on your first hire with extra care.',
           text: 'Work this SOP as Manager training before you take a hire. If this is your first time, work it in parallel on that hire and ask an Executive when a step is unclear. Do not skip the training and invent a welcome Slack thread.',
+        },
+        {
+          id: 'mo-stages',
+          label: 'Name the seven stages and who owns I–IV versus V–VII',
+          minutes: 10,
+          doneWhen: 'Name the seven stages. I–IV are Adam’s (Choosing, Offer, Slack DM, HQ). You own V. VI is Adam + you + hire. VII is the time log.',
+          text: 'Name the seven stages of The Welcoming. I The Choosing (Adam screens for genuine product interest). II The Offer (letter + NDA signed). III The Threshold (they join Slack and DM Adam — that DM is the trigger, not a courtesy). IV The Keys (preferred email, Kahana HQ invite, SOPs and onboarding checklist). V The Guiding Hand (you). VI The Final Word (three-person readiness review). VII The Standing Rhythm (Friday time log). You do not interview, send the NDA, or send the HQ invite unless Adam asked you to.',
+        },
+        {
+          id: 'mo-wait-threshold',
+          label: 'Do not start V until Slack DM to Adam and HQ accepted are true',
+          minutes: 5,
+          doneWhen: 'Confirm they DMed Adam in Slack and accepted the Kahana HQ invite before you run Day 1 as their Manager.',
+          text: 'Confirm they DMed Adam in Slack and accepted the Kahana HQ invite before you run Day 1 as their Manager. Without the DM, the handoff stalls silently. Without HQ, they cannot see SOPs. If either is missing, ping Adam. Do not paper over it with a pasted SOP URL.',
         },
         {
           id: 'mo-gallery',
@@ -89,17 +113,17 @@ export const MANAGER_ONBOARDING_SOP = {
         },
         {
           id: 'mo-assigned',
-          label: 'Confirm an Executive assigned this teammate to you',
+          label: 'Confirm you own this teammate before you start',
           minutes: 5,
-          doneWhen: 'Confirm an Executive assigned this teammate to you before you start.',
-          text: 'Confirm an Executive assigned this teammate to you before you start. Name, role or functions, start date, and who else they report to. Do not pick up a stray intern because they DMed you. If the assignment is fuzzy, ask the Executive, do not guess the role.',
+          doneWhen: 'Confirm you own this teammate before you start (Executive assignment or managers self-assign among themselves).',
+          text: 'Confirm you own this teammate before you start. Managers decide among themselves who they take, or an Executive assigns. Write name, role or functions, start date, and owner in Slack. Do not pick up a stray intern because they DMed you. If the owner is fuzzy, ask, do not guess the role.',
         },
         {
           id: 'mo-calendly',
           label: 'Set up your Calendly for weekly 1-on-1s before Day 1',
           minutes: 15,
           doneWhen: 'Set up your Calendly for weekly 1-on-1s, or confirm the link you already use.',
-          text: 'Set up your Calendly for a 30-minute weekly 1-on-1, or confirm the link you already use. Send that link, not Founder Adam’s, unless you are the Founder. Create the event as weekly recurring once they book the first slot.',
+          text: 'Set up your Calendly for a 30-minute weekly 1-on-1, or confirm the link you already use. Send that link, not Founder Adam’s, unless you are the Founder. Create the event as weekly recurring once they book the first slot. Early, while the company is small, Adam may still hold the weekly 1:1 himself. As headcount grows, the category head holds weekly 1:1s for roughly the first two months. After that is not decided — keep weekly until an Executive says otherwise.',
         },
         {
           id: 'mo-role-sops',
@@ -116,7 +140,7 @@ export const MANAGER_ONBOARDING_SOP = {
       id: 'week0',
       title: '2. Day 1: connect, 1-on-1s, and access',
       intro:
-        'They should leave Day 1 with Slack, a weekly 1-on-1 on the calendar, and tools in motion. You unblock access. They still submit the tools form.',
+        'They should leave Day 1 with Slack already open (Stage III done), a weekly 1-on-1 on the calendar, and tools in motion. You unblock access. They still submit the tools form.',
       steps: [
         {
           id: 'mo-send-calendly',
@@ -132,7 +156,7 @@ export const MANAGER_ONBOARDING_SOP = {
           label: 'Walk Day 1 of the onboarding checklist with them',
           minutes: 45,
           doneWhen: 'Walk Day 1 of the onboarding checklist: Slack, socials, tools form, profiles, time log.',
-          text: 'Walk Day 1 of the onboarding checklist with them: Slack, Founder socials, tools form, profiles, Kahana site, explore the library, Friday time log. They check the boxes. You answer blockers. The Founder Slack hello is their welcome to Adam Kershner (Founder), not a Manager request.',
+          text: 'Walk Day 1 of the onboarding checklist with them: Slack, Founder socials, tools form, profiles, Kahana site, explore the library, Friday time log. They check the boxes. You answer blockers. Confirm the Slack DM to Adam already happened (Stage III). The Founder Slack hello is their welcome to Adam Kershner (Founder), not a Manager request.',
           href: '/onboarding',
           hrefLabel: 'Onboarding checklist',
         },
@@ -150,7 +174,7 @@ export const MANAGER_ONBOARDING_SOP = {
           label: 'Invite them yourself when you have access, or request it from an Executive',
           minutes: 15,
           doneWhen: 'Invite them yourself when you have access, or request the leftover tools from an Executive.',
-          text: 'Invite them yourself when you have access (Linear, Mixpanel, GitHub, sheets, hubs). If you cannot invite, request access from an Executive the same day and tell the new person who is unblocking it. Do not leave them waiting on a form that already submitted.',
+          text: 'Invite them yourself when you have access (Linear, Mixpanel, GitHub, sheets, hubs). If you cannot invite, request access from an Executive the same day and tell the new person who is unblocking it. Do not leave them waiting on a form that already submitted. Kahana HQ itself is Stage IV — Adam sends that invite to their preferred email.',
           href: LINEAR_WORKSPACE_URL,
           hrefLabel: 'Linear (Kahana workspace)',
         },
@@ -159,7 +183,7 @@ export const MANAGER_ONBOARDING_SOP = {
           label: 'Confirm they can open Linear, Mixpanel, and the data their role needs',
           minutes: 15,
           doneWhen: 'Confirm they can open Linear, Mixpanel, and the data their role needs.',
-          text: 'Confirm they can open Linear, Mixpanel, and the data their role needs (output sheets, Kahana HQ hub, Mixpanel boards). Filter Mixpanel to production unless they are debugging. If a tool is still closed after 24 hours, chase the Executive, do not wait out the week.',
+          text: 'Confirm they can open Linear, Mixpanel, and the data their role needs (output sheets, Kahana HQ hub, Mixpanel boards). Filter Mixpanel to production unless they are debugging. If a tool is still closed after 24 hours, chase the Executive, do not wait out the week. This is how confirmations 4 and 5 stay true later.',
           href: MIXPANEL_URL,
           hrefLabel: 'Mixpanel',
         },
@@ -202,7 +226,7 @@ export const MANAGER_ONBOARDING_SOP = {
       id: 'sops',
       title: '4. Role SOPs and where instructions live',
       intro:
-        'You pick the SOPs. They work them. By the Founder check they can open the gallery and find the right page without you.',
+        'You pick the SOPs. They work them. By the Final Word they can open the gallery and find the right page without you (confirmation 1).',
       steps: [
         {
           id: 'mo-send-sops',
@@ -227,16 +251,16 @@ export const MANAGER_ONBOARDING_SOP = {
           label: 'Check that they can find a SOP without you pasting the URL again',
           minutes: 15,
           doneWhen: 'Check in a 1-on-1 that they can find a SOP from the gallery without you pasting the URL again.',
-          text: 'Check in a 1-on-1 that they can find a SOP from the gallery without you pasting the URL again. Ask them to open one they own and say the Done when in their own words. If they cannot, walk the gallery together and try again next week. Do not send them to Founder Adam unprepared.',
+          text: 'Check in a 1-on-1 that they can find a SOP from the gallery without you pasting the URL again. Ask them to open one they own and say the Done when in their own words. If they cannot, walk the gallery together and try again next week. Do not send them to the Final Word unprepared.',
           href: '/sops',
           hrefLabel: 'SOP gallery',
         },
         {
           id: 'mo-time-log',
-          label: 'Confirm the Friday time log is on their calendar',
+          label: 'Confirm the Friday time log is on their calendar (Stage VII)',
           minutes: 5,
-          doneWhen: 'Confirm the Friday time log is on their calendar and they know SOP 20.',
-          text: 'Confirm the Friday time log is on their calendar and they know SOP 20. Everyone on Kahana HQ submits Friday EOD. Point them at the onboarding Time Log step for how to write it.',
+          doneWhen: 'Confirm the Friday time log is on their calendar, HQ automation is active, they know SOP 20, and the first log is submitted.',
+          text: 'Confirm the Friday time log is on their calendar, HQ Hub automation is active for this person, they know SOP 20, and the first log is submitted. Everyone on Kahana HQ submits Friday EOD. The log is how we verify the work is actually happening. Point them at the onboarding Time Log step for how to write it.',
           href: '/sops/time-log',
           hrefLabel: 'SOP 20: Time Log',
         },
@@ -246,7 +270,7 @@ export const MANAGER_ONBOARDING_SOP = {
       id: 'calendar',
       title: '5. Process calendar: week, month, quarter, year',
       intro:
-        'Onboarding is done only when they can say what they will be doing a week, month, quarter, and year from now, with time blocked and instructions one click away.',
+        'Confirmations 2 and 3 are spoken from this calendar. If they cannot say the four horizons, the Final Word is not ready.',
       steps: [
         {
           id: 'mo-cadence',
@@ -267,47 +291,54 @@ export const MANAGER_ONBOARDING_SOP = {
           label: 'Ask them to say the week, month, quarter, year plan',
           minutes: 15,
           doneWhen: 'Hear them say what they will do a week, month, quarter, and year from now, using that calendar.',
-          text: 'Hear them say what they will do a week, month, quarter, and year from now, using that calendar. If they cannot, the calendar is not done. Stay in the 1-on-1 until the four horizons are spoken out loud, even if the year line is “keep running these weekly processes and revisit with Manager.”',
+          text: 'Hear them say what they will do a week, month, quarter, and year from now, using that calendar. If they cannot, the calendar is not done. Stay in the 1-on-1 until the four horizons are spoken out loud, even if the year line is “keep running these weekly processes and revisit with Manager.” This is practice for confirmations 2 and 3.',
         },
       ],
     },
     {
       id: 'exit',
-      title: '6. Founder SOP check and close',
+      title: '6. The Final Word — seven confirmations',
       intro:
-        'Your onboarding job ends when they have finished essential SOPs, have tools and data, have the calendar, and have met Founder Adam to get tested. Aim for 1-2 weeks. Do not let it drift past 1 month.',
+        'A person is not onboarded when the checklist is finished. They are onboarded when they can say, without prompting, that they know what they are doing and where to turn when they do not. Three people attend: Adam, you, and the new hire. Light quiz. They must leave confident, not merely processed.',
       steps: [
         {
           id: 'mo-essentials',
           label: 'Confirm they finished Day 1 and the essential SOPs for their role',
           minutes: 15,
-          doneWhen: 'Confirm they finished Day 1 and the essential SOPs for their role before you send them to the Founder.',
-          text: 'Confirm they finished Day 1 and the essential SOPs for their role before you send them to the Founder. Essential means the list you wrote in step 1, not every SOP in the gallery. Supplementary onboarding (Market Map, Company Landscape) can wait.',
+          doneWhen: 'Confirm they finished Day 1 and the essential SOPs for their role before you book the Final Word.',
+          text: 'Confirm they finished Day 1 and the essential SOPs for their role before you book the Final Word. Essential means the list you wrote in step 1, not every SOP in the gallery. Supplementary onboarding (Market Map, Company Landscape) can wait.',
           href: '/onboarding',
           hrefLabel: 'Onboarding checklist',
         },
         {
+          id: 'mo-seven',
+          label: 'Practice all seven confirmations in a 1-on-1 before the call',
+          minutes: 20,
+          doneWhen: 'Hear them say all seven confirmations in a 1-on-1. If any one is shaky, do not book the Final Word yet.',
+          text: 'Hear them say all seven confirmations in a 1-on-1. If any one is shaky, onboarding is not finished whatever the checklist says. The seven: (1) I know where the key processes are and I can find them in seconds. (2) I have a clear picture of my responsibilities daily, weekly, monthly, and quarterly. (3) I can speak clearly about what my responsibilities are over time. (4) I have all the tools and data needed to run these processes. (5) I have confirmed access to all of those things. (6) I feel genuinely confident and ready to begin. (7) If something goes wrong or I am confused, I know exactly who to contact.',
+        },
+        {
           id: 'mo-book-founder',
-          label: 'Schedule their SOP check with Founder Adam',
-          minutes: 5,
-          doneWhen: 'Have them book a SOP check with Founder Adam when they are ready, not on Day 1.',
-          text: 'Have them book a SOP check with Founder Adam when they are ready, not on Day 1. They can use his Calendly or schedule on Slack if he prefers. Tell them what they will be tested on: where to open SOPs, a high-level read of the ones they own, and questions. You do not sit in unless Founder asks.',
+          label: 'Schedule the Final Word with Adam, you, and the new hire',
+          minutes: 10,
+          doneWhen: 'Book one call with Adam, you, and the new hire. Do not send them to Adam alone.',
+          text: 'Book one call with Adam, you, and the new hire. This is an onboarding exit interview — exit from onboarding, not from the company. Do not send them to Adam alone. They can use his Calendly if that is how he wants it booked, then you get on the invite. You sit in.',
           href: ADAM_CALENDLY_URL,
-          hrefLabel: 'Founder Adam Calendly (SOP check)',
+          hrefLabel: 'Founder Adam Calendly (Final Word)',
         },
         {
           id: 'mo-brief',
-          label: 'Brief them on the Founder check so they are not guessing',
+          label: 'Brief them on the Final Word so they are not guessing',
           minutes: 15,
-          doneWhen: 'Brief them on the Founder check: where SOPs live, high-level understanding, questions welcome.',
-          text: 'Brief them on the Founder check: they must know where to access SOPs (gallery in the data room), understand the ones they own at a high level, and get questions answered. They should be able to open a SOP and walk a Done when. Practice that in your 1-on-1 the week before.',
+          doneWhen: 'Brief them on the Final Word: seven confirmations, where SOPs live, questions welcome, you will be in the room.',
+          text: 'Brief them on the Final Word: they will say the seven confirmations, open a SOP they own, and get questions answered. You will be in the room. Adam may quiz lightly. Practice opening the gallery and walking a Done when the week before.',
         },
         {
           id: 'mo-pass',
-          label: 'Close onboarding after the Founder check, tools, and calendar are true',
+          label: 'Close only when all seven were answered on the call',
           minutes: 10,
-          doneWhen: 'Close onboarding after the Founder SOP check, tools and data, and the process calendar are true.',
-          text: 'Close onboarding after the Founder SOP check, tools and data, and the process calendar are true. Slack the Executive that they are through. Keep the weekly 1-on-1. That is operating cadence, not onboarding. Section 7 (SOP feedback) still happens this same week.',
+          doneWhen: 'Close onboarding only when all seven confirmations were answered on the three-person call, tools and calendar are true, and the first time log is in.',
+          text: 'Close onboarding only when all seven confirmations were answered on the three-person call, tools and data work, the process calendar is true, and Stage VII (first time log) is in. If any confirmation was shaky, close the gap before sign-off. Slack the Executive that they are through. Keep the weekly 1-on-1. That is operating cadence, not onboarding. Section 7 (SOP feedback) still happens this same week.',
         },
         {
           id: 'mo-deadline',
@@ -344,20 +375,78 @@ export const MANAGER_ONBOARDING_SOP = {
           id: 'mo-closing-retro',
           label: 'Run a closing retro: what the next hire should not guess',
           minutes: 20,
-          doneWhen: 'Run a closing retro after the Founder check: what the next hire should not have to guess.',
-          text: 'Run a closing retro after the Founder check: what the next hire should not have to guess. Three questions: which SOP was easiest to follow, which was hardest, what one change would have saved a day. Send that list to the Executive with the Linear links. Keep weekly 1-on-1s. Onboarding is closed. SOP quality work is not.',
+          doneWhen: 'Run a closing retro after the Final Word: what the next hire should not have to guess.',
+          text: 'Run a closing retro after the Final Word: what the next hire should not have to guess. Three questions: which SOP was easiest to follow, which was hardest, what one change would have saved a day. Send that list to the Executive with the Linear links. Keep weekly 1-on-1s. Onboarding is closed. SOP quality work is not.',
+        },
+      ],
+    },
+    {
+      id: 'appendix',
+      title: '8. Keeper’s Checklist (one page)',
+      intro:
+        'Print this in your head before you run an onboarding. Tick it as you go. It does not replace the sections above.',
+      steps: [
+        {
+          id: 'mo-app-before',
+          label: 'Before the offer: enthusiasm, account before the meeting, specific questions (Adam)',
+          minutes: 2,
+          doneWhen: 'Know Adam already confirmed genuine enthusiasm, an account before the meeting, and specific questions. You do not run Choosing.',
+          text: 'Before the offer (Adam): genuine enthusiasm for the platform confirmed; they created an account before the meeting; their questions were specific and informed. “I was hoping you could tell me more about it” is a flag, not a disqualification. You do not run this stage. If someone lands on you with no product use, tell Adam.',
+        },
+        {
+          id: 'mo-app-offer',
+          label: 'Offer: letter and NDA sent and both signed (Adam)',
+          minutes: 2,
+          doneWhen: 'Know both the offer letter and NDA are signed and returned before you treat them as a hire.',
+          text: 'Offer (Adam): letter and NDA sent via email or LinkedIn; both signed and returned. Nothing else begins until both are back. Slack is the first door after that.',
+        },
+        {
+          id: 'mo-app-arrival',
+          label: 'Arrival: Slack, asked to DM Adam, DM received and welcomed',
+          minutes: 2,
+          doneWhen: 'Confirm they were invited to Slack, asked to DM Adam, DMed him, and were welcomed.',
+          text: 'Arrival: invited to Slack; asked explicitly to DM Adam on joining; DM received and welcomed. That notification is how Adam knows they arrived.',
+        },
+        {
+          id: 'mo-app-equip',
+          label: 'Equipping: onboarding link, preferred email, HQ accepted, you assigned',
+          minutes: 2,
+          doneWhen: 'Confirm onboarding link sent, preferred email collected, HQ accepted, SOP checklist visible, and you are the named manager.',
+          text: 'Equipping: onboarding link sent; preferred email collected; Kahana HQ invitation sent to that address and accepted; access to SOPs and the onboarding checklist confirmed; you assigned and notified.',
+        },
+        {
+          id: 'mo-app-guide',
+          label: 'Guidance: first 1:1, weekly cadence, phased SOPs in order',
+          minutes: 2,
+          doneWhen: 'First 1:1 scheduled, weekly cadence established, phased SOPs worked through in order.',
+          text: 'Guidance: first 1:1 scheduled; weekly 1:1 cadence established; phased SOPs worked through in order. That is this SOP’s middle sections.',
+        },
+        {
+          id: 'mo-app-review',
+          label: 'Readiness: three-person call, seven confirmations, gaps closed',
+          minutes: 2,
+          doneWhen: 'Call held with Adam, you, and the new hire. All seven confirmations answered. Gaps closed before sign-off.',
+          text: 'Readiness review: call held with Adam, manager, and new hire; all seven confirmations answered (Section 6); any gaps closed before sign-off.',
+        },
+        {
+          id: 'mo-app-standing',
+          label: 'Standing: time-log automation active and first log submitted',
+          minutes: 2,
+          doneWhen: 'Time log automation is active for this person on the HQ Hub and the first log is submitted.',
+          text: 'Standing: time log automation active for this person on the HQ Hub; first log submitted. Then they are in the rhythm, not in onboarding.',
         },
       ],
     },
   ],
   doneWhen: [
-    'An Executive assigned the teammate. Weekly 1-on-1s are on the Manager’s Calendly, not a one-off Slack hello.',
+    'Stages I–IV were done (Choosing, signed offer and NDA, Slack DM to Adam, HQ accepted) before you ran V.',
+    'You own this teammate. Weekly 1-on-1s are on your Calendly, not a one-off Slack hello.',
     'The new person finished Day 1 and the essential SOPs for their role, and can open those pages from the gallery without a pasted URL.',
-    'They have tools and data (invited by Manager or requested from an Executive). Linear, Mixpanel, and role-specific access work.',
+    'They have tools and data. Linear, Mixpanel, and role-specific access work.',
     'Hubs and clubs on Kahana match what they love, not only what the function requires.',
     'Their calendar names what they will do a week, month, quarter, and year from now, with enough time blocked and SOP links on the events.',
-    'They met Founder Adam for the SOP check (where to access SOPs, high-level understanding, questions answered).',
+    'Adam, you, and the hire held the Final Word. All seven confirmations were answered out loud. First Friday time log is in.',
     'New-hire SOP friction was written down, submitted via Feedback on the page, and turned into an SOP edit or a Linear card the same week.',
-    'This closed within 1 month, ideally 1-2 weeks. Weekly 1-on-1s continue as operating cadence.',
+    'This closed within 1 month, ideally 1-2 weeks. Weekly 1-on-1s continue as operating cadence. A keeper is ready when they say so, not when the list runs out.',
   ],
 }

@@ -2,7 +2,7 @@
  * Shared SOP checklist helpers: short labels, Done when copy, stable step keys.
  */
 
-export const SOP_LAST_UPDATED = 'September 22, 2026, 6:15 PM EST'
+export const SOP_LAST_UPDATED = 'September 22, 2026, 8:20 PM EST'
 
 const RULE_LABEL_START = /^(do not|don't|never)\b/i
 

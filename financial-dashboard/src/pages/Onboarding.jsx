@@ -105,7 +105,8 @@ function Onboarding() {
               <p className="onboarding-day-intro">
                 Read the SOPs for your role and responsibilities. Your manager is available to answer
                 questions and guide you. This phase lasts two weeks. Managers follow{' '}
-                <Link to="/sops/onboarding-as-a-manager">SOP 28: Onboarding as a Manager</Link>.
+                <Link to="/sops/onboarding-as-a-manager">SOP 28: Onboarding as a Manager</Link>
+                {' '}(The Welcoming — you are not done until the seven confirmations).
               </p>
               <ul className="onboarding-list">
                 {phase2Steps.map((step) => (

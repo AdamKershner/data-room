@@ -385,7 +385,7 @@ const SOP_SCHEDULE = {
   },
   'onboarding-as-a-manager': {
     cadence: 'Weekly',
-    trigger: 'An Executive assigns you a new teammate. Finish in 1 month, ideally 1-2 weeks.',
+    trigger: 'You own a new teammate after Slack DM and Kahana HQ are done. Finish in 1 month, ideally 1-2 weeks.',
   },
   'updating-the-data-room': {
     trigger: 'A new SOP, a SOP rewrite, or any other data-room page change.',

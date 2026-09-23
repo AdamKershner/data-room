@@ -524,7 +524,7 @@ export const KNOWLEDGE_BASE_ENTRIES = [
     title: 'Onboarding as a Manager',
     category: 'SOPs',
     description:
-      'HR SOP: Managers onboard a new teammate assigned by an Executive. Incoming PMs ramp on SOP 4, not this SOP. A PM later works this SOP if they will onboard others. Weekly 1-on-1s, role SOPs, tools, process calendar, Founder SOP check. Finish within 1 month (ideally 1-2 weeks).',
+      'HR SOP: Managers run The Welcoming for a new teammate. Stages I–IV are Adam’s. You start at V: weekly 1-on-1s, role SOPs, tools, process calendar, three-person Final Word (seven confirmations). Finish within 1 month (ideally 1-2 weeks). Incoming PMs ramp on SOP 4.',
     keywords: [
       'manager',
       'onboarding',
